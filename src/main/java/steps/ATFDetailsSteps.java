@@ -13,4 +13,9 @@ public class ATFDetailsSteps extends ScenarioSteps {
         atfDetailsPage.clickStartVisit();
         atfDetailsPage.selectYes();
     }
+
+    @Step
+    public void waitUntilPageIsLoaded() {
+        atfDetailsPage.waitUntilPageIsLoaded();
+    }
 }
