@@ -30,7 +30,7 @@ public class VehicleTest {
     @Test
     public void testVehicleDetailsConfirmationPopUp() {
         vehicleComp.goToVehicleDetails();
-        vehicleDetailsSteps.scrollTheDetailPage();
+        vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         vehicleDetailsSteps.checkDetailPageData("ABCDE1234FGHIJ5678","Volvo", "B12M"
                 ,"Van Hool","Astrobel","D","2018",
                 "1/10/2018","2","100A01" );

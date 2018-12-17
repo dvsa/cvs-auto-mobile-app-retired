@@ -27,28 +27,8 @@ public class VehicleDetailsPage extends BasePage {
         return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
     }
 
-    // TODO extend functionality, you should pass the element as a parameter
     public void scrollDetailPage() {
-        // method 1
-//        try {
-//            findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID);
-//        }catch (NullPointerException e){
-//            System.out.println("NU IL VEDE!!!!");
-//        }
-        //method 2
-//        TouchActions action = new TouchActions(getDriver());
-//        action.scroll(findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID), 10, 100);
-//        action.build().perform();
-        //method 3
-//        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-//        Map<String, Object> params = new HashMap<>();
-//        params.put("direction", "down");
-//        params.put("element", ((RemoteWebElement) findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID)).getId());
-//        js.executeScript("mobile: swipe", params);
-        //method 4
-//        TouchAction touchAction = new TouchAction((PerformsTouchActions) getDriver());
-//        touchAction.longPress(a).moveTo(100, 800).release().perform();
-
+        scrollDownTo(500, -100);
     }
 
     /**
@@ -103,4 +83,13 @@ public class VehicleDetailsPage extends BasePage {
         }
         return status;
     }
+
+    public boolean elementFromListIsDisplayed(String element) {
+        return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
+    }
+
+    public int getYPositionForElement(String element) {
+        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
+    }
+
 }

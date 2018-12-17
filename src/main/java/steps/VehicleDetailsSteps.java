@@ -19,8 +19,14 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void scrollTheDetailPage() {
+    public void scrollTheDetailPage(String element) {
         vehicleDetailsPage.scrollDetailPage();
+        assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
+        int oldYPoistion = vehicleDetailsPage.getYPositionForElement(element);
+        vehicleDetailsPage.scrollDetailPage();
+        assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isFalse();
+        int newYPosition = vehicleDetailsPage.getYPositionForElement(element);
+        assertThat(oldYPoistion).isNotEqualTo(newYPosition);
 
     }
 
