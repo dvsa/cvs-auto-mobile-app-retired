@@ -50,7 +50,7 @@ public class TestSample {
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
-        vehicleDetailsSteps.confirmDetails();
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
         testSteps.addTestType();
     }
