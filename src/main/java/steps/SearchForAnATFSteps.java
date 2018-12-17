@@ -5,6 +5,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.apache.commons.lang3.RandomStringUtils;
 import pages.SearchForAnATFPage;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -49,8 +51,50 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectAnAtf(String atfName) {
+    public void waitForPageToLoadAndSelectAnAtf(String atfName) {
         searchForAnATFPage.waitUntilPageIsLoaded();
         searchForAnATFPage.clickOnAtf(atfName);
+    }
+
+    @Step
+    public void checkListIsScrollableByElement(String element) {
+        searchForAnATFPage.waitUntilPageIsLoaded();
+        assertThat(searchForAnATFPage.elementFromListIsDisplayed(element)).isTrue();
+        int oldYPoistion = searchForAnATFPage.getYPositionForElement(element);
+        searchForAnATFPage.swipeDown();
+        assertThat(searchForAnATFPage.elementFromListIsDisplayed(element)).isFalse();
+        int newYPosition = searchForAnATFPage.getYPositionForElement(element);
+        assertThat(oldYPoistion).isNotEqualTo(newYPosition);
+    }
+
+    @Step
+    public void selectAnAtf(String atfName) {
+        searchForAnATFPage.clickOnAtf(atfName);
+    }
+
+    @Step
+    public void checkListIsAlphabeticallyOrdered() {
+        searchForAnATFPage.waitUntilPageIsLoaded();
+        List<String> actualList = searchForAnATFPage.findAllLabelsByXpath();
+
+        actualList.remove(0);
+        List<String> sortedList = new ArrayList<>(actualList);
+        Collections.sort(sortedList);
+
+        List<String> itemsToRemoveFromList = new ArrayList<>(sortedList.subList(0,sortedList.indexOf("A")));
+        actualList.removeAll(itemsToRemoveFromList);
+        sortedList.removeAll(itemsToRemoveFromList);
+
+        assertThat(actualList.equals(sortedList)).isTrue();
+
+    }
+
+
+    @Step
+    public void searchAndVerifyForLongAlphanumericNumber() {
+        String randomData = RandomStringUtils.randomAlphanumeric(150);
+        searchForAnATFPage.searchForAtf(randomData);
+        assertThat(searchForAnATFPage.elementInSearchIsPresent(randomData)).isTrue();
+        System.out.println("dasd");
     }
 }

@@ -46,7 +46,7 @@ public class TestSample {
     @Test
     public void initialBigFlow() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.selectAnAtf("Abshire-Kub");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("aa12bcd");

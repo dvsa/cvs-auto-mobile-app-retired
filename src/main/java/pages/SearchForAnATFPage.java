@@ -46,4 +46,21 @@ public class SearchForAnATFPage extends BasePage {
     public void clickOnAtf(String atfName) {
         findElementByXpath("//*[@label='" + atfName + "']").click();
     }
+
+    public void swipeDown() {
+        scrollDownTo(500, -300);
+    }
+
+    public boolean elementFromListIsDisplayed(String element) {
+        return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
+    }
+
+    public int getYPositionForElement(String element) {
+        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
+    }
+
+    public boolean elementInSearchIsPresent(String data) {
+        return findElementByXpath("//*[@value='" + data + "']").isDisplayed();
+
+    }
 }

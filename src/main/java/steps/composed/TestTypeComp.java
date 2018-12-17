@@ -34,7 +34,7 @@ public class TestTypeComp extends ScenarioSteps {
     @Step
     public void addTestType() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.selectAnAtf("Abshire-Kub");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
