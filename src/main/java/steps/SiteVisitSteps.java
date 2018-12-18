@@ -13,4 +13,9 @@ public class SiteVisitSteps extends ScenarioSteps {
         siteVisitPage.waitUntilPageIsLoaded();
         siteVisitPage.clickCreateNewTest();
     }
+
+    @Step
+    public void waitUntillPageIsLoaded(){
+        siteVisitPage.waitUntilPageIsLoaded();
+    }
 }
