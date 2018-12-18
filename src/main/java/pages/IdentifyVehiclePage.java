@@ -8,6 +8,8 @@ public class IdentifyVehiclePage extends BasePage {
 
     private static final String IDENTIFY_VEHICLE_PAGE_TITLE = "Identify Vehicle";
     private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeSearchField";
+    private static final String CLOSE_OPTION_ID = "Close";
+
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE);
@@ -20,4 +22,9 @@ public class IdentifyVehiclePage extends BasePage {
     public void tapReturn() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
     }
+
+    public void tapClose() {
+        findElementById(CLOSE_OPTION_ID).click();
+    }
+
 }

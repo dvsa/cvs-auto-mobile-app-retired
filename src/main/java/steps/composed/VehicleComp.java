@@ -31,4 +31,11 @@ public class VehicleComp extends ScenarioSteps {
         identifyVehicleSteps.searchForVehicle("aa12bcd");
 
     }
+
+    @Step
+    public void goToSiteVisit() {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.selectAnAtf("Abshire-Kub");
+        atfDetailsSteps.startVisit();
+    }
 }

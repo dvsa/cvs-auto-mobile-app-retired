@@ -15,4 +15,10 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
         identifyVehiclePage.tapReturn();
     }
 
+    @Step
+    public void clickClose() {
+        identifyVehiclePage.waitUntilPageIsLoaded();
+        identifyVehiclePage.tapClose();
+    }
+
 }

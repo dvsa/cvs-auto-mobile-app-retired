@@ -11,7 +11,7 @@ import steps.*;
 import steps.composed.VehicleComp;
 
 @RunWith(SerenityRunner.class)
-public class VehicleTest {
+public class VehicleDetailsTest {
 
     @Steps
     VehicleComp vehicleComp;
