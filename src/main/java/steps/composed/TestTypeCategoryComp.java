@@ -1,16 +1,11 @@
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
+package steps.composed;
+
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
+import net.thucydides.core.steps.ScenarioSteps;
 import steps.*;
-import steps.composed.TestTypeCategoryComp;
 
-
-@RunWith(SerenityRunner.class)
-public class TestSample {
-
+public class TestTypeCategoryComp extends ScenarioSteps {
 
     @Steps
     LaunchSteps launchSteps;
@@ -37,14 +32,10 @@ public class TestSample {
     TestSteps testSteps;
 
     @Steps
-    TestTypeCategoryComp testTypeCategoryComp;
+    PreparerComp preparerComp;
 
-    @Managed
-    public WebDriver webDriver;
-
-
-    @Test
-    public void initialBigFlow() {
+    @Step
+    public void addTestType() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub");
         atfDetailsSteps.startVisit();
@@ -55,9 +46,9 @@ public class TestSample {
         testSteps.addTestType();
     }
 
-    @Test
-    public void addTestTypeSetupExample() {
-        testTypeCategoryComp.addTestType();
+    @Step
+    public void goToTestPage() {
+        preparerComp.goToSelectPreparer();
+        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
     }
-
 }

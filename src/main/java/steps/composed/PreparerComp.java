@@ -5,7 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import steps.*;
 
-public class TestTypeComp extends ScenarioSteps {
+public class PreparerComp extends ScenarioSteps {
 
     @Steps
     LaunchSteps launchSteps;
@@ -25,21 +25,15 @@ public class TestTypeComp extends ScenarioSteps {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @Steps
-    SelectPreparerSteps selectPreparerSteps;
-
-    @Steps
-    TestSteps testSteps;
-
     @Step
-    public void addTestType() {
+    public void goToSelectPreparer() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub");
+        searchForAnATFSteps.selectAnAtf("Abshire-Kub");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
-        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
-        testSteps.addTestType();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+
     }
 }
