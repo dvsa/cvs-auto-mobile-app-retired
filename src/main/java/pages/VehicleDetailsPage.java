@@ -16,6 +16,7 @@ public class VehicleDetailsPage extends BasePage {
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
+    private static final String IDENTIFY_VEHICLE_BACK = "arrow back Identify Vehicle";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
@@ -33,8 +34,8 @@ public class VehicleDetailsPage extends BasePage {
 
     /**
      * Creates a list of the vehicle summary values using xpath
-     * @return
-     * the list of data containing both Keys and Values of the details page
+     *
+     * @return the list of data containing both Keys and Values of the details page
      */
     public List<String> findAllValuesByXpath() {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
@@ -45,7 +46,6 @@ public class VehicleDetailsPage extends BasePage {
 
         return listOfData;
     }
-
 
 
     public void clickConfirm() {
@@ -62,7 +62,7 @@ public class VehicleDetailsPage extends BasePage {
         WebElement confirmButton = findElementById(CONFIRM_ID);
         WebElement text = findElementById(CONFIRMATION_TEXT_ID);
         WebElement title = findElementById(CONFIRM_VEHICLE_ID);
-        if(cancelButton.isDisplayed() && confirmButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
+        if (cancelButton.isDisplayed() && confirmButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
             status = true;
         }
         return status;
@@ -70,7 +70,7 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isPageTitleDisplayed() {
         boolean status = false;
-        if(findElementById(VEHICLE_DETAILS_PAGE_TITLE).isDisplayed()) {
+        if (findElementById(VEHICLE_DETAILS_PAGE_TITLE).isDisplayed()) {
             status = true;
         }
         return status;
@@ -78,7 +78,7 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isRegistrationPlateDisplayed(String registrationPlate) {
         boolean status = false;
-        if(findElementById(registrationPlate).isDisplayed()){
+        if (findElementById(registrationPlate).isDisplayed()) {
             status = true;
         }
         return status;
@@ -92,4 +92,7 @@ public class VehicleDetailsPage extends BasePage {
         return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
     }
 
+    public void clickIdentifyVehicle() {
+        findElementById(IDENTIFY_VEHICLE_BACK).click();
+    }
 }

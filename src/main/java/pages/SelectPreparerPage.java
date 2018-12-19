@@ -5,6 +5,7 @@ public class SelectPreparerPage extends BasePage {
     private static final String SELECT_PREPARER_PAGE_TITLE = "Select preparer";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String PAGE_TITLE_ID = "Select preparer";
+    private static final String VEHICLE_DETAILS_BACK = "arrow back Vehicle details";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
@@ -24,5 +25,9 @@ public class SelectPreparerPage extends BasePage {
             status = true;
         }
         return status;
+    }
+
+    public void clickBackButton() {
+        findElementById(VEHICLE_DETAILS_BACK).click();
     }
 }
