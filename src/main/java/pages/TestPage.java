@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TestPage extends BasePage {
 
@@ -21,14 +22,14 @@ public class TestPage extends BasePage {
 
     public boolean isPageTitleDisplayed() {
         boolean status = false;
-            if(findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed())
-                status = true;
+        if (findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed())
+            status = true;
         return status;
     }
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate) {
         boolean status = false;
-        if(findElementByXpath("//XCUIElementTypeStaticText[@name='" + regPlate + "']").isDisplayed()) {
+        if (findElementByXpath("//XCUIElementTypeStaticText[@name='" + regPlate + "']").isDisplayed()) {
             status = true;
         }
         return status;
@@ -36,7 +37,7 @@ public class TestPage extends BasePage {
 
     public boolean isAddATestTypeButtonDisplayed() {
         boolean status = false;
-        if(findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed())
+        if (findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed())
             status = true;
         return status;
     }
@@ -50,4 +51,19 @@ public class TestPage extends BasePage {
 
         return listOfButtons;
     }
+
+    public int checkDataByLabelValueAndName(String... values) {
+        List<String> xpathList = new ArrayList<>();
+
+        for (String value : values) {
+            String currentXpathElement = "//*[contains(@name,'" + value + "')] | //*[contains(@label, '" + value + "')] | //*[contains(@value,'" + value + "')] ";
+            xpathList.add(currentXpathElement);
+        }
+
+        String xpathToSearch = xpathList.stream().collect(Collectors.joining(" | "));
+
+        return findElementsByXpath(xpathToSearch).size();
+
+    }
+
 }

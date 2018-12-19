@@ -35,4 +35,11 @@ public class TestSteps extends ScenarioSteps {
             assertThat(actualData.contains(expectedTestType)).isTrue();
         }
     }
+
+
+    public void checkNoIdentifyVehicleOptionAvailable() {
+        testPage.waitUntilPageIsLoaded();
+        int numberOfElementsFound = testPage.checkDataByLabelValueAndName("Identify", "Vehicle");
+        assertThat(numberOfElementsFound).isEqualTo(0);
+    }
 }

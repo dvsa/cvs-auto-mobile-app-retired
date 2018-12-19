@@ -52,7 +52,7 @@ public class AtfTest {
     }
 
 
-    @Title("CVSB-165 / CVSB-685 - AC3 - No search results")
+    @Title("CVSB-165 / CVSB-685 TCD - Search field -pNumber")
     @Test
     public void testSearchFieldpNumber() {
         launchSteps.clickGetStarted();
@@ -60,7 +60,7 @@ public class AtfTest {
         searchForAnATFSteps.checkAddressAndpNumberIsFiltered("Nienow-Wunsch", "00-3024646");
     }
 
-    @Title("CVSB-165 / CVSB-686 - AC3 - No search results")
+    @Title("CVSB-165 / CVSB-686 - TCD - Search field - Address")
     @Test
     public void testSearchFieldAddress() {
         launchSteps.clickGetStarted();
@@ -82,12 +82,6 @@ public class AtfTest {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.checkATFSearchButtonAndList();
     }
-
-
-
-
-
-
 
 
 

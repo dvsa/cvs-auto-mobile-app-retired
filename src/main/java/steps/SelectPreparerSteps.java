@@ -20,4 +20,10 @@ public class SelectPreparerSteps extends ScenarioSteps {
         selectPreparerPage.waitUntilPageIsLoaded();
         assertThat(selectPreparerPage.isTitleDisplayed()).isTrue();
     }
+
+    @Step
+    public void tapVehicleDetails() {
+        selectPreparerPage.waitUntilPageIsLoaded();
+        selectPreparerPage.clickBackButton();
+    }
 }

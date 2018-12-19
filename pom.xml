@@ -127,6 +127,9 @@
                     <includes>
                         <include>**/*.java</include>
                     </includes>
+                    <excludes>
+                        <exclude>**/TestSample.java</exclude>
+                    </excludes>
                     <systemPropertyVariables>
                     </systemPropertyVariables>
                 </configuration>
