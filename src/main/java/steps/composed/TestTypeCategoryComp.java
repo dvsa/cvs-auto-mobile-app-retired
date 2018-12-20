@@ -35,13 +35,14 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     PreparerComp preparerComp;
 
     @Step
-    public void addTestType() {
+    public void goToInitialTestTypeCategoryList() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
         testSteps.addTestType();
     }

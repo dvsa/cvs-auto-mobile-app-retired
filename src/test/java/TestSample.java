@@ -57,7 +57,7 @@ public class TestSample {
 
     @Test
     public void addTestTypeSetupExample() {
-        testTypeCategoryComp.addTestType();
+        testTypeCategoryComp.goToInitialTestTypeCategoryList();
     }
 
 }
