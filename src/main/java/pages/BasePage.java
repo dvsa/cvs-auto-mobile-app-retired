@@ -2,7 +2,9 @@ package pages;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
@@ -12,8 +14,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class BasePage extends PageObject {
 
@@ -34,6 +38,9 @@ public class BasePage extends PageObject {
         return waitUntiPageIsLoadedByElement(By.id(id));
     }
 
+    protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
+        return waitUntiPageIsLoadedByElement(By.xpath(xPath));
+    }
 
     protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
         FluentWait wait = globalFluentWait();
@@ -47,6 +54,26 @@ public class BasePage extends PageObject {
                 .moveTo(PointOption.point(xOffset,yOffset))
                 .release()
                 .perform();
+    }
+
+    protected void tap(WebElement webElement) {
+        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .tap(TapOptions.tapOptions().withElement(ElementOption.element(webElement)))
+                .perform();
+    }
+
+    protected List<WebElement> findAllDataByComposedXpath(String... data) {
+        List<String> xpathList = new ArrayList<>();
+
+        for (String value : data) {
+            String currentXpathElement = "//*[contains(@name,'" + value + "')] | //*[contains(@label, '" + value + "')] | //*[contains(@value,'" + value + "')] ";
+            xpathList.add(currentXpathElement);
+        }
+
+        String xpathToSearch = xpathList.stream().collect(Collectors.joining(" | "));
+
+        return findElementsByXpath(xpathToSearch);
+
     }
 
 

@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TestPage extends BasePage {
 
@@ -53,17 +52,11 @@ public class TestPage extends BasePage {
     }
 
     public int checkDataByLabelValueAndName(String... values) {
-        List<String> xpathList = new ArrayList<>();
-
-        for (String value : values) {
-            String currentXpathElement = "//*[contains(@name,'" + value + "')] | //*[contains(@label, '" + value + "')] | //*[contains(@value,'" + value + "')] ";
-            xpathList.add(currentXpathElement);
-        }
-
-        String xpathToSearch = xpathList.stream().collect(Collectors.joining(" | "));
-
-        return findElementsByXpath(xpathToSearch).size();
+        return findAllDataByComposedXpath(values).size();
 
     }
 
+    public void clickOnTest(String testName) {
+        findElementById(testName + " Not complete").click();
+    }
 }

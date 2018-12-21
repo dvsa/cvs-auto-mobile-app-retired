@@ -36,10 +36,15 @@ public class TestSteps extends ScenarioSteps {
         }
     }
 
-
+    @Step
     public void checkNoIdentifyVehicleOptionAvailable() {
         testPage.waitUntilPageIsLoaded();
         int numberOfElementsFound = testPage.checkDataByLabelValueAndName("Identify", "Vehicle");
         assertThat(numberOfElementsFound).isEqualTo(0);
+    }
+
+    @Step
+    public void selectTest(String testName) {
+        testPage.clickOnTest(testName);
     }
 }
