@@ -95,6 +95,5 @@ public class SearchForAnATFSteps extends ScenarioSteps {
         String randomData = RandomStringUtils.randomAlphanumeric(150);
         searchForAnATFPage.searchForAtf(randomData);
         assertThat(searchForAnATFPage.elementInSearchIsPresent(randomData)).isTrue();
-        System.out.println("dasd");
     }
 }

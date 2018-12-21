@@ -29,6 +29,12 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     SelectPreparerSteps selectPreparerSteps;
 
     @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+    @Steps
     TestSteps testSteps;
 
     @Steps
@@ -42,6 +48,7 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
         testSteps.addTestType();
     }
@@ -50,5 +57,12 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     public void goToTestPage() {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
+    }
+
+    @Step()
+    public void completeAddTestType() {
+        addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("ANNUAL TEST");
+        testTypeSubcategorySteps.selectFromTestTypeList("Public Service Vehicle Annual Testing");
     }
 }
