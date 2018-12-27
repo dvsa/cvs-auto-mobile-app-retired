@@ -11,12 +11,12 @@ public class VehicleDetailsPage extends BasePage {
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
+    private static final String IDENTIFY_VEHICLE_BACK = "arrow back Identify Vehicle";
 
     private static final String CANCEL_ID = "Cancel";
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
-    private static final String IDENTIFY_VEHICLE_BACK = "arrow back Identify Vehicle";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
@@ -88,9 +88,9 @@ public class VehicleDetailsPage extends BasePage {
         return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
     }
 
-    public int getYPositionForElement(String element) {
-        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
-    }
+//    public int getYPositionForElement(String element) {
+//        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
+//    }
 
     public void clickIdentifyVehicle() {
         findElementById(IDENTIFY_VEHICLE_BACK).click();
