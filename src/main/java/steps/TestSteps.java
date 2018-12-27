@@ -47,4 +47,14 @@ public class TestSteps extends ScenarioSteps {
     public void selectTest(String testName) {
         testPage.clickOnTest(testName);
     }
+
+    @Step
+    public void checkAddALinkedTestButtonVisibility() {
+        assertThat(testPage.isAddALinkedTestVisible()).isTrue();
+    }
+
+    @Step
+    public void addLinkedTestType() {
+        testPage.addALinkedTestType();
+    }
 }
