@@ -88,11 +88,8 @@ public class VehicleDetailsPage extends BasePage {
         return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
     }
 
-//    public int getYPositionForElement(String element) {
-//        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
-//    }
-
     public void clickIdentifyVehicle() {
         findElementById(IDENTIFY_VEHICLE_BACK).click();
     }
+
 }
