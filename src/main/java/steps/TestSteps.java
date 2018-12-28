@@ -29,6 +29,7 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
     }
 
+    @Step
     public void checkSelectedTestTypes(String... selectedTestTypes) {
         List<String> actualData = testPage.findAllTestTypesFromListByXpath();
         for (String expectedTestType : selectedTestTypes) {
@@ -46,5 +47,51 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void selectTest(String testName) {
         testPage.clickOnTest(testName);
+    }
+
+    @Step
+    public void checkTestSubmitted() {
+        assertThat(testPage.isSubmitButtonAvailable()).isTrue();
+    }
+
+    public void swipeTestType(String testType) {
+        int initialXPosition = testPage.getXPositionForElement(testType);
+        testPage.swipeLeftOnTestType(testType);
+        int newXPosition = testPage.getXPositionForElement(testType);
+        assertThat(initialXPosition).isNotEqualTo(newXPosition);
+
+    }
+
+    @Step
+    public void checkTestTypeRemoveButtonVisibility() {
+        assertThat(testPage.isRemoveButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressTestTypeRemoveButton() {
+        testPage.clickOnRedRemoveButton();
+    }
+
+    @Step
+    public void checkTestTypeRemovalPopUp() {
+        assertThat(testPage.isRemovePopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressRemoveInPopUp() {
+        testPage.clickRemoveFromPopUp();
+    }
+
+    @Step
+    public void checkTestTypeDeleted(String selectedTestType) {
+        List<String> actualData = testPage.findAllTestTypesFromListByXpath();
+        for (String testType : actualData) {
+            assertThat(testType.contains(selectedTestType)).isFalse();
+        }
+    }
+
+    @Step
+    public void pressCancelInPopUp() {
+        testPage.clickCancelFromPopUp();
     }
 }

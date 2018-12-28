@@ -42,7 +42,7 @@ public class ChangeAVehicleTest {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.tapIdentifyVehicle();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
-        vehicleDetailsSteps.waitUntillPageIsloaded();
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
     }
 
     @Title("CVSB-365 / CVSB-754 - AC2 - Change a vehicle after confirming vehicle details")
@@ -52,7 +52,7 @@ public class ChangeAVehicleTest {
         selectPreparerSteps.tapVehicleDetails();
         vehicleDetailsSteps.tapIdentifyVehicle();
         identifyVehicleSteps.searchForVehicle("aa12bcd");
-        vehicleDetailsSteps.waitUntillPageIsloaded();
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
     }
 
     @Title("CVSB-365 / CVSB-755 - AC3 - Change a vehicle after selecting a preparer")
