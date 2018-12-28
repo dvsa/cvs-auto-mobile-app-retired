@@ -94,4 +94,10 @@ public class TestSteps extends ScenarioSteps {
     public void pressCancelInPopUp() {
         testPage.clickCancelFromPopUp();
     }
+
+    @Step
+    public void checkTestTypeAbandonButtonVisibility() {
+        assertThat(testPage.isAbandonButtonDisplayed()).isTrue();
+    }
+
 }

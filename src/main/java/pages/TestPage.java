@@ -21,6 +21,7 @@ public class TestPage extends BasePage {
     private static final String REMOVE_ID = "Remove";
     private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
     private static final String TITLE_ID = "Remove test";
+    private static final String ABANDON_BUTTON_ID = "Abandon";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
@@ -118,5 +119,12 @@ public class TestPage extends BasePage {
 
     public void clickCancelFromPopUp() {
         findElementById(CANCEL_ID).click();
+    }
+
+    public boolean isAbandonButtonDisplayed() {
+        boolean status = false;
+        if (findElementById(ABANDON_BUTTON_ID).isDisplayed())
+            status = true;
+        return status;
     }
 }
