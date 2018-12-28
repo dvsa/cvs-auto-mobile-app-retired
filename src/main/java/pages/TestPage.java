@@ -1,9 +1,13 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TestPage extends BasePage {
 
@@ -11,6 +15,13 @@ public class TestPage extends BasePage {
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type add circle-outline";
     private static final String PAGE_ALL_BUTTONS_XPATH = "//XCUIElementTypeButton";
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
+    private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
+    private static final String REMOVE_BUTTON_ID = "Remove";
+
+    private static final String CANCEL_ID = "Cancel";
+    private static final String REMOVE_ID = "Remove";
+    private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
+    private static final String TITLE_ID = "Remove test";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
@@ -59,6 +70,55 @@ public class TestPage extends BasePage {
 
     public void clickOnTest(String testName) {
         findElementById(testName + " Not complete").click();
+    }
+
+    public boolean isSubmitButtonAvailable() {
+        boolean status = false;
+        if (findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).isDisplayed())
+            status = true;
+        return status;
+    }
+
+    //TODO create generic swipe action in BasePage
+    public void swipeLeftOnTestType(String testType) {
+        WebElement testTypeToSwipe = findElementById(testType);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        Map<String, Object> params = new HashMap<>();
+        params.put("direction", "left");
+        params.put("element", ((RemoteWebElement) testTypeToSwipe).getId());
+        js.executeScript("mobile: swipe", params);
+
+    }
+
+    public boolean isRemoveButtonDisplayed() {
+        boolean status = false;
+        if (findElementById(REMOVE_BUTTON_ID).isDisplayed())
+            status = true;
+        return status;
+    }
+
+    public void clickOnRedRemoveButton() {
+        findElementById(REMOVE_BUTTON_ID).click();
+    }
+
+    public boolean isRemovePopUpDisplayed() {
+        boolean status = false ;
+        WebElement cancelButton = findElementById(CANCEL_ID);
+        WebElement removeButton = findElementById(REMOVE_ID);
+        WebElement description = findElementById(DESCRIPTION_ID);
+        WebElement title = findElementById(TITLE_ID);
+        if (cancelButton.isDisplayed() && removeButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+            status = true;
+        }
+        return status;
+    }
+
+    public void clickRemoveFromPopUp() {
+        findElementById(REMOVE_ID).click();
+    }
+
+    public void clickCancelFromPopUp() {
+        findElementById(CANCEL_ID).click();
     }
 
     public boolean isAddALinkedTestVisible() {
