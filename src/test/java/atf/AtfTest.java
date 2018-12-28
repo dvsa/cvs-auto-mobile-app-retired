@@ -56,16 +56,16 @@ public class AtfTest {
     @Test
     public void testSearchFieldpNumber() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.searchForValidpNumberOrAddress("00-3024646");
-        searchForAnATFSteps.checkAddressAndpNumberIsFiltered("Nienow-Wunsch", "00-3024646");
+        searchForAnATFSteps.searchForValidPNumberOrAddress("00-3024646");
+        searchForAnATFSteps.checkAddressAndPNumberIsFiltered("Nienow-Wunsch", "00-3024646");
     }
 
     @Title("CVSB-165 / CVSB-686 - TCD - Search field - Address")
     @Test
     public void testSearchFieldAddress() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.searchForValidpNumberOrAddress("Larson, Nader and Okuneva");
-        searchForAnATFSteps.checkAddressAndpNumberIsFiltered("Larson, Nader and Okuneva", "84-926821");
+        searchForAnATFSteps.searchForValidPNumberOrAddress("Larson, Nader and Okuneva");
+        searchForAnATFSteps.checkAddressAndPNumberIsFiltered("Larson, Nader and Okuneva", "84-926821");
 
     }
 

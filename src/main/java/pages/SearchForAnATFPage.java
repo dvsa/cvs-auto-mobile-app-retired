@@ -38,7 +38,7 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public void waitUntilFilterIsCompleted(int labelNumber) {
-        waitUntillNumberOfElementsToBe(By.xpath(PAGE_ALL_TEXT_XPATH), labelNumber);
+        waitUntilNumberOfElementsToBe(By.xpath(PAGE_ALL_TEXT_XPATH), labelNumber);
 
 
     }

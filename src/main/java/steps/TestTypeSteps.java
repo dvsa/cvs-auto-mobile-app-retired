@@ -44,7 +44,7 @@ public class TestTypeSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkAditionalDetails(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType, String testStatus) {
+    public void checkAdditionalDetails(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType, String testStatus) {
         testTypePage.waitUntilPageIsLoaded(testType);
         assertThat(testTypePage.getElementById(referenceNumber).isDisplayed()).isTrue();
         assertThat(testTypePage.getElementById(defectType).isDisplayed()).isTrue();
@@ -56,7 +56,7 @@ public class TestTypeSteps extends ScenarioSteps {
 
     @Step
     public void checkAdditionalDetailsWithPRSPresent(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType, String testStatus) {
-        checkAditionalDetails(testType, referenceNumber, defectType, defectItem, defectItemSubcategory, defectItemSubcategoryType, testStatus);
+        checkAdditionalDetails(testType, referenceNumber, defectType, defectItem, defectItemSubcategory, defectItemSubcategoryType, testStatus);
         assertThat(testTypePage.getPRMSLabels()).isEqualTo(1);
     }
 }
