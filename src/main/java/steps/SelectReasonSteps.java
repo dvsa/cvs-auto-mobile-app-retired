@@ -46,4 +46,19 @@ public class SelectReasonSteps extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void checkOneOrMoreReasonsAreSelectable() {
+        assertThat(selectReasonPage.isNextButtonDisplayed()).isFalse();
+        selectReasonPage.selectReason(SelectReasonPage.Reasons.REASON_1);
+        assertThat(selectReasonPage.isReasonSelected(1)).isTrue();
+        assertThat(selectReasonPage.isNextButtonDisplayed()).isTrue();
+        selectReasonPage.scrollPageDown();
+        selectReasonPage.selectReason(SelectReasonPage.Reasons.REASON_8);
+        assertThat(selectReasonPage.isReasonSelected(8)).isTrue();
+        assertThat(selectReasonPage.isNextButtonDisplayed()).isTrue();
+        selectReasonPage.scrollPageUp();
+        selectReasonPage.selectReason(SelectReasonPage.Reasons.REASON_3);
+        assertThat(selectReasonPage.isReasonSelected(3)).isTrue();
+        assertThat(selectReasonPage.isNextButtonDisplayed()).isTrue();
+    }
 }

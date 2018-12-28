@@ -59,4 +59,17 @@ public class AbandonTestTypeTest {
         selectReasonSteps.checkListIsScrollableByFirstReason();
     }
 
+    @Title("CVSB-194 / CVSB-794 - AC1 Select reasons to abandon a test type")
+    @Test
+    public void testReasonSelectionToAbandonList() {
+        testTypeCategoryComp.completeAddTestType();
+        testSteps.checkTestDetails();
+        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.checkSelectReasonPage();
+        selectReasonSteps.checkOneOrMoreReasonsAreSelectable();
+
+    }
+
+
 }
