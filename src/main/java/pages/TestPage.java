@@ -127,4 +127,9 @@ public class TestPage extends BasePage {
             status = true;
         return status;
     }
+
+    public void pressAbandonButton() {
+        findElementById(ABANDON_BUTTON_ID).click();
+    }
+
 }

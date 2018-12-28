@@ -100,4 +100,8 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isAbandonButtonDisplayed()).isTrue();
     }
 
+    @Step
+    public void pressTestTypeAbandonButton() {
+        testPage.pressAbandonButton();
+    }
 }

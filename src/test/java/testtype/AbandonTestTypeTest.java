@@ -7,6 +7,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import steps.SelectReasonSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 
@@ -18,6 +19,9 @@ public class AbandonTestTypeTest {
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
+
+    @Steps
+    SelectReasonSteps selectReasonSteps;
 
     @Managed
     public WebDriver webDriver;
@@ -31,5 +35,17 @@ public class AbandonTestTypeTest {
         testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
         testSteps.checkTestTypeAbandonButtonVisibility();
     }
+
+    @Title("CVSB-194 / CVSB-792 - AC1 Return back from the “Select reason” screen")
+    @Test
+    public void testReturnBackFromSelectReason() {
+        testTypeCategoryComp.completeAddTestType();
+        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.checkSelectReasonPage();
+        selectReasonSteps.pressBackButton();
+        testSteps.checkTestDetails();
+    }
+
 
 }
