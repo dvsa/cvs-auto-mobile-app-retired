@@ -1,10 +1,8 @@
 package pages;
 
 
-import io.appium.java_client.MobileElement;
 import org.openqa.selenium.WebElement;
 
-import java.nio.file.WatchEvent;
 import java.util.ArrayList;
 import java.util.List;
 
