@@ -11,6 +11,7 @@ import pages.SelectReasonPage;
 import steps.AbandonTestSteps;
 import steps.SelectReasonSteps;
 import steps.TestSteps;
+import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 
 @RunWith(SerenityRunner.class)
@@ -27,6 +28,9 @@ public class AbandonTestTypeTest {
 
     @Steps
     AbandonTestSteps abandonTestSteps;
+
+    @Steps
+    AbandonTestComp abandonTestComp;
 
     @Managed
     public WebDriver webDriver;
@@ -91,5 +95,15 @@ public class AbandonTestTypeTest {
         abandonTestSteps.checkCommentSection();
     }
 
+    @Title("CVSB-194 / CVSB-796 - AC1 Add additional comments")
+    @Test
+    public void testAddAdditionalComments() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkCommentSection();
+        abandonTestSteps.addAdditionalComments("Additional comment test123");
+        abandonTestSteps.checkAddedComment("Additional comment test123");
+    }
 
 }

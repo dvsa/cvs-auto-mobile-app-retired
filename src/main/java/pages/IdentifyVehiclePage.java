@@ -19,10 +19,6 @@ public class IdentifyVehiclePage extends BasePage {
         findElementByXpath(SEARCH_FIELD_XPATH).sendKeys(text);
     }
 
-    public void tapReturn() {
-        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
-    }
-
     public void tapClose() {
         findElementById(CLOSE_OPTION_ID).click();
     }

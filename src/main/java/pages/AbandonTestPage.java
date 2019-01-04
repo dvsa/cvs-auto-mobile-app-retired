@@ -4,6 +4,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class AbandonTestPage extends BasePage {
@@ -71,6 +72,23 @@ public class AbandonTestPage extends BasePage {
             return commentField.isDisplayed();
         } else
             return false;
+    }
+
+    public void clickOnCommentsTextField() {
+        findElementByXpath(ADD_COMMENTS_FIELD_XPATH).click();
+    }
+
+    public void addComment(String comment) {
+        findElementByXpath(ADD_COMMENTS_FIELD_XPATH).sendKeys(comment);
+    }
+
+    public void clickOutsideOfTextField() {
+        findElementById(COMMENT_TITLE_ID).click();
+        findElementById(COMMENT_TITLE_ID).click();
+    }
+
+    public String getComment() {
+        return findElementByXpath(ADD_COMMENTS_FIELD_XPATH).getAttribute("value");
     }
 
 }

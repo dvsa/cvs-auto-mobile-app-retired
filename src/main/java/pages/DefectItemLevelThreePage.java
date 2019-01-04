@@ -9,7 +9,7 @@ public class DefectItemLevelThreePage extends BasePage {
         findElementById(ADVISORY_NOTE_ID).click();
     }
 
-    public void waitUntillPageIsLoaded() {
+    public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(ADVISORY_LABEL_ID);
     }
 

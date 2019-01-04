@@ -7,7 +7,7 @@ public class AdvisoryDetailsPage extends BasePage {
     public static final String ADD_NOTES_CONFIRM_ID= "Add Note";
 
 
-    public void waitUntillPageIsLoaded() {
+    public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(ADVISORY_DETAILS_PAGE_ID);
     }
 

@@ -12,7 +12,7 @@ public class AdvisoryDetailsSteps extends ScenarioSteps {
 
     @Step
     public void waitUntilPageIsLoaded() {
-        advisoryDetailsPage.waitUntillPageIsLoaded();
+        advisoryDetailsPage.waitUntilPageIsLoaded();
 
     }
     @Step

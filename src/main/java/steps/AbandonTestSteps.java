@@ -35,5 +35,17 @@ public class AbandonTestSteps extends ScenarioSteps {
         assertThat(abandonTestPage.isCommentSectionDisplayed()).isTrue();
     }
 
+    @Step
+    public void addAdditionalComments(String comment) {
+        abandonTestPage.clickOnCommentsTextField();
+        abandonTestPage.addComment(comment);
+        abandonTestPage.clickOutsideOfTextField();
+    }
+
+    @Step
+    public void checkAddedComment(String comment) {
+        assertThat(abandonTestPage.getComment().contains(comment)).isTrue();
+    }
+
 }
 
