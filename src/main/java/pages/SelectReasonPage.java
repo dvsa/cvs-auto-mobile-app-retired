@@ -34,11 +34,7 @@ public class SelectReasonPage extends BasePage {
     public boolean isReasonSelected(int reasonNumber) {
         List<String> listOfExpectedReasonTexts = this.findAllValuesByXpath();
         int selectionValue = Integer.parseInt(findElementByXpath("//XCUIElementTypeSwitch[@name=\""+listOfExpectedReasonTexts.get(reasonNumber - 1)+"\"]").getAttribute("value"));
-        if(selectionValue != 1) {
-            return false;
-        } else {
-            return true;
-        }
+        return selectionValue == 1;
     }
 
     public void selectReason(Reasons reason) {
@@ -131,12 +127,102 @@ public class SelectReasonPage extends BasePage {
         return listOfReasonTexts;
     }
 
-    public boolean elementFromListIsDisplayed(String element) {
+    public String getReasonTexts(Reasons reason) {
+        String text = "";
+        switch (reason) {
+            case REASON_1:
+                text = REASON_TEXT_1;
+            break;
+            case REASON_2:
+                text = REASON_TEXT_2;
+            break;
+            case REASON_3:
+                text = REASON_TEXT_3;
+            break;
+            case REASON_4:
+                text = REASON_TEXT_4;
+            break;
+            case REASON_5:
+                text = REASON_TEXT_5;
+            break;
+            case REASON_6:
+                text = REASON_TEXT_6;
+            break;
+            case REASON_7:
+                text = REASON_TEXT_7;
+            break;
+            case REASON_8:
+                text = REASON_TEXT_8;
+            break;
+            case REASON_9:
+                text = REASON_TEXT_9;
+            break;
+            case REASON_10:
+                text = REASON_TEXT_10;
+            break;
+            case REASON_11:
+                text = REASON_TEXT_11;
+            break;
+            case REASON_12:
+                text = REASON_TEXT_12;
+            break;
+        }
+        return text;
+    }
+
+    public boolean isElementFromListDisplayed(String element) {
         return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
+    }
+
+    public boolean isReasonFromListDisplayed(Reasons reason) {
+        boolean status = false;
+        switch (reason) {
+            case REASON_1:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_1 + "']").isDisplayed();
+                break;
+            case REASON_2:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_2 + "']").isDisplayed();
+                break;
+            case REASON_3:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_3 + "']").isDisplayed();
+                break;
+                case REASON_4:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_4 + "']").isDisplayed();
+                break;
+                case REASON_5:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_5 + "']").isDisplayed();
+                break;
+            case REASON_6:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_6 + "']").isDisplayed();
+                break;
+            case REASON_7:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_7 + "']").isDisplayed();
+                break;
+            case REASON_8:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_8 + "']").isDisplayed();
+                break;
+            case REASON_9:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_9 + "']").isDisplayed();
+                break;
+            case REASON_10:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_10 + "']").isDisplayed();
+                break;
+            case REASON_11:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_11 + "']").isDisplayed();
+                break;
+            case REASON_12:
+                status = findElementByXpath("//*[@name='" + REASON_TEXT_12 + "']").isDisplayed();
+                break;
+        }
+        return status;
     }
 
     public void clickOnBackButton() {
         findElementById(SELECT_REASON_BACK_BUTTON).click();
+    }
+
+    public void clickOnNextButton() {
+        findElementById(NEXT_BUTTON_ID).click();
     }
 
     public void scrollPageDown() {

@@ -7,6 +7,8 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
+import pages.SelectReasonPage;
+import steps.AbandonTestSteps;
 import steps.SelectReasonSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -22,6 +24,9 @@ public class AbandonTestTypeTest {
 
     @Steps
     SelectReasonSteps selectReasonSteps;
+
+    @Steps
+    AbandonTestSteps abandonTestSteps;
 
     @Managed
     public WebDriver webDriver;
@@ -68,7 +73,22 @@ public class AbandonTestTypeTest {
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSelectReasonPage();
         selectReasonSteps.checkOneOrMoreReasonsAreSelectable();
+    }
 
+    @Title("CVSB-194 / CVSB-795 - AC1 Text box for additional comments")
+    @Test
+    public void testTextBoxForAdditionalComments() {
+        testTypeCategoryComp.completeAddTestType();
+        testSteps.checkTestDetails();
+        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
+                SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);
+        selectReasonSteps.pressNextButton();
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
+                SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);
+        abandonTestSteps.checkCommentSection();
     }
 
 

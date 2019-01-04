@@ -27,10 +27,10 @@ public class SelectReasonSteps extends ScenarioSteps {
         selectReasonPage.waitUntilPageIsLoaded();
         List<String> listOfExpectedReasonTexts = selectReasonPage.getListOfReasonTexts();
         String firstReasonText = listOfExpectedReasonTexts.get(0);
-        assertThat(selectReasonPage.elementFromListIsDisplayed(firstReasonText)).isTrue();
+        assertThat(selectReasonPage.isElementFromListDisplayed(firstReasonText)).isTrue();
         int oldYPosition = selectReasonPage.getYPositionForElement(firstReasonText);
         selectReasonPage.scrollPageDown();
-        assertThat(selectReasonPage.elementFromListIsDisplayed(firstReasonText)).isFalse();
+        assertThat(selectReasonPage.isElementFromListDisplayed(firstReasonText)).isFalse();
         int newYPosition = selectReasonPage.getYPositionForElement(firstReasonText);
         assertThat(oldYPosition).isNotEqualTo(newYPosition);
     }
@@ -61,4 +61,37 @@ public class SelectReasonSteps extends ScenarioSteps {
         assertThat(selectReasonPage.isReasonSelected(3)).isTrue();
         assertThat(selectReasonPage.isNextButtonDisplayed()).isTrue();
     }
+
+
+    /**
+     * Step that selects any reason. If the reason is not displayed, the page is scrolled.
+     * @param reason
+     */
+    @Step
+    public void selectAReason(SelectReasonPage.Reasons reason) {
+        if (selectReasonPage.isReasonFromListDisplayed(reason)){
+            selectReasonPage.selectReason(reason);
+        } else {
+            selectReasonPage.scrollPageDown();
+            if (selectReasonPage.isReasonFromListDisplayed(reason)) {
+                selectReasonPage.selectReason(reason);
+            } else {
+                selectReasonPage.scrollPageUp();
+                selectReasonPage.selectReason(reason);
+            }
+        }
+    }
+
+    public void pressNextButton() {
+        assertThat(selectReasonPage.isNextButtonDisplayed()).isTrue();
+        selectReasonPage.clickOnNextButton();
+    }
+
+    @Step
+    public void selectMultipleReasons(SelectReasonPage.Reasons... reasons) {
+        for (SelectReasonPage.Reasons reason : reasons) {
+            selectAReason(reason);
+        }
+    }
 }
+
