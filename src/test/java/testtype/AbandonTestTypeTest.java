@@ -130,4 +130,15 @@ public class AbandonTestTypeTest {
         selectReasonSteps.checkSelectReasonPage();
     }
 
+    @Title("CVSB-194 / CVSB-799 - AC2 Confirm abandon for a test type")
+    @Test
+    public void testWarningMessageConfirm() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
+        testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Abandoned");
+    }
+
 }

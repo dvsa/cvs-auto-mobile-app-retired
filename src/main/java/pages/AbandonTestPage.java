@@ -111,4 +111,7 @@ public class AbandonTestPage extends BasePage {
         findElementById(CANCEL_ID).click();
     }
 
+    public void clickOnPopUpAbandon() {
+        findElementById(ABANDON_ID).click();
+    }
 }

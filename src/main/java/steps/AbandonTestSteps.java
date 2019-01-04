@@ -67,5 +67,9 @@ public class AbandonTestSteps extends ScenarioSteps {
         abandonTestPage.clickOnBack();
     }
 
+    @Step
+    public void pressAbandon() {
+        abandonTestPage.clickOnPopUpAbandon();
+    }
 }
 
