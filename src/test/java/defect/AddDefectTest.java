@@ -46,7 +46,7 @@ public class AddDefectTest {
     @Test
     public void testTypeAddDefectOption() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.checkTestTypeResultAndVehicleDetailsOption("Public Service Vehicle Annual Testing", "PASS");
         testTypeSteps.checkAddDefectIsPresent();
 
@@ -56,7 +56,7 @@ public class AddDefectTest {
     @Test
     public void addADefectFromTestType() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
 
@@ -67,7 +67,7 @@ public class AddDefectTest {
     @Test
     public void addAdvisoryDefectScreen() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
@@ -80,7 +80,7 @@ public class AddDefectTest {
     @Test
     public void addAdvisoryDefect() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
@@ -94,7 +94,7 @@ public class AddDefectTest {
     @Test
     public void defectDetailsScreen() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
@@ -107,7 +107,7 @@ public class AddDefectTest {
     @Test
     public void defectAddDefectFromDefectDetails() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
@@ -121,7 +121,7 @@ public class AddDefectTest {
     @Test
     public void defectAddDefectWithPRS() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
@@ -136,7 +136,7 @@ public class AddDefectTest {
     @Test
     public void defectAddDefectWithAddNotes() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");

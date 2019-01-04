@@ -68,8 +68,12 @@ public class TestPage extends BasePage {
 
     }
 
-    public void clickOnTest(String testName) {
+    public void clickOnNotCompleteTest(String testName) {
         findElementById(testName + " Not complete").click();
+    }
+
+    public void clickOnAbandonedTest(String testName) {
+        findElementById(testName + " Abandoned").click();
     }
 
     public boolean isSubmitButtonAvailable() {

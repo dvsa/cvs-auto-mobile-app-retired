@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import pages.SelectReasonPage;
 import steps.AbandonTestSteps;
+import steps.AbandonedTestSteps;
 import steps.SelectReasonSteps;
 import steps.TestSteps;
 import steps.composed.AbandonTestComp;
@@ -31,6 +32,9 @@ public class AbandonTestTypeTest {
 
     @Steps
     AbandonTestComp abandonTestComp;
+
+    @Steps
+    AbandonedTestSteps abandonedTestSteps;
 
     @Managed
     public WebDriver webDriver;
@@ -138,7 +142,31 @@ public class AbandonTestTypeTest {
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
+        testSteps.checkTestDetails();
+    }
+
+    @Title("CVSB-194 / CVSB-800 - AC2 Abandoned test type shown in Test overview screen")
+    @Test
+    public void testAbandonedTestTypeInOverview() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
         testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Abandoned");
+    }
+
+    @Title("CVSB-194 / CVSB-800 - AC3 Edit reasons after abandon")
+    @Test
+    public void testEditReasonAfterAbandon() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
+        testSteps.selectAbandonedTest("Public Service Vehicle Annual Testing");
+        abandonedTestSteps.checkAbandonedTestPage();
+        abandonedTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
     }
 
 }

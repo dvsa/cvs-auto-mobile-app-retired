@@ -45,8 +45,13 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectTest(String testName) {
-        testPage.clickOnTest(testName);
+    public void selectNotCompleteTest(String testName) {
+        testPage.clickOnNotCompleteTest(testName);
+    }
+
+    @Step
+    public void selectAbandonedTest(String testName) {
+        testPage.clickOnAbandonedTest(testName);
     }
 
     @Step
