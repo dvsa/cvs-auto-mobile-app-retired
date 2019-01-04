@@ -16,6 +16,10 @@ public class AbandonTestPage extends BasePage {
     private static final String COMMENT_TITLE_ID = "ADDITIONAL COMMENTS (OPTIONAL)";
     private static final String ADD_COMMENTS_FIELD_XPATH = "//*[@type='XCUIElementTypeTextView']";
     private static final String LIST_TEXT_ELEMENTS_XPATH = "//XCUIElementTypeStaticText";
+    private static final String CANCEL_ID = "Cancel";
+    private static final String ABANDON_ID = "Abandon";
+    private static final String DESCRIPTION_ID = "You will not be able to make changes to this test after it has been abandoned.";
+    private static final String TITLE_ID = "Abandon test";
 
 
     public void clickOnDone() {
@@ -89,6 +93,22 @@ public class AbandonTestPage extends BasePage {
 
     public String getComment() {
         return findElementByXpath(ADD_COMMENTS_FIELD_XPATH).getAttribute("value");
+    }
+
+    public boolean isWarningPopUpDisplayed() {
+        boolean status = false;
+        WebElement cancelButton = findElementById(CANCEL_ID);
+        WebElement removeButton = findElementById(ABANDON_ID);
+        WebElement description = findElementById(DESCRIPTION_ID);
+        WebElement title = findElementById(TITLE_ID);
+        if (cancelButton.isDisplayed() && removeButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+            status = true;
+        }
+        return status;
+    }
+
+    public void clickOnPopUpCancel() {
+        findElementById(CANCEL_ID).click();
     }
 
 }

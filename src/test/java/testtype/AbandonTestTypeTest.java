@@ -106,4 +106,28 @@ public class AbandonTestTypeTest {
         abandonTestSteps.checkAddedComment("Additional comment test123");
     }
 
+    @Title("CVSB-194 / CVSB-797 - AC2 Warning message options for abandoning a test type")
+    @Test
+    public void testWarningMessage() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.pressDone();
+        abandonTestSteps.checkWarningPopUp();
+    }
+
+    @Title("CVSB-194 / CVSB-798 - AC2 Select Cancel option for the warning message")
+    @Test
+    public void testWarningMessageCancel() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.pressDone();
+        abandonTestSteps.checkWarningPopUp();
+        abandonTestSteps.pressCancel();
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.goBackToSelectReason();
+        selectReasonSteps.checkSelectReasonPage();
+    }
+
 }

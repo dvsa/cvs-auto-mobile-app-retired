@@ -14,6 +14,8 @@ public class SelectReasonSteps extends ScenarioSteps {
     @Step
     public void checkSelectReasonPage() {
         selectReasonPage.waitUntilPageIsLoaded();
+        if (!selectReasonPage.isTextTipDisplayed())
+            selectReasonPage.scrollPageUp();
         assertThat(selectReasonPage.isPageTitleDisplayed() && selectReasonPage.isTextTipDisplayed()).isTrue();
     }
 

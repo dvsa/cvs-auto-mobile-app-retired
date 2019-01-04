@@ -47,5 +47,25 @@ public class AbandonTestSteps extends ScenarioSteps {
         assertThat(abandonTestPage.getComment().contains(comment)).isTrue();
     }
 
+    @Step
+    public void pressDone() {
+        abandonTestPage.clickOnDone();
+    }
+
+    @Step
+    public void checkWarningPopUp() {
+        assertThat(abandonTestPage.isWarningPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressCancel() {
+        abandonTestPage.clickOnPopUpCancel();
+    }
+
+    @Step
+    public void goBackToSelectReason() {
+        abandonTestPage.clickOnBack();
+    }
+
 }
 
