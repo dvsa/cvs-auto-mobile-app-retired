@@ -37,6 +37,8 @@ public class AbandonTestSteps extends ScenarioSteps {
 
     @Step
     public void addAdditionalComments(String comment) {
+        if (!abandonTestPage.isCommentSectionDisplayed())
+            abandonTestPage.scrollPageDown();
         abandonTestPage.clickOnCommentsTextField();
         abandonTestPage.addComment(comment);
         abandonTestPage.clickOutsideOfTextField();

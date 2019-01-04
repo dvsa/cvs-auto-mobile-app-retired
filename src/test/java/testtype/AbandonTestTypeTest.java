@@ -156,7 +156,7 @@ public class AbandonTestTypeTest {
         testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Abandoned");
     }
 
-    @Title("CVSB-194 / CVSB-800 - AC3 Edit reasons after abandon")
+    @Title("CVSB-194 / CVSB-801 - AC3 Edit reasons after abandon")
     @Test
     public void testEditReasonAfterAbandon() {
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
@@ -167,6 +167,20 @@ public class AbandonTestTypeTest {
         testSteps.selectAbandonedTest("Public Service Vehicle Annual Testing");
         abandonedTestSteps.checkAbandonedTestPage();
         abandonedTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+    }
+
+    @Title("CVSB-194 / CVSB-802 - AC3 Edit additional comments after abandon")
+    @Test
+    public void testEditAdditionalCommentAfterAbandon() {
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonTestSteps.checkAbandonTestPage();
+        abandonTestSteps.addAdditionalComments("Additional Comment Test 123");
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
+        testSteps.selectAbandonedTest("Public Service Vehicle Annual Testing");
+        abandonedTestSteps.checkAbandonedTestPage();
+        abandonedTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
+        abandonedTestSteps.checkAddedComment("Additional Comment Test 123");
     }
 
 }

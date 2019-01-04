@@ -28,5 +28,9 @@ public class AbandonedTestSteps extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void checkAddedComment(String comment) {
+        assertThat(abandonedTestPage.getComment().contains(comment)).isTrue();
+    }
 }
 

@@ -4,7 +4,6 @@ package pages;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class AbandonTestPage extends BasePage {

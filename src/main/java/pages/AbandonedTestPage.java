@@ -1,8 +1,10 @@
 package pages;
 
 
+import io.appium.java_client.MobileElement;
 import org.openqa.selenium.WebElement;
 
+import java.nio.file.WatchEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class AbandonedTestPage extends BasePage {
     private static final String REASON_LIST_TITLE_ID = "REASON(S) FOR ABANDONING THIS TEST";
     private static final String LIST_TEXT_ELEMENTS_XPATH = "//XCUIElementTypeStaticText";
     private static final String PAGE_TITLE_ID = "Abandoned test";
+    private static final String ADD_COMMENTS_FIELD_XPATH = "//*[@type='XCUIElementTypeTextView']";
 
 
     public void clickOnBack() {
@@ -47,6 +50,10 @@ public class AbandonedTestPage extends BasePage {
         }
 
         return listOfData;
+    }
+
+    public String getComment() {
+        return findElementByXpath(ADD_COMMENTS_FIELD_XPATH).getAttribute("value");
     }
 
 }
