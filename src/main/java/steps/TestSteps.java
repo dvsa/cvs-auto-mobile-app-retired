@@ -94,4 +94,9 @@ public class TestSteps extends ScenarioSteps {
     public void pressCancelInPopUp() {
         testPage.clickCancelFromPopUp();
     }
+
+    @Step
+    public void pressCancelBottomRight() {
+        testPage.clickCancelFromBottomRight();
+    }
 }

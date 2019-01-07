@@ -16,6 +16,7 @@ public class TestPage extends BasePage {
     private static final String PAGE_ALL_BUTTONS_XPATH = "//XCUIElementTypeButton";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
+    private static final String CANCEL_BUTTON_BOTTOM_RIGHT = "Cancel";
 
     private static final String CANCEL_ID = "Cancel";
     private static final String REMOVE_ID = "Remove";
@@ -118,5 +119,9 @@ public class TestPage extends BasePage {
 
     public void clickCancelFromPopUp() {
         findElementById(CANCEL_ID).click();
+    }
+
+    public void clickCancelFromBottomRight() {
+        findElementById(CANCEL_BUTTON_BOTTOM_RIGHT).click();
     }
 }
