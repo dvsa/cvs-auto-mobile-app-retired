@@ -94,4 +94,14 @@ public class TestSteps extends ScenarioSteps {
     public void pressCancelInPopUp() {
         testPage.clickCancelFromPopUp();
     }
+
+    @Step
+    public void checkAddALinkedTestButtonVisibility() {
+        assertThat(testPage.isAddALinkedTestVisible()).isTrue();
+    }
+
+    @Step
+    public void addLinkedTestType() {
+        testPage.addALinkedTestType();
+    }
 }
