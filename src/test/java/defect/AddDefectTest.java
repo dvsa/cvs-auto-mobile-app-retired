@@ -85,7 +85,7 @@ public class AddDefectTest {
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
         defectItemLevelThreeSteps.tapAddAnAdvisoryNote();
-        advisoryDetailsSteps.addNoteInputTapAddNote();
+        advisoryDetailsSteps.addRandomNoteInputAndTapAddNote();
         testTypeSteps.checkDefectsArePresentForTest("Public Service Vehicle Annual Testing","Seat Belts & Supplementary Restraint Systems","Obligatory Seat Belt");
 
     }
