@@ -14,6 +14,7 @@ public class TestPage extends BasePage {
     private static final String SELECT_PREPARER_PAGE_TITLE = "Test";
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type add circle-outline";
     private static final String PAGE_ALL_BUTTONS_XPATH = "//XCUIElementTypeButton";
+    private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
 
@@ -136,4 +137,16 @@ public class TestPage extends BasePage {
         findElementById(ABANDON_BUTTON_ID).click();
     }
 
+    public boolean isAddALinkedTestVisible() {
+        boolean status = false;
+        if (findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).isDisplayed())
+            status = true;
+        return status;
+    }
+
+    public void addALinkedTestType() {
+        findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).click();
+    }
+
 }
+

@@ -101,6 +101,16 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkAddALinkedTestButtonVisibility() {
+        assertThat(testPage.isAddALinkedTestVisible()).isTrue();
+    }
+
+    @Step
+    public void addLinkedTestType() {
+        testPage.addALinkedTestType();
+    }
+
+    @Step
     public void checkTestTypeAbandonButtonVisibility() {
         assertThat(testPage.isAbandonButtonDisplayed()).isTrue();
     }
