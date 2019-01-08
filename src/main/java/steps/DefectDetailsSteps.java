@@ -30,12 +30,12 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectOptionsAndTapDone(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+    public void selectOptionsAndTapAddDefect(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
         defectDetailsPage.selectVerticalValue(verticalValue);
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
         defectDetailsPage.selectSeatNumberValue(seatNumberValue);
-        defectDetailsPage.clickDone();
+        defectDetailsPage.clickAddDefect();
     }
 
     @Step
@@ -64,5 +64,18 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void tapAddDefect() {
         defectDetailsPage.clickAddDefect();
+    }
+
+    @Step
+    public void selectOptionsWithPRSCheckAndTapDone(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+
+        defectDetailsPage.selectVerticalValue(verticalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.selectRowNumberValue(rowNumberValue);
+        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
+        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(1);
+        defectDetailsPage.enablePRS();
+        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(2);
+        defectDetailsPage.clickDone();
     }
 }

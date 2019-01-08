@@ -51,9 +51,8 @@ public class EditAndUpdateDefectTest {
         testTypeSteps.checkDefectsArePresentForTest("Public Service Vehicle Annual Testing","Seat Belts & Supplementary Restraint Systems","Obligatory Seat Belt");
         // TODO find a better method for existing defect selection
         testTypeSteps.tapOnPresentDefect("Public Service Vehicle Annual Testing", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
-
-        defectDetailsSteps.selectOptionsAndTapDone("upper", "nearside", "2", "2");
-        testTypeSteps.checkAdditionalDetails("Public Service Vehicle Annual Testing", "3.1.b ", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b). of an incorrect type.", "FAIL");
+        defectDetailsSteps.selectOptionsWithPRSCheckAndTapDone("upper", "nearside", "2", "2");
+        testTypeSteps.checkAdditionalDetailsWithPRSPresent("Public Service Vehicle Annual Testing", "3.1.b ", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b). of an incorrect type.", "FAIL");
     }
 
 }
