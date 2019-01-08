@@ -112,7 +112,7 @@ public class AddDefectTest {
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
         defectItemLevelThreeSteps.selectDefect("3.1.b MAJOR");
-        defectDetailsSteps.selectOptionsAndTapAddDefect("upper", "nearside", "2", "2");
+        defectDetailsSteps.selectOptionsAndTapDone("upper", "nearside", "2", "2");
         testTypeSteps.checkAdditionalDetails("Public Service Vehicle Annual Testing", "3.1.b ", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b). of an incorrect type.", "FAIL");
 
     }

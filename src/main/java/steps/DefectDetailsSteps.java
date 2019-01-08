@@ -30,12 +30,12 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectOptionsAndTapAddDefect(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+    public void selectOptionsAndTapDone(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
         defectDetailsPage.selectVerticalValue(verticalValue);
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
         defectDetailsPage.selectSeatNumberValue(seatNumberValue);
-        defectDetailsPage.clickAddDefect();
+        defectDetailsPage.clickDone();
     }
 
     @Step
@@ -59,5 +59,10 @@ public class DefectDetailsSteps extends ScenarioSteps {
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData)).isEqualTo(0);
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData.substring(0,200))).isEqualTo(1);
 
+    }
+
+    @Step
+    public void tapAddDefect() {
+        defectDetailsPage.clickAddDefect();
     }
 }
