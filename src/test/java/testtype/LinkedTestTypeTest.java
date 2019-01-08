@@ -37,8 +37,8 @@ public class LinkedTestTypeTest {
         testTypeCategoryComp.completeAddTestType();
         testSteps.checkAddALinkedTestButtonVisibility();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.seeTestTypePage();
-        testTypeCategorySteps.seeInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
+        testTypeCategorySteps.checkTestTypePage();
+        testTypeCategorySteps.checkInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
 
     }
 
@@ -49,7 +49,7 @@ public class LinkedTestTypeTest {
     public void testAddALinkedTestType() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.seeInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
+        testTypeCategorySteps.checkInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
         testTypeCategorySteps.selectFromTestTypeList("RETEST");
         testTypeSubcategorySteps.seeInTestTypeList("PAID", "PART PAID");
         testTypeSubcategorySteps.selectFromTestTypeList("PAID");

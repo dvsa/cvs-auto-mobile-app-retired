@@ -37,14 +37,14 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     }
 
     @Step
-    public void searchForValidpNumberOrAddress(String searchValue) {
+    public void searchForValidPNumberOrAddress(String searchValue) {
         searchForAnATFPage.waitUntilPageIsLoaded();
         searchForAnATFPage.searchForAtf(searchValue);
     }
 
 
     @Step
-    public void checkAddressAndpNumberIsFiltered(String address, String pNumber) {
+    public void checkAddressAndPNumberIsFiltered(String address, String pNumber) {
         searchForAnATFPage.waitUntilFilterIsCompleted(3);
         List<String> actualData = searchForAnATFPage.findAllLabelsByXpath();
         assertThat(actualData).contains(address, pNumber);
@@ -60,11 +60,11 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     public void checkListIsScrollableByElement(String element) {
         searchForAnATFPage.waitUntilPageIsLoaded();
         assertThat(searchForAnATFPage.elementFromListIsDisplayed(element)).isTrue();
-        int oldYPoistion = searchForAnATFPage.getYPositionForElement(element);
+        int oldYPosition = searchForAnATFPage.getYPositionForElement(element);
         searchForAnATFPage.swipeDown();
         assertThat(searchForAnATFPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = searchForAnATFPage.getYPositionForElement(element);
-        assertThat(oldYPoistion).isNotEqualTo(newYPosition);
+        assertThat(oldYPosition).isNotEqualTo(newYPosition);
     }
 
     @Step

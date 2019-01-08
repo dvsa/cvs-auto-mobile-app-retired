@@ -35,14 +35,14 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntiPageIsLoadedByElement(By.id(id));
+        return waitUntilPageIsLoadedByElement(By.id(id));
     }
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
-        return waitUntiPageIsLoadedByElement(By.xpath(xPath));
+        return waitUntilPageIsLoadedByElement(By.xpath(xPath));
     }
 
-    protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
+    protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
         FluentWait wait = globalFluentWait();
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }
@@ -85,7 +85,7 @@ public class BasePage extends PageObject {
     }
 
 
-    private WebElement waitUntiPageIsLoadedByElement(By locator) {
+    private WebElement waitUntilPageIsLoadedByElement(By locator) {
 
 
         FluentWait wait = globalFluentWait();
@@ -104,6 +104,10 @@ public class BasePage extends PageObject {
                 .ignoring(NoSuchElementException.class);
 
         return wait;
+    }
+
+    public void tapReturn() {
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
     }
 
 

@@ -55,8 +55,8 @@ public class TestTypeTest {
         testTypeCategoryComp.goToTestPage();
         testSteps.seeAddATestType();
         testSteps.addTestType();
-        testTypeCategorySteps.seeInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
-        testTypeCategorySteps.seeTestTypePage();
+        testTypeCategorySteps.checkInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
+        testTypeCategorySteps.checkTestTypePage();
 
     }
 
