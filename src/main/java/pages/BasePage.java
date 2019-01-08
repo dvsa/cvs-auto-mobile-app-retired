@@ -35,15 +35,20 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntiPageIsLoadedByElement(By.id(id));
+        return waitUntiPageIsLoadedByElement(By.id(id), 20, 200 );
     }
 
+    protected WebElement longWaitUntilPageIsLoadedById(String id) {
+        return waitUntiPageIsLoadedByElement(By.id(id), 150, 200 );
+    }
+
+
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
-        return waitUntiPageIsLoadedByElement(By.xpath(xPath));
+        return waitUntiPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
 
     protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
-        FluentWait wait = globalFluentWait();
+        FluentWait wait = globalFluentWait(20, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }
 
@@ -85,10 +90,10 @@ public class BasePage extends PageObject {
     }
 
 
-    private WebElement waitUntiPageIsLoadedByElement(By locator) {
+    private WebElement waitUntiPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
 
-        FluentWait wait = globalFluentWait();
+        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 
 
@@ -97,10 +102,10 @@ public class BasePage extends PageObject {
     }
 
 
-    private FluentWait globalFluentWait() {
+    private FluentWait globalFluentWait(int timeOut, int poolingEvery) {
         FluentWait wait = new FluentWait<>(getDriver())
-                .withTimeout(Duration.ofSeconds(20))
-                .pollingEvery(Duration.ofMillis(200))
+                .withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofMillis(poolingEvery))
                 .ignoring(NoSuchElementException.class);
 
         return wait;

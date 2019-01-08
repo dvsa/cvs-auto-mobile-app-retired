@@ -30,6 +30,7 @@ public class TestTypeCategorySteps extends ScenarioSteps {
 
     @Step
     public void selectFromTestTypeList(String testType) {
+        testTypeCategoryPage.waitUntilPageIsLoaded();
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
 
     }
