@@ -60,4 +60,22 @@ public class DefectDetailsSteps extends ScenarioSteps {
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData.substring(0,200))).isEqualTo(1);
 
     }
+
+    @Step
+    public void tapAddDefect() {
+        defectDetailsPage.clickAddDefect();
+    }
+
+    @Step
+    public void selectOptionsWithPRSCheckAndTapDone(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+
+        defectDetailsPage.selectVerticalValue(verticalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.selectRowNumberValue(rowNumberValue);
+        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
+        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(1);
+        defectDetailsPage.enablePRS();
+        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(2);
+        defectDetailsPage.clickDone();
+    }
 }

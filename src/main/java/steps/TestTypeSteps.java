@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.core.steps.TestSourceType;
 import pages.TestTypePage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -59,4 +60,11 @@ public class TestTypeSteps extends ScenarioSteps {
         checkAdditionalDetails(testType, referenceNumber, defectType, defectItem, defectItemSubcategory, defectItemSubcategoryType, testStatus);
         assertThat(testTypePage.getPRMSLabels()).isEqualTo(1);
     }
+
+    @Step
+    public void tapOnPresentDefect(String testType, String recordDefect, String defectItem) {
+        testTypePage.waitUntilPageIsLoaded(testType);
+        testTypePage.clickOnDefect(recordDefect, defectItem);
+    }
+
 }

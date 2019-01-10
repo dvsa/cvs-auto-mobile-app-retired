@@ -42,4 +42,11 @@ public class TestTypePage extends BasePage {
     public int getPRMSLabels() {
         return findElementsByXpath("//*[@label='PRS']").size();
     }
+
+    public void clickOnDefect(String recordDefect, String defectItem) {
+        if(checkDefectIsPresent(defectItem) != null) {
+            findElementByXpath("//*[contains(@label, '" + recordDefect + "')]").click();
+        }
+    }
+
 }
