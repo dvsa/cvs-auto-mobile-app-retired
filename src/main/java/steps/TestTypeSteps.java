@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import net.thucydides.core.steps.TestSourceType;
 import pages.TestTypePage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -67,4 +66,42 @@ public class TestTypeSteps extends ScenarioSteps {
         testTypePage.clickOnDefect(recordDefect, defectItem);
     }
 
+    @Step
+    public void swipeDefect(String defectId) {
+        int initialXPosition = testTypePage.getXPositionForElement(defectId);
+        testTypePage.swipeLeftOnDefect(defectId);
+        int newXPosition = testTypePage.getXPositionForElement(defectId);
+        assertThat(initialXPosition).isNotEqualTo(newXPosition);
+
+    }
+
+    @Step
+    public void pressRemove() {
+        testTypePage.clickOnRemoveButton();
+    }
+
+    @Step
+    public void checkDefectRemovalPopUp() {
+        assertThat(testTypePage.isDefectRemovalPopUpVisible()).isTrue();
+    }
+
+    @Step
+    public void pressRemoveInPopUp() {
+        testTypePage.clickRemoveInPopUp();
+    }
+
+    @Step
+    public void checkDefectRemoved(String defectId) {
+        assertThat(testTypePage.isDefectVisible(defectId)).isFalse();
+    }
+
+    @Step
+    public void pressCancelInPopUp() {
+        testTypePage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void checkDefectIsNotRemoved(String defectId) {
+        assertThat(testTypePage.isDefectVisible(defectId)).isTrue();
+    }
 }

@@ -59,6 +59,7 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isSubmitButtonAvailable()).isTrue();
     }
 
+    @Step
     public void swipeTestType(String testType) {
         int initialXPosition = testPage.getXPositionForElement(testType);
         testPage.swipeLeftOnTestType(testType);
