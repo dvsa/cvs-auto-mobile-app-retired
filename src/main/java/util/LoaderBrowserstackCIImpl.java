@@ -31,10 +31,11 @@ public class LoaderBrowserstackCIImpl implements Loader {
         caps.setCapability("device", "iPhone 8 Plus");
         caps.setCapability("name", System.getProperty("environment") + "- ");
         caps.setCapability("real_mobile", "true");
-        caps.setCapability("browserstack.appium_version", "1.7.1");
+        caps.setCapability("browserstack.appium_version", "1.9.1");
         caps.setCapability("app", app);
         caps.setCapability("browserstack.local", browserstackLocal);
         caps.setCapability("browserstack.localIdentifier", browserstackLocalIdentifier);
+        caps.setCapability("browserstack.video", "false");
         caps.setCapability("waitForQuiescence", "false");
 
 

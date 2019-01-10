@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.TapOptions;
@@ -22,6 +23,10 @@ import java.util.stream.Collectors;
 
 public class BasePage extends PageObject {
 
+
+    protected WebElement findElementByAccessibilityIdId(String idOrName) {
+        return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
+    }
 
     protected WebElement findElementById(String id) {
         return getDriver().findElement(By.id(id));
