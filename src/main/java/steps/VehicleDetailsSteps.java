@@ -20,7 +20,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void scrollTheDetailPage(String element) {
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
         int oldYPosition = vehicleDetailsPage.getYPositionForElement(element);
         vehicleDetailsPage.scrollDetailPage();
