@@ -45,8 +45,13 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectTest(String testName) {
-        testPage.clickOnTest(testName);
+    public void selectNotCompleteTest(String testName) {
+        testPage.clickOnNotCompleteTest(testName);
+    }
+
+    @Step
+    public void selectAbandonedTest(String testName) {
+        testPage.clickOnAbandonedTest(testName);
     }
 
     @Step
@@ -54,6 +59,7 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isSubmitButtonAvailable()).isTrue();
     }
 
+    @Step
     public void swipeTestType(String testType) {
         int initialXPosition = testPage.getXPositionForElement(testType);
         testPage.swipeLeftOnTestType(testType);
@@ -93,5 +99,25 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void pressCancelInPopUp() {
         testPage.clickCancelFromPopUp();
+    }
+
+    @Step
+    public void checkAddALinkedTestButtonVisibility() {
+        assertThat(testPage.isAddALinkedTestVisible()).isTrue();
+    }
+
+    @Step
+    public void addLinkedTestType() {
+        testPage.addALinkedTestType();
+    }
+
+    @Step
+    public void checkTestTypeAbandonButtonVisibility() {
+        assertThat(testPage.isAbandonButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressTestTypeAbandonButton() {
+        testPage.pressAbandonButton();
     }
 }

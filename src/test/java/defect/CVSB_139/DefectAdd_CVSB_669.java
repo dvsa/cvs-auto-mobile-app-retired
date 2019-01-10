@@ -29,7 +29,7 @@ public class DefectAdd_CVSB_669 extends BaseTestClass {
     @Test
     public void addADefectFromTestType() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
 

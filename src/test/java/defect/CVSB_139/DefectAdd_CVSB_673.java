@@ -38,13 +38,13 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
     @Test
     public void defectAddDefectFromDefectDetails() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
         defectItemLevelThreeSteps.selectDefect("3.1.b MAJOR");
         defectDetailsSteps.selectOptionsAndTapAddDefect("upper", "nearside", "2", "2");
-        testTypeSteps.checkAditionalDetails("Public Service Vehicle Annual Testing", "3.1.b ", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b). of an incorrect type.", "FAIL");
+        testTypeSteps.checkAdditionalDetails("Public Service Vehicle Annual Testing", "3.1.b ", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b). of an incorrect type.", "FAIL");
 
     }
 }

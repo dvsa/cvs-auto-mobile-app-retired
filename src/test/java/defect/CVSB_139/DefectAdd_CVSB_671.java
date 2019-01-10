@@ -37,12 +37,12 @@ public class DefectAdd_CVSB_671 extends BaseTestClass {
     @Test
     public void addAdvisoryDefect() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectTest("Public Service Vehicle Annual Testing");
+        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
         testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
         defectItemLevelThreeSteps.tapAddAnAdvisoryNote();
-        advisoryDetailsSteps.addNoteInputTapAddNote();
+        advisoryDetailsSteps.addRandomNoteInputAndTapAddNote();
         testTypeSteps.checkDefectsArePresentForTest("Public Service Vehicle Annual Testing", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
 
     }
