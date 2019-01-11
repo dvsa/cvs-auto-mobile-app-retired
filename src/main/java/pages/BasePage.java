@@ -116,7 +116,7 @@ public class BasePage extends PageObject {
         return wait;
     }
 
-    public void tapReturn() {
+    public void clickSearch() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
     }
 

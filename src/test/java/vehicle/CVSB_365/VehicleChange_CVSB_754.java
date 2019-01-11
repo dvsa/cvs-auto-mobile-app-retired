@@ -33,7 +33,7 @@ public class VehicleChange_CVSB_754 extends BaseTestClass {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.tapVehicleDetails();
         vehicleDetailsSteps.tapIdentifyVehicle();
-        identifyVehicleSteps.searchForVehicle("aa12bcd");
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.waitUntilPageIsLoaded();
     }
 

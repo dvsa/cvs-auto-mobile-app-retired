@@ -34,7 +34,7 @@ public class TestCreate_CVSB_784 extends BaseTestClass {
     public void createATest() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("aa12bcd");
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         selectPreparerSteps.checkPageTitle();

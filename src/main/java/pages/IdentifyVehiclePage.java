@@ -10,6 +10,7 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String IDENTIFY_VEHICLE_PAGE_TITLE = "Identify Vehicle";
     private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String CLOSE_OPTION_ID = "Close";
+    private static final String SEARCH_OPTION = "Search";
 
 
     public void waitUntilPageIsLoaded() {
@@ -20,8 +21,9 @@ public class IdentifyVehiclePage extends BasePage {
         findElementByXpath(SEARCH_FIELD_XPATH).sendKeys(text);
     }
 
-    public void tapReturn() {
-        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
+    public void clickSearch() {
+        findElementById(SEARCH_OPTION).click();
+//        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
     public void tapClose() {
