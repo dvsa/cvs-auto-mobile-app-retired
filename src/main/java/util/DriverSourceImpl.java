@@ -1,5 +1,6 @@
 package util;
 
+import exceptions.AutomationException;
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.DriverSource;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,7 @@ public class DriverSourceImpl implements DriverSource {
     private static final String LOCAL_REAL_DEVICE = "localRealDevice";
     private static final String LOCAL_BROWSERSTACK = "localBrowserstack";
     private static final String LOCAL_SIMULATOR = "localSimulator";
+    private static final String CI_BROWSERSTACK = "CI";
 
 
     @Override
@@ -20,23 +22,25 @@ public class DriverSourceImpl implements DriverSource {
     public WebDriver newDriver() {
 
         WebDriver webDriver = null;
+        String envType = TypeLoader.getType();
 
-        if (System.getProperty("environment") != null && System.getProperty("environment").equalsIgnoreCase("CI")) {
-            DesiredCapabilities caps = getDesireCapByImpl(new LoaderBrowserstackCIImpl());
-            webDriver = new IOSDriver<>(getUrl(new LoaderBrowserstackCIImpl()), caps);
-        } else {
-            if (TypeLoader.getType().equalsIgnoreCase(LOCAL_REAL_DEVICE)) {
-                DesiredCapabilities caps = getDesireCapByImpl(new LoaderlLocalRealDeviceImpl());
-                webDriver = new IOSDriver<>(getUrl(new LoaderlLocalRealDeviceImpl()), caps);
-            } else if (TypeLoader.getType().equalsIgnoreCase(LOCAL_SIMULATOR)) {
-                DesiredCapabilities caps = getDesireCapByImpl(new LoaderLocalSimulatorImpl());
-                webDriver = new IOSDriver<>(getUrl(new LoaderLocalSimulatorImpl()), caps);
-            } else if (TypeLoader.getType().equalsIgnoreCase(LOCAL_BROWSERSTACK)) {
-                DesiredCapabilities caps = getDesireCapByImpl(new LoaderBrowserstackLocalImpl());
-                webDriver = new IOSDriver<>(getUrl(new LoaderBrowserstackLocalImpl()), caps);
-            }
+        switch (envType) {
+            case CI_BROWSERSTACK:
+                webDriver = setupWebDriver(new LoaderBrowserstackCIImpl());
+                break;
+            case LOCAL_REAL_DEVICE:
+                webDriver = setupWebDriver(new LoaderlLocalRealDeviceImpl());
+                break;
+            case LOCAL_SIMULATOR:
+                webDriver = setupWebDriver(new LoaderLocalSimulatorImpl());
+                break;
+            case LOCAL_BROWSERSTACK:
+                webDriver = setupWebDriver(new LoaderBrowserstackLocalImpl());
+                break;
+            default:
+                throw new AutomationException("Environment configuration not found");
+
         }
-
 
         return webDriver;
 
@@ -45,6 +49,12 @@ public class DriverSourceImpl implements DriverSource {
     @Override
     public boolean takesScreenshots() {
         return false;
+    }
+
+    private WebDriver setupWebDriver(Loader loader) {
+
+        DesiredCapabilities caps = getDesireCapByImpl(loader);
+        return new IOSDriver<>(getUrl(loader), caps);
     }
 
 
