@@ -8,7 +8,7 @@ import org.openqa.selenium.Keys;
 public class IdentifyVehiclePage extends BasePage {
 
     private static final String IDENTIFY_VEHICLE_PAGE_TITLE = "Identify Vehicle";
-    private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeSearchField";
+    private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String CLOSE_OPTION_ID = "Close";
 
 

@@ -23,7 +23,7 @@ public class AtfSelect_CVSB_686 extends BaseTestClass {
     public void testSearchFieldAddress() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.searchForValidPNumberOrAddress("Larson, Nader and Okuneva");
-        searchForAnATFSteps.checkAddressAndPNumberIsFiltered("Larson, Nader and Okuneva", "84-926821");
+        searchForAnATFSteps.checkAddressAndPNumberIsFiltered("Larson, Nader and Okuneva 84-926821", "L");
 
     }
 }
