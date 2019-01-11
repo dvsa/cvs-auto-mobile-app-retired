@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.TapOptions;
@@ -22,6 +23,10 @@ import java.util.stream.Collectors;
 public class BasePage extends PageObject {
 
 
+    protected WebElement findElementByAccessibilityIdId(String idOrName) {
+        return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
+    }
+
     protected WebElement findElementById(String id) {
         return getDriver().findElement(By.id(id));
     }
@@ -35,15 +40,20 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntilPageIsLoadedByElement(By.id(id));
+        return waitUntiPageIsLoadedByElement(By.id(id), 20, 200 );
     }
+
+    protected WebElement longWaitUntilPageIsLoadedById(String id) {
+        return waitUntiPageIsLoadedByElement(By.id(id), 150, 200 );
+    }
+
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
-        return waitUntilPageIsLoadedByElement(By.xpath(xPath));
+        return waitUntiPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
 
-    protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
-        FluentWait wait = globalFluentWait();
+    protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
+        FluentWait wait = globalFluentWait(20, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }
 
@@ -85,10 +95,10 @@ public class BasePage extends PageObject {
     }
 
 
-    private WebElement waitUntilPageIsLoadedByElement(By locator) {
+    private WebElement waitUntiPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
 
-        FluentWait wait = globalFluentWait();
+        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 
 
@@ -97,10 +107,10 @@ public class BasePage extends PageObject {
     }
 
 
-    private FluentWait globalFluentWait() {
+    private FluentWait globalFluentWait(int timeOut, int poolingEvery) {
         FluentWait wait = new FluentWait<>(getDriver())
-                .withTimeout(Duration.ofSeconds(20))
-                .pollingEvery(Duration.ofMillis(200))
+                .withTimeout(Duration.ofSeconds(timeOut))
+                .pollingEvery(Duration.ofMillis(poolingEvery))
                 .ignoring(NoSuchElementException.class);
 
         return wait;

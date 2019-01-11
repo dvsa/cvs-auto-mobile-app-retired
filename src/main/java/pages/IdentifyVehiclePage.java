@@ -3,6 +3,7 @@ package pages;
 
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.Keys;
 
 public class IdentifyVehiclePage extends BasePage {
 
@@ -17,6 +18,10 @@ public class IdentifyVehiclePage extends BasePage {
 
     public void searchForVehicle(String text) {
         findElementByXpath(SEARCH_FIELD_XPATH).sendKeys(text);
+    }
+
+    public void tapReturn() {
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
     public void tapClose() {

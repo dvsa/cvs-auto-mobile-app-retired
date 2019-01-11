@@ -2,10 +2,13 @@ package util;
 
 import exceptions.AutomationException;
 import org.apache.commons.exec.environment.EnvironmentUtils;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
-class MobileDeviceLoader {
+public class LoaderlLocalRealDeviceImpl implements Loader {
 
     private static Properties properties;
     private static final String FILE_PATH = "conf/environment.properties";
@@ -45,4 +48,23 @@ class MobileDeviceLoader {
         return properties.getProperty("udid");
     }
 
+    @Override
+    public DesiredCapabilities loadCapabilities() {
+        DesiredCapabilities cap = new DesiredCapabilities();
+        cap.setCapability("platformVersion", getPlatformVersion());
+        cap.setCapability("deviceName", getDeviceName());
+        cap.setCapability("platformName", getPlatformName());
+        cap.setCapability("bundleId", getBundleId());
+        cap.setCapability("udid", getUdid());
+
+
+        cap.setCapability("automationName", "XCUITest");
+
+        return cap;
+    }
+
+    @Override
+    public URL loadUrl() throws MalformedURLException {
+        return new URL(getHubUrl());
+    }
 }
