@@ -24,9 +24,9 @@ public class VehicleConfirm_CVSB_721 extends BaseTestClass {
     public void testVehicleDetailsConfirmationPopUp() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
-        vehicleDetailsSteps.checkDetailPageData("ABCDE1234FGHIJ5678","Volvo", "B12M"
-                ,"Van Hool","Astrobel","D","2018",
-                "1/10/2018","2","100A01" );
+        vehicleDetailsSteps.checkDetailPageData("1B7GG36N12S678410","Zentix", "non"
+                ,"Unisure","do","other","3225",
+                "01/07/2006","43","o" );
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.checkConfirmationPopUp();
 
