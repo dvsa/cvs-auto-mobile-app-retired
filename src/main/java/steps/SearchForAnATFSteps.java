@@ -34,7 +34,7 @@ public class SearchForAnATFSteps extends ScenarioSteps {
 
     @Step
     public void checkNoResultsFoundAndSuggestion() {
-        searchForAnATFPage.waitUntillTitleIsNotPresent();
+        searchForAnATFPage.waitByElement("No results found", 2);
         List<String> actualData = searchForAnATFPage.findAllLabelsByXpath();
         assertThat(actualData).contains("No results found", "You can search for an ATF by typing in", "it's name, address or P-number");
     }

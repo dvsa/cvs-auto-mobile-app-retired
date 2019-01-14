@@ -42,8 +42,8 @@ public class SearchForAnATFPage extends BasePage {
         waitUntillNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
     }
 
-    public void waitUntillTitleIsNotPresent() {
-        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(SEARCH_FOR_ATF_TITLE_ID), 0);
+    public void waitByElement(String element, int expectedResults) {
+        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
 
 
