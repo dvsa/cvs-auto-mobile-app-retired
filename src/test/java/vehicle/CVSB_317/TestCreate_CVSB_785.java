@@ -26,8 +26,8 @@ public class TestCreate_CVSB_785 extends BaseTestClass {
     public void testGoBackToSiteVisit() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.clickClose();
-        siteVisitSteps.waitUntillPageIsLoaded();
+        identifyVehicleSteps.clickCancel();
+        siteVisitSteps.waitUntilPageIsLoaded();
 
     }
 }

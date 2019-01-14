@@ -25,7 +25,7 @@ public class VehicleComp extends ScenarioSteps {
     @Step
     public void goToVehicleDetails() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.selectAnAtf("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
@@ -35,7 +35,7 @@ public class VehicleComp extends ScenarioSteps {
     @Step
     public void goToSiteVisit() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.selectAnAtf("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
     }
 }

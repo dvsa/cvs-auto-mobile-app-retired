@@ -71,11 +71,6 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectAnAtf(String atfName) {
-        searchForAnATFPage.clickOnAtf(atfName);
-    }
-
-    @Step
     public void checkListIsAlphabeticallyOrdered() {
         searchForAnATFPage.waitUntilPageIsLoaded();
         List<String> actualList = searchForAnATFPage.findAllLabelsByXpath();

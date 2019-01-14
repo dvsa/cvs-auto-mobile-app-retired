@@ -16,9 +16,9 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickClose() {
+    public void clickCancel() {
         identifyVehiclePage.waitUntilPageIsLoaded();
-        identifyVehiclePage.tapClose();
+        identifyVehiclePage.tapCancel();
     }
 
 }
