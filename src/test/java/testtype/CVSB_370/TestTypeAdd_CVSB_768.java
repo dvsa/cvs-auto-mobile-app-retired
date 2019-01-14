@@ -34,7 +34,7 @@ public class TestTypeAdd_CVSB_768 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("ANNUAL TEST");
         testTypeSubcategorySteps.seeInTestTypeList("Public Service Vehicle Annual Testing");
         testTypeSubcategorySteps.selectFromTestTypeList("Public Service Vehicle Annual Testing");
-        testSteps.checkTestDetails();
+        testSteps.checkTestDetails("BQ91YHQ");
         testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Not complete");
     }
 

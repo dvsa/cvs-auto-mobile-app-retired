@@ -19,9 +19,9 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkTestDetails() {
+    public void checkTestDetails(String regPlate) {
         testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed("AA12 BCD")).isTrue();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate)).isTrue();
     }
 
     @Step

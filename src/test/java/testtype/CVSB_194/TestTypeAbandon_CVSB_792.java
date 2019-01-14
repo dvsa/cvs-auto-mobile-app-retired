@@ -43,7 +43,7 @@ public class TestTypeAbandon_CVSB_792 extends BaseTestClass {
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSelectReasonPage();
         selectReasonSteps.pressBackButton();
-        testSteps.checkTestDetails();
+        testSteps.checkTestDetails("BQ91YHQ");
     }
 
 }
