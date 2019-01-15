@@ -24,7 +24,7 @@ public class AtfSelect_CVSB_685 extends BaseTestClass {
     public void testSearchFieldpNumber() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.searchForValidPNumberOrAddress("00-3024646");
-        searchForAnATFSteps.checkAddressAndPNumberIsFiltered("Nienow-Wunsch", "00-3024646");
+        searchForAnATFSteps.checkAddressAndPNumberIsFiltered("Nienow-Wunsch 00-3024646", "N");
     }
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SearchForAnATFPage extends BasePage {
 
-    private static final String SEARCH_FOR_ATF_TITLE_ID = "Search for an ATF";
+    private static final String SEARCH_FOR_ATF_TITLE_ID = "Find an ATF";
     private static final String PAGE_ALL_TEXT_XPATH = "XCUIElementTypeStaticText";
     private static final String SEARCH_FIELD_XPATH = "XCUIElementTypeSearchField";
 
@@ -40,9 +40,12 @@ public class SearchForAnATFPage extends BasePage {
 
     public void waitUntilFilterIsCompleted(int labelNumber) {
         waitUntillNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
-
-
     }
+
+    public void waitByElement(String element, int expectedResults) {
+        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
+    }
+
 
     public void clickOnAtf(String atfName) {
         findElementByAccessibilityIdId(atfName).click();

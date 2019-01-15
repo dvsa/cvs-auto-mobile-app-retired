@@ -23,7 +23,7 @@ public class TestTypeRemove_CVSB_760 extends BaseTestClass {
     @Test
     public void testRemoveTestType() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.checkTestDetails();
+        testSteps.checkTestDetails("BQ91YHQ");
         testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Not complete");
         testSteps.checkTestSubmitted();
         testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");

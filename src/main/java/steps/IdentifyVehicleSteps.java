@@ -12,13 +12,13 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     public void searchForVehicle(String registrationOrVIM) {
         identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.searchForVehicle(registrationOrVIM);
-        identifyVehiclePage.tapReturn();
+        identifyVehiclePage.clickSearch();
     }
 
     @Step
-    public void clickClose() {
+    public void clickCancel() {
         identifyVehiclePage.waitUntilPageIsLoaded();
-        identifyVehiclePage.tapClose();
+        identifyVehiclePage.tapCancel();
     }
 
 }

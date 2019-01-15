@@ -24,6 +24,6 @@ public class AtfSelect_CVSB_677 extends BaseTestClass {
     @Test
     public void testAtfListScrollable() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.checkListIsScrollableByElement("Abshire-Kub");
+        searchForAnATFSteps.checkListIsScrollableByElement("Abshire-Kub 09-4129632");
     }
 }

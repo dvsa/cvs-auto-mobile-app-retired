@@ -11,13 +11,13 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted() {
         if (!TestHandler.getInitializedStatus().get()) {
-            longWaitUntilPageIsLoadedById(GET_STARTED_ID).click();
+            longWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID).click();
             TestHandler.getInitializedStatus().set(true);
 
         } else {
             ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
             ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
-            longWaitUntilPageIsLoadedById(GET_STARTED_ID).click();
+            shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID).click();
         }
 
     }

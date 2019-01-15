@@ -40,16 +40,22 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntiPageIsLoadedByElement(By.id(id), 20, 200 );
+        return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
     }
 
-    protected WebElement longWaitUntilPageIsLoadedById(String id) {
-        return waitUntiPageIsLoadedByElement(By.id(id), 150, 200 );
+    protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
+
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 150, 200 );
+    }
+
+    protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 200 );
+
     }
 
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
-        return waitUntiPageIsLoadedByElement(By.xpath(xPath), 20, 200);
+        return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
 
     protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
@@ -95,13 +101,28 @@ public class BasePage extends PageObject {
     }
 
 
-    private WebElement waitUntiPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
+    private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 
 
+        return getDriver().findElement(locator);
+
+    }
+
+
+    private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
+
+        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
+
+        wait.until(ExpectedConditions.and(
+                ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
+                ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
+                ExpectedConditions.elementToBeClickable(locator)));
+
+        getDriver().getPageSource();
         return getDriver().findElement(locator);
 
     }
@@ -116,7 +137,7 @@ public class BasePage extends PageObject {
         return wait;
     }
 
-    public void tapReturn() {
+    public void clickSearch() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
     }
 
