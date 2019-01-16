@@ -92,4 +92,7 @@ public class VehicleDetailsPage extends BasePage {
         findElementById(IDENTIFY_VEHICLE_BACK).click();
     }
 
+    public void clickExpandableInformation(String info) {
+        waitUntilPageIsLoadedById(info).click();
+    }
 }

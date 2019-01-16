@@ -11,7 +11,7 @@ import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class VehicleDetails_CVSB_1070 extends BaseTestClass {
+public class VehicleDetails_CVSB_1072 extends BaseTestClass {
 
     @Steps
     VehicleComp vehicleComp;
@@ -23,11 +23,12 @@ public class VehicleDetails_CVSB_1070 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
 
-    @Title("CVSB-185 - AC1 - No search results")
+    // TODO Refactor because of bug
+    @Title("CVSB-185 - AC1 - Search without using an input")
     @Test
-    public void testNoSearchResults() {
+    public void testSearchWithoutInput() {
         vehicleComp.goToIdentifyVehicle();
-        identifyVehicleSteps.searchForVehicle("No results");
+        identifyVehicleSteps.pressSearch();
         identifyVehicleSteps.checkVehicleNotFoundPopUp();
         identifyVehicleSteps.pressOkInPopUp();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");

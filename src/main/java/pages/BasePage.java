@@ -39,6 +39,10 @@ public class BasePage extends PageObject {
         return getDriver().findElements(By.xpath(xpath));
     }
 
+    protected List<WebElement> findElementsByClassName(String className) {
+        return getDriver().findElements(By.className(className));
+    }
+
     protected WebElement waitUntilPageIsLoadedById(String id) {
         return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
     }
@@ -58,7 +62,7 @@ public class BasePage extends PageObject {
         return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
 
-    protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
+    protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
         FluentWait wait = globalFluentWait(20, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }

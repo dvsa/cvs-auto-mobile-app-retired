@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import pages.BrakesPage;
 import pages.VehicleDetailsPage;
 
 import java.util.List;
@@ -72,5 +73,25 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void waitUntilPageIsLoaded() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void selectBrakes() {
+        vehicleDetailsPage.clickExpandableInformation("Brakes");
+    }
+
+    @Step
+    public void selectWeights() {
+        vehicleDetailsPage.clickExpandableInformation("Weights");
+    }
+
+    @Step
+    public void selectTyres() {
+        vehicleDetailsPage.clickExpandableInformation("Tyres");
+    }
+
+    @Step
+    public void selectAdditionalVehicleDetails() {
+        vehicleDetailsPage.clickExpandableInformation("Additional vehicle details");
     }
 }

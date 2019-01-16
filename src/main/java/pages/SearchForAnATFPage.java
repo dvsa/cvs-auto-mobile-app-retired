@@ -39,11 +39,11 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public void waitUntilFilterIsCompleted(int labelNumber) {
-        waitUntillNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
+        waitUntilNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
     }
 
     public void waitByElement(String element, int expectedResults) {
-        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
 
 
