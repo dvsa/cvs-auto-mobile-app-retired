@@ -37,16 +37,22 @@ public class VehicleDetails_CVSB_1074 extends BaseTestClass {
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         // TODO add Vehicle Test History part after bug fix
         vehicleDetailsSteps.selectBrakes();
-        brakesSteps.checkDetails("1jU6", "oaCS4aZ5UGGZT", "bmsZLJjBZFRMu3", "KeQHRwq9", "friction", "exhaust");
+        // TODO check rest of Brakes data after bug fix
+        brakesSteps.checkDetails("1jU6", "oaCS4aZ5UGGZT", "bmsZLJjBZFRMu3",
+                "KeQHRwq9", "friction", "exhaust");
         brakesSteps.pressBackButton();
         vehicleDetailsSteps.selectWeights();
-//        weightsSteps.checkDetails();
-//        weightsSteps.pressBackButton();
-//        vehicleDetailsSteps.selectTyres();
-//        tyresSteps.checkDetails();
-//        tyresSteps.pressBackButton();
-//        vehicleDetailsSteps.selectAdditionalVehicleDetails();
-//        additionalVehicleDetailsSteps.checkDetails();
-//        additionalVehicleDetailsSteps.pressBackButton();
+        weightsSteps.checkDetails("53850", "6383", "40343", "30923",
+                "20445", "82879", "85025", "71125", "0");
+        weightsSteps.pressBackButton();
+        vehicleDetailsSteps.selectTyres();
+        tyresSteps.checkDetails("4IHi7", "E9", "single", "416", "J",
+                "1355");
+        tyresSteps.pressBackButton();
+        vehicleDetailsSteps.selectAdditionalVehicleDetails();
+        additionalVehicleDetailsSteps.checkDetails("07/12/1991", "pP", "S5J9z",
+                "986", "57", "251", "29",
+                "true", "true", "3UZnR", "bof1ikLSURNJi0oxHdAmyo1");
+        additionalVehicleDetailsSteps.pressBackButton();
     }
 }

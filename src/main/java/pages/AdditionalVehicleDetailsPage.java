@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrakesPage extends BasePage {
+public class AdditionalVehicleDetailsPage extends BasePage {
 
     private static final String BACK_BUTTON_ID = "arrow back Vehicle details";
-    private static final String PAGE_TITLE_ID = "Brakes";
+    private static final String PAGE_TITLE_ID = "Additional details";
     private static final String PAGE_ALL_TEXT_CLASS_NAME = "XCUIElementTypeStaticText";
 
 
@@ -38,4 +38,5 @@ public class BrakesPage extends BasePage {
     public void clickOnBack() {
         findElementById(BACK_BUTTON_ID).click();
     }
+
 }

@@ -18,6 +18,7 @@ public class BreaksSteps extends ScenarioSteps {
         brakesPage.waitUntilPageIsLoaded();
         List<String> actualData = brakesPage.getDataSetBetweenTitles("Brake code", "BRAKE FORCE");
         assertThat(actualData).contains(brakeCode, service, secondary, parking, retarder_1, retarder_2);
+        // TODO check rest of data after bug fix
     }
 
     @Step
