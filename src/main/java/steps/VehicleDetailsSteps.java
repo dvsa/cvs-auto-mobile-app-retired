@@ -65,6 +65,13 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkIfInDetailPageByPlate(String plate) {
+        vehicleDetailsPage.waitUntilPageIsLoaded();
+        assertThat(vehicleDetailsPage.isPageTitleDisplayed()).isTrue();
+        assertThat(vehicleDetailsPage.isRegistrationPlateDisplayed(plate)).isTrue();
+    }
+
+    @Step
     public void tapIdentifyVehicle(){
         vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.clickIdentifyVehicle();
