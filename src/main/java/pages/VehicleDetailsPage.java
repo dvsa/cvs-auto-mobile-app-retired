@@ -95,4 +95,12 @@ public class VehicleDetailsPage extends BasePage {
     public void clickExpandableInformation(String info) {
         waitUntilPageIsLoadedById(info).click();
     }
+
+    public boolean isFieldValueNull(String value) {
+        boolean status = false;
+        if (findElementByXpath("//*[@value='" + value + "']").getAttribute("value") == null) {
+            status = true;
+        }
+        return status;
+    }
 }

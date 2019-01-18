@@ -94,4 +94,13 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     public void selectAdditionalVehicleDetails() {
         vehicleDetailsPage.clickExpandableInformation("Additional vehicle details");
     }
+
+    @Step
+    public void checkDetailPageNoNullData() {
+        vehicleDetailsPage.waitUntilPageIsLoaded();
+        List<String> actualData = vehicleDetailsPage.findAllValuesByXpath();
+        for (String value : actualData) {
+            assertThat(vehicleDetailsPage.isFieldValueNull(value)).isFalse();
+        }
+    }
 }
