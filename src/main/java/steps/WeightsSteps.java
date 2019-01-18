@@ -31,4 +31,10 @@ public class WeightsSteps extends ScenarioSteps {
     public void pressBackButton() {
         weightsPage.clickOnBack();
     }
+
+    @Step
+    public void checkIfFieldIsNotEditable(String field) {
+        weightsPage.waitUntilPageIsLoaded();
+        assertThat(weightsPage.isFieldEditableById(field)).isFalse();
+    }
 }

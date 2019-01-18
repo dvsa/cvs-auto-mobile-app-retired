@@ -25,4 +25,12 @@ public class BreaksSteps extends ScenarioSteps {
     public void pressBackButton() {
         brakesPage.clickOnBack();
     }
+
+    @Step
+    public void checkIfFieldIsNotEditable(String field) {
+        brakesPage.waitUntilPageIsLoaded();
+        assertThat(brakesPage.isFieldEditableById(field)).isFalse();
+    }
+
 }
+

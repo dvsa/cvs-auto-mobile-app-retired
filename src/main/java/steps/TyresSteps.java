@@ -25,4 +25,10 @@ public class TyresSteps extends ScenarioSteps {
     public void pressBackButton() {
         tyresPage.clickOnBack();
     }
+
+    @Step
+    public void checkIfFieldIsNotEditable(String field) {
+        tyresPage.waitUntilPageIsLoaded();
+        assertThat(tyresPage.isFieldEditableById(field)).isFalse();
+    }
 }

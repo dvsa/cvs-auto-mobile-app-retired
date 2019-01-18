@@ -27,4 +27,11 @@ public class AdditionalVehicleDetailsSteps extends ScenarioSteps {
     public void pressBackButton() {
         additionalVehicleDetailsPage.clickOnBack();
     }
+
+    @Step
+    public void checkIfFieldIsNotEditable(String field) {
+        additionalVehicleDetailsPage.waitUntilPageIsLoaded();
+        assertThat(additionalVehicleDetailsPage.isFieldEditableById(field)).isFalse();
+    }
 }
+
