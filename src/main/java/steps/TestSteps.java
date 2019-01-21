@@ -122,5 +122,5 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void isPagetTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
+    public void checkPageTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
 }

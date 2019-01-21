@@ -27,6 +27,6 @@ public class PreparerInformation_CVSB_1012 extends BaseTestClass {
     public void confirmNoPreparerInformationGiven() {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.advanceWithNoPreparerInformation();
-        testSteps.isPagetTitleDisplayed();
+        testSteps.checkPageTitleDisplayed();
     }
 }

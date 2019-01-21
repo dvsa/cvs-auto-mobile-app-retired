@@ -28,6 +28,6 @@ public class PreparerInformation_CVSB_1016 extends BaseTestClass {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.searchForInvalidPreparerId("test", "test", "test");
         selectPreparerSteps.advanceUsingWithoutPreparerLink();
-        testSteps.isPagetTitleDisplayed();
+        testSteps.checkPageTitleDisplayed();
     }
 }

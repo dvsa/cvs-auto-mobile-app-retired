@@ -78,58 +78,30 @@ public class SelectPreparerPage extends BasePage {
     }
 
     public boolean withoutPreparerIdLinkIsDisplayed() {
-        boolean status = false;
-        if (findElementById(CONTINUE_WITHOUT_PREPARER).isDisplayed()) {
-            status = true;
-        }
-        return status;
+        return findElementById(CONTINUE_WITHOUT_PREPARER).isDisplayed();
     }
 
     public boolean isTitleDisplayed() {
-        boolean status = false;
-        if (findElementById(PAGE_TITLE_ID).isDisplayed()) {
-            status = true;
-        }
-        return status;
+        return findElementById(PAGE_TITLE_ID).isDisplayed();
     }
 
     public boolean isNoResultsFoundDisplayed() {
-        boolean status = false;
-        if (findElementById(NO_PREPRARER_FOUND).isDisplayed()) {
-            status = true;
-        }
-        return status;
+       return findElementById(NO_PREPRARER_FOUND).isDisplayed();
     }
 
     public boolean isWarningForMissingPreparerDisplayed() {
-        boolean status = false;
-        if (findElementById(WARNING_MESSAGE_PREPARER).isDisplayed()) {
-            status = true;
-        }
-        return status;
+       return findElementById(WARNING_MESSAGE_PREPARER).isDisplayed();
     }
 
     public boolean isConfirmOptionDisplayed() {
-        boolean status = false;
-        if (findElementById(CONFIRM_BUTTON_ID).isDisplayed()) {
-            status = true;
-        }
-        return status;
+        return findElementById(CONFIRM_BUTTON_ID).isDisplayed();
     }
 
     public boolean isCancelOptionDisplayed() {
-        boolean status = false;
-        if (findElementById(CANCEL_BUTTON_ID).isDisplayed()) {
-            status = true;
-        }
-        return status;
+        return findElementById(CANCEL_BUTTON_ID).isDisplayed();
     }
 
     public boolean isSearchBarDisplayed() {
-        boolean status = false;
-        if (findElementByXpath(SEARCH_PREPARER_ID_BAR).isDisplayed()) {
-            status = true;
-        }
-        return status;
+        return findElementByXpath(SEARCH_PREPARER_ID_BAR).isDisplayed();
     }
 }
