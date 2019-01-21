@@ -120,4 +120,7 @@ public class TestSteps extends ScenarioSteps {
     public void pressTestTypeAbandonButton() {
         testPage.pressAbandonButton();
     }
+
+    @Step
+    public void isPagetTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
 }
