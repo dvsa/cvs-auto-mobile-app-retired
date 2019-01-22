@@ -53,7 +53,6 @@ public class BasePage extends PageObject {
 
     }
 
-
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
         return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }

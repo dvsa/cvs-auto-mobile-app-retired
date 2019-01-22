@@ -45,7 +45,6 @@ public class SearchForAnATFSteps extends ScenarioSteps {
         searchForAnATFPage.searchForAtf(searchValue);
     }
 
-
     @Step
     public void checkAddressAndPNumberIsFiltered(String addressAndPNumber, String initial) {
         searchForAnATFPage.waitUntilFilterIsCompleted(1);
@@ -87,11 +86,25 @@ public class SearchForAnATFSteps extends ScenarioSteps {
 
     }
 
-
     @Step
     public void searchAndVerifyForLongAlphanumericNumber() {
         String randomData = RandomStringUtils.randomAlphanumeric(150);
         searchForAnATFPage.searchForAtf(randomData);
         assertThat(searchForAnATFPage.elementInSearchIsPresent(randomData)).isTrue();
+    }
+
+    @Step
+    public void checkAtfPageDisplay() {
+        searchForAnATFPage.waitUntilPageIsLoaded();
+        assertThat(searchForAnATFPage.isSearchFieldPresent()).isTrue();
+        assertThat(searchForAnATFPage.isTitleDisplayed()).isTrue();
+        assertThat(searchForAnATFPage.isBackButtonPresent()).isTrue();
+        checkListIsAlphabeticallyOrdered();
+    }
+
+    @Step
+    public void clickBackButton() {
+        searchForAnATFPage.waitUntilPageIsLoaded();
+        searchForAnATFPage.clickBack();
     }
 }

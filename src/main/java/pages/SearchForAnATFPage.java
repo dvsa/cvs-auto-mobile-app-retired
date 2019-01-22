@@ -12,6 +12,7 @@ public class SearchForAnATFPage extends BasePage {
     private static final String SEARCH_FOR_ATF_TITLE_ID = "Find an ATF";
     private static final String PAGE_ALL_TEXT_XPATH = "XCUIElementTypeStaticText";
     private static final String SEARCH_FIELD_XPATH = "XCUIElementTypeSearchField";
+    private static final String BACK_BUTTON_ = "arrow back Back";
 
 
     public void waitUntilPageIsLoaded() {
@@ -32,6 +33,13 @@ public class SearchForAnATFPage extends BasePage {
         return getDriver().findElement(By.className(SEARCH_FIELD_XPATH)).isDisplayed();
     }
 
+    public boolean isTitleDisplayed() {
+        return getDriver().findElement(By.id(SEARCH_FOR_ATF_TITLE_ID)).isDisplayed();
+    }
+
+    public boolean isBackButtonPresent() {
+        return getDriver().findElement(By.id(BACK_BUTTON_)).isDisplayed();
+    }
 
     public void searchForAtf(String randomData) {
         getDriver().findElement(By.className(SEARCH_FIELD_XPATH)).sendKeys(randomData);
@@ -45,7 +53,6 @@ public class SearchForAnATFPage extends BasePage {
     public void waitByElement(String element, int expectedResults) {
         waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
-
 
     public void clickOnAtf(String atfName) {
         findElementByAccessibilityIdId(atfName).click();
@@ -65,6 +72,9 @@ public class SearchForAnATFPage extends BasePage {
 
     public boolean elementInSearchIsPresent(String data) {
         return getDriver().findElement(MobileBy.iOSNsPredicateString("value == '" + data + "'")).isDisplayed();
+    }
 
+    public void clickBack() {
+        getDriver().findElement(By.id(BACK_BUTTON_)).click();
     }
 }
