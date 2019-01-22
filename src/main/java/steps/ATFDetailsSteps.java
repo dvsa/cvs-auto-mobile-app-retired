@@ -30,4 +30,40 @@ public class ATFDetailsSteps extends ScenarioSteps {
         assertThat(data.contains(address)).isTrue();
         assertThat(data.contains(phoneNumber)).isTrue();
     }
+
+    @Step
+    public void pressPhoneNumber(String number) {
+        atfDetailsPage.clickPhoneNumber(number);
+    }
+
+    @Step
+    public void checkCallPopUp(String number) {
+        assertThat(atfDetailsPage.isCallPopUpDisplayedByNumber(number)).isTrue();
+
+    }
+
+    @Step
+    public void pressCancelInCallPopUp() {
+        atfDetailsPage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void checkCallPopUpNotDisplayed(String number) {
+        assertThat(atfDetailsPage.isCallPopUpDisplayedByNumber(number)).isFalse();
+    }
+
+    @Step
+    public void pressBackButton() {
+        atfDetailsPage.clickOnBackToSearchForAnAtf();
+    }
+
+    @Step
+    public void checkStartVisitPopUp() {
+        assertThat(atfDetailsPage.isStartVisitPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressStartVisit() {
+        atfDetailsPage.clickStartVisit();
+    }
 }
