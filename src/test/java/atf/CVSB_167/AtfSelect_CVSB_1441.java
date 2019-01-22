@@ -11,7 +11,7 @@ import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class CVSB_1441 extends BaseTestClass {
+public class AtfSelect_CVSB_1441 extends BaseTestClass {
 
     @Steps
     LaunchSteps launchSteps;
@@ -19,11 +19,16 @@ public class CVSB_1441 extends BaseTestClass {
     @Steps
     SearchForAnATFSteps searchForAnATFSteps;
 
+    @Steps
+    ATFDetailsSteps atfDetailsSteps;
 
-    @Title("CVSB-165 - AC1 - ATF's scrollable list")
+
+    @Title("CVSB-167 - AC1 - VSA is able to view ATF details screen")
     @Test
-    public void testAtfListScrollable() {
+    public void testAtfDetailScreen() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.checkListIsScrollableByElement("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.checkAtfDetails("Abshire-Kub", "09-4129632", "5 Lukken Lane",
+                "+55 175 740 8666");
     }
 }
