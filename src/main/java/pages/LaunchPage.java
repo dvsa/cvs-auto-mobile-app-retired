@@ -20,8 +20,6 @@ public class LaunchPage extends BasePage {
             TestHandler.getInitializedStatus().set(true);
 
         } else {
-            ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
-            ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
             shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID).click();
         }
 
@@ -44,4 +42,5 @@ public class LaunchPage extends BasePage {
     public boolean checkIfTitle2IsDisplayed() {return findElementByXpath(TITLE_2).isDisplayed();}
 
     public boolean checkIfSubTitleIsDisplayed() {return findElementByXpath(SUBTITLE).isDisplayed();}
+
 }

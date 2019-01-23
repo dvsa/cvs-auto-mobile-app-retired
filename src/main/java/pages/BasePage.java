@@ -35,12 +35,20 @@ public class BasePage extends PageObject {
         return getDriver().findElement(By.xpath(xpath));
     }
 
+    protected WebElement findElementByClassName(String className) {
+        return getDriver().findElement(By.className(className));
+    }
+
     protected List<WebElement> findElementsByXpath(String xpath) {
         return getDriver().findElements(By.xpath(xpath));
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
         return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
+    }
+
+    protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200 );
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {

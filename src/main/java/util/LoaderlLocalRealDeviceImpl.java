@@ -1,6 +1,7 @@
 package util;
 
 import exceptions.AutomationException;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.commons.exec.environment.EnvironmentUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -56,6 +57,11 @@ public class LoaderlLocalRealDeviceImpl implements Loader {
         cap.setCapability("platformName", getPlatformName());
         cap.setCapability("bundleId", getBundleId());
         cap.setCapability("udid", getUdid());
+        cap.setCapability("noReset", "true");
+        cap.setCapability("fullReset", "false");
+//        cap.setCapability(MobileCapabilityType.FULL_RESET, true);
+
+//        cap.setCapability("waitForQuiescence", "true");
 
 
         cap.setCapability("automationName", "XCUITest");

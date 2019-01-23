@@ -83,6 +83,9 @@
                             <includes>
                                 <include>**/AtfSelect_CVSB_677.java</include>
                             </includes>
+                            <excludes>
+                                <exclude>**/MainPageError*.java</exclude>
+                            </excludes>
                             <threadCount>5</threadCount>
                             <forkCount>5</forkCount>
                             <reuseForks>true</reuseForks>

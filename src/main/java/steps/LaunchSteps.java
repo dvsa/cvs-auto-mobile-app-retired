@@ -15,9 +15,20 @@ public class LaunchSteps extends ScenarioSteps {
         launchPage.clickGetStarted();
     }
 
+    @Step()
+    public void waitUntilPageIsLoaded() {
+        launchPage.waitUntilPageIsLoaded();
+    }
+
     @Step
     public void clickStartButton() {
         launchPage.clickStartButton();
+    }
+
+
+    @Step
+    public void resetAppAndWaitUntillPageIsLoaded() {
+//        launchPage.resetAppAndWaitUntillPageIsLoaded();
     }
 
     @Step
