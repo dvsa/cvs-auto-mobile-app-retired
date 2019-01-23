@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class BaseTestClass {
 
-    @Managed(uniqueSession=true, clearCookies = ClearCookiesPolicy.Never)
+    @Managed()
     public WebDriver webDriver;
 
 }
