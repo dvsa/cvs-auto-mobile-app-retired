@@ -38,9 +38,7 @@ public class TestTypeLinked_CVSB_774 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("PAID");
         testTypeSubcategorySteps.seeInTestTypeList("Any PSV", "CLASS 6A (Seatbelt Installation Check)");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
-        testTypeSubcategorySteps.seeInTestTypeList("Public Service Vehicle Annual Testing");
-        testTypeSubcategorySteps.selectFromTestTypeList("Public Service Vehicle Annual Testing");
-        testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Not complete");
+        testSteps.checkSelectedTestTypes("Any PSV In progress arrow forward");
 
     }
 
