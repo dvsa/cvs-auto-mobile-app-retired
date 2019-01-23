@@ -41,7 +41,7 @@ public class TestPage extends BasePage {
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate) {
         boolean status = false;
-        if (findElementByXpath("//XCUIElementTypeStaticText[@name='" + regPlate + "']").isDisplayed()) {
+        if (findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) 1B7GG36N12S678410 Details arrow forward']").isDisplayed()) {
             status = true;
         }
         return status;
