@@ -74,7 +74,7 @@ public class TestPage extends BasePage {
     }
 
     public void clickOnAbandonedTest(String testName) {
-        findElementById(testName + " Abandoned").click();
+         findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
     }
 
     public boolean isSubmitButtonAvailable() {
