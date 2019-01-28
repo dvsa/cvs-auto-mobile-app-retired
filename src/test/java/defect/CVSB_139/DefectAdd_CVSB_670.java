@@ -38,13 +38,11 @@ public class DefectAdd_CVSB_670 extends BaseTestClass {
     @Test
     public void addAdvisoryDefectScreen() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
-        testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
-        recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
-        defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
+        testSteps.selectNotCompleteTest("annual test");
+        testTypeSteps.selectAddDefect("annual test");
+        recordDefectSteps.selectDefectFromList("Horn");
+        defectItemSteps.selectDefectFromList("Horn Control:");
         defectItemLevelThreeSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.waitUntilPageIsLoaded();
-
     }
-
 }

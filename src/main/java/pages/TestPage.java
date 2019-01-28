@@ -70,7 +70,7 @@ public class TestPage extends BasePage {
     }
 
     public void clickOnNotCompleteTest(String testName) {
-        findElementById(testName + " Not complete").click();
+        findElementByAccessibilityIdId(testName + " In progress arrow forward").click();
     }
 
     public void clickOnAbandonedTest(String testName) {
