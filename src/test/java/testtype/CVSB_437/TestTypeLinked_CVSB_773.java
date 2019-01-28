@@ -29,7 +29,7 @@ public class TestTypeLinked_CVSB_773 extends BaseTestClass {
         testSteps.checkAddALinkedTestButtonVisibility();
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkTestTypePage();
-        testTypeCategorySteps.checkInTestTypeList("ANNUAL TEST", "Class 6A (Seatbelt Installation Check)", "RETEST");
+        testTypeCategorySteps.checkInTestTypeList( "class 6a (seatbelt installation check)", "annual test", "retest");
 
     }
 
