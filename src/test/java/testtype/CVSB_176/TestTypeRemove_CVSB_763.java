@@ -23,12 +23,12 @@ public class TestTypeRemove_CVSB_763 extends BaseTestClass {
     @Test
     public void testRemovalCanceling() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.swipeTestType("ANNUAL TEST In progress arrow forward");
         testSteps.pressTestTypeRemoveButton();
         testSteps.checkTestTypeRemovalPopUp();
         testSteps.pressCancelInPopUp();
         testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Not complete");
+        testSteps.checkSelectedTestTypes("ANNUAL TEST In progress arrow forward");
 
     }
 

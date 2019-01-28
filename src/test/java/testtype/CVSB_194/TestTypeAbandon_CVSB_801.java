@@ -43,7 +43,7 @@ public class TestTypeAbandon_CVSB_801 extends BaseTestClass {
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
-        testSteps.selectAbandonedTest("Public Service Vehicle Annual Testing");
+        testSteps.selectAbandonedTest("annual test Abandoned In progress arrow forward");
         abandonedTestSteps.checkAbandonedTestPage();
         abandonedTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
     }

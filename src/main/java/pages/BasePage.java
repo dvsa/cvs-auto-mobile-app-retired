@@ -53,7 +53,6 @@ public class BasePage extends PageObject {
 
     }
 
-
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
         return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
@@ -103,10 +102,8 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
-
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-
 
         return getDriver().findElement(locator);
 
@@ -116,15 +113,12 @@ public class BasePage extends PageObject {
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
-
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
-
         getDriver().getPageSource();
         return getDriver().findElement(locator);
-
     }
 
 

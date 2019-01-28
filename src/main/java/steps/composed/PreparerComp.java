@@ -3,6 +3,7 @@ package steps.composed;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
+import pages.SelectPreparerPage;
 import steps.*;
 
 public class PreparerComp extends ScenarioSteps {
@@ -34,6 +35,5 @@ public class PreparerComp extends ScenarioSteps {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-
     }
 }
