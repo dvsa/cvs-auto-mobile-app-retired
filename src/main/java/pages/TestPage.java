@@ -41,7 +41,7 @@ public class TestPage extends BasePage {
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate) {
         boolean status = false;
-        if (findElementByXpath("//XCUIElementTypeStaticText[@name='" + regPlate + "']").isDisplayed()) {
+        if (findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) 1B7GG36N12S678410 Details arrow forward']").isDisplayed()) {
             status = true;
         }
         return status;
@@ -70,11 +70,11 @@ public class TestPage extends BasePage {
     }
 
     public void clickOnNotCompleteTest(String testName) {
-        findElementById(testName + " Not complete").click();
+        findElementByAccessibilityIdId(testName + " In progress arrow forward").click();
     }
 
     public void clickOnAbandonedTest(String testName) {
-        findElementById(testName + " Abandoned").click();
+         findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
     }
 
     public boolean isSubmitButtonAvailable() {

@@ -26,7 +26,7 @@ public class VehicleConfirm_CVSB_721 extends BaseTestClass {
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         vehicleDetailsSteps.checkDetailPageData("1B7GG36N12S678410","Zentix", "non"
                 ,"Unisure","do","other","3225",
-                "01/07/2006","43","o" );
+                "01/07/2006","2","o" );
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.checkConfirmationPopUp();
 

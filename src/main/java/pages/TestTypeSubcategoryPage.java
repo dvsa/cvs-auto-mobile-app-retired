@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestTypeSubcategoryPage extends BasePage {
-    private static final String TEST_TYPE_PAGE_TITLE = "Test type";
+    private static final String TEST_TYPE_PAGE_TITLE = "Test";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
 
     public void waitUntilPageIsLoaded() {

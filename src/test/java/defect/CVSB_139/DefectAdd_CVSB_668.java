@@ -25,10 +25,8 @@ public class DefectAdd_CVSB_668 extends BaseTestClass {
     @Test
     public void testTypeAddDefectOption() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
-        testTypeSteps.checkTestTypeResultAndVehicleDetailsOption("Public Service Vehicle Annual Testing", "PASS");
+        testSteps.selectNotCompleteTest("annual test");
+        testTypeSteps.checkTestTypeResultAndVehicleDetailsOption("annual test", "PASS");
         testTypeSteps.checkAddDefectIsPresent();
-
     }
-
 }
