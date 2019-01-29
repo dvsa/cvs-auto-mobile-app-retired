@@ -26,7 +26,7 @@ public class CancellationTest_CVSB_851 extends BaseTestClass {
     @Test
     public void cancelTet() {
         testTypeCategoryComp.goToTestPage();
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.checkTextInputField();

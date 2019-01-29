@@ -37,8 +37,8 @@ public class TestPage extends BasePage {
         return findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed();
     }
 
-    public boolean isVehicleRegistrationPlateDisplayed(String regPlate) {
-        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) 1B7GG36N12S678410 Details arrow forward']").isDisplayed();
+    public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {

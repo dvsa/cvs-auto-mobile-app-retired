@@ -32,7 +32,7 @@ public class CancellationTest_CVSB_852 extends BaseTestClass {
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.pressBackButton();
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
     }
 }
 

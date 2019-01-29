@@ -32,7 +32,7 @@ public class TestTypeAdd_CVSB_768 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("annual test");
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.checkSelectedTestTypes("annual test In progress arrow forward");
     }
 
