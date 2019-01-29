@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,9 +9,10 @@ import java.util.List;
 
 public class SearchForAnATFPage extends BasePage {
 
-    private static final String SEARCH_FOR_ATF_TITLE_ID = "Search for an ATF";
-    private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
-    private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeSearchField";
+    private static final String SEARCH_FOR_ATF_TITLE_ID = "Find an ATF";
+    private static final String PAGE_ALL_TEXT_XPATH = "XCUIElementTypeStaticText";
+    private static final String SEARCH_FIELD_XPATH = "XCUIElementTypeSearchField";
+    private static final String BACK_BUTTON_ = "arrow back Back";
 
 
     public void waitUntilPageIsLoaded() {
@@ -18,7 +20,7 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public List<String> findAllLabelsByXpath() {
-        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
+        List<WebElement> webElementList = getDriver().findElements(By.className("XCUIElementTypeStaticText"));
         List<String> listOfData = new ArrayList<>();
         for (WebElement webElement : webElementList) {
             listOfData.add(webElement.getAttribute("label"));
@@ -28,23 +30,32 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public boolean isSearchFieldPresent() {
-        return findElementByXpath(SEARCH_FIELD_XPATH).isDisplayed();
+        return getDriver().findElement(By.className(SEARCH_FIELD_XPATH)).isDisplayed();
     }
 
+    public boolean isTitleDisplayed() {
+        return getDriver().findElement(By.id(SEARCH_FOR_ATF_TITLE_ID)).isDisplayed();
+    }
+
+    public boolean isBackButtonPresent() {
+        return getDriver().findElement(By.id(BACK_BUTTON_)).isDisplayed();
+    }
 
     public void searchForAtf(String randomData) {
-        findElementByXpath(SEARCH_FIELD_XPATH).sendKeys(randomData);
+        getDriver().findElement(By.className(SEARCH_FIELD_XPATH)).sendKeys(randomData);
 
     }
 
     public void waitUntilFilterIsCompleted(int labelNumber) {
-        waitUntillNumberOfElementsToBe(By.xpath(PAGE_ALL_TEXT_XPATH), labelNumber);
+        waitUntillNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
+    }
 
-
+    public void waitByElement(String element, int expectedResults) {
+        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
 
     public void clickOnAtf(String atfName) {
-        findElementByXpath("//*[@label='" + atfName + "']").click();
+        findElementByAccessibilityIdId(atfName).click();
     }
 
     public void swipeDown() {
@@ -52,15 +63,18 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
+        return findElementByAccessibilityIdId(element).isDisplayed();
     }
 
     public int getYPositionForElement(String element) {
-        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
+        return findElementByAccessibilityIdId(element).getLocation().getY();
     }
 
     public boolean elementInSearchIsPresent(String data) {
-        return findElementByXpath("//*[@value='" + data + "']").isDisplayed();
+        return getDriver().findElement(MobileBy.iOSNsPredicateString("value == '" + data + "'")).isDisplayed();
+    }
 
+    public void clickBack() {
+        getDriver().findElement(By.id(BACK_BUTTON_)).click();
     }
 }

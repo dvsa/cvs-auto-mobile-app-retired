@@ -8,6 +8,7 @@ import java.util.List;
 public class TestTypeCategoryPage extends BasePage {
     private static final String TEST_TYPE_PAGE_TITLE = "Test type";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
+    private static final String BACK_BUTTON_ID = "arrow back Back";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_TYPE_PAGE_TITLE);
@@ -33,12 +34,15 @@ public class TestTypeCategoryPage extends BasePage {
     public void selectTestTypeFromListByXpath(String testType) {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         for (WebElement webElement : webElementList) {
-            if(webElement.getAttribute("name").contentEquals(testType)) {
+            if(webElement.getAttribute("name").equalsIgnoreCase(testType)) {
                 webElement.click();
+                break;
             }
         }
-
     }
 
 
+    public void selectBack() {
+        findElementById(BACK_BUTTON_ID).click();
+    }
 }

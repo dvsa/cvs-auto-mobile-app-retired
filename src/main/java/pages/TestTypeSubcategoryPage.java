@@ -34,8 +34,9 @@ public class TestTypeSubcategoryPage extends BasePage {
     public void selectTestTypeFromListByXpath(String testType) {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         for (WebElement webElement : webElementList) {
-            if(webElement.getAttribute("name").contentEquals(testType)) {
+            if(webElement.getAttribute("name").equalsIgnoreCase(testType)) {
                 webElement.click();
+                break;
             }
         }
 

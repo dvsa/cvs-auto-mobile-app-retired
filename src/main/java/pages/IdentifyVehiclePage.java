@@ -1,14 +1,12 @@
 package pages;
 
 
-import io.appium.java_client.ios.IOSDriver;
-import net.thucydides.core.webdriver.WebDriverFacade;
-
 public class IdentifyVehiclePage extends BasePage {
 
     private static final String IDENTIFY_VEHICLE_PAGE_TITLE = "Identify Vehicle";
-    private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeSearchField";
-    private static final String CLOSE_OPTION_ID = "Close";
+    private static final String SEARCH_FIELD_XPATH = "//XCUIElementTypeTextField";
+    private static final String CANCEL_OPTION_ID = "Cancel";
+    private static final String SEARCH_OPTION = "Search";
 
 
     public void waitUntilPageIsLoaded() {
@@ -19,12 +17,13 @@ public class IdentifyVehiclePage extends BasePage {
         findElementByXpath(SEARCH_FIELD_XPATH).sendKeys(text);
     }
 
-    public void tapReturn() {
-        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
+    public void clickSearch() {
+        findElementById(SEARCH_OPTION).click();
+//        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
-    public void tapClose() {
-        findElementById(CLOSE_OPTION_ID).click();
+    public void tapCancel() {
+        findElementById(CANCEL_OPTION_ID).click();
     }
 
 }

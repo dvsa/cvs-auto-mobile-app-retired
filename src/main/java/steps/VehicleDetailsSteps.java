@@ -20,13 +20,13 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void scrollTheDetailPage(String element) {
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
-        int oldYPoistion = vehicleDetailsPage.getYPositionForElement(element);
+        int oldYPosition = vehicleDetailsPage.getYPositionForElement(element);
         vehicleDetailsPage.scrollDetailPage();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = vehicleDetailsPage.getYPositionForElement(element);
-        assertThat(oldYPoistion).isNotEqualTo(newYPosition);
+        assertThat(oldYPosition).isNotEqualTo(newYPosition);
 
     }
 
@@ -70,7 +70,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void waitUntillPageIsloaded() {
+    public void waitUntilPageIsLoaded() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
     }
 }

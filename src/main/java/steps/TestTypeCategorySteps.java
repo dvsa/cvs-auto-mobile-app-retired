@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.openqa.selenium.WebElement;
 import pages.TestTypeCategoryPage;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     TestTypeCategoryPage testTypeCategoryPage;
 
     @Step
-    public void seeInTestTypeList(String... testTypes) {
+    public void checkInTestTypeList(String... testTypes) {
         testTypeCategoryPage.waitUntilPageIsLoaded();
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
         for (String test_type : testTypes) {
@@ -24,13 +23,19 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
-    public void seeTestTypePage() {
+    public void checkTestTypePage() {
         assertThat(testTypeCategoryPage.isPageTitleDisplayed()).isTrue();
     }
 
     @Step
     public void selectFromTestTypeList(String testType) {
+        testTypeCategoryPage.waitUntilPageIsLoaded();
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
 
+    }
+
+    @Step
+    public void goBackToTestOverview() {
+        testTypeCategoryPage.selectBack();
     }
 }

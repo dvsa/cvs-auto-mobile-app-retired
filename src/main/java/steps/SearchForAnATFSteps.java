@@ -6,6 +6,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import pages.SearchForAnATFPage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,9 +18,10 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     @Step
     public void checkATFSearchButtonAndList() {
         searchForAnATFPage.waitUntilPageIsLoaded();
-
-        List<String> actualData = searchForAnATFPage.findAllLabelsByXpath();
-        assertThat(actualData).contains("Abshire-Kub", "09-4129632", "Bergnaum Group", "Jacobson and Sons");
+        List<String> expectedData = Arrays.asList("Abshire-Kub 09-4129632", "Bergnaum Group 95-1291781", "A");
+        for (String element : expectedData) {
+            searchForAnATFPage.elementFromListIsDisplayed(element);
+        }
         assertThat(searchForAnATFPage.isSearchFieldPresent()).isTrue();
     }
 
@@ -32,22 +34,22 @@ public class SearchForAnATFSteps extends ScenarioSteps {
 
     @Step
     public void checkNoResultsFoundAndSuggestion() {
+        searchForAnATFPage.waitByElement("No results found", 2);
         List<String> actualData = searchForAnATFPage.findAllLabelsByXpath();
         assertThat(actualData).contains("No results found", "You can search for an ATF by typing in", "it's name, address or P-number");
     }
 
     @Step
-    public void searchForValidpNumberOrAddress(String searchValue) {
+    public void searchForValidPNumberOrAddress(String searchValue) {
         searchForAnATFPage.waitUntilPageIsLoaded();
         searchForAnATFPage.searchForAtf(searchValue);
     }
 
-
     @Step
-    public void checkAddressAndpNumberIsFiltered(String address, String pNumber) {
-        searchForAnATFPage.waitUntilFilterIsCompleted(3);
-        List<String> actualData = searchForAnATFPage.findAllLabelsByXpath();
-        assertThat(actualData).contains(address, pNumber);
+    public void checkAddressAndPNumberIsFiltered(String addressAndPNumber, String initial) {
+        searchForAnATFPage.waitUntilFilterIsCompleted(1);
+        assertThat(searchForAnATFPage.elementFromListIsDisplayed(addressAndPNumber)).isTrue();
+        assertThat(searchForAnATFPage.elementFromListIsDisplayed(initial)).isTrue();
     }
 
     @Step
@@ -60,16 +62,11 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     public void checkListIsScrollableByElement(String element) {
         searchForAnATFPage.waitUntilPageIsLoaded();
         assertThat(searchForAnATFPage.elementFromListIsDisplayed(element)).isTrue();
-        int oldYPoistion = searchForAnATFPage.getYPositionForElement(element);
+        int oldYPosition = searchForAnATFPage.getYPositionForElement(element);
         searchForAnATFPage.swipeDown();
         assertThat(searchForAnATFPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = searchForAnATFPage.getYPositionForElement(element);
-        assertThat(oldYPoistion).isNotEqualTo(newYPosition);
-    }
-
-    @Step
-    public void selectAnAtf(String atfName) {
-        searchForAnATFPage.clickOnAtf(atfName);
+        assertThat(oldYPosition).isNotEqualTo(newYPosition);
     }
 
     @Step
@@ -89,12 +86,25 @@ public class SearchForAnATFSteps extends ScenarioSteps {
 
     }
 
-
     @Step
     public void searchAndVerifyForLongAlphanumericNumber() {
         String randomData = RandomStringUtils.randomAlphanumeric(150);
         searchForAnATFPage.searchForAtf(randomData);
         assertThat(searchForAnATFPage.elementInSearchIsPresent(randomData)).isTrue();
-        System.out.println("dasd");
+    }
+
+    @Step
+    public void checkAtfPageDisplay() {
+        searchForAnATFPage.waitUntilPageIsLoaded();
+        assertThat(searchForAnATFPage.isSearchFieldPresent()).isTrue();
+        assertThat(searchForAnATFPage.isTitleDisplayed()).isTrue();
+        assertThat(searchForAnATFPage.isBackButtonPresent()).isTrue();
+        checkListIsAlphabeticallyOrdered();
+    }
+
+    @Step
+    public void clickBackButton() {
+        searchForAnATFPage.waitUntilPageIsLoaded();
+        searchForAnATFPage.clickBack();
     }
 }
