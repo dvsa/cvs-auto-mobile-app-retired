@@ -1,20 +1,19 @@
-package vehicle;
+package vehicle.CVSB_317;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 import steps.IdentifyVehicleSteps;
 import steps.SelectPreparerSteps;
 import steps.SiteVisitSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
+import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class IdentifyVehicleTest {
+public class TestCreate_CVSB_784 extends BaseTestClass {
     @Steps
     VehicleComp vehicleComp;
 
@@ -30,29 +29,15 @@ public class IdentifyVehicleTest {
     @Steps
     SelectPreparerSteps selectPreparerSteps;
 
-    @Managed
-    public WebDriver webDriver;
-
-    @Title("CVSB-317 / CVSB-784 - AC1 - Create a test")
+    @Title("CVSB-317 - AC1 - Create a test")
     @Test()
     public void createATest() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("aa12bcd");
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         selectPreparerSteps.checkPageTitle();
-    }
-
-
-    @Title("CVSB-317 / CVSB-785 - AC2 - Go back to site visit overview")
-    @Test()
-    public void testGoBackToSiteVisit() {
-        vehicleComp.goToSiteVisit();
-        siteVisitSteps.createNewTest();
-        identifyVehicleSteps.clickClose();
-        siteVisitSteps.waitUntillPageIsLoaded();
-
     }
 
 }

@@ -15,6 +15,7 @@ public class DefectDetailsPage extends BasePage {
     private static final String ADDITIONAL_INFORMATION_ROW_NUMBER = "Row Number";
     private static final String ADDITIONAL_INFORMATION_SEAT_NUMBER = "Seat Number";
     private static final String ADD_DEFECT_BUTTON_ID = "Add Defect";
+    private static final String DONE_BUTTON_ID = "Done";
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
 
@@ -88,6 +89,10 @@ public class DefectDetailsPage extends BasePage {
 
     public void clickAddDefect() {
         findElementById(ADD_DEFECT_BUTTON_ID).click();
+    }
+
+    public void clickDone() {
+        findElementById(DONE_BUTTON_ID).click();
     }
 
     public void enablePRS() {

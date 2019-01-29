@@ -43,10 +43,10 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     @Step
     public void addTestType() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("aa12bcd");
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
@@ -62,7 +62,6 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     @Step()
     public void completeAddTestType() {
         addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("ANNUAL TEST");
-        testTypeSubcategorySteps.selectFromTestTypeList("Public Service Vehicle Annual Testing");
+        testTypeCategorySteps.selectFromTestTypeList("annual test");
     }
 }

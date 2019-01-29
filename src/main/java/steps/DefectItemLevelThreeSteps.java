@@ -10,13 +10,13 @@ public class DefectItemLevelThreeSteps extends ScenarioSteps {
 
     @Step
     public void tapAddAnAdvisoryNote() {
-        defectItemLevelThreePage.waitUntillPageIsLoaded();
+        defectItemLevelThreePage.waitUntilPageIsLoaded();
         defectItemLevelThreePage.clickAddAdvisoryNote();
     }
 
     @Step
     public void selectDefect(String defectId) {
-        defectItemLevelThreePage.waitUntillPageIsLoaded();
+        defectItemLevelThreePage.waitUntilPageIsLoaded();
         defectItemLevelThreePage.selectById(defectId);
     }
 }

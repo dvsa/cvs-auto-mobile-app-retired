@@ -14,6 +14,7 @@ public class TestPage extends BasePage {
     private static final String SELECT_PREPARER_PAGE_TITLE = "Test";
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type add circle-outline";
     private static final String PAGE_ALL_BUTTONS_XPATH = "//XCUIElementTypeButton";
+    private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String CANCEL_BUTTON_BOTTOM_RIGHT = "Cancel";
@@ -22,6 +23,7 @@ public class TestPage extends BasePage {
     private static final String REMOVE_ID = "Remove";
     private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
     private static final String TITLE_ID = "Remove test";
+    private static final String ABANDON_BUTTON_ID = "Abandon";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
@@ -32,25 +34,15 @@ public class TestPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        boolean status = false;
-        if (findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed();
     }
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate) {
-        boolean status = false;
-        if (findElementByXpath("//XCUIElementTypeStaticText[@name='" + regPlate + "']").isDisplayed()) {
-            status = true;
-        }
-        return status;
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) 1B7GG36N12S678410 Details arrow forward']").isDisplayed();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {
-        boolean status = false;
-        if (findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed();
     }
 
     public List<String> findAllTestTypesFromListByXpath() {
@@ -65,18 +57,18 @@ public class TestPage extends BasePage {
 
     public int checkDataByLabelValueAndName(String... values) {
         return findAllDataByComposedXpath(values).size();
-
     }
 
-    public void clickOnTest(String testName) {
-        findElementById(testName + " Not complete").click();
+    public void clickOnNotCompleteTest(String testName) {
+        findElementByAccessibilityIdId(testName + " In progress arrow forward").click();
+    }
+
+    public void clickOnAbandonedTest(String testName) {
+        findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
     }
 
     public boolean isSubmitButtonAvailable() {
-        boolean status = false;
-        if (findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).isDisplayed();
     }
 
     //TODO create generic swipe action in BasePage
@@ -87,14 +79,10 @@ public class TestPage extends BasePage {
         params.put("direction", "left");
         params.put("element", ((RemoteWebElement) testTypeToSwipe).getId());
         js.executeScript("mobile: swipe", params);
-
     }
 
     public boolean isRemoveButtonDisplayed() {
-        boolean status = false;
-        if (findElementById(REMOVE_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(REMOVE_BUTTON_ID).isDisplayed();
     }
 
     public void clickOnRedRemoveButton() {
@@ -102,7 +90,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isRemovePopUpDisplayed() {
-        boolean status = false ;
+        boolean status = false;
         WebElement cancelButton = findElementById(CANCEL_ID);
         WebElement removeButton = findElementById(REMOVE_ID);
         WebElement description = findElementById(DESCRIPTION_ID);
@@ -123,5 +111,21 @@ public class TestPage extends BasePage {
 
     public void clickCancelFromBottomRight() {
         findElementById(CANCEL_BUTTON_BOTTOM_RIGHT).click();
+    }
+
+    public boolean isAbandonButtonDisplayed() {
+        return findElementById(ABANDON_BUTTON_ID).isDisplayed();
+    }
+
+    public void pressAbandonButton() {
+        findElementById(ABANDON_BUTTON_ID).click();
+    }
+
+    public boolean isAddALinkedTestVisible() {
+        return findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).isDisplayed();
+    }
+
+    public void addALinkedTestType() {
+        findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).click();
     }
 }

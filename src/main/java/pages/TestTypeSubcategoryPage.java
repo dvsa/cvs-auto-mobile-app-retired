@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestTypeSubcategoryPage extends BasePage {
-    private static final String TEST_TYPE_PAGE_TITLE = "Test type";
+    private static final String TEST_TYPE_PAGE_TITLE = "Test";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
 
     public void waitUntilPageIsLoaded() {
@@ -33,8 +33,9 @@ public class TestTypeSubcategoryPage extends BasePage {
     public void selectTestTypeFromListByXpath(String testType) {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         for (WebElement webElement : webElementList) {
-            if(webElement.getAttribute("name").contentEquals(testType)) {
+            if(webElement.getAttribute("name").equalsIgnoreCase(testType)) {
                 webElement.click();
+                break;
             }
         }
 

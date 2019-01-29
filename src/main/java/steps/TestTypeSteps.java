@@ -44,7 +44,7 @@ public class TestTypeSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkAditionalDetails(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType, String testStatus) {
+    public void checkAdditionalDetails(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType, String testStatus) {
         testTypePage.waitUntilPageIsLoaded(testType);
         assertThat(testTypePage.getElementById(referenceNumber).isDisplayed()).isTrue();
         assertThat(testTypePage.getElementById(defectType).isDisplayed()).isTrue();
@@ -56,7 +56,52 @@ public class TestTypeSteps extends ScenarioSteps {
 
     @Step
     public void checkAdditionalDetailsWithPRSPresent(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType, String testStatus) {
-        checkAditionalDetails(testType, referenceNumber, defectType, defectItem, defectItemSubcategory, defectItemSubcategoryType, testStatus);
+        checkAdditionalDetails(testType, referenceNumber, defectType, defectItem, defectItemSubcategory, defectItemSubcategoryType, testStatus);
         assertThat(testTypePage.getPRMSLabels()).isEqualTo(1);
+    }
+
+    @Step
+    public void tapOnPresentDefect(String testType, String recordDefect, String defectItem) {
+        testTypePage.waitUntilPageIsLoaded(testType);
+        testTypePage.clickOnDefect(recordDefect, defectItem);
+    }
+
+    @Step
+    public void swipeDefect(String defectId) {
+        int initialXPosition = testTypePage.getXPositionForElement(defectId);
+        testTypePage.swipeLeftOnDefect(defectId);
+        int newXPosition = testTypePage.getXPositionForElement(defectId);
+        assertThat(initialXPosition).isNotEqualTo(newXPosition);
+
+    }
+
+    @Step
+    public void pressRemove() {
+        testTypePage.clickOnRemoveButton();
+    }
+
+    @Step
+    public void checkDefectRemovalPopUp() {
+        assertThat(testTypePage.isDefectRemovalPopUpVisible()).isTrue();
+    }
+
+    @Step
+    public void pressRemoveInPopUp() {
+        testTypePage.clickRemoveInPopUp();
+    }
+
+    @Step
+    public void checkDefectRemoved(String defectId) {
+        assertThat(testTypePage.isDefectVisible(defectId)).isFalse();
+    }
+
+    @Step
+    public void pressCancelInPopUp() {
+        testTypePage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void checkDefectIsNotRemoved(String defectId) {
+        assertThat(testTypePage.isDefectVisible(defectId)).isTrue();
     }
 }

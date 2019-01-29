@@ -17,7 +17,7 @@ public class SiteVisitSteps extends ScenarioSteps {
     }
 
     @Step
-    public void waitUntillPageIsLoaded(){
+    public void waitUntilPageIsLoaded(){
         siteVisitPage.waitUntilPageIsLoaded();
     }
 
@@ -27,7 +27,8 @@ public class SiteVisitSteps extends ScenarioSteps {
         assertThat(siteVisitPage.isPageTitleDisplayed()).isTrue();
     }
 
-    public void checkTestStatus() {
-        assertThat(siteVisitPage.isFailStatusDisplayed()).isTrue();
+    @Step
+    public void checkCancelledTestStatus(String cacellationReason) {
+        assertThat(siteVisitPage.isCancelledlStatusDisplayed(cacellationReason)).isTrue();
     }
 }
