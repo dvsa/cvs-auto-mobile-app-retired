@@ -19,10 +19,8 @@ public class TestTypeSearch_CVSB_821 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
-
 
 
     @Title("CVSB-178 - Select a test type category that does not contain other test type categories")

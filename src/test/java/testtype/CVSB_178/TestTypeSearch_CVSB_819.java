@@ -14,7 +14,6 @@ import util.BaseTestClass;
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_819 extends BaseTestClass {
 
-
     @Steps
     TestTypeSubategoryComp testTypeSubategoryComp;
 
@@ -28,7 +27,6 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
 
-
     @Title("CVSB-178 - Return back to the Test overview screen")
     @Test
     public void testReturnToTestOverviewScreen() {
@@ -40,8 +38,6 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
         testTypeCategorySteps.goBackToTestOverview();
         testSteps.checkTestDetails("BQ91YHQ");
 
-
     }
-
 
 }

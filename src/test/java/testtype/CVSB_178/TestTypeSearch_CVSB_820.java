@@ -19,7 +19,6 @@ public class TestTypeSearch_CVSB_820 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
-
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 

@@ -13,7 +13,6 @@ import util.BaseTestClass;
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_711 extends BaseTestClass {
 
-
     @Steps
     TestSteps testSteps;
 
