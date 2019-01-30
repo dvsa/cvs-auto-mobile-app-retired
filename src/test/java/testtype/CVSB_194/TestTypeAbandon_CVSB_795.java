@@ -41,7 +41,7 @@ public class TestTypeAbandon_CVSB_795 extends BaseTestClass {
     public void testTextBoxForAdditionalComments() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.swipeTestType("annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
                 SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);

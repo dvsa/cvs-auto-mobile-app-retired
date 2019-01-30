@@ -51,6 +51,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void selectAbandonedTest(String testName) {
+        testPage.waitUntilPageIsLoaded();
         testPage.clickOnAbandonedTest(testName);
     }
 
@@ -120,4 +121,7 @@ public class TestSteps extends ScenarioSteps {
     public void pressTestTypeAbandonButton() {
         testPage.pressAbandonButton();
     }
+
+    @Step
+    public void checkPageTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
 }

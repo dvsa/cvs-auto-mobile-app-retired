@@ -39,7 +39,7 @@ public class TestTypeAbandon_CVSB_792 extends BaseTestClass {
     @Test
     public void testReturnBackFromSelectReason() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.swipeTestType("annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSelectReasonPage();
         selectReasonSteps.pressBackButton();
