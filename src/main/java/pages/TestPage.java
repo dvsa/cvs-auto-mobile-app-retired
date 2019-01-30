@@ -13,7 +13,7 @@ public class TestPage extends BasePage {
 
     private static final String SELECT_PREPARER_PAGE_TITLE = "Test";
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type add circle-outline";
-    private static final String PAGE_ALL_BUTTONS_XPATH = "//XCUIElementTypeButton";
+    private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
@@ -23,6 +23,12 @@ public class TestPage extends BasePage {
     private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
     private static final String TITLE_ID = "Remove test";
     private static final String ABANDON_BUTTON_ID = "Abandon";
+
+    private static final String ENTER_TEXT = "Enter";
+    private static final String KM_TEXT = "km";
+    private static final String MI_TEXT = "mi";
+
+    public enum OdometerUnitIndicatives { ENTER, KM, MI }
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
@@ -55,7 +61,7 @@ public class TestPage extends BasePage {
     }
 
     public List<String> findAllTestTypesFromListByXpath() {
-        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTONS_XPATH);
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTONS_CLASS_NAME);
         List<String> listOfButtons = new ArrayList<>();
         for (WebElement webElement : webElementList) {
             listOfButtons.add(webElement.getAttribute("name"));
@@ -148,5 +154,45 @@ public class TestPage extends BasePage {
         findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).click();
     }
 
+    public void clickOdometerReading() {
+        waitUntilPageIsLoaded();
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        for (WebElement button : buttonList) {
+            if (button.getAttribute("name").contains("Odometer reading")) {
+                button.click();
+                break;
+            }
+        }
+    }
+
+    public boolean isOdometerButtonIndicativeDisplayed(OdometerUnitIndicatives odometerUnitIndicatives) {
+        boolean status = false;
+        switch (odometerUnitIndicatives) {
+            case ENTER:
+                status = findElementById("Odometer reading " + ENTER_TEXT + " arrow forward").isDisplayed();
+                break;
+            case KM:
+                status = findElementById("Odometer reading " + getOdometerValue() + " " + KM_TEXT + " checkmark").isDisplayed();
+                break;
+            case MI:
+                status = findElementById("Odometer reading " + getOdometerValue() + " " + MI_TEXT + " checkmark").isDisplayed();
+                break;
+        }
+        return status;
+    }
+
+    public String getOdometerValue() {
+        String value = "";
+        waitUntilPageIsLoaded();
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        for (WebElement button : buttonList) {
+            if (button.getAttribute("name").contains("Odometer reading")) {
+                String[] stringArray = button.getAttribute("name").split(" ");
+                value = stringArray[2];
+                break;
+            }
+        }
+        return value;
+    }
 }
 

@@ -5,13 +5,13 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pages.TestPage;
+import steps.OdometerReadingSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class OdometerReading_CVSB_1173 extends BaseTestClass {
+public class OdometerReading_CVSB_1179 extends BaseTestClass {
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -19,14 +19,17 @@ public class OdometerReading_CVSB_1173 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
+    @Steps
+    OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1173 - AC1 - Record fields on test overview screen")
+    @Title("CVSB-1179 - AC6 - Edit odometer reading unit ")
     @Test
-    public void testRecordFieldsOnTestOverviewScreen() {
+    public void testEditOdometerReadingUnit() {
         testTypeCategoryComp.goToTestPage();
         testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.ENTER);
-
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.pressEditUnit();
+        odometerReadingSteps.checkUnitOptions();
     }
 
 }

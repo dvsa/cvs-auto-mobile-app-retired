@@ -124,4 +124,19 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkPageTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
+
+    @Step
+    public void selectOdometerReading() {
+        testPage.clickOdometerReading();
+    }
+
+    @Step
+    public void checkOdometerReadingButton(TestPage.OdometerUnitIndicatives odometerUnitIndicatives) {
+        assertThat(testPage.isOdometerButtonIndicativeDisplayed(odometerUnitIndicatives)).isTrue();
+    }
+
+    @Step
+    public void checkOdometerReadingValue(String value) {
+        assertThat(testPage.getOdometerValue().equals(value)).isTrue();
+    }
 }
