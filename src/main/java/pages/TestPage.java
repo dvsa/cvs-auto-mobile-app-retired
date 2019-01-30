@@ -174,15 +174,12 @@ public class TestPage extends BasePage {
     }
 
     public boolean isOdometerButtonIndicativeDisplayed(OdometerUnitIndicatives odometerUnitIndicatives) {
-        boolean status = false;
+        boolean status;
         switch (odometerUnitIndicatives) {
             case ENTER:
                 status = findElementById("Odometer reading " + odometerUnitIndicatives.getValue() + " arrow forward").isDisplayed();
                 break;
-            case KM:
-                status = findElementById("Odometer reading " + getOdometerValue() + " " + odometerUnitIndicatives.getValue() + " checkmark").isDisplayed();
-                break;
-            case MI:
+            default:
                 status = findElementById("Odometer reading " + getOdometerValue() + " " + odometerUnitIndicatives.getValue() + " checkmark").isDisplayed();
                 break;
         }

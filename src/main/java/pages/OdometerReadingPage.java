@@ -44,60 +44,21 @@ public class OdometerReadingPage extends BasePage {
 
 
     public boolean isUnitDisplayed(UnitOptions unitOptions) {
-        boolean status = false;
-        switch (unitOptions) {
-            case KILOMETRES:
-                status = findElementById(unitOptions.getValue() + " Edit").isDisplayed();
-                break;
-            case MILES:
-                status = findElementById(unitOptions.getValue() + " Edit").isDisplayed();
-                break;
-        }
-        return status;
+        return findElementById(unitOptions.getValue() + " Edit").isDisplayed();
     }
 
     public boolean isOptionDisplayed(UnitOptions unitOptions) {
-        boolean status = false;
-        switch (unitOptions) {
-            case MILES:
-                status = findElementById(unitOptions.getValue()).isDisplayed();
-                break;
-            case KILOMETRES:
-                status = findElementById(unitOptions.getValue()).isDisplayed();
-                break;
-            case CANCEL:
-                status = findElementById(unitOptions.getValue()).isDisplayed();
-                break;
-        }
-        return status;
+        return findElementById(unitOptions.getValue()).isDisplayed();
+
     }
 
 
     public String getExpectedUnit(Units unit) {
-        String expectedUnit = "";
-        switch (unit) {
-            case KILOMETRES:
-                expectedUnit = unit.getValue();
-                break;
-            case MILES:
-                expectedUnit = unit.getValue();
-                break;
-        }
-        return expectedUnit;
+        return unit.getValue();
     }
 
     public void clickUnitOption(UnitOptions unitOptions) {
-        switch (unitOptions) {
-            case MILES:
                 findElementById(unitOptions.getValue()).click();
-                break;
-            case KILOMETRES:
-                findElementById(unitOptions.getValue()).click();
-                break;
-            case CANCEL:
-                findElementById(unitOptions.getValue()).click();
-                break;
-        }
     }
 
     public String getActualUnit() {
