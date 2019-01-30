@@ -31,7 +31,7 @@ public class TestTypeSearch_CVSB_820 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("paid");
         testTypeSubcategorySteps.seeInTestTypeList("any psv", "class 6a (seatbelt installation check)");
         testTypeSubcategorySteps.selectFromTestTypeList("class 6a (seatbelt installation check)");
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.checkSelectedTestTypes("class 6a (seatbelt installation check) In progress arrow forward");
 
     }

@@ -36,7 +36,7 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
         testTypeCategorySteps.checkInTestTypeList("class 6a (seatbelt installation check)", "annual test", "retest",
                 "prohibition clearence", "technical test", "voluntary test");
         testTypeCategorySteps.goBackToTestOverview();
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
 
     }
 
