@@ -26,7 +26,7 @@ public class OdometerReading_CVSB_1177 extends BaseTestClass {
     @Test
     public void testCancelTypeInOdometerReadingValue() {
         testTypeCategoryComp.goToTestPage();
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345678");
         // TODO refactor/continue after ios keyboard fix

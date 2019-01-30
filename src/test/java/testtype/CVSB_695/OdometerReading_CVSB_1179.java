@@ -26,7 +26,6 @@ public class OdometerReading_CVSB_1179 extends BaseTestClass {
     @Test
     public void testEditOdometerReadingUnit() {
         testTypeCategoryComp.goToTestPage();
-        testSteps.checkTestDetails("BQ91YHQ");
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.checkUnitOptions();

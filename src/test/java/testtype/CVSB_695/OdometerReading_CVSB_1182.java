@@ -27,7 +27,6 @@ public class OdometerReading_CVSB_1182 extends BaseTestClass {
     @Test
     public void testCancelPickingUpUnit() {
         testTypeCategoryComp.goToTestPage();
-        testSteps.checkTestDetails("BQ91YHQ");
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.CANCEL);
