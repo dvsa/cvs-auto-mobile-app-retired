@@ -1,7 +1,5 @@
 package pages;
 
-
-import org.assertj.core.api.IndexedObjectEnumerableAssert;
 import org.openqa.selenium.WebElement;
 
 public class CancelTestPage extends BasePage {
@@ -51,8 +49,9 @@ public class CancelTestPage extends BasePage {
         WebElement title = null;
         try {
             title = findElementById(NO_REASON_POP_UP_TITLE_ID);
-            } catch (Exception e) {
-            }
+        } catch (Exception e) {
+            System.out.println("The element with the id" + NO_REASON_POP_UP_TITLE_ID + "was not found!");
+        }
         if (title != null) {
             return title.isDisplayed();
         } else
@@ -64,6 +63,7 @@ public class CancelTestPage extends BasePage {
         try {
             text = findElementById(NO_REASON_POP_UP_TEXT_ID);
         } catch (Exception e) {
+            System.out.println("The element with the id" + NO_REASON_POP_UP_TEXT_ID + "was not found!");
         }
         if (text != null) {
             return text.isDisplayed();
@@ -76,6 +76,7 @@ public class CancelTestPage extends BasePage {
         try {
             button = findElementById(NO_REASON_POP_UP_OK_ID);
         } catch (Exception e) {
+            System.out.println("The element with the id" + NO_REASON_POP_UP_OK_ID + "was not found!");
         }
         if (button != null) {
             return button.isDisplayed();
@@ -96,7 +97,7 @@ public class CancelTestPage extends BasePage {
         findElementById(REASON_INPUT_TITLE_ID).click();
     }
 
-        public String getReasonTextFromInput() {
+    public String getReasonTextFromInput() {
         return findElementByXpath(REASON_TEXT_INPUT_XPATH).getAttribute("value");
     }
 
