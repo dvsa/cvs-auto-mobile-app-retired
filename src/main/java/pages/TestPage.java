@@ -24,11 +24,19 @@ public class TestPage extends BasePage {
     private static final String TITLE_ID = "Remove test";
     private static final String ABANDON_BUTTON_ID = "Abandon";
 
-    private static final String ENTER_TEXT = "Enter";
-    private static final String KM_TEXT = "km";
-    private static final String MI_TEXT = "mi";
+    public enum OdometerUnitIndicatives {
+        ENTER("Enter"), KM("km"), MI("mi");
 
-    public enum OdometerUnitIndicatives { ENTER, KM, MI }
+        private String value;
+
+        OdometerUnitIndicatives(String _value) {
+            this.value = _value;
+        }
+
+        public String getValue() {
+            return this.value;
+        }
+    }
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
@@ -169,13 +177,13 @@ public class TestPage extends BasePage {
         boolean status = false;
         switch (odometerUnitIndicatives) {
             case ENTER:
-                status = findElementById("Odometer reading " + ENTER_TEXT + " arrow forward").isDisplayed();
+                status = findElementById("Odometer reading " + odometerUnitIndicatives.getValue() + " arrow forward").isDisplayed();
                 break;
             case KM:
-                status = findElementById("Odometer reading " + getOdometerValue() + " " + KM_TEXT + " checkmark").isDisplayed();
+                status = findElementById("Odometer reading " + getOdometerValue() + " " + odometerUnitIndicatives.getValue() + " checkmark").isDisplayed();
                 break;
             case MI:
-                status = findElementById("Odometer reading " + getOdometerValue() + " " + MI_TEXT + " checkmark").isDisplayed();
+                status = findElementById("Odometer reading " + getOdometerValue() + " " + odometerUnitIndicatives.getValue() + " checkmark").isDisplayed();
                 break;
         }
         return status;

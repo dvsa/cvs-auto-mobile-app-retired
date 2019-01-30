@@ -42,9 +42,9 @@ public class OdometerReadingSteps extends ScenarioSteps {
 
     @Step
     public void checkUnitOptions() {
-        assertThat(odometerReadingPage.isKilometresOptionDisplayed()).isTrue();
-        assertThat(odometerReadingPage.isMilesOptionDisplayed()).isTrue();
-        assertThat(odometerReadingPage.isCancelOptionDisplayed()).isTrue();
+        assertThat(odometerReadingPage.isOptionDisplayed(OdometerReadingPage.UnitOptions.KILOMETRES)).isTrue();
+        assertThat(odometerReadingPage.isOptionDisplayed(OdometerReadingPage.UnitOptions.MILES)).isTrue();
+        assertThat(odometerReadingPage.isOptionDisplayed(OdometerReadingPage.UnitOptions.CANCEL)).isTrue();
     }
 
     @Step

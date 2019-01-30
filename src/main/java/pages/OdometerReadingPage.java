@@ -13,39 +13,63 @@ public class OdometerReadingPage extends BasePage {
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
 
     private static final String SAVE_BUTTON_ID = "Save";
-    private static final String KILOMETRES_OPTION_ID = "Kilometres";
-    private static final String MILES_OPTION_ID = "Miles";
-    private static final String CANCEL_OPTION_ID = "Cancel";
+
+    public enum Units {
+        KILOMETRES("Kilometres"), MILES("Miles");
+
+        private String value;
+
+        Units(String _value) {
+            this.value = _value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+    }
+    public enum UnitOptions {
+        KILOMETRES("Kilometres"), MILES("Miles"), CANCEL("Cancel");
+
+        private String value;
+
+        UnitOptions(String _value) {
+            this.value = _value;
+        }
+
+        public String getValue() {
+            return this.value;
+        }
+    }
 
 
     public boolean isUnitDisplayed(UnitOptions unitOptions) {
         boolean status = false;
         switch (unitOptions) {
             case KILOMETRES:
-                status = findElementById(getActualUnit() + " Edit").isDisplayed();
+                status = findElementById(unitOptions.getValue() + " Edit").isDisplayed();
                 break;
             case MILES:
-                status = findElementById(getActualUnit() + " Edit").isDisplayed();
+                status = findElementById(unitOptions.getValue() + " Edit").isDisplayed();
                 break;
         }
         return status;
     }
 
-    public enum Units { KILOMETRES, MILES }
-    public enum UnitOptions { KILOMETRES, MILES, CANCEL }
-
-
-    public boolean isKilometresOptionDisplayed() {
-        return findElementById(KILOMETRES_OPTION_ID).isDisplayed();
-    }
-
-    public boolean isMilesOptionDisplayed() {
-        return findElementById(MILES_OPTION_ID).isDisplayed();
-    }
-
-
-    public boolean isCancelOptionDisplayed() {
-        return findElementById(CANCEL_OPTION_ID).isDisplayed();
+    public boolean isOptionDisplayed(UnitOptions unitOptions) {
+        boolean status = false;
+        switch (unitOptions) {
+            case MILES:
+                status = findElementById(unitOptions.getValue()).isDisplayed();
+                break;
+            case KILOMETRES:
+                status = findElementById(unitOptions.getValue()).isDisplayed();
+                break;
+            case CANCEL:
+                status = findElementById(unitOptions.getValue()).isDisplayed();
+                break;
+        }
+        return status;
     }
 
 
@@ -53,10 +77,10 @@ public class OdometerReadingPage extends BasePage {
         String expectedUnit = "";
         switch (unit) {
             case KILOMETRES:
-                expectedUnit = "Kilometres";
+                expectedUnit = unit.getValue();
                 break;
             case MILES:
-                expectedUnit = "Miles";
+                expectedUnit = unit.getValue();
                 break;
         }
         return expectedUnit;
@@ -65,13 +89,13 @@ public class OdometerReadingPage extends BasePage {
     public void clickUnitOption(UnitOptions unitOptions) {
         switch (unitOptions) {
             case MILES:
-                findElementById(MILES_OPTION_ID).click();
+                findElementById(unitOptions.getValue()).click();
                 break;
             case KILOMETRES:
-                findElementById(KILOMETRES_OPTION_ID).click();
+                findElementById(unitOptions.getValue()).click();
                 break;
             case CANCEL:
-                findElementById(CANCEL_OPTION_ID).click();
+                findElementById(unitOptions.getValue()).click();
                 break;
         }
     }
