@@ -17,6 +17,7 @@ public class TestPage extends BasePage {
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
+    private static final String CANCEL_BUTTON_BOTTOM_RIGHT = "Cancel";
 
     private static final String CANCEL_ID = "Cancel";
     private static final String REMOVE_ID = "Remove";
@@ -47,25 +48,15 @@ public class TestPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        boolean status = false;
-        if (findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed();
     }
 
-    public boolean isVehicleRegistrationPlateDisplayed(String regPlate) {
-        boolean status = false;
-        if (findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) 1B7GG36N12S678410 Details arrow forward']").isDisplayed()) {
-            status = true;
-        }
-        return status;
+    public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {
-        boolean status = false;
-        if (findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed();
     }
 
     public List<String> findAllTestTypesFromListByXpath() {
@@ -80,7 +71,6 @@ public class TestPage extends BasePage {
 
     public int checkDataByLabelValueAndName(String... values) {
         return findAllDataByComposedXpath(values).size();
-
     }
 
     public void clickOnNotCompleteTest(String testName) {
@@ -88,14 +78,11 @@ public class TestPage extends BasePage {
     }
 
     public void clickOnAbandonedTest(String testName) {
-         findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
     }
 
     public boolean isSubmitButtonAvailable() {
-        boolean status = false;
-        if (findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).isDisplayed();
     }
 
     //TODO create generic swipe action in BasePage
@@ -106,14 +93,10 @@ public class TestPage extends BasePage {
         params.put("direction", "left");
         params.put("element", ((RemoteWebElement) testTypeToSwipe).getId());
         js.executeScript("mobile: swipe", params);
-
     }
 
     public boolean isRemoveButtonDisplayed() {
-        boolean status = false;
-        if (findElementById(REMOVE_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(REMOVE_BUTTON_ID).isDisplayed();
     }
 
     public void clickOnRedRemoveButton() {
@@ -121,7 +104,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isRemovePopUpDisplayed() {
-        boolean status = false ;
+        boolean status = false;
         WebElement cancelButton = findElementById(CANCEL_ID);
         WebElement removeButton = findElementById(REMOVE_ID);
         WebElement description = findElementById(DESCRIPTION_ID);
@@ -140,11 +123,12 @@ public class TestPage extends BasePage {
         findElementById(CANCEL_ID).click();
     }
 
+    public void clickCancelFromBottomRight() {
+        findElementById(CANCEL_BUTTON_BOTTOM_RIGHT).click();
+    }
+
     public boolean isAbandonButtonDisplayed() {
-        boolean status = false;
-        if (findElementById(ABANDON_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(ABANDON_BUTTON_ID).isDisplayed();
     }
 
     public void pressAbandonButton() {
@@ -152,10 +136,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isAddALinkedTestVisible() {
-        boolean status = false;
-        if (findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).isDisplayed();
     }
 
     public void addALinkedTestType() {

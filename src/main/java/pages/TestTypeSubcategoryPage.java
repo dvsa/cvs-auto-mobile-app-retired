@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestTypeSubcategoryPage extends BasePage {
-    private static final String TEST_TYPE_PAGE_TITLE = "Test";
+    private static final String TEST_TYPE_PAGE_TITLE = "Test type";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
+    private static final String BACK_BUTTON_ID = "arrow back Back";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_TYPE_PAGE_TITLE);
@@ -42,4 +43,7 @@ public class TestTypeSubcategoryPage extends BasePage {
     }
 
 
+    public void selectBack() {
+        findElementById(BACK_BUTTON_ID).click();
+    }
 }

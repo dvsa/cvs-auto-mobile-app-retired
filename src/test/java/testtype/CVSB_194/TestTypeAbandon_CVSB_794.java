@@ -39,7 +39,7 @@ public class TestTypeAbandon_CVSB_794 extends BaseTestClass {
     @Test
     public void testReasonSelectionToAbandonList() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.swipeTestType("annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSelectReasonPage();
