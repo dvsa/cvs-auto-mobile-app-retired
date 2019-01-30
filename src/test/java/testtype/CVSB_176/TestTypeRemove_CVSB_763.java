@@ -27,7 +27,7 @@ public class TestTypeRemove_CVSB_763 extends BaseTestClass {
         testSteps.pressTestTypeRemoveButton();
         testSteps.checkTestTypeRemovalPopUp();
         testSteps.pressCancelInPopUp();
-        testSteps.checkTestDetails("BQ91YHQ");
+        testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
         testSteps.checkSelectedTestTypes("ANNUAL TEST In progress arrow forward");
 
     }
