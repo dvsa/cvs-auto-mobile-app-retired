@@ -24,7 +24,7 @@ public class OdometerReading_CVSB_1183 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1183 - AC10 - Save odometer reading - no fields completed")
+    @Title("CVSB-695 - AC10 - Save odometer reading - no fields completed")
     @Test
     public void testSaveOdometerReadingNoFields() {
         testTypeCategoryComp.goToTestPage();

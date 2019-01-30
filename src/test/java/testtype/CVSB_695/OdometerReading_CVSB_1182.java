@@ -23,7 +23,7 @@ public class OdometerReading_CVSB_1182 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1182 - AC9 - Cancel picking up unit")
+    @Title("CVSB-695 - AC9 - Cancel picking up unit")
     @Test
     public void testCancelPickingUpUnit() {
         testTypeCategoryComp.goToTestPage();

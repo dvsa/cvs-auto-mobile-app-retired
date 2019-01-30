@@ -22,7 +22,7 @@ public class OdometerReading_CVSB_1179 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1179 - AC6 - Edit odometer reading unit ")
+    @Title("CVSB-695 - AC6 - Edit odometer reading unit ")
     @Test
     public void testEditOdometerReadingUnit() {
         testTypeCategoryComp.goToTestPage();

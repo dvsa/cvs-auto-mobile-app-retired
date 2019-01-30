@@ -24,7 +24,7 @@ public class OdometerReading_CVSB_1185 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1185 - AC10/11 - Edit odometer reading after saving")
+    @Title("CVSB-695 - AC10/11 - Edit odometer reading after saving")
     @Test
     public void testEditAfterSaving() {
         testTypeCategoryComp.goToTestPage();

@@ -12,8 +12,6 @@ public class OdometerReadingPage extends BasePage {
     private static final String READING_FIELD_CLASS_NAME = "XCUIElementTypeTextField";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
 
-    private static final String KILOMETRES_TEXT = "Kilometres";
-    private static final String MILES_TEXT = "Miles";
     private static final String SAVE_BUTTON_ID = "Save";
     private static final String KILOMETRES_OPTION_ID = "Kilometres";
     private static final String MILES_OPTION_ID = "Miles";
@@ -24,10 +22,10 @@ public class OdometerReadingPage extends BasePage {
         boolean status = false;
         switch (unitOptions) {
             case KILOMETRES:
-                status = findElementById(KILOMETRES_TEXT + " Edit").isDisplayed();
+                status = findElementById(getActualUnit() + " Edit").isDisplayed();
                 break;
             case MILES:
-                status = findElementById(MILES_TEXT + " Edit").isDisplayed();
+                status = findElementById(getActualUnit() + " Edit").isDisplayed();
                 break;
         }
         return status;
@@ -55,10 +53,10 @@ public class OdometerReadingPage extends BasePage {
         String expectedUnit = "";
         switch (unit) {
             case KILOMETRES:
-                expectedUnit = KILOMETRES_TEXT;
+                expectedUnit = "Kilometres";
                 break;
             case MILES:
-                expectedUnit = MILES_TEXT;
+                expectedUnit = "Miles";
                 break;
         }
         return expectedUnit;

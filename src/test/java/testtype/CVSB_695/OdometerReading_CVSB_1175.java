@@ -23,7 +23,7 @@ public class OdometerReading_CVSB_1175 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1175 - AC3 - Enter odometer reading value")
+    @Title("CVSB-695 - AC3 - Enter odometer reading value")
     @Test
     public void testEnterOdometerReadingValue() {
         testTypeCategoryComp.goToTestPage();

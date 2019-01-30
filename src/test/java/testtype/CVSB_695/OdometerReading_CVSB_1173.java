@@ -20,7 +20,7 @@ public class OdometerReading_CVSB_1173 extends BaseTestClass {
     TestSteps testSteps;
 
 
-    @Title("CVSB-1173 - AC1 - Record fields on test overview screen")
+    @Title("CVSB-695 - AC1 - Record fields on test overview screen")
     @Test
     public void testRecordFieldsOnTestOverviewScreen() {
         testTypeCategoryComp.goToTestPage();

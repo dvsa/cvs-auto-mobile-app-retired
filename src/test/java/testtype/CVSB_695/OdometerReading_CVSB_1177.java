@@ -22,7 +22,7 @@ public class OdometerReading_CVSB_1177 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1177 - AC5 - Cancel type in odometer reading value")
+    @Title("CVSB-695 - AC5 - Cancel type in odometer reading value")
     @Test
     public void testCancelTypeInOdometerReadingValue() {
         testTypeCategoryComp.goToTestPage();

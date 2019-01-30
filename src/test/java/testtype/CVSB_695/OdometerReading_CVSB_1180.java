@@ -23,7 +23,7 @@ public class OdometerReading_CVSB_1180 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1180 - AC7 - Select a picker option ")
+    @Title("CVSB-695 - AC7 - Select a picker option ")
     @Test
     public void testSelectPickerOption() {
         testTypeCategoryComp.goToTestPage();

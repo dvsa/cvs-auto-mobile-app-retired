@@ -23,7 +23,7 @@ public class OdometerReading_CVSB_1174 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1174 - AC2 - Access odometer reading fields")
+    @Title("CVSB-695 - AC2 - Access odometer reading fields")
     @Test
     public void testOdometerReadingFields() {
         testTypeCategoryComp.goToTestPage();

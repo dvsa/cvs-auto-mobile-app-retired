@@ -22,7 +22,7 @@ public class OdometerReading_CVSB_1176 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-1176 - AC4 - Record odometer reading value")
+    @Title("CVSB-695 - AC4 - Record odometer reading value")
     @Test
     public void testRecordOdometerReadingValue() {
         testTypeCategoryComp.goToTestPage();
