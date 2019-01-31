@@ -30,11 +30,7 @@ public class DefectSearch_CVSB_653 extends BaseTestClass {
     @Steps
     DefectItemLevelThreeSteps defectItemLevelThreeSteps;
 
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-
-    @Title("CVSB-112 - AC5 Test returning to search results")
+    @Title("CVSB-112 - AC6 Test returning from search results")
     @Test
     public void defectGoBackFromFirstLevelToMain() {
         testTypeCategoryComp.completeAddTestType();
