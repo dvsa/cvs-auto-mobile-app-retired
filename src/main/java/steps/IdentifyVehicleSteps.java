@@ -41,11 +41,28 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     @Step
     public void checkVehicleNotFoundPopUp() {
+        identifyVehiclePage.waitUntilPageIsLoaded();
         assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isTrue();
     }
 
     @Step
     public void pressOkInPopUp() {
         identifyVehiclePage.clickOkInPopUp();
+        identifyVehiclePage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void checkSearchBoxIsUnique() {
+        assertThat(identifyVehiclePage.isSearchFieldUnique()).isTrue();
+    }
+
+    @Step
+    public void checkLoadingScreen() {
+        assertThat(identifyVehiclePage.isLoadingScreenDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkVehicleNotFoundPopUpDismissed() {
+        assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isFalse();
     }
 }
