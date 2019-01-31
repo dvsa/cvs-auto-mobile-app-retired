@@ -3,6 +3,7 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.IdentifyVehiclePage;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class IdentifyVehicleSteps extends ScenarioSteps {
 
@@ -16,9 +17,35 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
+    public void typeInSearchField(String registrationOrVIM) {
+        identifyVehiclePage.waitUntilPageIsLoaded();
+        identifyVehiclePage.searchForVehicle(registrationOrVIM);
+    }
+
+    @Step
     public void clickCancel() {
         identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.tapCancel();
     }
 
+    @Step
+    public void checkSearchBoxAndText(String text) {
+        assertThat(identifyVehiclePage.isSearchFieldDisplayed()).isTrue();
+        assertThat(identifyVehiclePage.getSearchFieldText()).contains(text);
+    }
+
+    @Step
+    public void pressSearch() {
+        identifyVehiclePage.clickSearch();
+    }
+
+    @Step
+    public void checkVehicleNotFoundPopUp() {
+        assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressOkInPopUp() {
+        identifyVehiclePage.clickOkInPopUp();
+    }
 }

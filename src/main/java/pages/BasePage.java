@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class BasePage extends PageObject {
 
 
-    protected WebElement findElementByAccessibilityIdId(String idOrName) {
+    protected WebElement findElementByAccessibilityId(String idOrName) {
         return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
     }
 
@@ -141,6 +141,18 @@ public class BasePage extends PageObject {
 
     public void clickSearch() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
+    }
+
+    public boolean isFieldEditableById(String id) {
+        String text = "Te";
+        boolean status = true;
+        WebElement element = findElementByAccessibilityId(id);
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            status = false;
+        }
+        return status;
     }
 
 

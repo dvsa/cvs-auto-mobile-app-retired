@@ -55,7 +55,7 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public void clickOnAtf(String atfName) {
-        findElementByAccessibilityIdId(atfName).click();
+        findElementByAccessibilityId(atfName).click();
     }
 
     public void swipeDown() {
@@ -63,11 +63,11 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementByAccessibilityIdId(element).isDisplayed();
+        return findElementByAccessibilityId(element).isDisplayed();
     }
 
     public int getYPositionForElement(String element) {
-        return findElementByAccessibilityIdId(element).getLocation().getY();
+        return findElementByAccessibilityId(element).getLocation().getY();
     }
 
     public boolean elementInSearchIsPresent(String data) {
