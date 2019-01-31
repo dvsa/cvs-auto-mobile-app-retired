@@ -44,5 +44,4 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
         recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
 
     }
-
 }

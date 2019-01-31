@@ -57,12 +57,6 @@ public class LoaderlLocalRealDeviceImpl implements Loader {
         cap.setCapability("platformName", getPlatformName());
         cap.setCapability("bundleId", getBundleId());
         cap.setCapability("udid", getUdid());
-        cap.setCapability("noReset", "true");
-        cap.setCapability("fullReset", "false");
-//        cap.setCapability(MobileCapabilityType.FULL_RESET, true);
-
-//        cap.setCapability("waitForQuiescence", "true");
-
 
         cap.setCapability("automationName", "XCUITest");
 

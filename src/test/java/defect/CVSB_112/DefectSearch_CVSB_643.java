@@ -31,9 +31,9 @@ public class DefectSearch_CVSB_643 extends BaseTestClass {
     DefectItemSteps defectItemSteps;
 
 
-    @Title("CVSB-112 TCA - AC2 Test cancel adding a level 2 item")
+    @Title("CVSB-112 - AC2 Test cancel adding a level 2 item")
     @Test
-    public void defectGoBackFromFirstLevelToMain() {
+    public void cancelAddingALevelTwoDefect() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectNotCompleteTest("annual test");
         testTypeSteps.selectAddDefect("annual test");

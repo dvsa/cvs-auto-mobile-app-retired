@@ -18,7 +18,7 @@ public class MainPageError_CVSB_1398 extends BaseTestClass {
     ErrorSteps errorSteps;
 
 
-    @Title("CVSB-165 - ")
+    @Title("CVSB-165 - Loading icon and error prompt")
     @Test
     public void testNoSearchResults() {
         launchSteps.waitUntilPageIsLoaded();

@@ -31,13 +31,11 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
     @Steps
     DefectItemLevelThreeSteps defectItemLevelThreeSteps;
 
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
 
     @Title("CVSB-112 - AC4  Negative result for searching with the search bar (no results)")
     @Test
-    public void defectGoBackFromFirstLevelToMain() {
+    public void checkNoResultsAllLevels() {
+
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectNotCompleteTest("annual test");
         testTypeSteps.selectAddDefect("annual test");

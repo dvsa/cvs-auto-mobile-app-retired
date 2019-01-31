@@ -32,7 +32,8 @@ public class DefectSearch_CVSB_653 extends BaseTestClass {
 
     @Title("CVSB-112 - AC6 Test returning from search results")
     @Test
-    public void defectGoBackFromFirstLevelToMain() {
+    public void testReturningFromSearchResults() {
+
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectNotCompleteTest("annual test");
         testTypeSteps.selectAddDefect("annual test");

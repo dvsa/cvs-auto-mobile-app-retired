@@ -35,9 +35,9 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
 
-    @Title("CVSB-112 - AC5 Test returning to search results")
+    @Title("CVSB-112 - AC4 non-alphanumeric search in Level 1 defect category search bar")
     @Test
-    public void defectGoBackFromFirstLevelToMain() {
+    public void searchForNonAlphanumericDefect() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectNotCompleteTest("annual test");
         testTypeSteps.selectAddDefect("annual test");

@@ -37,7 +37,7 @@ public class DefectSearch_CVSB_646 extends BaseTestClass {
 
     @Title("CVSB-112 - AC4 Search with the search bar")
     @Test
-    public void defectGoBackFromFirstLevelToMain() {
+    public void searchDefectUsingSearchBar() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectNotCompleteTest("annual test");
         testTypeSteps.selectAddDefect("annual test");

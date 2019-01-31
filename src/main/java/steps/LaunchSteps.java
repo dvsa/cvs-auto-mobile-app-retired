@@ -28,7 +28,7 @@ public class LaunchSteps extends ScenarioSteps {
 
     @Step
     public void resetAppAndWaitUntillPageIsLoaded() {
-//        launchPage.resetAppAndWaitUntillPageIsLoaded();
+//        TODO: this will need to be continued once services are down and automation can be written
     }
 
     @Step
