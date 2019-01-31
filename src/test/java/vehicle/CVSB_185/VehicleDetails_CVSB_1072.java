@@ -27,13 +27,12 @@ public class VehicleDetails_CVSB_1072 extends BaseTestClass {
     @Test
     public void testSearchWithoutInput() {
         vehicleComp.goToIdentifyVehicle();
-        // TODO uncomment after bug fix
-//        identifyVehicleSteps.pressSearch();
-//        identifyVehicleSteps.checkVehicleNotFoundPopUp();
-//        identifyVehicleSteps.pressOkInPopUp();
+        identifyVehicleSteps.pressSearch();
+        identifyVehicleSteps.checkVehicleNotFoundPopUp();
+        identifyVehicleSteps.pressOkInPopUp();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.checkDetailPageData("1B7GG36N12S678410","Zentix", "non"
-                ,"Unisure","do","other","3225",
-                "01/07/2006","43","o" );
+                 ,"Unisure","do","other","3225",
+                 "01/07/2006","43","o" );
     }
 }
