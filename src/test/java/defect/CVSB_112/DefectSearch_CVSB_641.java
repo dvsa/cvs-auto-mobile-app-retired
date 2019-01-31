@@ -35,11 +35,11 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     @Test
     public void defectGoBackFromFirstLevelToMain() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("ANNUAL TEST");
-        testTypeSteps.selectAddDefect("ANNUAL TEST");
+        testSteps.selectNotCompleteTest("annual test");
+        testTypeSteps.selectAddDefect("annual test");
         recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
         recordDefectSteps.clickBack();
-        testTypeSteps.checkTestWasNotAdded("ANNUAL TEST", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate");
+        testTypeSteps.checkTestWasNotAdded("annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate");
 
     }
 

@@ -20,6 +20,8 @@ public class LaunchPage extends BasePage {
             TestHandler.getInitializedStatus().set(true);
 
         } else {
+//            ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
+//            ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
             shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID).click();
         }
 

@@ -65,4 +65,9 @@ public class DefectItemLevelThreeSteps extends ScenarioSteps {
         List<String> actualData = defectItemLevelThreePage.findAllLabelsByClassName();
         assertThat(actualData).contains("No results found", "Try searching for a different term or", "picking from the list");
     }
+
+    @Step
+    public void clearSearch() {
+        defectItemLevelThreePage.clearSearch();
+    }
 }

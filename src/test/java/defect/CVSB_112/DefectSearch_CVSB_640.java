@@ -35,8 +35,8 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
     @Test
     public void defectGoBackFromSecondLevelToFirstLevel() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("ANNUAL TEST");
-        testTypeSteps.selectAddDefect("ANNUAL TEST");
+        testSteps.selectNotCompleteTest("annual test");
+        testTypeSteps.selectAddDefect("annual test");
         recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
         recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");

@@ -2,9 +2,15 @@ package pages;
 
 import com.gargoylesoftware.htmlunit.html.DomNode;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,5 +64,14 @@ public class DefectItemLevelThreePage extends BasePage {
         }
 
         return listOfData;
+    }
+
+    public void clearSearch() {
+        findElementByClassName(SEARCH_FIELD_CLASS_NAME).clear();
+        new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .press(PointOption.point(findElementByClassName(SEARCH_FIELD_CLASS_NAME).getLocation().getX() - 1, findElementByClassName(SEARCH_FIELD_CLASS_NAME).getLocation().getY() - 1))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(200)))
+                .release()
+                .perform();
     }
 }

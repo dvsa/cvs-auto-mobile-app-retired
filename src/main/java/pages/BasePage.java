@@ -10,6 +10,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -110,10 +111,8 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
-
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-
 
         return getDriver().findElement(locator);
 
@@ -123,15 +122,12 @@ public class BasePage extends PageObject {
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
-
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
-
         getDriver().getPageSource();
         return getDriver().findElement(locator);
-
     }
 
 
@@ -145,8 +141,14 @@ public class BasePage extends PageObject {
     }
 
     public void clickSearch() {
-        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
-
+    protected void tapByCoordinates(int xOffset, int yOffset) {
+        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .press(PointOption.point(500,596))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
+                .release()
+                .perform();
+    }
 }

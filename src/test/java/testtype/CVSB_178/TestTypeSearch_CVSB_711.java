@@ -1,4 +1,4 @@
-package testtype.CVSB_370;
+package testtype.CVSB_178;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -7,12 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
-import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class TestTypeAdd_CVSB_768 extends BaseTestClass {
+public class TestTypeSearch_CVSB_711 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -21,20 +20,18 @@ public class TestTypeAdd_CVSB_768 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
-    TestTypeSubcategorySteps testTypeSubcategorySteps;
-
-    @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
-    @Title("CVSB-370 - Add a test type from the test types list")
+
+    @Title("CVSB-178 - AC1 Test test type drilldown")
     @Test
-    public void testAddTestTypeFromList() {
+    public void testTestTypeDrillDown() {
         testTypeCategoryComp.goToTestPage();
+        testSteps.seeAddATestType();
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("annual test");
-        testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.checkSelectedTestTypes("annual test In progress arrow forward");
+        testTypeCategorySteps.checkInTestTypeList("class 6a (seatbelt installation check)", "annual test", "retest",
+                "prohibition clearence", "technical test", "voluntary test");
+        testTypeCategorySteps.checkTestTypePage();
+
     }
-
-
 }
