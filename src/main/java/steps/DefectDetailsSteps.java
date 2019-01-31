@@ -78,4 +78,14 @@ public class DefectDetailsSteps extends ScenarioSteps {
         assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(2);
         defectDetailsPage.clickDone();
     }
+
+    @Step
+    public void checkPageIsLoaded() {
+        defectDetailsPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void clickBack() {
+        defectDetailsPage.clickBack();
+    }
 }

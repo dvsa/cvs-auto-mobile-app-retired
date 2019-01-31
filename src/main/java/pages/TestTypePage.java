@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestTypePage extends BasePage {
@@ -39,6 +40,11 @@ public class TestTypePage extends BasePage {
 
     public WebElement checkDefectIsPresent(String defect) {
         return findElementByXpath("//*[contains(@label, '" + defect + "')]");
+    }
+
+
+    public List<WebElement> checkElementIsNotPresent(String item) {
+        return findElementsByXpath("//*[@name='" + item + "']");
     }
 
     public boolean isDefectVisible(String defect) {

@@ -104,4 +104,12 @@ public class TestTypeSteps extends ScenarioSteps {
     public void checkDefectIsNotRemoved(String defectId) {
         assertThat(testTypePage.isDefectVisible(defectId)).isTrue();
     }
+
+    @Step
+    public void checkTestWasNotAdded(String testType, String... defects) {
+            testTypePage.waitUntilPageIsLoaded(testType);
+            for (String defect: defects) {
+                assertThat(testTypePage.checkElementIsNotPresent(defect).isEmpty()).isTrue();
+            }
+    }
 }

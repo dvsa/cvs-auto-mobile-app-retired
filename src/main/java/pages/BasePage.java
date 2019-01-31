@@ -10,6 +10,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -49,6 +50,10 @@ public class BasePage extends PageObject {
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
         return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
+    }
+
+    protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200 );
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
@@ -140,7 +145,7 @@ public class BasePage extends PageObject {
     }
 
     public void clickSearch() {
-        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
     public boolean isFieldEditableById(String id) {
@@ -154,6 +159,5 @@ public class BasePage extends PageObject {
         }
         return status;
     }
-
 
 }

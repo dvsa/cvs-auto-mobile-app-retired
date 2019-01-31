@@ -18,6 +18,7 @@ public class DefectDetailsPage extends BasePage {
     private static final String DONE_BUTTON_ID = "Done";
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
+    private static final String BACK_BUTTON_ID = "arrow back Back";
 
     public WebElement getDefectLabel() {
         return findElementById(DEFECT_ITEM_LABEL_ID);
@@ -109,5 +110,9 @@ public class DefectDetailsPage extends BasePage {
 
     public int checkIfTextIsPresent(String data) {
         return findElementsByXpath("//*[@value='" + data + "']").size();
+    }
+
+    public void clickBack() {
+        findElementByAccessibilityId(BACK_BUTTON_ID).click();
     }
 }
