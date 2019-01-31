@@ -92,4 +92,15 @@ public class VehicleDetailsPage extends BasePage {
         findElementById(IDENTIFY_VEHICLE_BACK).click();
     }
 
+    public void clickExpandableInformation(String info) {
+        waitUntilPageIsLoadedById(info).click();
+    }
+
+    public boolean isFieldValueNull(String value) {
+        boolean status = false;
+        if (findElementByXpath("//*[@value='" + value + "']").getAttribute("value") == null) {
+            status = true;
+        }
+        return status;
+    }
 }

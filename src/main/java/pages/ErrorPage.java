@@ -14,25 +14,25 @@ public class ErrorPage extends BasePage {
 
 
     public WebElement getTitleName() {
-        return findElementByAccessibilityIdId(ERROR_TITLE_NAME);
+        return findElementByAccessibilityId(ERROR_TITLE_NAME);
     }
 
 
     public WebElement getSubTitle() {
-        return findElementByAccessibilityIdId(ERROR_SUB_TITLE_ID);
+        return findElementByAccessibilityId(ERROR_SUB_TITLE_ID);
     }
 
     public WebElement getSettings() {
-        return findElementByAccessibilityIdId(SETTINGS_ID);
+        return findElementByAccessibilityId(SETTINGS_ID);
     }
 
     public WebElement getCallTechSupport() {
-        return findElementByAccessibilityIdId(CALL_TECH_SUPPORT_ID);
+        return findElementByAccessibilityId(CALL_TECH_SUPPORT_ID);
     }
 
 
     public WebElement getTryAgain() {
-        return findElementByAccessibilityIdId(TRY_AGAIN_ID);
+        return findElementByAccessibilityId(TRY_AGAIN_ID);
     }
 
 

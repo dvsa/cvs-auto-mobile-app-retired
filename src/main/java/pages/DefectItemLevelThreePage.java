@@ -36,7 +36,7 @@ public class DefectItemLevelThreePage extends BasePage {
     }
 
     public void clickBack() {
-        findElementByAccessibilityIdId(BACK_BUTTON_ID).click();
+        findElementByAccessibilityId(BACK_BUTTON_ID).click();
     }
 
     public void searchForDefect(String defectName) {
@@ -44,7 +44,7 @@ public class DefectItemLevelThreePage extends BasePage {
     }
 
     public WebElement findItemInList(String itemName) {
-        return findElementByAccessibilityIdId(itemName);
+        return findElementByAccessibilityId(itemName);
     }
 
     public int getElementsNumberFromList(String... values) {
@@ -52,7 +52,7 @@ public class DefectItemLevelThreePage extends BasePage {
     }
 
     public void waitByElement(String element, int expectedResults) {
-        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
 
 

@@ -35,7 +35,7 @@ public class RecordDefectPage extends BasePage {
     }
 
     public void clickBack() {
-        findElementByAccessibilityIdId(BACK_BUTTON_ID).click();
+        findElementByAccessibilityId(BACK_BUTTON_ID).click();
     }
 
     public void searchForDefect(String defectName) {
@@ -43,7 +43,7 @@ public class RecordDefectPage extends BasePage {
     }
 
     public void waitByElement(String element, int expectedResults) {
-        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
 
 

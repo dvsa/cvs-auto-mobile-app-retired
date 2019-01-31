@@ -47,15 +47,15 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public void waitUntilFilterIsCompleted(int labelNumber) {
-        waitUntillNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
+        waitUntilNumberOfElementsToBe(By.className(PAGE_ALL_TEXT_XPATH), labelNumber);
     }
 
     public void waitByElement(String element, int expectedResults) {
-        waitUntillNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(element), expectedResults);
     }
 
     public void clickOnAtf(String atfName) {
-        findElementByAccessibilityIdId(atfName).click();
+        findElementByAccessibilityId(atfName).click();
     }
 
     public void swipeDown() {
@@ -63,11 +63,11 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementByAccessibilityIdId(element).isDisplayed();
+        return findElementByAccessibilityId(element).isDisplayed();
     }
 
     public int getYPositionForElement(String element) {
-        return findElementByAccessibilityIdId(element).getLocation().getY();
+        return findElementByAccessibilityId(element).getLocation().getY();
     }
 
     public boolean elementInSearchIsPresent(String data) {

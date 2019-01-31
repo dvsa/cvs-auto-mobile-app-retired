@@ -113,6 +113,6 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void clickBack() {
-        findElementByAccessibilityIdId(BACK_BUTTON_ID).click();
+        findElementByAccessibilityId(BACK_BUTTON_ID).click();
     }
 }

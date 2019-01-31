@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class BasePage extends PageObject {
 
 
-    protected WebElement findElementByAccessibilityIdId(String idOrName) {
+    protected WebElement findElementByAccessibilityId(String idOrName) {
         return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
     }
 
@@ -32,16 +32,20 @@ public class BasePage extends PageObject {
         return getDriver().findElement(By.id(id));
     }
 
-    protected WebElement findElementByXpath(String xpath) {
-        return getDriver().findElement(By.xpath(xpath));
-    }
-
     protected WebElement findElementByClassName(String className) {
         return getDriver().findElement(By.className(className));
     }
 
+    protected WebElement findElementByXpath(String xpath) {
+        return getDriver().findElement(By.xpath(xpath));
+    }
+
     protected List<WebElement> findElementsByXpath(String xpath) {
         return getDriver().findElements(By.xpath(xpath));
+    }
+
+    protected List<WebElement> findElementsByClassName(String className) {
+        return getDriver().findElements(By.className(className));
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
@@ -66,7 +70,7 @@ public class BasePage extends PageObject {
         return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
 
-    protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
+    protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
         FluentWait wait = globalFluentWait(20, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }
@@ -144,11 +148,16 @@ public class BasePage extends PageObject {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
-    protected void tapByCoordinates(int xOffset, int yOffset) {
-        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
-                .press(PointOption.point(500,596))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-                .release()
-                .perform();
+    public boolean isFieldEditableById(String id) {
+        String text = "Te";
+        boolean status = true;
+        WebElement element = findElementByAccessibilityId(id);
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            status = false;
+        }
+        return status;
     }
+
 }
