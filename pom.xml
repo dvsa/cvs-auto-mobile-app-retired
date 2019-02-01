@@ -183,6 +183,9 @@
                     <includes>
                         <include>**/*.java</include>
                     </includes>
+                    <excludes>
+                        <exclude>**/MainPageError*.java</exclude>
+                    </excludes>
                     <testFailureIgnore>true</testFailureIgnore>
                     <systemPropertyVariables>
                     </systemPropertyVariables>
