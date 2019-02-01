@@ -16,10 +16,10 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     SearchForAnATFPage searchForAnATFPage;
 
     @Step
-    public void checkATFSearchButtonAndList() {
+    public void checkATFSearchButtonAndList(String... idOrLetter) {
         searchForAnATFPage.waitUntilPageIsLoaded();
-        List<String> expectedData = Arrays.asList("Abshire-Kub 09-4129632", "Bergnaum Group 95-1291781", "A");
-        for (String element : expectedData) {
+
+        for (String element : idOrLetter) {
             searchForAnATFPage.elementFromListIsDisplayed(element);
         }
         assertThat(searchForAnATFPage.isSearchFieldPresent()).isTrue();

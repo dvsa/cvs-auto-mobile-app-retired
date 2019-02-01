@@ -23,6 +23,6 @@ public class AtfSelect_CVSB_769 extends BaseTestClass {
     @Test
     public void testAtfListAndSearchOption() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.checkATFSearchButtonAndList();
+        searchForAnATFSteps.checkATFSearchButtonAndList(atfService.getUniqueIdentifier(0), atfService.getUniqueIdentifier(1), atfService.getFirstLetter(2));
     }
 }

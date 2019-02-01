@@ -22,7 +22,9 @@ public class PreparerInformation_CVSB_1137 extends BaseTestClass {
     @Test
     public void selectPreparer() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndCancel("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.selectPreparerAndCancel(
+                preparerService.getPreparerByIndex(0).getPreparerId(),
+                preparerService.getPreparerByIndex(0).getPreparerName());
         selectPreparerSteps.checkPageTitle();
     }
 }

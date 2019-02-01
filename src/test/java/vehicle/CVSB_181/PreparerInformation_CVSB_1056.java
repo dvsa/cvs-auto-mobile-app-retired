@@ -22,7 +22,15 @@ public class PreparerInformation_CVSB_1056 extends BaseTestClass {
     @Test
     public void searchPreparerIdLettersAndNumbers() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.searchForPreparerIdAndCancel("AK", "AK4434", "Durrell Vehicles Limited");
-        selectPreparerSteps.searchForPreparerIdAndCancel("9939", "FQ9939", "Tayside Repairs Ltd");
+        selectPreparerSteps.searchForPreparerIdAndCancel(
+                preparerService.getPreparerByIndex(0).getPreparerId().substring(0, 2),
+                preparerService.getPreparerByIndex(0).getPreparerId(),
+                preparerService.getPreparerByIndex(0).getPreparerName());
+
+        selectPreparerSteps.searchForPreparerIdAndCancel(
+                preparerService.getPreparerByIndex(1).getPreparerId().substring(2),
+                preparerService.getPreparerByIndex(1).getPreparerId(),
+                preparerService.getPreparerByIndex(1).getPreparerName());
+
     }
 }
