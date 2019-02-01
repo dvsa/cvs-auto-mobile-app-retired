@@ -38,4 +38,12 @@ public class VehicleComp extends ScenarioSteps {
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
     }
+
+    @Step
+    public void goToIdentifyVehicle() {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+    }
 }
