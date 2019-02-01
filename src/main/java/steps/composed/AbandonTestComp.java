@@ -9,9 +9,6 @@ import steps.*;
 public class AbandonTestComp extends ScenarioSteps {
 
     @Steps
-    LaunchSteps launchSteps;
-
-    @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
@@ -23,8 +20,8 @@ public class AbandonTestComp extends ScenarioSteps {
     @Step
     public void goToAbandonTestScreen(SelectReasonPage.Reasons... reasons) {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
+        testSteps.swipeTestType("annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(reasons);
         selectReasonSteps.pressNextButton();

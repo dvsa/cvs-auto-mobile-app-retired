@@ -33,4 +33,9 @@ public class TestTypeCategorySteps extends ScenarioSteps {
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
 
     }
+
+    @Step
+    public void goBackToTestOverview() {
+        testTypeCategoryPage.selectBack();
+    }
 }

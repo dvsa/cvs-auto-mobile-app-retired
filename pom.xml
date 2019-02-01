@@ -81,11 +81,14 @@
                         <version>2.22.1</version>
                         <configuration>
                             <includes>
-                                <include>**/AtfSelect_CVSB_677.java</include>
+                                <include>**/*.java</include>
                             </includes>
-                            <threadCount>5</threadCount>
-                            <forkCount>5</forkCount>
-                            <reuseForks>true</reuseForks>
+                            <!--<threadCount>5</threadCount>-->
+                            <!--<forkCount>5</forkCount>-->
+                            <!--<reuseForks>true</reuseForks>-->
+                            <excludes>
+                                <exclude>**/MainPageError*.java</exclude>
+                            </excludes>
                             <testFailureIgnore>true</testFailureIgnore>
                             <systemPropertyVariables>
                                 <environment>CI</environment>
@@ -180,6 +183,9 @@
                     <includes>
                         <include>**/*.java</include>
                     </includes>
+                    <excludes>
+                        <exclude>**/MainPageError*.java</exclude>
+                    </excludes>
                     <testFailureIgnore>true</testFailureIgnore>
                     <systemPropertyVariables>
                     </systemPropertyVariables>

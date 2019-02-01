@@ -13,7 +13,7 @@ public class ATFDetailsSteps extends ScenarioSteps {
     public void startVisit() {
         atfDetailsPage.waitUntilPageIsLoaded();
         atfDetailsPage.clickStartVisit();
-        atfDetailsPage.selectYes();
+        atfDetailsPage.selectConfirmInPopUp();
     }
 
     @Step

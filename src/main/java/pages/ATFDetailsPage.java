@@ -18,6 +18,7 @@ public class ATFDetailsPage extends BasePage {
     private static final String POP_UP_START_VISIT_CANCEL_BUTTON_ID = "Cancel";
     private static final String POP_UP_START_VISIT_CONFIRM_BUTTON_ID = "Confirm";
     private static final String POP_UP_START_VISIT_REPORT_ISSUE_BUTTON_ID = "Report issue";
+    private static final String POP_UP_CONFIRM_ID = "Confirm";
 
 
     public void waitUntilPageIsLoaded() {
@@ -28,8 +29,8 @@ public class ATFDetailsPage extends BasePage {
         findElementById(START_VISIT_ID).click();
     }
 
-    public void selectYes() {
-        findElementById(YES_ID).click();
+    public void selectConfirmInPopUp() {
+        findElementById(POP_UP_CONFIRM_ID).click();
     }
 
     public List<String> findAllValuesByXpath() {

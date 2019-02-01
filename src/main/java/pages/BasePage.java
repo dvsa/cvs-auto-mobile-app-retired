@@ -10,6 +10,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -23,12 +24,16 @@ import java.util.stream.Collectors;
 public class BasePage extends PageObject {
 
 
-    protected WebElement findElementByAccessibilityIdId(String idOrName) {
+    protected WebElement findElementByAccessibilityId(String idOrName) {
         return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
     }
 
     protected WebElement findElementById(String id) {
         return getDriver().findElement(By.id(id));
+    }
+
+    protected WebElement findElementByClassName(String className) {
+        return getDriver().findElement(By.className(className));
     }
 
     protected WebElement findElementByXpath(String xpath) {
@@ -39,8 +44,16 @@ public class BasePage extends PageObject {
         return getDriver().findElements(By.xpath(xpath));
     }
 
+    protected List<WebElement> findElementsByClassName(String className) {
+        return getDriver().findElements(By.className(className));
+    }
+
     protected WebElement waitUntilPageIsLoadedById(String id) {
         return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
+    }
+
+    protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200 );
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
@@ -53,12 +66,11 @@ public class BasePage extends PageObject {
 
     }
 
-
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
         return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
     }
 
-    protected void waitUntillNumberOfElementsToBe(By locator, int elementNumber) {
+    protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
         FluentWait wait = globalFluentWait(20, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }
@@ -103,10 +115,8 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
-
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
-
 
         return getDriver().findElement(locator);
 
@@ -116,15 +126,12 @@ public class BasePage extends PageObject {
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
-
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
-
         getDriver().getPageSource();
         return getDriver().findElement(locator);
-
     }
 
 
@@ -138,8 +145,19 @@ public class BasePage extends PageObject {
     }
 
     public void clickSearch() {
-        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).hideKeyboard();
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).getKeyboard().sendKeys(Keys.RETURN);
     }
 
+    public boolean isFieldEditableById(String id) {
+        String text = "Te";
+        boolean status = true;
+        WebElement element = findElementByAccessibilityId(id);
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            status = false;
+        }
+        return status;
+    }
 
 }

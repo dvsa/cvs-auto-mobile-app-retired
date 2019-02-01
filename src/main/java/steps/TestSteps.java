@@ -19,9 +19,9 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkTestDetails(String regPlate) {
+    public void checkTestDetails(String regPlate, String vin) {
         testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate)).isTrue();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate,vin)).isTrue();
     }
 
     @Step
@@ -51,6 +51,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void selectAbandonedTest(String testName) {
+        testPage.waitUntilPageIsLoaded();
         testPage.clickOnAbandonedTest(testName);
     }
 
@@ -102,6 +103,11 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void pressCancelBottomRight() {
+        testPage.clickCancelFromBottomRight();
+    }
+
+    @Step
     public void checkAddALinkedTestButtonVisibility() {
         assertThat(testPage.isAddALinkedTestVisible()).isTrue();
     }
@@ -123,4 +129,19 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkPageTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
+
+    @Step
+    public void selectOdometerReading() {
+        testPage.clickOdometerReading();
+    }
+
+    @Step
+    public void checkOdometerReadingButton(TestPage.OdometerUnitIndicatives odometerUnitIndicatives) {
+        assertThat(testPage.isOdometerButtonIndicativeDisplayed(odometerUnitIndicatives)).isTrue();
+    }
+
+    @Step
+    public void checkOdometerReadingValue(String value) {
+        assertThat(testPage.getOdometerValue().equals(value)).isTrue();
+    }
 }

@@ -31,11 +31,9 @@ public class TestTypeAdd_CVSB_768 extends BaseTestClass {
     public void testAddTestTypeFromList() {
         testTypeCategoryComp.goToTestPage();
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("ANNUAL TEST");
-        testTypeSubcategorySteps.seeInTestTypeList("Public Service Vehicle Annual Testing");
-        testTypeSubcategorySteps.selectFromTestTypeList("Public Service Vehicle Annual Testing");
-        testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.checkSelectedTestTypes("Public Service Vehicle Annual Testing Not complete");
+        testTypeCategorySteps.selectFromTestTypeList("annual test");
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
+        testSteps.checkSelectedTestTypes("annual test In progress arrow forward");
     }
 
 

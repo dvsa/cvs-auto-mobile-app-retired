@@ -38,8 +38,8 @@ public class TestTypeAbandon_CVSB_791 extends BaseTestClass {
     @Test
     public void testRemoveTestType() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.checkTestDetails("BQ91YHQ");
-        testSteps.swipeTestType("Public Service Vehicle Annual Testing Not complete");
+        testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
+        testSteps.swipeTestType("annual test In progress arrow forward");
         testSteps.checkTestTypeAbandonButtonVisibility();
     }
 
