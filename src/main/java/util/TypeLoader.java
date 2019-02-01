@@ -3,6 +3,7 @@ package util;
 import exceptions.AutomationException;
 import org.apache.commons.exec.environment.EnvironmentUtils;
 
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
@@ -17,10 +18,13 @@ class TypeLoader {
         try {
 
             properties = new Properties();
-            properties.load(EnvironmentUtils.class.getClassLoader().getResourceAsStream(FILE_PATH));
+            InputStream fileInput = EnvironmentUtils.class.getClassLoader().getResourceAsStream(FILE_PATH);
+
+            if (fileInput != null) {
+                properties.load(fileInput);
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new AutomationException("Could not load environment setup");
         }
     }
 
