@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
@@ -24,6 +23,6 @@ public class AtfSelect_CVSB_677 extends BaseTestClass {
     @Test
     public void testAtfListScrollable() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.checkListIsScrollableByElement("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.checkListIsScrollableByElement(atfService.getUniqueIdentifier(0));
     }
 }
