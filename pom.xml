@@ -86,6 +86,9 @@
                             <!--<threadCount>5</threadCount>-->
                             <!--<forkCount>5</forkCount>-->
                             <!--<reuseForks>true</reuseForks>-->
+                            <excludes>
+                                <exclude>**/MainPageError*.java</exclude>
+                            </excludes>
                             <testFailureIgnore>true</testFailureIgnore>
                             <systemPropertyVariables>
                                 <environment>CI</environment>

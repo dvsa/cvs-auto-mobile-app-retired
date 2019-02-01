@@ -44,4 +44,5 @@ public class LaunchPage extends BasePage {
     public boolean checkIfTitle2IsDisplayed() {return findElementByXpath(TITLE_2).isDisplayed();}
 
     public boolean checkIfSubTitleIsDisplayed() {return findElementByXpath(SUBTITLE).isDisplayed();}
+
 }
