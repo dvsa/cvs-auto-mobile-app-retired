@@ -35,6 +35,12 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSearchBoxDoesNotContainText(String text) {
+        assertThat(identifyVehiclePage.isSearchFieldDisplayed()).isTrue();
+        assertThat(identifyVehiclePage.getSearchFieldText()).doesNotContain(text);
+    }
+
+    @Step
     public void pressSearch() {
         identifyVehiclePage.clickSearch();
     }
@@ -57,6 +63,11 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSearchBoxIsDisplayed() {
+        assertThat(identifyVehiclePage.isSearchFieldDisplayed()).isTrue();
+    }
+
+    @Step
     public void checkLoadingScreen() {
         assertThat(identifyVehiclePage.isLoadingScreenDisplayed()).isTrue();
     }
@@ -65,4 +76,15 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     public void checkVehicleNotFoundPopUpDismissed() {
         assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isFalse();
     }
+
+    @Step
+    public void checkSearchBoxIsEmpty(){
+        assertThat(identifyVehiclePage.isSearchFieldEmpty()).isTrue();
+    }
+
+    @Step
+    public void checkIdentitfyVehicleTitleIsDisplayed(){
+        assertThat(identifyVehiclePage.isIdentifyVehicleTitleDisplayed()).isTrue();
+    }
 }
+
