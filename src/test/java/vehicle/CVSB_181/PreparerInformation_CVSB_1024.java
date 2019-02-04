@@ -22,6 +22,8 @@ public class PreparerInformation_CVSB_1024 extends BaseTestClass {
     @Test
     public void scrollPreparerIdList() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.checkPreparerPageIsScrollable("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.checkPreparerPageIsScrollable(
+                preparerService.getPreparerByIndex(0).getPreparerId(),
+                preparerService.getPreparerByIndex(0).getPreparerName());
     }
 }

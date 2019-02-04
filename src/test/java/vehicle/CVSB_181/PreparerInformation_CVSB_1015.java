@@ -22,6 +22,6 @@ public class PreparerInformation_CVSB_1015 extends BaseTestClass {
     @Test
     public void noResultsReturnedForPreparerInformation() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.searchForInvalidPreparerId("NOPREPARERID", "NOPREPARERID", "Durrell Vehicles Limited");
+        selectPreparerSteps.searchForInvalidPreparerId("NOPREPARERID", "NOPREPARERID", preparerService.getPreparerByIndex(0).getPreparerName());
     }
 }

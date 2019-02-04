@@ -22,7 +22,7 @@ public class LaunchPage_CVSB_1422 extends BaseTestClass {
         @Test
         public void testAtfListAlphabeticallyOrdered() {
             launchSteps.clickGetStarted();
-            searchForAnATFSteps.checkATFSearchButtonAndList();
+            searchForAnATFSteps.checkATFSearchButtonAndList(atfService.getUniqueIdentifier(0),atfService.getUniqueIdentifier(1), atfService.getFirstLetter(0));
             searchForAnATFSteps.checkListIsAlphabeticallyOrdered();
         }
 }
