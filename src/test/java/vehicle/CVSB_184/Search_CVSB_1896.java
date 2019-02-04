@@ -22,7 +22,7 @@ public class Search_CVSB_1896 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @Title("TCA - AC1 - Search by registration number does return the correct vehicle")
+    @Title("CVSB-184 - AC1 - Search by registration number does return the correct vehicle")
     @Test
     public void testSearchByLastDigitsVin() {
         vehicleComp.goToIdentifyVehicle();

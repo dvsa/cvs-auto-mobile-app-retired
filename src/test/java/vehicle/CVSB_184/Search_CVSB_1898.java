@@ -22,9 +22,9 @@ public class Search_CVSB_1898 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @Title("TCA - AC3 - VSA searches by full VIN number instead")
+    @Title("CVSB-184 - AC3 - VSA searches by full VIN number instead")
     @Test
-    public void testSearchByVIN() {
+    public void testSearchByVin() {
         vehicleComp.goToIdentifyVehicle();
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
         vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91YHQ");
