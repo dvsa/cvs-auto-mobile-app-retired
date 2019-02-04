@@ -39,7 +39,6 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isSearchFieldEmpty() {
         String inputText = findElementByClassName(SEARCH_FIELD_CLASS_NAME).getText();
-        System.out.println(inputText);
         return inputText.isEmpty();
     }
 
