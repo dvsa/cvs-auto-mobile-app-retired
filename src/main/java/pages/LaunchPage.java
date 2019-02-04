@@ -7,7 +7,7 @@ import util.TestHandler;
 
 public class LaunchPage extends BasePage {
 
-    private static final String GET_STARTED_ID = "Get Started";
+    private static final String GET_STARTED_ID = "Get started";
     private static final String LAUNCH_PAGE_IMAGE = "XCUIElementTypeImage";
     private static final String BETA_TEXT = "BETA";
     private static final String TITLE_1= "Vehicle Standards";

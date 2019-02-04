@@ -12,7 +12,7 @@ import java.util.Map;
 public class TestPage extends BasePage {
 
     private static final String SELECT_PREPARER_PAGE_TITLE = "Test";
-    private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type add circle-outline";
+    private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type";
     private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";

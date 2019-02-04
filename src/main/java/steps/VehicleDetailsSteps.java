@@ -49,7 +49,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectConfirmFromPopUp() {
-        vehicleDetailsPage.clickConfirm();
+        vehicleDetailsPage.clickConfirmPopUp();
     }
 
     @Step

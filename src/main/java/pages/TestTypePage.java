@@ -12,7 +12,7 @@ import java.util.Map;
 public class TestTypePage extends BasePage {
 
     private static final String VEHICLE_DETAILS = "Vehicle details";
-    private static final String ADD_DEFECT_ID = "Add defect add circle-outline";
+    private static final String ADD_DEFECT_ID = "Add defect";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String POP_UP_CANCEL_ID = "Cancel";
     private static final String POP_UP_REMOVE_ID = "Remove";
