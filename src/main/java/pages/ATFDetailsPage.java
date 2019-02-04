@@ -9,7 +9,6 @@ import java.util.List;
 public class ATFDetailsPage extends BasePage {
 
     private static final String START_VISIT_ID = "Start visit";
-    private static final String YES_ID = "Yes";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String POP_UP_CANCEL_BUTTON_ID = "Cancel";
     private static final String POP_UP_CALL_BUTTON_ID = "Call";
@@ -19,6 +18,9 @@ public class ATFDetailsPage extends BasePage {
     private static final String POP_UP_START_VISIT_CONFIRM_BUTTON_ID = "Confirm";
     private static final String POP_UP_START_VISIT_REPORT_ISSUE_BUTTON_ID = "Report issue";
     private static final String POP_UP_CONFIRM_ID = "Confirm";
+    private static final String REPORT_ISSUE_POP_UP_TITLE = "Report an ATF issue";
+    private static final String REPORT_ISSUE_POP_UP_DESCRIPTION = "Speak to your Technical Team Leader (TTL) if the issue cannot be resolved on site.";
+    private static final String REPORT_ISSUE_POP_UP_OK_BUTTON = "Ok";
 
 
     public void waitUntilPageIsLoaded() {
@@ -48,10 +50,23 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public boolean isCallPopUpDisplayedByNumber(String number) {
+        boolean isException = false;
         boolean status = false;
-        if (findElementById(number).isDisplayed() && findElementById(POP_UP_CANCEL_BUTTON_ID).isDisplayed() &&
-                findElementById(POP_UP_CALL_BUTTON_ID).isDisplayed()) {
-            status = true;
+        WebElement phoneNumber = null;
+        WebElement cancelButton = null;
+        WebElement callButton = null;
+        try {
+            phoneNumber = findElementById(number);
+            cancelButton = findElementById(POP_UP_CANCEL_BUTTON_ID);
+            callButton = findElementById(POP_UP_CALL_BUTTON_ID);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            if (phoneNumber.isDisplayed() && cancelButton.isDisplayed() && callButton.isDisplayed()) {
+                status = true;
+            }
         }
         return status;
     }
@@ -73,5 +88,35 @@ public class ATFDetailsPage extends BasePage {
             status = true;
         }
         return status;
+    }
+
+    public void clickReportIssueInPopUp() {
+        findElementById(POP_UP_START_VISIT_REPORT_ISSUE_BUTTON_ID).click();
+    }
+
+    public boolean isReportIssuePopUpDisplayed() {
+        boolean isException = false;
+        boolean status = false;
+        WebElement title = null;
+        WebElement description = null;
+        WebElement okButton = null;
+        try {
+            title = findElementById(REPORT_ISSUE_POP_UP_TITLE);
+            description = findElementById(REPORT_ISSUE_POP_UP_DESCRIPTION);
+            okButton = findElementById(REPORT_ISSUE_POP_UP_OK_BUTTON);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            if (title.isDisplayed() && description.isDisplayed() && okButton.isDisplayed()) {
+                status = true;
+            }
+        }
+        return status;
+    }
+
+    public void clickOkInReportIssuePopUp() {
+        findElementById(REPORT_ISSUE_POP_UP_OK_BUTTON).click();
     }
 }

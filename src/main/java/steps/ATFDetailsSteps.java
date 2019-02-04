@@ -66,4 +66,39 @@ public class ATFDetailsSteps extends ScenarioSteps {
     public void pressStartVisit() {
         atfDetailsPage.clickStartVisit();
     }
+
+    @Step
+    public void pressConfirmInSiteVisitPopUp() {
+        atfDetailsPage.selectConfirmInPopUp();
+    }
+
+    @Step
+    public void pressReportIssueInStartVisitPopUp() {
+        atfDetailsPage.clickReportIssueInPopUp();
+    }
+
+    @Step
+    public void checkReportIssuePopUp() {
+        assertThat(atfDetailsPage.isReportIssuePopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressOkInReportIssuePopUp() {
+        atfDetailsPage.clickOkInReportIssuePopUp();
+    }
+
+    @Step
+    public void checkReportIssuePopUpDismissal() {
+        assertThat(atfDetailsPage.isReportIssuePopUpDisplayed()).isFalse();
+    }
+
+    @Step
+    public void pressCancelInStartVisitPopUp() {
+        atfDetailsPage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void checkStartVisitPopUpDismissal() {
+        assertThat(atfDetailsPage.isStartVisitPopUpDisplayed()).isFalse();
+    }
 }
