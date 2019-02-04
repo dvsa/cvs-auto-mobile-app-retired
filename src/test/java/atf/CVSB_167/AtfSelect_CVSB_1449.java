@@ -27,7 +27,7 @@ public class AtfSelect_CVSB_1449 extends BaseTestClass {
     @Test
     public void testReturnToAtfSearch() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressBackButton();
         searchForAnATFSteps.checkListIsAlphabeticallyOrdered();
     }

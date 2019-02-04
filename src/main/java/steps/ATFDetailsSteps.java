@@ -88,7 +88,7 @@ public class ATFDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReportIssuePopUpDismissal() {
+    public void checkReportIssuePopUpIsNotDisplayed() {
         assertThat(atfDetailsPage.isReportIssuePopUpDisplayed()).isFalse();
     }
 
@@ -98,7 +98,7 @@ public class ATFDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkStartVisitPopUpDismissal() {
+    public void checkStartVisitPopUpIsNotDisplayed() {
         assertThat(atfDetailsPage.isStartVisitPopUpDisplayed()).isFalse();
     }
 }

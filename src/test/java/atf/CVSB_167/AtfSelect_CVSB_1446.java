@@ -27,9 +27,9 @@ public class AtfSelect_CVSB_1446 extends BaseTestClass {
     @Test
     public void testAtfCancelCall() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
-        atfDetailsSteps.pressPhoneNumber("+55 175 740 8666");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
+        atfDetailsSteps.pressPhoneNumber(atfService.getAtfByIndex(0).getAtfContactNumber());
         atfDetailsSteps.pressCancelInCallPopUp();
-        atfDetailsSteps.checkCallPopUpNotDisplayed("+55 175 740 8666");
+        atfDetailsSteps.checkCallPopUpNotDisplayed(atfService.getAtfByIndex(0).getAtfContactNumber());
     }
 }

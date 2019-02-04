@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
-import steps.SiteVisitSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -28,12 +27,12 @@ public class AtfSelect_CVSB_1456 extends BaseTestClass {
     @Test
     public void testConfirmSiteNotSuitableForTesting() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();
         atfDetailsSteps.pressReportIssueInStartVisitPopUp();
         atfDetailsSteps.checkReportIssuePopUp();
         atfDetailsSteps.pressOkInReportIssuePopUp();
-        atfDetailsSteps.checkReportIssuePopUpDismissal();
+        atfDetailsSteps.checkReportIssuePopUpIsNotDisplayed();
     }
 }

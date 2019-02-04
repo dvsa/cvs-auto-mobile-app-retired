@@ -50,24 +50,15 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public boolean isCallPopUpDisplayedByNumber(String number) {
-        boolean isException = false;
-        boolean status = false;
-        WebElement phoneNumber = null;
-        WebElement cancelButton = null;
-        WebElement callButton = null;
+        boolean status = true;
         try {
-            phoneNumber = findElementById(number);
-            cancelButton = findElementById(POP_UP_CANCEL_BUTTON_ID);
-            callButton = findElementById(POP_UP_CALL_BUTTON_ID);
+            findElementById(number).isDisplayed();
+            findElementById(POP_UP_CANCEL_BUTTON_ID).isDisplayed();
+            findElementById(POP_UP_CALL_BUTTON_ID).isDisplayed();
         } catch (Exception e) {
-            isException = true;
+            status = false;
         }
 
-        if (!isException) {
-            if (phoneNumber.isDisplayed() && cancelButton.isDisplayed() && callButton.isDisplayed()) {
-                status = true;
-            }
-        }
         return status;
     }
 
@@ -95,23 +86,13 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public boolean isReportIssuePopUpDisplayed() {
-        boolean isException = false;
-        boolean status = false;
-        WebElement title = null;
-        WebElement description = null;
-        WebElement okButton = null;
+        boolean status = true;
         try {
-            title = findElementById(REPORT_ISSUE_POP_UP_TITLE);
-            description = findElementById(REPORT_ISSUE_POP_UP_DESCRIPTION);
-            okButton = findElementById(REPORT_ISSUE_POP_UP_OK_BUTTON);
+            findElementById(REPORT_ISSUE_POP_UP_TITLE).isDisplayed();
+            findElementById(REPORT_ISSUE_POP_UP_DESCRIPTION).isDisplayed();
+            findElementById(REPORT_ISSUE_POP_UP_OK_BUTTON).isDisplayed();
         } catch (Exception e) {
-            isException = true;
-        }
-
-        if (!isException) {
-            if (title.isDisplayed() && description.isDisplayed() && okButton.isDisplayed()) {
-                status = true;
-            }
+            status = false;
         }
         return status;
     }

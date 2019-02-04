@@ -27,10 +27,10 @@ public class AtfSelect_CVSB_1458 extends BaseTestClass {
     @Test
     public void testCancelConfirmation() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();
         atfDetailsSteps.pressCancelInStartVisitPopUp();
-        atfDetailsSteps.checkStartVisitPopUpDismissal();
+        atfDetailsSteps.checkStartVisitPopUpIsNotDisplayed();
     }
 }
