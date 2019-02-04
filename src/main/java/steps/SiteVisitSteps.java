@@ -31,4 +31,10 @@ public class SiteVisitSteps extends ScenarioSteps {
     public void checkCancelledTestStatus(String cacellationReason) {
         assertThat(siteVisitPage.isCancelledlStatusDisplayed(cacellationReason)).isTrue();
     }
+
+    @Step
+    public void checkThatThereIsNoBackButton() {
+        waitUntilPageIsLoaded();
+        assertThat(siteVisitPage.isBackButtonAvailable()).isFalse();
+    }
 }

@@ -14,7 +14,9 @@ public class AtfData {
         Atf topAtfOne = new Atf()
                 .setAtfId("9")
                 .setAtfNumber("09-4129632")
-                .setAtfName("Abshire-Kub");
+                .setAtfName("Abshire-Kub")
+                .setAtfContactNumber("+55 175 740 8666")
+                .setAtfAddress("5 Lukken Lane");
 
         Atf secondAtf = new Atf()
                 .setAtfId("6")
