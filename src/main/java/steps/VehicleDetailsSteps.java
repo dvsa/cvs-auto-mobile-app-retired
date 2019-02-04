@@ -110,4 +110,9 @@ public class VehicleDetailsSteps extends ScenarioSteps {
             assertThat(vehicleDetailsPage.isFieldValueNull(value)).isFalse();
         }
     }
+
+    @Step
+    public void selectIdentifyVehicle() {
+        vehicleDetailsPage.clickIdentifyVehicle();
+    }
 }

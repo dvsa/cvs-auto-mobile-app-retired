@@ -1,11 +1,8 @@
 package pages;
 
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class IdentifyVehiclePage extends BasePage {
 
@@ -38,6 +35,11 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isSearchFieldDisplayed() {
         return findElementByClassName(SEARCH_FIELD_CLASS_NAME).isDisplayed();
+    }
+
+    public boolean isSearchFieldEmpty() {
+        String inputText = findElementByClassName(SEARCH_FIELD_CLASS_NAME).getText();
+        return inputText.isEmpty();
     }
 
     public String getSearchFieldText() {
@@ -81,4 +83,8 @@ public class IdentifyVehiclePage extends BasePage {
         return waitUntilPageIsLoadedById(LOADING_SCREEN_ID).isDisplayed();
     }
 
+    public boolean isIdentifyVehicleTitleDisplayed() {
+        return waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE).isDisplayed();
+    }
 }
+
