@@ -7,7 +7,7 @@ import java.util.List;
 public class IdentifyVehiclePage extends BasePage {
 
     private static final String IDENTIFY_VEHICLE_PAGE_TITLE = "Identify Vehicle";
-    private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeTextField";
+    private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeSearchField";
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String SEARCH_OPTION = "Search";
     private static final String OK_ID = "OK";

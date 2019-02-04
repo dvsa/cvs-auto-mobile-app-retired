@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -50,6 +51,11 @@ public class VehicleDetailsPage extends BasePage {
 
     public void clickConfirm() {
         findElementById(CONFIRM_BUTTON_ID).click();
+    }
+
+    public void clickConfirmPopUp() {
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
+        findElementsByAccesibilityId(CONFIRM_BUTTON_ID).get(1).click();
     }
 
     public void clickCancel() {

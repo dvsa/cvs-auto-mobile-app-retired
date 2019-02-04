@@ -48,6 +48,10 @@ public class BasePage extends PageObject {
         return getDriver().findElements(By.className(className));
     }
 
+    protected List<WebElement> findElementsByAccesibilityId(String idOrName) {
+        return getDriver().findElements(MobileBy.AccessibilityId(idOrName));
+    }
+
     protected WebElement waitUntilPageIsLoadedById(String id) {
         return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
     }
@@ -158,6 +162,12 @@ public class BasePage extends PageObject {
             status = false;
         }
         return status;
+    }
+
+
+    public void runAppInBackground() {
+        ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).runAppInBackground(Duration.ofMillis(500));
+        getDriver().getPageSource();
     }
 
 }
