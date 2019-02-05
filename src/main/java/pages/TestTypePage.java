@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class TestTypePage extends BasePage {
 
-    private static final String VEHICLE_DETAILS = "Test type details";
+    private static final String TEST_TYPE_DETAILS = "Test type details";
     private static final String ADD_DEFECT_ID = "Add defect";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String POP_UP_CANCEL_ID = "Cancel";
@@ -24,8 +24,8 @@ public class TestTypePage extends BasePage {
         return findElementsByXpath("//*[@name='" + result + "']").size();
     }
 
-    public WebElement checkVehicleDetailsIsPresent() {
-        return findElementById(VEHICLE_DETAILS);
+    public WebElement getTestTypeDetails() {
+        return findElementById(TEST_TYPE_DETAILS);
     }
 
 
