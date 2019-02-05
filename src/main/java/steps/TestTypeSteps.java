@@ -112,4 +112,9 @@ public class TestTypeSteps extends ScenarioSteps {
                 assertThat(testTypePage.checkElementIsNotPresent(defect).isEmpty()).isTrue();
             }
     }
+
+    @Step
+    public void checkTestTypesPageIsLoadedByTitle() {
+        assertThat(testTypePage.checkVehicleDetailsIsPresent().isDisplayed()).isTrue();
+    }
 }

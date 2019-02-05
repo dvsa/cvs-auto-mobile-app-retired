@@ -24,6 +24,10 @@ public class TestPage extends BasePage {
     private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
     private static final String TITLE_ID = "Remove test";
     private static final String ABANDON_BUTTON_ID = "Abandon";
+    private static final String TEST_NOT_COMPLETE_TITLE = "Test not complete";
+    private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
+    private static final String OK_BUTTON = "OK";
+
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -179,6 +183,22 @@ public class TestPage extends BasePage {
             }
         }
         return value;
+    }
+
+    public boolean isTestNotCompleteDisplayed() {
+        return findElementByAccessibilityId(TEST_NOT_COMPLETE_TITLE).isDisplayed() && findElementByAccessibilityId(TEST_NOT_COMPLETE_INFO).isDisplayed();
+    }
+
+    public void clickReviewAndConfirm() {
+        findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).click();
+    }
+
+    public boolean buttonOkIsClickable() {
+        return findElementByAccessibilityId(OK_BUTTON).isEnabled() && findElementByAccessibilityId(OK_BUTTON).isDisplayed();
+    }
+
+    public void clickOkButton() {
+        findElementByAccessibilityId(OK_BUTTON).click();
     }
 }
 
