@@ -144,4 +144,10 @@ public class TestSteps extends ScenarioSteps {
     public void checkOdometerReadingValue(String value) {
         assertThat(testPage.getOdometerValue().equals(value)).isTrue();
     }
+
+
+    @Step
+    public void waitUntilPageIsLoaded() {
+        testPage.waitUntilPageIsLoaded();
+    }
 }

@@ -1,6 +1,5 @@
 package appstates.CVSB_469;
 
-
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
@@ -10,7 +9,7 @@ import steps.*;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class AppState_CVSB_1936 extends BaseTestClass {
+public class AppState_CVSB_1939  extends BaseTestClass {
 
     @Steps
     LaunchSteps launchSteps;
@@ -37,35 +36,31 @@ public class AppState_CVSB_1936 extends BaseTestClass {
     SelectPreparerSteps selectPreparerSteps;
 
     @Steps
-    TestTypeCategorySteps testTypeCategorySteps;
-
-    @Steps
     TestSteps testSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
 
 
-    @Title("CVSB-469 - AC1 Reopen the app from the background (ex. open another app, press the home button, lock the device)")
+
+    @Title( "CVSB-469 - AC4 Reopen the app after it was closed - redirected to test screen (ex. app closed by the user, app closed by the device, device turned off)")
     @Test
-    public void testAppStateReopenFromBackground() {
+    public void testAppStateCloseAtTestPage() {
+
         launchSteps.clickGetStarted();
-        commonSteps.getPage().runAppInBackground();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
-        commonSteps.getPage().runAppInBackground();
         atfDetailsSteps.startVisit();
-        commonSteps.getPage().runAppInBackground();
         siteVisitSteps.createNewTest();
-        commonSteps.getPage().runAppInBackground();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
-        commonSteps.getPage().runAppInBackground();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
-        commonSteps.getPage().runAppInBackground();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        commonSteps.getPage().runAppInBackground();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
-        commonSteps.getPage().runAppInBackground();
+        testSteps.waitUntilPageIsLoaded();
+        commonSteps.getPage().closeAndLaunchApp();
         testSteps.addTestType();
-        commonSteps.getPage().runAppInBackground();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
 
+
     }
+
 }

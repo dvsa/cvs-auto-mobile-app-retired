@@ -170,4 +170,9 @@ public class BasePage extends PageObject {
         getDriver().getPageSource();
     }
 
+    public void closeAndLaunchApp() {
+        ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
+    }
+
 }
