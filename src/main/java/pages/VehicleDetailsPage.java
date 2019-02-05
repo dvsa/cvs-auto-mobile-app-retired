@@ -18,6 +18,8 @@ public class VehicleDetailsPage extends BasePage {
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
+    private static final String VEHICLE_TEST_HISTORY_BUTTON_ID = "Vehicle test history";
+    private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
@@ -108,5 +110,13 @@ public class VehicleDetailsPage extends BasePage {
             status = true;
         }
         return status;
+    }
+
+    public void clickVehicleTestHistory() {
+        findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).click();
+    }
+
+    public void clickBackButton() {
+        findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 }

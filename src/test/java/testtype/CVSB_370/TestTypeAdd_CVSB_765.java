@@ -29,7 +29,7 @@ public class TestTypeAdd_CVSB_765 extends BaseTestClass {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
-        testSteps.seeAddATestType();
+        testSteps.checkAddATestTypeButtonVisibility();
 
     }
 
