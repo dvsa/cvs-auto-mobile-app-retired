@@ -18,7 +18,7 @@ public class TestTypeSteps extends ScenarioSteps {
     public void checkTestTypeResultAndVehicleDetailsOption(String testTypeName, String result) {
         testTypePage.waitUntilPageIsLoaded(testTypeName);
         assertThat(testTypePage.checkResultIsPresent(result)).isEqualTo(2);
-        assertThat(testTypePage.checkVehicleDetailsIsPresent().isDisplayed()).isTrue();
+        assertThat(testTypePage.getTestTypeDetails().isDisplayed()).isTrue();
     }
 
 
@@ -111,5 +111,10 @@ public class TestTypeSteps extends ScenarioSteps {
             for (String defect: defects) {
                 assertThat(testTypePage.checkElementIsNotPresent(defect).isEmpty()).isTrue();
             }
+    }
+
+    @Step
+    public void checkTestTypesPageIsLoadedByTitle() {
+        assertThat(testTypePage.getTestTypeDetails().isDisplayed()).isTrue();
     }
 }

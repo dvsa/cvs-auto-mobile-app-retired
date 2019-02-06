@@ -148,6 +148,19 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.getOdometerValue().equals(value)).isTrue();
     }
 
+    @Step
+    public void clickConfirm() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickReviewAndConfirm();
+    }
+
+    @Step
+    public void checkTestNotCompleteDisplayedAndOkButton() {
+        assertThat(testPage.isTestNotCompleteDisplayed()).isTrue();
+        assertThat(testPage.buttonOkIsClickable());
+    }
+
+
 
     @Step
     public void waitUntilPageIsLoaded() {
@@ -172,5 +185,10 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void selectVehicleDetails() {
         testPage.clickVehicleDetails();
+    }
+
+    @Step
+    public void chickOnButton() {
+        testPage.clickOkButton();
     }
 }
