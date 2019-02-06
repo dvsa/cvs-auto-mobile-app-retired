@@ -43,6 +43,20 @@ public class TestPage extends BasePage {
         }
     }
 
+    public enum TestTypeStatuses {
+        IN_PROGRESS("In progress"), EDIT("Edit"), ABANDONED("Abandoned");
+
+        private String value;
+
+        TestTypeStatuses(String _value) {
+            this.value = _value;
+        }
+
+        public String getValue() {
+            return this.value;
+        }
+    }
+
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_PREPARER_PAGE_TITLE);
     }
@@ -51,8 +65,27 @@ public class TestPage extends BasePage {
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
+    public void clickOnTestType(String testType, TestTypeStatuses testTypeStatus) {
+        switch (testTypeStatus) {
+            case EDIT:
+                findElementById(testType + " " + testTypeStatus.getValue() + " checkmark").click();
+                break;
+            case ABANDONED:
+                // TODO refactor after bug fix for CVSB-2065
+                findElementById(testType + " " + testTypeStatus.getValue()).click();
+                break;
+            default:
+                findElementById(testType + " " + testTypeStatus.getValue() + " arrow forward").click();
+                break;
+        }
+    }
+
     public boolean isPageTitleDisplayed() {
         return findElementById(SELECT_PREPARER_PAGE_TITLE).isDisplayed();
+    }
+
+    public boolean isCancelButtonDisplayed() {
+        return findElementById(CANCEL_BUTTON_BOTTOM_RIGHT).isDisplayed();
     }
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
@@ -63,14 +96,31 @@ public class TestPage extends BasePage {
         return findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed();
     }
 
-    public List<String> findAllTestTypesFromListByXpath() {
-        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTONS_CLASS_NAME);
+    public List<String> findAllTestTypesFromListByClassName() {
+        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
         List<String> listOfButtons = new ArrayList<>();
         for (WebElement webElement : webElementList) {
             listOfButtons.add(webElement.getAttribute("name"));
         }
 
         return listOfButtons;
+    }
+
+    public boolean isTestTypeStatusDisplayed(String testType, TestTypeStatuses status) {
+        boolean isDisplayed;
+        switch (status) {
+            case EDIT:
+                isDisplayed = findElementById(testType + " " + status.getValue() + " checkmark").isDisplayed();
+                break;
+            case ABANDONED:
+                // TODO refactor after bug fix for CVSB-2065
+                isDisplayed = findElementById(testType + " " + status.getValue()).isDisplayed();
+                break;
+            default:
+                isDisplayed = findElementById(testType + " " + status.getValue() + " arrow forward").isDisplayed();
+                break;
+        }
+        return isDisplayed;
     }
 
     public int checkDataByLabelValueAndName(String... values) {
@@ -83,6 +133,10 @@ public class TestPage extends BasePage {
 
     public void clickOnAbandonedTest(String testName) {
         findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
+    }
+
+    public void clickVehicleDetails() {
+        findElementByXpath("//XCUIElementTypeButton[contains(@name, 'Details')]").click();
     }
 
     public boolean isSubmitButtonAvailable() {
