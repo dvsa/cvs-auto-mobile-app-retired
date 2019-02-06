@@ -20,6 +20,12 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkPageTitle() {
+        vehicleDetailsPage.waitUntilPageIsLoaded();
+        assertThat(vehicleDetailsPage.isPageTitleDisplayed()).isTrue();
+    }
+
+    @Step
     public void scrollTheDetailPage(String element) {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
@@ -114,5 +120,16 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void selectIdentifyVehicle() {
         vehicleDetailsPage.clickIdentifyVehicle();
+    }
+
+    @Step
+    public void selectVehicleTestHistory() {
+        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.clickVehicleTestHistory();
+    }
+
+    @Step
+    public void pressBackButton() {
+        vehicleDetailsPage.clickBackButton();
     }
 }

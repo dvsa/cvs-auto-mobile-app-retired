@@ -21,17 +21,18 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void checkTestDetails(String regPlate, String vin) {
         testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate,vin)).isTrue();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
     }
 
     @Step
-    public void seeAddATestType() {
+    public void checkAddATestTypeButtonVisibility() {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
     }
 
     @Step
     public void checkSelectedTestTypes(String... selectedTestTypes) {
-        List<String> actualData = testPage.findAllTestTypesFromListByXpath();
+        testPage.waitUntilPageIsLoaded();
+        List<String> actualData = testPage.findAllTestTypesFromListByClassName();
         for (String expectedTestType : selectedTestTypes) {
             assertThat(actualData.contains(expectedTestType)).isTrue();
         }
@@ -91,7 +92,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkTestTypeDeleted(String selectedTestType) {
-        List<String> actualData = testPage.findAllTestTypesFromListByXpath();
+        List<String> actualData = testPage.findAllTestTypesFromListByClassName();
         for (String testType : actualData) {
             assertThat(testType.contains(selectedTestType)).isFalse();
         }
@@ -128,7 +129,9 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkPageTitleDisplayed() {assertThat(testPage.isPageTitleDisplayed()).isTrue();}
+    public void checkPageTitleDisplayed() {
+        assertThat(testPage.isPageTitleDisplayed()).isTrue();
+    }
 
     @Step
     public void selectOdometerReading() {
@@ -162,6 +165,26 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void waitUntilPageIsLoaded() {
         testPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void checkTestTypeStatus(String testType, TestPage.TestTypeStatuses status) {
+        assertThat(testPage.isTestTypeStatusDisplayed(testType, status)).isTrue();
+    }
+
+    @Step
+    public void selectTestType(String testType, TestPage.TestTypeStatuses testTypeStatus) {
+        testPage.clickOnTestType(testType, testTypeStatus);
+    }
+
+    @Step
+    public void checkCancelButton() {
+        assertThat(testPage.isCancelButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void selectVehicleDetails() {
+        testPage.clickVehicleDetails();
     }
 
     @Step

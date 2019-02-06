@@ -28,7 +28,7 @@ public class TestTypeAdd_CVSB_766 extends BaseTestClass {
     @Test
     public void testTestTypeList() {
         testTypeCategoryComp.goToTestPage();
-        testSteps.seeAddATestType();
+        testSteps.checkAddATestTypeButtonVisibility();
         testSteps.addTestType();
         testTypeCategorySteps.checkInTestTypeList( "class 6a (seatbelt installation check)", "annual test", "retest",
                 "prohibition clearence", "technical test", "voluntary test");
