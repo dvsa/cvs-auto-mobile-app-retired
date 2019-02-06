@@ -27,6 +27,7 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_TITLE = "Test not complete";
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
+    private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
 
 
     public enum OdometerUnitIndicatives {
@@ -136,7 +137,7 @@ public class TestPage extends BasePage {
     }
 
     public void clickVehicleDetails() {
-        findElementByXpath("//XCUIElementTypeButton[contains(@name, 'Details')]").click();
+        findElementByXpath(VEHICLE_DETAILS_BUTTON_XPATH).click();
     }
 
     public boolean isSubmitButtonAvailable() {

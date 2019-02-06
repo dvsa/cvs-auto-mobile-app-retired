@@ -9,10 +9,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        boolean status = false;
-        if(findElementById(TEST_TYPE_DETAILS_PAGE_TITLE).isDisplayed())
-            status = true;
-        return status;
+        return findElementById(TEST_TYPE_DETAILS_PAGE_TITLE).isDisplayed();
     }
 
     public void clickSave() {
