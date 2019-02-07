@@ -95,11 +95,9 @@ public class TestTypeDetailsPage extends BasePage {
         Integer yearOfSystem = ldt.getYear() - 1;
 
         String day = dayOfSystem.toString();
-        System.out.println(day);
         String month = new DateFormatSymbols().getMonths()[monthOfSystem].substring(0, 3);
-        System.out.println(month);
         String year = yearOfSystem.toString();
-        System.out.println(year);
+
 
         try {
             findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check " + day + " " + month + " " + year + "')]");
