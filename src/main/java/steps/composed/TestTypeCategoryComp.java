@@ -62,6 +62,6 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     @Step()
     public void completeAddTestType() {
         addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("annual test");
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
     }
 }

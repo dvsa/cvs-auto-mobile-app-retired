@@ -29,6 +29,7 @@ public class TestPage extends BasePage {
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
 
+    private static final String ANNUAL_TEST_READING_ID = "Annual test In progress arrow forward";
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -254,6 +255,11 @@ public class TestPage extends BasePage {
 
     public void clickOkButton() {
         findElementByAccessibilityId(OK_BUTTON).click();
+    }
+
+    public void clickAnnualTeswtReading() {
+        waitUntilPageIsLoaded();
+        findElementByAccessibilityId(ANNUAL_TEST_READING_ID).click();
     }
 }
 
