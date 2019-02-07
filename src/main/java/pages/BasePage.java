@@ -80,10 +80,14 @@ public class BasePage extends PageObject {
     }
 
     protected void scrollDownTo(int xOffset, int yOffset) {
-        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
-                .press(PointOption.point(500,596))
+        scroll(500,596, xOffset, yOffset);
+    }
+
+    protected void scroll(int xPressAt, int yPressAt, int xMoveTo, int yMoveTo) {
+                new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .press(PointOption.point(xPressAt,yPressAt))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-                .moveTo(PointOption.point(xOffset,yOffset))
+                .moveTo(PointOption.point(xMoveTo,yMoveTo))
                 .release()
                 .perform();
     }

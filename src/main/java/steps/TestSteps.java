@@ -149,6 +149,10 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectAnnualTestReading() {
+        testPage.clickAnnualTeswtReading();
+    }
+    @Step
     public void clickConfirm() {
         testPage.waitUntilPageIsLoaded();
         testPage.clickReviewAndConfirm();
