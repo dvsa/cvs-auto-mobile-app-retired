@@ -1,5 +1,6 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.WebElement;
 
 public class CancelTestPage extends BasePage {
@@ -102,6 +103,7 @@ public class CancelTestPage extends BasePage {
     }
 
     public void clickSubmitInPopUp() {
-        findElementById(SUBMIT_BUTTON_POP_UP_ID).click();
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(SUBMIT_BUTTON_POP_UP_ID),2);
+        findElementsByAccesibilityId(SUBMIT_BUTTON_POP_UP_ID).get(1).click();
     }
 }

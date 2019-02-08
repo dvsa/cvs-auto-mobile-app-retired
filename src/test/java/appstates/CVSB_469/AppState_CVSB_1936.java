@@ -56,6 +56,7 @@ public class AppState_CVSB_1936 extends BaseTestClass {
         siteVisitSteps.createNewTest();
         commonSteps.getPage().runAppInBackground();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         commonSteps.getPage().runAppInBackground();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         commonSteps.getPage().runAppInBackground();

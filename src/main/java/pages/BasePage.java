@@ -62,11 +62,11 @@ public class BasePage extends PageObject {
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
 
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 150, 200 );
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 150, 400 );
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 200 );
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400 );
 
     }
 
@@ -95,6 +95,12 @@ public class BasePage extends PageObject {
     protected void tap(WebElement webElement) {
         new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
                 .tap(TapOptions.tapOptions().withElement(ElementOption.element(webElement)))
+                .perform();
+    }
+
+    protected void tapByCoordinates(int x, int y) {
+        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .tap(PointOption.point(x, y))
                 .perform();
     }
 
@@ -138,6 +144,7 @@ public class BasePage extends PageObject {
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
+
         getDriver().getPageSource();
         return getDriver().findElement(locator);
     }

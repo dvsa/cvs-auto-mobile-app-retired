@@ -11,18 +11,12 @@ import java.net.URL;
 
 public class DriverSourceImpl implements DriverSource {
 
-    private static final String LOCAL_REAL_DEVICE = "localRealDevice";
-    private static final String LOCAL_BROWSERSTACK = "localBrowserstack";
-    private static final String LOCAL_SIMULATOR = "localSimulator";
-    private static final String CI_BROWSERSTACK = "CI";
-
 
     @Override
-
     public WebDriver newDriver() {
 
         WebDriver webDriver = null;
-        String envType = TypeLoader.getType();
+        EnvironmentType envType = TypeLoader.getType();
 
         switch (envType) {
             case CI_BROWSERSTACK:

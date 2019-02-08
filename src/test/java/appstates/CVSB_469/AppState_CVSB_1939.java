@@ -3,10 +3,13 @@ package appstates.CVSB_469;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
+import util.TestHandler;
 
 @RunWith(SerenityRunner.class)
 public class AppState_CVSB_1939  extends BaseTestClass {
@@ -41,7 +44,18 @@ public class AppState_CVSB_1939  extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    CancelTestSteps cancelTestSteps;
 
+    @Before
+    public void goEnable() {
+        TestHandler.getIsEnableStatus().set(true);
+    }
+
+    @After
+    public void tearDown() {
+        TestHandler.getIsEnableStatus().set(false);
+    }
 
     @Title( "CVSB-469 - AC4 Reopen the app after it was closed - redirected to test screen (ex. app closed by the user, app closed by the device, device turned off)")
     @Test
@@ -59,6 +73,16 @@ public class AppState_CVSB_1939  extends BaseTestClass {
         commonSteps.getPage().closeAndLaunchApp();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.pressCancelBottomRight();
+        cancelTestSteps.checkPageDetails();
+        cancelTestSteps.addReasonForCancellation("Automation Test");
+        cancelTestSteps.pressSubmit();
+        cancelTestSteps.pressSubmitInPopUp();
+        siteVisitSteps.checkSiteVisitPage();
+        siteVisitSteps.completeEndVisit();
+        launchSteps.clickToEnableOrDisable();
 
 
     }
