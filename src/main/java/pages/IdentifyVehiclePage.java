@@ -23,6 +23,7 @@ public class IdentifyVehiclePage extends BasePage {
         WebElement searchField = findElementByClassName(SEARCH_FIELD_CLASS_NAME);
         searchField.clear();
         searchField.sendKeys(text);
+        waitUntilPageIsLoadedByXpath("//*[@value='" + text + "']");
     }
 
     public void clickSearch() {

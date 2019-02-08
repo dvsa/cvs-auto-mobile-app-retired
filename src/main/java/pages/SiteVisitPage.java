@@ -8,6 +8,8 @@ public class SiteVisitPage extends BasePage {
 
     private static final String PAGE_TITLE = "Site Visit";
     private static final String CREATE_TEST_ID = "Create test";
+    private static final String END_VISIT_ID = "End visit";
+    private static final String OK_MODAL_ID = "OK";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
 
     public void waitUntilPageIsLoaded() {
@@ -24,6 +26,15 @@ public class SiteVisitPage extends BasePage {
 
     public boolean isCancelledlStatusDisplayed(String registrationPlate) {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + registrationPlate + ") CANCELLED')]").isDisplayed();
+    }
+
+
+    public void clickEndVisit(){
+        findElementByAccessibilityId(END_VISIT_ID).click();
+    }
+
+    public void clickOk() {
+        waitUntilPageIsLoadedByAccessibilityId(OK_MODAL_ID).click();
     }
 
     public boolean isBackButtonAvailable() {

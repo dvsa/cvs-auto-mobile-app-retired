@@ -37,4 +37,11 @@ public class SiteVisitSteps extends ScenarioSteps {
         waitUntilPageIsLoaded();
         assertThat(siteVisitPage.isBackButtonAvailable()).isFalse();
     }
+
+    @Step
+    public void completeEndVisit() {
+        waitUntilPageIsLoaded();
+        siteVisitPage.clickEndVisit();
+        siteVisitPage.clickOk();
+    }
 }

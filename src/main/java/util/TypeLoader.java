@@ -1,6 +1,5 @@
 package util;
 
-import exceptions.AutomationException;
 import org.apache.commons.exec.environment.EnvironmentUtils;
 
 import java.io.InputStream;
@@ -8,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-class TypeLoader {
+public class TypeLoader {
 
     private static Properties properties;
     private static final String FILE_PATH = "conf/environment.properties";
@@ -28,12 +27,13 @@ class TypeLoader {
         }
     }
 
-    public static String getType() {
-         return isProfileActive(PROFILE_LIST) ? getProfileName() : properties.getProperty("type");
+    public static EnvironmentType getType() {
+         return isProfileActive() ? EnvironmentType.get(getProfileName()) : EnvironmentType.get( properties.getProperty("type"));
     }
 
-    private static boolean isProfileActive(List<String> evaluatedTypes) {
-        return evaluatedTypes.stream().anyMatch(t -> t.equalsIgnoreCase(getProfileName()));
+
+    private static boolean isProfileActive() {
+        return PROFILE_LIST.stream().anyMatch(t -> t.equalsIgnoreCase(getProfileName()));
     }
 
     private static String getProfileName() {

@@ -20,7 +20,7 @@ public class BaseTestClass {
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
 
 
-    @Managed()
+    @Managed(uniqueSession=true, clearCookies = ClearCookiesPolicy.Never)
     public WebDriver webDriver;
 
 
