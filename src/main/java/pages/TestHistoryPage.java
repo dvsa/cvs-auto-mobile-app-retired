@@ -15,4 +15,21 @@ public class TestHistoryPage extends BasePage {
     public void clickBackButton() {
         findElementById(BACK_BUTTON_ID).click();
     }
+
+    public boolean isRegPlateDisplayed(String regPlate) {
+        return findElementByXpath("//XCUIElementTypeStaticText[@name='" + regPlate + "']").isDisplayed();
+    }
+
+    public boolean isTestTypeRecordPresentInList(String testTypeRecord) {
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name, '" + testTypeRecord + "')]").isDisplayed();
+    }
+
+    public boolean isTestTypeRecordPresentInListByStatus(String status) {
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name, '" + status + "')]").isDisplayed();
+    }
+
+    public void clickOnTestTypeRecord(String testTypeRecord) {
+        findElementByXpath("//XCUIElementTypeButton[contains(@name, '" + testTypeRecord + "')]").click();
+    }
+
 }

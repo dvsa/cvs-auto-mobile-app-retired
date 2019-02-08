@@ -124,6 +124,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectVehicleTestHistory() {
+        vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.scrollDetailPage();
         vehicleDetailsPage.clickVehicleTestHistory();
     }
@@ -131,5 +132,12 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void pressBackButton() {
         vehicleDetailsPage.clickBackButton();
+    }
+
+    @Step
+    public void checkVehicleTestHistory() {
+        vehicleDetailsPage.waitUntilPageIsLoaded();
+        vehicleDetailsPage.scrollDetailPage();
+        assertThat(vehicleDetailsPage.isTestHistoryButtonDisplayed()).isTrue();
     }
 }
