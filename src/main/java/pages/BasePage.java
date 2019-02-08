@@ -1,5 +1,6 @@
 package pages;
 
+import com.sun.xml.internal.ws.developer.ServerSideException;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
@@ -7,6 +8,7 @@ import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
+import net.serenitybdd.core.exceptions.SerenityManagedException;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
@@ -181,7 +183,7 @@ public class BasePage extends PageObject {
         WebElement element = findElementByXpath("//XCUIElementTypeStaticText[@name='" + name + "']");
         try {
             element.sendKeys(text);
-        } catch (Exception e) {
+        } catch (SerenityManagedException e) {
             status = false;
         }
         return status;
