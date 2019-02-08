@@ -119,4 +119,8 @@ public class VehicleDetailsPage extends BasePage {
     public void clickBackButton() {
         findElementByXpath(BACK_BUTTON_XPATH).click();
     }
+
+    public boolean isTestHistoryButtonDisplayed() {
+        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+    }
 }

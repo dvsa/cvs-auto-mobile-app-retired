@@ -20,4 +20,24 @@ public class TestHistorySteps extends ScenarioSteps {
     public void pressBackButton() {
         testHistoryPage.clickBackButton();
     }
+
+    @Step
+    public void checkRegPlate(String regPlate) {
+        assertThat(testHistoryPage.isRegPlateDisplayed(regPlate)).isTrue();
+    }
+
+    @Step
+    public void checkTestTypeRecordInList(String testTypeRecord) {
+        assertThat(testHistoryPage.isTestTypeRecordPresentInList(testTypeRecord)).isTrue();
+    }
+
+    @Step
+    public void checkTestTypeRecordInListByStatus(String status) {
+        assertThat(testHistoryPage.isTestTypeRecordPresentInListByStatus(status)).isTrue();
+    }
+
+    @Step
+    public void selectTestTypeRecord(String testTypeRecord) {
+        testHistoryPage.clickOnTestTypeRecord(testTypeRecord);
+    }
 }

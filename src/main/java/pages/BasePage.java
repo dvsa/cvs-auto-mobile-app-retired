@@ -175,6 +175,18 @@ public class BasePage extends PageObject {
         return status;
     }
 
+    public boolean isFieldEditableByXPathName(String name) {
+        String text = "Te";
+        boolean status = true;
+        WebElement element = findElementByXpath("//XCUIElementTypeStaticText[@name='" + name + "']");
+        try {
+            element.sendKeys(text);
+        } catch (Exception e) {
+            status = false;
+        }
+        return status;
+    }
+
 
     public void runAppInBackground() {
         ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).runAppInBackground(Duration.ofMillis(500));
