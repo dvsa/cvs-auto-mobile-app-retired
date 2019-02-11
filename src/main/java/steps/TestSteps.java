@@ -47,6 +47,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void selectNotCompleteTest(String testName) {
+        testPage.waitUntilPageIsLoaded();
         testPage.clickOnNotCompleteTest(testName);
     }
 
@@ -163,7 +164,6 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isTestNotCompleteDisplayed()).isTrue();
         assertThat(testPage.buttonOkIsClickable());
     }
-
 
 
     @Step
