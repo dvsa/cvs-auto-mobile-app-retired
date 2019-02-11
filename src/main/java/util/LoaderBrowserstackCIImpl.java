@@ -1,6 +1,5 @@
 package util;
 
-import exceptions.AutomationException;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;

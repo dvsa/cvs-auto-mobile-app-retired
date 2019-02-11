@@ -1,7 +1,6 @@
 package util;
 
 import exceptions.AutomationException;
-import io.appium.java_client.remote.MobileCapabilityType;
 import org.apache.commons.exec.environment.EnvironmentUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 

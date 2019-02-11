@@ -3,7 +3,6 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SelectPreparerPage;
-import pages.TestPage;
 
 import java.util.List;
 

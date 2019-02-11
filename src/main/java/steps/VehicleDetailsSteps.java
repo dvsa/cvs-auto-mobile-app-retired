@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.BrakesPage;
 import pages.VehicleDetailsPage;
 
 import java.util.List;
