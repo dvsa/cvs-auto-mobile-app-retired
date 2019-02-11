@@ -17,6 +17,28 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID = "Done";
     private static final String MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID = "Cancel";
     private static final String SEATBELT_TITLE_ID = "Seatbelt installation check";
+    private static final String TEST_RESULT_ID = "Test result Select arrow forward";
+    private static final String SET_LEC_TEST_TO_PASS_ID = "Pass";
+    private static final String SET_LEC_TEST_TO_FAIL_ID = "Fail";
+    private static final String CANCEL_LEC_TEST_ID = "Cancel";
+    private static final String CERTIFICATE_NUMBER_LABEL_ID = "CERTIFICATE NUMBER";
+    private static final String LP_LABEL_ID = "LP";
+    private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeOther[@name=\"Ionic App\"]/XCUIElementTypeOther[7]/XCUIElementTypeTextField";
+    private static final String SAVE_BUTTON_ID = "Save";
+    private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
+    private static final String CANCEL_CERTIFICATION_NUMBER_ID = "Cancel";
+
+    public void waitUntilPageIsLoaded() {
+        waitUntilPageIsLoadedById(TEST_DETAILS_PAGE_TITLE_ID);
+    }
+
+    public void clickSaveButton() {
+        findElementById(SAVE_BUTTON_ID).click();
+    }
+
+    public void clickTechnicalTestEdited() {
+        findElementById(TECHNICAL_TEST_EDIT_ID).click();
+    }
 
     public void selectCarriedOutOption() {
         findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Carried out during this test')]").click();
@@ -134,5 +156,71 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void scrollOneYearDown() {
         scroll(243, 594, 243, 580);
+    }
+
+    public void clickSetTestResul() {
+        findElementById(TEST_RESULT_ID).click();
+    }
+
+    public void passLecTest() {
+        findElementById(SET_LEC_TEST_TO_PASS_ID).click();
+    }
+
+    public void failLecTest() {
+        findElementById(SET_LEC_TEST_TO_FAIL_ID).click();
+    }
+
+    public void cancelLecTest() {
+        findElementById(CANCEL_LEC_TEST_ID).click();
+    }
+
+    public boolean checkPassTestOptionIsPresent() {
+        return findElementById(SET_LEC_TEST_TO_PASS_ID).isDisplayed();
+    }
+
+    public boolean checkFailTestOptionIsPresent() {
+        return findElementById(SET_LEC_TEST_TO_FAIL_ID).isDisplayed();
+    }
+
+    public boolean checkTestStatus(String status) {
+        return findElementById("Test result " + status).isDisplayed();
+    }
+
+    public void clickPassedTest() {
+       findElementById("Test result Pass").click();
+    }
+
+    public boolean checkCancelTestOptionIsPresent() {
+        return findElementById(CANCEL_LEC_TEST_ID).isDisplayed();
+    }
+
+    public boolean checkLPLabelIsPresent() {
+        return findElementById(LP_LABEL_ID).isDisplayed();
+    }
+
+    public boolean checkCertificateNumberInputFIedIsPresent() {
+        return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).isDisplayed();
+    }
+
+    public boolean checkCertificateNumberLabelIsPresent() {
+        return findElementById(CERTIFICATE_NUMBER_LABEL_ID).isDisplayed();
+    }
+
+    public void sendCertificateNumber(String certificateNumber) {
+        WebElement inputField = findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH);
+        inputField.clear();
+        inputField.sendKeys(certificateNumber);
+        clickSaveButton();
+    }
+
+    public String getCertificateNumber() {
+        clickTechnicalTestEdited();
+        return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).getText();
+    }
+
+    public String cancelInputCertificateNumber() {
+        findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).click();
+        findElementById(TEST_DETAILS_PAGE_TITLE_ID).click();
+        return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).getText();
     }
 }
