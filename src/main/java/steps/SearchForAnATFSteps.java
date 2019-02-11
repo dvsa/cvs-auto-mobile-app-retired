@@ -6,7 +6,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import pages.SearchForAnATFPage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
