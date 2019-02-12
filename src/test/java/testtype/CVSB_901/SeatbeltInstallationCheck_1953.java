@@ -28,7 +28,7 @@ public class SeatbeltInstallationCheck_1953 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectAnnualTestReading();
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDate();
+        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
         testTypeDetailsSteps.cancelMostRecentInstallationCheckOption();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();

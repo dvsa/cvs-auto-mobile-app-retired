@@ -57,7 +57,7 @@ public class VehicleDetailsPage extends BasePage {
 
     public void clickConfirmPopUp() {
         waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
-        findElementsByAccesibilityId(CONFIRM_BUTTON_ID).get(1).click();
+        findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
     }
 
     public void clickCancel() {

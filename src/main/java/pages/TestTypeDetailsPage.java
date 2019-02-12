@@ -17,6 +17,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID = "Done";
     private static final String MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID = "Cancel";
     private static final String SEATBELT_TITLE_ID = "Seatbelt installation check";
+    private static final String SAVE_BUTTON_ID = "Save";
 
     public void selectCarriedOutOption() {
         findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Carried out during this test')]").click();
@@ -80,7 +81,7 @@ public class TestTypeDetailsPage extends BasePage {
         findElementById(MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID).click();
     }
 
-    public void setRecentInstallationDateCheck() {
+    public void setRecentInstallationDateCheckOneUnit() {
         findElementByXpath("//XCUIElementTypeOther[@name=\"web dialog\"]/XCUIElementTypeOther[3]").click();
         scrollOneDayDown();
         scrollOneMonthDown();
@@ -135,4 +136,9 @@ public class TestTypeDetailsPage extends BasePage {
     public void scrollOneYearDown() {
         scroll(243, 594, 243, 580);
     }
+
+    public void clickSave() {
+        findElementById(SAVE_BUTTON_ID).click();
+    }
+
 }

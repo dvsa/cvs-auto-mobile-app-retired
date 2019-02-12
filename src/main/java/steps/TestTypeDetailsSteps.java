@@ -77,8 +77,8 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setMostRecentInstallationCheckDate(){
-        testTypeDetailsPage.setRecentInstallationDateCheck();
+    public void setMostRecentInstallationCheckDateOneUnit(){
+        testTypeDetailsPage.setRecentInstallationDateCheckOneUnit();
     }
 
     @Step
@@ -98,7 +98,17 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSeatbeltInstallationCheckTitleIsDisplayed() {
+    public void checkSeatBeltInstallationCheckTitleIsDisplayed() {
         assertThat(testTypeDetailsPage.isSeatbeltTitleDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressSave() {
+        testTypeDetailsPage.clickSave();
+    }
+
+    @Step
+    public void verifyMostRecentInstallationCheckDateIsEdited() {
+        assertThat(testTypeDetailsPage.verifyMostRecentInstallationDate()).isFalse();
     }
 }
