@@ -174,4 +174,9 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         String actualCertificateNumber = testTypeDetailsPage.getCertificateNumber();
         assertThat(expectedCertificateNumber.equals(actualCertificateNumber)).isTrue();
     }
+
+    @Step
+    public void checkCertificateGuidance() {
+        assertThat(testTypeDetailsPage.isCertificateGuidanceDisplayed()).isTrue();
+    }
 }

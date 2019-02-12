@@ -26,6 +26,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String LP_LABEL_ID = "LP";
     private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
+    private static final String CERTIFICATE_NUMBER_GUIDANCE_ID = "After conducting the test, complete the Low Emissions Certificate and enter the certificate number.";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_DETAILS_PAGE_TITLE_ID);
@@ -226,5 +227,9 @@ public class TestTypeDetailsPage extends BasePage {
         findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).click();
         findElementById(TEST_DETAILS_PAGE_TITLE_ID).click();
         return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).getText();
+    }
+
+    public boolean isCertificateGuidanceDisplayed() {
+        return findElementById(CERTIFICATE_NUMBER_GUIDANCE_ID).isDisplayed();
     }
 }
