@@ -104,6 +104,6 @@ public class CancelTestPage extends BasePage {
 
     public void clickSubmitInPopUp() {
         waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(SUBMIT_BUTTON_POP_UP_ID),2);
-        findElementsByAccesibilityId(SUBMIT_BUTTON_POP_UP_ID).get(1).click();
+        findElementsByAccessibilityId(SUBMIT_BUTTON_POP_UP_ID).get(1).click();
     }
 }

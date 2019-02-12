@@ -49,7 +49,7 @@ public class BasePage extends PageObject {
         return getDriver().findElements(By.className(className));
     }
 
-    protected List<WebElement> findElementsByAccesibilityId(String idOrName) {
+    protected List<WebElement> findElementsByAccessibilityId(String idOrName) {
         return getDriver().findElements(MobileBy.AccessibilityId(idOrName));
     }
 

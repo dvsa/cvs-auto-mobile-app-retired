@@ -27,7 +27,7 @@ public class SeatbeltInstallationCheck_1945 extends BaseTestClass {
     public void testTypeInNumberOfSeatBealts() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectAnnualTestReading();
-        testTypeDetailsSteps.checkSeatbeltInstallationCheckTitleIsDisplayed();
+        testTypeDetailsSteps.checkSeatBeltInstallationCheckTitleIsDisplayed();
         testTypeDetailsSteps.inputNumberOfSeatbelt("4");
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
     }

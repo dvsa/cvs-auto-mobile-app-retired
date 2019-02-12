@@ -178,6 +178,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void selectTestType(String testType, TestPage.TestTypeStatuses testTypeStatus) {
+        testPage.waitUntilPageIsLoaded();
         testPage.clickOnTestType(testType, testTypeStatus);
     }
 

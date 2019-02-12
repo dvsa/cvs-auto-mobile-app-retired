@@ -17,6 +17,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID = "Done";
     private static final String MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID = "Cancel";
     private static final String SEATBELT_TITLE_ID = "Seatbelt installation check";
+    private static final String SAVE_BUTTON_ID = "Save";
     private static final String TEST_RESULT_ID = "Test result Select arrow forward";
     private static final String SET_LEC_TEST_TO_PASS_ID = "Pass";
     private static final String SET_LEC_TEST_TO_FAIL_ID = "Fail";
@@ -24,7 +25,6 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String CERTIFICATE_NUMBER_LABEL_ID = "CERTIFICATE NUMBER";
     private static final String LP_LABEL_ID = "LP";
     private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
-    private static final String SAVE_BUTTON_ID = "Save";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
 
     public void waitUntilPageIsLoaded() {
@@ -101,7 +101,7 @@ public class TestTypeDetailsPage extends BasePage {
         findElementById(MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID).click();
     }
 
-    public void setRecentInstallationDateCheck() {
+    public void setRecentInstallationDateCheckOneUnit() {
         findElementByXpath("//XCUIElementTypeOther[@name=\"web dialog\"]/XCUIElementTypeOther[3]").click();
         scrollOneDayDown();
         scrollOneMonthDown();
@@ -156,6 +156,11 @@ public class TestTypeDetailsPage extends BasePage {
     public void scrollOneYearDown() {
         scroll(243, 594, 243, 580);
     }
+
+    public void clickSave() {
+        findElementById(SAVE_BUTTON_ID).click();
+    }
+
 
     public void clickSetTestResul() {
         findElementById(TEST_RESULT_ID).click();
