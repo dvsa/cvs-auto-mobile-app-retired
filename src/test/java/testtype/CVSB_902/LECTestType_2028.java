@@ -1,6 +1,4 @@
 package testtype.CVSB_902;
-//CD -
-
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
