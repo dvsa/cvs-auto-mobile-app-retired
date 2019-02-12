@@ -39,4 +39,3 @@ public class LECTestType_2031 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumber("12345567");
     }
 }
-

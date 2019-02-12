@@ -23,10 +23,9 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String CANCEL_LEC_TEST_ID = "Cancel";
     private static final String CERTIFICATE_NUMBER_LABEL_ID = "CERTIFICATE NUMBER";
     private static final String LP_LABEL_ID = "LP";
-    private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeOther[@name=\"Ionic App\"]/XCUIElementTypeOther[7]/XCUIElementTypeTextField";
+    private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String SAVE_BUTTON_ID = "Save";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
-    private static final String CANCEL_CERTIFICATION_NUMBER_ID = "Cancel";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_DETAILS_PAGE_TITLE_ID);
