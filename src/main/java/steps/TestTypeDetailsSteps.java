@@ -165,5 +165,3 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         assertThat(expectedCertificateNumber.equals(actualCertificateNumber)).isTrue();
     }
 }
-
-
