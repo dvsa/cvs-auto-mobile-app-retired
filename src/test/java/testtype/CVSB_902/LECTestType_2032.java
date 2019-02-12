@@ -40,4 +40,3 @@ public class LECTestType_2032 extends BaseTestClass {
         testTypeDetailsSteps.cancelCertificateNumberInput("1234");
     }
 }
-
