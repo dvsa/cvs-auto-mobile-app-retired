@@ -11,14 +11,14 @@ podTemplate(label: label, containers: [
                 checkout scm
             }
 
-            stage('Get IPA from AWS S3')
+	    stage('Get IPA from AWS S3') {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-iam', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    sh "aws s3 sync s3://dvsa-cvs-mobile-artefacts/files/$BRANCH.txt ."
-                    sh "IPA=$(cat $BRANCH.txt)"
+		   sh "aws s3 cp s3://dvsa-cvs-mobile-artefacts/files/${BRANCH}.txt ${BRANCH}.txt"
                 }
+	    }
             
             stage('install ipa in browserstack') {
-                sh "wget -O CVSMobile.ipa $IPA"
+		sh "wget -O CVSMobile.ipa `cat ${BRANCH}.txt`"
                 withCredentials([usernameColonPassword(credentialsId: 'browserstack-uploader', variable: 'BROWSERSTACK_CREDS')]) {
                    APP_ID=sh(script: 'curl -u $BROWSERSTACK_CREDS -X POST "https://api-cloud.browserstack.com/app-automate/upload" -F "file=@CVSMobile.ipa" | jq ".app_url"',returnStdout: true).trim()
                 }
