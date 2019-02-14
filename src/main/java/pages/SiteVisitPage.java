@@ -1,10 +1,11 @@
 package pages;
 
-import org.joda.time.LocalDateTime;
 import org.openqa.selenium.WebElement;
+import util.*;
 
-import java.text.DateFormatSymbols;
-import java.time.LocalTime;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -67,23 +68,42 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isCurrentDateDisplayed() {
-        LocalDateTime ldt = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        EnvironmentType envType = TypeLoader.getType();
+        String clientSystemDate;
+        switch (envType) {
+            case LOCAL_SIMULATOR:
+                clientSystemDate = dateTimeFormatter.format(LocalDateTime.now());
+                break;
 
-        Integer dayOfSystem = ldt.getDayOfMonth();
-        int monthOfSystem = ldt.getMonthOfYear();
-        Integer yearOfSystem = ldt.getYear();
-
-        String day = dayOfSystem.toString();
-        String month = new DateFormatSymbols().getMonths()[monthOfSystem - 1];
-        String year = yearOfSystem.toString();
-
-        return findElementByAccessibilityId(day + " " + month + " " + year).isDisplayed();
+            case LOCAL_REAL_DEVICE:
+                clientSystemDate = dateTimeFormatter.format(LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone())));
+                break;
+            default:
+                clientSystemDate =dateTimeFormatter.format(LocalDateTime.now(Clock.systemUTC()));
+                break;
+        }
+        return findElementByAccessibilityId(clientSystemDate).isDisplayed();
     }
 
     public boolean isCurrentTimeDisplayed() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("h:mm a");
-        String systemTime = dateTimeFormatter.format(LocalTime.now());
-        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + systemTime + "')]").isDisplayed();
+        EnvironmentType envType = TypeLoader.getType();
+        String clientSystemTime;
+        switch (envType) {
+            case LOCAL_SIMULATOR:
+                clientSystemTime = dateTimeFormatter.format(LocalDateTime.now());
+                break;
+
+            case LOCAL_REAL_DEVICE:
+                clientSystemTime = dateTimeFormatter.format(LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone())));
+                break;
+            default:
+                clientSystemTime =dateTimeFormatter.format(LocalDateTime.now(Clock.systemUTC()));
+                break;
+        }
+
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + clientSystemTime + "')]").isDisplayed();
     }
 
     public boolean isEndVisitPopUpDisplayed() {

@@ -6,10 +6,8 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
-import steps.SiteVisitSteps;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
-import steps.composed.SiteVisitComp;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
@@ -18,9 +16,6 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
-
-    @Steps
-    SiteVisitSteps siteVisitSteps;
 
     @Steps
     TestSteps testSteps;
