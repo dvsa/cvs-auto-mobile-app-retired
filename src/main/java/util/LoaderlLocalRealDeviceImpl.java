@@ -48,6 +48,10 @@ public class LoaderlLocalRealDeviceImpl implements Loader {
         return properties.getProperty("udid");
     }
 
+    public static String getTimezone() {
+       return properties.getProperty("timezone");
+    }
+
     @Override
     public DesiredCapabilities loadCapabilities() {
         DesiredCapabilities cap = new DesiredCapabilities();

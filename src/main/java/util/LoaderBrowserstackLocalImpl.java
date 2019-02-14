@@ -43,6 +43,7 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         caps.setCapability("browserstack.appium_version", "1.9.1");
         caps.setCapability("browserstack.video", "false");
         caps.setCapability("waitForQuiescence", "false");
+        caps.setCapability("browserstack.timezone", "UTC");
 
 
         caps.setCapability("app", properties.getProperty("browserstack.app"));

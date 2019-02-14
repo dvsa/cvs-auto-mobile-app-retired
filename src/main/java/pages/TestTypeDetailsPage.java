@@ -1,9 +1,14 @@
 package pages;
 
-import org.joda.time.LocalDateTime;
 import org.openqa.selenium.*;
+import util.EnvironmentType;
+import util.LoaderlLocalRealDeviceImpl;
+import util.TypeLoader;
 
 import java.text.DateFormatSymbols;
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class TestTypeDetailsPage extends BasePage {
 
@@ -111,15 +116,27 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean verifyMostRecentInstallationDate() {
-        LocalDateTime ldt = LocalDateTime.now();
+        EnvironmentType envType = TypeLoader.getType();
+        LocalDateTime ldt;
+        switch (envType) {
+            case LOCAL_SIMULATOR:
+                ldt = LocalDateTime.now();
+                break;
+            case LOCAL_REAL_DEVICE:
+                ldt = LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone()));
+                break;
+            default:
+                ldt = LocalDateTime.now(Clock.systemUTC());
+                break;
+        }
+
         Integer dayOfSystem = ldt.getDayOfMonth() + 1;
-        int monthOfSystem = ldt.getMonthOfYear();
+        int monthOfSystem = ldt.getMonthValue();
         Integer yearOfSystem = ldt.getYear() - 1;
 
         String day = dayOfSystem.toString();
         String month = new DateFormatSymbols().getMonths()[monthOfSystem].substring(0, 3);
         String year = yearOfSystem.toString();
-
 
         try {
             findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check " + day + " " + month + " " + year + "')]");
