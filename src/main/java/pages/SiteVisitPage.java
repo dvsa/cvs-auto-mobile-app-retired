@@ -1,7 +1,12 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
+import util.*;
 
+import java.time.Clock;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class SiteVisitPage extends BasePage {
@@ -11,6 +16,7 @@ public class SiteVisitPage extends BasePage {
     private static final String END_VISIT_ID = "End visit";
     private static final String OK_MODAL_ID = "OK";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
+    private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='CVSMobile']";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(CREATE_TEST_ID);
@@ -24,7 +30,7 @@ public class SiteVisitPage extends BasePage {
         return findElementById(PAGE_TITLE).isDisplayed();
     }
 
-    public boolean isCancelledlStatusDisplayed(String registrationPlate) {
+    public boolean isCanceledTestDisplayed(String registrationPlate) {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + registrationPlate + ") CANCELLED')]").isDisplayed();
     }
 
@@ -47,5 +53,60 @@ public class SiteVisitPage extends BasePage {
             }
         }
         return status;
+    }
+
+    public boolean isCreateTestButtonDisplayed() {
+        return findElementById(CREATE_TEST_ID).isDisplayed();
+    }
+
+    public boolean isEndVisitButtonDisplayed() {
+        return findElementById(END_VISIT_ID).isDisplayed();
+    }
+
+    public boolean isAtfRowDisplayed(String atfName) {
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + atfName + " Started site visit')]").isDisplayed();
+    }
+
+    public boolean isCurrentDateDisplayed() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        EnvironmentType envType = TypeLoader.getType();
+        String clientSystemDate;
+        switch (envType) {
+            case LOCAL_SIMULATOR:
+                clientSystemDate = dateTimeFormatter.format(LocalDateTime.now());
+                break;
+
+            case LOCAL_REAL_DEVICE:
+                clientSystemDate = dateTimeFormatter.format(LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone())));
+                break;
+            default:
+                clientSystemDate =dateTimeFormatter.format(LocalDateTime.now(Clock.systemUTC()));
+                break;
+        }
+        return findElementByAccessibilityId(clientSystemDate).isDisplayed();
+    }
+
+    public boolean isCurrentTimeDisplayed() {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+        EnvironmentType envType = TypeLoader.getType();
+        String clientSystemTime;
+        switch (envType) {
+            case LOCAL_SIMULATOR:
+                clientSystemTime = dateTimeFormatter.format(LocalDateTime.now());
+                break;
+
+            case LOCAL_REAL_DEVICE:
+                clientSystemTime = dateTimeFormatter.format(LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone())));
+                break;
+            default:
+                clientSystemTime =dateTimeFormatter.format(LocalDateTime.now(Clock.systemUTC()));
+                break;
+        }
+
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + clientSystemTime + "')]").isDisplayed();
+    }
+
+    public boolean isEndVisitPopUpDisplayed() {
+        return findElementByXpath(END_VISIT_POP_UP_TITLE).isDisplayed() && findElementById(OK_MODAL_ID).isDisplayed();
     }
 }

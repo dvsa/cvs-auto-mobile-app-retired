@@ -28,8 +28,8 @@ public class SiteVisitSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkCancelledTestStatus(String cacellationReason) {
-        assertThat(siteVisitPage.isCancelledlStatusDisplayed(cacellationReason)).isTrue();
+    public void checkCancelledTestStatus(String regPlate) {
+        assertThat(siteVisitPage.isCanceledTestDisplayed(regPlate)).isTrue();
     }
 
     @Step
@@ -42,6 +42,47 @@ public class SiteVisitSteps extends ScenarioSteps {
     public void completeEndVisit() {
         waitUntilPageIsLoaded();
         siteVisitPage.clickEndVisit();
+        siteVisitPage.clickOk();
+    }
+
+    @Step
+    public void checkCreateTestButton() {
+        assertThat(siteVisitPage.isCreateTestButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkEndVisitButton() {
+        assertThat(siteVisitPage.isEndVisitButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkATFRow(String atfName) {
+        assertThat(siteVisitPage.isAtfRowDisplayed(atfName)).isTrue();
+    }
+
+    @Step
+    public void checkDate() {
+        assertThat(siteVisitPage.isCurrentDateDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkTime() {
+        assertThat(siteVisitPage.isCurrentTimeDisplayed()).isTrue();
+    }
+
+    @Step
+    public void selectEndVisit() {
+        waitUntilPageIsLoaded();
+        siteVisitPage.clickEndVisit();
+    }
+
+    @Step
+    public void checkEndVisitPopUp() {
+        assertThat(siteVisitPage.isEndVisitPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void clickOkInEndVisitPopUp() {
         siteVisitPage.clickOk();
     }
 }
