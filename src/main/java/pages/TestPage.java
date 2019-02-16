@@ -18,7 +18,6 @@ public class TestPage extends BasePage {
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String CANCEL_BUTTON_BOTTOM_RIGHT = "Cancel";
-
     private static final String CANCEL_ID = "Cancel";
     private static final String REMOVE_ID = "Remove";
     private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
@@ -28,8 +27,8 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
-
     private static final String ANNUAL_TEST_READING_ID = "Annual test In progress arrow forward";
+    private static final String REVIEW_BUTTON_ID = "Review";
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -261,5 +260,36 @@ public class TestPage extends BasePage {
         waitUntilPageIsLoaded();
         findElementByAccessibilityId(ANNUAL_TEST_READING_ID).click();
     }
-}
 
+    public void clickEUVehicleCategoryOption() {
+        findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'EU vehicle category')]").click();
+    }
+
+    public boolean checkEUVehicleCategoryOptionIsDisplayed() {
+       return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'EU vehicle category')]").isDisplayed();
+    }
+
+    public boolean checkMCategoryIsSelected(String category) {
+        return findElementById("EU vehicle category " + category + " checkmark").isDisplayed();
+    }
+
+    public boolean checkNoEUCategoryIsSelected() {
+        return findElementById("EU vehicle category Select arrow forward").isDisplayed();
+    }
+
+    public void clickCountryOfRegistrationOption() {
+        findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Country of registration')]").click();
+    }
+
+    public boolean checkCountryOfregistrationOptionIsDisplayed() {
+        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Country of registration')]").isDisplayed();
+    }
+
+    public boolean checkCountryOfRegistrationFieldIsUpdated(String countryOfRegistration) {
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Country of registration " + countryOfRegistration + "')]").isDisplayed();
+    }
+
+    public void clickReviewButton(){
+        findElementById(REVIEW_BUTTON_ID).click();
+    }
+}
