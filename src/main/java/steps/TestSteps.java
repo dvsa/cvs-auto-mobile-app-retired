@@ -196,4 +196,44 @@ public class TestSteps extends ScenarioSteps {
     public void chickOnButton() {
         testPage.clickOkButton();
     }
+
+    @Step
+    public void selectVehicleCategoryOption() {
+        testPage.clickEUVehicleCategoryOption();
+    }
+
+    @Step
+    public void checkEUVehicleCategoryOptionIsDisplayed () {
+        assertThat(testPage.checkEUVehicleCategoryOptionIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkIfCorrectOptionIsDisplayed(String category) {
+        assertThat(testPage.checkMCategoryIsSelected(category)).isTrue();
+    }
+
+    @Step
+    public void checkNoEUCategoryIsSelected() {
+        assertThat(testPage.checkNoEUCategoryIsSelected()).isTrue();
+    }
+
+    @Step
+    public void checkCountryOfregistrationOptionIsDisplayed () {
+        assertThat(testPage.checkCountryOfregistrationOptionIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void clickCountryOfRegistrationOption() {
+        testPage.clickCountryOfRegistrationOption();
+    }
+
+    @Step
+    public void checkCountryOfRegistrationFieldIsUpdated(String countryOfRegistration) {
+        assertThat(testPage.checkCountryOfRegistrationFieldIsUpdated(countryOfRegistration)).isTrue();
+    }
+
+    @Step
+    public void reviewAction() {
+        testPage.clickReviewButton();
+    }
 }
