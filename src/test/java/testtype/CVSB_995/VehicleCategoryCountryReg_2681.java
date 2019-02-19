@@ -5,7 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.CountryOfRegisdtrationSteps;
+import steps.CountryOfRegistrationSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -20,17 +20,17 @@ public class VehicleCategoryCountryReg_2681 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    CountryOfRegisdtrationSteps countryOfRegisdtrationSteps;
+    CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Title("CVSB-995 - AC8 - Editing 'Country of registration' field")
     @Test
-    public void savingSelectedCoutnry() {
+    public void editingCountryOfRegistrationField() {
         testTypeCategoryComp.goToTestPage();
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegisdtrationSteps.selectACountry("Norway");
+        countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegisdtrationSteps.selectACountry("Romania");
+        countryOfRegistrationSteps.selectACountry("Romania");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Romania");
     }
 }

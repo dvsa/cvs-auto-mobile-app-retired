@@ -29,13 +29,13 @@ public class EditCompletedTestType_2022 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.checkSetCarreidOutDuringTestOption("Yes");
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
         testTypeDetailsSteps.inputNumberOfSeatbelt("2");
         testTypeDetailsSteps.checkNumberOfSeatbelts("2");
         testTypeDetailsSteps.pressSave();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.checkSetCarreidOutDuringTestOption("No");
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.inputNumberOfSeatbelt("5");
         testTypeDetailsSteps.checkNumberOfSeatbelts("5");
         testTypeDetailsSteps.pressSave();

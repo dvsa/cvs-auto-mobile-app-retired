@@ -35,7 +35,7 @@ public class EditCompletedTestType_2021 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.checkSetCarreidOutDuringTestOption("No");
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.inputNumberOfSeatbelt("4");
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();

@@ -32,6 +32,25 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
     private static final String CERTIFICATE_NUMBER_GUIDANCE_ID = "After conducting the test, complete the Low Emissions Certificate and enter the certificate number.";
+    private static final String NO_SEATBELTS_ENTERED_POP_UP_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"No seatbelts entered\"]";
+    private static final String NO_SEATBELTS_ENTERED_POP_UP_MESSAGE_XPATH = "//XCUIElementTypeStaticText[@name=\"The number of seatbelts fitted must be greater than zero (0) to carry out an installation check.\"]";
+    private static final String NO_SEATBELTS_ENTERED_POP_UP_OK_BUTTON_XPATH = "//XCUIElementTypeButton[@name=\"OK\"]";
+
+    public boolean checkSeatbeltPopUpTitle() {
+        return findElementByXpath(NO_SEATBELTS_ENTERED_POP_UP_TITLE_XPATH).isDisplayed();
+    }
+
+    public boolean checkSeatbeltPopUpMessage() {
+        return findElementByXpath(NO_SEATBELTS_ENTERED_POP_UP_MESSAGE_XPATH).isDisplayed();
+    }
+
+    public boolean checkSeatbeltPopUpOkButton() {
+        return findElementByXpath(NO_SEATBELTS_ENTERED_POP_UP_OK_BUTTON_XPATH).isDisplayed();
+    }
+
+    public void clickOkButtonForSeatbeltPopUp() {
+        findElementByXpath(NO_SEATBELTS_ENTERED_POP_UP_OK_BUTTON_XPATH).click();
+    }
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_DETAILS_PAGE_TITLE_ID);
@@ -53,6 +72,10 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Carried out during this test " + yesOrNo + " arrow forward')]").isDisplayed();
     }
 
+    public boolean checkIsCarriedOutDisplayed() {
+        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Carried out during this test')]").isDisplayed();
+    }
+
     public void selectIsCarriedOut() {
         findElementById(CARRIED_OUT_YES_OPTION_ID).click();
     }
@@ -63,6 +86,18 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void cancelIsCarriedOut() {
         findElementById(CARRIED_OUT_CANCEL_OPTION_ID).click();
+    }
+
+    public boolean isCarriedOutDisplayed() {
+        return findElementById(CARRIED_OUT_YES_OPTION_ID).isDisplayed();
+    }
+
+    public boolean isNotCarriedOutDisplayed() {
+        return findElementById(CARRIED_OUT_NO_OPTION_ID).isDisplayed();
+    }
+
+    public boolean isCancelCarriedOutDisplayed() {
+        return findElementById(CARRIED_OUT_CANCEL_OPTION_ID).isDisplayed();
     }
 
     public void selectSeatbeltsNumberOption() {
@@ -77,6 +112,14 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void doneSeatbeltInstallationCheck() {
         findElementById(SEATBEALT_INSTALLATION_CHECK_DONE_BUTTON_ID).click();
+    }
+
+    public boolean isCancelOptionDisplayedForSeatbeltNumber() {
+        return findElementById(SEATBEALT_INSTALLATION_CHECK_CANCELED_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isDoneOptionDisplayedForSeatbeltNumber() {
+        return findElementById(SEATBEALT_INSTALLATION_CHECK_DONE_BUTTON_ID).isDisplayed();
     }
 
     public boolean checkSetbealtNumber(String seatbeltNumber) {
@@ -159,6 +202,14 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeOther[@name=\"web dialog\"]/XCUIElementTypeOther[3]").isDisplayed();
     }
 
+    public boolean isCancelOptionDisplayedForDatePicker() {
+        return findElementById(MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isDoneOptionDisplayedForDatePicker() {
+        return findElementById(MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID).isDisplayed();
+    }
+
     public boolean isTestTypeDetailsTitleDisplayed() {
         return findElementById(TEST_DETAILS_PAGE_TITLE_ID).isDisplayed();
     }
@@ -178,7 +229,6 @@ public class TestTypeDetailsPage extends BasePage {
     public void clickSave() {
         findElementById(SAVE_BUTTON_ID).click();
     }
-
 
     public void clickSetTestResul() {
         findElementById(TEST_RESULT_ID).click();
@@ -209,7 +259,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void clickPassedTest() {
-       findElementById("Test result Pass").click();
+        findElementById("Test result Pass").click();
     }
 
     public boolean checkCancelTestOptionIsPresent() {

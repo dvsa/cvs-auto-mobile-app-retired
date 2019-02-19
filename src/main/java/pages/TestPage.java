@@ -256,7 +256,7 @@ public class TestPage extends BasePage {
         findElementByAccessibilityId(OK_BUTTON).click();
     }
 
-    public void clickAnnualTeswtReading() {
+    public void clickAnnualTestReading() {
         waitUntilPageIsLoaded();
         findElementByAccessibilityId(ANNUAL_TEST_READING_ID).click();
     }
