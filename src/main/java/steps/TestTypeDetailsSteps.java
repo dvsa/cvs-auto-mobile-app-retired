@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeDetailsPage;
 
@@ -22,8 +23,18 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSetCarreidOutDuringTestOption(String yesOrNo) {
+    public void checkSetCarriedOutDuringTestOption(String yesOrNo) {
         assertThat(testTypeDetailsPage.checkIsCarriedOutValue(yesOrNo)).isTrue();
+    }
+
+    @Step
+    public void checkSetCarriedOutDuringTestIsDisplayed() {
+        assertThat(testTypeDetailsPage.checkIsCarriedOutDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkSetCarriedOutDuringTestIsNotDisplayed() {
+        assertThat(testTypeDetailsPage.checkIsCarriedOutDisplayed()).isFalse();
     }
 
     @Step
@@ -40,8 +51,22 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void cancelInputNumberOfSeatbelt() {
+    public void selectAndCancelInputNumberOfSeatbelt() {
         testTypeDetailsPage.selectSeatbeltsNumberOption();
+        testTypeDetailsPage.cancelSeatbeltInstallationCheck();
+    }
+
+    @Step
+    public void doneInputNumberOfSeatbelt() {
+        testTypeDetailsPage.selectSeatbeltsNumberOption();
+        testTypeDetailsPage.doneSeatbeltInstallationCheck();
+    }
+
+    @Step
+    public void checkDoneAndCancelOptionForSeatbeltNumber(){
+        testTypeDetailsPage.selectSeatbeltsNumberOption();
+        assertThat(testTypeDetailsPage.isCancelOptionDisplayedForSeatbeltNumber()).isTrue();
+        assertThat(testTypeDetailsPage.isDoneOptionDisplayedForSeatbeltNumber()).isTrue();
         testTypeDetailsPage.cancelSeatbeltInstallationCheck();
     }
 
@@ -64,6 +89,12 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void checkDataPickerIsPresent() {
         assertThat(testTypeDetailsPage.isDateCalendarPickerDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDoneAndCancelOptionForMostRecentInstallationCheck() {
+        assertThat(testTypeDetailsPage.isCancelOptionDisplayedForDatePicker()).isTrue();
+        assertThat(testTypeDetailsPage.isDoneOptionDisplayedForDatePicker()).isTrue();
     }
 
     @Step
@@ -178,5 +209,25 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void checkCertificateGuidance() {
         assertThat(testTypeDetailsPage.isCertificateGuidanceDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkOptionsForCarriedOutSeatbeltCheckAreDisplayed(){
+        testTypeDetailsPage.selectCarriedOutOption();
+        testTypeDetailsPage.isCarriedOutDisplayed();
+        testTypeDetailsPage.isCancelCarriedOutDisplayed();
+        testTypeDetailsPage.isNotCarriedOutDisplayed();
+    }
+
+    @Step
+    public void checkSeatbetlPopUpIsDisplayed(){
+        assertThat(testTypeDetailsPage.checkSeatbeltPopUpTitle()).isTrue();
+        assertThat(testTypeDetailsPage.checkSeatbeltPopUpMessage()).isTrue();
+        assertThat(testTypeDetailsPage.checkSeatbeltPopUpOkButton()).isTrue();
+    }
+
+    @Step
+    public void pressOkButtonForSeatbeltPopUp(){
+       testTypeDetailsPage.clickOkButtonForSeatbeltPopUp();
     }
 }

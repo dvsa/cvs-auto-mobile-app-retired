@@ -37,7 +37,7 @@ public class CountryOfRegistrationPage extends BasePage {
         F("France - F"),
         D("Germany - D"),
         GBZ("Gibraltar - GBZ"),
-        //  GR("Greece - GR"),
+        GR("Greece - GR"),
         GBG("Guernsey - GBG"),
         H("Hungary - H"),
         IRL("Ireland - IRL"),
@@ -55,7 +55,7 @@ public class CountryOfRegistrationPage extends BasePage {
         RO("Romania - RO"),
         SK("Slovakia - SK"),
         SLO("Slovenia - SLO"),
-        //   E("Spain - E"),
+        E("Spain - E"),
         S("Sweden - S"),
         CH("Switzerland - CH"),
         NONEU("Non EU"),
@@ -93,11 +93,13 @@ public class CountryOfRegistrationPage extends BasePage {
         }
 
         List<String> filteredList = countriesDisplayed.stream()
-                .filter(line -> !"United Kingdom -GB".equals(line))
+                .filter(line -> !"United Kingdom - GB checkmark".equals(line))
                 .filter(line -> !"Non EU".equals(line))
                 .filter(line -> !"Not Known".equals(line))
                 .collect(Collectors.toList());
-
+        for(String s: filteredList) {
+            System.out.println(s);
+        }
         return Ordering.natural().isOrdered(filteredList);
     }
 
@@ -177,6 +179,11 @@ public class CountryOfRegistrationPage extends BasePage {
     public void selectACountry(String country) {
         searchForCountry(country);
         findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + country + "')]").click();
+        clickSaveButton();
+    }
+
+    public void selectNotKnown() {
+        findElementByXpath("//XCUIElementTypeButton[contains(@name,'Not Known')]").click();
         clickSaveButton();
     }
 

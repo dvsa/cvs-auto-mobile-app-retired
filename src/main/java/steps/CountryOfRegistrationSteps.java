@@ -7,13 +7,18 @@ import pages.CountryOfRegistrationPage;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
-public class CountryOfRegisdtrationSteps extends ScenarioSteps {
+public class CountryOfRegistrationSteps extends ScenarioSteps {
 
     CountryOfRegistrationPage countryOfRegistrationPage;
 
     @Step
     public void saveRegistrationCountry() {
         countryOfRegistrationPage.clickSaveButton();
+    }
+
+    @Step
+    public void selectNotKnownOption() {
+        countryOfRegistrationPage.selectNotKnown();
     }
 
     @Step

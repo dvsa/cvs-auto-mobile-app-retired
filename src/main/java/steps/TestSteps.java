@@ -68,7 +68,6 @@ public class TestSteps extends ScenarioSteps {
         testPage.swipeLeftOnTestType(testType);
         int newXPosition = testPage.getXPositionForElement(testType);
         assertThat(initialXPosition).isNotEqualTo(newXPosition);
-
     }
 
     @Step
@@ -151,7 +150,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void selectAnnualTestReading() {
-        testPage.clickAnnualTeswtReading();
+        testPage.clickAnnualTestReading();
     }
     @Step
     public void clickConfirm() {
@@ -164,7 +163,6 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isTestNotCompleteDisplayed()).isTrue();
         assertThat(testPage.buttonOkIsClickable());
     }
-
 
     @Step
     public void waitUntilPageIsLoaded() {

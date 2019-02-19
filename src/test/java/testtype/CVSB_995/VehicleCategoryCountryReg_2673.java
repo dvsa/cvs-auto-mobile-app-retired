@@ -5,7 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.CountryOfRegisdtrationSteps;
+import steps.CountryOfRegistrationSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -20,14 +20,14 @@ public class VehicleCategoryCountryReg_2673 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    CountryOfRegisdtrationSteps countryOfRegisdtrationSteps;
+    CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Title("CVSB-995 - AC2 - Access Country Of registration")
     @Test
     public void accessCountryOfRegistration() {
         testTypeCategoryComp.goToTestPage();
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegisdtrationSteps.checkAllCountriesAreDisplayed();
-        countryOfRegisdtrationSteps.checkCountriesAreOrdered();
+        countryOfRegistrationSteps.checkAllCountriesAreDisplayed();
+        countryOfRegistrationSteps.checkCountriesAreOrdered();
     }
 }

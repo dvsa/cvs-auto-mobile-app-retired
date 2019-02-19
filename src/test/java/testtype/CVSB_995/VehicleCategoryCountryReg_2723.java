@@ -6,13 +6,12 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CountryOfRegistrationSteps;
-import steps.EUVehicleCategorySteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class VehicleCategoryCountryReg_2672 extends BaseTestClass {
+public class VehicleCategoryCountryReg_2723 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -21,20 +20,14 @@ public class VehicleCategoryCountryReg_2672 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    EUVehicleCategorySteps euVehicleCategorySteps;
-
-    @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
-    @Title("CVSB-995 - AC1 - Record fields on test overview screen")
+    @Title("CVSB-995 - AC10 - Country not known recorded as 'Not known' in the backend")
     @Test
-    public void recordFieldsOnTestOverviewScreen() {
+    public void editingCountryOfRegistrationField() {
         testTypeCategoryComp.goToTestPage();
-        testSteps.checkCountryOfregistrationOptionIsDisplayed();
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.clickSaveOptionButton();
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.saveRegistrationCountry();
+        countryOfRegistrationSteps.selectNotKnownOption();
+        testSteps.checkCountryOfRegistrationFieldIsUpdated("Not Known");
     }
 }

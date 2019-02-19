@@ -1,7 +1,6 @@
 package testtype.CVSB_995;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
@@ -26,17 +25,17 @@ public class VehicleCategoryCountryReg_2683 extends BaseTestClass {
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Steps
-    CountryOfRegisdtrationSteps countryOfRegisdtrationSteps;
+    CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Title("CVSB-995 - AC9 - Fields that are mandatory")
     @Test
-    public void recordFieldsOnTestOverviewScreen() {
+    public void checkFieldsThatAreMandatory() {
         testTypeCategoryComp.goToTestPage();
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegisdtrationSteps.selectACountry("Norway");
+        countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();

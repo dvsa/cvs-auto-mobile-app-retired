@@ -27,8 +27,8 @@ public class SeatbeltInstallationCheck_1942 extends BaseTestClass {
     public void testCancelSeatbeltInstallationCheck() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.selectAnnualTestReading();
-        testTypeDetailsSteps.checkSetCarreidOutDuringTestOption("No");
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.cancelCarriedOutDuringTest();
-        testTypeDetailsSteps.checkSetCarreidOutDuringTestOption("No");
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
     }
 }

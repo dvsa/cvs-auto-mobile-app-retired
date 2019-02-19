@@ -29,7 +29,7 @@ public class SeatbeltInstallationCheck_1948 extends BaseTestClass {
         testSteps.selectAnnualTestReading();
         testTypeDetailsSteps.inputNumberOfSeatbelt("4");
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
-        testTypeDetailsSteps.cancelInputNumberOfSeatbelt();
+        testTypeDetailsSteps.selectAndCancelInputNumberOfSeatbelt();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
     }
 }

@@ -5,7 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.CountryOfRegisdtrationSteps;
+import steps.CountryOfRegistrationSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -20,14 +20,14 @@ public class VehicleCategoryCountryReg_2734 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    CountryOfRegisdtrationSteps countryOfRegisdtrationSteps;
+    CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Title("CVSB-995 - AC3 - Adding Country of Registration - search field cancel action")
     @Test
-    public void addingCountryOfRegistrationAfterListIsFiltered() {
+    public void addingCountryOfRegistrationCancelSearchAction() {
         testTypeCategoryComp.goToTestPage();
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegisdtrationSteps.searchForCountry("Norway");
-        countryOfRegisdtrationSteps.cancelSearchAction();
+        countryOfRegistrationSteps.searchForCountry("Norway");
+        countryOfRegistrationSteps.cancelSearchAction();
     }
 }
