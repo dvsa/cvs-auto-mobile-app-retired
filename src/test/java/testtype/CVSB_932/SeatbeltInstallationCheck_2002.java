@@ -27,7 +27,7 @@ public class SeatbeltInstallationCheck_2002 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("CVSB-932 - AC1 The behaviour of the seatbelt installation check fields when conducting Category A test types")
+    @Title("CVSB-932 - AC1 - The behaviour of the seatbelt installation check fields when conducting Category A test types")
     @Test
     //TODO Vary data so that the tests cover all the category A test types from the story after all of them are working properly
     public void testSeatBeltInstallationCheckCategoryATestTypes() {

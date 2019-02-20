@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("CVSB-932 -  AC5 The behaviour of the seatbelt installation check fields when conducting Category B test types")
+    @Title("CVSB-932 - AC5 - The behaviour of the seatbelt installation check fields when conducting Category B test types")
     @Test
     public void seatbeltInstallationCheckBehaviourWhenConductingCategoryBTestTypes() {
         testTypeCategoryComp.addTestType();

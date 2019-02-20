@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_2016 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("CVSB-932 - TCA - AC 6 0 seatbelts entered")
+    @Title("CVSB-932 - AC - 6 0 seatbelts entered")
     @Test
     public void zeroSeatbeltEnteredForCategoryBTestType() {
         testTypeCategoryComp.addTestType();

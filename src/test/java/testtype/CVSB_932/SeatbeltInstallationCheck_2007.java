@@ -43,6 +43,5 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
         testTypeDetailsSteps.inputNumberOfSeatbelt("@#$32432");
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
-
     }
 }

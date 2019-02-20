@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_2003 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("CVSB-932 - AC 2 Editing 'Carried out during this test'")
+    @Title("CVSB-932 - AC - 2 Editing 'Carried out during this test'")
     @Test
     public void editingCarriedOutDuringTest() {
         testTypeCategoryComp.addTestType();

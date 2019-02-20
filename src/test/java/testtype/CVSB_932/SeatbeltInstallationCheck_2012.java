@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_2012 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("CVSB-932 - TCA - Editing 'Most recent installation check' field")
+    @Title("CVSB-932 - AC - Editing 'Most recent installation check' field")
     @Test
     public void editingMostRecentInstallationCheckField() {
         testTypeCategoryComp.addTestType();
