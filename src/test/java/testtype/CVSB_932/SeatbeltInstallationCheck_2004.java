@@ -28,13 +28,12 @@ public class SeatbeltInstallationCheck_2004 extends BaseTestClass {
 
     @Title("CVSB-932 - AC - 2A VSA selects Yes")
     @Test
-    public void selectIsCaririedOut() {
+    public void selectIsCarriedOut() {
         testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Part Paid");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
-        testTypeCategorySteps.selectFromTestTypeList("Full inspection/ full fee");
-        testTypeCategorySteps.selectFromTestTypeList("With certification");
-        testSteps.selectNotCompleteTest("Prohibition clearance");
+        testSteps.selectNotCompleteTest("Retest");
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");

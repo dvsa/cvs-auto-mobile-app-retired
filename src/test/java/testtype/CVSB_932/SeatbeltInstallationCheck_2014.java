@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_2014 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("CVSB-932 - TCA - 4A VSA presses 'Cancel'")
+    @Title("CVSB-932 - AC - 4A VSA presses 'Cancel'")
     @Test
     public void cancelMostRecentInstallationCheck() {
         testTypeCategoryComp.addTestType();

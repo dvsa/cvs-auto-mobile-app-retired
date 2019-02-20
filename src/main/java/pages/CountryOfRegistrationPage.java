@@ -97,9 +97,6 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Non EU".equals(line))
                 .filter(line -> !"Not Known".equals(line))
                 .collect(Collectors.toList());
-        for(String s: filteredList) {
-            System.out.println(s);
-        }
         return Ordering.natural().isOrdered(filteredList);
     }
 
@@ -148,7 +145,7 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public List<String> eliminateUnwantedButtonsDisplayed(List<String> list) {
-        return  list.stream()
+        return list.stream()
                 .filter(line -> !"Review".equals(line))
                 .filter(line -> !"BQ91YHQ (psv) 1B7GG36N12S678410 Details arrow forward".equals(line))
                 .filter(line -> !"EU vehicle category Select arrow forward".equals(line))
@@ -183,6 +180,7 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public void selectNotKnown() {
+        searchForCountry("Norway");
         findElementByXpath("//XCUIElementTypeButton[contains(@name,'Not Known')]").click();
         clickSaveButton();
     }

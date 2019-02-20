@@ -73,7 +73,12 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean checkIsCarriedOutDisplayed() {
-        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Carried out during this test')]").isDisplayed();
+        try {
+            findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Carried out during this test')]").isDisplayed();
+            return true;
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
     }
 
     public void selectIsCarriedOut() {
