@@ -5,10 +5,8 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.DefectItemSteps;
-import steps.RecordDefectSteps;
-import steps.TestSteps;
-import steps.TestTypeSteps;
+import pages.TestPage;
+import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
@@ -19,13 +17,13 @@ public class DefectSearch_CVSB_643 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
@@ -35,13 +33,13 @@ public class DefectSearch_CVSB_643 extends BaseTestClass {
     @Test
     public void cancelAddingALevelTwoDefect() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.selectAddDefect("annual test");
-        recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");
         defectItemSteps.clickBack();
-        recordDefectSteps.clickBack();
-        testTypeSteps.checkTestWasNotAdded("annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate","1. Obligatory Seat Belt:", "2. Anchorages:");
+        defectCategorySteps.clickBack();
+        testTypeDetailsSteps.checkDefectWasNotAdded("Annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate","1. Obligatory Seat Belt:", "2. Anchorages:");
 
     }
 

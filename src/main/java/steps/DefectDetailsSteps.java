@@ -35,7 +35,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
         defectDetailsPage.selectSeatNumberValue(seatNumberValue);
-        defectDetailsPage.clickAddDefect();
+        defectDetailsPage.clickDone();
     }
 
     @Step
@@ -48,7 +48,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
         assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(1);
         defectDetailsPage.enablePRS();
         assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(2);
-        defectDetailsPage.clickAddDefect();
+        defectDetailsPage.clickDone();
     }
 
     @Step
@@ -62,8 +62,9 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void tapAddDefect() {
-        defectDetailsPage.clickAddDefect();
+    public void tapDone() {
+        defectDetailsPage.waitUntilPageIsLoaded();
+        defectDetailsPage.clickDone();
     }
 
     @Step

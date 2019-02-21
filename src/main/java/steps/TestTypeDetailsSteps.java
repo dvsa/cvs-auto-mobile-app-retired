@@ -212,6 +212,126 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void addNotes(String text) {
+        testTypeDetailsPage.waitUntilPageIsLoaded();
+        testTypeDetailsPage.clickNotes();
+        testTypeDetailsPage.typeIntoNotesField(text);
+    }
+
+    @Step
+    public void checkNotesText(String text) {
+        assertThat(testTypeDetailsPage.isTextDisplayedInNotes(text)).isTrue();
+    }
+
+    @Step
+    public void waitUntillPageIsLoaded(String testType) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
+    }
+
+    @Step
+    public void checkTestTypeResultAndVehicleDetailsOption(String testTypeName, String result) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testTypeName);
+        assertThat(testTypeDetailsPage.checkResultIsPresent(result)).isEqualTo(2);
+        assertThat(testTypeDetailsPage.getTestTypeDetails().isDisplayed()).isTrue();
+    }
+
+
+    @Step
+    public void checkAddDefectIsPresent() {
+        assertThat(testTypeDetailsPage.getAddDefectElement().isDisplayed()).isTrue();
+    }
+
+
+    @Step
+    public void selectAddDefect(String testType) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
+        testTypeDetailsPage.getAddDefectElement().click();
+    }
+
+
+    @Step
+    public void checkDefectsArePresentForTest(String testType, String recordDefect, String defectItem) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
+        assertThat(testTypeDetailsPage.checkDefectIsPresent(recordDefect).isDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.checkDefectIsPresent(defectItem).isDisplayed()).isTrue();
+
+    }
+
+    @Step
+    public void checkAdditionalDetails(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
+        assertThat(testTypeDetailsPage.getElementById(referenceNumber).isDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.getElementById(defectType).isDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.getElementByLabel(defectItem).isDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.getElementByLabel(defectItemSubcategory).isDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.getElementByLabel(defectItemSubcategoryType).isDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkAdditionalDetailsWithPRSPresent(String testType, String referenceNumber, String defectType, String defectItem, String defectItemSubcategory, String defectItemSubcategoryType) {
+        checkAdditionalDetails(testType, referenceNumber, defectType, defectItem, defectItemSubcategory, defectItemSubcategoryType);
+        assertThat(testTypeDetailsPage.getPRMSLabels()).isEqualTo(1);
+    }
+
+    @Step
+    public void tapOnPresentDefect(String testType, String recordDefect, String defectItem) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
+        testTypeDetailsPage.clickOnDefect(recordDefect, defectItem);
+    }
+
+    @Step
+    public void swipeDefect(String defectId) {
+        int initialXPosition = testTypeDetailsPage.getXPositionForElement(defectId);
+        testTypeDetailsPage.swipeLeftOnDefect(defectId);
+        int newXPosition = testTypeDetailsPage.getXPositionForElement(defectId);
+        assertThat(initialXPosition).isNotEqualTo(newXPosition);
+
+    }
+
+    @Step
+    public void pressRemove() {
+        testTypeDetailsPage.clickOnRemoveButton();
+    }
+
+    @Step
+    public void checkDefectRemovalPopUp() {
+        assertThat(testTypeDetailsPage.isDefectRemovalPopUpVisible()).isTrue();
+    }
+
+    @Step
+    public void pressRemoveInPopUp() {
+        testTypeDetailsPage.clickRemoveInPopUp();
+    }
+
+    @Step
+    public void checkDefectRemoved(String defectId) {
+        assertThat(testTypeDetailsPage.isDefectVisible(defectId)).isFalse();
+    }
+
+    @Step
+    public void pressCancelInPopUp() {
+        testTypeDetailsPage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void checkDefectIsNotRemoved(String defectId) {
+        assertThat(testTypeDetailsPage.isDefectVisible(defectId)).isTrue();
+    }
+
+    @Step
+    public void checkDefectWasNotAdded(String testType, String... defects) {
+        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
+        for (String defect: defects) {
+            assertThat(testTypeDetailsPage.checkElementIsNotPresent(defect).isEmpty()).isTrue();
+        }
+    }
+
+    @Step
+    public void checkTestTypesPageIsLoadedByTitle() {
+        assertThat(testTypeDetailsPage.getTestTypeDetails().isDisplayed()).isTrue();
+    }
+
+    @Step
     public void checkOptionsForCarriedOutSeatbeltCheckAreDisplayed(){
         testTypeDetailsPage.selectCarriedOutOption();
         testTypeDetailsPage.isCarriedOutDisplayed();

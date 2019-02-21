@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -32,7 +33,7 @@ public class LECTestType_2027 extends BaseTestClass {
         testTypeCategoryComp.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");
-        testSteps.selectNotCompleteTest("Technical test");
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.checkTestIsPassed();
         testTypeDetailsSteps.setTestToOption("Cancel");

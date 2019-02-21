@@ -26,13 +26,13 @@ public class TestTypeSearch_CVSB_820 extends BaseTestClass {
     @Title("CVSB-178 - Add test type from the latest level of test type drilldown")
     @Test
     public void testAddTestTypeFromLatestLevel() {
-        testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("retest");
-        testTypeSubcategorySteps.seeInTestTypeList("paid", "part paid");
-        testTypeSubcategorySteps.selectFromTestTypeList("paid");
-        testTypeSubcategorySteps.seeInTestTypeList("any psv", "class 6a (seatbelt installation check)");
-        testTypeSubcategorySteps.selectFromTestTypeList("class 6a (seatbelt installation check)");
+        testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Retest");
+        testTypeSubcategorySteps.seeInTestTypeList("Paid", "Part paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.seeInTestTypeList("Any PSV", "Class 6A (seatbelt installation check)");
+        testTypeSubcategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
-        testSteps.checkSelectedTestTypes("class 6a (seatbelt installation check) In progress arrow forward");
+        testSteps.checkSelectedTestTypes("Class 6A (seatbelt installation check)");
 
     }
 

@@ -27,9 +27,9 @@ public class TestTypeSearch_CVSB_821 extends BaseTestClass {
     @Test
     public void testSelectTestTypeCategoryWithNoSubcategories() {
         testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("annual test");
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
-        testSteps.checkSelectedTestTypes("annual test In progress arrow forward");
+        testSteps.checkSelectedTestTypes("Annual test");
 
     }
 }

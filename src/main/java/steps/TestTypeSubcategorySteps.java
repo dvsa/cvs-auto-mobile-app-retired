@@ -14,7 +14,6 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
 
     @Step
     public void seeInTestTypeList(String... testTypes) {
-        testTypeSubcategoryPage.waitUntilPageIsLoaded();
         List<String> actualData = testTypeSubcategoryPage.findAllTestTypesFromListByXpath();
         for (String test_type : testTypes) {
             assertThat(actualData).contains(test_type);
@@ -23,8 +22,12 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitForPageToLoadBySubcategory(String subcategory) {
+        testTypeSubcategoryPage.waitUntilPageIsLoaded(subcategory);
+    }
+
+    @Step
     public void selectFromTestTypeList(String testType) {
-        testTypeSubcategoryPage.waitUntilPageIsLoaded();
         testTypeSubcategoryPage.selectTestTypeFromListByXpath(testType);
 
     }

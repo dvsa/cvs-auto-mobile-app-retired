@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -16,19 +17,19 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectItemLevelThreeSteps defectItemLevelThreeSteps;
+    DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
     DefectDetailsSteps defectDetailsSteps;
@@ -38,13 +39,13 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
     @Test
     public void defectAddDefectFromDefectDetails() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
-        testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
-        recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
-        defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
-        defectItemLevelThreeSteps.selectDefect("3.1.b MAJOR");
-        defectDetailsSteps.selectOptionsAndTapAddDefect("upper", "nearside", "2", "2");
-        testTypeSteps.checkAdditionalDetails("Public Service Vehicle Annual Testing", "3.1.b ", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b). of an incorrect type.", "FAIL");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
+        defectDetailsSteps.selectOptionsAndTapAddDefect("Upper", "Nearside", "2", "2");
+        testTypeDetailsSteps.checkAdditionalDetails("Annual test", "3.1", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b) of an incorrect type.");
 
     }
 }

@@ -46,12 +46,6 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectNotCompleteTest(String testName) {
-        testPage.waitUntilPageIsLoaded();
-        testPage.clickOnNotCompleteTest(testName);
-    }
-
-    @Step
     public void selectAbandonedTest(String testName) {
         testPage.waitUntilPageIsLoaded();
         testPage.clickOnAbandonedTest(testName);
@@ -191,7 +185,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void chickOnButton() {
+    public void clickOkButton() {
         testPage.clickOkButton();
     }
 
