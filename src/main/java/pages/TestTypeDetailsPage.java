@@ -72,15 +72,11 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isDefectVisible(String defect) {
-        WebElement defectElement = null;
         try {
-            defectElement = findElementById(defect);
-        } catch (Exception e) {
-        }
-        if (defectElement != null) {
-            return defectElement.isDisplayed();
-        } else
+            return findElementById(defect).isDisplayed();
+        } catch (NoSuchElementException e) {
             return false;
+        }
     }
 
     public WebElement getElementById(String id) {
