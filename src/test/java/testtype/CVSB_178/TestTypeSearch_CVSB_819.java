@@ -34,7 +34,7 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
         testTypeSubcategorySteps.seeInTestTypeList("Annual test");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
-                "Prohibition clearence", "Technical test", "Voluntary test");
+                "Prohibition clearance", "Technical test", "Voluntary test");
         testTypeCategorySteps.goBackToTestOverview();
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
 

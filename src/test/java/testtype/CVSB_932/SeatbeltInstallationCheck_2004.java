@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -33,7 +34,7 @@ public class SeatbeltInstallationCheck_2004 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Part Paid");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
-        testSteps.selectNotCompleteTest("Retest");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");

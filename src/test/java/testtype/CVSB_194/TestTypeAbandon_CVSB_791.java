@@ -39,7 +39,7 @@ public class TestTypeAbandon_CVSB_791 extends BaseTestClass {
     public void testRemoveTestType() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
-        testSteps.swipeTestType("annual test In progress arrow forward");
+        testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.checkTestTypeAbandonButtonVisibility();
     }
 

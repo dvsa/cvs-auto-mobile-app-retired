@@ -30,7 +30,7 @@ public class TestTypeSearch_CVSB_818 extends BaseTestClass {
         testTypeCategoryComp.addTestType();
         testTypeCategorySteps.checkTestTypePage();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
-                "Prohibition clearence", "Technical test", "Voluntary test");
+                "Prohibition clearance", "Technical test", "Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeSubcategorySteps.seeInTestTypeList("Annual test");
 

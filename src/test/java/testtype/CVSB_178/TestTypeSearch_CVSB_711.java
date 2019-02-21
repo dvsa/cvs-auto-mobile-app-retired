@@ -30,7 +30,7 @@ public class TestTypeSearch_CVSB_711 extends BaseTestClass {
         testSteps.checkAddATestTypeButtonVisibility();
         testSteps.addTestType();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
-                "Prohibition clearence", "Technical test", "Voluntary test");
+                "Prohibition clearance", "Technical test", "Voluntary test");
         testTypeCategorySteps.checkTestTypePage();
 
     }

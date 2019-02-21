@@ -37,7 +37,7 @@ public class RecordResult_CVSB_1982 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
-        testTypeDetailsSteps.checkSetCarreidOutDuringTestOption("No");
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.checkNumberOfSeatbelts("Enter");
         testTypeDetailsSteps.checkMostRecentInstallationCheckIsDisplayed();
 
