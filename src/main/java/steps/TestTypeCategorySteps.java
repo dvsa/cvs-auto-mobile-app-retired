@@ -34,6 +34,6 @@ public class TestTypeCategorySteps extends ScenarioSteps {
 
     @Step
     public void goBackToTestOverview() {
-        testTypeCategoryPage.selectBack();
+        testTypeCategoryPage.selectCancel();
     }
 }

@@ -36,7 +36,7 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkDoneAndCancelOptionForSeatbeltNumber();
         testTypeDetailsSteps.inputNumberOfSeatbelt("12345");
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");

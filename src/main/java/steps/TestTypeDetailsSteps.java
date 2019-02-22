@@ -88,6 +88,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkDataPickerIsPresent() {
+        testTypeDetailsPage.waitUntilPageIsLoaded();
         assertThat(testTypeDetailsPage.isDateCalendarPickerDisplayed()).isTrue();
     }
 

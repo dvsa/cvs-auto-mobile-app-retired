@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
@@ -15,7 +16,6 @@ public class TestPage extends BasePage {
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type";
     private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test";
-    private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String CANCEL_BUTTON_BOTTOM_RIGHT = "Cancel test";
     private static final String CANCEL_ID = "Cancel";
@@ -27,7 +27,6 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
-    private static final String ANNUAL_TEST_READING_ID = "Annual test In progress arrow forward";
     private static final String REVIEW_BUTTON_ID = "Review";
 
     public enum OdometerUnitIndicatives {
@@ -45,7 +44,7 @@ public class TestPage extends BasePage {
     }
 
     public enum TestTypeStatuses {
-        IN_PROGRESS("In progress"), EDIT("Edit"), ABANDONED("Abandoned");
+        IN_PROGRESS("In progress"), EDIT("Edit"), ABANDONED("ABANDONED");
 
         private String value;
 
@@ -72,7 +71,6 @@ public class TestPage extends BasePage {
                 findElementById(testType + " " + testTypeStatus.getValue() + " checkmark").click();
                 break;
             case ABANDONED:
-                // TODO refactor after bug fix for CVSB-2065
                 findElementById(testType + " " + testTypeStatus.getValue()).click();
                 break;
             default:
@@ -97,14 +95,12 @@ public class TestPage extends BasePage {
         return findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed();
     }
 
-    public List<String> findAllTestTypesFromListByClassName() {
-        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        List<String> listOfButtons = new ArrayList<>();
-        for (WebElement webElement : webElementList) {
-            listOfButtons.add(webElement.getAttribute("name"));
+    public boolean isTestTypeDisplayedByXpath(String testType) {
+        try {
+            return findElementByXpath("//XCUIElementTypeButton[contains(@name, '" + testType + "')]").isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
         }
-
-        return listOfButtons;
     }
 
     public boolean isTestTypeStatusDisplayed(String testType, TestTypeStatuses status) {
@@ -128,16 +124,12 @@ public class TestPage extends BasePage {
         return findAllDataByComposedXpath(values).size();
     }
 
-    public void clickOnAbandonedTest(String testName) {
-        findElementByXpath("//XCUIElementTypeButton[@name='" + testName + "']").click();
-    }
-
     public void clickVehicleDetails() {
         findElementByXpath(VEHICLE_DETAILS_BUTTON_XPATH).click();
     }
 
-    public boolean isSubmitButtonAvailable() {
-        return findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).isDisplayed();
+    public boolean isReviewButtonAvailable() {
+        return findElementById(REVIEW_BUTTON_ID).isDisplayed();
     }
 
     //TODO create generic swipe action in BasePage
@@ -160,12 +152,21 @@ public class TestPage extends BasePage {
 
     public boolean isRemovePopUpDisplayed() {
         boolean status = false;
-        WebElement cancelButton = findElementById(CANCEL_ID);
-        WebElement removeButton = findElementById(REMOVE_ID);
-        WebElement description = findElementById(DESCRIPTION_ID);
-        WebElement title = findElementById(TITLE_ID);
-        if (cancelButton.isDisplayed() && removeButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
-            status = true;
+        boolean isException = false;
+        WebElement removeButton = null;
+        try {
+            removeButton = findElementById(REMOVE_ID);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            WebElement description = findElementById(DESCRIPTION_ID);
+            WebElement title = findElementById(TITLE_ID);
+            WebElement cancelButton =findElementById(CANCEL_ID);
+            if (removeButton.isDisplayed() && description.isDisplayed() && title.isDisplayed() && cancelButton.isDisplayed()) {
+                status = true;
+            }
         }
         return status;
     }
@@ -240,21 +241,12 @@ public class TestPage extends BasePage {
         return findElementByAccessibilityId(TEST_NOT_COMPLETE_TITLE).isDisplayed() && findElementByAccessibilityId(TEST_NOT_COMPLETE_INFO).isDisplayed();
     }
 
-    public void clickReviewAndConfirm() {
-        findElementById(REVIEW_AND_CONFIRM_BUTTON_ID).click();
-    }
-
     public boolean buttonOkIsClickable() {
         return findElementByAccessibilityId(OK_BUTTON).isEnabled() && findElementByAccessibilityId(OK_BUTTON).isDisplayed();
     }
 
     public void clickOkButton() {
         findElementByAccessibilityId(OK_BUTTON).click();
-    }
-
-    public void clickAnnualTestReading() {
-        waitUntilPageIsLoaded();
-        findElementByAccessibilityId(ANNUAL_TEST_READING_ID).click();
     }
 
     public void clickEUVehicleCategoryOption() {

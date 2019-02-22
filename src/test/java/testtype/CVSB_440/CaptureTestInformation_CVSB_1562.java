@@ -33,7 +33,7 @@ public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.selectVehicleTestHistory();
         // TODO refactor after database population with correct data
-        testHistorySteps.selectTestTypeRecord("string");
+        testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.pressBackButton();
         testHistorySteps.checkPage();
     }

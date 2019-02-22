@@ -34,7 +34,7 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt Installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.cancelMostRecentInstallationCheckOption();

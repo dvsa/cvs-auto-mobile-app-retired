@@ -15,7 +15,7 @@ public class SelectReasonPage extends BasePage {
 
     private static final String REASON_TEXT_1 = "The vehicle was not submitted for test at the appointed time";
     private static final String REASON_TEXT_2 = "The relevant test fee has not been paid";
-    private static final String REASON_TEXT_3 = "The was no means of identifying the vehicle i.e. the vehicle chassis/serial number was missing or did not relate to the vehicle";
+    private static final String REASON_TEXT_3 = "There was no means of identifying the vehicle i.e. the vehicle chassis/serial number was missing or did not relate to the vehicle";
     private static final String REASON_TEXT_4 = "The registration document or other evidence of the date of first registration was not presented when requested";
     private static final String REASON_TEXT_5 = "The vehicle was emitting substantial amounts of exhaust smoke so as to make it unreasonable for the test to be carried out";
     private static final String REASON_TEXT_6 = "The vehicle was in such a dirty or dangerous condition as to make it unreasonable for the test to be carried out";

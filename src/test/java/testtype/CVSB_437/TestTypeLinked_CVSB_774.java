@@ -32,13 +32,14 @@ public class TestTypeLinked_CVSB_774 extends BaseTestClass {
     public void testAddALinkedTestType() {
         testTypeCategoryComp.completeAddTestType();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkInTestTypeList( "class 6a (seatbelt installation check)", "annual test", "retest");
-        testTypeCategorySteps.selectFromTestTypeList("retest");
-        testTypeSubcategorySteps.seeInTestTypeList("paid", "part paid");
-        testTypeSubcategorySteps.selectFromTestTypeList("paid");
-        testTypeSubcategorySteps.seeInTestTypeList("any psv", "class 6a (seatbelt installation check)");
-        testTypeSubcategorySteps.selectFromTestTypeList("any psv");
-        testSteps.checkSelectedTestTypes("any psv In progress arrow forward");
+        testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
+                "Prohibition clearance", "Technical test", "Voluntary test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.seeInTestTypeList("Paid", "Part paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.seeInTestTypeList("Any PSV", "Class 6A (seatbelt installation check)");
+        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
+        testSteps.checkSelectedTestTypes("Any PSV");
 
     }
 

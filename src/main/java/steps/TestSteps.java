@@ -4,8 +4,6 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestPage;
 
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestSteps extends ScenarioSteps {
@@ -32,9 +30,8 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void checkSelectedTestTypes(String... selectedTestTypes) {
         testPage.waitUntilPageIsLoaded();
-        List<String> actualData = testPage.findAllTestTypesFromListByClassName();
         for (String expectedTestType : selectedTestTypes) {
-            assertThat(actualData.contains(expectedTestType)).isTrue();
+           assertThat(testPage.isTestTypeDisplayedByXpath(expectedTestType)).isTrue();
         }
     }
 
@@ -46,14 +43,8 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectAbandonedTest(String testName) {
-        testPage.waitUntilPageIsLoaded();
-        testPage.clickOnAbandonedTest(testName);
-    }
-
-    @Step
-    public void checkTestSubmitted() {
-        assertThat(testPage.isSubmitButtonAvailable()).isTrue();
+    public void checkReviewButton() {
+        assertThat(testPage.isReviewButtonAvailable()).isTrue();
     }
 
     @Step
@@ -76,6 +67,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkTestTypeRemovalPopUp() {
+        testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isRemovePopUpDisplayed()).isTrue();
     }
 
@@ -86,10 +78,8 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkTestTypeDeleted(String selectedTestType) {
-        List<String> actualData = testPage.findAllTestTypesFromListByClassName();
-        for (String testType : actualData) {
-            assertThat(testType.contains(selectedTestType)).isFalse();
-        }
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isTestTypeDisplayedByXpath(selectedTestType)).isFalse();
     }
 
     @Step
@@ -143,13 +133,9 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectAnnualTestReading() {
-        testPage.clickAnnualTestReading();
-    }
-    @Step
     public void clickConfirm() {
         testPage.waitUntilPageIsLoaded();
-        testPage.clickReviewAndConfirm();
+        testPage.clickReviewButton();
     }
 
     @Step
