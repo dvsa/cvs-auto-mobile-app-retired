@@ -14,7 +14,7 @@ public class TestPage extends BasePage {
     private static final String SELECT_PREPARER_PAGE_TITLE = "Test";
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type";
     private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
-    private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test add circle-outline";
+    private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test";
     private static final String REVIEW_AND_CONFIRM_BUTTON_ID = "Review & Confirm";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String CANCEL_BUTTON_BOTTOM_RIGHT = "Cancel test";
@@ -90,7 +90,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
-        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (psv) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {
@@ -126,10 +126,6 @@ public class TestPage extends BasePage {
 
     public int checkDataByLabelValueAndName(String... values) {
         return findAllDataByComposedXpath(values).size();
-    }
-
-    public void clickOnNotCompleteTest(String testName) {
-        findElementById(testName + " In progress arrow forward").click();
     }
 
     public void clickOnAbandonedTest(String testName) {

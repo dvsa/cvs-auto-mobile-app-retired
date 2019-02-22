@@ -30,11 +30,11 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
     @Title("CVSB-178 - Return back to the Test overview screen")
     @Test
     public void testReturnToTestOverviewScreen() {
-        testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("class 6a (seatbelt installation check)");
-        testTypeSubcategorySteps.seeInTestTypeList("annual");
+        testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Class 6A");
+        testTypeSubcategorySteps.seeInTestTypeList("Annual test");
         testTypeSubcategorySteps.goBackToCategory();
-        testTypeCategorySteps.checkInTestTypeList("class 6a (seatbelt installation check)", "annual test", "retest",
-                "prohibition clearence", "technical test", "voluntary test");
+        testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
+                "Prohibition clearance", "Technical test", "Voluntary test");
         testTypeCategorySteps.goBackToTestOverview();
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
 

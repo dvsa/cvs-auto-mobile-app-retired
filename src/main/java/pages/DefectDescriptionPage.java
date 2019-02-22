@@ -13,11 +13,11 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefectItemLevelThreePage extends BasePage {
+public class DefectDescriptionPage extends BasePage {
 
     private static final String ADVISORY_LABEL_ID = "ADVISORY";
     private static final String ADVISORY_NOTE_ID = "Add an advisory note";
-    private static final String BACK_BUTTON_ID = "arrow back Back";
+    private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
     private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeSearchField";
 
 
@@ -35,7 +35,7 @@ public class DefectItemLevelThreePage extends BasePage {
     }
 
     public void clickBack() {
-        findElementByAccessibilityId(BACK_BUTTON_ID).click();
+        findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 
     public void searchForDefect(String defectName) {

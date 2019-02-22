@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -16,7 +17,7 @@ public class DefectAdd_CVSB_668 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
@@ -25,8 +26,8 @@ public class DefectAdd_CVSB_668 extends BaseTestClass {
     @Test
     public void testTypeAddDefectOption() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.checkTestTypeResultAndVehicleDetailsOption("annual test", "PASS");
-        testTypeSteps.checkAddDefectIsPresent();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkTestTypeResultAndVehicleDetailsOption("Annual test", "PASS");
+        testTypeDetailsSteps.checkAddDefectIsPresent();
     }
 }

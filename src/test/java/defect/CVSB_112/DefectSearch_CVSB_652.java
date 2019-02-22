@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -16,19 +17,19 @@ public class DefectSearch_CVSB_652 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectItemLevelThreeSteps defectItemLevelThreeSteps;
+    DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
     DefectDetailsSteps defectDetailsSteps;
@@ -39,35 +40,35 @@ public class DefectSearch_CVSB_652 extends BaseTestClass {
     public void testReturningToSearchResults() {
 
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.selectAddDefect("annual test");
-        recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
-        recordDefectSteps.searchForDefect("Seat Belts & Supplementary Restraint Systems");
-        recordDefectSteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.checkListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
+        defectCategorySteps.searchForDefect("Seat Belts & Supplementary Restraint Systems");
+        defectCategorySteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");
         defectItemSteps.clickBack();
-        recordDefectSteps.checkExpectedPresentDefects(2, "3. Seat Belts & Supplementary Restraint Systems");
-        recordDefectSteps.checkExpectedPresentDefects(0, "1. Registration Plate");
+        defectCategorySteps.checkExpectedPresentDefects(2, "3. Seat Belts & Supplementary Restraint Systems");
+        defectCategorySteps.checkExpectedPresentDefects(0, "1. Registration Plate");
 
 
-        recordDefectSteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
+        defectCategorySteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");
         defectItemSteps.searchForDefect("Obligatory Seat Belt:");
         defectItemSteps.selectItemFromSearchList("1. Obligatory Seat Belt:");
-        defectItemLevelThreeSteps.checkItemsArePresent("missing.", "of an incorrect type.");
-        defectItemLevelThreeSteps.clickBack();
+        defectDescriptionSteps.checkItemsArePresent("missing.", "of an incorrect type.");
+        defectDescriptionSteps.clickBack();
         defectItemSteps.checkExpectedPresentDefects(2, "1. Obligatory Seat Belt:");
         defectItemSteps.checkExpectedPresentDefects(0, "2. Anchorages:");
 
 
         defectItemSteps.selectItemFromSearchList("1. Obligatory Seat Belt:");
-        defectItemLevelThreeSteps.checkItemsArePresent("missing.", "of an incorrect type.");
-        defectItemLevelThreeSteps.searchForDefect("missing.".toUpperCase());
-        defectItemLevelThreeSteps.selectItemFromSearchList("missing.");
+        defectDescriptionSteps.checkItemsArePresent("missing.", "of an incorrect type.");
+        defectDescriptionSteps.searchForDefect("missing.".toUpperCase());
+        defectDescriptionSteps.selectItemFromSearchList("missing.");
         defectDetailsSteps.checkPageIsLoaded();
         defectDetailsSteps.clickBack();
-        defectItemLevelThreeSteps.checkExpectedPresentDefects(1, "missing.");
-        defectItemLevelThreeSteps.checkExpectedPresentDefects(0, "of an incorrect type.");
+        defectDescriptionSteps.checkExpectedPresentDefects(1, "missing.");
+        defectDescriptionSteps.checkExpectedPresentDefects(0, "of an incorrect type.");
 
     }
 }

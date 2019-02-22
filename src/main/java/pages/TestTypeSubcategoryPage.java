@@ -1,22 +1,22 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TestTypeSubcategoryPage extends BasePage {
-    private static final String TEST_TYPE_PAGE_TITLE = "Test type";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String BACK_BUTTON_ID = "arrow back Back";
 
-    public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(TEST_TYPE_PAGE_TITLE);
+    public void waitUntilPageIsLoaded(String testTypeSubcategory) {
+        waitUntilNumberOfElementsToBe(By.id(testTypeSubcategory), 1);
     }
 
-    public boolean isPageTitleDisplayed() {
+    public boolean isPageTitleDisplayed(String testTypeSubcategory) {
         boolean status = false;
-        if(findElementById(TEST_TYPE_PAGE_TITLE).isDisplayed())
+        if(findElementById(testTypeSubcategory).isDisplayed())
             status = true;
         return status;
     }

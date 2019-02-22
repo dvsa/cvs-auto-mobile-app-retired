@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -17,19 +18,19 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectItemLevelThreeSteps defectItemLevelThreeSteps;
+    DefectDescriptionSteps defectDescriptionSteps;
 
 
     @Title("CVSB-112 - AC4  Negative result for searching with the search bar (no results)")
@@ -37,13 +38,13 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
     public void checkNoResultsAllLevels() {
 
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.selectAddDefect("annual test");
-        recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
-        recordDefectSteps.searchForDefect(RandomStringUtils.randomAlphanumeric(8));
-        recordDefectSteps.checkNoResultsFoundAndSuggestion();
-        recordDefectSteps.clearSearch();
-        recordDefectSteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.checkListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
+        defectCategorySteps.searchForDefect(RandomStringUtils.randomAlphanumeric(8));
+        defectCategorySteps.checkNoResultsFoundAndSuggestion();
+        defectCategorySteps.clearSearch();
+        defectCategorySteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
 
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");
         defectItemSteps.searchForDefect(RandomStringUtils.randomAlphanumeric(8));
@@ -51,9 +52,9 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
         defectItemSteps.clearSearch();
         defectItemSteps.selectItemFromSearchList("1. Obligatory Seat Belt:");
 
-        defectItemLevelThreeSteps.checkItemsArePresent("missing.", "of an incorrect type.");
-        defectItemLevelThreeSteps.searchForDefect(RandomStringUtils.randomAlphanumeric(8));
-        defectItemLevelThreeSteps.checkNoResultsFoundAndSuggestion();
+        defectDescriptionSteps.checkItemsArePresent("missing.", "of an incorrect type.");
+        defectDescriptionSteps.searchForDefect(RandomStringUtils.randomAlphanumeric(8));
+        defectDescriptionSteps.checkNoResultsFoundAndSuggestion();
 
 
     }

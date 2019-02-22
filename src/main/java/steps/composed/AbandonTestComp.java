@@ -21,7 +21,7 @@ public class AbandonTestComp extends ScenarioSteps {
     public void goToAbandonTestScreen(SelectReasonPage.Reasons... reasons) {
         testTypeCategoryComp.completeAddTestType();
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
-        testSteps.swipeTestType("annual test In progress arrow forward");
+        testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(reasons);
         selectReasonSteps.pressNextButton();

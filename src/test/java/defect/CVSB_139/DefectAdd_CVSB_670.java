@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -16,19 +17,19 @@ public class DefectAdd_CVSB_670 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectItemLevelThreeSteps defectItemLevelThreeSteps;
+    DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
     AdvisoryDetailsSteps advisoryDetailsSteps;
@@ -38,11 +39,11 @@ public class DefectAdd_CVSB_670 extends BaseTestClass {
     @Test
     public void addAdvisoryDefectScreen() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.selectAddDefect("annual test");
-        recordDefectSteps.selectDefectFromList("Horn");
-        defectItemSteps.selectDefectFromList("Horn Control:");
-        defectItemLevelThreeSteps.tapAddAnAdvisoryNote();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("5. Exhaust Emissions");
+        defectItemSteps.selectDefectFromList("7. Engine MIL");
+        defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.waitUntilPageIsLoaded();
     }
 }

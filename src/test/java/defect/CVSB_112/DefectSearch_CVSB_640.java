@@ -5,10 +5,8 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.DefectItemSteps;
-import steps.RecordDefectSteps;
-import steps.TestSteps;
-import steps.TestTypeSteps;
+import pages.TestPage;
+import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
@@ -19,13 +17,13 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps typeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
@@ -35,13 +33,12 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
     @Test
     public void defectGoBackFromSecondLevelToFirstLevel() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.selectAddDefect("annual test");
-        recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
-        recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        typeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");
         defectItemSteps.clickBack();
-        recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
-
+        defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");
     }
 }

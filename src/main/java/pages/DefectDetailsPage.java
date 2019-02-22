@@ -14,11 +14,10 @@ public class DefectDetailsPage extends BasePage {
     private static final String ADDITIONAL_INFORMATION_LATERAL = "Lateral";
     private static final String ADDITIONAL_INFORMATION_ROW_NUMBER = "Row Number";
     private static final String ADDITIONAL_INFORMATION_SEAT_NUMBER = "Seat Number";
-    private static final String ADD_DEFECT_BUTTON_ID = "Add Defect";
     private static final String DONE_BUTTON_ID = "Done";
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
-    private static final String BACK_BUTTON_ID = "arrow back Back";
+    private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'arrow back')]";
 
     public WebElement getDefectLabel() {
         return findElementById(DEFECT_ITEM_LABEL_ID);
@@ -76,20 +75,16 @@ public class DefectDetailsPage extends BasePage {
 
     public void selectRowNumberValue(String id) {
         getRowNumber().click();
-        findElementById(id).click();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + id + "']").click();
     }
 
     public void selectSeatNumberValue(String id) {
         getSeatNumber().click();
-        findElementById(id).click();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + id + "']").click();
     }
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(DEFECT_DETAILS_PAGE_ID);
-    }
-
-    public void clickAddDefect() {
-        findElementById(ADD_DEFECT_BUTTON_ID).click();
     }
 
     public void clickDone() {
@@ -113,6 +108,6 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void clickBack() {
-        findElementByAccessibilityId(BACK_BUTTON_ID).click();
+        findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 }

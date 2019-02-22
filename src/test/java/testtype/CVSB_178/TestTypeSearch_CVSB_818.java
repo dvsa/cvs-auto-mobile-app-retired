@@ -29,10 +29,10 @@ public class TestTypeSearch_CVSB_818 extends BaseTestClass {
     public void testTestTypeCategoryContainingOtherCategories() {
         testTypeCategoryComp.addTestType();
         testTypeCategorySteps.checkTestTypePage();
-        testTypeCategorySteps.checkInTestTypeList("class 6a (seatbelt installation check)", "annual test", "retest",
-                "prohibition clearence", "technical test", "voluntary test");
-        testTypeCategorySteps.selectFromTestTypeList("class 6a (seatbelt installation check)");
-        testTypeSubcategorySteps.seeInTestTypeList("annual");
+        testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
+                "Prohibition clearance", "Technical test", "Voluntary test");
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A");
+        testTypeSubcategorySteps.seeInTestTypeList("Annual test");
 
     }
 

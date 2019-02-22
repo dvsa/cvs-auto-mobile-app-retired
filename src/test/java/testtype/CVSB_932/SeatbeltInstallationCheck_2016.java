@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -33,7 +34,7 @@ public class SeatbeltInstallationCheck_2016 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt Installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
-        testSteps.selectNotCompleteTest("Prohibition clearance");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.inputNumberOfSeatbelt("0");
         testTypeDetailsSteps.checkSeatbetlPopUpIsDisplayed();
         testTypeDetailsSteps.pressOkButtonForSeatbeltPopUp();

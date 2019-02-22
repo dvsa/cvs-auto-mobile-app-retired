@@ -5,9 +5,10 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
-import steps.TestTypeSteps;
+import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
@@ -24,7 +25,7 @@ public class TestReview_CVSB_1955 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Title("CVSB-984 - AC2 - VSA presses 'OK' in the modal window")
     @Test
@@ -33,8 +34,8 @@ public class TestReview_CVSB_1955 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.clickConfirm();
-        testSteps.chickOnButton();
-        testSteps.selectNotCompleteTest("Annual test");
-        testTypeSteps.checkTestTypesPageIsLoadedByTitle();
+        testSteps.clickOkButton();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkTestTypesPageIsLoadedByTitle();
     }
 }

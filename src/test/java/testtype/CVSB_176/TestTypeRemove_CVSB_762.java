@@ -23,11 +23,11 @@ public class TestTypeRemove_CVSB_762 extends BaseTestClass {
     @Test
     public void testRemovalConfirmation() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.swipeTestType("ANNUAL TEST In progress arrow forward");
+        testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeRemoveButton();
         testSteps.checkTestTypeRemovalPopUp();
         testSteps.pressRemoveInPopUp();
-        testSteps.checkTestTypeDeleted("ANNUAL TEST In progress arrow forward");
+        testSteps.checkTestTypeDeleted("Annual test In progress arrow forward");
 
     }
 

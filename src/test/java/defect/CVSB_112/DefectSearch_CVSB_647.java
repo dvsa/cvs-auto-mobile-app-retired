@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -17,19 +18,19 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectItemLevelThreeSteps defectItemLevelThreeSteps;
+    DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
     DefectDetailsSteps defectDetailsSteps;
@@ -39,11 +40,11 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
     @Test
     public void searchForNonAlphanumericDefect() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("annual test");
-        testTypeSteps.selectAddDefect("annual test");
-        recordDefectSteps.checkLevelOneListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");
-        recordDefectSteps.searchForDefect(")*{(][}" + RandomStringUtils.randomPrint(8));
-        recordDefectSteps.checkNoResultsFoundAndSuggestion();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.checkListOfDefects("3. Seat Belts & Supplementary Restraint Systems", "Registration Plate");
+        defectCategorySteps.searchForDefect(")*{(][}" + RandomStringUtils.randomPrint(8));
+        defectCategorySteps.checkNoResultsFoundAndSuggestion();
 
 
     }

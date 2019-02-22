@@ -13,10 +13,10 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecordDefectPage extends BasePage {
+public class DefectCategoryPage extends BasePage {
 
-    private static final String RECORD_DEFECT_PAGE_ID = "Record defect";
-    private static final String BACK_BUTTON_ID = "arrow back Back";
+    private static final String DEFECT_CATEGORY_PAGE_ID = "Defect category";
+    private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
     private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeSearchField";
 
 
@@ -25,7 +25,7 @@ public class RecordDefectPage extends BasePage {
     }
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(RECORD_DEFECT_PAGE_ID);
+        waitUntilPageIsLoadedById(DEFECT_CATEGORY_PAGE_ID);
     }
 
     public int getElementsNumberFromList(String... values) {
@@ -33,7 +33,7 @@ public class RecordDefectPage extends BasePage {
     }
 
     public void clickBack() {
-        findElementByAccessibilityId(BACK_BUTTON_ID).click();
+        findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 
     public void searchForDefect(String defectName) {

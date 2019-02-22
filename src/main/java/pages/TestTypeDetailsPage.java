@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebElement;
 import util.EnvironmentType;
 import util.LoaderlLocalRealDeviceImpl;
 import util.TypeLoader;
@@ -9,10 +10,13 @@ import java.text.DateFormatSymbols;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TestTypeDetailsPage extends BasePage {
 
-    private static final String TEST_DETAILS_PAGE_TITLE_ID = "Test type details";
+    private static final String TEST_TYPE_DETAILS = "Test type details";
     private static final String CARRIED_OUT_YES_OPTION_ID = "Yes";
     private static final String CARRIED_OUT_NO_OPTION_ID = "No";
     private static final String CARRIED_OUT_CANCEL_OPTION_ID = "Cancel";
@@ -32,6 +36,100 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
     private static final String CERTIFICATE_NUMBER_GUIDANCE_ID = "After conducting the test, complete the Low Emissions Certificate and enter the certificate number.";
+    private static final String NOTES_INPUT_FIELD_CLASS_NAME = "XCUIElementTypeTextView";
+    private static final String ADD_DEFECT_ID = "Add defect";
+    private static final String REMOVE_BUTTON_ID = "Remove";
+    private static final String POP_UP_CANCEL_ID = "Cancel";
+    private static final String POP_UP_REMOVE_XPATH = "(//XCUIElementTypeButton[@name='Remove'])[2]";
+    private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
+    private static final String POP_UP_TITLE_ID = "Remove defect";
+
+    public int checkResultIsPresent(String result) {
+        return findElementsByXpath("//*[@name='" + result + "']").size();
+    }
+
+    public WebElement getTestTypeDetails() {
+        return findElementById(TEST_TYPE_DETAILS);
+    }
+
+
+    public WebElement getAddDefectElement() {
+        return findElementById(ADD_DEFECT_ID);
+    }
+
+
+    public void waitUntilPageIsLoadedByTestType(String testName) {
+        waitUntilPageIsLoadedByXpath("//*[@name='" + testName + "']");
+    }
+
+    public WebElement checkDefectIsPresent(String defect) {
+        return findElementByXpath("//*[contains(@label, '" + defect + "')]");
+    }
+
+
+    public List<WebElement> checkElementIsNotPresent(String item) {
+        return findElementsByXpath("//*[@name='" + item + "']");
+    }
+
+    public boolean isDefectVisible(String defect) {
+        try {
+            return findElementById(defect).isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public WebElement getElementById(String id) {
+        return findElementById(id);
+    }
+
+    public WebElement getElementByLabel(String label) {
+        return findElementByXpath("//*[@label='" + label + "']");
+    }
+
+    public int getPRMSLabels() {
+        return findElementsByXpath("//*[@label='PRS']").size();
+    }
+
+    public void clickOnDefect(String recordDefect, String defectItem) {
+        if(checkDefectIsPresent(defectItem) != null) {
+            findElementByXpath("//*[contains(@label, '" + recordDefect + "')]").click();
+        }
+    }
+
+    public void swipeLeftOnDefect(String defectId) {
+        WebElement defectToSwipe = findElementById(defectId);
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        Map<String, Object> params = new HashMap<>();
+        params.put("direction", "left");
+        params.put("element", ((RemoteWebElement) defectToSwipe).getId());
+        js.executeScript("mobile: swipe", params);
+    }
+
+    public void clickOnRemoveButton() {
+        findElementById(REMOVE_BUTTON_ID).click();
+    }
+
+    public boolean isDefectRemovalPopUpVisible() {
+        boolean status = false;
+        WebElement cancelButton = findElementById(POP_UP_CANCEL_ID);
+        WebElement removeButton = findElementByXpath(POP_UP_REMOVE_XPATH);
+        WebElement text = findElementById(POP_UP_TEXT_ID);
+        WebElement title = findElementById(POP_UP_TITLE_ID);
+        if (cancelButton.isDisplayed() && removeButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
+            status = true;
+        }
+        return status;
+    }
+
+    public void clickRemoveInPopUp() {
+        findElementByXpath(POP_UP_REMOVE_XPATH).click();
+    }
+
+    public void clickCancelInPopUp() {
+        findElementById(POP_UP_CANCEL_ID).click();
+    }
+
     private static final String NO_SEATBELTS_ENTERED_POP_UP_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"No seatbelts entered\"]";
     private static final String NO_SEATBELTS_ENTERED_POP_UP_MESSAGE_XPATH = "//XCUIElementTypeStaticText[@name=\"The number of seatbelts fitted must be greater than zero (0) to carry out an installation check.\"]";
     private static final String NO_SEATBELTS_ENTERED_POP_UP_OK_BUTTON_XPATH = "//XCUIElementTypeButton[@name=\"OK\"]";
@@ -53,7 +151,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(TEST_DETAILS_PAGE_TITLE_ID);
+        waitUntilPageIsLoadedById(TEST_TYPE_DETAILS);
     }
 
     public void clickSaveButton() {
@@ -216,7 +314,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isTestTypeDetailsTitleDisplayed() {
-        return findElementById(TEST_DETAILS_PAGE_TITLE_ID).isDisplayed();
+        return findElementById(TEST_TYPE_DETAILS).isDisplayed();
     }
 
     public void scrollOneDayDown() {
@@ -297,11 +395,25 @@ public class TestTypeDetailsPage extends BasePage {
 
     public String cancelInputCertificateNumber() {
         findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).click();
-        findElementById(TEST_DETAILS_PAGE_TITLE_ID).click();
+        findElementById(TEST_TYPE_DETAILS).click();
         return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).getText();
     }
 
     public boolean isCertificateGuidanceDisplayed() {
         return findElementById(CERTIFICATE_NUMBER_GUIDANCE_ID).isDisplayed();
+    }
+
+    public void clickNotes() {
+        findElementByClassName(NOTES_INPUT_FIELD_CLASS_NAME).click();
+    }
+
+    public void typeIntoNotesField(String text) {
+        WebElement inputField = findElementByClassName(NOTES_INPUT_FIELD_CLASS_NAME);
+        inputField.clear();
+        inputField.sendKeys(text);
+    }
+
+    public boolean isTextDisplayedInNotes(String text) {
+        return findElementByClassName(NOTES_INPUT_FIELD_CLASS_NAME).getAttribute("value").contains(text);
     }
 }

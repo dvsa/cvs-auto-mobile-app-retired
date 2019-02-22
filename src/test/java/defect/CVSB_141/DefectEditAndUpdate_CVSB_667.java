@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -16,19 +17,19 @@ public class DefectEditAndUpdate_CVSB_667 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    TestTypeSteps testTypeSteps;
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
-    RecordDefectSteps recordDefectSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectItemLevelThreeSteps defectItemLevelThreeSteps;
+    DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
     AdvisoryDetailsSteps advisoryDetailsSteps;
@@ -38,17 +39,17 @@ public class DefectEditAndUpdate_CVSB_667 extends BaseTestClass {
     @Test
     public void testEditAndUpdateFromAdvisoryDetails() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectNotCompleteTest("Public Service Vehicle Annual Testing");
-        testTypeSteps.selectAddDefect("Public Service Vehicle Annual Testing");
-        recordDefectSteps.selectDefectFromList("Seat Belts & Supplementary Restraint Systems");
-        defectItemSteps.selectDefectFromList("Obligatory Seat Belt");
-        defectItemLevelThreeSteps.tapAddAnAdvisoryNote();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.waitUntilPageIsLoaded();
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("test note 1234");
         // TODO find a better way for advisory/defect verification
-        testTypeSteps.checkDefectsArePresentForTest("Public Service Vehicle Annual Testing", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
+        testTypeDetailsSteps.checkDefectsArePresentForTest("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
         // TODO find a better way for existing advisory selection
-        testTypeSteps.tapOnPresentDefect("Public Service Vehicle Annual Testing", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
+        testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
         advisoryDetailsSteps.checkExistingNote("test note 1234");
         advisoryDetailsSteps.addRandomNoteInputAndTapDone();
     }
