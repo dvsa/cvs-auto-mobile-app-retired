@@ -351,4 +351,9 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void pressOkButtonForSeatbeltPopUp(){
        testTypeDetailsPage.clickOkButtonForSeatbeltPopUp();
     }
+
+    @Step
+    public void clickAddDefectButton(){
+        testTypeDetailsPage.clickAddDefectButton();
+    }
 }
