@@ -14,7 +14,7 @@ public class SiteVisitPage extends BasePage {
     private static final String PAGE_TITLE = "Site Visit";
     private static final String CREATE_TEST_ID = "Create test";
     private static final String END_VISIT_ID = "End visit";
-    private static final String OK_MODAL_ID = "OK";
+    private static final String OK_MODAL_ID = "Confirm";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='CVSMobile']";
 
