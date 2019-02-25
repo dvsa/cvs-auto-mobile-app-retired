@@ -12,7 +12,6 @@ public class VehicleDetailsPage extends BasePage {
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
-    private static final String IDENTIFY_VEHICLE_BACK = "arrow back Identify Vehicle";
 
     private static final String CANCEL_ID = "Cancel";
     private static final String CONFIRM_ID = "Confirm";
@@ -94,10 +93,6 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean elementFromListIsDisplayed(String element) {
         return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
-    }
-
-    public void clickIdentifyVehicle() {
-        findElementById(IDENTIFY_VEHICLE_BACK).click();
     }
 
     public void clickExpandableInformation(String info) {

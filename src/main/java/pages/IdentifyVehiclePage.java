@@ -81,7 +81,7 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public boolean isLoadingScreenDisplayed() {
-        return waitUntilPageIsLoadedById(LOADING_SCREEN_ID).isDisplayed();
+        return findElementById(LOADING_SCREEN_ID).isDisplayed();
     }
 
     public boolean isIdentifyVehicleTitleDisplayed() {

@@ -31,8 +31,8 @@ public class VehicleDetails_CVSB_1072 extends BaseTestClass {
         identifyVehicleSteps.checkVehicleNotFoundPopUp();
         identifyVehicleSteps.pressOkInPopUp();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
-        vehicleDetailsSteps.checkDetailPageData("1B7GG36N12S678410","Zentix", "non"
-                 ,"Unisure","do","other","3225",
-                 "01/07/2006","43","o" );
+        vehicleDetailsSteps.checkDetailPageData("1B7GG36N12S678410","Mercedes", "632,01"
+                ,"Plaxton","Tourismo","single decker","2010",
+                "05/01/2011","2","171202" );
     }
 }

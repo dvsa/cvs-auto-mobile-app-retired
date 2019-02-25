@@ -32,7 +32,7 @@ public class VehicleChange_CVSB_754 extends BaseTestClass {
     public void testChangeAVehicleAfterConfirmVehicleDetails() {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.tapVehicleDetails();
-        vehicleDetailsSteps.tapIdentifyVehicle();
+        vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.waitUntilPageIsLoaded();
     }
