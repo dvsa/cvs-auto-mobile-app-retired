@@ -30,4 +30,6 @@ public class VehicleCategoryCountryReg_2673 extends BaseTestClass {
         countryOfRegistrationSteps.checkAllCountriesAreDisplayed();
         countryOfRegistrationSteps.checkCountriesAreOrdered();
     }
+
 }
+

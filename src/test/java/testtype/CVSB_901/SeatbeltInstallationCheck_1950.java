@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -26,7 +27,7 @@ public class SeatbeltInstallationCheck_1950 extends BaseTestClass {
     @Test
     public void testEditNumberOfSeatbeltsDifferentFromZeroBehaviour() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectAnnualTestReading();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.inputNumberOfSeatbelt("0");
         testTypeDetailsSteps.checkNumberOfSeatbelts("0");
         testTypeDetailsSteps.checkMostRecentInstallationCheckIsNotDisplayed();

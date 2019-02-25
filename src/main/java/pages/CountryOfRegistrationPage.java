@@ -17,6 +17,10 @@ public class CountryOfRegistrationPage extends BasePage {
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String NO_RESULTS_MESSAGE_XPATH = "//XCUIElementTypeStaticText[@name=\"No results found\"]";
 
+    public void waitUntilPageIsLoaded() {
+        waitUntilPageIsLoadedById(PAGE_TITLE_ID);
+    }
+
     public void clickSaveButton() {
         findElementById(SAVE_BUTTON_ID).click();
     }

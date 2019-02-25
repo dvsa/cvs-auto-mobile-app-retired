@@ -34,7 +34,7 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.selectVehicleTestHistory();
         // TODO refactor after database population with correct data
-        testHistorySteps.selectTestTypeRecord("string");
+        testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.checkPageTitle();
         testHistoryDetailsSteps.checkDetails("DEFECTS", "", "REFERENCELOL",
                 "ADVISORY", "PRS", "0. string", "(a M) oops it doesn't work", "Upper", "Nearside", "Rear",

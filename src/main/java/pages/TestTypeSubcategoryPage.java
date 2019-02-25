@@ -8,7 +8,8 @@ import java.util.List;
 
 public class TestTypeSubcategoryPage extends BasePage {
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
-    private static final String BACK_BUTTON_ID = "arrow back Back";
+    private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'arrow back')]";
+
 
     public void waitUntilPageIsLoaded(String testTypeSubcategory) {
         waitUntilNumberOfElementsToBe(By.id(testTypeSubcategory), 1);
@@ -42,8 +43,7 @@ public class TestTypeSubcategoryPage extends BasePage {
 
     }
 
-
     public void selectBack() {
-        findElementById(BACK_BUTTON_ID).click();
+        findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 }

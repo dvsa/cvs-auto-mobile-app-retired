@@ -36,7 +36,7 @@ public class SeatbeltInstallationCheck_2006 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.cancelCarriedOutDuringTest();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");

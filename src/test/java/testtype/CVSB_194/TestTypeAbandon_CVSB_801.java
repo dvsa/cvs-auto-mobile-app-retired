@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
+import pages.TestPage;
 import steps.AbandonTestSteps;
 import steps.AbandonedTestSteps;
 import steps.SelectReasonSteps;
@@ -43,7 +44,7 @@ public class TestTypeAbandon_CVSB_801 extends BaseTestClass {
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
-        testSteps.selectAbandonedTest("annual test Abandoned In progress arrow forward");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.ABANDONED);
         abandonedTestSteps.checkAbandonedTestPage();
         abandonedTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
     }

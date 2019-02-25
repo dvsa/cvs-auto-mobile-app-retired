@@ -31,7 +31,7 @@ public class CaptureTestInformation_CVSB_1553 extends BaseTestClass {
         testHistorySteps.checkPage();
         testHistorySteps.checkRegPlate("BQ91YHQ");
         // TODO refactor after database population with correct data
-        testHistorySteps.checkTestTypeRecordInListByStatus("FAILURE");
+        testHistorySteps.checkTestTypeRecordInListByStatus("FAIL");
 
     }
 

@@ -22,6 +22,7 @@ public class OdometerReadingSteps extends ScenarioSteps {
 
     @Step
     public void typeInField(String text) {
+        odometerReadingPage.waitUntilPageIsLoaded();
         odometerReadingPage.typeInReadingField(text);
     }
 

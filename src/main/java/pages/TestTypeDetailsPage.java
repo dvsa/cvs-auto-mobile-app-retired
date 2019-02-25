@@ -25,7 +25,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String SEATBEALT_INSTALLATION_CHECK_CANCELED_BUTTON_ID = "Cancel";
     private static final String MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID = "Done";
     private static final String MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID = "Cancel";
-    private static final String SEATBELT_TITLE_ID = "Seatbelt installation check";
+    private static final String SEATBELT_TITLE_ID = "SEATBELT INSTALLATION CHECK";
     private static final String SAVE_BUTTON_ID = "Save";
     private static final String TEST_RESULT_ID = "Test result Select arrow forward";
     private static final String SET_LEC_TEST_TO_PASS_ID = "Pass";

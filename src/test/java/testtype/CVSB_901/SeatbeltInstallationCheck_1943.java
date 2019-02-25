@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -24,9 +25,9 @@ public class SeatbeltInstallationCheck_1943 extends BaseTestClass {
 
     @Title("CVSB-901 - AC3 - Access number of seat belts fitted")
     @Test
-    public void checktSeabeltDetailsPage() {
+    public void checkSeabeltDetailsPage() {
         testTypeCategoryComp.completeAddTestType();
-        testSteps.selectAnnualTestReading();
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checktSeabeltDetailsPage();
     }
 }

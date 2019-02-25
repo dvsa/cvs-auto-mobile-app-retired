@@ -31,9 +31,9 @@ public class TestTypeAdd_CVSB_768 extends BaseTestClass {
     public void testAddTestTypeFromList() {
         testTypeCategoryComp.goToTestPage();
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("annual test");
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
-        testSteps.checkSelectedTestTypes("annual test In progress arrow forward");
+        testSteps.checkSelectedTestTypes("Annual test");
     }
 
 
