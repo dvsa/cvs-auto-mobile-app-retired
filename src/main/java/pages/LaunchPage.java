@@ -19,7 +19,12 @@ public class LaunchPage extends BasePage {
 
         if (!TestHandler.getInitializedStatus().get()) {
             longWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-            clickToEnableOrDisable();
+
+            if (!TestHandler.testTypeEnabledCached().get()) {
+                clickToEnableOrDisable();
+                TestHandler.currentCacheDisabled().set(true);
+            }
+
 
             findElementById(GET_STARTED_ID).click();
             TestHandler.getInitializedStatus().set(true);
@@ -29,9 +34,18 @@ public class LaunchPage extends BasePage {
             ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
             ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
             shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-            clickToEnableOrDisable();
+
+            if (TestHandler.testTypeEnabledCached().get() && TestHandler.currentCacheDisabled().get()) {
+                clickToEnableOrDisable();
+                TestHandler.currentCacheDisabled().set(false);
+            } else if (!TestHandler.testTypeEnabledCached().get() && !TestHandler.currentCacheDisabled().get()) {
+                clickToEnableOrDisable();
+                TestHandler.currentCacheDisabled().set(true);
+            }
+
             findElementById(GET_STARTED_ID).click();
         }
+
 
     }
 
@@ -42,21 +56,19 @@ public class LaunchPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (TestHandler.getIsEnableStatus().get()) {
 
-            int initial = 0;
-            while (initial != 5) {
+        int initial = 0;
+        while (initial != 5) {
 
 
-                try {
-                    Thread.sleep(300);
-                    initial++;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                tapByCoordinates(70, 140);
+            try {
+                Thread.sleep(300);
+                initial++;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
+            tapByCoordinates(70, 140);
         }
     }
 

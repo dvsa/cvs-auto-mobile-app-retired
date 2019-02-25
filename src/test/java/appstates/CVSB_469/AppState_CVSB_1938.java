@@ -31,12 +31,12 @@ public class AppState_CVSB_1938 extends BaseTestClass {
 
     @Before
     public void goEnable() {
-        TestHandler.getIsEnableStatus().set(true);
+        TestHandler.testTypeEnabledCached().set(true);
     }
 
     @After
     public void tearDown() {
-        TestHandler.getIsEnableStatus().set(false);
+        TestHandler.testTypeEnabledCached().set(false);
     }
 
     @Title("CVSB-469 - AC3 Reopen the app after it was closed - redirected to visit timeline screen (ex. app closed by the user, app closed by the device, device turned off)")
@@ -46,11 +46,11 @@ public class AppState_CVSB_1938 extends BaseTestClass {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.startVisit();
+        siteVisitSteps.waitUntilPageIsLoaded();
         commonSteps.getPage().closeAndLaunchApp();
         siteVisitSteps.waitUntilPageIsLoaded();
 
         siteVisitSteps.completeEndVisit();
-        launchSteps.clickToEnableOrDisable();
 
     }
 

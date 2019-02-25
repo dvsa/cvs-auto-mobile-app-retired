@@ -49,12 +49,12 @@ public class AppState_CVSB_1939  extends BaseTestClass {
 
     @Before
     public void goEnable() {
-        TestHandler.getIsEnableStatus().set(true);
+        TestHandler.testTypeEnabledCached().set(true);
     }
 
     @After
     public void tearDown() {
-        TestHandler.getIsEnableStatus().set(false);
+        TestHandler.testTypeEnabledCached().set(false);
     }
 
     @Title( "CVSB-469 - AC4 Reopen the app after it was closed - redirected to test screen (ex. app closed by the user, app closed by the device, device turned off)")
@@ -82,8 +82,6 @@ public class AppState_CVSB_1939  extends BaseTestClass {
         cancelTestSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.completeEndVisit();
-        launchSteps.clickToEnableOrDisable();
-
 
     }
 
