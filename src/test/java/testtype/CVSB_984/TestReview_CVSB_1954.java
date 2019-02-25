@@ -29,6 +29,7 @@ public class TestReview_CVSB_1954 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.reviewAction();
         testSteps.checkTestNotCompleteDisplayedAndOkButton();
     }
 }

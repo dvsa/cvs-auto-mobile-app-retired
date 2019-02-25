@@ -13,6 +13,7 @@ public class CountryOfRegistrationSteps extends ScenarioSteps {
 
     @Step
     public void saveRegistrationCountry() {
+        countryOfRegistrationPage.waitUntilPageIsLoaded();
         countryOfRegistrationPage.clickSaveButton();
     }
 
