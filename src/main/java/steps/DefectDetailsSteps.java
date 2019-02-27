@@ -57,7 +57,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
         String randomData = RandomStringUtils.randomAlphanumeric(250);
         defectDetailsPage.sendNotes(randomData);
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData)).isEqualTo(0);
-        assertThat(defectDetailsPage.checkIfTextIsPresent(randomData.substring(0,200))).isEqualTo(1);
+        assertThat(defectDetailsPage.checkIfTextIsPresent(randomData.substring(0, 200))).isEqualTo(1);
 
     }
 
@@ -88,5 +88,35 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void clickBack() {
         defectDetailsPage.clickBack();
+    }
+
+    @Step
+    public void pressRemove() {
+        defectDetailsPage.clickOnRemoveButton();
+    }
+
+    @Step
+    public void checkDefectRemovalPopUp() {
+        assertThat(defectDetailsPage.isDefectRemovalPopUpVisible()).isTrue();
+    }
+
+    @Step
+    public void pressRemoveInPopUp() {
+        defectDetailsPage.clickRemoveInPopUp();
+    }
+
+    @Step
+    public void pressCancelInPopUp() {
+        defectDetailsPage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void scrollDefectDetailsPage() {
+        defectDetailsPage.scrollDetailPage();
+    }
+
+    @Step
+    public void checkPageTitleIsDisplayed(){
+        assertThat(defectDetailsPage.checkPageTitleIsDisplayed()).isTrue();
     }
 }

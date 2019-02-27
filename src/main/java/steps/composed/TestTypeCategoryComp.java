@@ -49,7 +49,7 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.selectPreparerAndConfirm("TC7524", "Avello Edinburgh Ltd");
         testSteps.addTestType();
     }
 

@@ -43,6 +43,12 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_REMOVE_XPATH = "(//XCUIElementTypeButton[@name='Remove'])[2]";
     private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
     private static final String POP_UP_TITLE_ID = "Remove defect";
+    private static final String ABANDON_TEST_TYPE="Abandon test type";
+    private static final String REMOVE_TEST_TYPE="Remove test type";
+    private static final String POP_UP_TEST_TYPE_REMOVAL_CANCEL_ID = "Cancel";
+    private static final String POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID = "Remove";
+    private static final String POP_UP_TEST_TYOE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
+    private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
 
     public int checkResultIsPresent(String result) {
         return findElementsByXpath("//*[@name='" + result + "']").size();
@@ -121,8 +127,28 @@ public class TestTypeDetailsPage extends BasePage {
         return status;
     }
 
+    public boolean isTestTypeRemovalPopUpVisible() {
+        boolean status = false;
+        WebElement cancelButton = findElementById(POP_UP_TEST_TYPE_REMOVAL_CANCEL_ID);
+        WebElement removeButton = findElementById(POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID);
+        WebElement text = findElementByXpath(POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH);
+        WebElement title = findElementById(POP_UP_TEST_TYOE_REMOVAL_TEXT_ID);
+        if (cancelButton.isDisplayed() && removeButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
+            status = true;
+        }
+        return status;
+    }
+
     public void clickRemoveInPopUp() {
         findElementByXpath(POP_UP_REMOVE_XPATH).click();
+    }
+
+    public void clickCancelInTestTypePopUp() {
+        findElementById(POP_UP_TEST_TYPE_REMOVAL_CANCEL_ID).click();
+    }
+
+    public void clickRemoveInTestTypePopUp() {
+        findElementById(POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID).click();
     }
 
     public void clickCancelInPopUp() {
@@ -418,6 +444,18 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void clickAddDefectButton() {
         findElementById(ADD_DEFECT_ID).click();
+    }
+
+    public void scrollDetailPage() {
+        scrollDownTo(500, -100);
+    }
+
+    public void pressTestTypeAbandonButton(){
+        findElementById(ABANDON_TEST_TYPE).click();
+    }
+
+    public void pressTestTypeRemoveButton(){
+        findElementById(REMOVE_TEST_TYPE).click();
     }
 }
 
