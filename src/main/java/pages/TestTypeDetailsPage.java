@@ -1,8 +1,5 @@
 package pages;
 
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.ios.IOSDriver;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 import util.EnvironmentType;

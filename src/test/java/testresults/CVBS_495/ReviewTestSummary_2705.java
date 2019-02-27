@@ -37,7 +37,7 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
-    @Title("CVSB-495 - AC - 5 Editing test type results and going back to the test review screen")
+    @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         testTypeCategoryComp.goToTestPage();

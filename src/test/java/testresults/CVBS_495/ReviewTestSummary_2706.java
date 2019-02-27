@@ -37,7 +37,7 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
-    @Title("CVSB-495 - AC - 6 Deleting a required field in the test type result and going back to the test review screen")
+    @Title("CVSB-495 - AC6 - Deleting a required field in the test type result and going back to the test review screen")
     @Test
     public void deleteARequiredFieldFromTestType() {
         //TODO rerun after the view does not overlay the save button

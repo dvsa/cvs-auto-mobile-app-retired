@@ -44,7 +44,7 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
-    @Title("CVSB-495 - AC - 7 VSA cannot change details of abandoned test types")
+    @Title("CVSB-495 - AC7 - VSA cannot change details of abandoned test types")
     @Test
     public void canNotChangeDetailsOfAbandonedTestTypes() {
         testTypeCategoryComp.goToTestPage();

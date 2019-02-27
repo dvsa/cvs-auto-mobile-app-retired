@@ -56,7 +56,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
     @Steps
     AbandonTestSteps abandonTestSteps;
 
-    @Title("CVSB-495 - AC - 4 VSA can change details of individual test types")
+    @Title("CVSB-495 - AC4 - VSA can change details of individual test types")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         //Adding a test type and making it a non progress one
