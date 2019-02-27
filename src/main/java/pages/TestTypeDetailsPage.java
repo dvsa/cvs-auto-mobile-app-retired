@@ -52,7 +52,6 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementById(TEST_TYPE_DETAILS);
     }
 
-
     public WebElement getAddDefectElement() {
         return findElementById(ADD_DEFECT_ID);
     }
@@ -92,7 +91,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void clickOnDefect(String recordDefect, String defectItem) {
-        if(checkDefectIsPresent(defectItem) != null) {
+        if (checkDefectIsPresent(defectItem) != null) {
             findElementByXpath("//*[contains(@label, '" + recordDefect + "')]").click();
         }
     }
@@ -416,4 +415,9 @@ public class TestTypeDetailsPage extends BasePage {
     public boolean isTextDisplayedInNotes(String text) {
         return findElementByClassName(NOTES_INPUT_FIELD_CLASS_NAME).getAttribute("value").contains(text);
     }
+
+    public void clickAddDefectButton() {
+        findElementById(ADD_DEFECT_ID).click();
+    }
 }
+
