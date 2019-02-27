@@ -369,7 +369,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void clickAddDefectButton() {
         testTypeDetailsPage.clickAddDefectButton();
-    }git
+    }
 
     public void scrollTestTypeDetailsPage() {
         testTypeDetailsPage.scrollDetailPage();
