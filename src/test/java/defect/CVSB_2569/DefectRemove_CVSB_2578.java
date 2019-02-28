@@ -30,7 +30,7 @@ public class DefectRemove_CVSB_2578 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
-    @Title("CVSB-2569 CLONE - TCD - AC7 - Abandon a test type")
+    @Title("CVSB-2569 CLONE - AC7 - Abandon a test type")
     @Test
     public void abandonTestType() {
         testTypeCategoryComp.completeAddTestType();

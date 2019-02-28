@@ -35,7 +35,7 @@ public class DefectRemove_CVSB_2574 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
 
-    @Title("CVSB-2569 - CLONE - TCD - AC3 - Cancel removal of defect")
+    @Title("CVSB-2569 - CLONE - AC3 - Cancel removal of defect")
     @Test
     public void testCancelRemovalOfDefect() {
         testTypeCategoryComp.completeAddTestType();
