@@ -41,7 +41,7 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     PreparerComp preparerComp;
 
     @Step
-    public void addTestType() {
+    public void goToTestType(String preparerId, String preparerName) {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -49,19 +49,19 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        selectPreparerSteps.selectPreparerAndConfirm("TC7524", "Avello Edinburgh Ltd");
+        selectPreparerSteps.selectPreparerAndConfirm(preparerId, preparerName);
         testSteps.addTestType();
     }
 
     @Step
-    public void goToTestPage() {
+    public void goToTestPage(String preparerId, String preparerName) {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.selectPreparerAndConfirm(preparerId, preparerName);
     }
 
     @Step()
-    public void completeAddTestType() {
-        addTestType();
+    public void completeAddTestType(String preparerId, String preparerName) {
+        goToTestType(preparerId, preparerName);
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
     }
 }

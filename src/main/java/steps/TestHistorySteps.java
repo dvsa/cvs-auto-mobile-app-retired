@@ -27,11 +27,6 @@ public class TestHistorySteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkTestTypeRecordInList(String testTypeRecord) {
-        assertThat(testHistoryPage.isTestTypeRecordPresentInList(testTypeRecord)).isTrue();
-    }
-
-    @Step
     public void checkTestTypeRecordInListByStatus(String status) {
         assertThat(testHistoryPage.isTestTypeRecordPresentInListByStatus(status)).isTrue();
     }

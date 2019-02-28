@@ -20,7 +20,7 @@ public class ATFDetailsPage extends BasePage {
     private static final String POP_UP_CONFIRM_ID = "Confirm";
     private static final String REPORT_ISSUE_POP_UP_TITLE = "Report an ATF issue";
     private static final String REPORT_ISSUE_POP_UP_DESCRIPTION = "Speak to your Technical Team Leader (TTL) if the issue cannot be resolved on site.";
-    private static final String REPORT_ISSUE_POP_UP_OK_BUTTON = "Ok";
+    private static final String REPORT_ISSUE_POP_UP_OK_BUTTON = "OK";
 
 
     public void waitUntilPageIsLoaded() {

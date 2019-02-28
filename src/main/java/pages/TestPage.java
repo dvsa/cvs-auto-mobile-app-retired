@@ -84,7 +84,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isCancelButtonDisplayed() {
-        return findElementById(CANCEL_BUTTON_BOTTOM_RIGHT).isDisplayed();
+        return findElementByAccessibilityId(CANCEL_BUTTON_BOTTOM_RIGHT).isDisplayed();
     }
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
@@ -180,7 +180,7 @@ public class TestPage extends BasePage {
     }
 
     public void clickCancelFromBottomRight() {
-        findElementById(CANCEL_BUTTON_BOTTOM_RIGHT).click();
+        findElementByAccessibilityId(CANCEL_BUTTON_BOTTOM_RIGHT).click();
     }
 
     public boolean isAbandonButtonDisplayed() {

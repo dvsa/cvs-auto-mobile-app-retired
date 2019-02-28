@@ -29,7 +29,7 @@ public class TestTypeAdd_CVSB_768 extends BaseTestClass {
     @Title("CVSB-370 - Add a test type from the test types list")
     @Test
     public void testAddTestTypeFromList() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");

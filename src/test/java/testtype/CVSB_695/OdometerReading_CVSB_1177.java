@@ -25,7 +25,7 @@ public class OdometerReading_CVSB_1177 extends BaseTestClass {
     @Title("CVSB-695 - AC5 - Cancel type in odometer reading value")
     @Test
     public void testCancelTypeInOdometerReadingValue() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345678");

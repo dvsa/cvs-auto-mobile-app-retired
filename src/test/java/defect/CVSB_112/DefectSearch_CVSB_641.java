@@ -32,7 +32,7 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     @Title("CVSB-112 AC1 Test cancel adding a level 1 defect category")
     @Test
     public void cancelAddingALevelOneDefect() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");

@@ -36,10 +36,9 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
         // TODO refactor after database population with correct data
         testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.checkPageTitle();
-        testHistoryDetailsSteps.checkDetails("DEFECTS", "", "REFERENCELOL",
-                "ADVISORY", "PRS", "0. string", "(a M) oops it doesn't work", "Upper", "Nearside", "Rear",
-                "Row 2", "Seat 1", "Axle 1", "string", "7 Kilometers", "Yes", "Not Entered", "14 Jan 2019",
-                "Station Name", "12345", "George", "1", "NOTES", "String");
+        testHistoryDetailsSteps.checkDetails("DEFECTS", "", "ODOMETER READING",
+                "350000 Kilometres", "Yes", "2", "14 Jan 2019", "Larson, Nader And Okuneva", "84-926821", "Gica",
+                "15", "NOTES", "VEHICLE FRONT ROW SECOND SEAT HAS MISSING SEATBELT");
     }
 
 }

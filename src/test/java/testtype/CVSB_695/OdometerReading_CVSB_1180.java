@@ -26,7 +26,7 @@ public class OdometerReading_CVSB_1180 extends BaseTestClass {
     @Title("CVSB-695 - AC7 - Select a picker option ")
     @Test
     public void testSelectPickerOption() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.MILES);

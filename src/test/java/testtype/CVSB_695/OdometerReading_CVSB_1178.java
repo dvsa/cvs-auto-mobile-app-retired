@@ -25,7 +25,7 @@ public class OdometerReading_CVSB_1178 extends BaseTestClass {
     @Title("CVSB-695 - AC3 - Edit the Reading value within the Odometer reading screen")
     @Test
     public void testEditReadingValueWithinTheOdometerReadingScreen() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345678");
         odometerReadingSteps.pressSave();

@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -23,14 +24,19 @@ public class SeatbeltInstallationCheck_1948 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-901 - AC6 - Cancel typing/ editing of number of seat belts fitted")
     @Test
     public void testCancelEditingNumberOfSeatbelts() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.inputNumberOfSeatbelt("4");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
-        testTypeDetailsSteps.selectAndCancelInputNumberOfSeatbelt();
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.pressCancel();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
     }
 }

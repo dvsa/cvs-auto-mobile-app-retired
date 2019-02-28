@@ -24,7 +24,7 @@ public class CancellationTest_CVSB_853 extends BaseTestClass {
     @Title("CVSB-853 - AC1 Submit cancellation without completing the mandatory fields")
     @Test
     public void submitCancellationWithoutMandatoryInfo() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.pressSubmit();

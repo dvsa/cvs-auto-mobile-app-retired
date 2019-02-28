@@ -39,7 +39,7 @@ public class TestTypeAbandon_CVSB_795 extends BaseTestClass {
     @Title("CVSB-194 - AC1 Text box for additional comments")
     @Test
     public void testTextBoxForAdditionalComments() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();

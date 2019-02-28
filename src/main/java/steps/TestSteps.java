@@ -141,7 +141,7 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void checkTestNotCompleteDisplayedAndOkButton() {
         assertThat(testPage.isTestNotCompleteDisplayed()).isTrue();
-        assertThat(testPage.buttonOkIsClickable());
+        assertThat(testPage.buttonOkIsClickable()).isTrue();
     }
 
     @Step
@@ -196,7 +196,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkCountryOfregistrationOptionIsDisplayed () {
+    public void checkCountryOfRegistrationOptionIsDisplayed() {
         assertThat(testPage.checkCountryOfregistrationOptionIsDisplayed()).isTrue();
     }
 

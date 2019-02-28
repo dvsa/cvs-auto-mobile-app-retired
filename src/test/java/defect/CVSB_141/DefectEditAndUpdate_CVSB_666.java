@@ -38,7 +38,7 @@ public class DefectEditAndUpdate_CVSB_666 extends BaseTestClass {
     @Title("CVSB-141 - AC1 - Edit and update defect from test type details screen")
     @Test
     public void testEditAndUpdateFromTestTypeDetails() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");

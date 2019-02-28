@@ -36,7 +36,7 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
         testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.checkPageTitle();
         testHistoryDetailsSteps.checkDetails("TEST TYPE", "DEFECTS", "Test date",
-                "14 Jan 2019", "Test time", "12:36 - 12:36", "Test result", "FAILURE", "Test expiry", "14 Jan 2019");
+                "14 Jan 2019", "Test time", "12:36 - 12:36", "Test result", "FAIL", "Test expiry");
     }
 
 }

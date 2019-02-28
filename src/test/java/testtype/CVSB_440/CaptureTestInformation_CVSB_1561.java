@@ -34,7 +34,7 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
         vehicleDetailsSteps.selectVehicleTestHistory();
         // TODO refactor after database population with correct data
         testHistorySteps.selectTestTypeRecord("Annual test");
-        testHistoryDetailsSteps.checkThatThereAreNoEditableFields("14 Jan 2019", "FAILURE", "Station Name", "George");
+        testHistoryDetailsSteps.checkThatThereAreNoEditableFields("Test expiry");
     }
 
 }

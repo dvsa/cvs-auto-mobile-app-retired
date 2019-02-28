@@ -33,7 +33,7 @@ public class VehicleCategoryCountryReg_2683 extends BaseTestClass {
     @Title("CVSB-995 - AC9 - Fields that are mandatory")
     @Test
     public void checkFieldsThatAreMandatory() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

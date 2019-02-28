@@ -22,7 +22,7 @@ public class TestTypeRemove_CVSB_762 extends BaseTestClass {
     @Title("CVSB-176 - AC3 Confirming removal")
     @Test
     public void testRemovalConfirmation() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeRemoveButton();
         testSteps.checkTestTypeRemovalPopUp();

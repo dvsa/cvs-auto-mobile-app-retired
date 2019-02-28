@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -23,13 +24,17 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-169 - AC2 - VSA is presented with the Site Visit timeline after submitting test results")
     @Test
     public void testSiteVisitTimelineAfterTestResults() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.inputNumberOfSeatbelt("2");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.pressSave();

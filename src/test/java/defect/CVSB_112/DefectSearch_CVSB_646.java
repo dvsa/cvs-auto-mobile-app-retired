@@ -39,17 +39,17 @@ public class DefectSearch_CVSB_646 extends BaseTestClass {
     @Title("CVSB-112 - AC4 Search with the search bar")
     @Test
     public void searchDefectUsingSearchBar() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate");
-        defectCategorySteps.searchForDefect("3. Seat Belts & Supplementary Restraint Systems");
+        defectCategorySteps.searchForDefect("Seat Belts & Supplementary Restraint Systems");
         defectCategorySteps.checkExpectedPresentDefects(2, "3. Seat Belts & Supplementary Restraint Systems");
         defectCategorySteps.checkExpectedPresentDefects(0, "1. Registration Plate");
         defectCategorySteps.selectItemFromSearchList("3. Seat Belts & Supplementary Restraint Systems");
 
         defectItemSteps.checkItemsArePresent("1. Obligatory Seat Belt:", "2. Anchorages:");
-        defectItemSteps.searchForDefect("1. Obligatory Seat Belt:");
+        defectItemSteps.searchForDefect("Obligatory Seat Belt:");
         defectItemSteps.checkExpectedPresentDefects(2, "1. Obligatory Seat Belt:");
         defectItemSteps.checkExpectedPresentDefects(0, "2. Anchorages:");
         defectItemSteps.selectItemFromSearchList("1. Obligatory Seat Belt:");

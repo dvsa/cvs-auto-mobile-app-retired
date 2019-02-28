@@ -28,7 +28,7 @@ public class CancellationTest_CVSB_852 extends BaseTestClass {
     @Title("CVSB-852 - AC4 Return back to the Test overview screen")
     @Test
     public void returnToTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.pressBackButton();

@@ -38,7 +38,7 @@ public class TestTypeAbandon_CVSB_793 extends BaseTestClass {
     @Title("CVSB-194 - AC1 Reasons to abandon list")
     @Test
     public void testReasonsToAbandonList() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();

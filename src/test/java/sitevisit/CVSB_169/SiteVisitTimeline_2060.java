@@ -29,7 +29,7 @@ public class SiteVisitTimeline_2060 extends BaseTestClass {
     @Title("CVSB-169 - AC3 - VSA is presented with the Site Visit timeline after cancelling a test")
     @Test
     public void testSiteVisitTimelineAfterTestCancel() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.pressCancelBottomRight();
         cancelTestSteps.addReasonForCancellation("Test Reason");
         cancelTestSteps.pressSubmit();

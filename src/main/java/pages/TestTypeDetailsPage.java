@@ -20,16 +20,13 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String CARRIED_OUT_YES_OPTION_ID = "Yes";
     private static final String CARRIED_OUT_NO_OPTION_ID = "No";
     private static final String CARRIED_OUT_CANCEL_OPTION_ID = "Cancel";
-    private static final String SEATBEALT_INSTALLATION_CHECK_INPUT_FIELD = "//XCUIElementTypeTextField";
-    private static final String SEATBEALT_INSTALLATION_CHECK_DONE_BUTTON_ID = "Done";
-    private static final String SEATBEALT_INSTALLATION_CHECK_CANCELED_BUTTON_ID = "Cancel";
     private static final String MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID = "Done";
     private static final String MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID = "Cancel";
     private static final String SEATBELT_TITLE_ID = "SEATBELT INSTALLATION CHECK";
     private static final String SAVE_BUTTON_ID = "Save";
-    private static final String TEST_RESULT_ID = "Test result Select arrow forward";
-    private static final String SET_LEC_TEST_TO_PASS_ID = "Pass";
-    private static final String SET_LEC_TEST_TO_FAIL_ID = "Fail";
+    private static final String TEST_RESULT_XPATH = "//XCUIElementTypeButton[contains(@name, 'Test result')]";
+    private static final String PASS_ID = "Pass";
+    private static final String FAIL_ID = "Fail";
     private static final String CANCEL_LEC_TEST_ID = "Cancel";
     private static final String CERTIFICATE_NUMBER_LABEL_ID = "CERTIFICATE NUMBER";
     private static final String LP_LABEL_ID = "LP";
@@ -50,9 +47,6 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_TEST_TYOE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
     private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
 
-    public int checkResultIsPresent(String result) {
-        return findElementsByXpath("//*[@name='" + result + "']").size();
-    }
 
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
@@ -232,38 +226,12 @@ public class TestTypeDetailsPage extends BasePage {
         findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Number of seatbelts fitted')]").click();
     }
 
-    public void setSetbealtNumber(String seatbeltNumber) {
-        WebElement input = findElementByXpath(SEATBEALT_INSTALLATION_CHECK_INPUT_FIELD);
-        input.clear();
-        input.sendKeys(seatbeltNumber);
-    }
-
-    public void doneSeatbeltInstallationCheck() {
-        findElementById(SEATBEALT_INSTALLATION_CHECK_DONE_BUTTON_ID).click();
-    }
-
-    public boolean isCancelOptionDisplayedForSeatbeltNumber() {
-        return findElementById(SEATBEALT_INSTALLATION_CHECK_CANCELED_BUTTON_ID).isDisplayed();
-    }
-
-    public boolean isDoneOptionDisplayedForSeatbeltNumber() {
-        return findElementById(SEATBEALT_INSTALLATION_CHECK_DONE_BUTTON_ID).isDisplayed();
-    }
-
     public boolean checkSetbealtNumber(String seatbeltNumber) {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Number of seatbelts fitted " + seatbeltNumber + "')]").isDisplayed();
     }
 
     public boolean isSeatbeltTitleDisplayed() {
         return findElementById(SEATBELT_TITLE_ID).isDisplayed();
-    }
-
-    public boolean isSeatbetlInputFieldDisplayed() {
-        return findElementById(SEATBEALT_INSTALLATION_CHECK_INPUT_FIELD).isDisplayed();
-    }
-
-    public void cancelSeatbeltInstallationCheck() {
-        findElementById(SEATBEALT_INSTALLATION_CHECK_CANCELED_BUTTON_ID).click();
     }
 
     public void selectRecentInstallationCheckOption() {
@@ -280,9 +248,9 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void setRecentInstallationDateCheckOneUnit() {
         findElementByXpath("//XCUIElementTypeOther[@name=\"web dialog\"]/XCUIElementTypeOther[3]").click();
-        scrollOneDayDown();
-        scrollOneMonthDown();
-        scrollOneYearDown();
+        scrollOneDay();
+        scrollOneMonth();
+        scrollOneYear();
         doneMostRecentInstallationCheck();
     }
 
@@ -301,14 +269,14 @@ public class TestTypeDetailsPage extends BasePage {
                 break;
         }
 
-        Integer dayOfSystem = ldt.getDayOfMonth() + 1;
-        int monthOfSystem = ldt.getMonthValue();
+        Integer dayOfSystem = ldt.getDayOfMonth() - 1;
+        int monthOfSystem = ldt.getMonthValue() - 2;
         Integer yearOfSystem = ldt.getYear() - 1;
 
         String day = dayOfSystem.toString();
         String month = new DateFormatSymbols().getMonths()[monthOfSystem].substring(0, 3);
         String year = yearOfSystem.toString();
-
+        System.out.println(day + " " + month + " " + year);
         try {
             findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check " + day + " " + month + " " + year + "')]");
             return true;
@@ -342,15 +310,15 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementById(TEST_TYPE_DETAILS).isDisplayed();
     }
 
-    public void scrollOneDayDown() {
-        scroll(95, 594, 95, 580);
+    public void scrollOneDay() {
+        scroll(95, 594, 95, 608);
     }
 
-    public void scrollOneMonthDown() {
-        scroll(178, 594, 178, 580);
+    public void scrollOneMonth() {
+        scroll(178, 594, 178, 608);
     }
 
-    public void scrollOneYearDown() {
+    public void scrollOneYear() {
         scroll(243, 594, 243, 580);
     }
 
@@ -358,28 +326,28 @@ public class TestTypeDetailsPage extends BasePage {
         findElementById(SAVE_BUTTON_ID).click();
     }
 
-    public void clickSetTestResul() {
-        findElementById(TEST_RESULT_ID).click();
+    public void clickSetTestResult() {
+        findElementByXpath(TEST_RESULT_XPATH).click();
     }
 
     public void passLecTest() {
-        findElementById(SET_LEC_TEST_TO_PASS_ID).click();
+        findElementByAccessibilityId(PASS_ID).click();
     }
 
     public void failLecTest() {
-        findElementById(SET_LEC_TEST_TO_FAIL_ID).click();
+        findElementByAccessibilityId(FAIL_ID).click();
     }
 
     public void cancelLecTest() {
-        findElementById(CANCEL_LEC_TEST_ID).click();
+        findElementByAccessibilityId(CANCEL_LEC_TEST_ID).click();
     }
 
     public boolean checkPassTestOptionIsPresent() {
-        return findElementById(SET_LEC_TEST_TO_PASS_ID).isDisplayed();
+        return findElementById(PASS_ID).isDisplayed();
     }
 
     public boolean checkFailTestOptionIsPresent() {
-        return findElementById(SET_LEC_TEST_TO_FAIL_ID).isDisplayed();
+        return findElementById(FAIL_ID).isDisplayed();
     }
 
     public boolean checkTestStatus(String status) {
@@ -440,6 +408,22 @@ public class TestTypeDetailsPage extends BasePage {
 
     public boolean isTextDisplayedInNotes(String text) {
         return findElementByClassName(NOTES_INPUT_FIELD_CLASS_NAME).getAttribute("value").contains(text);
+    }
+
+    public boolean isTestResultFieldDisplayed() {
+        return findElementByXpath(TEST_RESULT_XPATH).isDisplayed();
+    }
+
+    public boolean isPassOptionDisplayed() {
+        return findElementByAccessibilityId(PASS_ID).isDisplayed();
+    }
+
+    public boolean isFailOptionDisplayed() {
+        return findElementByAccessibilityId(FAIL_ID).isDisplayed();
+    }
+
+    public boolean isSelectStatusDisplayed() {
+        return findElementByXpath(TEST_RESULT_XPATH).getAttribute("name").contains("Select");
     }
 
     public void clickAddDefectButton() {

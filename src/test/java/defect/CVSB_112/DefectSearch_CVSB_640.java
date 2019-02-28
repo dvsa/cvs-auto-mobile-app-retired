@@ -32,7 +32,7 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
     @Title("CVSB-112 - AC1 - Level 1 Test drilldrown")
     @Test
     public void defectGoBackFromSecondLevelToFirstLevel() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         typeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");

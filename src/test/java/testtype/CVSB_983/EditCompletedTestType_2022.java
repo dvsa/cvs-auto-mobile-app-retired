@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -23,20 +24,25 @@ public class EditCompletedTestType_2022 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-983 - AC4 - VSA saves their edited test type details (at least one mandatory field is not populated)")
     @Test
     public void testSaveEditedDetailsOneFieldNotPopulated() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
-        testTypeDetailsSteps.inputNumberOfSeatbelt("2");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
         testTypeDetailsSteps.checkNumberOfSeatbelts("2");
         testTypeDetailsSteps.pressSave();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
-        testTypeDetailsSteps.inputNumberOfSeatbelt("5");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("5");
         testTypeDetailsSteps.checkNumberOfSeatbelts("5");
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);

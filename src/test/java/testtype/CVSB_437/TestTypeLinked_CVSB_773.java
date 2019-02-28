@@ -25,7 +25,7 @@ public class TestTypeLinked_CVSB_773 extends BaseTestClass {
     @Title("CVSB-437 - AC1 List of test types for the 'Add a linked test' option")
     @Test
     public void testListFromAddLinkedTestType() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkAddALinkedTestButtonVisibility();
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkTestTypePage();

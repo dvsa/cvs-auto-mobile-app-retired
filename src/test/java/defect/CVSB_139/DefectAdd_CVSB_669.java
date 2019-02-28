@@ -29,7 +29,7 @@ public class DefectAdd_CVSB_669 extends BaseTestClass {
     @Title("CVSB-139 - AC2 - Add a defect from test type details screen")
     @Test
     public void addADefectFromTestType() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("Steering", "Registration Plate");

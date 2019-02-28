@@ -28,7 +28,7 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
     @Title("CVSB-854 - AC3 Submit test cancellation when the test contains at least one test type")
     @Test
     public void submitCancellationWithAtLeastOneTestType() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.addReasonForCancellation("Automation Test");

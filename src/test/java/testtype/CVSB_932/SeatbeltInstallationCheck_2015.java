@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -27,17 +28,20 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-932 - AC5 - The behaviour of the seatbelt installation check fields when conducting Category B test types")
     @Test
     public void seatbeltInstallationCheckBehaviourWhenConductingCategoryBTestTypes() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt Installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.cancelMostRecentInstallationCheckOption();
-        testTypeDetailsSteps.selectAndCancelInputNumberOfSeatbelt();
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.pressCancel();
     }
 }

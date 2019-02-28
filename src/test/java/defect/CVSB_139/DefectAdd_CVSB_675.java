@@ -38,7 +38,7 @@ public class DefectAdd_CVSB_675 extends BaseTestClass {
     @Title("CVSB-139 - AC7 - Add notes ")
     @Test
     public void defectAddDefectWithAddNotes() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");

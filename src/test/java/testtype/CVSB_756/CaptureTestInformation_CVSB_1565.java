@@ -27,7 +27,7 @@ public class CaptureTestInformation_CVSB_1565 extends BaseTestClass {
     @Title("CVSB-756 - AC2 - Update test type status once added")
     @Test
     public void testUpdateTestTypeStatusOnceAdded() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");

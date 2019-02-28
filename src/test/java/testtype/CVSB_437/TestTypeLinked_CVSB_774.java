@@ -30,7 +30,7 @@ public class TestTypeLinked_CVSB_774 extends BaseTestClass {
     @Title("CVSB-437 - Add a linked test")
     @Test
     public void testAddALinkedTestType() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
                 "Prohibition clearance", "Technical test", "Voluntary test");
@@ -39,7 +39,7 @@ public class TestTypeLinked_CVSB_774 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
         testTypeSubcategorySteps.seeInTestTypeList("Any PSV", "Class 6A (seatbelt installation check)");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
-        testSteps.checkSelectedTestTypes("Any PSV");
+        testSteps.checkSelectedTestTypes("Retest");
 
     }
 

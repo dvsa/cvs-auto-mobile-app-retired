@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2678 extends BaseTestClass {
     @Title("CVSB-995 - AC6 - Saving EU vehicle category")
     @Test
     public void savingVehicleCategory() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.checkTitleIsDisplayed();
         euVehicleCategorySteps.checkOptionsAreDisplayed();

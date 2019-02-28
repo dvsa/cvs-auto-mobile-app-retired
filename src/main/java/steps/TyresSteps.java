@@ -16,7 +16,7 @@ public class TyresSteps extends ScenarioSteps {
     public void checkDetails(String tyreSize, String ply, String fitment, String sdIndex, String speedCat,
                              String tyreCode) {
         tyresPage.waitUntilPageIsLoaded();
-        List<String> axleData = tyresPage.getDataSetBetweenTitles("AXLE 24075", "");
+        List<String> axleData = tyresPage.getDataSetBetweenTitles("AXLE 1", "");
         assertThat(axleData).contains(tyreSize, ply, fitment, sdIndex, speedCat, tyreCode);
 
     }

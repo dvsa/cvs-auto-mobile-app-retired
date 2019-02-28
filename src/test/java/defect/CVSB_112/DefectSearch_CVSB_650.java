@@ -37,7 +37,7 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
     @Test
     public void checkNoResultsAllLevels() {
 
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("Seat Belts & Supplementary Restraint Systems", "Registration Plate");

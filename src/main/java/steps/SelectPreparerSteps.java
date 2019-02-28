@@ -56,14 +56,6 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
-    public void searchForPreparerIdAndConfirm(String input, String id, String name) {
-        selectPreparerPage.searchForPreparerId(input);
-        List idListDisplayed = selectPreparerPage.retrievePreparerIdList();
-        assertThat(idListDisplayed).contains(id + " " + name);
-        selectPreparerPage.confirm();
-    }
-
-    @Step
     public void searchForPreparerIdAndCancel(String input, String id, String name) {
         selectPreparerPage.searchForPreparerId(input);
         List idListDisplayed = selectPreparerPage.retrievePreparerIdList();
@@ -92,7 +84,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
         selectPreparerPage.clickWithoutPreparerIdLink();
         selectPreparerPage.cancel();
         selectPreparerPage.clickSearchBar();
-        selectPreparerPage.cancel();
+        selectPreparerPage.clickCancelInPopUp();
         assertThat(selectPreparerPage.isTitleDisplayed()).isTrue();
     }
 
@@ -106,14 +98,14 @@ public class SelectPreparerSteps extends ScenarioSteps {
     @Step
     public void advanceWithNoPreparerInformation() {
         selectPreparerPage.clickNoPreparerIdOption();
-        assertThat(selectPreparerPage.isCancelOptionDisplayed());
+        assertThat(selectPreparerPage.isCancelOptionDisplayed()).isTrue();
         selectPreparerPage.confirm();
     }
 
     @Step
     public void cancelAdvanceWithoutPreparerInformation() {
         selectPreparerPage.clickNoPreparerIdOption();
-        assertThat(selectPreparerPage.isConfirmOptionDisplayed());
+        assertThat(selectPreparerPage.isConfirmOptionDisplayed()).isTrue();
         selectPreparerPage.cancel();
         assertThat(selectPreparerPage.isTitleDisplayed()).isTrue();
     }

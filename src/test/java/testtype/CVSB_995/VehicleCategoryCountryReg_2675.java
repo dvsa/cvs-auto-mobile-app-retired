@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2675 extends BaseTestClass {
     @Title("CVSB-995 - AC4 - Saving selected country")
     @Test
     public void savingSelectedCoutnry() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

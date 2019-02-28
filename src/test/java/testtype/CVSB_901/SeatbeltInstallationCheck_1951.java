@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_1951 extends BaseTestClass {
     @Title("CVSB-901 - AC9 - Select most recent installation check")
     @Test
     public void testMostRecentInstallationCheckSelection() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.checkDataPickerIsPresent();

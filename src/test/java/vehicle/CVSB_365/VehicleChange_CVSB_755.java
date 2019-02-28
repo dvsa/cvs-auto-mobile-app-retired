@@ -27,7 +27,7 @@ public class VehicleChange_CVSB_755 extends BaseTestClass {
     @Test()
     public void testChangeAVehicleAfterSelectingAPreparer() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkNoIdentifyVehicleOptionAvailable();
     }
 
