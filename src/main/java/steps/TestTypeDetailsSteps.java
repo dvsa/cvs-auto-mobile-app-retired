@@ -286,7 +286,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         testTypeDetailsPage.swipeLeftOnDefect(defectId);
         int newXPosition = testTypeDetailsPage.getXPositionForElement(defectId);
         assertThat(initialXPosition).isNotEqualTo(newXPosition);
-
     }
 
     @Step
@@ -328,6 +327,21 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTestTypetRemovalPopUp() {
+        assertThat(testTypeDetailsPage.isTestTypeRemovalPopUpVisible()).isTrue();
+    }
+
+    @Step
+    public void pressRemoveTestTypeInPopUp() {
+        testTypeDetailsPage.clickRemoveInTestTypePopUp();
+    }
+
+    @Step
+    public void pressCancelRemoveTestTypeInPopUp() {
+        testTypeDetailsPage.clickCancelInTestTypePopUp();
+    }
+
+    @Step
     public void checkTestTypesPageIsLoadedByTitle() {
         assertThat(testTypeDetailsPage.getTestTypeDetails().isDisplayed()).isTrue();
     }
@@ -353,7 +367,21 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickAddDefectButton(){
+    public void clickAddDefectButton() {
         testTypeDetailsPage.clickAddDefectButton();
+    }
+
+    public void scrollTestTypeDetailsPage() {
+        testTypeDetailsPage.scrollDetailPage();
+    }
+
+    @Step
+    public void pressTestTypeAbandonButton(){
+        testTypeDetailsPage.pressTestTypeAbandonButton();
+    }
+
+    @Step
+    public void pressTestTypeRemoveButton(){
+        testTypeDetailsPage.pressTestTypeRemoveButton();
     }
 }

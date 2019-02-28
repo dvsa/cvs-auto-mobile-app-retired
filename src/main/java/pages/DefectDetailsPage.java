@@ -18,6 +18,12 @@ public class DefectDetailsPage extends BasePage {
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'arrow back')]";
+    private static final String REMOVE_BUTTON_ID = "Remove defect";
+    private static final String POP_UP_CANCEL_XPATH = "//XCUIElementTypeButton[@name=\"Cancel\"]";
+    private static final String POP_UP_REMOVE_XPATH = "//XCUIElementTypeButton[@name=\"Remove\"]";
+    private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
+    private static final String POP_UP_TITLE_ID = "//XCUIElementTypeStaticText[@name=\"Remove defect\"]";
+
 
     public WebElement getDefectLabel() {
         return findElementById(DEFECT_ITEM_LABEL_ID);
@@ -109,5 +115,37 @@ public class DefectDetailsPage extends BasePage {
 
     public void clickBack() {
         findElementByXpath(BACK_BUTTON_XPATH).click();
+    }
+
+    public void clickOnRemoveButton() {
+        findElementById(REMOVE_BUTTON_ID).click();
+    }
+
+    public boolean isDefectRemovalPopUpVisible() {
+        boolean status = false;
+        WebElement cancelButton = findElementByXpath(POP_UP_CANCEL_XPATH);
+        WebElement removeButton = findElementByXpath(POP_UP_REMOVE_XPATH);
+        WebElement text = findElementById(POP_UP_TEXT_ID);
+        WebElement title = findElementByXpath(POP_UP_TITLE_ID);
+        if (cancelButton.isDisplayed() && removeButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
+            status = true;
+        }
+        return status;
+    }
+
+    public void clickRemoveInPopUp() {
+        findElementByXpath(POP_UP_REMOVE_XPATH).click();
+    }
+
+    public void clickCancelInPopUp() {
+        findElementByXpath(POP_UP_CANCEL_XPATH).click();
+    }
+
+    public void scrollDetailPage() {
+        scrollDownTo(500, -100);
+    }
+
+    public boolean checkPageTitleIsDisplayed(){
+        return findElementById(DEFECT_DETAILS_PAGE_ID).isDisplayed();
     }
 }
