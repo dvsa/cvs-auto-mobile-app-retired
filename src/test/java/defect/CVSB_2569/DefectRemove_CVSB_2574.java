@@ -38,7 +38,7 @@ public class DefectRemove_CVSB_2574 extends BaseTestClass {
     @Title("CVSB-2569 - CLONE - AC3 - Cancel removal of defect")
     @Test
     public void testCancelRemovalOfDefect() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");

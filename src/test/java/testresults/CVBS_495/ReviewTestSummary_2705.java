@@ -37,10 +37,13 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
@@ -56,7 +59,8 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("4");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
@@ -65,7 +69,8 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("4");
         testReviewSteps.changeDetails();
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.inputNumberOfSeatbelt("5");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("5");
         testReviewSteps.saveChangedDetails();
         testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
         testReviewSteps.checkElementIsDisplayed("No");

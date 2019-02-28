@@ -41,7 +41,7 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
     @Test
     public void deleteARequiredFieldFromTestType() {
         //TODO rerun after the view does not overlay the save button
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
