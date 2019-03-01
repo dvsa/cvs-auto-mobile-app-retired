@@ -33,7 +33,7 @@ public class DefectRemove_CVSB_2578 extends BaseTestClass {
     @Title("CVSB-2569 CLONE - AC7 - Abandon a test type")
     @Test
     public void abandonTestType() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.scrollTestTypeDetailsPage();
         testTypeDetailsSteps.pressTestTypeAbandonButton();

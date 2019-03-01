@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -27,22 +28,27 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-932 - AC - 3 Editing 'Number of seatbelts' fitted")
     @Test
     public void editingNumberOfSeatbeltsFitted() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkDoneAndCancelOptionForSeatbeltNumber();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("12345");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.checkDoneAndCancelOptionsForSeatbeltNumber();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("12345");
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
-        testTypeDetailsSteps.inputNumberOfSeatbelt("qewqeqw");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("qewqeqw");
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
-        testTypeDetailsSteps.inputNumberOfSeatbelt("@#$32432");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("@#$32432");
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
     }
 }

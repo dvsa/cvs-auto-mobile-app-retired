@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2734 extends BaseTestClass {
     @Title("CVSB-995 - AC3 - Adding Country of Registration - search field cancel action")
     @Test
     public void addingCountryOfRegistrationCancelSearchAction() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.searchForCountry("Norway");
         countryOfRegistrationSteps.cancelSearchAction();

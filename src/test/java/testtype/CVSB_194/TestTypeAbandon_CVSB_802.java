@@ -39,6 +39,7 @@ public class TestTypeAbandon_CVSB_802 extends BaseTestClass {
     @Title("CVSB-194 - AC3 Edit additional comments after abandon")
     @Test
     public void testEditAdditionalCommentAfterAbandon() {
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.checkAbandonTestPage();
         abandonTestSteps.addAdditionalComments("Additional Comment Test 123");

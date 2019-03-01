@@ -33,13 +33,11 @@ public class RecordResult_CVSB_1982 extends BaseTestClass {
     @Title("CVSB-203 - AC1 - Start a test type (Annual)")
     @Test
     public void testStartTestType() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.checkNumberOfSeatbelts("Enter");
-        testTypeDetailsSteps.checkMostRecentInstallationCheckIsDisplayed();
 
     }
 

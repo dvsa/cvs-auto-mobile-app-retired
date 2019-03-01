@@ -49,10 +49,13 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
     @Steps
     DefectDescriptionSteps defectDescriptionSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-495 - AC1 - VSA goes to review screen (test types conducted non-mandatory fields filled)")
     @Test
     public void goToReviewScreen() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
@@ -68,7 +71,7 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("4");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("1. Registration Plate");
         defectItemSteps.selectDefectFromList("1. A registration plate:");

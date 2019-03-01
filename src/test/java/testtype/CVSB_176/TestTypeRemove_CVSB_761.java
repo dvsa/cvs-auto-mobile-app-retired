@@ -22,7 +22,7 @@ public class TestTypeRemove_CVSB_761 extends BaseTestClass {
     @Title("CVSB-176 - AC2 Pressing remove button")
     @Test
     public void testPressRemoveTestTypeButton() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.checkTestTypeRemoveButtonVisibility();
         testSteps.pressTestTypeRemoveButton();

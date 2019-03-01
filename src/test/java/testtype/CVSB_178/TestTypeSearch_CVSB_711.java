@@ -26,7 +26,7 @@ public class TestTypeSearch_CVSB_711 extends BaseTestClass {
     @Title("CVSB-178 - AC1 Test test type drilldown")
     @Test
     public void testTestTypeDrillDown() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkAddATestTypeButtonVisibility();
         testSteps.addTestType();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",

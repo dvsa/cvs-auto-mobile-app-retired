@@ -62,7 +62,7 @@ public class AppState_CVSB_1936 extends BaseTestClass {
         commonSteps.getPage().runAppInBackground();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         commonSteps.getPage().runAppInBackground();
-        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         commonSteps.getPage().runAppInBackground();
         testSteps.addTestType();
         commonSteps.getPage().runAppInBackground();

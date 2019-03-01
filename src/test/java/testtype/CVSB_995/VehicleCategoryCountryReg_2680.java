@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2680 extends BaseTestClass {
     @Title("CVSB-995 - AC7 - Pressing save without selecting an option for vehicle category")
     @Test
     public void pressingSaveWithoutSelectingAnOption() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.clickSaveOptionButton();
         testSteps.checkNoEUCategoryIsSelected();

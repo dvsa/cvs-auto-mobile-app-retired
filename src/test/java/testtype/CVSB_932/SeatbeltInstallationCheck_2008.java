@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -27,18 +28,22 @@ public class SeatbeltInstallationCheck_2008 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-932 - AC - 3A VSA presses 'Cancel'")
     @Test
     public void cancelNumberOfSeatbeltsFitted() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.inputNumberOfSeatbelt("555");
-        testTypeDetailsSteps.selectAndCancelInputNumberOfSeatbelt();
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("555");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.pressCancel();
         testTypeDetailsSteps.checkNumberOfSeatbelts("555");
     }
 }

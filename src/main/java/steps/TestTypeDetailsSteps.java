@@ -1,7 +1,6 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeDetailsPage;
 
@@ -28,11 +27,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSetCarriedOutDuringTestIsDisplayed() {
-        assertThat(testTypeDetailsPage.checkIsCarriedOutDisplayed()).isTrue();
-    }
-
-    @Step
     public void checkSetCarriedOutDuringTestIsNotDisplayed() {
         assertThat(testTypeDetailsPage.checkIsCarriedOutDisplayed()).isFalse();
     }
@@ -44,41 +38,8 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void inputNumberOfSeatbelt(String number) {
-        testTypeDetailsPage.selectSeatbeltsNumberOption();
-        testTypeDetailsPage.setSetbealtNumber(number);
-        testTypeDetailsPage.doneSeatbeltInstallationCheck();
-    }
-
-    @Step
-    public void selectAndCancelInputNumberOfSeatbelt() {
-        testTypeDetailsPage.selectSeatbeltsNumberOption();
-        testTypeDetailsPage.cancelSeatbeltInstallationCheck();
-    }
-
-    @Step
-    public void doneInputNumberOfSeatbelt() {
-        testTypeDetailsPage.selectSeatbeltsNumberOption();
-        testTypeDetailsPage.doneSeatbeltInstallationCheck();
-    }
-
-    @Step
-    public void checkDoneAndCancelOptionForSeatbeltNumber(){
-        testTypeDetailsPage.selectSeatbeltsNumberOption();
-        assertThat(testTypeDetailsPage.isCancelOptionDisplayedForSeatbeltNumber()).isTrue();
-        assertThat(testTypeDetailsPage.isDoneOptionDisplayedForSeatbeltNumber()).isTrue();
-        testTypeDetailsPage.cancelSeatbeltInstallationCheck();
-    }
-
-    @Step
     public void checkNumberOfSeatbelts(String number) {
         assertThat(testTypeDetailsPage.checkSetbealtNumber(number)).isTrue();
-    }
-
-    @Step
-    public void checktSeabeltDetailsPage() {
-        assertThat(testTypeDetailsPage.isSeatbeltTitleDisplayed()).isTrue();
-        assertThat(testTypeDetailsPage.isSeatbetlInputFieldDisplayed()).isTrue();
     }
 
     @Step
@@ -148,10 +109,10 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void setTestToOption(String option) {
         testTypeDetailsPage.waitUntilPageIsLoaded();
         if (option.equalsIgnoreCase("pass")) {
-            testTypeDetailsPage.clickSetTestResul();
+            testTypeDetailsPage.clickSetTestResult();
             testTypeDetailsPage.passLecTest();
         } else if (option.equalsIgnoreCase("fail")) {
-            testTypeDetailsPage.clickSetTestResul();
+            testTypeDetailsPage.clickSetTestResult();
             testTypeDetailsPage.failLecTest();
         } else if (option.equalsIgnoreCase("cancel")) {
             testTypeDetailsPage.clickPassedTest();
@@ -160,8 +121,13 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void pressCancelOptionLEC() {
+        testTypeDetailsPage.cancelLecTest();
+    }
+
+    @Step
     public void checkTestOptionArePresents() {
-        testTypeDetailsPage.clickSetTestResul();
+        testTypeDetailsPage.clickSetTestResult();
         assertThat(testTypeDetailsPage.checkPassTestOptionIsPresent()).isTrue();
         assertThat(testTypeDetailsPage.checkFailTestOptionIsPresent()).isTrue();
         assertThat(testTypeDetailsPage.checkCancelTestOptionIsPresent()).isTrue();
@@ -225,14 +191,8 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void waitUntillPageIsLoaded(String testType) {
-        testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
-    }
-
-    @Step
-    public void checkTestTypeResultAndVehicleDetailsOption(String testTypeName, String result) {
+    public void checkTestTypeName(String testTypeName) {
         testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testTypeName);
-        assertThat(testTypeDetailsPage.checkResultIsPresent(result)).isEqualTo(2);
         assertThat(testTypeDetailsPage.getTestTypeDetails().isDisplayed()).isTrue();
     }
 
@@ -355,7 +315,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSeatbetlPopUpIsDisplayed(){
+    public void checkSeatbeltPopUpIsDisplayed(){
         assertThat(testTypeDetailsPage.checkSeatbeltPopUpTitle()).isTrue();
         assertThat(testTypeDetailsPage.checkSeatbeltPopUpMessage()).isTrue();
         assertThat(testTypeDetailsPage.checkSeatbeltPopUpOkButton()).isTrue();
@@ -364,6 +324,31 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void pressOkButtonForSeatbeltPopUp(){
        testTypeDetailsPage.clickOkButtonForSeatbeltPopUp();
+    }
+
+    @Step
+    public void checkTestResultField() {
+       assertThat(testTypeDetailsPage.isTestResultFieldDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressTestResultsOption() {
+        testTypeDetailsPage.clickSetTestResult();
+    }
+
+    @Step
+    public void checkFailAndPassOptions() {
+       assertThat(testTypeDetailsPage.isPassOptionDisplayed() && testTypeDetailsPage.isFailOptionDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkResultIsNotSet() {
+        assertThat(testTypeDetailsPage.isSelectStatusDisplayed()).isTrue();
+    }
+
+    @Step
+    public void selectNumberOfSeatbeltsFitted() {
+        testTypeDetailsPage.selectSeatbeltsNumberOption();
     }
 
     @Step

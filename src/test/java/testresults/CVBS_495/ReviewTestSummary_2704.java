@@ -56,11 +56,14 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
     @Steps
     AbandonTestSteps abandonTestSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-495 - AC4 - VSA can change details of individual test types")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         //Adding a test type and making it a non progress one
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
@@ -76,7 +79,8 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("4");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
 
         //remove test type from change details screen
@@ -93,7 +97,8 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("8");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.changeDetails();

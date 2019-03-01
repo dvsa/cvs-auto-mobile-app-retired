@@ -38,7 +38,7 @@ public class TestTypeAbandon_CVSB_792 extends BaseTestClass {
     @Title("CVSB-194 - AC1 Return back from the “Select reason” screen")
     @Test
     public void testReturnBackFromSelectReason() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSelectReasonPage();

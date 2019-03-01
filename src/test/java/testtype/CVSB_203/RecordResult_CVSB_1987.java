@@ -27,16 +27,28 @@ public class RecordResult_CVSB_1987 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
-    TestTypeSubcategorySteps testTypeSubcategorySteps;
+    DefectCategorySteps defectCategorySteps;
 
+    @Steps
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
+
+    @Steps
+    DefectDetailsSteps defectDetailsSteps;
 
     @Title("CVSB-203 - AC4 - Automatically updated results based on defects - not the process of adding (out of scope) but the result")
     @Test
     public void testAutomaticUpdateResultsBasedOnDefects() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.selectTestType("Annual Test", TestPage.TestTypeStatuses.IN_PROGRESS);
-//        testTypeDetailsSteps.addDefect();
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("1. Registration Plate");
+        defectItemSteps.selectDefectFromList("1. A registration plate:");
+        defectDescriptionSteps.selectDefect("1.1 (a) MAJOR");
+        defectDetailsSteps.tapDone();
+        testTypeDetailsSteps.checkDefectsArePresentForTest("Annual test", "1. Registration Plate", "1. A registration plate" );
 
     }
 }

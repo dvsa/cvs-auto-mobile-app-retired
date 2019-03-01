@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
@@ -23,15 +24,20 @@ public class SeatbeltInstallationCheck_1950 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-901 - AC8 - Edit number of seat belts fitted - from value = zero")
     @Test
     public void testEditNumberOfSeatbeltsDifferentFromZeroBehaviour() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.inputNumberOfSeatbelt("0");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("0");
         testTypeDetailsSteps.checkNumberOfSeatbelts("0");
         testTypeDetailsSteps.checkMostRecentInstallationCheckIsNotDisplayed();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("1");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("1");
         testTypeDetailsSteps.checkNumberOfSeatbelts("1");
         testTypeDetailsSteps.checkMostRecentInstallationCheckIsDisplayed();
     }

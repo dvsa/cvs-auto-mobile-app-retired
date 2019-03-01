@@ -30,7 +30,7 @@ public class TestReview_CVSB_1955 extends BaseTestClass {
     @Title("CVSB-984 - AC2 - VSA presses 'OK' in the modal window")
     @Test
     public void testPressOkInModalWindow() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.clickConfirm();

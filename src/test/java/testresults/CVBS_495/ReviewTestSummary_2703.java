@@ -37,10 +37,13 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
     @Test
     public void returnToTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
@@ -56,7 +59,8 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("4");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();

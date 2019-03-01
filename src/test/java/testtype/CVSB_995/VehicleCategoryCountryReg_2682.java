@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2682 extends BaseTestClass {
     @Title("CVSB-995 - AC8 - Editing 'EU Vehicle category' field")
     @Test
     public void editingVehicleCategory() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.checkIfCorrectOptionIsDisplayed("M1");

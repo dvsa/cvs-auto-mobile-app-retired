@@ -27,7 +27,7 @@ public class TestTypeAdd_CVSB_765 extends BaseTestClass {
     @Test
     public void testTestTypeOption() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndConfirm("AK4434", "Durrell Vehicles Limited");
+        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
         testSteps.checkAddATestTypeButtonVisibility();
 

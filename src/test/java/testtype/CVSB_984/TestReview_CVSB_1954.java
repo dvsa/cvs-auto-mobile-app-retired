@@ -26,7 +26,7 @@ public class TestReview_CVSB_1954 extends BaseTestClass {
     @Title("CVSB-984 - AC1 VSA presses 'Review' call to action without completing required fields in test types")
     @Test
     public void testPressReviewWithoutCompletingFields() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.reviewAction();

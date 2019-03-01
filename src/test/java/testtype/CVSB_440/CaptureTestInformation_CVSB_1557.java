@@ -35,7 +35,7 @@ public class CaptureTestInformation_CVSB_1557 extends BaseTestClass {
         // TODO refactor after database population with correct data
         testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.checkPageTitle();
-        testHistoryDetailsSteps.checkDetails("TEST TYPE", "DEFECTS", "String",
-                "Certificate number", "String");    }
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "DEFECTS", "Test date",
+                "Test result", "Certificate number");    }
 
 }

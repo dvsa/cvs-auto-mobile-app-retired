@@ -30,8 +30,7 @@ public class SeatbeltInstallationCheck_2013 extends BaseTestClass {
     @Title("CVSB-932 - AC - 4A VSA presses 'Done'")
     @Test
     public void doneMostRecentInstallationCheck() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");

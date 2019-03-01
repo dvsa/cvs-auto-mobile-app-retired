@@ -1,6 +1,5 @@
 package testtype.CVSB_932;
 
-import com.sun.xml.bind.v2.TODO;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
@@ -32,8 +31,7 @@ public class SeatbeltInstallationCheck_2002 extends BaseTestClass {
     @Test
     //TODO Vary data so that the tests cover all the category A test types from the story after all of them are working properly
     public void testSeatBeltInstallationCheckCategoryATestTypes() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);

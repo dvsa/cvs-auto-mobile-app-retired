@@ -30,7 +30,7 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
     @Title("CVSB-178 - Return back to the Test overview screen")
     @Test
     public void testReturnToTestOverviewScreen() {
-        testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Class 6A");
+        testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Class 6A", preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeSubcategorySteps.seeInTestTypeList("Annual test");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",

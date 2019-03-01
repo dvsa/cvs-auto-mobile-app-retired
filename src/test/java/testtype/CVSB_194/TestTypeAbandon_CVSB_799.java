@@ -38,6 +38,7 @@ public class TestTypeAbandon_CVSB_799 extends BaseTestClass {
     @Title("CVSB-194 - AC2 Confirm abandon for a test type")
     @Test
     public void testWarningMessageConfirm() {
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.checkAbandonTestPage();
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);

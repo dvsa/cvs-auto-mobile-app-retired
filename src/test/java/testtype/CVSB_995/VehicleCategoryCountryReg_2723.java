@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2723 extends BaseTestClass {
     @Title("CVSB-995 - AC10 - Country not known recorded as 'Not known' in the backend")
     @Test
     public void editingCountryOfRegistrationField() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectNotKnownOption();
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Not Known");

@@ -12,6 +12,7 @@ import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -182,7 +183,7 @@ public class BasePage extends PageObject {
         WebElement element = findElementByXpath("//XCUIElementTypeStaticText[@name='" + name + "']");
         try {
             element.sendKeys(text);
-        } catch (SerenityManagedException e) {
+        } catch (Exception e) {
             status = false;
         }
         return status;

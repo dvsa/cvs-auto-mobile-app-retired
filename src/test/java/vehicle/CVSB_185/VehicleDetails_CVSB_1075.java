@@ -38,15 +38,15 @@ public class VehicleDetails_CVSB_1075 extends BaseTestClass {
         // TODO add Vehicle Test History part after bug fix
         vehicleDetailsSteps.selectBrakes();
         // TODO check rest of Brakes data after bug fix
-        brakesSteps.checkIfFieldIsNotEditable("1jU6");
+        brakesSteps.checkIfFieldIsNotEditable("171202");
         brakesSteps.pressBackButton();
         vehicleDetailsSteps.selectWeights();
-        weightsSteps.checkIfFieldIsNotEditable("53850");
+        weightsSteps.checkIfFieldIsNotEditable("5018");
         weightsSteps.pressBackButton();
         vehicleDetailsSteps.selectTyres();
-        tyresSteps.checkIfFieldIsNotEditable("4IHi7");
+        tyresSteps.checkIfFieldIsNotEditable("A");
         tyresSteps.pressBackButton();
         vehicleDetailsSteps.selectAdditionalVehicleDetails();
-        additionalVehicleDetailsSteps.checkIfFieldIsNotEditable("07/12/1991");
+        additionalVehicleDetailsSteps.checkIfFieldIsNotEditable("20/12/2010");
     }
 }

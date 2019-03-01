@@ -29,8 +29,8 @@ public class VehicleCategoryCountryReg_2672 extends BaseTestClass {
     @Title("CVSB-995 - AC1 - Record fields on test overview screen")
     @Test
     public void recordFieldsOnTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage();
-        testSteps.checkCountryOfregistrationOptionIsDisplayed();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.clickSaveOptionButton();

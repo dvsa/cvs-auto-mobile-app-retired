@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_1942 extends BaseTestClass {
     @Title("CVSB-901 - AC2 - Cancel editing of whether a seat belt installation check was carried out during this inspection")
     @Test
     public void testCancelSeatbeltInstallationCheck() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.cancelCarriedOutDuringTest();

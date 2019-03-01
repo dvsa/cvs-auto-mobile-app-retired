@@ -26,7 +26,7 @@ public class CaptureTestInformation_CVSB_1568 extends BaseTestClass {
     @Title("CVSB-756 - AC4 - View vehicle details while conducting a test")
     @Test
     public void testVehicleDetailsWhileConductingATest() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.selectVehicleDetails();
         vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91YHQ");

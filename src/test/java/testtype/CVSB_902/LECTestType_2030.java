@@ -30,8 +30,7 @@ public class LECTestType_2030 extends BaseTestClass {
     @Title("CVSB-902 - AC6 - Edit certificate number")
     @Test
     public void editCertificateNumber() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");

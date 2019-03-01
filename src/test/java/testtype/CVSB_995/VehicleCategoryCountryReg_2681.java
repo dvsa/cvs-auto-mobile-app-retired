@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2681 extends BaseTestClass {
     @Title("CVSB-995 - AC8 - Editing 'Country of registration' field")
     @Test
     public void editingCountryOfRegistrationField() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

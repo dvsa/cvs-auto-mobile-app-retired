@@ -31,12 +31,12 @@ public class VehicleDetails_CVSB_1077 extends BaseTestClass {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         vehicleDetailsSteps.selectWeights();
-        weightsSteps.checkDetails("53850", "6383", "40343", "30923",
-                "20445", "82879", "85025", "71125", "0");
+        weightsSteps.checkDetails("5018", "7100", "7100", "7100",
+                "13315", "17140", "18000", "19000", "0");
         weightsSteps.pressBackButton();
         vehicleDetailsSteps.selectTyres();
-        tyresSteps.checkDetails("4IHi7", "E9", "single", "416", "J",
-                "1355");
+        tyresSteps.checkDetails("295/80-22.5", "A", "single", "0", "j",
+                "456");
         tyresSteps.pressBackButton();
     }
 }

@@ -37,7 +37,7 @@ public class DefectAdd_CVSB_674 extends BaseTestClass {
     @Title("CVSB-139 - AC6 - Add PRS ")
     @Test
     public void defectAddDefectWithPRS() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");

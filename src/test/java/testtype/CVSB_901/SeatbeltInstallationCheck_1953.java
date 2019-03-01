@@ -26,7 +26,7 @@ public class SeatbeltInstallationCheck_1953 extends BaseTestClass {
     @Title("CVSB-901 - AC11 - Cancel selection of most recent installation check")
     @Test
     public void testCancellationOfMostRecentInstallationCheck() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();

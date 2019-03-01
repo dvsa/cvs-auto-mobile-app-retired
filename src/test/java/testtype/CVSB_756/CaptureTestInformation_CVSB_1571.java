@@ -30,7 +30,7 @@ public class CaptureTestInformation_CVSB_1571 extends BaseTestClass {
     @Title("CVSB-756 - AC7 - Go back to test overview, after viewing vehicle details/ test history")
     @Test
     public void testGoBackToTestOverviewAfterViewingDetailsAndTestHistory() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.selectVehicleDetails();
         vehicleDetailsSteps.selectVehicleTestHistory();

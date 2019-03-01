@@ -27,7 +27,7 @@ public class VehicleChange_CVSB_753 extends BaseTestClass {
     @Test()
     public void testChangeBeforeConfirmVehicleDetails() {
         vehicleComp.goToVehicleDetails();
-        vehicleDetailsSteps.tapIdentifyVehicle();
+        vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.waitUntilPageIsLoaded();
     }

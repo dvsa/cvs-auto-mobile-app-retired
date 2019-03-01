@@ -26,7 +26,7 @@ public class OdometerReading_CVSB_1174 extends BaseTestClass {
     @Title("CVSB-695 - AC2 - Access odometer reading fields")
     @Test
     public void testOdometerReadingFields() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.selectOdometerReading();
         odometerReadingSteps.checkPageDetails("Enter value", OdometerReadingPage.Units.KILOMETRES);

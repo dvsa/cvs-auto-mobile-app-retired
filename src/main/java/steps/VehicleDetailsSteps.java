@@ -77,12 +77,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void tapIdentifyVehicle(){
-        vehicleDetailsPage.waitUntilPageIsLoaded();
-        vehicleDetailsPage.clickIdentifyVehicle();
-    }
-
-    @Step
     public void waitUntilPageIsLoaded() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
     }
@@ -117,11 +111,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectIdentifyVehicle() {
-        vehicleDetailsPage.clickIdentifyVehicle();
-    }
-
-    @Step
     public void selectVehicleTestHistory() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.scrollDetailPage();
@@ -130,6 +119,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void pressBackButton() {
+        vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.clickBackButton();
     }
 

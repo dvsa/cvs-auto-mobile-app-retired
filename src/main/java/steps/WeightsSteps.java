@@ -16,7 +16,7 @@ public class WeightsSteps extends ScenarioSteps {
     public void checkDetails(String axleKerb, String axleLaden, String axleGb, String axleDesign, String grossKerb,
                              String grossLaden, String grossGb, String grossDesign, String uniladenKerb) {
         weightsPage.waitUntilPageIsLoaded();
-        List<String> axleData = weightsPage.getDataSetBetweenTitles("AXLE 24075", "GROSS");
+        List<String> axleData = weightsPage.getDataSetBetweenTitles("AXLE 1", "AXLE 2");
         assertThat(axleData).contains(axleKerb, axleLaden, axleGb, axleDesign);
 
         List<String> grossData = weightsPage.getDataSetBetweenTitles("GROSS", "UNLADEN");

@@ -25,7 +25,7 @@ public class OdometerReading_CVSB_1179 extends BaseTestClass {
     @Title("CVSB-695 - AC6 - Edit odometer reading unit ")
     @Test
     public void testEditOdometerReadingUnit() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.checkUnitOptions();

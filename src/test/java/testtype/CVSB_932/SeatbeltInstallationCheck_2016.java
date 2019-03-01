@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
+import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
@@ -27,16 +28,19 @@ public class SeatbeltInstallationCheck_2016 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB-932 - AC - 6 0 seatbelts entered")
     @Test
     public void zeroSeatbeltEnteredForCategoryBTestType() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt Installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.inputNumberOfSeatbelt("0");
-        testTypeDetailsSteps.checkSeatbetlPopUpIsDisplayed();
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("0");
+        testTypeDetailsSteps.checkSeatbeltPopUpIsDisplayed();
         testTypeDetailsSteps.pressOkButtonForSeatbeltPopUp();
     }
 }

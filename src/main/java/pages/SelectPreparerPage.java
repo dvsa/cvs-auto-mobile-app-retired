@@ -10,6 +10,7 @@ public class SelectPreparerPage extends BasePage {
     private static final String SELECT_PREPARER_PAGE_TITLE = "Select preparer";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String CANCEL_BUTTON_ID = "Cancel";
+    private static final String CANCEL_BUTTON_POP_UP_XPATH = "(//XCUIElementTypeButton[@name='Cancel'])[2]";
     private static final String PAGE_TITLE_ID = "Select preparer";
     private static final String NO_PREPARER_ID_OPTION = "No preparer ID given";
     private static final String VEHICLE_DETAILS_BACK = "arrow back Vehicle details";
@@ -98,10 +99,14 @@ public class SelectPreparerPage extends BasePage {
     }
 
     public boolean isCancelOptionDisplayed() {
-        return findElementById(CANCEL_BUTTON_ID).isDisplayed();
+        return findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH).isDisplayed();
     }
 
     public boolean isSearchBarDisplayed() {
         return findElementByXpath(SEARCH_PREPARER_ID_BAR).isDisplayed();
+    }
+
+    public void clickCancelInPopUp() {
+        findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH).click();
     }
 }

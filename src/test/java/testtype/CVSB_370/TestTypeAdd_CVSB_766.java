@@ -27,7 +27,7 @@ public class TestTypeAdd_CVSB_766 extends BaseTestClass {
     @Title("CVSB-370 - AC2 Test types list")
     @Test
     public void testTestTypeList() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkAddATestTypeButtonVisibility();
         testSteps.addTestType();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",

@@ -23,7 +23,7 @@ public class CaptureTestInformation_CVSB_1567 extends BaseTestClass {
     @Title("CVSB-756 - AC1 - Record fields on test overview screen")
     @Test
     public void testRecordFieldsOnTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.ENTER);
         testSteps.checkAddATestTypeButtonVisibility();

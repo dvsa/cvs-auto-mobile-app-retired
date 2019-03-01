@@ -16,10 +16,10 @@ public class SiteVisitPage extends BasePage {
     private static final String END_VISIT_ID = "End visit";
     private static final String OK_MODAL_ID = "Confirm";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
-    private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='CVSMobile']";
+    private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(CREATE_TEST_ID);
+        waitUntilPageIsLoadedByAccessibilityId(CREATE_TEST_ID);
     }
 
     public void clickCreateNewTest() {

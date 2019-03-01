@@ -39,6 +39,7 @@ public class TestTypeAbandon_CVSB_801 extends BaseTestClass {
     @Title("CVSB-194 - AC3 Edit reasons after abandon")
     @Test
     public void testEditReasonAfterAbandon() {
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.checkAbandonTestPage();
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);

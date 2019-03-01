@@ -38,7 +38,7 @@ public class DefectRemove_CVSB_662 extends BaseTestClass {
     @Title("CVSB-145 - AC2 - Confirm remove defect")
     @Test
     public void testConfirmRemoveDefect() {
-        testTypeCategoryComp.completeAddTestType();
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");

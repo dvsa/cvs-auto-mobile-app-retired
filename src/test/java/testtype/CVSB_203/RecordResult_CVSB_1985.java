@@ -33,8 +33,7 @@ public class RecordResult_CVSB_1985 extends BaseTestClass {
     @Title("CVSB-203 - AC3 - Type in additional notes recorded against test type")
     @Test
     public void testAdditionalNotesRecordedAgainstTestType() {
-        testTypeCategoryComp.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -42,7 +41,7 @@ public class RecordResult_CVSB_1985 extends BaseTestClass {
         testTypeDetailsSteps.addNotes("Test 12345");
         testTypeDetailsSteps.checkNotesText("Test 12345");
         testTypeDetailsSteps.pressSave();
-        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkNotesText("Test 12345");
 
     }

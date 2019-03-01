@@ -30,7 +30,7 @@ public class CaptureTestInformation_CVSB_1570 extends BaseTestClass {
     @Title("CVSB-756 - AC6 - Go back to vehicle details")
     @Test
     public void testGoBackToVehicleDetails() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.selectVehicleDetails();
         vehicleDetailsSteps.selectVehicleTestHistory();

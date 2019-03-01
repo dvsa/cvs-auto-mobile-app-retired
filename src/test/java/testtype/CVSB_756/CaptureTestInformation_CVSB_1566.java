@@ -31,7 +31,7 @@ public class CaptureTestInformation_CVSB_1566 extends BaseTestClass {
     @Title("CVSB-756 - AC3 - Access a test type")
     @Test
     public void testAccessATestType() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
