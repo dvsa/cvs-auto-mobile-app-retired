@@ -8,8 +8,8 @@ public class TestReviewPage extends BasePage {
     private final String TEST_REVIEW_TITLE_IF = "Test review";
     private final String CHANGE_DETAILS_BUTTON_ID = "Change details";
     private final String SAVE_CHANGED_DETAILS = "Save";
-    private final String ABANDON_TEST_TYPE="Abandon test type";
-    private final String REMOVE_TEST_TYPE="Remove test type";
+    private final String ABANDON_TEST_TYPE = "Abandon test type";
+    private final String REMOVE_TEST_TYPE = "Remove test type";
     private static final String TEST_BUTTON_ID = "arrow back Test";
 
     public void goToTestPage() {
@@ -33,7 +33,7 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean isChangeDetailsButtonDisplayed() {
-       return findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
+        return findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
     }
 
     public void clickSaveChangedDetailsButton() {
@@ -50,11 +50,22 @@ public class TestReviewPage extends BasePage {
         }
     }
 
-    public void pressTestTypeAbandonButton(){
+    public void pressTestTypeAbandonButton() {
         findElementById(ABANDON_TEST_TYPE).click();
     }
 
-    public void pressTestTypeRemoveButton(){
+    public void pressTestTypeRemoveButton() {
         findElementById(REMOVE_TEST_TYPE).click();
+    }
+
+    public boolean verifyTestStatus(String testType, String status) {
+        boolean isTestTypeDisplayed = checkDiplayedElement(testType);
+        boolean isStatusDisplayed = checkDiplayedElement(status);
+
+        if (isStatusDisplayed && isTestTypeDisplayed) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

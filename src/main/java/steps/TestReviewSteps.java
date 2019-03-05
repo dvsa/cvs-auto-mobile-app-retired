@@ -78,4 +78,9 @@ public class TestReviewSteps extends ScenarioSteps {
     public void goToTestPage() {
         testReviewPage.goToTestPage();
     }
+
+    @Step
+    public void checkTestStatus(String testType, String status) {
+        assertThat(testReviewPage.verifyTestStatus(testType,status)).isTrue();
+    }
 }

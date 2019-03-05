@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_980;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2703 extends BaseTestClass {
+public class AutoCalculatedTestResults_2697 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -38,20 +38,25 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+    DefectCategorySteps defectCategorySteps;
 
-    @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
+    @Steps
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
+
+    @Steps
+    DefectDetailsSteps defectDetailsSteps;
+
+    @Title("CVSB_980 - AC1 - Fail criteria (At least 1 Major + 1 PRS)")
     @Test
-    public void returnToTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
-        testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectACountry("Norway");
-        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
+    public void failCriteriaWithOneMajorAndPRS() {
+        testTypeCategoryComp.goToTestPage();
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("123");
-        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.typeInField("5");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
@@ -59,12 +64,18 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
+        testTypeDetailsSteps.inputNumberOfSeatbelt("5");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.goBackToTestOVerviewScreen();
-        testSteps.checkPageTitleDisplayed();
+        testReviewSteps.checkTestStatus("Annual test", "PASS");
+        testReviewSteps.changeDetails();
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
+        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect("Upper", "Nearside", "2", "2");
+        testTypeDetailsSteps.pressSave();
+        testSteps.reviewAction();
+        testReviewSteps.checkTestStatus("Annual test", "FAIL");
     }
 }

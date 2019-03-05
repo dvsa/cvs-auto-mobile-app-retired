@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_495;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2702 extends BaseTestClass {
+public class ReviewTestSummary_2705 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -38,23 +38,11 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC2 - VSA cannot edit review screen")
+    @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
     @Test
-    public void canNotEditReviewScreen() {
+    public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -73,24 +61,20 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
-        testTypeDetailsSteps.selectAddDefect("Annual test");
-        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
-        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
-        defectDescriptionSteps.selectDefect("3.1 (a) MAJOR");
-        defectDetailsSteps.selectOptionsAndTapAddDefect("Upper", "Offside", "5", "4");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.checkElementIsNotEditable("Annual test");
-        testReviewSteps.checkElementIsNotEditable("FAIL");
-        testReviewSteps.checkElementIsNotEditable("Seatbelt installation check");
-        testReviewSteps.checkElementIsNotEditable("Yes");
-        testReviewSteps.checkElementIsNotEditable("Number of seatbelts fitted");
-        testReviewSteps.checkElementIsNotEditable("4");
-        testReviewSteps.checkElementIsNotEditable("Most recent seatbelt check");
-        testReviewSteps.checkElementIsNotEditable("MAJOR");
-        testReviewSteps.checkElementIsNotEditable("3.1.a MAJOR");
-        testReviewSteps.checkElementIsNotEditable("3. Seat Belts & Supplementary Restraint Systems");
-        testReviewSteps.checkElementIsNotEditable("1. Obligatory Seat Belt:");
-        testReviewSteps.checkElementIsNotEditable("(a). missing.");
+        testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
+        testReviewSteps.checkElementIsDisplayed("Yes");
+        testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
+        testReviewSteps.checkElementIsDisplayed("4");
+        testReviewSteps.changeDetails();
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("5");
+        testReviewSteps.saveChangedDetails();
+        testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
+        testReviewSteps.checkElementIsDisplayed("No");
+        testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
+        testReviewSteps.checkElementIsDisplayed("5");
     }
 }

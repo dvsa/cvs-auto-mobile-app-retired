@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_980;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2862 extends BaseTestClass {
+public class AutoCalculatedTestResults_2695 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -38,32 +38,25 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    DefectDetailsSteps defectDetailsSteps;
+    DefectCategorySteps defectCategorySteps;
 
     @Steps
     DefectItemSteps defectItemSteps;
 
     @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
     DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
-    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+    DefectDetailsSteps defectDetailsSteps;
 
-    @Title("CVSB-495 - AC1 - VSA goes to review screen (test types conducted non-mandatory fields filled)")
+    @Title("CVSB_980 - AC1 - Pass criteria (Minor + Advisory defects)")
     @Test
-    public void goToReviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
-        testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectACountry("Norway");
-        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
+    public void passCriteriaWithNoDefects() {
+        testTypeCategoryComp.goToTestPage();
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("1");
-        odometerReadingSteps.checkReadingValue("1");
+        odometerReadingSteps.typeInField("5");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
@@ -71,17 +64,19 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
-        testTypeDetailsSteps.selectAddDefect("Annual test");
-        defectCategorySteps.selectDefectFromList("1. Registration Plate");
-        defectItemSteps.selectDefectFromList("1. A registration plate:");
-        defectDescriptionSteps.selectDefect("1.1 (a) MAJOR");
-        defectDetailsSteps.tapDone();
+        testTypeDetailsSteps.inputNumberOfSeatbelt("5");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.checkElementIsDisplayed("1.1.a MAJOR");
-        testReviewSteps.checkElementIsDisplayed("1. Registration Plate");
-        testReviewSteps.checkElementIsDisplayed("1. A registration plate:");
-        testReviewSteps.checkElementIsDisplayed("(a). missing.");
+        testReviewSteps.checkTestStatus("Annual test", "PASS");
+        testReviewSteps.changeDetails();
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.searchForDefect("59");
+        defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
+        defectItemSteps.selectDefectFromList("4. Reservoir:");
+        defectDescriptionSteps.selectDefect("59.4 (a) (i)");
+        defectDetailsSteps.selectOptionsAndTapAddDefect("Upper", "Nearside", "2", "2");
+        testTypeDetailsSteps.pressSave();
+        testSteps.reviewAction();
+        testReviewSteps.checkTestStatus("Annual test", "PASS");
     }
 }
