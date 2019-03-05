@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_495;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2705 extends BaseTestClass {
+public class ReviewTestSummary_2701 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -40,9 +40,9 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
+    @Title("CVSB-495 - AC1 - AC8 VSA goes to review screen (test types conducted non-mandatory fields not filled)")
     @Test
-    public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
+    public void goToReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -63,18 +63,17 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
+        testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.checkElementIsDisplayed("Annual test");
+        testReviewSteps.checkElementIsDisplayed("PASS");
         testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
         testReviewSteps.checkElementIsDisplayed("Yes");
         testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
         testReviewSteps.checkElementIsDisplayed("4");
-        testReviewSteps.changeDetails();
-        testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("5");
-        testReviewSteps.saveChangedDetails();
-        testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
-        testReviewSteps.checkElementIsDisplayed("No");
-        testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
-        testReviewSteps.checkElementIsDisplayed("5");
+        testReviewSteps.checkElementIsDisplayed("Most recent seatbelt check");
+       //TODO better check of none value
+        testReviewSteps.checkElementIsDisplayed("Defects");
+        testReviewSteps.checkElementIsDisplayed("Notes");
+        testReviewSteps.checkElementIsDisplayed("None");
     }
 }

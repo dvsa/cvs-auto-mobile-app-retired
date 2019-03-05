@@ -68,7 +68,7 @@ public class LaunchPage extends BasePage {
                 e.printStackTrace();
             }
 
-            tapByCoordinates(70, 140);
+          //  tapByCoordinates(70, 140);
         }
     }
 

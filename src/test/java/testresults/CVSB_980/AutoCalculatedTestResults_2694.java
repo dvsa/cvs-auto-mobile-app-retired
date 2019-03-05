@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_980;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,8 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2706 extends BaseTestClass {
-
+public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
@@ -37,11 +36,10 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
-    @Title("CVSB-495 - AC6 - Deleting a required field in the test type result and going back to the test review screen")
+    @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
-    public void deleteARequiredFieldFromTestType() {
-        //TODO rerun after the view does not overlay the save button
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+    public void passCriteriaWithNoDefects() {
+        testTypeCategoryComp.goToTestPage();
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
@@ -52,20 +50,14 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Technical test");
-        testTypeCategorySteps.selectFromTestTypeList("LEC");
-        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setTestToOption("Pass");
-        testTypeDetailsSteps.checkCertificateSection(true);
-        testTypeDetailsSteps.sendCertificateNumber("1");
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.selectMostRecentInstallationCheck();
+        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.inputNumberOfSeatbelt("123");
         testTypeDetailsSteps.pressSave();
-        testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.EDIT);
         testSteps.reviewAction();
-        testReviewSteps.changeDetails();
-        testTypeDetailsSteps.sendCertificateNumber("");
-        testTypeDetailsSteps.pressSave();
-        testSteps.checkPageTitleDisplayed();
-        testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS);
-        testReviewSteps.changeDetailsIsNotDisplayed();
+        testReviewSteps.checkTestStatus("Annual test", "PASS");
     }
 }

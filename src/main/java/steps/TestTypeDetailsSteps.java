@@ -216,6 +216,10 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void clickAddDefect() {
+        testTypeDetailsPage.getAddDefectElement().click();
+    }
 
     @Step
     public void checkDefectsArePresentForTest(String testType, String recordDefect, String defectItem) {
