@@ -46,10 +46,13 @@ public class AutoCalculatedTestResults_2696 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+
     @Title("CVSB_980 - AC1 - Fail criteria (At least 1 Major + no PRS)")
     @Test
     public void failCriticalOneMajorNoPRS() {
-        testTypeCategoryComp.goToTestPage();
+        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
@@ -61,7 +64,7 @@ public class AutoCalculatedTestResults_2696 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.inputNumberOfSeatbelt("5");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
