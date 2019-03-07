@@ -39,26 +39,29 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    LoginSteps loginSteps;
+
+    @Steps
+    SignatureSteps signatureSteps;
+
     @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
     public void passCriteriaWithNoDefects() {
+        loginSteps.logIn("cvs.automation2@dvsagov.onmicrosoft.com", "CvsTester@123");
+        signatureSteps.createSignatureIfNeeded();
         testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectACountry("Norway");
-        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("123");
-        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.typeInField("8");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
