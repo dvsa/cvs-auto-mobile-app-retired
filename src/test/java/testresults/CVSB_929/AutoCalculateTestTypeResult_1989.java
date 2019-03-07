@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_929;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2703 extends BaseTestClass {
+public class AutoCalculateTestTypeResult_1989 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -40,9 +40,21 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
+    @Steps
+    DefectCategorySteps defectCategorySteps;
+
+    @Steps
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
+
+    @Steps
+    DefectDetailsSteps defectDetailsSteps;
+
+    @Title("CVSB-929 - AC2 - Show the test result upon pressing 'Review'")
     @Test
-    public void returnToTestOverviewScreen() {
+    public void testResultUponPressingReview() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -57,14 +69,17 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("5. Exhaust Emissions");
+        defectItemSteps.selectDefectFromList("7. Engine MIL");
+        defectDescriptionSteps.selectDefect("5.7 MAJOR");
+        defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.goBackToTestOverviewScreen();
-        testSteps.checkPageTitleDisplayed();
+        testReviewSteps.checkElementIsDisplayed("FAIL");
+        testReviewSteps.checkElementIsDisplayed("5.7 MAJOR");
     }
 }

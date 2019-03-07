@@ -1,17 +1,18 @@
-package testresults.CVBS_495;
+package testresults.CVSB_929;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2703 extends BaseTestClass {
+public class AutoCalculateTestTypeResult_2197 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -38,11 +39,29 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
+    DefectCategorySteps defectCategorySteps;
 
-    @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
+    @Steps
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
+
+    @Steps
+    DefectDetailsSteps defectDetailsSteps;
+
+    @Steps
+    AdvisoryDetailsSteps advisoryDetailsSteps;
+
+    @Steps
+    AbandonTestSteps abandonTestSteps;
+
+    @Steps
+    SelectReasonSteps selectReasonSteps;
+
+    @Title("CVSB-929 - Abandon test result")
     @Test
-    public void returnToTestOverviewScreen() {
+    public void testAbandonTestResult() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -56,15 +75,24 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
+        defectItemSteps.selectDefectFromList("1. A tyre");
+        defectDescriptionSteps.selectDefect("8.1 (a) MAJOR");
+        defectDetailsSteps.setPRS();
+        defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
+        testSteps.swipeTestType("Annual test");
+        testSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
+        selectReasonSteps.pressNextButton();
+        abandonTestSteps.addAdditionalComments("Test Abandoned 1234");
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.goBackToTestOverviewScreen();
-        testSteps.checkPageTitleDisplayed();
+        testReviewSteps.checkElementIsDisplayed("ABANDONED");
+        testReviewSteps.checkElementIsDisplayed("Annual test");
+        testReviewSteps.checkElementIsDisplayed("Test Abandoned 1234");
     }
 }

@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_929;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2703 extends BaseTestClass {
+public class AutoCalculateTestTypeResult_2204 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -38,11 +38,26 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
+    DefectCategorySteps defectCategorySteps;
+
+    @Steps
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
+
+    @Steps
+    DefectDetailsSteps defectDetailsSteps;
+
+    @Steps
+    AdvisoryDetailsSteps advisoryDetailsSteps;
+
+    @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
+    @Title("CVSB-929 - Pass test result - No defects")
     @Test
-    public void returnToTestOverviewScreen() {
+    public void testPassTestResultNoDefects() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -57,14 +72,14 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.goBackToTestOverviewScreen();
-        testSteps.checkPageTitleDisplayed();
+        testReviewSteps.checkElementIsDisplayed("PASS");
+        testReviewSteps.checkElementIsDisplayed("Annual test");
     }
 }

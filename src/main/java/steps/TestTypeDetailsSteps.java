@@ -4,6 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeDetailsPage;
 
+import java.util.concurrent.TimeoutException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -206,7 +208,12 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void selectAddDefect(String testType) {
         testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
-        testTypeDetailsPage.getAddDefectElement().click();
+        if (testTypeDetailsPage.isAddDefectButtonDisplayed()) {
+            testTypeDetailsPage.getAddDefectElement().click();
+        } else {
+            testTypeDetailsPage.scrollDetailPage();
+            testTypeDetailsPage.getAddDefectElement().click();
+        }
     }
 
 
@@ -352,10 +359,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickAddDefectButton() {
-        testTypeDetailsPage.clickAddDefectButton();
-    }
-
     public void scrollTestTypeDetailsPage() {
         testTypeDetailsPage.scrollDetailPage();
     }

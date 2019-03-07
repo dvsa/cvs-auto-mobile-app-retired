@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 public class TestReviewPage extends BasePage {
     private final String BACK_TO_TEST_ID = "arrow back Test";
-    private final String TEST_REVIEW_TITLE_IF = "Test review";
+    private final String TEST_REVIEW_TITLE_ID = "Test review";
     private final String CHANGE_DETAILS_BUTTON_ID = "Change details";
     private final String SAVE_CHANGED_DETAILS = "Save";
     private final String ABANDON_TEST_TYPE="Abandon test type";
@@ -20,11 +20,15 @@ public class TestReviewPage extends BasePage {
         findElementById(BACK_TO_TEST_ID).click();
     }
 
-    public boolean checkPageTitleIsDisplayed() {
-        return findElementById(TEST_REVIEW_TITLE_IF).isDisplayed();
+    public void waitUntilPageIsLoaded() {
+        waitUntilPageIsLoadedById(TEST_REVIEW_TITLE_ID);
     }
 
-    public boolean checkDiplayedElement(String element) {
+    public boolean checkPageTitleIsDisplayed() {
+        return findElementById(TEST_REVIEW_TITLE_ID).isDisplayed();
+    }
+
+    public boolean checkDisplayedElement(String element) {
         return findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
     }
 
@@ -56,5 +60,9 @@ public class TestReviewPage extends BasePage {
 
     public void pressTestTypeRemoveButton(){
         findElementById(REMOVE_TEST_TYPE).click();
+    }
+
+    public void scrollPageDown() {
+        scrollDownTo(500, -200);
     }
 }

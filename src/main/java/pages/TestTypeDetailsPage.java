@@ -441,5 +441,9 @@ public class TestTypeDetailsPage extends BasePage {
     public void pressTestTypeRemoveButton(){
         findElementById(REMOVE_TEST_TYPE).click();
     }
+
+    public boolean isAddDefectButtonDisplayed() {
+        return findElementByAccessibilityId(ADD_DEFECT_ID).isDisplayed();
+    }
 }
 
