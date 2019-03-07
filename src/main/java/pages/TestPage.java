@@ -134,7 +134,7 @@ public class TestPage extends BasePage {
 
     //TODO create generic swipe action in BasePage
     public void swipeLeftOnTestType(String testType) {
-        WebElement testTypeToSwipe = findElementById(testType);
+        WebElement testTypeToSwipe = findElementByXpath("//XCUIElementTypeButton[contains(@name, '" + testType + "')]");
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         Map<String, Object> params = new HashMap<>();
         params.put("direction", "left");

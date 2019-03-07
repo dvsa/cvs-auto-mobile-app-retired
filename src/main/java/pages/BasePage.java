@@ -121,11 +121,11 @@ public class BasePage extends PageObject {
     }
 
     public int getXPositionForElement(String element) {
-        return findElementByXpath("//*[@name='" + element + "']").getLocation().getX();
+        return findElementByXpath("//*[contains(@name, '" + element + "')]").getLocation().getX();
     }
 
     public int getYPositionForElement(String element) {
-        return findElementByXpath("//*[@name='" + element + "']").getLocation().getY();
+        return findElementByXpath("//*[contains(@name, '" + element + "')]").getLocation().getY();
     }
 
 

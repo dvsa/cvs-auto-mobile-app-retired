@@ -1,7 +1,6 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestReviewPage;
 
@@ -15,18 +14,19 @@ public class TestReviewSteps extends ScenarioSteps {
     TestReviewPage testReviewPage;
 
     @Step
-    public void goBackToTestOVerviewScreen() {
+    public void goBackToTestOverviewScreen() {
         testReviewPage.clickGoToTestOverviewScreen();
     }
 
     @Step
     public void checkPageTitleIsDisplayed(){
+        testReviewPage.waitUntilPageIsLoaded();
         assertThat(testReviewPage.checkPageTitleIsDisplayed()).isTrue();
     }
 
     @Step
     public void checkElementIsDisplayed(String element){
-        assertThat(testReviewPage.checkDiplayedElement(element)).isTrue();
+        assertThat(testReviewPage.checkDisplayedElement(element)).isTrue();
     }
 
     @Step
@@ -56,7 +56,7 @@ public class TestReviewSteps extends ScenarioSteps {
         String year = yearOfSystem.toString();
 
         String date = day + " " + month + " " + year;
-        assertThat(testReviewPage.checkDiplayedElement(date)).isTrue();
+        assertThat(testReviewPage.checkDisplayedElement(date)).isTrue();
     }
 
     @Step
@@ -77,5 +77,10 @@ public class TestReviewSteps extends ScenarioSteps {
     @Step
     public void goToTestPage() {
         testReviewPage.goToTestPage();
+    }
+
+    @Step
+    public void scrollDown() {
+        testReviewPage.scrollPageDown();
     }
 }

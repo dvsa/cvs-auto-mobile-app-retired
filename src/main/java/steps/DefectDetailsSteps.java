@@ -119,4 +119,9 @@ public class DefectDetailsSteps extends ScenarioSteps {
     public void checkPageTitleIsDisplayed(){
         assertThat(defectDetailsPage.checkPageTitleIsDisplayed()).isTrue();
     }
+
+    @Step
+    public void setPRS() {
+        defectDetailsPage.enablePRS();
+    }
 }
