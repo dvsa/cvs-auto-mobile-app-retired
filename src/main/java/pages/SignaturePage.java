@@ -33,21 +33,6 @@ public class SignaturePage extends BasePage {
         Actions actions = new Actions(((WebDriverFacade) getDriver()).getProxiedDriver());
         actions.moveToElement(findElementById(CONFIRM_SIGNATURE_POP_UP_ID)).build().perform();
         actions.click();
-
-//            actions.click();
- //       int i = 0;
-//        while (findElementById(CANCEL_SIGNATURE_POP_UP_ID).isDisplayed()) {
-//            actions.moveToElement(findElementById(CONFIRM_SIGNATURE_POP_UP_ID)).build().perform();
-//            actions.click();
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            i++;
-//            if (i == 10) break;
-//            else continue;}
-
     }
 
     public void cancelSignatureConfirmation() {
