@@ -1,8 +1,7 @@
 package pages;
 
-import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
+import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.interactions.Actions;
 
 public class SignaturePage extends BasePage {
 
@@ -20,10 +19,9 @@ public class SignaturePage extends BasePage {
     }
 
     public void clickSaveButton() {
-        Point point = findElementByAccessibilityId(SAVE_BUTTON_ID).getLocation();
-        int x = point.getX();
-        int y = point.getY();
-        tapByCoordinates(x, y);
+        Actions actions = new Actions(((WebDriverFacade) getDriver()).getProxiedDriver());
+        actions.moveToElement(findElementById(SAVE_BUTTON_ID)).build().perform();
+        actions.click();
     }
 
     public boolean checkSignatureTitleIsDisplayed() {
@@ -31,7 +29,25 @@ public class SignaturePage extends BasePage {
     }
 
     public void confirmSignature() {
-        findElementById(CONFIRM_SIGNATURE_POP_UP_ID).click();
+        waitUntilPageIsLoadedById(CONFIRM_SIGNATURE_POP_UP_ID);
+        Actions actions = new Actions(((WebDriverFacade) getDriver()).getProxiedDriver());
+        actions.moveToElement(findElementById(CONFIRM_SIGNATURE_POP_UP_ID)).build().perform();
+        actions.click();
+
+//            actions.click();
+ //       int i = 0;
+//        while (findElementById(CANCEL_SIGNATURE_POP_UP_ID).isDisplayed()) {
+//            actions.moveToElement(findElementById(CONFIRM_SIGNATURE_POP_UP_ID)).build().perform();
+//            actions.click();
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            i++;
+//            if (i == 10) break;
+//            else continue;}
+
     }
 
     public void cancelSignatureConfirmation() {
@@ -39,7 +55,7 @@ public class SignaturePage extends BasePage {
     }
 
     public void createSignature() {
-        tapByCoordinates(50,100);
+        tapByCoordinates(50, 100);
     }
 
     public void waitPageToLoad() {

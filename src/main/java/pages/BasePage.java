@@ -4,16 +4,12 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
-import net.serenitybdd.core.exceptions.SerenityManagedException;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.exec.environment.EnvironmentUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
@@ -21,10 +17,13 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Properties;
 import java.util.stream.Collectors;
 
-public class BasePage extends PageObject {
+import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static java.time.Duration.ofMillis;
 
+public class BasePage extends PageObject {
 
     protected WebElement findElementByAccessibilityId(String idOrName) {
         return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
@@ -55,20 +54,20 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntilPageIsLoadedByElement(By.id(id), 20, 200 );
+        return waitUntilPageIsLoadedByElement(By.id(id), 20, 200);
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
-        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200 );
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200);
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
 
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 150, 400 );
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 150, 400);
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400 );
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400);
 
     }
 
@@ -82,26 +81,26 @@ public class BasePage extends PageObject {
     }
 
     protected void scrollDownTo(int xOffset, int yOffset) {
-        scroll(500,596, xOffset, yOffset);
+        scroll(500, 596, xOffset, yOffset);
     }
 
     protected void scroll(int xPressAt, int yPressAt, int xMoveTo, int yMoveTo) {
-                new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
-                .press(PointOption.point(xPressAt,yPressAt))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(100)))
-                .moveTo(PointOption.point(xMoveTo,yMoveTo))
+        new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .press(PointOption.point(xPressAt, yPressAt))
+                .waitAction(waitOptions(ofMillis(100)))
+                .moveTo(PointOption.point(xMoveTo, yMoveTo))
                 .release()
                 .perform();
     }
 
     protected void tap(WebElement webElement) {
-        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
+        new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
                 .tap(TapOptions.tapOptions().withElement(ElementOption.element(webElement)))
                 .perform();
     }
 
     protected void tapByCoordinates(int x, int y) {
-        new TouchAction(((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()))
+        new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
                 .tap(PointOption.point(x, y))
                 .perform();
     }
@@ -155,7 +154,7 @@ public class BasePage extends PageObject {
     private FluentWait globalFluentWait(int timeOut, int poolingEvery) {
         FluentWait wait = new FluentWait<>(getDriver())
                 .withTimeout(Duration.ofSeconds(timeOut))
-                .pollingEvery(Duration.ofMillis(poolingEvery))
+                .pollingEvery(ofMillis(poolingEvery))
                 .ignoring(NoSuchElementException.class);
 
         return wait;
@@ -191,13 +190,12 @@ public class BasePage extends PageObject {
 
 
     public void runAppInBackground() {
-        ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).runAppInBackground(Duration.ofMillis(500));
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).runAppInBackground(ofMillis(500));
         getDriver().getPageSource();
     }
 
     public void closeAndLaunchApp() {
-        ((IOSDriver)((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
+        ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
     }
-
 }

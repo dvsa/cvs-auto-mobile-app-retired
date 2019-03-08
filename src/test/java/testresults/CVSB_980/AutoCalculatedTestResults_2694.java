@@ -25,9 +25,6 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
-
-    @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps
@@ -48,7 +45,7 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
     public void passCriteriaWithNoDefects() {
-        loginSteps.logIn("cvs.automation2@dvsagov.onmicrosoft.com", "CvsTester@123");
+        loginSteps.logIn();
         signatureSteps.createSignatureIfNeeded();
         testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.clickCountryOfRegistrationOption();

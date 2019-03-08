@@ -8,7 +8,6 @@ public class LoginPage extends BasePage {
     private static final String NEXT_BUTTON_ID = "Next";
     private static final String PASSWORD_FIELD_ID = "Password";
     private static final String SIGN_ID_BUTTON_ID = "Sign in";
-    private static final String MICROSOFT_ID = "Microsoft";
 
     public void insertUserName(String username) {
         WebElement inputField = findElementById(EMAIL_PHONE_OR_SKYPE_FIELD_ID);
