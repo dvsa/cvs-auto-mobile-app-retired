@@ -5,15 +5,14 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
-import java.util.HashMap;
-
 @RunWith(SerenityRunner.class)
-public class AutoCalculatedTestResults_2695 extends BaseTestClass {
+public class AutoCalculatedTestResults_2699 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -37,56 +36,41 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-    @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Steps
-    AdvisoryDetailsSteps advisoryDetailsSteps;
+    AbandonTestSteps abandonTestSteps;
 
-    @Title("CVSB_980 - AC1 - Pass criteria (Minor + Advisory defects)")
+    @Steps
+    SelectReasonSteps selectReasonSteps;
+
+    @Title("CVSB_980 - AC1 - Abandon criteria")
     @Test
-    public void passCriteriaWithNoDefects() {
+    public void abandonCriteria() {
         testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("8");
+        odometerReadingSteps.typeInField("5");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
         testReviewSteps.changeDetails();
-        testTypeDetailsSteps.clickAddDefect();
-        defectCategorySteps.searchForDefect("59");
-        defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
-        defectItemSteps.selectDefectFromList("4. Reservoir:");
-        defectDescriptionSteps.tapAddAnAdvisoryNote();
-        advisoryDetailsSteps.addCustomNoteAndTapAddNote("Test");
-        defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
-        HashMap<String, String> map = new HashMap<>();
-        map.put("Vertical", "Upper");
-        map.put("Lateral", "Nearside");
-        map.put("Longitudinal", "Front");
-        map.put("Axle Number", "8");
-        defectDetailsSteps.selectOptionsAndTapAddDefect(map);
+        testTypeDetailsSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
+                SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);
+        selectReasonSteps.pressNextButton();
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
+        selectReasonSteps.pressBackButton();
         testTypeDetailsSteps.pressSave();
-        testReviewSteps.checkTestStatus("Annual test", "PASS");
+        testReviewSteps.checkTestStatus("Annual test", "ABANDONED");
     }
 }

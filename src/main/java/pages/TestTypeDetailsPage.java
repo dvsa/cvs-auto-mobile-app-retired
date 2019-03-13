@@ -47,12 +47,12 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_TEST_TYOE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
     private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
 
-
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
     }
 
     public WebElement getAddDefectElement() {
+        waitUntilPageIsLoadedById(ADD_DEFECT_ID);
         return findElementById(ADD_DEFECT_ID);
     }
 
@@ -444,6 +444,11 @@ public class TestTypeDetailsPage extends BasePage {
 
     public boolean isAddDefectButtonDisplayed() {
         return findElementByAccessibilityId(ADD_DEFECT_ID).isDisplayed();
+    }
+
+    public void tapDefectDescription(String description) {
+        List<WebElement> list = findElementsByAccessibilityId(description);
+        list.get(list.size()-1).click();
     }
 }
 

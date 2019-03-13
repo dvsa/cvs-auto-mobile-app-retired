@@ -36,19 +36,10 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Steps
-    LoginSteps loginSteps;
-
-    @Steps
-    SignatureSteps signatureSteps;
-
     @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
     public void passCriteriaWithNoDefects() {
-        loginSteps.logIn();
-        signatureSteps.createSignatureIfNeeded();
         testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
-        testSteps.clickCountryOfRegistrationOption();
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
@@ -58,6 +49,7 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();

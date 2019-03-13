@@ -77,7 +77,7 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (a) MAJOR");
-        defectDetailsSteps.selectOptionsAndTapAddDefect("Upper", "Offside", "5", "4");
+      //  defectDetailsSteps.selectOptionsAndTapAddDefect("Upper", "Offside", "5", "4");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkElementIsNotEditable("Annual test");

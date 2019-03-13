@@ -13,7 +13,7 @@ import util.BaseTestClass;
 import java.util.HashMap;
 
 @RunWith(SerenityRunner.class)
-public class AutoCalculatedTestResults_2695 extends BaseTestClass {
+public class AutoCalculatedTestResults_2698 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -51,42 +51,47 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Steps
-    AdvisoryDetailsSteps advisoryDetailsSteps;
-
-    @Title("CVSB_980 - AC1 - Pass criteria (Minor + Advisory defects)")
+    @Title("CVSB_980 - AC1 - PRS criteria (At least 1 PRS'd defect)")
     @Test
-    public void passCriteriaWithNoDefects() {
+    public void PRSCriteriaAtLeastOneDefect() {
         testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("8");
+        odometerReadingSteps.typeInField("5");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
         testReviewSteps.changeDetails();
+
+        //Adding major defect
         testTypeDetailsSteps.clickAddDefect();
-        defectCategorySteps.searchForDefect("59");
-        defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
-        defectItemSteps.selectDefectFromList("4. Reservoir:");
-        defectDescriptionSteps.tapAddAnAdvisoryNote();
-        advisoryDetailsSteps.addCustomNoteAndTapAddNote("Test");
-        defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
-        HashMap<String, String> map = new HashMap<>();
-        map.put("Vertical", "Upper");
-        map.put("Lateral", "Nearside");
-        map.put("Longitudinal", "Front");
-        map.put("Axle Number", "8");
-        defectDetailsSteps.selectOptionsAndTapAddDefect(map);
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1 (a) MAJOR");
+        HashMap<String, String> mapA = new HashMap<>();
+        mapA.put("Vertical", "Upper");
+        mapA.put("Lateral", "Nearside");
+        mapA.put("Row Number", "4");
+        mapA.put("Seat Number", "4");
+        defectDetailsSteps.selectOptionsAndTapAddDefect(mapA);
         testTypeDetailsSteps.pressSave();
-        testReviewSteps.checkTestStatus("Annual test", "PASS");
+        testReviewSteps.checkTestStatus("Annual test", "FAIL");
+
+        //changing major defect to PRS
+        testReviewSteps.scrollDown();
+        testReviewSteps.changeDetails();
+        testTypeDetailsSteps.selectDefectBasedOnDefectDescription("(a) missing.");
+        defectDetailsSteps.setPRS();
+        defectDetailsSteps.tapDone();
+        testTypeDetailsSteps.pressSave();
+        testReviewSteps.checkTestStatus("Annual test", "PRS");
     }
 }

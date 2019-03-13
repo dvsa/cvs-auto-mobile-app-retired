@@ -4,8 +4,6 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeDetailsPage;
 
-import java.util.concurrent.TimeoutException;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -99,6 +97,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void pressSave() {
+        testTypeDetailsPage.waitUntilPageIsLoaded();
         testTypeDetailsPage.clickSave();
     }
 
@@ -375,5 +374,10 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void pressTestTypeRemoveButton(){
         testTypeDetailsPage.pressTestTypeRemoveButton();
+    }
+
+    @Step
+    public void selectDefectBasedOnDefectDescription(String description) {
+        testTypeDetailsPage.tapDefectDescription(description);
     }
 }

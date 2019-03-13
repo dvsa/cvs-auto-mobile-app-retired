@@ -22,6 +22,9 @@ public class DefectDescriptionPage extends BasePage {
     private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeSearchField";
 
     public void clickAddAdvisoryNote() {
+        while (!findElementById(ADVISORY_NOTE_ID).isDisplayed()) {
+            scroll(200, 650, 200, 250);
+        }
         findElementById(ADVISORY_NOTE_ID).click();
     }
 

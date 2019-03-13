@@ -10,6 +10,8 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+import java.util.HashMap;
+
 @RunWith(SerenityRunner.class)
 public class AutoCalculatedTestResults_2696 extends BaseTestClass {
 
@@ -62,9 +64,8 @@ public class AutoCalculatedTestResults_2696 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
@@ -73,9 +74,13 @@ public class AutoCalculatedTestResults_2696 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
-        defectDetailsSteps.selectOptionsAndTapAddDefect("Upper", "Nearside", "2", "2");
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Vertical", "Upper");
+        map.put("Lateral", "Nearside");
+        map.put("Row Number", "4");
+        map.put("Seat Number", "4");
+        defectDetailsSteps.selectOptionsAndTapAddDefect(map);
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "FAIL");
     }
 }

@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.BasePage;
 import pages.LoginPage;
 
 public class LoginSteps extends ScenarioSteps {
@@ -12,10 +11,10 @@ public class LoginSteps extends ScenarioSteps {
     @Step
     public void logIn() {
         loginPage.waitUsernamePageToLoad();
-        loginPage.insertUserName("");
+        loginPage.insertUserName("cvs.automation2@dvsagov.onmicrosoft.com");
         loginPage.clickNext();
         loginPage.waitPasswordPageToLoad();
-        loginPage.insertPassword("");
+        loginPage.insertPassword("CvsTester@123");
         loginPage.clickSignIn();
     }
 }

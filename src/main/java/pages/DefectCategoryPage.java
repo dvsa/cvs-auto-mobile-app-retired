@@ -21,7 +21,8 @@ public class DefectCategoryPage extends BasePage {
 
 
     public void selectItemFromList(String itemName) {
-        findElementByXpath("//*[contains(@label, '" + itemName + "')]").click();
+        List<WebElement> webElements = findElementsByXpath("//*[contains(@label, '" + itemName + "')]");
+        webElements.get(webElements.size() - 1).click();
     }
 
     public void waitUntilPageIsLoaded() {
@@ -56,7 +57,6 @@ public class DefectCategoryPage extends BasePage {
     }
 
     public void clearSearch() {
-
         findElementByClassName(SEARCH_FIELD_CLASS_NAME).clear();
         new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
                 .press(PointOption.point(findElementByClassName(SEARCH_FIELD_CLASS_NAME).getLocation().getX() - 1, findElementByClassName(SEARCH_FIELD_CLASS_NAME).getLocation().getY() - 1))

@@ -1,6 +1,11 @@
 package pages;
 
+import exceptions.AutomationException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+
+import java.util.Iterator;
+import java.util.Map;
 
 public class DefectDetailsPage extends BasePage {
 
@@ -98,7 +103,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void enablePRS() {
-        tap(findElementsByXpath("//*[@label='" + PRS_ENABLE + "']").get(1));
+        tap(findElementByXpath("(//*[@label='" + PRS_ENABLE + "'])[2]"));
     }
 
     public int getPRSElementNumber() {
@@ -145,7 +150,33 @@ public class DefectDetailsPage extends BasePage {
         scrollDownTo(500, -100);
     }
 
-    public boolean checkPageTitleIsDisplayed(){
+    public boolean checkPageTitleIsDisplayed() {
         return findElementById(DEFECT_DETAILS_PAGE_ID).isDisplayed();
+    }
+
+    public void selectOption(String option) {
+        try {
+            findElementsByXpath("//*[@label='" + option + "']").get(1).click();
+        } catch (NoSuchElementException e) {
+            throw new AutomationException("The option chosen is not available!");
+        }
+    }
+
+    public void selectValue(String value) {
+        try {
+            findElementByXpath("//XCUIElementTypeButton[@name='" + value + "']").click();
+        } catch (NoSuchElementException e) {
+            throw new AutomationException("The option chosen is not available!");
+        }
+    }
+
+    public void selectOptionAndItsValue(Map<String, String> map) {
+        Iterator it = map.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            selectOption(pair.getKey().toString());
+            selectValue(pair.getValue().toString());
+            it.remove();
+        }
     }
 }

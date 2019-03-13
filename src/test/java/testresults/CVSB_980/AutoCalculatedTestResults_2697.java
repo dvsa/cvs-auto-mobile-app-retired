@@ -10,6 +10,8 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+import java.util.HashMap;
+
 @RunWith(SerenityRunner.class)
 public class AutoCalculatedTestResults_2697 extends BaseTestClass {
 
@@ -24,9 +26,6 @@ public class AutoCalculatedTestResults_2697 extends BaseTestClass {
 
     @Steps
     EUVehicleCategorySteps euVehicleCategorySteps;
-
-    @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Steps
     OdometerReadingSteps odometerReadingSteps;
@@ -65,20 +64,46 @@ public class AutoCalculatedTestResults_2697 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
         testReviewSteps.changeDetails();
+
+        //Adding first PRS defect
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1 (a) MAJOR");
+        HashMap<String, String> mapA = new HashMap<>();
+        mapA.put("Vertical", "Upper");
+        mapA.put("Lateral", "Nearside");
+        mapA.put("Row Number", "4");
+        mapA.put("Seat Number", "4");
+        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(mapA);
+
+        //Adding second PRS defect and check that the test has PRS status
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
-        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect("Upper", "Nearside", "2", "2");
+        HashMap<String, String> mapB = new HashMap<>();
+        mapB.put("Vertical", "Upper");
+        mapB.put("Lateral", "Nearside");
+        mapB.put("Row Number", "4");
+        mapB.put("Seat Number", "4");
+        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(mapB);
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
-        testReviewSteps.checkTestStatus("Annual test", "FAIL");
+        testReviewSteps.checkTestStatus("Annual test", "PRS");
+
+        //changing one PRS into non PRS defect and check that the test has fail status
+        testReviewSteps.scrollDown();
+        testReviewSteps.changeDetails();
+        testTypeDetailsSteps.selectDefectBasedOnDefectDescription("(a) missing.");
+        defectDetailsSteps.setPRS();
+        defectDetailsSteps.tapDone();
+        testTypeDetailsSteps.pressSave();
+        testReviewSteps.checkTestStatus("Annual test", "Fail");
     }
 }

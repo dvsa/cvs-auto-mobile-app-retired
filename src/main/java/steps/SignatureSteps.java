@@ -10,11 +10,9 @@ public class SignatureSteps extends ScenarioSteps {
 
     @Step
     public void createSignatureIfNeeded() {
-      // if(signaturePage.checkSignatureTitleIsDisplayed()) {
-           signaturePage.waitPageToLoad();
-           signaturePage.createSignature();
-           signaturePage.clickSaveButton();
-           signaturePage.confirmSignature();
-     //  }
+        signaturePage.waitPageToLoad();
+        signaturePage.createSignature();
+        signaturePage.clickSaveButton();
+        signaturePage.confirmSignature();
     }
 }
