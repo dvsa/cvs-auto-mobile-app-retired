@@ -11,10 +11,10 @@ public class LoginSteps extends ScenarioSteps {
     @Step
     public void logIn() {
         loginPage.waitUsernamePageToLoad();
-        loginPage.insertUserName("cvs.automation2@dvsagov.onmicrosoft.com");
+        loginPage.insertUserName("");
         loginPage.clickNext();
         loginPage.waitPasswordPageToLoad();
-        loginPage.insertPassword("CvsTester@123");
+        loginPage.insertPassword("");
         loginPage.clickSignIn();
     }
 }
