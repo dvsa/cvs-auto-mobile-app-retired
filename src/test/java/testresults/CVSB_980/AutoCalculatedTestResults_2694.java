@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_980;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,8 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2703 extends BaseTestClass {
-
+public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
@@ -26,9 +25,6 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
-
-    @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps
@@ -40,31 +36,23 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
+    @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
-    public void returnToTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
-        testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectACountry("Norway");
-        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
+    public void passCriteriaWithNoDefects() {
+        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("123");
-        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.typeInField("8");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.goBackToTestOverviewScreen();
-        testSteps.checkPageTitleDisplayed();
+        testReviewSteps.checkTestStatus("Annual test", "PASS");
     }
 }

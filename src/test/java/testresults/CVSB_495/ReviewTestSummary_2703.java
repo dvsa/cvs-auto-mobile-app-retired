@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_495;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2701 extends BaseTestClass {
+public class ReviewTestSummary_2703 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -40,9 +40,9 @@ public class ReviewTestSummary_2701 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC1 - AC8 VSA goes to review screen (test types conducted non-mandatory fields not filled)")
+    @Title("CVSB-495 - AC3 - VSA can return to test overview screen")
     @Test
-    public void goToReviewScreen() {
+    public void returnToTestOverviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -64,16 +64,7 @@ public class ReviewTestSummary_2701 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.checkElementIsDisplayed("Annual test");
-        testReviewSteps.checkElementIsDisplayed("PASS");
-        testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
-        testReviewSteps.checkElementIsDisplayed("Yes");
-        testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
-        testReviewSteps.checkElementIsDisplayed("4");
-        testReviewSteps.checkElementIsDisplayed("Most recent seatbelt check");
-       //TODO better check of none value
-        testReviewSteps.checkElementIsDisplayed("Defects");
-        testReviewSteps.checkElementIsDisplayed("Notes");
-        testReviewSteps.checkElementIsDisplayed("None");
+        testReviewSteps.goBackToTestOverviewScreen();
+        testSteps.checkPageTitleDisplayed();
     }
 }

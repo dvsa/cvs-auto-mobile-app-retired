@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_495;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2862 extends BaseTestClass {
+public class ReviewTestSummary_2701 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -38,21 +38,9 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC1 - VSA goes to review screen (test types conducted non-mandatory fields filled)")
+    @Title("CVSB-495 - AC1 - AC8 VSA goes to review screen (test types conducted non-mandatory fields not filled)")
     @Test
     public void goToReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
@@ -62,8 +50,8 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("1");
-        odometerReadingSteps.checkReadingValue("1");
+        odometerReadingSteps.typeInField("123");
+        odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
@@ -71,17 +59,21 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
-        testTypeDetailsSteps.selectAddDefect("Annual test");
-        defectCategorySteps.selectDefectFromList("1. Registration Plate");
-        defectItemSteps.selectDefectFromList("1. A registration plate:");
-        defectDescriptionSteps.selectDefect("1.1 (a) MAJOR");
-        defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.checkElementIsDisplayed("1.1.a MAJOR");
-        testReviewSteps.checkElementIsDisplayed("1. Registration Plate");
-        testReviewSteps.checkElementIsDisplayed("1. A registration plate:");
-        testReviewSteps.checkElementIsDisplayed("(a). missing.");
+        testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.checkElementIsDisplayed("Annual test");
+        testReviewSteps.checkElementIsDisplayed("PASS");
+        testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
+        testReviewSteps.checkElementIsDisplayed("Yes");
+        testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
+        testReviewSteps.checkElementIsDisplayed("4");
+        testReviewSteps.checkElementIsDisplayed("Most recent seatbelt check");
+       //TODO better check of none value
+        testReviewSteps.checkElementIsDisplayed("Defects");
+        testReviewSteps.checkElementIsDisplayed("Notes");
+        testReviewSteps.checkElementIsDisplayed("None");
     }
 }

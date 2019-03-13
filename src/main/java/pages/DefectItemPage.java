@@ -21,7 +21,8 @@ public class DefectItemPage extends BasePage {
 
 
     public void selectItemFromList(String itemName) {
-        findElementByXpath("//*[contains(@label, '" + itemName + "')]").click();
+        List<WebElement> webElements = findElementsByXpath("//*[contains(@label, '" + itemName + "')]");
+        webElements.get(webElements.size() - 1).click();
     }
 
 
@@ -64,7 +65,6 @@ public class DefectItemPage extends BasePage {
         for (WebElement webElement : webElementList) {
             listOfData.add(webElement.getAttribute("label"));
         }
-
         return listOfData;
     }
 }

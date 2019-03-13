@@ -1,4 +1,4 @@
-package testresults.CVBS_495;
+package testresults.CVSB_495;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;

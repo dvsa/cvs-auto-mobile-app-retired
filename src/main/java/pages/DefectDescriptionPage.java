@@ -7,6 +7,7 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 
 import java.time.Duration;
@@ -20,9 +21,10 @@ public class DefectDescriptionPage extends BasePage {
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
     private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeSearchField";
 
-
-
     public void clickAddAdvisoryNote() {
+        while (!findElementById(ADVISORY_NOTE_ID).isDisplayed()) {
+            scroll(200, 650, 200, 250);
+        }
         findElementById(ADVISORY_NOTE_ID).click();
     }
 
@@ -31,7 +33,10 @@ public class DefectDescriptionPage extends BasePage {
     }
 
     public void selectById(String defectId) {
-        findElementById(defectId).click();
+        Point point = findElementByAccessibilityId(defectId).getLocation();
+        int x = point.getX();
+        int y = point.getY();
+        tapByCoordinates(x, y);
     }
 
     public void clickBack() {

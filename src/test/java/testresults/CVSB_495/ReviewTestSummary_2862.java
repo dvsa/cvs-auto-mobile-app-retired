@@ -1,18 +1,17 @@
-package testresults.CVBS_495;
+package testresults.CVSB_495;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ReviewTestSummary_2707 extends BaseTestClass {
+public class ReviewTestSummary_2862 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -39,17 +38,23 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    AbandonTestSteps abandonTestSteps;
+    DefectDetailsSteps defectDetailsSteps;
 
     @Steps
-    SelectReasonSteps selectReasonSteps;
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectCategorySteps defectCategorySteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
 
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC7 - VSA cannot change details of abandoned test types")
+    @Title("CVSB-495 - AC1 - VSA goes to review screen (test types conducted non-mandatory fields filled)")
     @Test
-    public void canNotChangeDetailsOfAbandonedTestTypes() {
+    public void goToReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -57,8 +62,8 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("123");
-        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.typeInField("1");
+        odometerReadingSteps.checkReadingValue("1");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
@@ -66,22 +71,17 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("1. Registration Plate");
+        defectItemSteps.selectDefectFromList("1. A registration plate:");
+        defectDescriptionSteps.selectDefect("1.1 (a) MAJOR");
+        defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.changeDetails();
-        //TODO remove the addNotes step after the abandon button is in view
-        testTypeDetailsSteps.addNotes("Test");
-        testReviewSteps.pressTestTypeAbandonButton();
-        selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
-        selectReasonSteps.pressNextButton();
-        abandonTestSteps.pressDone();
-        abandonTestSteps.pressAbandon();
-        testReviewSteps.goToTestPage();
-        testTypeDetailsSteps.pressSave();
-        testReviewSteps.checkElementIsDisplayed("Annual test");
-        testReviewSteps.checkElementIsDisplayed("ABANDONED");
-        testReviewSteps.changeDetailsIsNotDisplayed();
+        testReviewSteps.checkElementIsDisplayed("1.1.a MAJOR");
+        testReviewSteps.checkElementIsDisplayed("1. Registration Plate");
+        testReviewSteps.checkElementIsDisplayed("1. A registration plate:");
+        testReviewSteps.checkElementIsDisplayed("(a). missing.");
     }
 }

@@ -5,6 +5,9 @@ import net.thucydides.core.steps.ScenarioSteps;
 import org.apache.commons.lang3.RandomStringUtils;
 import pages.DefectDetailsPage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DefectDetailsSteps extends ScenarioSteps {
@@ -30,24 +33,15 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectOptionsAndTapAddDefect(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
-        defectDetailsPage.selectVerticalValue(verticalValue);
-        defectDetailsPage.selectLateralValue(lateralValue);
-        defectDetailsPage.selectRowNumberValue(rowNumberValue);
-        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
+    public void selectOptionsAndTapAddDefect(Map<String, String> map) {
+        defectDetailsPage.selectOptionAndItsValue(map);
         defectDetailsPage.clickDone();
     }
 
     @Step
-    public void selectOptionsWithPRSCheckAndTapAddDefect(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
-
-        defectDetailsPage.selectVerticalValue(verticalValue);
-        defectDetailsPage.selectLateralValue(lateralValue);
-        defectDetailsPage.selectRowNumberValue(rowNumberValue);
-        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
-        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(1);
+    public void selectOptionsWithPRSCheckAndTapAddDefect(Map<String, String> map) {
+        defectDetailsPage.selectOptionAndItsValue(map);
         defectDetailsPage.enablePRS();
-        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(2);
         defectDetailsPage.clickDone();
     }
 
@@ -58,7 +52,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
         defectDetailsPage.sendNotes(randomData);
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData)).isEqualTo(0);
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData.substring(0, 200))).isEqualTo(1);
-
     }
 
     @Step
@@ -69,7 +62,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectOptionsWithPRSCheckAndTapDone(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
-
         defectDetailsPage.selectVerticalValue(verticalValue);
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
@@ -116,12 +108,34 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkPageTitleIsDisplayed(){
+    public void checkPageTitleIsDisplayed() {
         assertThat(defectDetailsPage.checkPageTitleIsDisplayed()).isTrue();
     }
 
     @Step
     public void setPRS() {
         defectDetailsPage.enablePRS();
+    }
+
+    @Step
+    public HashMap<String, String> inputBrakeSystemMinorDefect() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Vertical", "Upper");
+        map.put("Lateral", "Nearside");
+        map.put("Longitudinal", "Front");
+        map.put("Axle Number", "8");
+
+        return map;
+    }
+
+    @Step
+    public HashMap<String, String> inputSeatbeltDefect() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Vertical", "Upper");
+        map.put("Lateral", "Nearside");
+        map.put("Row Number", "4");
+        map.put("Seat Number", "4");
+
+        return map;
     }
 }
