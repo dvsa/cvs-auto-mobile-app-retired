@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ATFDetailsPage extends BasePage {
 
@@ -71,12 +72,14 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public boolean isStartVisitPopUpDisplayed() {
-        boolean status = false;
-        if (findElementById(POP_UP_START_VISIT_TITLE).isDisplayed() &&
-                findElementById(POP_UP_START_VISIT_CANCEL_BUTTON_ID).isDisplayed() &&
-                findElementById(POP_UP_START_VISIT_CONFIRM_BUTTON_ID).isDisplayed() &&
-                findElementById(POP_UP_START_VISIT_REPORT_ISSUE_BUTTON_ID).isDisplayed() ) {
-            status = true;
+        boolean status = true;
+        try {
+                findElementById(POP_UP_START_VISIT_TITLE).isDisplayed();
+                findElementById(POP_UP_START_VISIT_CANCEL_BUTTON_ID).isDisplayed();
+                findElementById(POP_UP_START_VISIT_CONFIRM_BUTTON_ID).isDisplayed();
+                findElementById(POP_UP_START_VISIT_REPORT_ISSUE_BUTTON_ID).isDisplayed();
+        } catch (Exception e) {
+            status = false;
         }
         return status;
     }

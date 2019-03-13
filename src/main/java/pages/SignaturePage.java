@@ -1,6 +1,10 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class SignaturePage extends BasePage {
@@ -19,9 +23,8 @@ public class SignaturePage extends BasePage {
     }
 
     public void clickSaveButton() {
-        Actions actions = new Actions(((WebDriverFacade) getDriver()).getProxiedDriver());
-        actions.moveToElement(findElementById(SAVE_BUTTON_ID)).build().perform();
-        actions.click();
+        WebElement we = findElementByAccessibilityId(SAVE_BUTTON_ID);
+        tapByCoordinates(700, 20);
     }
 
     public boolean checkSignatureTitleIsDisplayed() {
@@ -29,10 +32,8 @@ public class SignaturePage extends BasePage {
     }
 
     public void confirmSignature() {
-        waitUntilPageIsLoadedById(CONFIRM_SIGNATURE_POP_UP_ID);
-        Actions actions = new Actions(((WebDriverFacade) getDriver()).getProxiedDriver());
-        actions.moveToElement(findElementById(CONFIRM_SIGNATURE_POP_UP_ID)).build().perform();
-        actions.click();
+        WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 14, 200);
+        tapByCoordinates(we.getLocation().getX(), we.getLocation().getY());
     }
 
     public void cancelSignatureConfirmation() {
@@ -44,6 +45,6 @@ public class SignaturePage extends BasePage {
     }
 
     public void waitPageToLoad() {
-        waitUntilPageIsLoadedByXpath(SIGNATURE_TITLE_XPATH);
+        waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
     }
 }

@@ -135,6 +135,16 @@ public class BasePage extends PageObject {
 
     }
 
+    public WebElement waitUntilPageIsLoadedByElementPresent(By locator, int timeOut, int poolingEvery) {
+
+        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+
+        return getDriver().findElement(locator);
+
+    }
+
+
 
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
 

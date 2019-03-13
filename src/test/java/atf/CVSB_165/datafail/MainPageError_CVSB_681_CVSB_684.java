@@ -24,7 +24,7 @@ public class MainPageError_CVSB_681_CVSB_684 extends BaseTestClass {
     public void testNoSearchResults() {
         launchSteps.waitUntilPageIsLoaded();
         errorSteps.checkAllGenericErrorMessageElementsAreDisplayed();
-        launchSteps.resetAppAndWaitUntillPageIsLoaded();
+        launchSteps.resetAppAndWaitUntilPageIsLoaded();
         errorSteps.checkAllGenericErrorMessageElementsAreDisplayed();
     }
 }
