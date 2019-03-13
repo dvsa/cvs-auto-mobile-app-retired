@@ -56,7 +56,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
 
     @Title("CVSB_980 - AC1 - Pass criteria (Minor + Advisory defects)")
     @Test
-    public void passCriteriaWithNoDefects() {
+    public void passCriteriaMinorPlusAdvisoryDefects() {
         testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
