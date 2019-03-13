@@ -76,12 +76,7 @@ public class AutoCalculatedTestResults_2698 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (a) MAJOR");
-        HashMap<String, String> mapA = new HashMap<>();
-        mapA.put("Vertical", "Upper");
-        mapA.put("Lateral", "Nearside");
-        mapA.put("Row Number", "4");
-        mapA.put("Seat Number", "4");
-        defectDetailsSteps.selectOptionsAndTapAddDefect(mapA);
+        defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
         testTypeDetailsSteps.pressSave();
         testReviewSteps.checkTestStatus("Annual test", "FAIL");
 

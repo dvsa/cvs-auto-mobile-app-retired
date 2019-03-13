@@ -80,12 +80,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("Test");
         defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
-        HashMap<String, String> map = new HashMap<>();
-        map.put("Vertical", "Upper");
-        map.put("Lateral", "Nearside");
-        map.put("Longitudinal", "Front");
-        map.put("Axle Number", "8");
-        defectDetailsSteps.selectOptionsAndTapAddDefect(map);
+        defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputBrakeSystemMinorDefect());
         testTypeDetailsSteps.pressSave();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
     }

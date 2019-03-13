@@ -6,7 +6,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import pages.DefectDetailsPage;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -116,5 +115,27 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void setPRS() {
         defectDetailsPage.enablePRS();
+    }
+
+    @Step
+    public HashMap<String, String> inputBrakeSystemMinorDefect() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Vertical", "Upper");
+        map.put("Lateral", "Nearside");
+        map.put("Longitudinal", "Front");
+        map.put("Axle Number", "8");
+
+        return map;
+    }
+
+    @Step
+    public HashMap<String, String> inputSeatbeltDefect() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Vertical", "Upper");
+        map.put("Lateral", "Nearside");
+        map.put("Row Number", "4");
+        map.put("Seat Number", "4");
+
+        return map;
     }
 }

@@ -76,24 +76,14 @@ public class AutoCalculatedTestResults_2697 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (a) MAJOR");
-        HashMap<String, String> mapA = new HashMap<>();
-        mapA.put("Vertical", "Upper");
-        mapA.put("Lateral", "Nearside");
-        mapA.put("Row Number", "4");
-        mapA.put("Seat Number", "4");
-        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(mapA);
+        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
 
         //Adding second PRS defect and check that the test has PRS status
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
-        HashMap<String, String> mapB = new HashMap<>();
-        mapB.put("Vertical", "Upper");
-        mapB.put("Lateral", "Nearside");
-        mapB.put("Row Number", "4");
-        mapB.put("Seat Number", "4");
-        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(mapB);
+        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
         testTypeDetailsSteps.pressSave();
         testReviewSteps.checkTestStatus("Annual test", "PRS");
 
