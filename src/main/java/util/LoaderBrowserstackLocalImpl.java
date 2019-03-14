@@ -32,6 +32,15 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         return properties.getProperty("browserstack.password");
     }
 
+    public static String getAppUsername() {
+        return properties.getProperty("app.username");
+    }
+
+    public static String getAppPassword() {
+        return properties.getProperty("app.password");
+    }
+
+
     @Override
     public DesiredCapabilities loadCapabilities() {
         DesiredCapabilities caps = new DesiredCapabilities();

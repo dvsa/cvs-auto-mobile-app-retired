@@ -4,6 +4,7 @@ package pages;
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import util.TestHandler;
+import util.TypeLoader;
 
 public class LaunchPage extends BasePage {
 
@@ -14,10 +15,19 @@ public class LaunchPage extends BasePage {
     private static final String TITLE_2 = "Assessment";
     private static final String SUBTITLE = "Mobile Test Capture";
 
-
-    public void clickGetStarted() {
+    public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage) {
 
         if (!TestHandler.getInitializedStatus().get()) {
+            loginPage.waitUsernamePageToLoad();
+            loginPage.insertUserName(TypeLoader.getAppUsername());
+            loginPage.clickNext();
+            loginPage.waitPasswordPageToLoad();
+            loginPage.insertPassword(TypeLoader.getAppPassword());
+            loginPage.clickSignIn();
+            signaturePage.waitPageToLoad();
+            signaturePage.createSignature();
+            signaturePage.clickSaveButton();
+            signaturePage.confirmSignature();
             longWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
 
             if (!TestHandler.testTypeEnabledCached().get()) {
@@ -81,7 +91,7 @@ public class LaunchPage extends BasePage {
         waitUntilPageIsLoadedById(GET_STARTED_ID);
     }
 
-    public boolean checkIfGetStartedButttonIsDisplayed() {
+    public boolean checkIfGetStartedButtonIsDisplayed() {
         return findElementByXpath(GET_STARTED_ID).isDisplayed();
     }
 

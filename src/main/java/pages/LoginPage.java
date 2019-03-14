@@ -27,11 +27,11 @@ public class LoginPage extends BasePage {
     }
 
     public void clickSignIn() {
-        findElementById(SIGN_ID_BUTTON_ID).click();
+        findElementByAccessibilityId(SIGN_ID_BUTTON_ID).click();
     }
 
     public void waitUsernamePageToLoad() {
-        waitUntilPageIsLoadedById(EMAIL_PHONE_OR_SKYPE_FIELD_ID);
+        longWaitUntilPageIsLoadedByIdAndClickable(EMAIL_PHONE_OR_SKYPE_FIELD_ID);
     }
 
     public void waitPasswordPageToLoad() {
