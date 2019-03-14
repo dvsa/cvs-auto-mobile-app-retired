@@ -13,7 +13,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class AutoCalculateAbandonedTestResults_2210 extends BaseTestClass {
+public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
