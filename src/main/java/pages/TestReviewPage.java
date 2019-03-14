@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
@@ -40,7 +41,7 @@ public class TestReviewPage extends BasePage {
         boolean status;
         try {
             status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             status = false;
         }
 

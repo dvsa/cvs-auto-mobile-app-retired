@@ -61,6 +61,5 @@ public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
         testSteps.reviewAction();
         testReviewSteps.checkTestStatus("Annual test", "ABANDONED");
         testReviewSteps.changeDetailsIsNotDisplayed();
-
     }
 }
