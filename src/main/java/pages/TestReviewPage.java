@@ -37,7 +37,14 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean isChangeDetailsButtonDisplayed() {
-        return findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
+        boolean status;
+        try {
+            status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (Exception e) {
+            status = false;
+        }
+
+        return status;
     }
 
     public void clickSaveChangedDetailsButton() {
