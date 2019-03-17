@@ -102,7 +102,7 @@
                             </excludes>
                             <testFailureIgnore>true</testFailureIgnore>
                             <systemPropertyVariables>
-                                <environment>CI-ADD</environment>
+                                <environment>CI</environment>
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>
