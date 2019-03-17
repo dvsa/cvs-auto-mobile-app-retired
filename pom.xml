@@ -32,6 +32,16 @@
             <version>${serenity.version}</version>
         </dependency>
         <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>${serenity.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>${sl4j.version}</version>
@@ -81,6 +91,7 @@
                         <version>2.22.1</version>
                         <configuration>
                             <includes>
+                                <!--<include>**/*.java</include>-->
                                 <include>**/*.java</include>
                             </includes>
                             <!--<threadCount>5</threadCount>-->
@@ -91,7 +102,7 @@
                             </excludes>
                             <testFailureIgnore>true</testFailureIgnore>
                             <systemPropertyVariables>
-                                <environment>CI</environment>
+                                <environment>CI-ADD</environment>
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>

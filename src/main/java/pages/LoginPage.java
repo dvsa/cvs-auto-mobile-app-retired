@@ -34,6 +34,10 @@ public class LoginPage extends BasePage {
         longWaitUntilPageIsLoadedByIdAndClickable(EMAIL_PHONE_OR_SKYPE_FIELD_ID);
     }
 
+    public void shortestWaitUsernamePageToLoad() {
+        shortestWaitUntilPageIsLoadedByIdAndClickable(EMAIL_PHONE_OR_SKYPE_FIELD_ID);
+    }
+
     public void waitPasswordPageToLoad() {
         waitUntilPageIsLoadedById(PASSWORD_FIELD_ID);
     }
