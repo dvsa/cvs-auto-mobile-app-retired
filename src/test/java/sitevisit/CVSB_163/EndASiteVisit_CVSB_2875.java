@@ -36,7 +36,6 @@ public class EndASiteVisit_CVSB_2875 extends BaseTestClass {
         siteVisitSteps.checkCreateTestButton();
         siteVisitSteps.checkEndVisitButton();
         siteVisitSteps.selectEndVisit();
-        siteVisitSteps.checkEndVisitButton();
         siteVisitSteps.checkEndVisitPopUp();
         siteVisitSteps.clickOkInEndVisitPopUp();
 
