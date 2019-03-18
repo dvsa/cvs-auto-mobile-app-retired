@@ -37,12 +37,12 @@ public class LaunchSteps extends ScenarioSteps {
     @Step
     public void checkLaunchPageDisplay() {
         launchPage.waitUntilPageIsLoaded();
+        assertThat(launchPage.checkIfLaunchImageIsDisplayed()).isTrue();
         assertThat(launchPage.checkIfBetaTextIsDisplayed()).isTrue();
         assertThat(launchPage.checkIfGetStartedButtonIsDisplayed()).isTrue();
-        assertThat(launchPage.checkIfSubTitleIsDisplayed()).isTrue();
-        assertThat(launchPage.checkIfTitle1IsDisplayed()).isTrue();
-        assertThat(launchPage.checkIfTitle2IsDisplayed()).isTrue();
-        assertThat(launchPage.checkIfLaunchImageIsDisplayed()).isTrue();
+        assertThat(launchPage.checkIfSubTitle1IsDisplayed()).isTrue();
+        assertThat(launchPage.checkIfSubTitle2IsDisplayed()).isTrue();
+        assertThat(launchPage.checkIfTitleIsDisplayed()).isTrue();
     }
 
     @Step

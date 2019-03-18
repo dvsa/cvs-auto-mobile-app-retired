@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import util.*;
 
@@ -14,9 +15,11 @@ public class SiteVisitPage extends BasePage {
     private static final String PAGE_TITLE = "Site Visit";
     private static final String CREATE_TEST_ID = "Create test";
     private static final String END_VISIT_ID = "End visit";
-    private static final String OK_MODAL_ID = "Confirm";
+    private static final String END_VISIT_POP_UP_CONFIRM_ID = "Confirm";
+    private static final String END_VISIT_POP_UP_CANCEL_ID = "Cancel";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
+    private static final String LOADING_ID = "Submitting site visit";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedByAccessibilityId(CREATE_TEST_ID);
@@ -40,7 +43,7 @@ public class SiteVisitPage extends BasePage {
     }
 
     public void clickOk() {
-        waitUntilPageIsLoadedByAccessibilityId(OK_MODAL_ID).click();
+        waitUntilPageIsLoadedByAccessibilityId(END_VISIT_POP_UP_CONFIRM_ID).click();
     }
 
     public boolean isBackButtonAvailable() {
@@ -107,6 +110,20 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isEndVisitPopUpDisplayed() {
-        return findElementByXpath(END_VISIT_POP_UP_TITLE).isDisplayed() && findElementById(OK_MODAL_ID).isDisplayed();
+        boolean status;
+               try {
+                   status = findElementByXpath(END_VISIT_POP_UP_TITLE).isDisplayed() && findElementById(END_VISIT_POP_UP_CONFIRM_ID).isDisplayed();
+               } catch (NoSuchElementException e) {
+                   status = false;
+               }
+        return status;
+    }
+
+    public void clickCancelInEndVisitPop() {
+        findElementById(END_VISIT_POP_UP_CANCEL_ID).click();
+    }
+
+    public boolean isLoadingScreenDisplayed() {
+        return findElementByAccessibilityId(LOADING_ID).isDisplayed();
     }
 }
