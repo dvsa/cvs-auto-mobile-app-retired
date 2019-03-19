@@ -1,6 +1,7 @@
 package pages;
 
 
+import exceptions.AutomationException;
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
@@ -28,23 +29,32 @@ public class LaunchPage extends BasePage {
                 loginPage.waitPasswordPageToLoad();
                 loginPage.insertPassword(TypeLoader.getAppPassword());
                 loginPage.clickSignIn();
-                signaturePage.waitPageToLoad();
-                signaturePage.createSignature();
-                signaturePage.clickSaveButton();
-                signaturePage.confirmSignature();
-                shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-            } catch (TimeoutException e) {
                 try {
-                    signaturePage.shortestWaitPageToLoad();
+                    signaturePage.waitPageToLoad();
                     signaturePage.createSignature();
                     signaturePage.clickSaveButton();
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-                } catch (TimeoutException ex) {
 
-                    shortestWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+                } catch (TimeoutException e) {
+                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 }
+
+
+            } catch (TimeoutException e) {
+                throw new AutomationException("User page not visible");
+//                try {
+//                    signaturePage.shortestWaitPageToLoad();
+//                    signaturePage.createSignature();
+//                    signaturePage.clickSaveButton();
+//                    signaturePage.confirmSignature();
+//                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+//                } catch (TimeoutException ex) {
+//
+//                    shortestWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
             }
+
+
 
             if (!TestHandler.testTypeEnabledCached().get()) {
                 clickToEnableOrDisable();
@@ -75,12 +85,12 @@ public class LaunchPage extends BasePage {
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 } catch (TimeoutException ex) {
-
-                    signaturePage.shortestWaitPageToLoad();
-                    signaturePage.createSignature();
-                    signaturePage.clickSaveButton();
-                    signaturePage.confirmSignature();
-                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+                    throw new AutomationException("User page not available again");
+//                    signaturePage.shortestWaitPageToLoad();
+//                    signaturePage.createSignature();
+//                    signaturePage.clickSaveButton();
+//                    signaturePage.confirmSignature();
+//                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
 
                 }
             }
