@@ -1,6 +1,7 @@
 package pages;
 
 
+import exceptions.AutomationException;
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
@@ -14,9 +15,9 @@ public class LaunchPage extends BasePage {
     private static final String GET_STARTED_ID = "Get started";
     private static final String LAUNCH_PAGE_IMAGE = "XCUIElementTypeImage";
     private static final String BETA_TEXT = "BETA";
-    private static final String TITLE_1 = "Vehicle Standards";
-    private static final String TITLE_2 = "Assessment";
-    private static final String SUBTITLE = "Mobile Test Capture";
+    private static final String TITLE = "Vehicle Testing";
+    private static final String SUBTITLE_1 = "Use this app to record PSV tests at";
+    private static final String SUBTITLE_2 = "Authorised Testing Facilities (ATFs).";
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage) {
 
@@ -28,23 +29,32 @@ public class LaunchPage extends BasePage {
                 loginPage.waitPasswordPageToLoad();
                 loginPage.insertPassword(TypeLoader.getAppPassword());
                 loginPage.clickSignIn();
-                signaturePage.waitPageToLoad();
-                signaturePage.createSignature();
-                signaturePage.clickSaveButton();
-                signaturePage.confirmSignature();
-                shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-            } catch (TimeoutException e) {
                 try {
-                    signaturePage.shortestWaitPageToLoad();
+                    signaturePage.waitPageToLoad();
                     signaturePage.createSignature();
                     signaturePage.clickSaveButton();
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-                } catch (TimeoutException ex) {
 
-                    shortestWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+                } catch (TimeoutException e) {
+                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 }
+
+
+            } catch (TimeoutException e) {
+                throw new AutomationException("User page not visible");
+//                try {
+//                    signaturePage.shortestWaitPageToLoad();
+//                    signaturePage.createSignature();
+//                    signaturePage.clickSaveButton();
+//                    signaturePage.confirmSignature();
+//                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+//                } catch (TimeoutException ex) {
+//
+//                    shortestWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
             }
+
+
 
             if (!TestHandler.testTypeEnabledCached().get()) {
                 clickToEnableOrDisable();
@@ -75,12 +85,12 @@ public class LaunchPage extends BasePage {
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 } catch (TimeoutException ex) {
-
-                    signaturePage.shortestWaitPageToLoad();
-                    signaturePage.createSignature();
-                    signaturePage.clickSaveButton();
-                    signaturePage.confirmSignature();
-                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+                    throw new AutomationException("User page not available again");
+//                    signaturePage.shortestWaitPageToLoad();
+//                    signaturePage.createSignature();
+//                    signaturePage.clickSaveButton();
+//                    signaturePage.confirmSignature();
+//                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
 
                 }
             }
@@ -96,8 +106,7 @@ public class LaunchPage extends BasePage {
                 findElementById(GET_STARTED_ID).click();
             }
 
-
-        }
+    }
 
 
         public void clickToEnableOrDisable () {
@@ -131,28 +140,28 @@ public class LaunchPage extends BasePage {
             waitUntilPageIsLoadedById(GET_STARTED_ID);
         }
 
-        public boolean checkIfGetStartedButtonIsDisplayed () {
-            return findElementByXpath(GET_STARTED_ID).isDisplayed();
-        }
+    public boolean checkIfGetStartedButtonIsDisplayed() {
+        return findElementByAccessibilityId(GET_STARTED_ID).isDisplayed();
+    }
 
-        public boolean checkIfLaunchImageIsDisplayed () {
-            return findElementByXpath(LAUNCH_PAGE_IMAGE).isDisplayed();
-        }
+    public boolean checkIfLaunchImageIsDisplayed() {
+        return findElementByClassName(LAUNCH_PAGE_IMAGE).isEnabled();
+    }
 
-        public boolean checkIfBetaTextIsDisplayed () {
-            return findElementByXpath(BETA_TEXT).isDisplayed();
-        }
+    public boolean checkIfBetaTextIsDisplayed() {
+        return findElementByAccessibilityId(BETA_TEXT).isDisplayed();
+    }
 
-        public boolean checkIfTitle1IsDisplayed () {
-            return findElementByXpath(TITLE_1).isDisplayed();
-        }
+    public boolean checkIfTitleIsDisplayed() {
+        return findElementByAccessibilityId(TITLE).isDisplayed();
+    }
 
-        public boolean checkIfTitle2IsDisplayed () {
-            return findElementByXpath(TITLE_2).isDisplayed();
-        }
+    public boolean checkIfSubTitle1IsDisplayed() {
+        return findElementByAccessibilityId(SUBTITLE_1).isDisplayed();
+    }
 
-        public boolean checkIfSubTitleIsDisplayed () {
-            return findElementByXpath(SUBTITLE).isDisplayed();
-        }
+    public boolean checkIfSubTitle2IsDisplayed() {
+        return findElementByAccessibilityId(SUBTITLE_2).isDisplayed();
+    }
 
     }

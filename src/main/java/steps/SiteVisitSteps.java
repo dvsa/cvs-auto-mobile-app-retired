@@ -47,6 +47,7 @@ public class SiteVisitSteps extends ScenarioSteps {
 
     @Step
     public void checkCreateTestButton() {
+        siteVisitPage.waitUntilPageIsLoaded();
         assertThat(siteVisitPage.isCreateTestButtonDisplayed()).isTrue();
     }
 
@@ -84,5 +85,20 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void clickOkInEndVisitPopUp() {
         siteVisitPage.clickOk();
+    }
+
+    @Step
+    public void pressCancelInEndVisitPopUp() {
+        siteVisitPage.clickCancelInEndVisitPop();
+    }
+
+    @Step
+    public void checkEndVisitPopUpIsNotDisplayed() {
+        assertThat(siteVisitPage.isEndVisitPopUpDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkLoading() {
+        assertThat(siteVisitPage.isLoadingScreenDisplayed()).isTrue();
     }
 }
