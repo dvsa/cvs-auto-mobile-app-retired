@@ -7,13 +7,13 @@ import java.io.*;
 public class WriterReader {
 
 
-    private static final String FILE_NAME = "fileUtils.txt";
+    private static final String FILE_NAME = "fileUtils";
 
     public static void saveUtils() {
 
 
         FileUtils p1 = new FileUtils(WebDriverBrowsertack.getToken());
-        try(FileOutputStream f = new FileOutputStream(new File(FILE_NAME));ObjectOutputStream o = new ObjectOutputStream(f) ) {
+        try (FileOutputStream f = new FileOutputStream(new File(FILE_NAME + "_" + BaseUtils.getUserName().split("@")[0] + ".txt")); ObjectOutputStream o = new ObjectOutputStream(f)) {
 
             o.writeObject(p1);
 
@@ -30,12 +30,12 @@ public class WriterReader {
     public static String getToken() {
 
         FileUtils fileUtils;
-        File file = new File(FILE_NAME);
+        File file = new File(FILE_NAME + "_" + BaseUtils.getUserName().split("@")[0] + ".txt");
         if (!file.exists()) {
             saveUtils();
         }
 
-        try(FileInputStream fi = new FileInputStream(file); ObjectInputStream oi = new ObjectInputStream(fi)) {
+        try (FileInputStream fi = new FileInputStream(file); ObjectInputStream oi = new ObjectInputStream(fi)) {
 
             fileUtils = (FileUtils) oi.readObject();
 

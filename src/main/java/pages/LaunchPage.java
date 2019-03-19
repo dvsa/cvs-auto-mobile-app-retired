@@ -4,6 +4,7 @@ package pages;
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
+import util.BaseUtils;
 import util.TestHandler;
 import util.TypeLoader;
 
@@ -22,7 +23,7 @@ public class LaunchPage extends BasePage {
         if (!TestHandler.getInitializedStatus().get()) {
             try {
                 loginPage.waitUsernamePageToLoad();
-                loginPage.insertUserName(TypeLoader.getAppUsername());
+                loginPage.insertUserName(BaseUtils.getUserName());
                 loginPage.clickNext();
                 loginPage.waitPasswordPageToLoad();
                 loginPage.insertPassword(TypeLoader.getAppPassword());
@@ -63,7 +64,7 @@ public class LaunchPage extends BasePage {
             } catch (TimeoutException e) {
                 try {
                     loginPage.shortestWaitUsernamePageToLoad();
-                    loginPage.insertUserName(TypeLoader.getAppUsername());
+                    loginPage.insertUserName(BaseUtils.getUserName());
                     loginPage.clickNext();
                     loginPage.waitPasswordPageToLoad();
                     loginPage.insertPassword(TypeLoader.getAppPassword());

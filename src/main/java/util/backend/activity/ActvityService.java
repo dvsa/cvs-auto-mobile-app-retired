@@ -14,10 +14,13 @@ public class ActvityService {
     private Response response;
 
     public void closeUserActivity() {
-        response = activitiesClient.getActivities(getTesterStaffId());
-        List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
-        for (String activityId : activityIds) {
-            activitiesClient.putActivities(activityId);
+        String testerStaffId = getTesterStaffId();
+        response = activitiesClient.getActivities(testerStaffId);
+        if (!response.getBody().asString().contains("No resources match the search criteria")) {
+            List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
+            for (String activityId : activityIds) {
+                activitiesClient.putActivities(activityId);
+            }
         }
 
     }

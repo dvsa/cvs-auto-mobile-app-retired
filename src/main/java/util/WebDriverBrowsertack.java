@@ -43,7 +43,8 @@ public class WebDriverBrowsertack {
         driver.get(TypeLoader.getMicrosoftonlineUrl());
         driver.manage().window().maximize();
         WebElement element = driver.findElement(By.xpath("//div[@class='placeholderContainer']/*[1]"));
-        element.sendKeys(TypeLoader.getAppUsername());
+        String username = BaseUtils.getUserName();
+        element.sendKeys(username);
 
 
         WebElement element2 = driver.findElement(By.xpath("//div[@class='inline-block'][2]"));

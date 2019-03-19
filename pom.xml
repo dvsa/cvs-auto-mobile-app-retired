@@ -92,7 +92,7 @@
                         <configuration>
                             <includes>
                                 <!--<include>**/*.java</include>-->
-                                <include>**/*.java</include>
+                                <include>**/JustForTest*.java</include>
                             </includes>
                             <!--<threadCount>5</threadCount>-->
                             <!--<forkCount>5</forkCount>-->
