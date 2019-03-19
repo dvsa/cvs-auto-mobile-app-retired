@@ -7,8 +7,8 @@ import java.net.URL;
 
 public class LoaderBrowserstackCIImpl implements Loader {
 
-    private final static String username = System.getProperty("BROWSERSTACK_USERNAME");
-    private final static String accessKey = System.getProperty("BROWSERSTACK_ACCESS_KEY");
+    private final static String username = System.getenv("BROWSERSTACK_USERNAME");
+    private final static String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
     private final static String browserstackLocal = System.getenv("BROWSERSTACK_LOCAL");
     private final static String browserstackLocalIdentifier = System.getenv("BROWSERSTACK_LOCAL_IDENTIFIER");
     private final static String app = System.getProperty("BROWSERSTACK_APP_ID");

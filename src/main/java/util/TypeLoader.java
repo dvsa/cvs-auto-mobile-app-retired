@@ -69,7 +69,7 @@ public class TypeLoader {
         String userName;
         switch (envType) {
             case CI_BROWSERSTACK:
-                userName = System.getProperty("BROWSERSTACK_USERNAME");
+                userName = System.getenv("BROWSERSTACK_USERNAME");
                 break;
             default:
                 userName = properties.getProperty("browserstack.username");
@@ -86,7 +86,7 @@ public class TypeLoader {
         String userName;
         switch (envType) {
             case CI_BROWSERSTACK:
-                userName = System.getProperty("BROWSERSTACK_ACCESS_KEY");
+                userName = System.getenv("BROWSERSTACK_ACCESS_KEY");
                 break;
             default:
                 userName = properties.getProperty("browserstack.password");
