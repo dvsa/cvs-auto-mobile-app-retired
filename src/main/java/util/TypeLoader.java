@@ -3,7 +3,6 @@ package util;
 import org.apache.commons.exec.environment.EnvironmentUtils;
 
 import java.io.InputStream;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
@@ -62,6 +61,74 @@ public class TypeLoader {
         }
         return password;
     }
+
+
+    public static String getBsUsername() {
+
+        EnvironmentType envType = getType();
+        String userName;
+        switch (envType) {
+            case CI_BROWSERSTACK:
+                userName = System.getenv("BROWSERSTACK_USERNAME");
+                break;
+            default:
+                userName = properties.getProperty("browserstack.username");
+                break;
+
+        }
+        return userName;
+    }
+
+
+    public static String getBsPass() {
+
+        EnvironmentType envType = getType();
+        String userName;
+        switch (envType) {
+            case CI_BROWSERSTACK:
+                userName = System.getenv("BROWSERSTACK_ACCESS_KEY");
+                break;
+            default:
+                userName = properties.getProperty("browserstack.password");
+                break;
+
+        }
+        return userName;
+    }
+
+    public static String getMicrosoftonlineUrl() {
+
+        EnvironmentType envType = getType();
+        String userName;
+        switch (envType) {
+            case CI_BROWSERSTACK:
+                userName = System.getProperty("MICROSOFT_URL");
+                break;
+            default:
+                userName = properties.getProperty("microsoftonline.url");
+                break;
+
+        }
+        return userName;
+    }
+
+
+    public static String getBasePathUrl() {
+
+        EnvironmentType envType = getType();
+        String userName;
+        switch (envType) {
+            case CI_BROWSERSTACK:
+                userName = System.getProperty("DEVELOP_BASE_PATH");
+                break;
+            default:
+                userName = properties.getProperty("base.path.url");
+                break;
+
+        }
+        return userName;
+    }
+
 
     private static boolean isProfileActive() {
         return PROFILE_LIST.stream().anyMatch(t -> t.equalsIgnoreCase(getProfileName()));

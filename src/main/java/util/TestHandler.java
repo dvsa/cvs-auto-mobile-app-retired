@@ -5,7 +5,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class TestHandler  {
 
-
     private static final AtomicBoolean initialized = new AtomicBoolean();
     private static final AtomicBoolean enableFlag = new AtomicBoolean();
     private static final AtomicBoolean currentCacheEnabled = new AtomicBoolean();
@@ -21,6 +20,5 @@ public class TestHandler  {
     public static AtomicBoolean testTypeEnabledCached() {
         return enableFlag;
     }
-
 
 }

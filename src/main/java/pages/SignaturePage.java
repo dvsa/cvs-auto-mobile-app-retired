@@ -47,4 +47,8 @@ public class SignaturePage extends BasePage {
     public void waitPageToLoad() {
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
     }
+
+    public void shortestWaitPageToLoad() {
+        shortestUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
+    }
 }

@@ -10,8 +10,8 @@ public class PreparerData {
     public static List<Preparer> buildPreparerData() {
 
         Preparer preparerOne = new Preparer()
-                .setPreparerId("TC7524")
-                .setPreparerName("Avello Edinburgh Ltd");
+                .setPreparerId("QE7355")
+                .setPreparerName("RPT Logistics Limited");
 
         Preparer preparerTwo = new Preparer()
                 .setPreparerId("FQ9939")

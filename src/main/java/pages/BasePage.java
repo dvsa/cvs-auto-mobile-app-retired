@@ -59,13 +59,23 @@ public class BasePage extends PageObject {
         return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200);
     }
 
+
+    protected WebElement shortestUntilPageIsLoadedByAccessibilityId(String idOrName) {
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 2, 200);
+    }
+
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
 
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 150, 400);
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 100, 400);
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
         return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400);
+
+    }
+
+    protected WebElement shortestWaitUntilPageIsLoadedByIdAndClickable(String id) {
+        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 2, 400);
 
     }
 
