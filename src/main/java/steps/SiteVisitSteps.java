@@ -13,6 +13,7 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void createNewTest() {
         siteVisitPage.waitUntilPageIsLoaded();
+        siteVisitPage.setCreateTestTime();
         siteVisitPage.clickCreateNewTest();
     }
 

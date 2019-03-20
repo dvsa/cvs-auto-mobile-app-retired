@@ -24,15 +24,11 @@ public class SiteVisitPage extends BasePage {
     private static String submitTestTime;
 
     public void waitUntilPageIsLoaded() {
-        if (startVisitTime == null) {
-            setStartVisitTime();
-        }
         waitUntilPageIsLoadedByAccessibilityId(CREATE_TEST_ID);
     }
 
     public void clickCreateNewTest() {
         findElementById(CREATE_TEST_ID).click();
-        setCreateTestTime();
     }
 
     public boolean isPageTitleDisplayed() {
@@ -103,6 +99,15 @@ public class SiteVisitPage extends BasePage {
         String timeString = getStatusBarTime();
         TemporalAccessor temporalAccessor;
         String time;
+
+        LocalDateTime localDateTime = LocalDateTime.now();
+        if (localDateTime.getSecond() >= 55) {
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a");
         DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm");
