@@ -5,16 +5,17 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 public class TestReviewPage extends BasePage {
-    private final String BACK_TO_TEST_ID = "arrow back Test";
-    private final String TEST_REVIEW_TITLE_ID = "Test review";
-    private final String CHANGE_DETAILS_BUTTON_ID = "Change details";
-    private final String SAVE_CHANGED_DETAILS = "Save";
-    private final String ABANDON_TEST_TYPE = "Abandon test type";
-    private final String REMOVE_TEST_TYPE = "Remove test type";
-    private static final String TEST_BUTTON_ID = "arrow back Test";
+    private static final String SUBMIT_BUTTON_ID = "Submit";
+    private static final String BACK_TO_TEST_ID = "arrow back Test";
+    private static final String TEST_REVIEW_TITLE_ID = "Test review";
+    private static final String CHANGE_DETAILS_BUTTON_ID = "Change details";
+    private static final String SAVE_CHANGED_DETAILS = "Save";
+    private static final String ABANDON_TEST_TYPE = "Abandon test type";
+    private static final String REMOVE_TEST_TYPE = "Remove test type";
+    private static final String POP_UP_SUBMIT_XPATH = "(//XCUIElementTypeButton[@name='Submit'])[2]";
 
     public void goToTestPage() {
-        findElementById(TEST_BUTTON_ID).click();
+        findElementById(BACK_TO_TEST_ID).click();
     }
 
     public void clickGoToTestOverviewScreen() {
@@ -83,5 +84,13 @@ public class TestReviewPage extends BasePage {
 
     public void scrollPageDown() {
         scrollDownTo(500, -200);
+    }
+
+    public void clickSubmitButton() {
+        findElementByAccessibilityId(SUBMIT_BUTTON_ID).click();
+    }
+
+    public void clickSubmitInPopUp() {
+        findElementByXpath(POP_UP_SUBMIT_XPATH).click();
     }
 }

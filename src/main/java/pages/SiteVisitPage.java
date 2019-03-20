@@ -2,12 +2,10 @@ package pages;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import util.*;
 
-import java.time.Clock;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.List;
 
 public class SiteVisitPage extends BasePage {
@@ -21,12 +19,20 @@ public class SiteVisitPage extends BasePage {
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
     private static final String LOADING_ID = "Submitting site visit";
 
+    private static String startVisitTime;
+    private static String createTestTime;
+    private static String submitTestTime;
+
     public void waitUntilPageIsLoaded() {
+        if (startVisitTime == null) {
+            setStartVisitTime();
+        }
         waitUntilPageIsLoadedByAccessibilityId(CREATE_TEST_ID);
     }
 
     public void clickCreateNewTest() {
         findElementById(CREATE_TEST_ID).click();
+        setCreateTestTime();
     }
 
     public boolean isPageTitleDisplayed() {
@@ -71,42 +77,60 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isCurrentDateDisplayed() {
+        boolean status;
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        EnvironmentType envType = TypeLoader.getType();
-        String clientSystemDate;
-        switch (envType) {
-            case LOCAL_SIMULATOR:
-                clientSystemDate = dateTimeFormatter.format(LocalDateTime.now());
-                break;
-
-            case LOCAL_REAL_DEVICE:
-                clientSystemDate = dateTimeFormatter.format(LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone())));
-                break;
-            default:
-                clientSystemDate =dateTimeFormatter.format(LocalDateTime.now(Clock.systemUTC()));
-                break;
+        TemporalAccessor date = LocalDateTime.now();
+        String clientSystemDate = dateTimeFormatter.format(date);
+        String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(1));
+        String clientSystemDateMinusOneDay = dateTimeFormatter.format(((LocalDateTime) date).minusDays(1));
+        try {
+           status = findElementByAccessibilityId(clientSystemDate).isDisplayed();
+        } catch (NoSuchElementException e) {
+            try {
+                status = findElementByAccessibilityId(clientSystemDatePlusOneDay).isDisplayed();
+            } catch (NoSuchElementException e1) {
+                try {
+                    status = findElementByAccessibilityId(clientSystemDateMinusOneDay).isDisplayed();
+                } catch (NoSuchElementException e2) {
+                    status = false;
+                }
+            }
         }
-        return findElementByAccessibilityId(clientSystemDate).isDisplayed();
+        return status;
+    }
+
+    private String getTime() {
+        String timeString = getStatusBarTime();
+        TemporalAccessor temporalAccessor;
+        String time;
+
+        DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a");
+        DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm");
+
+        if (timeString.contains("AM") || timeString.contains("PM")){
+            temporalAccessor  = dateTimeFormatterAmPm.parse(timeString);
+            time =  dateTimeFormatterAmPm.format(temporalAccessor);
+        } else {
+            temporalAccessor = dateTimeFormatter24.parse(timeString);
+            time = dateTimeFormatterAmPm.format(temporalAccessor);
+        }
+        return time;
+    }
+
+    public void setStartVisitTime() {
+        startVisitTime = getTime();
+    }
+
+    public void setCreateTestTime() {
+        createTestTime = getTime();
+    }
+
+    public void setSubmitTestTime() {
+        submitTestTime = getTime();
     }
 
     public boolean isCurrentTimeDisplayed() {
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("h:mm a");
-        EnvironmentType envType = TypeLoader.getType();
-        String clientSystemTime;
-        switch (envType) {
-            case LOCAL_SIMULATOR:
-                clientSystemTime = dateTimeFormatter.format(LocalDateTime.now());
-                break;
-
-            case LOCAL_REAL_DEVICE:
-                clientSystemTime = dateTimeFormatter.format(LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone())));
-                break;
-            default:
-                clientSystemTime =dateTimeFormatter.format(LocalDateTime.now(Clock.systemUTC()));
-                break;
-        }
-
-        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + clientSystemTime + "')]").isDisplayed();
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + startVisitTime + "')]").isDisplayed();
     }
 
     public boolean isEndVisitPopUpDisplayed() {
@@ -125,5 +149,19 @@ public class SiteVisitPage extends BasePage {
 
     public boolean isLoadingScreenDisplayed() {
         return findElementByAccessibilityId(LOADING_ID).isDisplayed();
+    }
+
+    public boolean isSubmittedSiteVisitDisplayed(String regPlate, String... testTypesWithResults) {
+        boolean status = false;
+        String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + regPlate + ")')]").getAttribute("name");
+        if (visitString.contains(createTestTime + " - " + submitTestTime))
+            for(String value : testTypesWithResults) {
+                status = visitString.contains(value);
+                if (!status) {
+                    break;
+                }
+            }
+
+        return status;
     }
 }

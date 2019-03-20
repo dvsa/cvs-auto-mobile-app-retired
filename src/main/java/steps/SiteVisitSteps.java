@@ -101,4 +101,10 @@ public class SiteVisitSteps extends ScenarioSteps {
     public void checkLoading() {
         assertThat(siteVisitPage.isLoadingScreenDisplayed()).isTrue();
     }
+
+    @Step
+    public void checkVisitResults(String regPlate, String... testTypesWithResults) {
+       assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
+
+    }
 }
