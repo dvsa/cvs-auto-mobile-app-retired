@@ -206,6 +206,9 @@ public class BasePage extends PageObject {
         return status;
     }
 
+    public String getStatusBarTime() {
+        return findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
+    }
 
     public void runAppInBackground() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).runAppInBackground(ofMillis(500));

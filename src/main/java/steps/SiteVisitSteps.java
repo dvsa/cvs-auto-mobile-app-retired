@@ -13,6 +13,7 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void createNewTest() {
         siteVisitPage.waitUntilPageIsLoaded();
+        siteVisitPage.setCreateTestTime();
         siteVisitPage.clickCreateNewTest();
     }
 
@@ -100,5 +101,11 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void checkLoading() {
         assertThat(siteVisitPage.isLoadingScreenDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkVisitResults(String regPlate, String... testTypesWithResults) {
+       assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
+
     }
 }

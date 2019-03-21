@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import pages.SiteVisitPage;
 import pages.TestReviewPage;
 
 import java.text.DateFormatSymbols;
@@ -12,6 +13,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class TestReviewSteps extends ScenarioSteps {
 
     TestReviewPage testReviewPage;
+    SiteVisitPage siteVisitPage;
 
     @Step
     public void goBackToTestOverviewScreen() {
@@ -87,5 +89,16 @@ public class TestReviewSteps extends ScenarioSteps {
     @Step
     public void scrollDown() {
         testReviewPage.scrollPageDown();
+    }
+
+    @Step
+    public void pressSubmit() {
+        testReviewPage.clickSubmitButton();
+    }
+
+    @Step
+    public void pressSubmitInPopUp() {
+        siteVisitPage.setSubmitTestTime();
+        testReviewPage.clickSubmitInPopUp();
     }
 }

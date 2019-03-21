@@ -5,10 +5,9 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import pages.SelectReasonPage;
 import pages.TestPage;
-import steps.SeatbeltInstallationCheckSteps;
-import steps.TestSteps;
-import steps.TestTypeDetailsSteps;
+import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
@@ -27,17 +26,58 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+    @Steps
+    SelectReasonSteps selectReasonSteps;
+
+    @Steps
+    AbandonTestSteps abandonTestSteps;
+
+    @Steps
+    TestReviewSteps testReviewSteps;
+
+    @Steps
+    SiteVisitSteps siteVisitSteps;
+
+    @Steps
+    OdometerReadingSteps odometerReadingSteps;
+
+    @Steps
+    EUVehicleCategorySteps euVehicleCategorySteps;
+
     @Title("CVSB-169 - AC2 - VSA is presented with the Site Visit timeline after submitting test results")
     @Test
     public void testSiteVisitTimelineAfterTestResults() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("2000");
+        odometerReadingSteps.pressSave();
+        testSteps.selectVehicleCategoryOption();
+        euVehicleCategorySteps.selectM1Option();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.pressSave();
-        // TODO Proceed with test after CVSB-197 is implemented
+        testSteps.addLinkedTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
+        testSteps.swipeTestType("Voluntary test");
+        testSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
+        selectReasonSteps.pressNextButton();
+        abandonTestSteps.pressDone();
+        abandonTestSteps.pressAbandon();
+        testSteps.reviewAction();
+        testReviewSteps.scrollDown();
+        testReviewSteps.pressSubmit();
+        testReviewSteps.pressSubmitInPopUp();
+        siteVisitSteps.waitUntilPageIsLoaded();
+        siteVisitSteps.checkVisitResults("BQ91YHQ", "Annual test", "PASS", "Voluntary test", "ABANDONED");
     }
 }
