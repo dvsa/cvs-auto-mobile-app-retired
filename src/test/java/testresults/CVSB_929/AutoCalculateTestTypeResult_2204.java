@@ -71,7 +71,7 @@ public class AutoCalculateTestTypeResult_2204 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();

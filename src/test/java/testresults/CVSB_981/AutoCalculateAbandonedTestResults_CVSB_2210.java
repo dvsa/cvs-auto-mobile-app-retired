@@ -43,7 +43,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (unable to edit test types)")
     @Test
     public void testAbandonTestTypeInabilityToEdit() {
-        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();

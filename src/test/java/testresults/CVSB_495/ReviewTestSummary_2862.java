@@ -68,9 +68,10 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("1. Registration Plate");
@@ -79,9 +80,9 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
-        testReviewSteps.checkElementIsDisplayed("1.1.a MAJOR");
+        testReviewSteps.checkElementIsDisplayed("1.1 (a) MAJOR");
         testReviewSteps.checkElementIsDisplayed("1. Registration Plate");
         testReviewSteps.checkElementIsDisplayed("1. A registration plate:");
-        testReviewSteps.checkElementIsDisplayed("(a). missing.");
+        testReviewSteps.checkElementIsDisplayed("(a) missing.");
     }
 }

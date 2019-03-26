@@ -40,7 +40,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2209 extends BaseTestClass {
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (test review screen)")
     @Test
     public void testAutoCalculateAbandonedTestInTestReview() {
-        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();

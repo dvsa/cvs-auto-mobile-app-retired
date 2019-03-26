@@ -56,7 +56,7 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -64,11 +64,11 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkElementIsDisplayed("Seatbelt installation check");
-        testReviewSteps.checkElementIsDisplayed("Yes");
+        testReviewSteps.checkElementIsDisplayed("No");
         testReviewSteps.checkElementIsDisplayed("Number of seatbelts fitted");
         testReviewSteps.checkElementIsDisplayed("4");
         testReviewSteps.changeDetails();
-        testTypeDetailsSteps.setCarriedOutDuringTest(false);
+        testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("5");
         testReviewSteps.saveChangedDetails();

@@ -62,16 +62,6 @@ public class TestReviewSteps extends ScenarioSteps {
     }
 
     @Step
-    public void pressTestTypeAbandonButton(){
-        testReviewPage.pressTestTypeAbandonButton();
-    }
-
-    @Step
-    public void pressTestTypeRemoveButton(){
-        testReviewPage.pressTestTypeRemoveButton();
-    }
-
-    @Step
     public void changeDetailsIsNotDisplayed() {
         assertThat(testReviewPage.isChangeDetailsButtonDisplayed()).isFalse();
     }
@@ -100,5 +90,15 @@ public class TestReviewSteps extends ScenarioSteps {
     public void pressSubmitInPopUp() {
         siteVisitPage.setSubmitTestTime();
         testReviewPage.clickSubmitInPopUp();
+    }
+
+    @Step
+    public void waitForPageToLoad() {
+        testReviewPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void scrollUp() {
+        testReviewPage.scrollPageUp();
     }
 }

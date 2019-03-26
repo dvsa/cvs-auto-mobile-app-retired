@@ -47,7 +47,7 @@ public class AutoCalculatedTestResults_2699 extends BaseTestClass {
     @Title("CVSB_980 - AC1 - Abandon criteria")
     @Test
     public void abandonCriteria() {
-        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
@@ -69,8 +69,6 @@ public class AutoCalculatedTestResults_2699 extends BaseTestClass {
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
-        selectReasonSteps.pressBackButton();
-        testTypeDetailsSteps.pressSave();
         testReviewSteps.checkTestStatus("Annual test", "ABANDONED");
     }
 }

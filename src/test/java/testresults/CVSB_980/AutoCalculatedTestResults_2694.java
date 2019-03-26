@@ -39,7 +39,7 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
     public void passCriteriaWithNoDefects() {
-        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
@@ -48,7 +48,7 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
