@@ -63,7 +63,7 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -71,15 +71,11 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.changeDetails();
-        //TODO remove the addNotes step after the abandon button is in view
-        testTypeDetailsSteps.addNotes("Test");
-        testReviewSteps.pressTestTypeAbandonButton();
+        testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
-        testReviewSteps.goToTestPage();
-        testTypeDetailsSteps.pressSave();
         testReviewSteps.checkElementIsDisplayed("Annual test");
         testReviewSteps.checkElementIsDisplayed("ABANDONED");
         testReviewSteps.changeDetailsIsNotDisplayed();

@@ -58,7 +58,6 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.checkCertificateSection(true);
         testTypeDetailsSteps.sendCertificateNumber("1");
-        testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.EDIT);
         testSteps.reviewAction();
         testReviewSteps.changeDetails();

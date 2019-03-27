@@ -54,7 +54,7 @@ public class AutoCalculatedTestResults_2697 extends BaseTestClass {
     @Title("CVSB_980 - AC1 - Fail criteria (At least 1 Major + 1 PRS)")
     @Test
     public void failCriteriaWithOneMajorAndPRS() {
-        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
@@ -94,6 +94,7 @@ public class AutoCalculatedTestResults_2697 extends BaseTestClass {
         defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testReviewSteps.checkTestStatus("Annual test", "Fail");
+        testReviewSteps.scrollUp();
+        testReviewSteps.checkTestStatus("Annual test", "FAIL");
     }
 }

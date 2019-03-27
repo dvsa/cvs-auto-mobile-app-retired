@@ -76,7 +76,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -86,7 +86,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         //remove test type from change details screen
         testSteps.reviewAction();
         testReviewSteps.changeDetails();
-        testReviewSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
         testSteps.pressRemoveInPopUp();
 
         //add a new test type
@@ -94,7 +94,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -102,24 +102,23 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.changeDetails();
-        //TODO uncomment after manual execution is done
+
         //edit the test type
-//        testTypeDetailsSteps.setCarriedOutDuringTest(true);
-//        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-//        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-//        testTypeDetailsSteps.inputNumberOfSeatbelt("16");
-//        testTypeDetailsSteps.pressSave();
+        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("16");
 
         //Add defect from change details screen
-//        testTypeDetailsSteps.clickAddDefectButton();
-//        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
-//        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
-//        defectDescriptionSteps.selectDefect("3.1");
-//        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect("Upper", "Nearside", "2", "2");
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1");
+        defectDetailsSteps.setPRS();
+        defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
 
         //Abandon test type from change details screen
         testTypeDetailsSteps.addNotes("Test");
-        testReviewSteps.pressTestTypeAbandonButton();
+        testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();

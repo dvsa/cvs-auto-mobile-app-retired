@@ -16,7 +16,7 @@ public class SelectPreparerPage extends BasePage {
     private static final String NO_PREPARER_ID_OPTION = "No preparer ID given";
     private static final String VEHICLE_DETAILS_BACK = "arrow back Vehicle details";
     private static final String SEARCH_PREPARER_ID_BAR = "//XCUIElementTypeSearchField";
-    private static final String NO_PREPRARER_FOUND = "No results found";
+    private static final String NO_PREPARER_FOUND = "No results found";
     private static final String CONTINUE_WITHOUT_PREPARER = "Continue without preparer ID";
     private static final String WARNING_MESSAGE_PREPARER = "You will not be able to add a preparer for this vehicle later.";
 
@@ -88,7 +88,7 @@ public class SelectPreparerPage extends BasePage {
     }
 
     public boolean isNoResultsFoundDisplayed() {
-       return findElementById(NO_PREPRARER_FOUND).isDisplayed();
+       return findElementById(NO_PREPARER_FOUND).isDisplayed();
     }
 
     public boolean isWarningForMissingPreparerDisplayed() {

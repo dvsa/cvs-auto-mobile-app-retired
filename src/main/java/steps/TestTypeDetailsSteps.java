@@ -194,6 +194,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         testTypeDetailsPage.waitUntilPageIsLoaded();
         testTypeDetailsPage.clickNotes();
         testTypeDetailsPage.typeIntoNotesField(text);
+        testTypeDetailsPage.tapTitleTwiceToCloseIOSKeyboard();
     }
 
     @Step
@@ -377,12 +378,14 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void pressTestTypeAbandonButton(){
+    public void pressTestTypeAbandonButton() {
+        testTypeDetailsPage.scrollDetailPage();
         testTypeDetailsPage.pressTestTypeAbandonButton();
     }
 
     @Step
-    public void pressTestTypeRemoveButton(){
+    public void pressTestTypeRemoveButton() {
+        testTypeDetailsPage.scrollDetailPage();
         testTypeDetailsPage.pressTestTypeRemoveButton();
     }
 

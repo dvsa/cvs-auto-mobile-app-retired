@@ -70,7 +70,7 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -90,14 +90,14 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
         testReviewSteps.checkElementIsNotEditable("Annual test");
         testReviewSteps.checkElementIsNotEditable("FAIL");
         testReviewSteps.checkElementIsNotEditable("Seatbelt installation check");
-        testReviewSteps.checkElementIsNotEditable("Yes");
+        testReviewSteps.checkElementIsNotEditable("No");
         testReviewSteps.checkElementIsNotEditable("Number of seatbelts fitted");
         testReviewSteps.checkElementIsNotEditable("4");
         testReviewSteps.checkElementIsNotEditable("Most recent seatbelt check");
         testReviewSteps.checkElementIsNotEditable("MAJOR");
-        testReviewSteps.checkElementIsNotEditable("3.1.a MAJOR");
+        testReviewSteps.checkElementIsNotEditable("3.1 (a) MAJOR");
         testReviewSteps.checkElementIsNotEditable("3. Seat Belts & Supplementary Restraint Systems");
         testReviewSteps.checkElementIsNotEditable("1. Obligatory Seat Belt:");
-        testReviewSteps.checkElementIsNotEditable("(a). missing.");
+        testReviewSteps.checkElementIsNotEditable("(a) missing.");
     }
 }

@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class TestReviewPage extends BasePage {
     private static final String SUBMIT_BUTTON_ID = "Submit";
@@ -10,8 +8,6 @@ public class TestReviewPage extends BasePage {
     private static final String TEST_REVIEW_TITLE_ID = "Test review";
     private static final String CHANGE_DETAILS_BUTTON_ID = "Change details";
     private static final String SAVE_CHANGED_DETAILS = "Save";
-    private static final String ABANDON_TEST_TYPE = "Abandon test type";
-    private static final String REMOVE_TEST_TYPE = "Remove test type";
     private static final String POP_UP_SUBMIT_XPATH = "(//XCUIElementTypeButton[@name='Submit'])[2]";
 
     public void goToTestPage() {
@@ -63,14 +59,6 @@ public class TestReviewPage extends BasePage {
         }
     }
 
-    public void pressTestTypeAbandonButton() {
-        findElementById(ABANDON_TEST_TYPE).click();
-    }
-
-    public void pressTestTypeRemoveButton() {
-        findElementById(REMOVE_TEST_TYPE).click();
-    }
-
     public boolean verifyTestStatus(String testType, String status) {
         boolean isTestTypeDisplayed = checkDisplayedElement(testType);
         boolean isStatusDisplayed = checkDisplayedElement(status);
@@ -92,5 +80,9 @@ public class TestReviewPage extends BasePage {
 
     public void clickSubmitInPopUp() {
         findElementByXpath(POP_UP_SUBMIT_XPATH).click();
+    }
+
+    public void scrollPageUp() {
+        scrollDownTo(500, 1000);
     }
 }

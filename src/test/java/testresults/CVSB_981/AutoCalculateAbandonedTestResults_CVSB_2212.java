@@ -62,7 +62,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type")
     @Test
     public void testAbandonTestTypeTestResultCalculation() {
-        testTypeCategoryComp.goToTestPage("TC7524","Avello Edinburgh Ltd");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         // complete test overview fields
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");

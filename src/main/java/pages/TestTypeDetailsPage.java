@@ -44,7 +44,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String REMOVE_TEST_TYPE = "Remove test type";
     private static final String POP_UP_TEST_TYPE_REMOVAL_CANCEL_ID = "Cancel";
     private static final String POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID = "Remove";
-    private static final String POP_UP_TEST_TYOE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
+    private static final String POP_UP_TEST_TYPE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
     private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
 
     public WebElement getTestTypeDetails() {
@@ -126,7 +126,7 @@ public class TestTypeDetailsPage extends BasePage {
         WebElement cancelButton = findElementById(POP_UP_TEST_TYPE_REMOVAL_CANCEL_ID);
         WebElement removeButton = findElementById(POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID);
         WebElement text = findElementByXpath(POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH);
-        WebElement title = findElementById(POP_UP_TEST_TYOE_REMOVAL_TEXT_ID);
+        WebElement title = findElementById(POP_UP_TEST_TYPE_REMOVAL_TEXT_ID);
         if (cancelButton.isDisplayed() && removeButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
             status = true;
         }
@@ -429,10 +429,6 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementByXpath(TEST_RESULT_XPATH).getAttribute("name").contains("Select");
     }
 
-    public void clickAddDefectButton() {
-        findElementById(ADD_DEFECT_ID).click();
-    }
-
     public void scrollDetailPage() {
         scrollDownTo(500, -100);
     }
@@ -456,6 +452,11 @@ public class TestTypeDetailsPage extends BasePage {
 
     public boolean checkNumberOfSeatbeltsIsNotDisplayed() {
         return findElementById("Number of seatbelts fitted Enter").isDisplayed();
+    }
+
+    public void tapTitleTwiceToCloseIOSKeyboard() {
+        findElementByAccessibilityId(TEST_TYPE_DETAILS).click();
+        findElementByAccessibilityId(TEST_TYPE_DETAILS).click();
     }
 }
 

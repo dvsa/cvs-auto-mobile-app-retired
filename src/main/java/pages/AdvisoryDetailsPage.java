@@ -1,9 +1,11 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+
 public class AdvisoryDetailsPage extends BasePage {
 
     public static final String ADVISORY_DETAILS_PAGE_ID = "Advisory details";
-    public static final String ADD_NOTES_TEXT_FIELD_XPATH = "//*[@type='XCUIElementTypeTextView']";
+    public static final String ADD_NOTES_TEXT_FIELD_ID = "Add Notes";
     public static final String ADD_NOTES_CONFIRM_ID = "Add Note";
     public static final String DONE_BUTTON_ID = "Done";
 
@@ -13,7 +15,9 @@ public class AdvisoryDetailsPage extends BasePage {
     }
 
     public void sendTextOnAddNote(String data) {
-        findElementByXpath(ADD_NOTES_TEXT_FIELD_XPATH).sendKeys(data);
+        WebElement element = findElementByAccessibilityId(ADD_NOTES_TEXT_FIELD_ID);
+        element.clear();
+        element.sendKeys(data);
     }
 
     public void tapAddNote() {
@@ -25,6 +29,6 @@ public class AdvisoryDetailsPage extends BasePage {
     }
 
     public String getCurrentNote() {
-        return findElementByXpath(ADD_NOTES_TEXT_FIELD_XPATH).getAttribute("value");
+        return findElementByXpath(ADD_NOTES_TEXT_FIELD_ID).getAttribute("value");
     }
 }
