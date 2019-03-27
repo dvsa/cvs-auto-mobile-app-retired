@@ -18,11 +18,15 @@ public class ActvityService {
         String testerStaffId = getTesterStaffId();
         response = activitiesClient.getActivities(testerStaffId);
         if (!response.getBody().asString().contains("No resources match the search criteria")) {
+            if (response.getStatusCode() != 200) {
+                throw new AutomationException("Response for get activities failed - Backend API Issue failed with status code "
+                        + response.getStatusCode() + " and body message " + response.getBody().asString());
+            }
             List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
             for (String activityId : activityIds) {
                 response = activitiesClient.putActivities(activityId);
                 if (response.getStatusCode() != 204) {
-                    throw new AutomationException("Response for put activities failed - Backend API Issue faild with status code "
+                    throw new AutomationException("Response for put activities failed - Backend API Issue failed with status code "
                             + response.getStatusCode() + " and body message " + response.getBody().asString());
                 }
             }
