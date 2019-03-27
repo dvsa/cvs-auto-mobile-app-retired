@@ -40,5 +40,4 @@ public class CaptureTestInformation_CVSB_1571 extends BaseTestClass {
         vehicleDetailsSteps.pressBackButton();
         testSteps.checkPageTitleDisplayed();
     }
-
 }

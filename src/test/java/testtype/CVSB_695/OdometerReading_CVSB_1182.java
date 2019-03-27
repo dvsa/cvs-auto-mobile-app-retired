@@ -31,7 +31,5 @@ public class OdometerReading_CVSB_1182 extends BaseTestClass {
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.CANCEL);
         odometerReadingSteps.checkSelectedUnit(OdometerReadingPage.UnitOptions.KILOMETRES);
-
     }
-
 }

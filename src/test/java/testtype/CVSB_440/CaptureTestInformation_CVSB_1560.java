@@ -33,7 +33,7 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
     public void testFieldsDisplayed() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.selectVehicleTestHistory();
-        // TODO refactor after database population with correct data
+        // TODO refactor after improvement ticket regarding sorting the items from Vehicle details page (CVSB-1090) is finished
         testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.checkPageTitle();
         testHistoryDetailsSteps.checkDetails("DEFECTS", "", "ODOMETER READING",

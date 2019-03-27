@@ -43,5 +43,4 @@ public class OdometerReading_CVSB_1185 extends BaseTestClass {
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.KM);
         testSteps.checkOdometerReadingValue("1,089,872");
     }
-
 }

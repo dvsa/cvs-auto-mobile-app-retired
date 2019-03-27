@@ -33,7 +33,5 @@ public class CaptureTestInformation_CVSB_1565 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkSelectedTestTypes("Annual test In progress arrow forward");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-
     }
-
 }

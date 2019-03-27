@@ -31,7 +31,5 @@ public class OdometerReading_CVSB_1183 extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressSave();
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.ENTER);
-
     }
-
 }

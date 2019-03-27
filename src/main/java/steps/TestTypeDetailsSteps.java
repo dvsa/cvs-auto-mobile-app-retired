@@ -43,6 +43,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkNumberOfSeatbeltsIsNotDisplayed(){
+        assertThat(testTypeDetailsPage.checkNumberOfSeatbeltsIsNotDisplayed()).isTrue();
+    }
+
+    @Step
     public void selectMostRecentInstallationCheck() {
         testTypeDetailsPage.selectRecentInstallationCheckOption();
     }
@@ -60,7 +65,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkMostRecentInstallationCheckIsDisplayed() {
+    public void checkMostRecentInstallationCheckButtonIsDisplayed() {
         assertThat(testTypeDetailsPage.isMostInstallationCheckButtonDisplayed()).isTrue();
     }
 
@@ -77,6 +82,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void verifyMostRecentInstallationCheckDate() {
         assertThat(testTypeDetailsPage.verifyMostRecentInstallationDate()).isTrue();
+    }
+
+    @Step
+    public void verifyThatNoRecentInstallationDateIsDisplayed() {
+        assertThat(testTypeDetailsPage.verifyThatNoRecentInstallationDateIsDisplayed()).isTrue();
     }
 
     @Step

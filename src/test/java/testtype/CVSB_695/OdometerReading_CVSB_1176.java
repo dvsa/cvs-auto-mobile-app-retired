@@ -31,7 +31,5 @@ public class OdometerReading_CVSB_1176 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("1234567");
         odometerReadingSteps.pressSave();
         testSteps.checkOdometerReadingValue("1,234,567");
-
     }
-
 }

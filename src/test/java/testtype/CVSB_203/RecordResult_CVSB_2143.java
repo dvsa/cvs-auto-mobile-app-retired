@@ -50,9 +50,7 @@ public class RecordResult_CVSB_2143 extends BaseTestClass {
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.checkAddDefectIsPresent();
-        testTypeDetailsSteps.checkMostRecentInstallationCheckIsDisplayed();
         testTypeDetailsSteps.checkNumberOfSeatbelts("Enter");
         testTypeDetailsSteps.checkNotesText("Add notes");
-
     }
 }

@@ -32,10 +32,10 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     public void testVsaViewsATestRecordB() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.selectVehicleTestHistory();
-        // TODO refactor after database population with correct data
+        // TODO refactor after improvement ticket regarding sorting the items from Vehicle details page (CVSB-1090) is finished
         testHistorySteps.selectTestTypeRecord("Annual test");
         testHistoryDetailsSteps.checkPageTitle();
-        testHistoryDetailsSteps.checkDetails("TEST TYPE", "DEFECTS", "Test date",
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "DEFECTS",
                 "14 Jan 2019", "Test time", "12:36 - 12:36", "Test result", "FAIL", "Test expiry");
     }
 

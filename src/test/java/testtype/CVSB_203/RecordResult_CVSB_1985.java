@@ -41,9 +41,7 @@ public class RecordResult_CVSB_1985 extends BaseTestClass {
         testTypeDetailsSteps.addNotes("Test 12345");
         testTypeDetailsSteps.checkNotesText("Test 12345");
         testTypeDetailsSteps.pressSave();
-        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkNotesText("Test 12345");
-
     }
-
 }

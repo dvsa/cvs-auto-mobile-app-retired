@@ -30,7 +30,5 @@ public class OdometerReading_CVSB_1174 extends BaseTestClass {
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.selectOdometerReading();
         odometerReadingSteps.checkPageDetails("Enter value", OdometerReadingPage.Units.KILOMETRES);
-
     }
-
 }

@@ -34,5 +34,4 @@ public class OdometerReading_CVSB_1178 extends BaseTestClass {
         odometerReadingSteps.typeInField("87654321");
         odometerReadingSteps.checkReadingValue("8765432");
     }
-
 }

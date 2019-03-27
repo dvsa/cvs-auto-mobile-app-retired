@@ -37,5 +37,4 @@ public class CaptureTestInformation_CVSB_1569 extends BaseTestClass {
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.checkPage();
     }
-
 }

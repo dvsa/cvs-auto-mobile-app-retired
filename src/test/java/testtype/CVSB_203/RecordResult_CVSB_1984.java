@@ -41,8 +41,6 @@ public class RecordResult_CVSB_1984 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
@@ -50,9 +48,6 @@ public class RecordResult_CVSB_1984 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkNumberOfSeatbelts("3");
-        testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
         testTypeDetailsSteps.pressSave();
-
     }
-
 }

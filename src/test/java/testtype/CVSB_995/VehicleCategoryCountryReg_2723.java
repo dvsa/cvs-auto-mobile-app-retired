@@ -28,6 +28,6 @@ public class VehicleCategoryCountryReg_2723 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectNotKnownOption();
-        testSteps.checkCountryOfRegistrationFieldIsUpdated("Not Known");
+        testSteps.checkCountryOfRegistrationFieldIsUpdated("Country Not Known");
     }
 }

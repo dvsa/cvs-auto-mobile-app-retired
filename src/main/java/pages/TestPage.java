@@ -88,7 +88,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
-        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (psv) " + vin + " Details arrow forward']").isDisplayed();
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {

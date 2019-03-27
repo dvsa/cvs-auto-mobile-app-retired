@@ -36,7 +36,6 @@ public class CancellationTest_CVSB_855 extends BaseTestClass {
         cancelTestSteps.pressSubmit();
         cancelTestSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPage();
-        //TODO continue and refactor after bug fix 1393
+        siteVisitSteps.checkCancelledTestStatus("BQ91YHQ");
     }
 }
-
