@@ -32,4 +32,3 @@ public class CancellationTest_CVSB_853 extends BaseTestClass {
         cancelTestSteps.pressOKNoReasonPopUp();
     }
 }
-

@@ -32,5 +32,4 @@ public class OdometerReading_CVSB_1180 extends BaseTestClass {
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.MILES);
         odometerReadingSteps.checkSelectedUnit(OdometerReadingPage.UnitOptions.MILES);
     }
-
 }

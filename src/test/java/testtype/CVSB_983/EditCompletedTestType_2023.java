@@ -32,21 +32,21 @@ public class EditCompletedTestType_2023 extends BaseTestClass {
     public void testSEditInProgressTestType() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
+        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("7");
         testTypeDetailsSteps.checkNumberOfSeatbelts("7");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.checkMostRecentInstallationCheckIsDisplayed();
+        testTypeDetailsSteps.checkMostRecentInstallationCheckButtonIsDisplayed();
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
     }

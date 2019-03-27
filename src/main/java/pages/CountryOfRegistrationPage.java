@@ -26,7 +26,7 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public enum Countries {
-        GB("United Kingdom - GB"),
+        GB("Great Britain and Northern Ireland - GB"),
         GBA("Alderney - GBA"),
         A("Austria - A"),
         B("Belgium - B"),
@@ -63,7 +63,7 @@ public class CountryOfRegistrationPage extends BasePage {
         S("Sweden - S"),
         CH("Switzerland - CH"),
         NONEU("Non EU"),
-        NOTKNOWN("Not Known");
+        NOTKNOWN("Country Not Known");
 
         private String value;
 
@@ -77,16 +77,27 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public void checkAllElementsAreDisplayed() {
-        int i = 0;
+        List<String> expectedCountries = new ArrayList<>();
         for (Countries c : Countries.values()) {
-            WebElement we = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,\"" + c.getValue() + "\")]");
-            assertThat(findElementByXpath("//XCUIElementTypeButton[starts-with(@name,\"" + c.getValue() + "\")]").isDisplayed()).isTrue();
-            i++;
-            if (i % 8 == 0) {
-                scroll(we.getLocation().x, we.getLocation().y, we.getLocation().x, we.getLocation().y - 85);
-                continue;
-            }
+            expectedCountries.add(c.getValue());
         }
+
+        List<String> filteredExpectedCountries = expectedCountries.stream()
+                .filter(line -> !"Great Britain and Northern Ireland - GB checkmark".equals(line))
+                .filter(line -> !"Non EU".equals(line))
+                .filter(line -> !"Country Not Known".equals(line))
+                .collect(Collectors.toList());
+
+        List<WebElement> actualButtonsXpaths;
+        actualButtonsXpaths = findElementsByXpath("//XCUIElementTypeButton");
+
+        List<String> actualButtonsValues = new ArrayList<>();
+        for (WebElement we : actualButtonsXpaths) {
+            actualButtonsValues.add(we.getAttribute("name"));
+        }
+
+        List<String> filteredActualButtonsXpathByCountry = eliminateUnwantedButtonsDisplayed(actualButtonsValues);
+        assertThat(filteredActualButtonsXpathByCountry.equals(filteredExpectedCountries)).isTrue();
     }
 
     public boolean checkListOfCountriesIsOrdered() {
@@ -97,9 +108,9 @@ public class CountryOfRegistrationPage extends BasePage {
         }
 
         List<String> filteredList = countriesDisplayed.stream()
-                .filter(line -> !"United Kingdom - GB checkmark".equals(line))
+                .filter(line -> !"Great Britain and Northern Ireland - GB checkmark".equals(line))
                 .filter(line -> !"Non EU".equals(line))
-                .filter(line -> !"Not Known".equals(line))
+                .filter(line -> !"Country Not Known".equals(line))
                 .collect(Collectors.toList());
         return Ordering.natural().isOrdered(filteredList);
     }
@@ -120,11 +131,6 @@ public class CountryOfRegistrationPage extends BasePage {
         }
 
         List<String> cleanBeforeList = eliminateUnwantedButtonsDisplayed(countriesDisplayedTextBeforeFilter);
-
-        for (String s : cleanBeforeList) {
-            System.out.println(s + " before");
-        }
-
         for (String s : cleanBeforeList) {
             assertThat(!s.contains(filterString)).isTrue();
         }
@@ -140,32 +146,32 @@ public class CountryOfRegistrationPage extends BasePage {
         }
 
         List<String> cleanAfterList = eliminateUnwantedButtonsDisplayed(countriesDisplayedTextAfterFilter);
-
         for (String s : cleanAfterList) {
             assertThat(s.contains(filterString)).isTrue();
         }
-
         assertThat(Ordering.natural().isOrdered(cleanAfterList)).isTrue();
     }
 
     public List<String> eliminateUnwantedButtonsDisplayed(List<String> list) {
         return list.stream()
                 .filter(line -> !"Review".equals(line))
-                .filter(line -> !"BQ91YHQ (psv) 1B7GG36N12S678410 Details arrow forward".equals(line))
+                .filter(line -> !"BQ91YHQ (PSV) 1B7GG36N12S678410 Details arrow forward".equals(line))
                 .filter(line -> !"EU vehicle category Select arrow forward".equals(line))
                 .filter(line -> !"Add a test type".equals(line))
                 .filter(line -> !"Add a trailer".equals(line))
                 .filter(line -> !"Cancel test".equals(line))
                 .filter(line -> !"Cancel".equals(line))
-                .filter(line -> !"United Kingdom - GB checkmark".equals(line))
+                .filter(line -> !"Great Britain and Northern Ireland - GB checkmark".equals(line))
                 .filter(line -> !"Non EU".equals(line))
-                .filter(line -> !"Not Known".equals(line))
+                .filter(line -> !"Country Not Known".equals(line))
                 .filter(line -> !"1".equals(line))
                 .filter(line -> !"Emoji".equals(line))
                 .filter(line -> !"Dictate".equals(line))
                 .filter(line -> !"return".equals(line))
                 .filter(line -> !"Save".equals(line))
-                .filter(line -> !"Country of registration United Kingdom arrow forward".equals(line))
+                .filter(line -> !"Country of registration Great Britain and Northern Ireland arrow forward".equals(line))
+                .filter(line -> !"Odometer reading Enter arrow forward".equals(line))
+                .filter(line -> !"Country of registration Great Britain and Northern Ireland arrow forward".equals(line))
                 .filter(line -> !"Dictate".equals(line))
                 .filter(line -> !"return".equals(line))
                 .filter(line -> !line.isEmpty())
@@ -185,7 +191,7 @@ public class CountryOfRegistrationPage extends BasePage {
 
     public void selectNotKnown() {
         searchForCountry("Norway");
-        findElementByXpath("//XCUIElementTypeButton[contains(@name,'Not Known')]").click();
+        findElementByXpath("//XCUIElementTypeButton[contains(@name,'Country Not Known')]").click();
         clickSaveButton();
     }
 
@@ -194,7 +200,7 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public void scrollThroughList() {
-        WebElement we = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'United Kingdom - GB')]");
+        WebElement we = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Great Britain and Northern Ireland - GB')]");
         scroll(we.getLocation().x, we.getLocation().y, we.getLocation().y, we.getLocation().y - 150);
     }
 
@@ -202,9 +208,9 @@ public class CountryOfRegistrationPage extends BasePage {
         searchForCountry(country);
         List<WebElement> countries = findElementsByXpath("//XCUIElementTypeButton[contains(@name,'" + country + "')]");
 
-        int ukElement = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'United Kingdom - GB')]").getLocation().y;
+        int ukElement = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Great Britain and Northern Ireland - GB')]").getLocation().y;
         int nonEU = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Non EU')]").getLocation().y;
-        int notKnown = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Not Known')]").getLocation().y;
+        int notKnown = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Country Not Known')]").getLocation().y;
 
         for (WebElement we : countries) {
             assertThat(we.getLocation().y > ukElement).isTrue();

@@ -35,4 +35,3 @@ public class CancellationTest_CVSB_852 extends BaseTestClass {
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
     }
 }
-

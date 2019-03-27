@@ -31,14 +31,16 @@ public class TestSteps extends ScenarioSteps {
     public void checkSelectedTestTypes(String... selectedTestTypes) {
         testPage.waitUntilPageIsLoaded();
         for (String expectedTestType : selectedTestTypes) {
-           assertThat(testPage.isTestTypeDisplayedByXpath(expectedTestType)).isTrue();
+            assertThat(testPage.isTestTypeDisplayedByXpath(expectedTestType)).isTrue();
         }
     }
 
     @Step
     public void checkNoIdentifyVehicleOptionAvailable() {
         testPage.waitUntilPageIsLoaded();
-        int numberOfElementsFound = testPage.checkDataByLabelValueAndName("Identify", "Vehicle");
+        int numberOfElementsFound = testPage.checkDataByLabelValueAndName("Identify", "arrow back Identify Vehicle", "arrow back Vehicle", "arrow back Identify", "Identify vehicle",
+                "arrow back identify vehicle", "arrow back vehicle", "arrow back identify", "identify vehicle", "Identify Vehicle arrow forward", "Vehicle arrow forward", "Identify arrow forward",
+                "identify vehicle arrow forward", "vehicle arrow forward", "identify arrow forward");
         assertThat(numberOfElementsFound).isEqualTo(0);
     }
 
@@ -181,7 +183,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkEUVehicleCategoryOptionIsDisplayed () {
+    public void checkEUVehicleCategoryOptionIsDisplayed() {
         assertThat(testPage.checkEUVehicleCategoryOptionIsDisplayed()).isTrue();
     }
 

@@ -35,7 +35,5 @@ public class OdometerReading_CVSB_1184 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.checkOdometerReadingValue("97,000");
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.MI);
-
     }
-
 }

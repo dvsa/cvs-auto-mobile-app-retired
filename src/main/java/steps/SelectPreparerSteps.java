@@ -98,7 +98,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     @Step
     public void advanceWithNoPreparerInformation() {
         selectPreparerPage.clickNoPreparerIdOption();
-        assertThat(selectPreparerPage.isCancelOptionDisplayed()).isTrue();
+        assertThat(selectPreparerPage.isCancelOptionDisplayedAfterNoPreparerIsSelected()).isTrue();
         selectPreparerPage.confirm();
     }
 
@@ -115,6 +115,6 @@ public class SelectPreparerSteps extends ScenarioSteps {
         selectPreparerPage.clickNoPreparerIdOption();
         selectPreparerPage.isWarningForMissingPreparerDisplayed();
         selectPreparerPage.isConfirmOptionDisplayed();
-        selectPreparerPage.isCancelOptionDisplayed();
+        selectPreparerPage.isCancelOptionDisplayedAfterNoPreparerIsSelected();
     }
 }

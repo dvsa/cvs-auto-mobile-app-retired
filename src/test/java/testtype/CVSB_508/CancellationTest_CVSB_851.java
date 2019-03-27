@@ -32,4 +32,3 @@ public class CancellationTest_CVSB_851 extends BaseTestClass {
         cancelTestSteps.checkTextInputField();
     }
 }
-

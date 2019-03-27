@@ -29,8 +29,6 @@ public class OdometerReading_CVSB_1177 extends BaseTestClass {
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345678");
-        // TODO refactor/continue after ios keyboard fix
-
+        // TODO refactor/continue after ios keyboard fix (CVSB-2630 bug)
     }
-
 }

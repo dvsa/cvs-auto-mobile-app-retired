@@ -30,5 +30,4 @@ public class OdometerReading_CVSB_1179 extends BaseTestClass {
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.checkUnitOptions();
     }
-
 }

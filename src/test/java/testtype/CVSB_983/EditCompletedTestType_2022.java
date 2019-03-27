@@ -32,19 +32,19 @@ public class EditCompletedTestType_2022 extends BaseTestClass {
     public void testSaveEditedDetailsOneFieldNotPopulated() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
         testTypeDetailsSteps.checkNumberOfSeatbelts("2");
         testTypeDetailsSteps.pressSave();
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("5");
         testTypeDetailsSteps.checkNumberOfSeatbelts("5");
         testTypeDetailsSteps.pressSave();
-        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
     }
 }

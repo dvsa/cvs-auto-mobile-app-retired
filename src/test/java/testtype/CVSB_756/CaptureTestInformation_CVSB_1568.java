@@ -31,5 +31,4 @@ public class CaptureTestInformation_CVSB_1568 extends BaseTestClass {
         testSteps.selectVehicleDetails();
         vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91YHQ");
     }
-
 }

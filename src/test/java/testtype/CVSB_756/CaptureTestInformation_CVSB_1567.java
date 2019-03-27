@@ -28,7 +28,5 @@ public class CaptureTestInformation_CVSB_1567 extends BaseTestClass {
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.ENTER);
         testSteps.checkAddATestTypeButtonVisibility();
         testSteps.checkCancelButton();
-
     }
-
 }

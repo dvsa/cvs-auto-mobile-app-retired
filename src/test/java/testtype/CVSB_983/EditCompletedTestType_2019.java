@@ -32,7 +32,7 @@ public class EditCompletedTestType_2019 extends BaseTestClass {
     public void testSavedDetailsAreEditable() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();

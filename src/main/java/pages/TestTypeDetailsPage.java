@@ -40,8 +40,8 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_REMOVE_XPATH = "(//XCUIElementTypeButton[@name='Remove'])[2]";
     private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
     private static final String POP_UP_TITLE_ID = "Remove defect";
-    private static final String ABANDON_TEST_TYPE="Abandon test type";
-    private static final String REMOVE_TEST_TYPE="Remove test type";
+    private static final String ABANDON_TEST_TYPE = "Abandon test type";
+    private static final String REMOVE_TEST_TYPE = "Remove test type";
     private static final String POP_UP_TEST_TYPE_REMOVAL_CANCEL_ID = "Cancel";
     private static final String POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID = "Remove";
     private static final String POP_UP_TEST_TYOE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
@@ -276,26 +276,29 @@ public class TestTypeDetailsPage extends BasePage {
         String day = dayOfSystem.toString();
         String month = new DateFormatSymbols().getMonths()[monthOfSystem].substring(0, 3);
         String year = yearOfSystem.toString();
-        System.out.println(day + " " + month + " " + year);
         try {
             findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check " + day + " " + month + " " + year + "')]");
             return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             return false;
         }
+    }
+
+    public boolean verifyThatNoRecentInstallationDateIsDisplayed() {
+        return findElementById("Most recent installation check Most recent installation check Enter").isDisplayed();
     }
 
     public boolean isMostInstallationCheckButtonDisplayed() {
         try {
             findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check')]");
             return true;
-        } catch (org.openqa.selenium.NoSuchElementException e) {
+        } catch (NoSuchElementException e) {
             return false;
         }
     }
 
     public boolean isDateCalendarPickerDisplayed() {
-        return findElementByXpath("//XCUIElementTypeOther[@name=\"web dialog\"]/XCUIElementTypeOther[3]").isDisplayed();
+        return findElementById("web dialog").isDisplayed();
     }
 
     public boolean isCancelOptionDisplayedForDatePicker() {
@@ -311,7 +314,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void scrollOneDay() {
-        scroll(95, 594, 95, 608);
+        scroll(95, 594, 95, 603);
     }
 
     public void scrollOneMonth() {
@@ -434,11 +437,11 @@ public class TestTypeDetailsPage extends BasePage {
         scrollDownTo(500, -100);
     }
 
-    public void pressTestTypeAbandonButton(){
+    public void pressTestTypeAbandonButton() {
         findElementById(ABANDON_TEST_TYPE).click();
     }
 
-    public void pressTestTypeRemoveButton(){
+    public void pressTestTypeRemoveButton() {
         findElementById(REMOVE_TEST_TYPE).click();
     }
 
@@ -448,7 +451,11 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void tapDefectDescription(String description) {
         List<WebElement> list = findElementsByAccessibilityId(description);
-        list.get(list.size()-1).click();
+        list.get(list.size() - 1).click();
+    }
+
+    public boolean checkNumberOfSeatbeltsIsNotDisplayed() {
+        return findElementById("Number of seatbelts fitted Enter").isDisplayed();
     }
 }
 

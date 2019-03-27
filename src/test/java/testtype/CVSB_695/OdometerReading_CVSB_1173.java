@@ -26,7 +26,5 @@ public class OdometerReading_CVSB_1173 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.ENTER);
-
     }
-
 }

@@ -34,7 +34,5 @@ public class OdometerReading_CVSB_1175 extends BaseTestClass {
         odometerReadingSteps.typeInField("numeric only supported");
         // TODO uncomment and use after bug fix
 //        odometerReadingSteps.checkReadingValue("");
-
     }
-
 }

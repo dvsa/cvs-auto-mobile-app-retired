@@ -56,8 +56,6 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
-        testTypeDetailsSteps.selectMostRecentInstallationCheck();
-        testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
@@ -68,7 +66,5 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
         testTypeDetailsSteps.checkNumberOfSeatbelts("3");
-        testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
-
     }
 }
