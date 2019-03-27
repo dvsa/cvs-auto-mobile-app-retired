@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class TestReviewPage extends BasePage {
     private static final String SUBMIT_BUTTON_ID = "Submit";
@@ -85,6 +83,6 @@ public class TestReviewPage extends BasePage {
     }
 
     public void scrollPageUp() {
-        scrollDownTo(500, 300);
+        scrollDownTo(500, 1000);
     }
 }
