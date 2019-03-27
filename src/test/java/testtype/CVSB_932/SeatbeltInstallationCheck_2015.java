@@ -35,37 +35,40 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
     @Test
     public void seatbeltInstallationCheckBehaviourWhenConductingCategoryBTestTypes() {
         // Class 6A (Seatbelt Installation Check)-Annual
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.pressCancel();
+        testTypeDetailsSteps.checkMostRecentInstallationCheckIsNotDisplayed();
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
 
         //Prohibition Clearance Class 6A (Seatbelt Installation Check) Full Inspection & Fee
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation");
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testTypeCategorySteps.selectFromTestTypeList("Full inspection / full fee");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.pressCancel();
+        testTypeDetailsSteps.checkMostRecentInstallationCheckIsNotDisplayed();
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
 
        // Prohibition Clearance Class 6A (No Seatbelt Installation Check) PG9 Retest
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation");
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.pressCancel();
+        testTypeDetailsSteps.checkMostRecentInstallationCheckIsNotDisplayed();
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
 
@@ -73,25 +76,12 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation");
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.pressCancel();
-        testTypeDetailsSteps.pressTestTypeRemoveButton();
-        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-
-       // Prohibition Clearance Class 6A (No Seatbelt Installation Check) PG9 Retest
-        testSteps.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
-        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
-        testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
-        testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testTypeCategorySteps.selectFromTestTypeList("With certification");
-        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.pressCancel();
+        testTypeDetailsSteps.checkMostRecentInstallationCheckIsNotDisplayed();
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
     }
