@@ -2,6 +2,7 @@ package util.backend.activity;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import exceptions.AutomationException;
 import io.restassured.response.Response;
 import util.WriterReader;
 
@@ -19,7 +20,11 @@ public class ActvityService {
         if (!response.getBody().asString().contains("No resources match the search criteria")) {
             List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
             for (String activityId : activityIds) {
-                activitiesClient.putActivities(activityId);
+                response = activitiesClient.putActivities(activityId);
+                if (response.getStatusCode() != 204) {
+                    throw new AutomationException("Response for put activities failed - Backend API Issue faild with status code "
+                            + response.getStatusCode() + " and body message " + response.getBody().asString());
+                }
             }
         }
 

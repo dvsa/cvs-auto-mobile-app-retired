@@ -11,8 +11,6 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
-import java.util.HashMap;
-
 @RunWith(SerenityRunner.class)
 public class ReviewTestSummary_2704 extends BaseTestClass {
 
@@ -116,12 +114,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1");
         defectDetailsSteps.setPRS();
-        HashMap<String, String> map = new HashMap<>();
-        map.put("Vertical", "Upper");
-        map.put("Lateral", "Nearside");
-        map.put("Row Number", "2");
-        map.put("Seat Number", "2");
-        defectDetailsSteps.selectOptionsAndTapAddDefect(map);
+        defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
 
         //Abandon test type from change details screen
         testTypeDetailsSteps.addNotes("Test");
