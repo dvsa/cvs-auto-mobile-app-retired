@@ -7,10 +7,7 @@ import net.thucydides.core.annotations.ClearCookiesPolicy;
 import net.thucydides.core.annotations.Managed;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import util.backend.activity.ActvityService;
-
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
+import util.backend.activity.ActivityService;
 
 
 public class BaseTestClass extends BaseUtils {
@@ -18,7 +15,7 @@ public class BaseTestClass extends BaseUtils {
     protected AtfService atfService = new AtfService();
     protected PreparerService preparerService = new PreparerService();
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
-    private ActvityService actvityService = new ActvityService();
+    private ActivityService activityService = new ActivityService();
 
 
     @Managed(uniqueSession = true, clearCookies = ClearCookiesPolicy.Never)
@@ -27,7 +24,7 @@ public class BaseTestClass extends BaseUtils {
 
     @Before()
     public void closeActivity() {
-        actvityService.closeUserActivity();
+        activityService.closeUserActivity();
     }
 
 }

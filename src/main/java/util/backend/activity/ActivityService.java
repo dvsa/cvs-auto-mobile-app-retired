@@ -8,7 +8,7 @@ import util.WriterReader;
 
 import java.util.List;
 
-public class ActvityService {
+public class ActivityService {
 
     private static final String ID = "oid";
     private ActivitiesClient activitiesClient = new ActivitiesClient();
