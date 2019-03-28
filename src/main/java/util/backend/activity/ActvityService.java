@@ -23,11 +23,13 @@ public class ActvityService {
                         + response.getStatusCode() + " and body message " + response.getBody().asString());
             }
             List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
-            for (String activityId : activityIds) {
-                response = activitiesClient.putActivities(activityId);
-                if (response.getStatusCode() != 204) {
-                    throw new AutomationException("Response for put activities failed - Backend API Issue failed with status code "
-                            + response.getStatusCode() + " and body message " + response.getBody().asString());
+            if (activityIds != null) {
+                for (String activityId : activityIds) {
+                    response = activitiesClient.putActivities(activityId);
+                    if (response.getStatusCode() != 204) {
+                        throw new AutomationException("Response for put activities failed - Backend API Issue failed with status code "
+                                + response.getStatusCode() + " and body message " + response.getBody().asString());
+                    }
                 }
             }
         }
