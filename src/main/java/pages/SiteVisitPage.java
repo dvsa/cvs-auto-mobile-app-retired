@@ -18,6 +18,7 @@ public class SiteVisitPage extends BasePage {
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
     private static final String LOADING_ID = "Submitting site visit";
+    private static final String TOAST_MESSAGE_AFTER_SUBMIT = "The test has been submitted and emailed to andy@gov.uk";
 
     private static String startVisitTime;
     private static String createTestTime;
@@ -167,6 +168,16 @@ public class SiteVisitPage extends BasePage {
                 }
             }
 
+        return status;
+    }
+
+    public boolean isToastMessageDisplayed() {
+        boolean status;
+        try {
+            status = waitUntilPageIsLoadedByAccessibilityId(TOAST_MESSAGE_AFTER_SUBMIT).isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
+        }
         return status;
     }
 }
