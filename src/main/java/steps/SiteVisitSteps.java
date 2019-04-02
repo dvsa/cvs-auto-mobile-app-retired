@@ -108,4 +108,20 @@ public class SiteVisitSteps extends ScenarioSteps {
        assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
 
     }
+
+    @Step
+    public void check4SecondToastMessage() {
+        assertThat(siteVisitPage.isToastMessageDisplayed()).isTrue();
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        assertThat(siteVisitPage.isToastMessageDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkVisitIsNotEditable(String regPlate) {
+        assertThat(siteVisitPage.isVisitEditableByPlate(regPlate)).isFalse();
+    }
 }

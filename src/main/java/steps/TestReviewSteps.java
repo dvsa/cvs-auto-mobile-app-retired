@@ -101,4 +101,44 @@ public class TestReviewSteps extends ScenarioSteps {
     public void scrollUp() {
         testReviewPage.scrollPageUp();
     }
+
+    @Step
+    public void checkSubmitPopUp() {
+        assertThat(testReviewPage.checkPopUpIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressCancelInPopUp() {
+        testReviewPage.clickCancelInPopUp();
+    }
+
+    @Step
+    public void checkLoadingIndicator() {
+        assertThat(testReviewPage.isLoadingIndicatorDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkSubmitErrorPopUp() {
+        assertThat(testReviewPage.isErrorPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressSettings() {
+        testReviewPage.clickSettings();
+    }
+
+    @Step
+    public void checkDeviceSettings() {
+        assertThat(testReviewPage.isDeviceSettingsPageDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressTryAgain() {
+        testReviewPage.clickTryAgain();
+    }
+
+    @Step
+    public void checkLoadingIndicatorIsNotDisplayed() {
+        assertThat(testReviewPage.isLoadingIndicatorNotDisplayed()).isTrue();
+    }
 }
