@@ -12,7 +12,7 @@ public class TestReviewPage extends BasePage {
     private static final String POP_UP_CANCEL_XPATH = "(//XCUIElementTypeButton[@name='Cancel'])";
     private static final String POP_UP_TITLE = "Submit test";
     private static final String POP_UP_TEXT = "You will not be able to make changes to this test after it has been submitted.";
-    private static final String LOADING_INDICATOR = "Submitting test...";
+    private static final String LOADING_INDICATOR = "Loading...";
     private static final String ERROR_TITLE = "Unable to submit test";
     private static final String ERROR_TEXT = "Make sure you are connected to the Internet and try again.";
     private static final String ERROR_SETTINGS = "Settings";
@@ -135,5 +135,20 @@ public class TestReviewPage extends BasePage {
 
     public void clickTryAgain() {
         findElementByAccessibilityId(ERROR_TRY_AGAIN).click();
+    }
+
+    public boolean isLoadingIndicatorNotDisplayed() {
+        boolean status = false;
+        int i = 0;
+        while (i <= 5) {
+            try {
+                waitUntilPageIsLoadedByAccessibilityId(LOADING_INDICATOR).isDisplayed();
+                i++;
+            } catch (TimeoutException e) {
+                status = true;
+                break;
+            }
+        }
+        return status;
     }
 }

@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class SubmitTest_CVSB_3083 extends BaseTestClass {
+public class SubmitTest_CVSB_3079 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -40,12 +40,9 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Steps
-    SiteVisitSteps siteVisitSteps;
-
-    @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (cannot edit submitted test results)")
+    @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (loading indicator removed)")
     @Test
-    public void testCannotEditSubmittedTestResults() {
+    public void testLoadingIndicatorRemovedAfterConfirmationToSubmitTestResults() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -67,10 +64,9 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
+        testReviewSteps.checkSubmitPopUp();
         testReviewSteps.pressSubmitInPopUp();
-        siteVisitSteps.waitUntilPageIsLoaded();
-        siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS");
-        siteVisitSteps.checkVisitIsNotEditable("BQ91 YHQ");
-
+        testReviewSteps.checkLoadingIndicator();
+        testReviewSteps.checkLoadingIndicatorIsNotDisplayed();
     }
 }

@@ -119,4 +119,9 @@ public class SiteVisitSteps extends ScenarioSteps {
         }
         assertThat(siteVisitPage.isToastMessageDisplayed()).isFalse();
     }
+
+    @Step
+    public void checkVisitIsNotEditable(String regPlate) {
+        assertThat(siteVisitPage.isVisitEditableByPlate(regPlate)).isFalse();
+    }
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 
 import java.time.LocalDateTime;
@@ -18,7 +19,7 @@ public class SiteVisitPage extends BasePage {
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
     private static final String LOADING_ID = "Submitting site visit";
-    private static final String TOAST_MESSAGE_AFTER_SUBMIT = "The test has been submitted and emailed to andy@gov.uk";
+    private static final String TOAST_MESSAGE_AFTER_SUBMIT = "The test have been submitted and emailed to andy@dvsa.gov.uk";
 
     private static String startVisitTime;
     private static String createTestTime;
@@ -104,7 +105,7 @@ public class SiteVisitPage extends BasePage {
         LocalDateTime localDateTime = LocalDateTime.now();
         if (localDateTime.getSecond() >= 55) {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(7000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -115,10 +116,10 @@ public class SiteVisitPage extends BasePage {
 
         if (timeString.contains("AM") || timeString.contains("PM")){
             temporalAccessor  = dateTimeFormatterAmPm.parse(timeString);
-            time =  dateTimeFormatterAmPm.format(temporalAccessor);
+            time =  dateTimeFormatter24.format(temporalAccessor);
         } else {
             temporalAccessor = dateTimeFormatter24.parse(timeString);
-            time = dateTimeFormatterAmPm.format(temporalAccessor);
+            time = dateTimeFormatter24.format(temporalAccessor);
         }
         return time;
     }
@@ -175,8 +176,19 @@ public class SiteVisitPage extends BasePage {
         boolean status;
         try {
             status = waitUntilPageIsLoadedByAccessibilityId(TOAST_MESSAGE_AFTER_SUBMIT).isDisplayed();
-        } catch (NoSuchElementException e) {
+        } catch (TimeoutException e) {
             status = false;
+        }
+        return status;
+    }
+
+    public boolean isVisitEditableByPlate(String regPlate) {
+        boolean status = false;
+        try {
+            findElementByXpath("//*[contains(@name,'" + regPlate + "')]").click();
+            waitUntilPageIsLoaded();
+        } catch (TimeoutException e) {
+            status = true;
         }
         return status;
     }

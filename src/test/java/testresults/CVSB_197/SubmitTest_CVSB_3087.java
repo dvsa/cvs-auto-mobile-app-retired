@@ -32,9 +32,6 @@ public class SubmitTest_CVSB_3087 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps
-    TestReviewSteps testReviewSteps;
-
-    @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
@@ -42,6 +39,9 @@ public class SubmitTest_CVSB_3087 extends BaseTestClass {
 
     @Steps
     CancelTestSteps cancelTestSteps;
+
+    @Steps
+    SiteVisitSteps siteVisitSteps;
 
     @Title("CVSB-197 - AC A8. VSA cancels a test")
     @Test
@@ -68,7 +68,7 @@ public class SubmitTest_CVSB_3087 extends BaseTestClass {
         cancelTestSteps.addReasonForCancellation("Test reason CVSB-197");
         cancelTestSteps.pressSubmit();
         cancelTestSteps.pressSubmitInPopUp();
-        // TODO continue after submit test works
+        siteVisitSteps.checkVisitResults("BQ91 YHQ", "CANCELLED");
 
     }
 }
