@@ -37,7 +37,7 @@ public class LECFailedTestTypeSubmission_3019  extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @Title("CVSB-3019 - Defect - Technical LEC submission")
+    @Title("CVSB-3019 - Defect - Failed Technical LEC submission")
     @Test
     public void submitFailedLECTechnicalTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");

@@ -44,7 +44,7 @@ public class VoluntaryAbandonedBreakTest_3019 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
-    @Title("CVSB-3019 - Defect - Voluntary break test submission")
+    @Title("CVSB-3019 - Defect - Abandoned Voluntary break test submission")
     @Test
     public void submitAbandonedVoluntaryBreakTestTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
