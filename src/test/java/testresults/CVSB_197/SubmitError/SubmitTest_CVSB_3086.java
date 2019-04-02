@@ -40,9 +40,9 @@ public class SubmitTest_CVSB_3086 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-197 - AC A6. VSA goes to settings after being presented with the error message")
+    @Title("CVSB-197 - AC A7. VSA retries after being presented with the error message")
     @Test
-    public void testSettingsInErrorPopUp() {
+    public void testTryAgainInErrorPopUp() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
