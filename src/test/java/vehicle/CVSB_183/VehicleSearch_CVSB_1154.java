@@ -36,7 +36,7 @@ public class VehicleSearch_CVSB_1154 extends BaseTestClass {
         identifyVehicleSteps.checkSearchBoxAndText("678410");
         identifyVehicleSteps.pressSearch();
         // identifyVehicleSteps.checkLoadingScreen();
-        vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91YHQ");
+        vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91 YHQ");
 
     }
 }

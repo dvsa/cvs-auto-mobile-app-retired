@@ -54,6 +54,6 @@ public class LECFailedTestTypeSubmission_3019  extends BaseTestClass {
         testSteps.reviewAction();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        siteVisitSteps.checkSiteVisitPage();
+        siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

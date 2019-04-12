@@ -3,6 +3,7 @@ package pages;
 
 import exceptions.AutomationException;
 import io.appium.java_client.ios.IOSDriver;
+import net.thucydides.core.webdriver.UnsupportedDriverException;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
 import util.BaseUtils;
@@ -21,9 +22,14 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage) {
 
+
         if (!TestHandler.getInitializedStatus().get()) {
             try {
-                loginPage.waitUsernamePageToLoad();
+                try {
+                    loginPage.waitUsernamePageToLoad();
+                } catch (UnsupportedDriverException e) {
+                    loginPage.waitUsernamePageToLoad();
+                }
                 loginPage.insertUserName(BaseUtils.getUserName());
                 loginPage.clickNext();
                 loginPage.waitPasswordPageToLoad();
@@ -40,20 +46,9 @@ public class LaunchPage extends BasePage {
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 }
 
-
             } catch (TimeoutException e) {
-                throw new AutomationException("User page not visible");
-//                try {
-//                    signaturePage.shortestWaitPageToLoad();
-//                    signaturePage.createSignature();
-//                    signaturePage.clickSaveButton();
-//                    signaturePage.confirmSignature();
-//                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-//                } catch (TimeoutException ex) {
-//
-//                    shortestWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+                throw new AutomationException("Could not get to get started page");
             }
-
 
 
             if (!TestHandler.testTypeEnabledCached().get()) {
@@ -85,7 +80,7 @@ public class LaunchPage extends BasePage {
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 } catch (TimeoutException ex) {
-                    throw new AutomationException("User page not available again");
+                    throw new AutomationException("Could not get to get started page");
 //                    signaturePage.shortestWaitPageToLoad();
 //                    signaturePage.createSignature();
 //                    signaturePage.clickSaveButton();
@@ -95,50 +90,50 @@ public class LaunchPage extends BasePage {
                 }
             }
 
-                if (TestHandler.testTypeEnabledCached().get() && TestHandler.currentCacheDisabled().get()) {
-                    clickToEnableOrDisable();
-                    TestHandler.currentCacheDisabled().set(false);
-                } else if (!TestHandler.testTypeEnabledCached().get() && !TestHandler.currentCacheDisabled().get()) {
-                    clickToEnableOrDisable();
-                    TestHandler.currentCacheDisabled().set(true);
-                }
-
-                findElementById(GET_STARTED_ID).click();
+            if (TestHandler.testTypeEnabledCached().get() && TestHandler.currentCacheDisabled().get()) {
+                clickToEnableOrDisable();
+                TestHandler.currentCacheDisabled().set(false);
+            } else if (!TestHandler.testTypeEnabledCached().get() && !TestHandler.currentCacheDisabled().get()) {
+                clickToEnableOrDisable();
+                TestHandler.currentCacheDisabled().set(true);
             }
+
+            findElementById(GET_STARTED_ID).click();
+        }
 
     }
 
 
-        public void clickToEnableOrDisable () {
+    public void clickToEnableOrDisable() {
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        int initial = 0;
+        while (initial != 5) {
+
+
             try {
-                Thread.sleep(700);
+                Thread.sleep(300);
+                initial++;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            int initial = 0;
-            while (initial != 5) {
-
-
-                try {
-                    Thread.sleep(300);
-                    initial++;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                tapByCoordinates(70, 140);
-            }
+            tapByCoordinates(70, 140);
         }
+    }
 
 
-        public void clickStartButton () {
-            findElementById(GET_STARTED_ID).click();
-        }
+    public void clickStartButton() {
+        findElementById(GET_STARTED_ID).click();
+    }
 
-        public void waitUntilPageIsLoaded () {
-            waitUntilPageIsLoadedById(GET_STARTED_ID);
-        }
+    public void waitUntilPageIsLoaded() {
+        waitUntilPageIsLoadedById(GET_STARTED_ID);
+    }
 
     public boolean checkIfGetStartedButtonIsDisplayed() {
         return findElementByAccessibilityId(GET_STARTED_ID).isDisplayed();
@@ -164,4 +159,4 @@ public class LaunchPage extends BasePage {
         return findElementByAccessibilityId(SUBTITLE_2).isDisplayed();
     }
 
-    }
+}

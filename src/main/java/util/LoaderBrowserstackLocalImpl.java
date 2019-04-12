@@ -48,6 +48,7 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         caps.setCapability("device", properties.getProperty("browserstack.device"));
         caps.setCapability("name", "Local - ");
         caps.setCapability("real_mobile", "true");
+        caps.setCapability("realMobile", "true");
         caps.setCapability("browserstack.local", "false");
         caps.setCapability("browserstack.appium_version", "1.9.1");
         caps.setCapability("browserstack.video", "true");

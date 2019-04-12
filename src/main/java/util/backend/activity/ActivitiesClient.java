@@ -1,7 +1,9 @@
 package util.backend.activity;
 
+import exceptions.AutomationException;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import util.backend.BasePathFilter;
 
 import java.time.LocalDateTime;
@@ -18,6 +20,14 @@ public class ActivitiesClient {
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
             saveUtils();
             response = callPutActivities(id);
+
+            if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+                saveUtils();
+                response = callPutActivities(id);
+            }
+            if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+                throw new AutomationException("User is not configured properly and has invalid bearer token - PUT");
+            }
         }
 
         return response;
@@ -25,13 +35,55 @@ public class ActivitiesClient {
     }
 
 
-    public Response getActivities(String testerStaffId) {
+    public Response getActivitiesToStartTime(String toStartTime) {
 
-        Response response = callGetActivities(testerStaffId);
+        Response response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , toStartTime);
 
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
             saveUtils();
-            response = callGetActivities(testerStaffId);
+            response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , toStartTime);
+
+            if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+                throw new AutomationException("User is not configured properly and has invalid bearer token - GET");
+            }
+        }
+
+        return response;
+
+    }
+
+    public Response getAllActivities() {
+
+        Response response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , null);
+
+        if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+            saveUtils();
+            response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , null);
+
+            if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+                throw new AutomationException("User is not configured properly has invalid bearer token - GET");
+            }
+        }
+
+
+
+        return response;
+
+    }
+
+
+
+    public Response getActivities(String testerStaffId) {
+
+        Response response = callGetActivities(testerStaffId, LocalDateTime.now().minusYears(1).toString() , null);
+
+        if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+            saveUtils();
+            response = callGetActivities(testerStaffId, LocalDateTime.now().minusYears(1).toString() , null);
+
+            if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
+                throw new AutomationException("User is not configured properly has invalid bearer token - GET");
+            }
         }
 
         return response;
@@ -45,6 +97,31 @@ public class ActivitiesClient {
                 .contentType(ContentType.JSON)
                 .pathParam("id", id)
                 .put("/activities/{id}/end");
+
+        return response;
+    }
+
+    private Response callGetActivities(String testerStaffId, String fromStartTime, String toStartTime) {
+
+        RequestSpecification requestSpecification = given().filters(new BasePathFilter())
+                .contentType(ContentType.JSON);
+
+        if (testerStaffId != null) {
+            requestSpecification.queryParam("testerStaffId", testerStaffId);
+        }
+
+        if (fromStartTime != null) {
+            requestSpecification.queryParam("fromStartTime", fromStartTime);
+        }
+
+        if (toStartTime != null) {
+            requestSpecification.queryParam("toStartTime", toStartTime);
+        }
+
+        Response response = requestSpecification
+                .queryParam("activityType", "visit")
+                .get("/activities/details");
+
 
         return response;
     }

@@ -27,6 +27,6 @@ public class Search_CVSB_1896 extends BaseTestClass {
     public void testSearchByLastDigitsVin() {
         vehicleComp.goToIdentifyVehicle();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
-        vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91YHQ");
+        vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91 YHQ");
     }
 }

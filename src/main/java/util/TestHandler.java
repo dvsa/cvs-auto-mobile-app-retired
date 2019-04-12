@@ -9,6 +9,7 @@ public class TestHandler  {
     private static final AtomicBoolean enableFlag = new AtomicBoolean();
     private static final AtomicBoolean currentCacheEnabled = new AtomicBoolean();
 
+
     public static AtomicBoolean getInitializedStatus() {
         return initialized;
     }

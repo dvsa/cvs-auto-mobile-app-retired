@@ -29,6 +29,12 @@ public class SiteVisitSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSiteVisitPageAfterSubmit() {
+        siteVisitPage.waitUntilPageIsLoaded();
+        assertThat(siteVisitPage.isPageTitleWithRetryDisplayed()).isTrue();
+    }
+
+    @Step
     public void checkCancelledTestStatus(String regPlate) {
         assertThat(siteVisitPage.isCanceledTestDisplayed(regPlate)).isTrue();
     }
@@ -58,8 +64,8 @@ public class SiteVisitSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkATFRow(String atfName) {
-        assertThat(siteVisitPage.isAtfRowDisplayed(atfName)).isTrue();
+    public void checkATFRow(String atfName, String atfNumber) {
+        assertThat(siteVisitPage.isAtfRowDisplayed(atfName, atfNumber)).isTrue();
     }
 
     @Step

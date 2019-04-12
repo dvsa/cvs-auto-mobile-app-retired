@@ -33,7 +33,7 @@ public class CaptureTestInformation_CVSB_1569 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.selectVehicleDetails();
-        vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91YHQ");
+        vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91 YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.checkPage();
     }

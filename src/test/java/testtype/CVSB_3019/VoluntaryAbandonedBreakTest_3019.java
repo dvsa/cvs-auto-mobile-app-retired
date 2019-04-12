@@ -65,6 +65,6 @@ public class VoluntaryAbandonedBreakTest_3019 extends BaseTestClass {
         testSteps.reviewAction();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        siteVisitSteps.checkSiteVisitPage();
+        siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

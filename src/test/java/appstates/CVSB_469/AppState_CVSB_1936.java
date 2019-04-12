@@ -52,6 +52,11 @@ public class AppState_CVSB_1936 extends BaseTestClass {
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         commonSteps.getPage().runAppInBackground();
         atfDetailsSteps.startVisit();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         commonSteps.getPage().runAppInBackground();
         siteVisitSteps.createNewTest();
         commonSteps.getPage().runAppInBackground();
