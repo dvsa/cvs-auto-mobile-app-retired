@@ -40,13 +40,17 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         return properties.getProperty("app.password");
     }
 
+    public static String getLocalName() {
+        return properties.getProperty("local.name");
+    }
+
 
     @Override
     public DesiredCapabilities loadCapabilities() {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("os_version", properties.getProperty("browserstack.os.version"));
         caps.setCapability("device", properties.getProperty("browserstack.device"));
-        caps.setCapability("name", "Local - ");
+        caps.setCapability("name", "Local - " + getLocalName());
         caps.setCapability("real_mobile", "true");
         caps.setCapability("realMobile", "true");
         caps.setCapability("browserstack.local", "false");

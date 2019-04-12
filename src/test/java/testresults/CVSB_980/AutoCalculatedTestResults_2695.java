@@ -66,7 +66,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(false);
+        testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
@@ -79,6 +79,11 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("4. Reservoir:");
         defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("Test");
+
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.searchForDefect("59");
+        defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
+        defectItemSteps.selectDefectFromList("4. Reservoir:");
         defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
         defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputBrakeSystemMinorDefect());
         testTypeDetailsSteps.pressSave();
