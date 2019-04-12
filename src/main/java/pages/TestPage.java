@@ -155,7 +155,7 @@ public class TestPage extends BasePage {
         boolean isException = false;
         WebElement removeButton = null;
         try {
-            removeButton = findElementById(REMOVE_ID);
+            removeButton = waitUntilPageIsLoadedById(REMOVE_ID);
         } catch (Exception e) {
             isException = true;
         }

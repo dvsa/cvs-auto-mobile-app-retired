@@ -138,17 +138,7 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean isLoadingIndicatorNotDisplayed() {
-        boolean status = false;
-        int i = 0;
-        while (i <= 5) {
-            try {
-                waitUntilPageIsLoadedByAccessibilityId(LOADING_INDICATOR).isDisplayed();
-                i++;
-            } catch (TimeoutException e) {
-                status = true;
-                break;
-            }
-        }
-        return status;
+        waitUntilNumberOfElementsToBe(By.id(LOADING_INDICATOR), 0);
+        return true;
     }
 }

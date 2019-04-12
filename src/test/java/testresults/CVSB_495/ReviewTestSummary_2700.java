@@ -66,7 +66,7 @@ public class ReviewTestSummary_2700 extends BaseTestClass {
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("Odometer reading");
         testReviewSteps.checkElementIsDisplayed("123 km");
-        testReviewSteps.checkElementIsDisplayed("BQ91YHQ (psv)");
+        testReviewSteps.checkElementIsDisplayed("BQ91YHQ (PSV)");
         testReviewSteps.checkElementIsDisplayed("1B7GG36N12S678410");
     }
 }
