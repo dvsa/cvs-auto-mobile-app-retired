@@ -26,7 +26,7 @@ public class VehicleConfirm_CVSB_723 extends BaseTestClass {
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.checkConfirmationPopUp();
         vehicleDetailsSteps.selectCancelFromPopUp();
-        vehicleDetailsSteps.checkIfStillInDetailPageByPlate("BQ91YHQ");
+        vehicleDetailsSteps.checkIfStillInDetailPageByPlate("BQ91 YHQ");
 
     }
 

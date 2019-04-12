@@ -48,6 +48,7 @@ public class VoluntarySpeedLimiterAbandonedSubmission_3019  extends BaseTestClas
     @Test
     public void submitAbandonedVoluntarySpeedLimiterCheckTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Speed limiter check");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Fail");
@@ -64,6 +65,6 @@ public class VoluntarySpeedLimiterAbandonedSubmission_3019  extends BaseTestClas
         testSteps.reviewAction();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        siteVisitSteps.checkSiteVisitPage();
+        siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

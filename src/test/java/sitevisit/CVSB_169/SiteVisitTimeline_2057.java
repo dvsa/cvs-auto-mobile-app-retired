@@ -23,7 +23,7 @@ public class SiteVisitTimeline_2057 extends BaseTestClass {
     public void testSiteVisitTimelineDetails() {
         siteVisitComp.goToSiteVisit();
         siteVisitSteps.checkSiteVisitPage();
-        siteVisitSteps.checkATFRow(atfService.getAtfByIndex(0).getAtfName());
+        siteVisitSteps.checkATFRow(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber());
         siteVisitSteps.checkDate();
         siteVisitSteps.checkTime();
     }

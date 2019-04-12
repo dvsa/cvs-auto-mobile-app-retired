@@ -100,7 +100,7 @@ public class SelectPreparerPage extends BasePage {
     }
 
     public boolean isCancelOptionDisplayed() {
-        return findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH_2).isDisplayed();
+        return findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH_1).isDisplayed();
     }
 
     public boolean isCancelOptionDisplayedAfterNoPreparerIsSelected() {

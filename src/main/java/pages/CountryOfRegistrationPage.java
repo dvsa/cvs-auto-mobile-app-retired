@@ -50,7 +50,7 @@ public class CountryOfRegistrationPage extends BasePage {
         GBJ("Jersey - GBJ"),
         LV("Latvia - LV"),
         LT("Lithuania - LT"),
-        L("Luxemburg - L"),
+        L("Luxembourg - L"),
         M("Malta - M"),
         NL("Netherlands - NL"),
         N("Norway - N"),
@@ -83,7 +83,7 @@ public class CountryOfRegistrationPage extends BasePage {
         }
 
         List<String> filteredExpectedCountries = expectedCountries.stream()
-                .filter(line -> !"Great Britain and Northern Ireland - GB checkmark".equals(line))
+                .filter(line -> !"Great Britain and Northern Ireland - GB".equals(line))
                 .filter(line -> !"Non EU".equals(line))
                 .filter(line -> !"Country Not Known".equals(line))
                 .collect(Collectors.toList());

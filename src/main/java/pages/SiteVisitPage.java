@@ -1,5 +1,7 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -11,10 +13,10 @@ import java.util.List;
 
 public class SiteVisitPage extends BasePage {
 
-    private static final String PAGE_TITLE = "Site Visit";
+    private static final String PAGE_TITLE = "Site visit";
     private static final String CREATE_TEST_ID = "Create test";
     private static final String END_VISIT_ID = "End visit";
-    private static final String END_VISIT_POP_UP_CONFIRM_ID = "Confirm";
+    private static final String END_VISIT_POP_UP_CONFIRM_ID = "End visit";
     private static final String END_VISIT_POP_UP_CANCEL_ID = "Cancel";
     private static final String BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
@@ -37,17 +39,22 @@ public class SiteVisitPage extends BasePage {
         return findElementById(PAGE_TITLE).isDisplayed();
     }
 
+    public boolean isPageTitleWithRetryDisplayed() {
+        return waitUntilPageIsLoadedById(PAGE_TITLE).isDisplayed();
+    }
+
     public boolean isCanceledTestDisplayed(String registrationPlate) {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + registrationPlate + ") CANCELLED')]").isDisplayed();
     }
 
 
-    public void clickEndVisit(){
+    public void clickEndVisit() {
         findElementByAccessibilityId(END_VISIT_ID).click();
     }
 
     public void clickOk() {
-        waitUntilPageIsLoadedByAccessibilityId(END_VISIT_POP_UP_CONFIRM_ID).click();
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(END_VISIT_POP_UP_CONFIRM_ID), 4);
+        findElementsByAccessibilityId(END_VISIT_POP_UP_CONFIRM_ID).get(2).click();
     }
 
     public boolean isBackButtonAvailable() {
@@ -70,8 +77,8 @@ public class SiteVisitPage extends BasePage {
         return findElementById(END_VISIT_ID).isDisplayed();
     }
 
-    public boolean isAtfRowDisplayed(String atfName) {
-        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + atfName + " Started site visit')]").isDisplayed();
+    public boolean isAtfRowDisplayed(String atfName, String atfNumber) {
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + atfName + " (" + atfNumber + ") Started site visit')]").isDisplayed();
     }
 
     public boolean isCurrentDateDisplayed() {
@@ -82,7 +89,7 @@ public class SiteVisitPage extends BasePage {
         String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(1));
         String clientSystemDateMinusOneDay = dateTimeFormatter.format(((LocalDateTime) date).minusDays(1));
         try {
-           status = findElementByAccessibilityId(clientSystemDate).isDisplayed();
+            status = findElementByAccessibilityId(clientSystemDate).isDisplayed();
         } catch (NoSuchElementException e) {
             try {
                 status = findElementByAccessibilityId(clientSystemDatePlusOneDay).isDisplayed();
@@ -114,9 +121,9 @@ public class SiteVisitPage extends BasePage {
         DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a");
         DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm");
 
-        if (timeString.contains("AM") || timeString.contains("PM")){
-            temporalAccessor  = dateTimeFormatterAmPm.parse(timeString);
-            time =  dateTimeFormatter24.format(temporalAccessor);
+        if (timeString.contains("AM") || timeString.contains("PM")) {
+            temporalAccessor = dateTimeFormatterAmPm.parse(timeString);
+            time = dateTimeFormatter24.format(temporalAccessor);
         } else {
             temporalAccessor = dateTimeFormatter24.parse(timeString);
             time = dateTimeFormatter24.format(temporalAccessor);
@@ -142,11 +149,11 @@ public class SiteVisitPage extends BasePage {
 
     public boolean isEndVisitPopUpDisplayed() {
         boolean status;
-               try {
-                   status = findElementByXpath(END_VISIT_POP_UP_TITLE).isDisplayed() && findElementById(END_VISIT_POP_UP_CONFIRM_ID).isDisplayed();
-               } catch (NoSuchElementException e) {
-                   status = false;
-               }
+        try {
+            status = findElementByXpath(END_VISIT_POP_UP_TITLE).isDisplayed() && findElementsByAccessibilityId(END_VISIT_POP_UP_CONFIRM_ID).get(2).isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
+        }
         return status;
     }
 
@@ -162,7 +169,7 @@ public class SiteVisitPage extends BasePage {
         boolean status = false;
         String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + regPlate + ")')]").getAttribute("name");
         if (visitString.contains(createTestTime + " - " + submitTestTime))
-            for(String value : testTypesWithResults) {
+            for (String value : testTypesWithResults) {
                 status = visitString.contains(value);
                 if (!status) {
                     break;
