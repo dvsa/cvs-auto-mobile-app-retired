@@ -89,13 +89,13 @@ public class SiteVisitPage extends BasePage {
         String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(1));
         String clientSystemDateMinusOneDay = dateTimeFormatter.format(((LocalDateTime) date).minusDays(1));
         try {
-            status = findElementByAccessibilityId(clientSystemDate).isDisplayed();
+            status = findElementByAccessibilityId(clientSystemDate.toUpperCase()).isDisplayed();
         } catch (NoSuchElementException e) {
             try {
-                status = findElementByAccessibilityId(clientSystemDatePlusOneDay).isDisplayed();
+                status = findElementByAccessibilityId(clientSystemDatePlusOneDay.toUpperCase()).isDisplayed();
             } catch (NoSuchElementException e1) {
                 try {
-                    status = findElementByAccessibilityId(clientSystemDateMinusOneDay).isDisplayed();
+                    status = findElementByAccessibilityId(clientSystemDateMinusOneDay.toUpperCase()).isDisplayed();
                 } catch (NoSuchElementException e2) {
                     status = false;
                 }
