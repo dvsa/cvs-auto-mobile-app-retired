@@ -68,8 +68,6 @@ public class SubmitTest_CVSB_3082 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        siteVisitSteps.waitUntilPageIsLoaded();
-        // TODO update message after fix CVSB-3989
         siteVisitSteps.check4SecondToastMessage();
     }
 }

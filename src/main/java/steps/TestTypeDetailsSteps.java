@@ -168,6 +168,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void sendCertificateNumberAndSave(String certificateNumber) {
+        testTypeDetailsPage.sendCertificateNumberAndSave(certificateNumber);
+    }
+
+    @Step
     public void sendCertificateNumber(String certificateNumber) {
         testTypeDetailsPage.sendCertificateNumber(certificateNumber);
     }
@@ -308,7 +313,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkTestTypetRemovalPopUp() {
+    public void checkTestTypeRemovalPopUp() {
         assertThat(testTypeDetailsPage.isTestTypeRemovalPopUpVisible()).isTrue();
     }
 
@@ -392,5 +397,10 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void selectDefectBasedOnDefectDescription(String description) {
         testTypeDetailsPage.tapDefectDescription(description);
+    }
+
+    @Step
+    public void clickOnTitle() {
+        testTypeDetailsPage.tapTitleTwiceToCloseIOSKeyboard();
     }
 }

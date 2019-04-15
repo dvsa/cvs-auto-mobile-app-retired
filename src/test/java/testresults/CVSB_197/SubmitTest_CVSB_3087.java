@@ -68,6 +68,7 @@ public class SubmitTest_CVSB_3087 extends BaseTestClass {
         cancelTestSteps.addReasonForCancellation("Test reason CVSB-197");
         cancelTestSteps.pressSubmit();
         cancelTestSteps.pressSubmitInPopUp();
+        siteVisitSteps.waitUntilPageIsLoaded();
         siteVisitSteps.checkVisitResults("BQ91 YHQ", "CANCELLED");
 
     }

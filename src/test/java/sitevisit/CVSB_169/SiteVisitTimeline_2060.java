@@ -35,7 +35,7 @@ public class SiteVisitTimeline_2060 extends BaseTestClass {
         cancelTestSteps.pressSubmit();
         cancelTestSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPage();
-        siteVisitSteps.checkCancelledTestStatus("BQ91YHQ");
+        siteVisitSteps.checkCancelledTestStatus("BQ91 YHQ");
 
     }
 }

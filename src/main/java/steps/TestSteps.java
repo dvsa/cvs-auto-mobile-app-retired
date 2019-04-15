@@ -69,7 +69,6 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkTestTypeRemovalPopUp() {
-        testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isRemovePopUpDisplayed()).isTrue();
     }
 

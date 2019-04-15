@@ -53,6 +53,7 @@ public class LECAbandonedTestTypeSubmission_3019  extends BaseTestClass {
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Fail");
         testTypeDetailsSteps.sendCertificateNumber("12345567");
+        testTypeDetailsSteps.clickOnTitle();
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_1);
         selectReasonSteps.pressNextButton();

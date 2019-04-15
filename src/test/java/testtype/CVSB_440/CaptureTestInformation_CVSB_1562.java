@@ -3,6 +3,7 @@ package testtype.CVSB_440;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestHistoryDetailsSteps;
@@ -28,6 +29,7 @@ public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
 
 
     @Title("CVSB-440 - AC7 -  Going back from a test type")
+    @Ignore("To be continued when CVSB-3684 will be completed")
     @Test
     public void testGoBackFromTestTypeDetails() {
         vehicleComp.goToVehicleDetails();

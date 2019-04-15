@@ -78,6 +78,6 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.waitUntilPageIsLoaded();
-        siteVisitSteps.checkVisitResults("BQ91YHQ", "Annual test", "PASS", "Voluntary test", "ABANDONED");
+        siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS", "Voluntary test", "ABANDONED");
     }
 }
