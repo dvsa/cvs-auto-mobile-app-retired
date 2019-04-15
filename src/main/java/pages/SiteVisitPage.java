@@ -166,7 +166,6 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isSubmittedSiteVisitDisplayed(String regPlate, String... testTypesWithResults) {
-        System.out.println("CEASU E: " + createTestTime + " " + submitTestTime);
         boolean status = false;
         String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + regPlate + ")')]").getAttribute("name");
         if (visitString.contains(createTestTime + " - " + submitTestTime))

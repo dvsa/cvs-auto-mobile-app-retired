@@ -62,7 +62,6 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
         testSteps.reviewAction();
         testReviewSteps.changeDetails();
         testTypeDetailsSteps.sendCertificateNumber("");
-        testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS);
         testReviewSteps.changeDetailsIsNotDisplayed();
