@@ -28,6 +28,6 @@ public class DefectRemove_CVSB_2575 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
-        testTypeDetailsSteps.checkTestTypetRemovalPopUp();
+        testTypeDetailsSteps.checkTestTypeRemovalPopUp();
     }
 }

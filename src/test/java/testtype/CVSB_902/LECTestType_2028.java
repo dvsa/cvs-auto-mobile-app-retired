@@ -35,6 +35,6 @@ public class LECTestType_2028 extends BaseTestClass {
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.checkCertificateSection(true);
-        testTypeDetailsSteps.sendCertificateNumber("12345567");
+        testTypeDetailsSteps.sendCertificateNumberAndSave("12345567");
     }
 }

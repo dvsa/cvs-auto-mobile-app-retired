@@ -45,7 +45,7 @@ public class LECPassedTestTypeSubmission_3019 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("LEC");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
-        testTypeDetailsSteps.sendCertificateNumber("12345567");
+        testTypeDetailsSteps.sendCertificateNumberAndSave("12345567");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();

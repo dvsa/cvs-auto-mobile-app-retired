@@ -40,7 +40,6 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
     @Title("CVSB-495 - AC6 - Deleting a required field in the test type result and going back to the test review screen")
     @Test
     public void deleteARequiredFieldFromTestType() {
-        //TODO rerun after the view does not overlay the save button
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -57,11 +56,11 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.checkCertificateSection(true);
-        testTypeDetailsSteps.sendCertificateNumber("1");
+        testTypeDetailsSteps.sendCertificateNumberAndSave("1");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.EDIT);
         testSteps.reviewAction();
         testReviewSteps.changeDetails();
-        testTypeDetailsSteps.sendCertificateNumber("");
+        testTypeDetailsSteps.sendCertificateNumberAndSave("");
         testSteps.checkPageTitleDisplayed();
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS);
         testReviewSteps.changeDetailsIsNotDisplayed();

@@ -377,11 +377,15 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementById(CERTIFICATE_NUMBER_LABEL_ID).isDisplayed();
     }
 
+    public void sendCertificateNumberAndSave(String certificateNumber) {
+        sendCertificateNumber(certificateNumber);
+        clickSaveButton();
+    }
+
     public void sendCertificateNumber(String certificateNumber) {
         WebElement inputField = findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH);
         inputField.clear();
         inputField.sendKeys(certificateNumber);
-        clickSaveButton();
     }
 
     public String getCertificateNumber() {
