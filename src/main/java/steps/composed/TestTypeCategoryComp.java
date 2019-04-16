@@ -64,4 +64,10 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         goToTestType(preparerId, preparerName);
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
     }
+
+    @Step()
+    public void completeAddTestType(String preparerId, String preparerName,String testType) {
+        goToTestType(preparerId, preparerName);
+        testTypeCategorySteps.selectFromTestTypeList(testType);
+    }
 }

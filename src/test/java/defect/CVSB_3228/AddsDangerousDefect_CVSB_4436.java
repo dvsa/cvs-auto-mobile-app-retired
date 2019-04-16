@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class AddsDangerousDefect_CVSB_4407 extends BaseTestClass{
+public class AddsDangerousDefect_CVSB_4436 extends BaseTestClass{
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -34,13 +34,18 @@ public class AddsDangerousDefect_CVSB_4407 extends BaseTestClass{
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
 
-    @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (annual test)")
+    @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (Retest)")
     @Test
     public void addsADangerousDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.selectAddDefect("Annual test");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
+                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("59");
         defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
         defectItemSteps.selectDefectFromList("2. Brake pipes and flexible hoses");
