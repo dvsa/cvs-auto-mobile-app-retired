@@ -138,4 +138,14 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
         return map;
     }
+
+    @Step
+    public void checkPRSOptionIsNotDisplayed() {
+        assertThat(defectDetailsPage.checkPRSOptionIsDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkPRSOptionIsDisplayed() {
+        assertThat(defectDetailsPage.checkPRSOptionIsDisplayed()).isTrue();
+    }
 }

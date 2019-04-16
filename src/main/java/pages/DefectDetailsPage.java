@@ -179,4 +179,12 @@ public class DefectDetailsPage extends BasePage {
             it.remove();
         }
     }
+
+    public boolean checkPRSOptionIsDisplayed() {
+        try {
+           return findElementById(PRS_ENABLE).isDisplayed();
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
 }
