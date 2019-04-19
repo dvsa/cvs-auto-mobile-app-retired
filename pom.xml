@@ -79,8 +79,8 @@
                         <version>2.22.1</version>
                         <configuration>
                             <includes>
-                                <!--<include>**/*.java</include>-->
                                 <include>**/*.java</include>
+                                <!--<include>**/AtfSelect_CVSB_678*.java</include>-->
                             </includes>
                             <!--<threadCount>5</threadCount>-->
                             <!--<forkCount>5</forkCount>-->
@@ -91,6 +91,7 @@
                                 <exclude>**/SubmitTest_CVSB_3085*.java</exclude>
                                 <exclude>**/SubmitTest_CVSB_3086*.java</exclude>
                             </excludes>
+                            <testFailureIgnore>true</testFailureIgnore>
                             <systemPropertyVariables>
                                 <environment>CI</environment>
                             </systemPropertyVariables>
