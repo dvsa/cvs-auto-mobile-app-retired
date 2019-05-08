@@ -1,34 +1,35 @@
-package vehicle.CVSB_181;
+package vehicle.CVSB_438;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.SelectPreparerSteps;
+import steps.PreparerSteps;
 import steps.TestSteps;
 import steps.composed.PreparerComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class PreparerInformation_CVSB_1012 extends BaseTestClass {
-
+public class Preparer_4805 extends BaseTestClass {
     @Steps
     PreparerComp preparerComp;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
     @Steps
     TestSteps testSteps;
 
-    @Title("CVSB_181 - AC4 Confirm no preparer information given")
-    @Ignore("This is not a valid test case anymore due to CVSB-438")
+    @Title("CVSB_438 - AC 1 VSA searches for preparer ID")
     @Test
-    public void confirmNoPreparerInformationGiven() {
+    public void cancelInPreparerNotFoundPopUp() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.advanceWithNoPreparerInformation();
+        preparerSteps.checkPageTitleIsDisplayed();
+        preparerSteps.searchForPreparerId("Durrell");
+        preparerSteps.noPreparerFound();
+        preparerSteps.continueInPopUp();
         testSteps.checkPageTitleDisplayed();
+
     }
 }
