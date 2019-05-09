@@ -36,7 +36,7 @@ public class AppState_CVSB_1939  extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
     @Steps
     TestSteps testSteps;
@@ -68,7 +68,7 @@ public class AppState_CVSB_1939  extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
         testSteps.waitUntilPageIsLoaded();
         commonSteps.getPage().closeAndLaunchApp();
         testSteps.addTestType();

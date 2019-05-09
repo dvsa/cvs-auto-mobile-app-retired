@@ -1,4 +1,4 @@
-package testtype.CVSB_370;
+package vehicle.CVSB_438;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -6,14 +6,12 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.PreparerSteps;
-import steps.SelectPreparerSteps;
 import steps.TestSteps;
 import steps.composed.PreparerComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class TestTypeAdd_CVSB_765 extends BaseTestClass {
-
+public class Preparer_4805 extends BaseTestClass {
     @Steps
     PreparerComp preparerComp;
 
@@ -23,15 +21,15 @@ public class TestTypeAdd_CVSB_765 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
-
-    @Title("CVSB-370 - AC1 'Add a test type' option")
+    @Title("CVSB_438 - AC 1 VSA searches for preparer ID")
     @Test
-    public void testTestTypeOption() {
+    public void cancelInPreparerNotFoundPopUp() {
         preparerComp.goToSelectPreparer();
-        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
-        testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
-        testSteps.checkAddATestTypeButtonVisibility();
+        preparerSteps.checkPageTitleIsDisplayed();
+        preparerSteps.searchForPreparerId("Durrell");
+        preparerSteps.noPreparerFound();
+        preparerSteps.continueInPopUp();
+        testSteps.checkPageTitleDisplayed();
 
     }
-
 }

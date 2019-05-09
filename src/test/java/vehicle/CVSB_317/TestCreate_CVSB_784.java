@@ -5,10 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import steps.IdentifyVehicleSteps;
-import steps.SelectPreparerSteps;
-import steps.SiteVisitSteps;
-import steps.VehicleDetailsSteps;
+import steps.*;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
@@ -27,7 +24,7 @@ public class TestCreate_CVSB_784 extends BaseTestClass {
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
     @Title("CVSB-317 - AC1 - Create a test")
     @Test()
@@ -37,7 +34,7 @@ public class TestCreate_CVSB_784 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        selectPreparerSteps.checkPageTitle();
+        preparerSteps.checkPageTitleIsDisplayed();
     }
 
 }

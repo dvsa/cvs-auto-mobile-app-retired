@@ -3,6 +3,7 @@ package vehicle.CVSB_181;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.SelectPreparerSteps;
@@ -19,6 +20,7 @@ public class PreparerInformation_CVSB_1135 extends BaseTestClass {
     SelectPreparerSteps selectPreparerSteps;
 
     @Title("CVSB_181 - AC9 Select preparer")
+    @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Test
     public void selectPreparer() {
         preparerComp.goToSelectPreparer();

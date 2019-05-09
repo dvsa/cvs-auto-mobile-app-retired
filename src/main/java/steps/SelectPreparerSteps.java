@@ -12,6 +12,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     SelectPreparerPage selectPreparerPage;
 
     @Step
+    @Deprecated
     public void selectPreparerAndConfirm(String id, String name) {
         selectPreparerPage.waitUntilPageIsLoaded();
         selectPreparerPage.selectPreparer(id, name);
@@ -19,6 +20,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void selectPreparerAndCancel(String id, String name) {
         selectPreparerPage.waitUntilPageIsLoaded();
         selectPreparerPage.selectPreparer(id, name);
@@ -27,6 +29,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void checkPreparerPopUp(String id, String name){
         selectPreparerPage.waitUntilPageIsLoaded();
         selectPreparerPage.selectPreparer(id, name);
@@ -35,18 +38,21 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void checkPageTitle() {
         selectPreparerPage.waitUntilPageIsLoaded();
         assertThat(selectPreparerPage.isTitleDisplayed()).isTrue();
     }
 
     @Step
+    @Deprecated
     public void tapVehicleDetails() {
         selectPreparerPage.waitUntilPageIsLoaded();
         selectPreparerPage.clickBackButton();
     }
 
     @Step
+    @Deprecated
     public void checkPreparerPageIsScrollable(String id, String name) {
         selectPreparerPage.waitUntilPageIsLoaded();
         int oldYPosition = selectPreparerPage.getYPositionForPreparer(id, name);
@@ -56,6 +62,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void searchForPreparerIdAndCancel(String input, String id, String name) {
         selectPreparerPage.searchForPreparerId(input);
         List idListDisplayed = selectPreparerPage.retrievePreparerIdList();
@@ -64,6 +71,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void searchForInvalidPreparerId(String input, String id, String name) {
         selectPreparerPage.searchForPreparerId(input);
         List idListDisplayed = selectPreparerPage.retrievePreparerIdList();
@@ -74,12 +82,14 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void advanceUsingWithoutPreparerLink() {
         selectPreparerPage.clickWithoutPreparerIdLink();
         selectPreparerPage.confirm();
     }
 
     @Step
+    @Deprecated
     public void cancelAdvanceUsingWithoutPreparerLink() {
         selectPreparerPage.clickWithoutPreparerIdLink();
         selectPreparerPage.cancel();
@@ -89,6 +99,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void checkPopUPOptionsArePresent() {
         selectPreparerPage.clickWithoutPreparerIdLink();
         assertThat(selectPreparerPage.isConfirmOptionDisplayed()).isTrue();
@@ -96,6 +107,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void advanceWithNoPreparerInformation() {
         selectPreparerPage.clickNoPreparerIdOption();
         assertThat(selectPreparerPage.isCancelOptionDisplayedAfterNoPreparerIsSelected()).isTrue();
@@ -103,6 +115,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void cancelAdvanceWithoutPreparerInformation() {
         selectPreparerPage.clickNoPreparerIdOption();
         assertThat(selectPreparerPage.isConfirmOptionDisplayed()).isTrue();
@@ -111,6 +124,7 @@ public class SelectPreparerSteps extends ScenarioSteps {
     }
 
     @Step
+    @Deprecated
     public void noPreparerInformationGiven() {
         selectPreparerPage.clickNoPreparerIdOption();
         selectPreparerPage.isWarningForMissingPreparerDisplayed();

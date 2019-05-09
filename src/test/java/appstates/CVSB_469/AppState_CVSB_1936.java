@@ -34,13 +34,13 @@ public class AppState_CVSB_1936 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
-
-    @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
     TestSteps testSteps;
+
+    @Steps
+    PreparerSteps preparerSteps;
 
 
 
@@ -67,7 +67,7 @@ public class AppState_CVSB_1936 extends BaseTestClass {
         commonSteps.getPage().runAppInBackground();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         commonSteps.getPage().runAppInBackground();
-        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
         commonSteps.getPage().runAppInBackground();
         testSteps.addTestType();
         commonSteps.getPage().runAppInBackground();
