@@ -29,6 +29,6 @@ public class AdvisoryDetailsPage extends BasePage {
     }
 
     public String getCurrentNote() {
-        return findElementByXpath(ADD_NOTES_TEXT_FIELD_ID).getAttribute("value");
+        return findElementByAccessibilityId(ADD_NOTES_TEXT_FIELD_ID).getAttribute("value");
     }
 }
