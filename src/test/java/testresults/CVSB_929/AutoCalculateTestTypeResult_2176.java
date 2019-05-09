@@ -87,6 +87,7 @@ public class AutoCalculateTestTypeResult_2176 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (a) MAJOR");
+        defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
@@ -98,6 +99,6 @@ public class AutoCalculateTestTypeResult_2176 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Test 1234");
         testReviewSteps.checkElementIsDisplayed("1.2 ADVISORY");
-        testReviewSteps.checkElementIsDisplayed("8.1 (a) MAJOR");
+        testReviewSteps.checkElementIsDisplayed("8.1 (a) MAJOR PRS");
     }
 }
