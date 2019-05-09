@@ -113,7 +113,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void verifyMostRecentInstallationCheckDateIsEdited() {
-        assertThat(testTypeDetailsPage.verifyMostRecentInstallationDate()).isFalse();
+        assertThat(testTypeDetailsPage.verifyMostRecentInstallationDate()).isTrue();
     }
 
     @Step
