@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import steps.PreparerSteps;
 import steps.SelectPreparerSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
@@ -20,7 +21,7 @@ public class VehicleConfirm_CVSB_722 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
 
     @Title("CVSB-182 - AC2 VSA further confirms")
@@ -30,8 +31,6 @@ public class VehicleConfirm_CVSB_722 extends BaseTestClass {
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.checkConfirmationPopUp();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        selectPreparerSteps.checkPageTitle();
-
+        preparerSteps.checkPageTitleIsDisplayed();
     }
-
 }

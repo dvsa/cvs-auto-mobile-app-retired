@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
+import steps.PreparerSteps;
 import steps.SelectPreparerSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.PreparerComp;
@@ -24,14 +25,14 @@ public class VehicleChange_CVSB_754 extends BaseTestClass {
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
 
     @Title("CVSB-365 - AC2 - Change a vehicle after confirming vehicle details")
     @Test()
     public void testChangeAVehicleAfterConfirmVehicleDetails() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.tapVehicleDetails();
+        preparerSteps.goBackToVehicleDetailsPage();
         vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.waitUntilPageIsLoaded();

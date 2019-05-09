@@ -69,6 +69,6 @@ public class PreparerSteps extends ScenarioSteps {
     @Step
     public void selectAndConfirmPreparerId(String preparerId) {
         searchForPreparerId(preparerId);
-        preparerPage.continuePopUpOption();
+        preparerPage.confirmPopUpOption();
     }
 }

@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import steps.PreparerSteps;
 import steps.SelectPreparerSteps;
 import steps.TestSteps;
 import steps.composed.PreparerComp;
@@ -20,14 +21,14 @@ public class VehicleChange_CVSB_755 extends BaseTestClass {
     TestSteps testSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
 
     @Title("CVSB-365 - AC3 - Change a vehicle after selecting a preparer")
     @Test()
     public void testChangeAVehicleAfterSelectingAPreparer() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
         testSteps.checkNoIdentifyVehicleOptionAvailable();
     }
 

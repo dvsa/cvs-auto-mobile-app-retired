@@ -5,6 +5,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import steps.PreparerSteps;
 import steps.SelectPreparerSteps;
 import steps.TestSteps;
 import steps.composed.PreparerComp;
@@ -17,7 +18,7 @@ public class TestTypeAdd_CVSB_765 extends BaseTestClass {
     PreparerComp preparerComp;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
+    PreparerSteps preparerSteps;
 
     @Steps
     TestSteps testSteps;
@@ -27,7 +28,7 @@ public class TestTypeAdd_CVSB_765 extends BaseTestClass {
     @Test
     public void testTestTypeOption() {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndConfirm(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
         testSteps.checkAddATestTypeButtonVisibility();
 

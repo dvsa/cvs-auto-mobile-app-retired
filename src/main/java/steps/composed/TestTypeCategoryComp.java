@@ -26,19 +26,16 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Steps
-    SelectPreparerSteps selectPreparerSteps;
-
-    @Steps
     TestTypeCategorySteps testTypeCategorySteps;
-
-    @Steps
-    TestTypeSubcategorySteps testTypeSubcategorySteps;
 
     @Steps
     TestSteps testSteps;
 
     @Steps
     PreparerComp preparerComp;
+
+    @Steps
+    PreparerSteps preparerSteps;
 
     @Step
     public void goToTestType(String preparerId, String preparerName) {
@@ -49,14 +46,14 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
-        selectPreparerSteps.selectPreparerAndConfirm(preparerId, preparerName);
+        preparerSteps.selectAndConfirmPreparerId(preparerId);
         testSteps.addTestType();
     }
 
     @Step
     public void goToTestPage(String preparerId, String preparerName) {
         preparerComp.goToSelectPreparer();
-        selectPreparerSteps.selectPreparerAndConfirm(preparerId, preparerName);
+        preparerSteps.selectAndConfirmPreparerId(preparerId);
     }
 
     @Step()
