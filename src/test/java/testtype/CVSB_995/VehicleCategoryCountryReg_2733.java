@@ -27,7 +27,7 @@ public class VehicleCategoryCountryReg_2733 extends BaseTestClass {
     public void addingCountryOfRegistrationAfterListIsFiltered() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.checkListIsFilteredByCriteria("Sw");
+        countryOfRegistrationSteps.checkListIsFilteredByCriteria("Swed");
         countryOfRegistrationSteps.optionsRemainAtBottomAndTop("OrTuga");
     }
 }

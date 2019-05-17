@@ -3,6 +3,7 @@ package testresults.CVSB_929;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -54,6 +55,7 @@ public class AutoCalculateTestTypeResult_2174 extends BaseTestClass {
 
     @Title("CVSB-929 - Pass test result - Minor defect PRS + Advisory")
     @Test
+    @Ignore("Deprecated due to CVSB-972 and CVSB-3228")
     public void testPassResultMinorDefectPRSAndAdvisory() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();

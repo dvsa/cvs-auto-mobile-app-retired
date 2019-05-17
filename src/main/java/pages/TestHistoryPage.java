@@ -1,5 +1,9 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
 public class TestHistoryPage extends BasePage {
     private static final String TEST_HISTORY_PAGE_TITLE = "Test history";
     private static final String BACK_BUTTON_ID = "arrow back Vehicle details";
@@ -32,4 +36,14 @@ public class TestHistoryPage extends BasePage {
         findElementByXpath("//XCUIElementTypeButton[contains(@name, '" + testTypeRecord + "')]").click();
     }
 
+    public void clickLastTestByTestResult(String testResult) {
+        List<WebElement> testResultList = findElementsByXpath("//XCUIElementTypeButton[contains(@name, '" + testResult + "')]");
+        testResultList.get(0).click();
+    }
+
+    public void clickLastTestByTestType(String testType) {
+        List<WebElement> testResultList = findElementsByXpath("//XCUIElementTypeButton[contains(@name, '" + testType + "')]");
+        testResultList.get(0).click();
+
+    }
 }

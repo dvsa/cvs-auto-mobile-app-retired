@@ -103,7 +103,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void enablePRS() {
-        tap(findElementByXpath("(//*[@label='" + PRS_ENABLE + "'])[2]"));
+        tap(findElementByXpath("//XCUIElementTypeSwitch[@name=\"Defect repaired during test\"]"));
     }
 
     public int getPRSElementNumber() {
