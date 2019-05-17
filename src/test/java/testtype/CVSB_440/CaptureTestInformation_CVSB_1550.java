@@ -18,13 +18,10 @@ public class CaptureTestInformation_CVSB_1550 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-
     @Title("CVSB-440 - AC2 - VSA views the test history section from vehicle search")
     @Test
     public void testVsaViewsTheTestHistorySectionFromVehicleSearch() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.checkVehicleTestHistory();
-
     }
-
 }

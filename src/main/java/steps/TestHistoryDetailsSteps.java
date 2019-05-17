@@ -38,10 +38,40 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkThatThereAreNoEditableFields(String... names) {
-        for (String name : names) {
-            assertThat(testHistoryDetailsPage.isFieldEditableByXPathName(name)).isFalse();
+    public void checkElementIsPresent(String element) {
+        assertThat(testHistoryDetailsPage.checkElementIsPresent(element)).isTrue();
+    }
+
+    @Step
+    public void checkDate() {
+        assertThat(testHistoryDetailsPage.checkIsValidDateFormat()).isTrue();
+    }
+
+    @Step
+    public void checkTime() {
+        assertThat(testHistoryDetailsPage.checkIsValidTimeFormat()).isTrue();
+    }
+
+    @Step
+    public void checkStatusAndExpireyDateForHistoryDisplayedElements() {
+        assertThat(testHistoryDetailsPage.checkAllElementsHaveStatusAndExpiryDate()).isTrue();
+    }
+
+    @Step
+    public void checkAllElementsAreNoteditable() {
+        assertThat(testHistoryDetailsPage.checkAllElementsAreNoteditable()).isFalse();
+    }
+
+    @Step
+    public void checkElementValueIsDisplayed(String... values) {
+        for (String s : values) {
+            assertThat(testHistoryDetailsPage.elementIsDisplayed(s)).isTrue();
         }
+    }
+
+    @Step
+    public void scroll() {
+        testHistoryDetailsPage.scroll();
     }
 
 }

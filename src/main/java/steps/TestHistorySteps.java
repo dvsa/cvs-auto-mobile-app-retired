@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestHistoryPage;
 
@@ -34,5 +35,15 @@ public class TestHistorySteps extends ScenarioSteps {
     @Step
     public void selectTestTypeRecord(String testTypeRecord) {
         testHistoryPage.clickOnTestTypeRecord(testTypeRecord);
+    }
+
+    @Step
+    public void clickLastTestByTestResult(String testResult) {
+        testHistoryPage.clickLastTestByTestResult(testResult);
+    }
+
+    @Step
+    public void clickLastTestByTestType(String testResult) {
+        testHistoryPage.clickLastTestByTestType(testResult);
     }
 }

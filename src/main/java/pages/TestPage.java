@@ -1,11 +1,8 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -163,7 +160,7 @@ public class TestPage extends BasePage {
         if (!isException) {
             WebElement description = findElementById(DESCRIPTION_ID);
             WebElement title = findElementById(TITLE_ID);
-            WebElement cancelButton =findElementById(CANCEL_ID);
+            WebElement cancelButton = findElementById(CANCEL_ID);
             if (removeButton.isDisplayed() && description.isDisplayed() && title.isDisplayed() && cancelButton.isDisplayed()) {
                 status = true;
             }
@@ -254,7 +251,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean checkEUVehicleCategoryOptionIsDisplayed() {
-       return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'EU vehicle category')]").isDisplayed();
+        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'EU vehicle category')]").isDisplayed();
     }
 
     public boolean checkMCategoryIsSelected(String category) {
@@ -277,7 +274,8 @@ public class TestPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Country of registration " + countryOfRegistration + "')]").isDisplayed();
     }
 
-    public void clickReviewButton(){
+    public void clickReviewButton() {
         findElementById(REVIEW_BUTTON_ID).click();
+        scroll(200, 700, 200, 300);
     }
 }
