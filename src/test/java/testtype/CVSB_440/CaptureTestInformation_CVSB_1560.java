@@ -88,7 +88,7 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("5.7 MAJOR");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.createNewTest();

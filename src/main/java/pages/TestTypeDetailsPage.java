@@ -322,7 +322,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void scrollOneYear() {
-        scroll(243, 594, 243, 580);
+        scroll(243, 594, 243, 585);
     }
 
     public void clickSave() {

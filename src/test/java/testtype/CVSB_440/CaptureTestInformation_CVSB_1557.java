@@ -69,7 +69,7 @@ public class CaptureTestInformation_CVSB_1557 extends BaseTestClass {
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.sendCertificateNumber("12345");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.createNewTest();

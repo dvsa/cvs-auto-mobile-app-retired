@@ -136,7 +136,7 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void clickConfirm() {
         testPage.waitUntilPageIsLoaded();
-        testPage.clickReviewButton();
+        testPage.clickReviewButtonAndScroll();
     }
 
     @Step
@@ -212,7 +212,12 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void reviewAction() {
+    public void reviewActionAndScroll() {
+        testPage.clickReviewButtonAndScroll();
+    }
+
+    @Step
+    public void reviewAction(){
         testPage.clickReviewButton();
     }
 }

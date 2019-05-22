@@ -274,8 +274,12 @@ public class TestPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Country of registration " + countryOfRegistration + "')]").isDisplayed();
     }
 
-    public void clickReviewButton() {
+    public void clickReviewButtonAndScroll() {
         findElementById(REVIEW_BUTTON_ID).click();
         scroll(200, 700, 200, 300);
+    }
+
+    public void clickReviewButton() {
+        findElementById(REVIEW_BUTTON_ID).click();
     }
 }
