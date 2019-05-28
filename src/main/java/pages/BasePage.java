@@ -56,7 +56,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
-        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200);
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 30, 200);
     }
 
 
@@ -84,7 +84,7 @@ public class BasePage extends PageObject {
     }
 
     protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
-        FluentWait wait = globalFluentWait(20, 200);
+        FluentWait wait = globalFluentWait(30, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
     }
 
