@@ -56,7 +56,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
-        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 20, 200);
+        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 30, 200);
     }
 
 
