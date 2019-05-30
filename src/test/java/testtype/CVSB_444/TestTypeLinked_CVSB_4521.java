@@ -27,7 +27,8 @@ public class TestTypeLinked_CVSB_4521 extends BaseTestClass {
     public void testListFromAddLinkedTestType() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
-        testTypeCategorySteps.selectFromTestTypeList("Full Inspection/ Full Fee - with Certificate");
+        testTypeCategorySteps.selectFromTestTypeList("Full Inspection/ Full Fee");
+        testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes( "Technical test");
     }
