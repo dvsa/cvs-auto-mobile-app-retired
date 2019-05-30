@@ -25,7 +25,6 @@ public class TestTypeCategorySteps extends ScenarioSteps {
 
     @Step
     public void checkTestTypeListHasOnlySomeTestTypes(String...testTypes) {
-        testTypeCategoryPage.waitUntilPageIsLoaded();
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
         assertThat(actualData.size() == testTypes.length);
         for (String test_type : testTypes) {

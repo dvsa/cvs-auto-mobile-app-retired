@@ -29,7 +29,7 @@ public class TestTypeLinked_CVSB_4527 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Brake Test");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Voluntary Headlamp Test",
-                "Voluntary Smoke Test", "Voluntary Multi-Check Test", "Voluntary Speed Limiter Check");
+        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Headlamp aim test",
+                "Smoke Test", "Multi - check", "Speed limiter check");
     }
 }
