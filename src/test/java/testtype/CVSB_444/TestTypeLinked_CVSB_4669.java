@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class TestTypeLinked_CVSB_4520 extends BaseTestClass {
+public class TestTypeLinked_CVSB_4669 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -22,11 +22,12 @@ public class TestTypeLinked_CVSB_4520 extends BaseTestClass {
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
-    @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Annual Class 6A)")
     @Test
+    @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Part Paid Retest Any PSV)")
     public void testListFromAddLinkedTestType() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Class 6A");
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Part Paid");
+        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");

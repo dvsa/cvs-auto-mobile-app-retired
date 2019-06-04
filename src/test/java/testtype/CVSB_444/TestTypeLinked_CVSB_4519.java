@@ -28,5 +28,6 @@ public class TestTypeLinked_CVSB_4519 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes( "Technical test");
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
     }
 }

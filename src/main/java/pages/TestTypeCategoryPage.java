@@ -34,6 +34,11 @@ public class TestTypeCategoryPage extends BasePage {
         return listOfData;
     }
 
+    public List<WebElement> findAllTestTypesWebElements() {
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
+        return webElementList;
+    }
+
     public void selectTestTypeFromListByXpath(String testType) {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         for (WebElement webElement : webElementList) {

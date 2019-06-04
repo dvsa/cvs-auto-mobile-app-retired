@@ -33,6 +33,11 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkThatTestTypeListIsEmpty(){
+        assertThat(testTypeCategoryPage.findAllTestTypesWebElements().size() == 0);
+    }
+
+    @Step
     public void checkTestTypePage() {
         assertThat(testTypeCategoryPage.isPageTitleDisplayed()).isTrue();
     }
