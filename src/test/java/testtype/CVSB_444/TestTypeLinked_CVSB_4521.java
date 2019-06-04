@@ -30,6 +30,7 @@ public class TestTypeLinked_CVSB_4521 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Full Inspection/ Full Fee");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes( "Technical test");
+        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Technical test");
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
     }
 }

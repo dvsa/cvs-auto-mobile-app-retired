@@ -29,6 +29,7 @@ public class TestTypeLinked_CVSB_4523 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes( "Technical test");
+        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Technical test");
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
     }
 }
