@@ -28,7 +28,7 @@ public class TestTypeLinked_CVSB_4683 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Annual test",
+        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Test type","Annual test",
                 "Class 6A", "Retest", "Prohibition Clearance", "Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("LEC");
