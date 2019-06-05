@@ -3,6 +3,7 @@ package testtype.CVSB_437;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestSteps;
@@ -22,6 +23,7 @@ public class TestTypeLinked_CVSB_773 extends BaseTestClass {
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
+    @Ignore("Invalid due to CVSB-444")
     @Title("CVSB-437 - AC1 List of test types for the 'Add a linked test' option")
     @Test
     public void testListFromAddLinkedTestType() {
