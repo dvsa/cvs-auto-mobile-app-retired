@@ -90,6 +90,8 @@
                                 <exclude>**/SubmitTest_CVSB_3084*.java</exclude>
                                 <exclude>**/SubmitTest_CVSB_3085*.java</exclude>
                                 <exclude>**/SubmitTest_CVSB_3086*.java</exclude>
+                                <exclude>**/VehicleSearch_1*.java</exclude>
+                                <exclude>**/SubmitTest_1*.java</exclude>
                             </excludes>
                             <testFailureIgnore>true</testFailureIgnore>
                             <systemPropertyVariables>
