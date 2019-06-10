@@ -25,9 +25,6 @@ public class SubmitTest_1 extends BaseTestClass {
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
-
-    @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps
@@ -50,21 +47,18 @@ public class SubmitTest_1 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("BQ91YHQ");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectACountry("Norway");
-        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("123");
-        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.typeInField("1");
+        odometerReadingSteps.checkReadingValue("1");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("1");
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();
