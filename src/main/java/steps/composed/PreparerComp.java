@@ -35,4 +35,15 @@ public class PreparerComp extends ScenarioSteps {
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
     }
+
+    @Step
+    public void goToSelectPreparerForASpecificVehicle(String vin) {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle(vin);
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+    }
 }

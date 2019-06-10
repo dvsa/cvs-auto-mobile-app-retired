@@ -56,6 +56,11 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         preparerSteps.selectAndConfirmPreparerId(preparerId);
     }
 
+    @Step
+    public void goToTestPageBySelectingASpecificVehicle(String vin) {
+        preparerComp.goToSelectPreparerForASpecificVehicle(vin);
+    }
+
     @Step()
     public void completeAddTestType(String preparerId, String preparerName) {
         goToTestType(preparerId, preparerName);
