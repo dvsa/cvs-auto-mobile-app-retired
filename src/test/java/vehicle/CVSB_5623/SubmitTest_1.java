@@ -1,7 +1,10 @@
 package vehicle.CVSB_5623;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.Qualifier;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -9,8 +12,20 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value = "test-data/vin.csv")
 public class SubmitTest_1 extends BaseTestClass {
+
+    private String searchVin;
+
+    public void setSearchVin(String searchVin) {
+        this.searchVin = searchVin;
+    }
+
+    @Qualifier
+    public String qualifier() {
+        return searchVin;
+    }
 
     @Steps
     TestSteps testSteps;
@@ -44,7 +59,7 @@ public class SubmitTest_1 extends BaseTestClass {
 
     @Test
     public void submitTestForASpecificVehicle() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("BQ91YHQ");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle(searchVin);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();
