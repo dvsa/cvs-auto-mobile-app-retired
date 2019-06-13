@@ -118,6 +118,21 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void setProhibisionIssued() {
+        defectDetailsPage.enableProhibition();
+    }
+
+    @Step
+    public void checkProhibitionIssuedSwitchOn() {
+        assertThat(defectDetailsPage.getProhibitionSwitchValue().contentEquals("1")).isTrue();
+    }
+
+    @Step
+    public void checkProhibitionIssuedSwitchOff() {
+        assertThat(defectDetailsPage.getProhibitionSwitchValue().contentEquals("0")).isTrue();
+    }
+
+    @Step
     public HashMap<String, String> inputBrakeSystemMinorDefect() {
         HashMap<String, String> map = new HashMap<>();
         map.put("Vertical", "Upper");

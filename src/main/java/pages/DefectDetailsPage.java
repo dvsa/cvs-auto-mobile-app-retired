@@ -28,6 +28,7 @@ public class DefectDetailsPage extends BasePage {
     private static final String POP_UP_REMOVE_XPATH = "//XCUIElementTypeButton[@name=\"Remove\"]";
     private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
     private static final String POP_UP_TITLE_ID = "//XCUIElementTypeStaticText[@name=\"Remove defect\"]";
+    private static final String PROHIBITION_ISSUED_SWITCH_XPATH = "//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]";
 
 
     public WebElement getDefectLabel() {
@@ -106,8 +107,16 @@ public class DefectDetailsPage extends BasePage {
         tap(findElementByXpath("//XCUIElementTypeSwitch[@name=\"Defect repaired during test\"]"));
     }
 
+    public void enableProhibition() {
+        tap(findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH));
+    }
+
+    public String getProhibitionSwitchValue() {
+        return findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH).getAttribute("value");
+    }
+
     public int getPRSElementNumber() {
-        return findElementsByXpath("//*[@label='PRS']").size();
+        return findElementsByXpath("//*[@label='Issued in Mobile Compliance']").size();
     }
 
     public void sendNotes(String data) {
