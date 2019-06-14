@@ -29,6 +29,10 @@ public class DefectDetailsPage extends BasePage {
     private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
     private static final String POP_UP_TITLE_ID = "//XCUIElementTypeStaticText[@name=\"Remove defect\"]";
     private static final String PROHIBITION_ISSUED_SWITCH_XPATH = "//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]";
+    private static final String PROHIBITION_POP_UP_OK_ID = "OK";
+    private static final String PROHIBITION_POP_UP_TITLE_ID = "Prohibition alert";
+    private static final String PROHIBITION_POP_UP_DESCRIPTION_ID = "Explain why you haven't issued a prohibition for this defect in the Notes section.";
+    private static final String PROHIBITION_POP_UP_DESCRIPTION_2_ID = "This defect requires you to issue a prohibition in Mobile Compliance. Confirm you’ve done this in the Prohibition section.";
 
 
     public WebElement getDefectLabel() {
@@ -195,5 +199,50 @@ public class DefectDetailsPage extends BasePage {
         } catch (NoSuchElementException ex) {
             return false;
         }
+    }
+
+    public boolean isProhibitionPopUpDisplayed() {
+        boolean status = false;
+        boolean isException = false;
+        WebElement okButton = null;
+        try {
+            okButton = findElementById(PROHIBITION_POP_UP_OK_ID);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            WebElement description = findElementById(PROHIBITION_POP_UP_DESCRIPTION_ID);
+            WebElement title = findElementById(PROHIBITION_POP_UP_TITLE_ID);
+            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+                status = true;
+            }
+        }
+        return status;
+    }
+
+    public boolean isProhibitionPopUpNoAsteriskDefectDisplayed() {
+        boolean status = false;
+        boolean isException = false;
+        WebElement okButton = null;
+        try {
+            okButton = findElementById(PROHIBITION_POP_UP_OK_ID);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            WebElement description = findElementById(PROHIBITION_POP_UP_DESCRIPTION_2_ID);
+            WebElement title = findElementById(PROHIBITION_POP_UP_TITLE_ID);
+            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+                status = true;
+            }
+        }
+        return status;
+    }
+
+    public void clickOkInProhibitionPopUp() {
+        waitUntilPageIsLoadedById(PROHIBITION_POP_UP_OK_ID);
+        findElementById(PROHIBITION_POP_UP_OK_ID).click();
     }
 }

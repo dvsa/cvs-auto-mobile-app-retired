@@ -403,4 +403,19 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void clickOnTitle() {
         testTypeDetailsPage.tapTitleTwiceToCloseIOSKeyboard();
     }
+
+    @Step
+    public void setProhibisionIssued() {
+        testTypeDetailsPage.enableProhibition();
+    }
+
+    @Step
+    public void checkProhibitionIssuedSwitchOn() {
+        assertThat(testTypeDetailsPage.getProhibitionSwitchValue().contentEquals("1")).isTrue();
+    }
+
+    @Step
+    public void checkProhibitionIssuedSwitchOff() {
+        assertThat(testTypeDetailsPage.getProhibitionSwitchValue().contentEquals("0")).isTrue();
+    }
 }

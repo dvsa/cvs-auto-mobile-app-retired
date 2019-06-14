@@ -163,4 +163,24 @@ public class DefectDetailsSteps extends ScenarioSteps {
     public void checkPRSOptionIsDisplayed() {
         assertThat(defectDetailsPage.checkPRSOptionIsDisplayed()).isTrue();
     }
+
+    @Step
+    public void checkProhibitionPopUpAsteriskDefect() {
+        assertThat(defectDetailsPage.isProhibitionPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkProhibitionPopUpNoAsteriskDefect() {
+        assertThat(defectDetailsPage.isProhibitionPopUpNoAsteriskDefectDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressOkInProhibitionPopUp() {
+        defectDetailsPage.clickOkInProhibitionPopUp();
+    }
+
+    @Step
+    public void checkProhibitionPopUpNotDisplayed() {
+        assertThat(defectDetailsPage.isProhibitionPopUpDisplayed()).isFalse();
+    }
 }
