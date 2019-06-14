@@ -46,6 +46,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_TEST_TYPE_REMOVAL_REMOVE_ID = "Remove";
     private static final String POP_UP_TEST_TYPE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
     private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
+    private static final String PROHIBITION_ISSUED_SWITCH_XPATH = "//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]";
 
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
@@ -464,6 +465,14 @@ public class TestTypeDetailsPage extends BasePage {
     public void tapTitleTwiceToCloseIOSKeyboard() {
         findElementByAccessibilityId(TEST_TYPE_DETAILS).click();
         findElementByAccessibilityId(TEST_TYPE_DETAILS).click();
+    }
+
+    public void enableProhibition() {
+        tap(findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH));
+    }
+
+    public String getProhibitionSwitchValue() {
+        return findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH).getAttribute("value");
     }
 
     public void enablePRS() {
