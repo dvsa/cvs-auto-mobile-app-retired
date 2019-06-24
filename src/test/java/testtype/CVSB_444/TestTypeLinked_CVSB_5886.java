@@ -1,5 +1,4 @@
 package testtype.CVSB_444;
-
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
@@ -11,7 +10,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class TestTypeLinked_CVSB_4519 extends BaseTestClass {
+public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -40,30 +39,20 @@ public class TestTypeLinked_CVSB_4519 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-
-    @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Annual)")
     @Test
+    @Title("CVSB-444 - Submit test (Tempo 100)")
     public void testListFromAddLinkedTestType() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary test");
+        testTypeCategorySteps.selectFromTestTypeList("Tempo 100");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("1");
         odometerReadingSteps.checkReadingValue("1");
         odometerReadingSteps.pressSave();
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("1");
-        testTypeDetailsSteps.pressSave();
-        testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes( "Technical test");
-        testTypeCategorySteps.selectFromTestTypeList("Technical test");
-        testTypeCategorySteps.selectFromTestTypeList("LEC");
-        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("pass");
-        testTypeDetailsSteps.sendCertificateNumberAndSave("12345");
+        testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
