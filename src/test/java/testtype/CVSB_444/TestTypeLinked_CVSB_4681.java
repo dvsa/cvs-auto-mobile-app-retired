@@ -42,7 +42,7 @@ public class TestTypeLinked_CVSB_4681 extends BaseTestClass {
 
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Voluntary Multi-Check Test)")
-    public void testListFromAddLinkedTestType() {
+    public void testListFromAddLinkedTestTypeVoluntaryMultiCheckTest() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Multi - check");
         testSteps.selectVehicleCategoryOption();

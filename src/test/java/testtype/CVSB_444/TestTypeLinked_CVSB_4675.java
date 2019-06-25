@@ -41,7 +41,7 @@ public class TestTypeLinked_CVSB_4675 extends BaseTestClass {
 
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Prohibition Clearance Any PSV Part Inspec and Fee)")
-    public void testListFromAddLinkedTestType() {
+    public void testListFromAddLinkedTestTypeProhibitionClearanceAnyPSVPartInspectionPartFee() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Part inspection/ part fee");

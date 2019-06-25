@@ -41,7 +41,7 @@ public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
 
     @Test
     @Title("CVSB-444 - Submit test (Tempo 100)")
-    public void testListFromAddLinkedTestType() {
+    public void testListFromAddLinkedTestTypeTempo100() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Tempo 100");
         testSteps.selectVehicleCategoryOption();

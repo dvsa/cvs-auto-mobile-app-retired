@@ -24,7 +24,7 @@ public class TestTypeLinked_CVSB_4684 extends BaseTestClass {
 
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Technical LEC)")
-    public void testListFromAddLinkedTestType() {
+    public void relevantLinkedTestsForTechnicalLEC() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");
         testSteps.addLinkedTestType();
