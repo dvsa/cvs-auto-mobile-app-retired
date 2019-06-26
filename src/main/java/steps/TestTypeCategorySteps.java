@@ -4,6 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeCategoryPage;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,8 +20,21 @@ public class TestTypeCategorySteps extends ScenarioSteps {
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
         for (String test_type : testTypes) {
             assertThat(actualData).contains(test_type);
-
         }
+    }
+
+    @Step
+    public void checkTestTypeListHasOnlySomeTestTypes(String...testTypes) {
+        List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
+        assertThat(actualData.size() == testTypes.length);
+        for (String test_type : testTypes) {
+            assertThat(actualData).contains(test_type);
+        }
+    }
+
+    @Step
+    public void checkThatTestTypeListIsEmpty(){
+        assertThat(testTypeCategoryPage.findAllTestTypesWebElements().size() == 0);
     }
 
     @Step
