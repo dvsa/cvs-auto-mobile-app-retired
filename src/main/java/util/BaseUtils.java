@@ -31,11 +31,17 @@ public class BaseUtils {
 
             File file = new File("userPool.txt");
             boolean fileExists = file.exists();
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             fileChannel = new RandomAccessFile(mainFile, "rw").getChannel();
             FileLock fileLock = fileChannel.lock();
-            if (!fileExists) {
+            try {
+                if (!fileExists) {
 
-                try {
+
                     mainFile.createNewFile();
                     userName = list.get(0);
                     if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
@@ -48,25 +54,24 @@ public class BaseUtils {
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2 + ",END")));
                     fileChannel.force(true);
-                    Thread.sleep(1000);
+//                    Thread.sleep(1000);
 
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } finally {
-                    fileLock.release();
+                } else {
+                    userName = getUser();
                 }
-
-            } else {
-                userName = getUser(fileLock);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                fileLock.release();
+                fileChannel.close();
             }
 
-        } catch (FileNotFoundException e) {
+        } catch (
+                FileNotFoundException e) {
             e.printStackTrace();
             throw new AutomationException("User Pool file was not found");
-        } catch (IOException e) {
+        } catch (
+                IOException e) {
             e.printStackTrace();
             throw new AutomationException("User Pool file cannot be read");
         }
@@ -79,10 +84,9 @@ public class BaseUtils {
     }
 
 
-    private static String getUser(FileLock lock) {
+    private static String getUser() {
 
         String username = null;
-
 
 
         try {
@@ -93,7 +97,6 @@ public class BaseUtils {
             int noOfBytesRead = fileChannel.read(bytes);
             StringBuilder users = new StringBuilder();
 
-            Thread.sleep(5000);
             while (noOfBytesRead != -1) {
                 bytes.flip();
                 while (bytes.hasRemaining()) {
@@ -121,14 +124,14 @@ public class BaseUtils {
                     .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
             fileChannel.force(true);
 
-            Thread.sleep(1000);
+//            Thread.sleep(1000);
 
-            lock.release();
-            if (myNewList.get(0).equalsIgnoreCase("END")) {
-                fileChannel.close();
-            }
+//            lock.release();
+//            if (myNewList.get(0).equalsIgnoreCase("END")) {
+//                fileChannel.close();
+//            }
 
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new AutomationException("Initializing users failed");
         }
