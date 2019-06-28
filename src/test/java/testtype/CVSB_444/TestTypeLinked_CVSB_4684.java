@@ -29,7 +29,7 @@ public class TestTypeLinked_CVSB_4684 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("LEC");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Annual test",
-                "Class 6A", "Retest", "Prohibition Clearance", "Technical test");
+                "Class 6A", "Retest", "Prohibition clearance", "Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Notifiable alteration");
     }
