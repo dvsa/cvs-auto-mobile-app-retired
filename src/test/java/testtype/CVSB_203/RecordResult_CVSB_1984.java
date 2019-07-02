@@ -45,9 +45,10 @@ public class RecordResult_CVSB_1984 extends BaseTestClass {
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkNumberOfSeatbelts("3");
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkResultIsNotSet();
         testTypeDetailsSteps.pressSave();
     }
 }
