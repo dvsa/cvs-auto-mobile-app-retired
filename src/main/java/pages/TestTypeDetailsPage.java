@@ -269,7 +269,10 @@ public class TestTypeDetailsPage extends BasePage {
                 break;
         }
 
-        Integer dayOfSystem = ldt.getDayOfMonth() - 1;
+        Integer dayOfSystem = 1;
+        if(ldt.getDayOfMonth() > 1) {
+            dayOfSystem = ldt.getDayOfMonth() - 1;
+        }
         int monthOfSystem = ldt.getMonthValue() - 2;
         Integer yearOfSystem = ldt.getYear() - 1;
 

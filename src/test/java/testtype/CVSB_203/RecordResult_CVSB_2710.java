@@ -58,13 +58,9 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
-        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
-        testTypeSubcategorySteps.selectFromTestTypeList("PG9 retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
-        testTypeSubcategorySteps.selectFromTestTypeList("With certification");
-        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
-        testTypeDetailsSteps.checkNumberOfSeatbelts("3");
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkResultIsNotSet();
     }
 }

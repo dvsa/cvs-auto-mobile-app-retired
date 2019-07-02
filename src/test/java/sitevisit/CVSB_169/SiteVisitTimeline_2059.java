@@ -65,9 +65,9 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
-        testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
-        testSteps.swipeTestType("Voluntary test");
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testSteps.swipeTestType("Technical test");
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
         selectReasonSteps.pressNextButton();
@@ -78,6 +78,6 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.waitUntilPageIsLoaded();
-        siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS", "Voluntary test", "ABANDONED");
+        siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS", "Technical test", "ABANDONED");
     }
 }

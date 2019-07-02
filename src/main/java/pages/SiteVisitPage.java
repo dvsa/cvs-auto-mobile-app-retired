@@ -83,10 +83,10 @@ public class SiteVisitPage extends BasePage {
 
     public boolean isCurrentDateDisplayed() {
         boolean status;
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
         TemporalAccessor date = LocalDateTime.now();
         String clientSystemDate = dateTimeFormatter.format(date);
-        String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(1));
+        String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(10));
         String clientSystemDateMinusOneDay = dateTimeFormatter.format(((LocalDateTime) date).minusDays(1));
         try {
             status = findElementByAccessibilityId(clientSystemDate.toUpperCase()).isDisplayed();
