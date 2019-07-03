@@ -23,6 +23,7 @@ public class SiteVisitPage extends BasePage {
     private static final String TOAST_MESSAGE_AFTER_SUBMIT = "The test has been submitted and emailed.";
     private static final String ENTER_REASON_POP_UP_TITLE = "Enter reason";
     private static final String ENTER_REASON_POP_UP_TEXT_ID = "Before ending your visit, enter details about your time spent not testing.";
+    private static final String ENTER_REASON_POP_UP_OK_ID = "OK";
 
     private static String startVisitTime;
     private static String createTestTime;
@@ -56,6 +57,10 @@ public class SiteVisitPage extends BasePage {
     public void clickOk() {
         waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(END_VISIT_POP_UP_CONFIRM_ID), 4);
         findElementsByAccessibilityId(END_VISIT_POP_UP_CONFIRM_ID).get(2).click();
+    }
+
+    public void clickOkInReasonPopUp() {
+        findElementByAccessibilityId(ENTER_REASON_POP_UP_OK_ID).click();
     }
 
     public boolean isBackButtonAvailable() {
@@ -213,6 +218,16 @@ public class SiteVisitPage extends BasePage {
         boolean status;
         try {
             status = findElementByAccessibilityId(ENTER_REASON_POP_UP_TITLE).isDisplayed() && findElementByAccessibilityId(ENTER_REASON_POP_UP_TEXT_ID).isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
+        }
+        return status;
+    }
+
+    public boolean areAllReasonsDisplayed(String text) {
+        boolean status;
+        try {
+            status = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Waiting for vehicle Admin Break Site issue Other " + text + "')]").isDisplayed();
         } catch (NoSuchElementException e) {
             status = false;
         }

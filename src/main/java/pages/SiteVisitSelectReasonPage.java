@@ -6,7 +6,7 @@ public class SiteVisitSelectReasonPage extends BasePage {
 
     private static final String SAVE_BUTTON_ID = "Save";
     private static final String POP_UP_TITLE = "Add notes";
-    private static final String POP_UP_TEXT_ID = "You've selected 'Site issue', give more details in notes section.";
+    private static final String POP_UP_TEXT_ID = "You've selected 'Other', give more details in notes section.";
     private static final String POP_UP_CONFIRM_ID = "OK";
     private static final String ADD_NOTES_BOX_CLASS_NAME = "XCUIElementTypeTextView";
 

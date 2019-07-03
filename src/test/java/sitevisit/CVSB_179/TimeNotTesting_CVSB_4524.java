@@ -32,7 +32,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         siteVisitSteps.clickTimeNotTesting();
         selectReasonSteps.waitUntilPageIsLoaded();
         selectReasonSteps.pressSave();
-        siteVisitSteps.createNewTest();
+        siteVisitSteps.selectEndVisit();
         siteVisitSteps.checkTimeNotTestingPopUp();
         siteVisitSteps.pressOkInTimeNotTestingPopUp();
         siteVisitSteps.clickTimeNotTesting();
@@ -43,7 +43,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         selectReasonSteps.pressOkInPopUp();
         selectReasonSteps.typeNote("I fell asleep ...");
         selectReasonSteps.pressSave();
-
+        siteVisitSteps.checkAddedReasons("I fell asleep ...");
 
     }
 }

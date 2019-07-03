@@ -166,6 +166,11 @@ public class SiteVisitSteps extends ScenarioSteps {
 
     @Step
     public void pressOkInTimeNotTestingPopUp() {
-        siteVisitPage.clickOk();
+        siteVisitPage.clickOkInReasonPopUp();
+    }
+
+    @Step
+    public void checkAddedReasons(String text) {
+       assertThat(siteVisitPage.areAllReasonsDisplayed(text)).isTrue();
     }
 }
