@@ -28,6 +28,8 @@ public class DefectDetailsPage extends BasePage {
     private static final String POP_UP_REMOVE_XPATH = "//XCUIElementTypeButton[@name=\"Remove\"]";
     private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
     private static final String POP_UP_TITLE_ID = "//XCUIElementTypeStaticText[@name=\"Remove defect\"]";
+    private static final String ISSUED_IN_MOBILE_COMPLIANCE_ID = "Issued in Mobile Compliance";
+    private static final String PROHIBITION = "PROHIBITION";
 
 
     public WebElement getDefectLabel() {
@@ -182,7 +184,23 @@ public class DefectDetailsPage extends BasePage {
 
     public boolean checkPRSOptionIsDisplayed() {
         try {
-           return findElementById(PRS_ENABLE).isDisplayed();
+            return findElementById(PRS_ENABLE).isDisplayed();
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public boolean checkProhibitionLabelIsNotDisplayed() {
+        try {
+            return findElementById(PROHIBITION).isDisplayed();
+        } catch (NoSuchElementException ex) {
+            return false;
+        }
+    }
+
+    public boolean checkIssuedInMobileComplianceIsNotPresent() {
+        try {
+            return findElementById(ISSUED_IN_MOBILE_COMPLIANCE_ID).isDisplayed();
         } catch (NoSuchElementException ex) {
             return false;
         }
