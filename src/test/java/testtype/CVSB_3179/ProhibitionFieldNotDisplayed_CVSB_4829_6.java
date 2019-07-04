@@ -11,8 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ProhibitionFieldNotDisplayed_CVSB_6040 extends BaseTestClass {
-
+public class ProhibitionFieldNotDisplayed_CVSB_4829_6 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -22,9 +21,6 @@ public class ProhibitionFieldNotDisplayed_CVSB_6040 extends BaseTestClass {
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
-
-    @Steps
-    OdometerReadingSteps odometerReadingSteps;
 
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
@@ -41,11 +37,15 @@ public class ProhibitionFieldNotDisplayed_CVSB_6040 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Annual test)")
+    @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearence() {
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
+        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeCategorySteps.selectFromTestTypeList("PG9 Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Part Paid");
+        testTypeCategorySteps.selectFromTestTypeList("With certification");
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
