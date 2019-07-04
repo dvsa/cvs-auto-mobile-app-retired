@@ -11,7 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ProhibitionFieldNotDisplayed_CVSB_4829 extends BaseTestClass {
+public class ProhibitionFieldNotDisplayed_CVSB_4829_9 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -43,7 +43,7 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Full Inspection/ Full Fee");
-        testTypeCategorySteps.selectFromTestTypeList("Without certification");
+        testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");

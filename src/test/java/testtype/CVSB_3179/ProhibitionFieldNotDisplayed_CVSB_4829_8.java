@@ -11,8 +11,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class ProhibitionFieldNotDisplayed_CVSB_6041 extends BaseTestClass {
-
+public class ProhibitionFieldNotDisplayed_CVSB_4829_8 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
@@ -22,13 +21,6 @@ public class ProhibitionFieldNotDisplayed_CVSB_6041 extends BaseTestClass {
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
-
-    @Steps
-    EUVehicleCategorySteps euVehicleCategorySteps;
-
-    @Steps
-    OdometerReadingSteps odometerReadingSteps;
-
 
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
@@ -45,13 +37,15 @@ public class ProhibitionFieldNotDisplayed_CVSB_6041 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Retest)")
+    @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelRestes() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest");
+    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearence() {
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
+        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeCategorySteps.selectFromTestTypeList("PG9 Retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeCategorySteps.selectFromTestTypeList("Without certification");
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
