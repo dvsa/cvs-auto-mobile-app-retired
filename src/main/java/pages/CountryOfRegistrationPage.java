@@ -173,6 +173,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Odometer reading Enter arrow forward".equals(line))
                 .filter(line -> !"Country of registration Great Britain and Northern Ireland arrow forward".equals(line))
                 .filter(line -> !"Dictate".equals(line))
+                .filter(line -> !"English (UK)".equals(line))
                 .filter(line -> !"return".equals(line))
                 .filter(line -> !line.isEmpty())
                 .collect(Collectors.toList());

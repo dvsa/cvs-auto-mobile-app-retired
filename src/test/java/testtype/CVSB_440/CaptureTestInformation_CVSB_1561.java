@@ -77,6 +77,6 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestType("Annual test");
-        testHistoryDetailsSteps.checkAllElementsAreNoteditable();
+        testHistoryDetailsSteps.checkAllElementsAreNotEditable();
     }
 }
