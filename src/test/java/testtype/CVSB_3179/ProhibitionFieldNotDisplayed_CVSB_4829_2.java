@@ -40,7 +40,7 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_2 extends BaseTestClass {
 
     @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearence() {
+    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearencePG9Retest() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 Retest");
