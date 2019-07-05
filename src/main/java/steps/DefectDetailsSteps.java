@@ -129,6 +129,16 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public HashMap<String, String> inputDangerousTyreDefect() {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Horizontal", "Inner");
+        map.put("Lateral", "Centre");
+        map.put("Axle Number", "8");
+
+        return map;
+    }
+
+    @Step
     public HashMap<String, String> inputSeatbeltDefect() {
         HashMap<String, String> map = new HashMap<>();
         map.put("Vertical", "Upper");
