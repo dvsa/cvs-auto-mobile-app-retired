@@ -40,7 +40,7 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_4 extends BaseTestClass {
 
     @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearence() {
+    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearencePartInspectionPartFee() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Part inspection/ part fee");
