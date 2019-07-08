@@ -130,4 +130,47 @@ public class SiteVisitSteps extends ScenarioSteps {
     public void checkVisitIsNotEditable(String regPlate) {
         assertThat(siteVisitPage.isVisitEditableByPlate(regPlate)).isFalse();
     }
+
+    @Step
+    public void waitUntilTimeNotTesting() {
+        try {
+            Thread.sleep(150000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        checkEndVisitButton();
+
+        try {
+            Thread.sleep(150000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Step
+    public void checkTimeNotTesting() {
+       assertThat(siteVisitPage.isTimeNotTestingDisplayed()).isTrue();
+    }
+
+    @Step
+    public void clickTimeNotTesting() {
+        siteVisitPage.clickTimeNotTesting();
+    }
+
+    @Step
+    public void checkTimeNotTestingPopUp() {
+        assertThat(siteVisitPage.isEnterReasonPopUDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressOkInTimeNotTestingPopUp() {
+        siteVisitPage.clickOkInReasonPopUp();
+    }
+
+    @Step
+    public void checkAddedReasons(String text) {
+       assertThat(siteVisitPage.areAllReasonsDisplayed(text)).isTrue();
+    }
 }

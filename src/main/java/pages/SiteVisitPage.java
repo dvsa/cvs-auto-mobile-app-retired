@@ -1,7 +1,6 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -22,6 +21,9 @@ public class SiteVisitPage extends BasePage {
     private static final String END_VISIT_POP_UP_TITLE = "//XCUIElementTypeStaticText[@name='End visit']";
     private static final String LOADING_ID = "Submitting site visit";
     private static final String TOAST_MESSAGE_AFTER_SUBMIT = "The test has been submitted and emailed.";
+    private static final String ENTER_REASON_POP_UP_TITLE = "Enter reason";
+    private static final String ENTER_REASON_POP_UP_TEXT_ID = "Before ending your visit, enter details about your time spent not testing.";
+    private static final String ENTER_REASON_POP_UP_OK_ID = "OK";
 
     private static String startVisitTime;
     private static String createTestTime;
@@ -55,6 +57,10 @@ public class SiteVisitPage extends BasePage {
     public void clickOk() {
         waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(END_VISIT_POP_UP_CONFIRM_ID), 4);
         findElementsByAccessibilityId(END_VISIT_POP_UP_CONFIRM_ID).get(2).click();
+    }
+
+    public void clickOkInReasonPopUp() {
+        findElementByAccessibilityId(ENTER_REASON_POP_UP_OK_ID).click();
     }
 
     public boolean isBackButtonAvailable() {
@@ -196,6 +202,34 @@ public class SiteVisitPage extends BasePage {
             waitUntilPageIsLoaded();
         } catch (TimeoutException e) {
             status = true;
+        }
+        return status;
+    }
+
+    public boolean isTimeNotTestingDisplayed() {
+           return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Time not testing')]").isDisplayed();
+    }
+
+    public void clickTimeNotTesting() {
+        findElementByXpath("//XCUIElementTypeButton[contains(@name,'Time not testing')]").click();
+    }
+
+    public boolean isEnterReasonPopUDisplayed() {
+        boolean status;
+        try {
+            status = findElementByAccessibilityId(ENTER_REASON_POP_UP_TITLE).isDisplayed() && findElementByAccessibilityId(ENTER_REASON_POP_UP_TEXT_ID).isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
+        }
+        return status;
+    }
+
+    public boolean areAllReasonsDisplayed(String text) {
+        boolean status;
+        try {
+            status = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Waiting for vehicle Admin Break Site issue Other " + text + "')]").isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
         }
         return status;
     }
