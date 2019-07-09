@@ -465,5 +465,9 @@ public class TestTypeDetailsPage extends BasePage {
         findElementByAccessibilityId(TEST_TYPE_DETAILS).click();
         findElementByAccessibilityId(TEST_TYPE_DETAILS).click();
     }
+
+    public void enablePRS() {
+        tap(findElementByXpath("//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]"));
+    }
 }
 
