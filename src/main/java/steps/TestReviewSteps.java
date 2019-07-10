@@ -32,6 +32,11 @@ public class TestReviewSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkElementIsNotDisplayed(String element){
+        assertThat(testReviewPage.checkDisplayedElement(element)).isFalse();
+    }
+
+    @Step
     public void changeDetails() {
         testReviewPage.clickChangeDetailsButton();
     }

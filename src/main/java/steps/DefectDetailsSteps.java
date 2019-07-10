@@ -118,6 +118,21 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void setProhibisionIssued() {
+        defectDetailsPage.enableProhibition();
+    }
+
+    @Step
+    public void checkProhibitionIssuedSwitchOn() {
+        assertThat(defectDetailsPage.getProhibitionSwitchValue().contentEquals("1")).isTrue();
+    }
+
+    @Step
+    public void checkProhibitionIssuedSwitchOff() {
+        assertThat(defectDetailsPage.getProhibitionSwitchValue().contentEquals("0")).isTrue();
+    }
+
+    @Step
     public HashMap<String, String> inputBrakeSystemMinorDefect() {
         HashMap<String, String> map = new HashMap<>();
         map.put("Vertical", "Upper");
@@ -167,5 +182,25 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void checkPRSOptionIsDisplayed() {
         assertThat(defectDetailsPage.checkPRSOptionIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkProhibitionPopUpAsteriskDefect() {
+        assertThat(defectDetailsPage.isProhibitionPopUpDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkProhibitionPopUpNoAsteriskDefect() {
+        assertThat(defectDetailsPage.isProhibitionPopUpNoAsteriskDefectDisplayed()).isTrue();
+    }
+
+    @Step
+    public void pressOkInProhibitionPopUp() {
+        defectDetailsPage.clickOkInProhibitionPopUp();
+    }
+
+    @Step
+    public void checkProhibitionPopUpNotDisplayed() {
+        assertThat(defectDetailsPage.isProhibitionPopUpDisplayed()).isFalse();
     }
 }
