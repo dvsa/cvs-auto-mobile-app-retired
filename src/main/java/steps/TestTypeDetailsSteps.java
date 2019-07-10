@@ -403,4 +403,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void clickOnTitle() {
         testTypeDetailsPage.tapTitleTwiceToCloseIOSKeyboard();
     }
+
+    @Step
+    public void enablePRS(){testTypeDetailsPage.enablePRS();}
 }
