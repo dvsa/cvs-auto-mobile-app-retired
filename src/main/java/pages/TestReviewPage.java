@@ -36,7 +36,14 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean checkDisplayedElement(String element) {
-        return findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
+        boolean status;
+        try {
+            status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
+        }
+
+        return status;
     }
 
     public void clickChangeDetailsButton() {
