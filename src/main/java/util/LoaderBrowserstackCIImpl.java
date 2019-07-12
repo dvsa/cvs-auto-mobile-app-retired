@@ -38,6 +38,7 @@ public class LoaderBrowserstackCIImpl implements Loader {
         caps.setCapability("browserstack.video", "false");
         caps.setCapability("waitForQuiescence", "false");
         caps.setCapability("browserstack.timezone", "UTC");
+        caps.setCapability("browserstack.idleTimeout", "300");
 
 
         caps.setCapability("automationName", "XCUITest");
