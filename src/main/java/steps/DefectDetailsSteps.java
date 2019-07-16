@@ -66,9 +66,9 @@ public class DefectDetailsSteps extends ScenarioSteps {
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
         defectDetailsPage.selectSeatNumberValue(seatNumberValue);
-        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(1);
+        assertThat(defectDetailsPage.getPRSSwitchValue()).isEqualTo("0");
         defectDetailsPage.enablePRS();
-        assertThat(defectDetailsPage.getPRSElementNumber()).isEqualTo(2);
+        assertThat(defectDetailsPage.getPRSSwitchValue()).isEqualTo("1");
         defectDetailsPage.clickDone();
     }
 
@@ -161,22 +161,22 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkIssuedInMobileComplianceIsNotPresent() {
-        assertThat(defectDetailsPage.checkIssuedInMobileComplianceIsNotPresent()).isFalse();
+        assertThat(defectDetailsPage.isIssuedInMobileCompliancePresent()).isFalse();
     }
 
     @Step
     public void checkIssuedInMobileComplianceIsPresent() {
-        assertThat(defectDetailsPage.checkIssuedInMobileComplianceIsNotPresent()).isTrue();
+        assertThat(defectDetailsPage.isIssuedInMobileCompliancePresent()).isTrue();
     }
 
     @Step
     public void checkProhibitionLabelIsNotDisplayed() {
-        assertThat(defectDetailsPage.checkProhibitionLabelIsNotDisplayed()).isFalse();
+        assertThat(defectDetailsPage.isProhibitionLabelDisplayed()).isFalse();
     }
 
     @Step
     public void checkProhibitionLabelIsDisplayed() {
-        assertThat(defectDetailsPage.checkProhibitionLabelIsNotDisplayed()).isTrue();
+        assertThat(defectDetailsPage.isProhibitionLabelDisplayed()).isTrue();
     }
 
     @Step

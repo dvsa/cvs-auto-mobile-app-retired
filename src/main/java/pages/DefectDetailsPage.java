@@ -121,8 +121,8 @@ public class DefectDetailsPage extends BasePage {
         return findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH).getAttribute("value");
     }
 
-    public int getPRSElementNumber() {
-        return findElementsByXpath("//*[@label='Issued in Mobile Compliance']").size();
+    public String getPRSSwitchValue() {
+        return findElementByXpath("//XCUIElementTypeSwitch[@name=\"Defect repaired during test\"]").getAttribute("value");
     }
 
     public void sendNotes(String data) {
@@ -248,7 +248,7 @@ public class DefectDetailsPage extends BasePage {
         findElementById(PROHIBITION_POP_UP_OK_ID).click();
     }
 
-    public boolean checkProhibitionLabelIsNotDisplayed() {
+    public boolean isProhibitionLabelDisplayed() {
         try {
             return findElementById(PROHIBITION).isDisplayed();
         } catch (NoSuchElementException ex) {
@@ -256,7 +256,7 @@ public class DefectDetailsPage extends BasePage {
         }
     }
 
-    public boolean checkIssuedInMobileComplianceIsNotPresent() {
+    public boolean isIssuedInMobileCompliancePresent() {
         try {
             return findElementById(ISSUED_IN_MOBILE_COMPLIANCE_ID).isDisplayed();
         } catch (NoSuchElementException ex) {

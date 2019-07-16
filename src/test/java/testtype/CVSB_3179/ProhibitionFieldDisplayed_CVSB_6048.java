@@ -3,6 +3,7 @@ package testtype.CVSB_3179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -38,6 +39,7 @@ public class ProhibitionFieldDisplayed_CVSB_6048 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Class 6A)")
+    @Ignore("Story not yet merged")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelClass6A() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Class 6A");
@@ -47,8 +49,8 @@ public class ProhibitionFieldDisplayed_CVSB_6048 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
-        defectDetailsSteps.checkIssuedInMobileComplianceIsPresent();
-        defectDetailsSteps.checkProhibitionLabelIsDisplayed();
+        defectDetailsSteps.checkIssuedInMobileComplianceIsNotPresent();
+        defectDetailsSteps.checkProhibitionLabelIsNotDisplayed();
         defectDetailsSteps.tapDone();
     }
 }
