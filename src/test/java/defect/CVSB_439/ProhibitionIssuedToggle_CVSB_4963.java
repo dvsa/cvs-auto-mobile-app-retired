@@ -3,7 +3,6 @@ package defect.CVSB_439;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -43,7 +42,6 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
 
 
     @Title("CVSB-439 - AC1 - VSA confirms a prohibition have been issued against a dangerous defect (Prohibition Clearance test)")
-    @Ignore("Story not yet merged")
     @Test
     public void testProhibitionIssuedProhibitionClearance() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
