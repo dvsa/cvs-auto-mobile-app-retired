@@ -3,6 +3,7 @@ package defect.CVSB_439;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -36,6 +37,7 @@ public class ProhibitionIssuedToggle_CVSB_5727 extends BaseTestClass {
 
 
     @Title("CVSB-439 - AC3 - VSA proceeds with a dangerous not marked with an asterisk defect w/o issuing a prohibition")
+    @Ignore("Story not yet merged")
     @Test
     public void testProhibitionNotEnabledPopUpNoAsteriskDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
