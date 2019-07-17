@@ -3,7 +3,6 @@ package defect.CVSB_6211;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -40,7 +39,6 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
 
 
     @Title("CVSB-6184 - Bypass the prohibition raising for Prohibition Clearance tests")
-    @Ignore("Story not yet merged")
     @Test
     public void testBypassProhibitionClearance() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition clearance");

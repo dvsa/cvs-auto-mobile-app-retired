@@ -3,7 +3,6 @@ package testresults.CVSB_3755;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -58,7 +57,6 @@ public class ProhibitionTestReviewScreen_CVSB_4575 extends BaseTestClass {
 
 
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Prohibition Clearance)")
-    @Ignore("Story not yet merged")
     @Test
     public void testProhibitionFieldOnTestReviewScreenProhibitionClearance() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -3,7 +3,6 @@ package testtype.CVSB_3179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -39,7 +38,6 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_1 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
     @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
-    @Ignore("Story not yet merged")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearenceClass6A() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");

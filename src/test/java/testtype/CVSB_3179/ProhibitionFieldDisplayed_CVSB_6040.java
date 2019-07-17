@@ -3,7 +3,6 @@ package testtype.CVSB_3179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -39,7 +38,6 @@ public class ProhibitionFieldDisplayed_CVSB_6040 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Annual test)")
-    @Ignore("Story not yet merged")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
