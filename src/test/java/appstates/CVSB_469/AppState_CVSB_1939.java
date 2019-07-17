@@ -21,7 +21,7 @@ public class AppState_CVSB_1939  extends BaseTestClass {
     CommonSteps commonSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -62,7 +62,7 @@ public class AppState_CVSB_1939  extends BaseTestClass {
     public void testAppStateCloseAtTestPage() {
 
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");

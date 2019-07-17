@@ -21,7 +21,7 @@ public class AppState_CVSB_1938 extends BaseTestClass {
     CommonSteps commonSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -44,7 +44,7 @@ public class AppState_CVSB_1938 extends BaseTestClass {
     public void testAppStateCloseAfterStartVisit() {
 
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.startVisit();
         siteVisitSteps.waitUntilPageIsLoaded();
         commonSteps.getPage().closeAndLaunchApp();

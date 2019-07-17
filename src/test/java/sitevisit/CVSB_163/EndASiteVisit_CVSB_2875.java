@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
-import steps.SearchForAnATFSteps;
+import steps.FindAnATFSteps;
 import steps.SiteVisitSteps;
 import util.BaseTestClass;
 
@@ -21,7 +21,7 @@ public class EndASiteVisit_CVSB_2875 extends BaseTestClass {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -30,7 +30,7 @@ public class EndASiteVisit_CVSB_2875 extends BaseTestClass {
     @Test
     public void testStartVisit() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.checkCreateTestButton();

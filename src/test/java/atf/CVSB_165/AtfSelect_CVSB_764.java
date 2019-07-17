@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.LaunchSteps;
-import steps.SearchForAnATFSteps;
+import steps.FindAnATFSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -16,12 +16,12 @@ public class AtfSelect_CVSB_764 extends BaseTestClass {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Title("CVSB-165 - Search field - properties")
     @Test
     public void searchFieldProperties() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.searchAndVerifyForLongAlphanumericNumber();
+        findAnATFSteps.searchAndVerifyForLongAlphanumericNumber();
     }
 }

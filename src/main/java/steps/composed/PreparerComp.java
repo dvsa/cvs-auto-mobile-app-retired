@@ -11,7 +11,7 @@ public class PreparerComp extends ScenarioSteps {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -28,7 +28,7 @@ public class PreparerComp extends ScenarioSteps {
     @Step
     public void goToSelectPreparer() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
@@ -39,7 +39,7 @@ public class PreparerComp extends ScenarioSteps {
     @Step
     public void goToSelectPreparerForASpecificVehicle(String vin) {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle(vin);

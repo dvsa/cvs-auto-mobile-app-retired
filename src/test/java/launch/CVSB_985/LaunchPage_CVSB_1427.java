@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.LaunchSteps;
-import steps.SearchForAnATFSteps;
+import steps.FindAnATFSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -16,15 +16,15 @@ public class LaunchPage_CVSB_1427 extends BaseTestClass {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Title("CVSB-985 - AC3 - VSA goes 'Back' from 'Find an ATF' screen")
     @Test
     public void testAtfListAlphabeticallyOrdered() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.checkAtfPageDisplay();
-        searchForAnATFSteps.clickBackButton();
+        findAnATFSteps.checkAtfPageDisplay();
+        findAnATFSteps.clickBackButton();
         launchSteps.clickStartButton();
-        searchForAnATFSteps.checkAtfPageDisplay();
+        findAnATFSteps.checkAtfPageDisplay();
     }
 }

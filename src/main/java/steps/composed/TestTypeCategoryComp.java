@@ -11,7 +11,7 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -40,7 +40,7 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     @Step
     public void goToTestType(String preparerId, String preparerName) {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");

@@ -18,7 +18,7 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -30,7 +30,7 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     @Test
     public void testCancelSubmission() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.checkCreateTestButton();
         siteVisitSteps.selectEndVisit();

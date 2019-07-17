@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.LaunchSteps;
-import steps.SearchForAnATFSteps;
+import steps.FindAnATFSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -16,14 +16,14 @@ public class AtfSelect_CVSB_679 extends BaseTestClass {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
 
     @Title("CVSB-165 - AC3 - No search results")
     @Test
     public void testNoSearchResults() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.searchForInvalidAtf();
-        searchForAnATFSteps.checkNoResultsFoundAndSuggestion();
+        findAnATFSteps.searchForInvalidAtf();
+        findAnATFSteps.checkNoResultsFoundAndSuggestion();
     }
 }

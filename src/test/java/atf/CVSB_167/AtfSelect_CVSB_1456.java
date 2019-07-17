@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
-import steps.SearchForAnATFSteps;
+import steps.FindAnATFSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -17,7 +17,7 @@ public class AtfSelect_CVSB_1456 extends BaseTestClass {
     LaunchSteps launchSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -27,7 +27,7 @@ public class AtfSelect_CVSB_1456 extends BaseTestClass {
     @Test
     public void testConfirmSiteNotSuitableForTesting() {
         launchSteps.clickGetStarted();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();
         atfDetailsSteps.pressReportIssueInStartVisitPopUp();

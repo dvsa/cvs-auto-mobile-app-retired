@@ -24,7 +24,7 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
-    private static final String REVIEW_BUTTON_ID = "Review";
+    private static final String REVIEW_BUTTON_ID = "Review and submit";
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");

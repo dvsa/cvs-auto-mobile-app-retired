@@ -19,7 +19,7 @@ public class AppState_CVSB_1936 extends BaseTestClass {
     CommonSteps commonSteps;
 
     @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
+    FindAnATFSteps findAnATFSteps;
 
     @Steps
     ATFDetailsSteps atfDetailsSteps;
@@ -49,7 +49,7 @@ public class AppState_CVSB_1936 extends BaseTestClass {
     public void testAppStateReopenFromBackground() {
         launchSteps.clickGetStarted();
         commonSteps.getPage().runAppInBackground();
-        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
+        findAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         commonSteps.getPage().runAppInBackground();
         atfDetailsSteps.startVisit();
         try {
