@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.WebElement;
 import pages.TestTypeCategoryPage;
 
 import java.util.ArrayList;
@@ -24,11 +25,19 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkTestTypeListHasOnlySomeTestTypes(String...testTypes) {
+    public void checkTestTypeListOnlyContainsTestTypes(String...testTypes) {
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
         assertThat(actualData.size() == testTypes.length);
         for (String test_type : testTypes) {
             assertThat(actualData).contains(test_type);
+        }
+    }
+
+    @Step
+    public void checkTestTypesInListAreSelectable(String... testTypes) {
+        List<WebElement> actualData = testTypeCategoryPage.findAllTestTypesWebElements();
+        for (WebElement testType: actualData ){
+            assertThat(testType.isEnabled()).isTrue();
         }
     }
 

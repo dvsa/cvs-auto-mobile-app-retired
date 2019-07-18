@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import pages.TrailerDetailsPage;
 import pages.VehicleDetailsPage;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class VehicleDetailsSteps extends ScenarioSteps {
 
     VehicleDetailsPage vehicleDetailsPage;
+    TrailerDetailsPage trailerDetailsPage;
 
     @Step
     public void selectConfirmButtonTopRight() {

@@ -55,7 +55,7 @@ public class TestTypeLinked_CVSB_4679 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Brake test",
+        testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes("Brake test",
                 "Smoke test", "Multi - check", "Speed limiter check");
         testTypeCategorySteps.selectFromTestTypeList("Brake test");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
