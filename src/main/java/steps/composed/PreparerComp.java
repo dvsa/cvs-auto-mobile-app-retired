@@ -64,6 +64,4 @@ public class PreparerComp extends ScenarioSteps {
         trailerDetailsSteps.selectConfirmFromPopUp();
     }
 
-
-
 }
