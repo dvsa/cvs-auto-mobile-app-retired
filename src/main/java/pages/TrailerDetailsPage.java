@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleDetailsPage extends BasePage {
+public class TrailerDetailsPage extends BasePage {
 
-    private static final String VEHICLE_DETAILS_PAGE_TITLE = "Vehicle details";
+    private static final String TRAILER_DETAILS_PAGE_TITLE = "Trailer details";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
@@ -21,7 +21,8 @@ public class VehicleDetailsPage extends BasePage {
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
+
+        waitUntilPageIsLoadedById(TRAILER_DETAILS_PAGE_TITLE);
 //        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
@@ -78,7 +79,7 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isPageTitleDisplayed() {
         boolean status = false;
-        if (findElementById(VEHICLE_DETAILS_PAGE_TITLE).isDisplayed()) {
+        if (findElementById(TRAILER_DETAILS_PAGE_TITLE).isDisplayed()) {
             status = true;
         }
         return status;

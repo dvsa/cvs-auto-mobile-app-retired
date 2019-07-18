@@ -57,7 +57,7 @@ public class TestTypeLinked_CVSB_4677 extends BaseTestClass {
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("1");
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Technical test");
+        testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
