@@ -84,9 +84,8 @@ public class IdentifyTrailerSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIdentifyVehicleTitleIsDisplayed(){
+    public void checkIdentitfyVehicleTitleIsDisplayed(){
         assertThat(identifyTrailerPage.isIdentifyVehicleTitleDisplayed()).isTrue();
     }
-
 }
 
