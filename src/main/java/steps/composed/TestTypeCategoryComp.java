@@ -77,5 +77,4 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         testTypeCategorySteps.selectFromTestTypeList(testType);
     }
 
-
 }

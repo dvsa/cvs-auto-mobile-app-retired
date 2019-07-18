@@ -58,7 +58,6 @@ public class TrailerDetailsPage extends BasePage {
     public void clickConfirmPopUp() {
         waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID), 2);
         findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
-        System.out.println(getDriver().getPageSource());
     }
 
     public void clickCancel() {
@@ -142,6 +141,5 @@ public class TrailerDetailsPage extends BasePage {
 
     public void clickAdditionalDetails() {
         findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).click();
-
     }
 }
