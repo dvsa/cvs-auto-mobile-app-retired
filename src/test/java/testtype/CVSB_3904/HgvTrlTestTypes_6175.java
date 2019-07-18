@@ -3,7 +3,6 @@ package testtype.CVSB_3904;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -34,7 +33,6 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC1 - Test type drilldown (HGV 3 axles)")
     @Test
-    @WithTag("trial")
     public void testTypeDrillDownHgv3Axles() {
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test"};
 
@@ -61,7 +59,6 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV Technical)")
     @Test
-    @WithTag("smoke")
     public void testTypeDrillDownHgvTechnical() {
 
         String[] availableTestTypesSubcategory = {"TIR", "ADR", "Notifiable alteration"};
