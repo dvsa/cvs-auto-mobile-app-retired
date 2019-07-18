@@ -141,6 +141,5 @@ public class TrailerDetailsPage extends BasePage {
 
     public void clickAdditionalDetails() {
         findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).click();
-
     }
 }
