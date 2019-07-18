@@ -55,7 +55,7 @@ public class TestTypeLinked_CVSB_4683 extends BaseTestClass {
         testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Test type","Annual test",
+        testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes("Test type","Annual test",
                 "Class 6A", "Retest", "Prohibition clearance", "Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");

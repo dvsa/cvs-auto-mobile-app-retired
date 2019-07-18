@@ -20,10 +20,16 @@ public class PreparerComp extends ScenarioSteps {
     SiteVisitSteps siteVisitSteps;
 
     @Steps
+    IdentifyTrailerSteps identifyTrailerSteps;
+
+    @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
+
+     @Steps
+    TrailerDetailsSteps trailerDetailsSteps;
 
     @Step
     public void goToSelectPreparer() {
@@ -46,4 +52,18 @@ public class PreparerComp extends ScenarioSteps {
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
     }
+
+    @Step
+    public void goToSelectPreparerForASpecificTrailer(String vin) {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle(vin);
+        trailerDetailsSteps.selectConfirmButtonTopRight();
+        trailerDetailsSteps.selectConfirmFromPopUp();
+    }
+
+
+
 }

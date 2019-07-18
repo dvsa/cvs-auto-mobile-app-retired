@@ -56,7 +56,7 @@ public class TestTypeLinked_CVSB_4681 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
-        testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Speed limiter check");
+        testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes("Speed limiter check");
         testTypeCategorySteps.selectFromTestTypeList( "Speed limiter check");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("pass");
