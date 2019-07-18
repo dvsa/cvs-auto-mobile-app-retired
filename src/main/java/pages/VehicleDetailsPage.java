@@ -22,7 +22,6 @@ public class VehicleDetailsPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public boolean isDetailPageScrollable() {
