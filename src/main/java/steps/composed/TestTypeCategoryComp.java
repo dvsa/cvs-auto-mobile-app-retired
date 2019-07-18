@@ -89,5 +89,4 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         goToTestType(preparerId, preparerName);
         testTypeCategorySteps.selectFromTestTypeList(testType);
     }
-
 }
