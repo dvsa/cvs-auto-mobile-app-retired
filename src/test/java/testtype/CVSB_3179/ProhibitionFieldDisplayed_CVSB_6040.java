@@ -46,8 +46,8 @@ public class ProhibitionFieldDisplayed_CVSB_6040 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
-        defectDetailsSteps.checkIssuedInMobileComplianceIsNotPresent();
-        defectDetailsSteps.checkProhibitionLabelIsNotDisplayed();
+        defectDetailsSteps.checkIssuedInMobileComplianceIsPresent();
+        defectDetailsSteps.checkProhibitionLabelIsDisplayed();
         defectDetailsSteps.tapDone();
     }
 }
