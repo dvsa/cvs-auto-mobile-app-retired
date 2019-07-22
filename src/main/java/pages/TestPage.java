@@ -228,6 +228,7 @@ public class TestPage extends BasePage {
     }
 
     public void addTestType() {
+//        System.out.println(getDriver().getPageSource());
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
