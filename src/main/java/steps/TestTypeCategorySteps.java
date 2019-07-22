@@ -25,6 +25,15 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkNotInTestTypeList(String... testTypes) {
+        testTypeCategoryPage.waitUntilPageIsLoaded();
+        List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
+        for (String test_type : testTypes) {
+            assertThat(actualData).doesNotContain(test_type);
+        }
+    }
+
+    @Step
     public void checkTestTypeListOnlyContainsTestTypes(String...testTypes) {
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
         assertThat(actualData.size() == testTypes.length);
