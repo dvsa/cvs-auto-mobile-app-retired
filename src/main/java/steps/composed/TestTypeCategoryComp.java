@@ -70,8 +70,12 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToTestPageBySelectingASpecificVehicle(String vin) {
-        preparerComp.goToSelectPreparerForASpecificVehicle(vin);
+    public void goToTestPageBySelectingASpecificVehicle(String vehiclePartialVin) {
+        preparerComp.goToSelectPreparerForASpecificVehicle(vehiclePartialVin);
+    }
+
+    public void goToTestPageBySelectingASpecificTrailer(String trailerPartialVin) {
+        preparerComp.goToSelectPreparerForASpecificTrailer(trailerPartialVin);
     }
 
     @Step()
@@ -86,7 +90,5 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         testTypeCategorySteps.selectFromTestTypeList(testType);
     }
 
-    public void goToTestPageBySelectingASpecificTrailer(String vin) {
-        preparerComp.goToSelectPreparerForASpecificTrailer(vin);
-    }
+
 }
