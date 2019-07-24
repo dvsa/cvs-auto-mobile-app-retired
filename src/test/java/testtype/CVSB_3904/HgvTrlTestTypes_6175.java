@@ -3,6 +3,7 @@ package testtype.CVSB_3904;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.BasePage;
@@ -14,8 +15,6 @@ import util.BaseTestClass;
 @RunWith(SerenityRunner.class)
 public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
-    BasePage basePage;
-
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
@@ -23,7 +22,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     PreparerSteps preparerSteps;
 
     @Steps
-    TestPage testPage;
+    TestSteps testSteps;
+
 
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
@@ -33,13 +33,14 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC1 - Test type drilldown (HGV 3 axles)")
     @Test
+    @WithTag("smoke")
     public void testTypeDrillDownHgv3Axles() {
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test"};
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes(availableTestTypes);
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
@@ -52,13 +53,14 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes(availableTestTypes);
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
 
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV Technical)")
     @Test
+    @WithTag("smoke")
     public void testTypeDrillDownHgvTechnical() {
 
         String[] availableTestTypesSubcategory = {"TIR", "ADR", "Notifiable alteration"};
@@ -66,7 +68,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -81,7 +83,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -97,7 +99,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -108,12 +110,12 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownHgvNot2to5AxlesRetest() {
 
-        String[] availableTestTypesSubcategory = {"ADR C&U", "ADR"};
+        String[] availableTestTypesSubcategory = {"Retest", "TIR", "ADR", "Roadworthiness"};
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("000000");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -129,7 +131,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -145,7 +147,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -161,7 +163,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -178,7 +180,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("000000");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
         testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes(availableTestTypes);
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
@@ -194,7 +196,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -211,7 +213,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
         testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes(availableTestTypes);
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
@@ -227,7 +229,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -243,7 +245,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("000000");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
@@ -259,12 +261,86 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testPage.addTestType();
+        testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
 
     }
 
+    @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (TRL greater than 5 axles Voluntary)")
+    @Test
+    public void testTypeDrillDownTrlGreaterThan5AxlesVoluntary() {
+
+        String[] availableTestTypesSubcategory = {"Shaker plate check"};
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.seeInTestTypeList(availableTestTypesSubcategory);
+        testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV 2-5 axles annual test)")
+    @Test
+    public void testTypeDrillDownHgv2to5AxlesAnnual() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("293847");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testTypeSubcategorySteps.checkTestTypeListIsEmpty();
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV not between 2-5 axles annual test)")
+    @Test
+    public void testTypeDrillDownHgvNot2to5AxlesAnnual() {
+
+        String[] availableTestTypes = {"Technical test", "Retest", "Voluntary test"};
+        String[] notAvailableTestTypes = {"Annual test"};
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("000000");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
+        testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL 1-5 axles annual test)")
+    @Test
+    public void testTypeDrillDownTrl1to5AxlesAnnual() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testTypeSubcategorySteps.checkTestTypeListIsEmpty();
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL greater than 5 axles annual test)")
+    @Test
+    public void testTypeDrillDownTrlGreaterThan5AxlesAnnual() {
+
+        String[] availableTestTypes = {"Technical test", "Retest", "Voluntary test"};
+        String[] notAvailableTestTypes = {"Annual test"};
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
+        testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
+    }
 
 }
