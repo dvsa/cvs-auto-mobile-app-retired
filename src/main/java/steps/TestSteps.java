@@ -2,7 +2,11 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.TestPage;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -25,6 +29,23 @@ public class TestSteps extends ScenarioSteps {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
     }
+
+    @Step
+    public void checkTrailerTestDetails(String trailer, String vin) {
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isTrailerRegistrationPlateDisplayed(trailer, vin)).isTrue();
+        System.out.println(getDriver().getPageSource());
+    //   List<WebElement> allImages = getDriver().findElements (By.tagName("img"));
+      //  for (WebElement image:allImages){
+        //    System.out.println(image);
+        //}
+
+    }
+//
+//    public boolean checkIfTrailerImageIsDisplayed() {
+//        return testPage.checkIfTrailerImageIsDisplayed();
+//    }
+
 
     @Step
     public void checkAddATestTypeButtonVisibility() {

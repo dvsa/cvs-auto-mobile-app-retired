@@ -106,6 +106,8 @@ public class TestPage extends BasePage {
         }
         return null;
     }
+    private static final String REVIEW_BUTTON_ID = "Review and submit";
+    private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -140,7 +142,6 @@ public class TestPage extends BasePage {
     }
 
     public void addTestType() {
-//        System.out.println(getDriver().getPageSource());
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
@@ -180,6 +181,15 @@ public class TestPage extends BasePage {
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+
+    public boolean isTrailerRegistrationPlateDisplayed(String trailerId, String vin ) {
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + trailerId + " (Trailer) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+    public boolean checkIfTrailerImageIsDisplayed() {
+        return findElementByClassName(TRAILER_ICON_IMAGE).isEnabled();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {
