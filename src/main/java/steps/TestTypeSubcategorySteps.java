@@ -42,6 +42,11 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTestTypeListIsEmpty() {
+        assertThat(testTypeSubcategoryPage.findAllTestTypesWebElements().isEmpty());
+    }
+
+    @Step
     public void goBackToCategory() {
         testTypeSubcategoryPage.selectBack();
     }
