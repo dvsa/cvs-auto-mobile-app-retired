@@ -26,48 +26,10 @@ public class TestPage extends BasePage {
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
     private static final String REVIEW_AND_SUBMIT = "Review and submit";
+    private static final String REVIEW_BUTTON_ID = "Review and submit";
+    private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
+    private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
 
-    public boolean OdometerOptionIsDisplayed() {
-        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
-    }
-
-    public boolean isPropertyDisplayedXTimes(String property, int times) {
-        waitUntilPageIsLoaded();
-        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        int timesFound=0;
-        for (WebElement button : buttonList) {
-            if (button.getAttribute("name").contains(property)) {
-                timesFound++;
-            }
-        }
-            return(times == timesFound);
-    }
-
-    public boolean isItemDisplayedAfter(String item1, String item2) {
-        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        return buttonList.indexOf(item1)>buttonList.indexOf(item2);
-    }
-
-    public void clickCountryOfRegistrationOf(String vehicle) {
-        waitUntilPageIsLoaded();
-            for (WebElement button : getButtonsOfVehicle(vehicle)) {
-
-                if (button.getAttribute("name").contains("Country of registration")) {
-
-                    button.click();
-                }
-            }
-
-    }
-
-    public void clickEuVehicleCategoryFor(String vehicle) {
-        waitUntilPageIsLoaded();
-        for (WebElement button : getButtonsOfVehicle(vehicle)) {
-            if (button.getAttribute("name").contains("EU vehicle category")) {
-                button.click();
-            }
-        }
-    }
 
     public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
         try {
@@ -76,40 +38,6 @@ public class TestPage extends BasePage {
             return false;
         }
     }
-
-    public boolean checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
-        waitUntilPageIsLoaded();
-        List<WebElement> allButtonsOfVehicle =  getButtonsOfVehicle(vehicle);
-        for (WebElement button : allButtonsOfVehicle) {
-            if (button.getAttribute("name").contains("Country of registration")) {
-                    return button.getAttribute("name").contains(country);
-            }
-        }
-        return false;
-    }
-
-    private List<WebElement> getButtonsOfVehicle(String vehicle){
-        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        for(WebElement button : buttonList){
-            if(button.getAttribute("name").contains(vehicle)){
-                int index = buttonList.indexOf(button) + 1;
-                do {
-                    System.out.println("button: " + buttonList.get(index).getAttribute("name"));
-                    index++;
-                    }
-                while(!buttonList.get(index).getAttribute("name").contains("Add a test type"));
-                for(WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1) ){
-                    System.out.println("element of list is: " + we.getAttribute("name"));
-                }
-                return buttonList.subList(buttonList.indexOf(button) + 1, index + 1);
-            }
-        }
-        return null;
-    }
-    private static final String REVIEW_BUTTON_ID = "Review and submit";
-    private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
-    private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
-
 
     public boolean OdometerOptionIsDisplayed() {
         return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
@@ -224,11 +152,9 @@ public class TestPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public void addTestType() {
-//        System.out.println(getDriver().getPageSource());
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
