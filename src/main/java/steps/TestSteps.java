@@ -4,6 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestPage;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestSteps extends ScenarioSteps {
@@ -17,7 +19,6 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void addTestType() {
         testPage.waitUntilPageIsLoaded();
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         testPage.addTestType();
     }
 
