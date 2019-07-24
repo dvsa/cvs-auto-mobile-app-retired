@@ -17,13 +17,13 @@ public class TrailerDetailsPage extends BasePage {
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
-    private static final String VEHICLE_TEST_HISTORY_BUTTON_ID = "Vehicle test history";
+    private static final String VEHICLE_TEST_HISTORY_BUTTON_ID = "Trailer test history";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
 
     public void waitUntilPageIsLoaded() {
 
         waitUntilPageIsLoadedById(TRAILER_DETAILS_PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public boolean isDetailPageScrollable() {
@@ -59,6 +59,7 @@ public class TrailerDetailsPage extends BasePage {
     public void clickConfirmPopUp() {
         waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
         findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
+        System.out.println(getDriver().getPageSource());
     }
 
     public void clickCancel() {
