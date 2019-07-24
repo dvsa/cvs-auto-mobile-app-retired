@@ -65,11 +65,9 @@ public class TestPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_PAGE_TITLE);
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public void addTestType() {
-//        System.out.println(getDriver().getPageSource());
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
@@ -97,11 +95,6 @@ public class TestPage extends BasePage {
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
-    }
-
-    public boolean isHgvRegistrationPlateDisplayed(String regPlate, String vin) {
-        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']");
-        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
 
