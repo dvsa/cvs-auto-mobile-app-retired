@@ -54,12 +54,12 @@ public class PreparerComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToSelectPreparerForASpecificTrailer(String vin) {
+    public void goToSelectPreparerForASpecificTrailer(String partialVin) {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle(vin);
+        identifyVehicleSteps.searchForVehicle(partialVin);
         trailerDetailsSteps.selectConfirmButtonTopRight();
         trailerDetailsSteps.selectConfirmFromPopUp();
     }
