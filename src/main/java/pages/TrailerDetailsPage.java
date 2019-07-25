@@ -26,7 +26,7 @@ public class TrailerDetailsPage extends BasePage {
     public void waitUntilPageIsLoaded() {
 
         waitUntilPageIsLoadedById(TRAILER_DETAILS_PAGE_TITLE);
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
+//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public boolean isDetailPageScrollable() {
