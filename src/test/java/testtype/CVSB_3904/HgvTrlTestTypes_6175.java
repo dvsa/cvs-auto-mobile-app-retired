@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.BasePage;
@@ -342,5 +343,85 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
     }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV 2-5 axles first test)")
+    @Test
+    public void testTypeDrillDownHgv2to5AxlesFirst() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("First test");
+        testTypeSubcategorySteps.checkTestTypeListIsEmpty();
+        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.IN_PROGRESS);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV not between 2-5 axles first test)")
+    @Test
+    public void testTypeDrillDownHgvNot2to5AxlesFirst() {
+
+        String[] availableTestTypes = {"Technical test", "Retest", "Voluntary test"};
+        String[] notAvailableTestTypes = {"First test"};
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("000000");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
+        testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL 1-5 axles first test)")
+    @Test
+    public void testTypeDrillDownTrl1to5AxlesFirst() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("First test");
+        testTypeSubcategorySteps.checkTestTypeListIsEmpty();
+        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.IN_PROGRESS);
+
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL greater than 5 axles first test)")
+    @Test
+    public void testTypeDrillDownTrlGreaterThan5AxlesFirst() {
+
+        String[] availableTestTypes = {"Technical test", "Retest", "Voluntary test"};
+        String[] notAvailableTestTypes = {"First test"};
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
+        testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
+    }
+
+    @Title("CVSB-3904 - AC4 - Add a linked test ")
+    @Test
+    @Ignore("Ignored until adding linked test for trailers issue will be fixed")
+    public void testTypeDrillDownAddLinkedTest() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.addLinkedTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("Shaker plate check");
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.EDIT);
+
+    }
+
+
 
 }
