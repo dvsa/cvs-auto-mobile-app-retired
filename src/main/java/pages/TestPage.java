@@ -139,6 +139,7 @@ public class TestPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_PAGE_TITLE);
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public void addTestType() {
