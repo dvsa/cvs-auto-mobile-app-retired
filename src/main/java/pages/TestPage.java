@@ -121,7 +121,6 @@ public class TestPage extends BasePage {
         return null;
     }
 
-
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
 
@@ -409,10 +408,6 @@ public class TestPage extends BasePage {
 
     public void clickAddAVehicleButton() {findElementById(ADD_A_VEHICLE_BUTTON_ID).click();}
 
-    public void addATrailer() {
-        clickAddATrailerButton();
-    }
-
     public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
     public boolean checkAddAVehicleButtonIsDisplayed() {return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();}
 
@@ -423,5 +418,4 @@ public class TestPage extends BasePage {
     public void addATrailer() {
         clickAddATrailerButton();
     }
-
 }
