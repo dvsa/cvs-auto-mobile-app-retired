@@ -21,6 +21,7 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void addTestType() {
         testPage.waitUntilPageIsLoaded();
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         testPage.addTestType();
     }
 
