@@ -24,6 +24,7 @@ public class VehicleCategoryCountryReg_2731 extends BaseTestClass {
 
     @Title("CVSB-995 - AC3 - Adding Country of Registration - no result found")
     @Test
+    @WithTag("trial")
     public void noResultsFound() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
