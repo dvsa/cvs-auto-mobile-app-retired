@@ -25,6 +25,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
+    @Steps
+    TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
@@ -34,7 +36,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC1 - Test type drilldown (HGV 3 axles)")
     @Test
-    @WithTag("smoke")
+    @WithTag("trial")
     public void testTypeDrillDownHgv3Axles() {
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test"};
 
@@ -295,7 +297,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testTypeSubcategorySteps.checkTestTypeListIsEmpty();
-        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
 
     }
 
@@ -325,7 +327,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testTypeSubcategorySteps.checkTestTypeListIsEmpty();
-        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
 
     }
 
@@ -354,7 +356,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testTypeSubcategorySteps.checkTestTypeListIsEmpty();
-        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
 
     }
 
@@ -384,7 +386,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testTypeSubcategorySteps.checkTestTypeListIsEmpty();
-        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
 
     }
 
@@ -405,7 +407,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC4 - Add a linked test ")
     @Test
-    @Ignore("Ignored until adding linked test for trailers issue will be fixed")
+//    @Ignore("Ignored until adding linked test for trailers issue will be fixed")
     public void testTypeDrillDownAddLinkedTest() {
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
@@ -416,12 +418,102 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
-        testTypeSubcategorySteps.selectFromTestTypeList("Shaker plate check");
+        testTypeSubcategorySteps.selectFromTestTypeList("TIR");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.EDIT);
 
     }
 
+//    @Ignore("ignored until figure what to test")
+    @Title("CVSB-3904 - TCD - AC5 - Display test types' short/ long name when appropriate (annual test)")
+    @Test
+    public void testTypeDrillDownShortLongAnnual() {
 
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeName("Annual test");
+    }
+
+    @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (first test)")
+    @Test
+    public void testTypeDrillDownShortLongFirst() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("First test");
+        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("First test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeName("First test");
+    }
+
+    @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (technical test)")
+    @Test
+    public void testTypeDrillDownShortLongTechnical() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeName("Paid notifiable alteration");
+    }
+
+    @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (retest)")
+    @Test
+    public void testTypeDrillDownShortLongRetest() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("ADR");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeName("Paid ADR retest");
+    }
+
+    @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (prohibition clearance)")
+    @Test
+    public void testTypeDrillDownShortLongProhibition() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
+        testTypeSubcategorySteps.selectFromTestTypeList("With certification");
+        testSteps.checkTestTypeStatus("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeName("Paid prohibition clearance (full inspection with certification)");
+    }
+
+    @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (voluntary test)")
+    @Test
+    public void testTypeDrillDownShortLongVoluntary() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
+        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeName("Voluntary brake test");
+    }
 
 }
