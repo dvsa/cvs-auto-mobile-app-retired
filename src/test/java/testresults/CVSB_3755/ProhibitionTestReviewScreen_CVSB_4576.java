@@ -76,7 +76,7 @@ public class ProhibitionTestReviewScreen_CVSB_4576 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
-        defectDetailsSteps.setProhibisionIssued();
+        defectDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();

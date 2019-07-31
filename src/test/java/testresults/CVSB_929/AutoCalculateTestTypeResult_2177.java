@@ -82,6 +82,8 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
+        defectDetailsSteps.scrollDefectDetailsPage();
+        defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();

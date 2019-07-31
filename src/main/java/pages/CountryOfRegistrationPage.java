@@ -97,6 +97,7 @@ public class CountryOfRegistrationPage extends BasePage {
         }
 
         List<String> filteredActualButtonsXpathByCountry = eliminateUnwantedButtonsDisplayed(actualButtonsValues);
+
         assertThat(filteredActualButtonsXpathByCountry.equals(filteredExpectedCountries)).isTrue();
     }
 
@@ -154,7 +155,7 @@ public class CountryOfRegistrationPage extends BasePage {
 
     public List<String> eliminateUnwantedButtonsDisplayed(List<String> list) {
         return list.stream()
-                .filter(line -> !"Review".equals(line))
+                .filter(line -> !"Review and submit".equals(line))
                 .filter(line -> !"BQ91YHQ (PSV) 1B7GG36N12S678410 Details arrow forward".equals(line))
                 .filter(line -> !"EU vehicle category Select arrow forward".equals(line))
                 .filter(line -> !"Add a test type".equals(line))

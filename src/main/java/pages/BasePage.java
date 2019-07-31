@@ -65,7 +65,6 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
-
         return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 100, 400);
     }
 
