@@ -61,9 +61,7 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
 
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.checkTestTypeStatus("Annual test",TestPage.TestTypeStatuses.IN_PROGRESS );
-
+        testSteps.checkTestTypeStatus("Annual test",TestPage.TestTypeStatuses.EDIT );
         testSteps.selectVehicleDetails();
         trailerDetailsSteps.checkTrailerTestHistoryIsDisplayed();
         trailerDetailsSteps.selectTrailerTestHistory();
