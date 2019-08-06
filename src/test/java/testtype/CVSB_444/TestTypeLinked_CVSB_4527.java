@@ -24,12 +24,12 @@ public class TestTypeLinked_CVSB_4527 extends BaseTestClass {
 
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Voluntary Brake Test)")
-    public void relevantLinkedTetsForVoluntaryBrakeTest() {
+    public void relevantLinkedTestsForVoluntaryBrakeTest() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary Test");
         testTypeCategorySteps.selectFromTestTypeList("Brake Test");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeCategorySteps.checkTestTypeListHasOnlySomeTestTypes("Headlamp aim test",
-                "Smoke test", "Multi - check", "Speed limiter check");
+                "Smoke test", "Speed limiter check");
     }
 }
