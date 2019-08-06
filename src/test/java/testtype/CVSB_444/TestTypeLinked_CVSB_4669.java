@@ -52,7 +52,6 @@ public class TestTypeLinked_CVSB_4669 extends BaseTestClass {
         odometerReadingSteps.typeInField("1");
         odometerReadingSteps.checkReadingValue("1");
         odometerReadingSteps.pressSave();
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("1");
