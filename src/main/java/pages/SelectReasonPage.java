@@ -10,7 +10,7 @@ public class SelectReasonPage extends BasePage {
     private static final String SELECT_REASON_PAGE_TITLE = "Select reason";
     private static final String SELECT_REASON_BACK_BUTTON = "arrow back Test";
     private static final String SELECT_REASON_TEXT_TIP = "You can select multiple reasons for abandoning this test";
-    private static final String REASON_LIST_ELEMENTS_XPATH = "//XCUIElementTypeSwitch";
+    private static final String REASON_LIST_ELEMENTS_XPATH = "//XCUIElementTypeButton";
     private static final String NEXT_BUTTON_ID = "Next";
 
     private static final String REASON_TEXT_1 = "The vehicle was not submitted for test at the appointed time";
@@ -33,47 +33,47 @@ public class SelectReasonPage extends BasePage {
 
     public boolean isReasonSelected(int reasonNumber) {
         List<String> listOfExpectedReasonTexts = this.findAllValuesByXpath();
-        int selectionValue = Integer.parseInt(findElementByXpath("//XCUIElementTypeSwitch[@name=\""+listOfExpectedReasonTexts.get(reasonNumber - 1)+"\"]").getAttribute("value"));
-        return selectionValue == 1;
+        String selectionValue = findElementByXpath("//XCUIElementTypeButton[@name=\""+listOfExpectedReasonTexts.get(reasonNumber + 1)+"\"]").getText();
+        return selectionValue.endsWith("checkmark");
     }
 
     public void selectReason(Reasons reason) {
         switch(reason) {
             case REASON_1:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_1 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_1 + "\"]").click();
                 break;
             case REASON_2:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_2 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_2 + "\"]").click();
                 break;
             case REASON_3:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_3 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_3 + "\"]").click();
                 break;
             case REASON_4:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_4 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_4 + "\"]").click();
                 break;
             case REASON_5:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_5 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_5 + "\"]").click();
                 break;
             case REASON_6:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_6 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_6 + "\"]").click();
                 break;
             case REASON_7:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_7 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_7 + "\"]").click();
                 break;
             case REASON_8:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_8 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_8 + "\"]").click();
                 break;
             case REASON_9:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_9 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_9 + "\"]").click();
                 break;
             case REASON_10:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_10 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_10 + "\"]").click();
                 break;
             case REASON_11:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_11 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_11 + "\"]").click();
                 break;
             case REASON_12:
-                findElementByXpath("//XCUIElementTypeSwitch[@name=\"" + REASON_TEXT_12 + "\"]").click();
+                findElementByXpath("//XCUIElementTypeButton[@name=\"" + REASON_TEXT_12 + "\"]").click();
                 break;
         }
 
@@ -101,6 +101,7 @@ public class SelectReasonPage extends BasePage {
     }
 
     public List<String> findAllValuesByXpath() {
+        System.out.println(getDriver().getPageSource());
         List<WebElement> webElementList = findElementsByXpath(REASON_LIST_ELEMENTS_XPATH);
         List<String> listOfData = new ArrayList<>();
         for (WebElement webElement : webElementList) {
