@@ -115,6 +115,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkPageTitleDisplayed() {
+        testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed()).isTrue();
     }
 
