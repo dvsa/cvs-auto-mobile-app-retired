@@ -56,7 +56,8 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("2. Anchorages");
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
         defectDetailsSteps.scrollDefectDetailsPage();
-        defectDetailsSteps.checkProhibitionLabelIsNotDisplayed();
+        defectDetailsSteps.setProhibitionIssued();
+        defectDetailsSteps.checkProhibitionIssuedSwitchOn();
     }
 
 }
