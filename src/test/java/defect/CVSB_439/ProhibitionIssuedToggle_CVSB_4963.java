@@ -58,6 +58,8 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
+        defectDetailsSteps.setProhibitionIssued();
+        defectDetailsSteps.checkProhibitionIssuedSwitchOn();
         defectDetailsSteps.checkProhibitionLabelIsNotDisplayed();
     }
 
