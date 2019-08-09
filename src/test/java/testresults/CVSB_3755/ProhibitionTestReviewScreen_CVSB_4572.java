@@ -71,7 +71,7 @@ public class ProhibitionTestReviewScreen_CVSB_4572 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("2. Anchorages");
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
         defectDetailsSteps.scrollDefectDetailsPage();
-        defectDetailsSteps.setProhibisionIssued();
+        defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
