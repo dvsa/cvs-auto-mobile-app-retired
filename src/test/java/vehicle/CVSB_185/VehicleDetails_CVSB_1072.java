@@ -25,7 +25,7 @@ public class VehicleDetails_CVSB_1072 extends BaseTestClass {
 
     @Title("CVSB-185 - AC1 - Search without using an input")
     @Test
-    public void testSearchWithoutInput() {
+    public void testSearchNoInput() {
         vehicleComp.goToIdentifyVehicle();
         identifyVehicleSteps.pressSearch();
         identifyVehicleSteps.checkVehicleNotFoundPopUp();

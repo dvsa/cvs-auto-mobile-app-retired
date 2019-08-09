@@ -6,7 +6,6 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
-import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
@@ -19,8 +18,6 @@ public class VehicleDetails_CVSB_1066 extends BaseTestClass {
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
-    @Steps
-    VehicleDetailsSteps vehicleDetailsSteps;
 
     @Title("CVSB-185 - AC1 - VSA searches by registration number")
     @Test
