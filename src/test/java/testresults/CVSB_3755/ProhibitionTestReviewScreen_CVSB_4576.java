@@ -3,7 +3,6 @@ package testresults.CVSB_3755;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -75,7 +74,7 @@ public class ProhibitionTestReviewScreen_CVSB_4576 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
-        defectDetailsSteps.setProhibisionIssued();
+        defectDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();

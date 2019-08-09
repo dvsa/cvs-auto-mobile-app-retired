@@ -73,7 +73,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.sendCertificateNumber("12345");
         testTypeDetailsSteps.clickOnTitle();
-        defectDetailsSteps.setProhibisionIssued();
+        defectDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAction();
         testReviewSteps.checkPageTitleIsDisplayed();

@@ -118,7 +118,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setProhibisionIssued() {
+    public void setProhibitionIssued() {
         defectDetailsPage.enableProhibition();
     }
 
