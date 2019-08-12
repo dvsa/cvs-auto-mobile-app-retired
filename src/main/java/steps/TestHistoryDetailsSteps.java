@@ -53,8 +53,8 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkStatusAndExpireyDateForHistoryDisplayedElements() {
-        assertThat(testHistoryDetailsPage.checkAllElementsHaveStatusAndExpiryDate()).isTrue();
+    public void checkStatusAndExpiryDateForHistoryDisplayedElements() {
+       assertThat(testHistoryDetailsPage.checkAllElementsHaveStatusAndExpiryDate()).isTrue();
     }
 
     @Step

@@ -94,8 +94,9 @@ public class TestHistoryDetailsPage extends BasePage {
 
         boolean isPresent = true;
         for (String s : testElementsDisplayedFiltered) {
-            if (!(s.contains("FAIL") || s.contains("PASS") || s.contains("PRS") || s.contains("ABANDONED")))
+            if (!(s.contains("FAIL") || s.contains("PASS") || s.contains("PRS") || s.contains("ABANDONED") || s.contains("PROHIBITION"))) {
                 isPresent = false;
+            }
         }
         return isPresent;
     }
