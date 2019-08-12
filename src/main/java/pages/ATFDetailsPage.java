@@ -13,7 +13,7 @@ public class ATFDetailsPage extends BasePage {
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String POP_UP_CANCEL_BUTTON_ID = "Cancel";
     private static final String POP_UP_CALL_BUTTON_ID = "Call";
-    private static final String BACK_BUTTON_ID = "arrow back Search for an ATF";
+    private static final String BACK_BUTTON_ID = "arrow back Find an ATF";
     private static final String POP_UP_START_VISIT_TITLE = "Confirm ATF and safety";
     private static final String POP_UP_START_VISIT_CANCEL_BUTTON_ID = "Cancel";
     private static final String POP_UP_START_VISIT_CONFIRM_BUTTON_ID = "Confirm";
