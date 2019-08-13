@@ -72,7 +72,7 @@ public class CaptureTestInformation_CVSB_1553 extends BaseTestClass {
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
-        testHistoryDetailsSteps.checkStatusAndExpireyDateForHistoryDisplayedElements();
+        testHistoryDetailsSteps.checkStatusAndExpiryDateForHistoryDisplayedElements();
     }
 }
 

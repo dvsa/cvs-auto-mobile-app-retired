@@ -46,8 +46,6 @@ public class ProhibitionIssuedToggle_CVSB_5729 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.checkProhibitionIssuedSwitchOff();
-        defectDetailsSteps.tapDone();
-        defectDetailsSteps.checkProhibitionPopUpAsteriskDefect();
     }
 
 }
