@@ -51,6 +51,19 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     }
 
     @Step
+    public void goToTestTypeUsingSpecificVin(String preparerId, String preparerName, String vin) {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle(vin);
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.selectAndConfirmPreparerId(preparerId);
+        testSteps.addTestType();
+    }
+
+    @Step
     public void goToTestPage(String preparerId, String preparerName) {
         preparerComp.goToSelectPreparer();
         preparerSteps.selectAndConfirmPreparerId(preparerId);

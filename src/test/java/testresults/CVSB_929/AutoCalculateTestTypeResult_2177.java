@@ -84,7 +84,7 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("FAIL");
         testReviewSteps.checkElementIsDisplayed("Annual test");

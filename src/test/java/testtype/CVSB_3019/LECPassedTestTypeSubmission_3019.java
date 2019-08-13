@@ -51,7 +51,7 @@ public class LECPassedTestTypeSubmission_3019 extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();

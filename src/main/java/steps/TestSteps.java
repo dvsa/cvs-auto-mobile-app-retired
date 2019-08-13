@@ -22,7 +22,6 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
     }
 
-    @Step
     public void checkAddATestTypeButtonVisibility() {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
     }
@@ -45,8 +44,8 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReviewButton() {
-        assertThat(testPage.isReviewButtonAvailable()).isTrue();
+    public void checkReviewAndSubmitButton() {
+        assertThat(testPage.isReviewAndSubmitButtonAvailable()).isTrue();
     }
 
     @Step
@@ -217,7 +216,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void reviewAction(){
-        testPage.clickReviewButton();
+    public void reviewAndSubmitAction(){
+        testPage.clickReviewAndSubmitButton();
     }
 }

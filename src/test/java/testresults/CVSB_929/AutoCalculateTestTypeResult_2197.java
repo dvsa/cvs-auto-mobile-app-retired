@@ -89,7 +89,7 @@ public class AutoCalculateTestTypeResult_2197 extends BaseTestClass {
         abandonTestSteps.addAdditionalComments("Test Abandoned 1234");
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("ABANDONED");
         testReviewSteps.checkElementIsDisplayed("Annual test");

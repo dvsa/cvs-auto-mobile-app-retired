@@ -6,7 +6,6 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
@@ -78,7 +77,7 @@ public class ProhibitionTestReviewScreen_CVSB_4572 extends BaseTestClass {
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("Prohibition issued - Yes");
 

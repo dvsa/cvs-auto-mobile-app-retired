@@ -24,7 +24,7 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
-    private static final String REVIEW_BUTTON_ID = "Review";
+    private static final String REVIEW_AND_SUBMIT = "Review and submit";
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -125,8 +125,8 @@ public class TestPage extends BasePage {
         findElementByXpath(VEHICLE_DETAILS_BUTTON_XPATH).click();
     }
 
-    public boolean isReviewButtonAvailable() {
-        return findElementById(REVIEW_BUTTON_ID).isDisplayed();
+    public boolean isReviewAndSubmitButtonAvailable() {
+        return findElementById(REVIEW_AND_SUBMIT).isDisplayed();
     }
 
     //TODO create generic swipe action in BasePage
@@ -275,11 +275,11 @@ public class TestPage extends BasePage {
     }
 
     public void clickReviewButtonAndScroll() {
-        findElementById(REVIEW_BUTTON_ID).click();
+        findElementById(REVIEW_AND_SUBMIT).click();
         scroll(200, 700, 200, 300);
     }
 
-    public void clickReviewButton() {
-        findElementById(REVIEW_BUTTON_ID).click();
+    public void clickReviewAndSubmitButton() {
+        findElementById(REVIEW_AND_SUBMIT).click();
     }
 }

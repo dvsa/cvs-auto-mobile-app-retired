@@ -146,4 +146,10 @@ public class TestReviewSteps extends ScenarioSteps {
     public void checkLoadingIndicatorIsNotDisplayed() {
         assertThat(testReviewPage.isLoadingIndicatorNotDisplayed()).isTrue();
     }
+
+    public void checkElementValue(String element, String value){
+        assertThat(testReviewPage.checkElementValue(element,value));
+    }
+
+
 }

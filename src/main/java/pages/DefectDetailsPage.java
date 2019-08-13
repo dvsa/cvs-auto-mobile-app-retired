@@ -23,6 +23,9 @@ public class DefectDetailsPage extends BasePage {
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'arrow back')]";
+    private static final String LONGITUDINAL = "//XCUIElementTypeOther[contains(@name, 'Longitudinal')]";
+    private static final String LONGITUDINAL_POP_UP_FRONT_XPATH = "//XCUIElementTypeButton[@name=\"Front\"]";
+    private static final String LONGITUDINAL_POP_UP_REAR_XPATH = "//XCUIElementTypeButton[@name=\"Rear\"]";
     private static final String REMOVE_BUTTON_ID = "Remove defect";
     private static final String POP_UP_CANCEL_XPATH = "//XCUIElementTypeButton[@name=\"Cancel\"]";
     private static final String POP_UP_REMOVE_XPATH = "//XCUIElementTypeButton[@name=\"Remove\"]";
@@ -159,6 +162,19 @@ public class DefectDetailsPage extends BasePage {
 
     public void clickCancelInPopUp() {
         findElementByXpath(POP_UP_CANCEL_XPATH).click();
+    }
+
+    public void clickLongitudinal() {
+        findElementByXpath(LONGITUDINAL).click();
+    }
+
+    public void clickLogitudinalFront() {
+        findElementByXpath(LONGITUDINAL_POP_UP_FRONT_XPATH).click();
+    }
+
+
+    public void clickLogitudinalRear() {
+        findElementByXpath(LONGITUDINAL_POP_UP_REAR_XPATH).click();
     }
 
     public void scrollDetailPage() {

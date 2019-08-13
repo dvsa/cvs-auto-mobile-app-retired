@@ -10,8 +10,6 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
-import java.util.HashMap;
-
 @RunWith(SerenityRunner.class)
 public class AutoCalculatedTestResults_2695 extends BaseTestClass {
 
@@ -70,7 +68,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
         testReviewSteps.changeDetails();
         testTypeDetailsSteps.clickAddDefect();
