@@ -135,6 +135,9 @@ public class BasePage extends PageObject {
         return findElementByXpath("//*[contains(@name, '" + element + "')]").getLocation().getY();
     }
 
+    public void scrollDetailPage() {
+        scrollDownTo(500, -100);
+    }
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
@@ -231,4 +234,14 @@ public class BasePage extends PageObject {
         return false;
     }
 
+
+    public boolean isNumeric(String element) {
+        try {
+            int d = Integer.parseInt(element);
+            System.out.println("d: " + d);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
+    }
 }

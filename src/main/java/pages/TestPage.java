@@ -91,6 +91,11 @@ public class TestPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
+    public boolean isHgvRegistrationPlateDisplayed(String regPlate, String vin) {
+        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']");
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
 
     public boolean isTrailerRegistrationPlateDisplayed(String trailerId, String vin ) {
         return findElementByXpath("//XCUIElementTypeButton[@name='" + trailerId + " (Trailer) " + vin + " Details arrow forward']").isDisplayed();
