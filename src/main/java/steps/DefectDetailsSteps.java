@@ -103,6 +103,21 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void clickLongitudinal() {
+        defectDetailsPage.clickLongitudinal();
+    }
+
+    @Step
+    public void clickLongitudinalFront() {
+        defectDetailsPage.clickLogitudinalFront();
+    }
+
+    @Step
+    public void clickLongitudinalRear() {
+        defectDetailsPage.clickLogitudinalRear();
+    }
+
+    @Step
     public void scrollDefectDetailsPage() {
         defectDetailsPage.scrollDetailPage();
     }

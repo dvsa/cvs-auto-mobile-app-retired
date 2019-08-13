@@ -84,7 +84,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
 
         //remove test type from change details screen
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.changeDetails();
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testSteps.pressRemoveInPopUp();
@@ -100,7 +100,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("8");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.changeDetails();
 
         //edit the test type

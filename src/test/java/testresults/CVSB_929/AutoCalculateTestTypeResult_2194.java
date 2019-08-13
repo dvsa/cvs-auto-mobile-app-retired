@@ -80,7 +80,7 @@ public class AutoCalculateTestTypeResult_2194 extends BaseTestClass {
         defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("PRS");
         testReviewSteps.checkElementIsDisplayed("Annual test");
