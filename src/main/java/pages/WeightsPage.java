@@ -1,8 +1,10 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class WeightsPage extends BasePage {
@@ -35,8 +37,85 @@ public class WeightsPage extends BasePage {
         return listOfData;
     }
 
+    public HashMap<String, String> getDataSetCategory(String category) {
+        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
+        HashMap<String, String> mapOfData = new HashMap<>();
+        for (WebElement webElement : webElementList) {
+            String elementName = webElement.getAttribute("name");
+            if(elementName.equals(category)){
+                System.out.println("Category: " + category);
+                String gbValue;
+                String designValue;
+                try {
+                    gbValue = webElementList.get(webElementList.indexOf(webElement) + 2).getAttribute("name");
+                    System.out.println("gbValue: " + gbValue);
+                }
+                catch (IndexOutOfBoundsException e){
+                    gbValue = null;
+                    System.out.println("I was here");
+                }
+
+                try {
+                    designValue = webElementList.get(webElementList.indexOf(webElement) +4).getAttribute("name");
+                    System.out.println("designValue: " + designValue);
+                }
+                catch (IndexOutOfBoundsException e){
+                    designValue = null;
+                    System.out.println("I was here as well");
+                }
+                mapOfData.put("GB" , isNumeric(gbValue) ? gbValue : "0");
+                mapOfData.put("Design" , isNumeric(designValue) ? designValue : "0");
+            }
+        }
+        System.out.println("All mapped data: " + mapOfData.values());
+        return mapOfData;
+    }
+
     public void clickOnBack() {
         findElementById(BACK_BUTTON_ID).click();
     }
 
+    public boolean isFieldListed(String fieldName) {
+        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
+        for(WebElement element: webElementList){
+            if(element.getAttribute("name").equals(fieldName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getFieldValue(String fieldName) {
+        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
+        for (WebElement element : webElementList) {
+            if (element.getAttribute("name").equals(fieldName)) {
+                try {
+                    return webElementList.get(webElementList.indexOf(element) + 1).getAttribute("name");
+                } catch (NoSuchElementException e) {
+                    return null;
+                }
+            }
+        }
+        return null;
+    }
+
+    public String getGrossGb() {
+        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
+        for(WebElement element: webElementList){
+            if(element.getAttribute("name").equals("GROSS")){
+                return webElementList.get(webElementList.indexOf(element) + 1).getAttribute("name");
+            }
+        }
+        return null;
+    }
+
+    public String getGrossDesign() {
+        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
+        for(WebElement element: webElementList){
+            if(element.getAttribute("name").equals("GROSS")){
+                return webElementList.get(webElementList.indexOf(element) + 2).getAttribute("name");
+            }
+        }
+        return null;
+    }
 }

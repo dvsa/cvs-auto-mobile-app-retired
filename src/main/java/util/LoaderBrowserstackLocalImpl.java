@@ -55,6 +55,7 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         caps.setCapability("browserstack.timezone", "UTC");
         caps.setCapability("browserstack.idleTimeout", "300");
         caps.setCapability("browserstack.networkLogs", "true");
+        caps.setCapability("browserstack.debug", "true");
 
 
         caps.setCapability("app", properties.getProperty("browserstack.app"));

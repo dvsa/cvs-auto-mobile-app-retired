@@ -4,11 +4,10 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.VehicleDetailsPage;
 
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VehicleDetailsSteps extends ScenarioSteps {
+public class HgvDetailsSteps extends ScenarioSteps {
 
     VehicleDetailsPage vehicleDetailsPage;
 
@@ -16,12 +15,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     public void selectConfirmButtonTopRight() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.clickConfirm();
-    }
-
-    @Step
-    public void checkPageTitle() {
-        vehicleDetailsPage.waitUntilPageIsLoaded();
-        assertThat(vehicleDetailsPage.isPageTitleDisplayed()).isTrue();
     }
 
     @Step
@@ -36,39 +29,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     }
 
-    // TODO make this step receive less parameters
-    @Step
-    public void checkDetailPageData(String VIN, String chassisMake, String chassisModel, String bodyMake,
-                                    String bodyModel, String bodyType, String yearOfManufacture,
-                                    String dateOfFirstReg, String axles, String brakeCode ) {
-        vehicleDetailsPage.waitUntilPageIsLoaded();
-        List<String> actualData = vehicleDetailsPage.findAllValuesByXpath();
-        assertThat(actualData).contains(VIN, chassisMake, chassisModel, bodyMake, bodyModel, bodyType
-                , yearOfManufacture, dateOfFirstReg, axles, brakeCode);
-    }
-
-    @Step
-    public void checkConfirmationPopUp() {
-        assertThat(vehicleDetailsPage.isConfirmationPopUpVisible()).isTrue();
-    }
-
-    @Step
-    public void selectConfirmFromPopUp() {
-        vehicleDetailsPage.clickConfirmPopUp();
-    }
-
-    @Step
-    public void selectCancelFromPopUp() {
-        vehicleDetailsPage.clickCancel();
-    }
-
-    // TODO find a better way to check this
-    @Step
-    public void checkIfStillInDetailPageByPlate(String plate) {
-        assertThat(vehicleDetailsPage.isPageTitleDisplayed()).isTrue();
-        assertThat(vehicleDetailsPage.isRegistrationPlateDisplayed(plate)).isTrue();
-    }
-
     @Step
     public void checkIfInDetailPageByPlate(String plate) {
         vehicleDetailsPage.waitUntilPageIsLoaded();
@@ -79,11 +39,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void waitUntilPageIsLoaded() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
-    }
-
-    @Step
-    public void selectBrakes() {
-        vehicleDetailsPage.clickExpandableInformation("Brakes");
     }
 
     @Step
@@ -102,15 +57,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkDetailPageNoNullData() {
-        vehicleDetailsPage.waitUntilPageIsLoaded();
-        List<String> actualData = vehicleDetailsPage.findAllValuesByXpath();
-        for (String value : actualData) {
-            assertThat(vehicleDetailsPage.isFieldValueNull(value)).isFalse();
-        }
-    }
-
-    @Step
     public void selectVehicleTestHistory() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.scrollDetailPage();
@@ -121,13 +67,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     public void pressBackButton() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.clickBackButton();
-    }
-
-    @Step
-    public void checkVehicleTestHistory() {
-        vehicleDetailsPage.waitUntilPageIsLoaded();
-        vehicleDetailsPage.scrollDetailPage();
-        assertThat(vehicleDetailsPage.isTestHistoryButtonDisplayed()).isTrue();
     }
 
     @Step

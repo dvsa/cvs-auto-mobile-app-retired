@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleDetailsPage extends BasePage {
+public class HgvDetailsPage extends BasePage {
 
     private static final String VEHICLE_DETAILS_PAGE_TITLE = "Vehicle details";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
@@ -21,7 +21,6 @@ public class VehicleDetailsPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public boolean isDetailPageScrollable() {
@@ -92,7 +91,7 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementById(element).isDisplayed();
+        return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
     }
 
     public void clickExpandableInformation(String info) {

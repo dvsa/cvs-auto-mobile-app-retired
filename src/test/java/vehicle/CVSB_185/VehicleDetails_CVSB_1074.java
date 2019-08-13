@@ -19,7 +19,7 @@ public class VehicleDetails_CVSB_1074 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Steps
-    BreaksSteps brakesSteps;
+    BrakesSteps brakesSteps;
 
     @Steps
     WeightsSteps weightsSteps;
