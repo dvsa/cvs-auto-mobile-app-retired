@@ -33,6 +33,16 @@ public class VehicleComp extends ScenarioSteps {
     }
 
     @Step
+    public void goToVehicleDetails(String vin) {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle(vin);
+
+    }
+
+    @Step
     public void goToSiteVisit() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");

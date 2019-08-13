@@ -28,7 +28,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementById(String id) {
-        return getDriver().findElement(By.id(id));
+        return getDriver().findElement(By.name(id));
     }
 
     protected WebElement findElementByClassName(String className) {
@@ -135,6 +135,9 @@ public class BasePage extends PageObject {
         return findElementByXpath("//*[contains(@name, '" + element + "')]").getLocation().getY();
     }
 
+    public void scrollDetailPage() {
+        scrollDownTo(500, -100);
+    }
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
@@ -218,5 +221,15 @@ public class BasePage extends PageObject {
     public void closeAndLaunchApp() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
+    }
+
+    public boolean isNumeric(String element) {
+        try {
+            int d = Integer.parseInt(element);
+            System.out.println("d: " + d);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
     }
 }

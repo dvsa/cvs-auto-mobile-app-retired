@@ -17,13 +17,12 @@ public class TrailerDetailsPage extends BasePage {
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
-    private static final String VEHICLE_TEST_HISTORY_BUTTON_ID = "Trailer test history";
+    private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Trailer test history";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
 
     public void waitUntilPageIsLoaded() {
 
         waitUntilPageIsLoadedById(TRAILER_DETAILS_PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public boolean isDetailPageScrollable() {
@@ -57,7 +56,7 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public void clickConfirmPopUp() {
-        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID), 2);
         findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
         System.out.println(getDriver().getPageSource());
     }
@@ -111,7 +110,7 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public void clickVehicleTestHistory() {
-        findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).click();
+        findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).click();
     }
 
     public void clickBackButton() {
@@ -119,6 +118,30 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        return findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isAttribute(String attribute, String value) {
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
+        List<String> actualData = new ArrayList<>();
+        for (WebElement webElement : webElementList) {
+            actualData.add(webElement.getAttribute("name"));
+        }
+//        System.out.println("list: " + actualData);
+        for (String data : actualData) {
+//            System.out.println("inside for @: " + data);
+            if (data.equals(attribute)) {
+//                System.out.println("comparing data: " + data + " with: " + value);
+                if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void clickAdditionalDetails() {
+        findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).click();
+
     }
 }
