@@ -206,4 +206,50 @@ public class TrailerDetailsSteps extends ScenarioSteps {
         trailerDetailsPage.scrollDetailPage();
         assertThat(trailerDetailsPage.isBrakesButtonDisplayed()).isTrue();
     }
+    @Step
+    public void checkVinChassisNumberIs(String vin) {
+        assertThat(trailerDetailsPage.isAttribute("VIN / Chassis number", vin)).isTrue();
+    }
+
+    @Step
+    public void checkMakeIs(String make) {
+        assertThat(trailerDetailsPage.isAttribute("Make", make)).isTrue();
+    }
+
+    @Step
+    public void checkModelIs(String model) {
+        assertThat(trailerDetailsPage.isAttribute("Model", model)).isTrue();
+    }
+
+    @Step
+    public void checkBodyTypeIs(String bodyType) {
+        assertThat(trailerDetailsPage.isAttribute("Body type", bodyType)).isTrue();
+    }
+
+    @Step
+    public void checkYearOfManufactureIs(String year) {
+        assertThat(trailerDetailsPage.isAttribute("Year of manufacture", year)).isTrue();
+    }
+
+    @Step
+    public void checkDateOfFirstUseIs(String date) {
+        assertThat(trailerDetailsPage.isAttribute("Date of first use", date)).isTrue();
+    }
+
+    @Step
+    public void checkAxleIs(String axles) {
+        assertThat(trailerDetailsPage.isAttribute("Axles", axles)).isTrue();
+    }
+
+    @Step
+    public void checkDtpIs(String dtp) {
+        assertThat(trailerDetailsPage.isAttribute("DTP", dtp)).isTrue();
+    }
+
+    @Step
+    public void selectAdditionalDetails() {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.clickAdditionalDetails();
+    }
 }
