@@ -98,11 +98,6 @@ public class TrailerDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void selectAdditionalVehicleDetails() {
-        trailerDetailsPage.clickExpandableInformation("Additional vehicle details");
-    }
-
-    @Step
     public void checkDetailPageNoNullData() {
         trailerDetailsPage.waitUntilPageIsLoaded();
         List<String> actualData = trailerDetailsPage.findAllValuesByXpath();
