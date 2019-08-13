@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.WeightsPage;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -28,6 +29,15 @@ public class WeightsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkContentCategories(String categoryItem, String gbValue, String designValue) {
+        weightsPage.waitUntilPageIsLoaded();
+        HashMap<String, String> data = weightsPage.getDataSetCategory(categoryItem);
+        System.out.println("GB: " + data.get("GB") + " compared to: " + gbValue);
+        System.out.println("GB: " + data.get("Design" + " compared to: " + designValue));
+        assertThat(data.get("GB").equals(gbValue) && data.get("Design").equals(designValue)).isTrue();
+    }
+
+    @Step
     public void pressBackButton() {
         weightsPage.clickOnBack();
     }
@@ -37,4 +47,24 @@ public class WeightsSteps extends ScenarioSteps {
         weightsPage.waitUntilPageIsLoaded();
         assertThat(weightsPage.isFieldEditableById(field)).isFalse();
     }
+
+    @Step
+    public void checkFieldIsListed(String fieldName) {
+        weightsPage.waitUntilPageIsLoaded();
+        assertThat(weightsPage.isFieldListed(fieldName)).isTrue();
+    }
+
+    @Step
+    public void checkFieldHasValue(String fieldName, String value) {
+        weightsPage.waitUntilPageIsLoaded();
+        assertThat(weightsPage.getFieldValue(fieldName)).isEqualTo(value);
+    }
+
+    @Step
+    public void checkGrossIsDisplayed() {
+        weightsPage.waitUntilPageIsLoaded();
+        assertThat(weightsPage.getGrossGb().equals("GB")).isTrue();
+        assertThat(weightsPage.getGrossDesign().equals("Design")).isTrue();
+    }
+
 }

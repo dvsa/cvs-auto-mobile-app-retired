@@ -6,23 +6,21 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrailerDetailsPage extends BasePage {
+public class HgvDetailsPage extends BasePage {
 
-    private static final String TRAILER_DETAILS_PAGE_TITLE = "Trailer details";
+    private static final String VEHICLE_DETAILS_PAGE_TITLE = "Vehicle details";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
-
     private static final String CANCEL_ID = "Cancel";
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
-    private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Trailer test history";
+    private static final String VEHICLE_TEST_HISTORY_BUTTON_ID = "Vehicle test history";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
 
     public void waitUntilPageIsLoaded() {
-
-        waitUntilPageIsLoadedById(TRAILER_DETAILS_PAGE_TITLE);
+        waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
     }
 
     public boolean isDetailPageScrollable() {
@@ -56,7 +54,7 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public void clickConfirmPopUp() {
-        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID), 2);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
         findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
     }
 
@@ -78,7 +76,7 @@ public class TrailerDetailsPage extends BasePage {
 
     public boolean isPageTitleDisplayed() {
         boolean status = false;
-        if (findElementById(TRAILER_DETAILS_PAGE_TITLE).isDisplayed()) {
+        if (findElementById(VEHICLE_DETAILS_PAGE_TITLE).isDisplayed()) {
             status = true;
         }
         return status;
@@ -109,7 +107,7 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public void clickVehicleTestHistory() {
-        findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).click();
+        findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).click();
     }
 
     public void clickBackButton() {
@@ -117,7 +115,7 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
     }
 
     public boolean isAttribute(String attribute, String value) {
@@ -127,11 +125,11 @@ public class TrailerDetailsPage extends BasePage {
             actualData.add(webElement.getAttribute("name"));
         }
 //        System.out.println("list: " + actualData);
-        for (String data : actualData) {
+        for(String data:actualData){
 //            System.out.println("inside for @: " + data);
-            if (data.equals(attribute)) {
+            if(data.equals(attribute)){
 //                System.out.println("comparing data: " + data + " with: " + value);
-                if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
+                if(actualData.get(actualData.indexOf(data)+1).equals(value)){
                     return true;
                 }
             }
@@ -139,8 +137,4 @@ public class TrailerDetailsPage extends BasePage {
         return false;
     }
 
-    public void clickAdditionalDetails() {
-        findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).click();
-
-    }
 }

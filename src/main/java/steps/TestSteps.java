@@ -285,4 +285,20 @@ public class TestSteps extends ScenarioSteps {
     public void checkErrorMessageAddATestTypeBeforeReviewing() {
         assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_INFO)).isTrue();
     }
+
+    @Step
+    public void checkHgvTestDetails(String hgv, String vin) {
+            testPage.waitUntilPageIsLoaded();
+            assertThat(testPage.isPageTitleDisplayed() && testPage.isHgvRegistrationPlateDisplayed(hgv, vin)).isTrue();
+        }
+
+    @Step
+    public void selectHgvDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void selectTrailerDetails() {
+        selectVehicleDetails();
+    }
 }
