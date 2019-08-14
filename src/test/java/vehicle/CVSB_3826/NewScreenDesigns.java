@@ -46,6 +46,9 @@ public class NewScreenDesigns extends BaseTestClass {
     @Steps
     IdentifyTrailerSteps identifyTrailerSteps;
 
+    @Steps
+    IdentifyVehicleSteps identifyVehicleSteps;
+
 
     @Title("CVSB-6170 - AC2 New screen design for adding a vehicle after confirming a HGV")
     @Test
@@ -61,17 +64,17 @@ public class NewScreenDesigns extends BaseTestClass {
         identifyTrailerSteps.clickCancel();
     }
 
-    @Title("CVSB-6170 - AC2 New screen design for adding a vehicle after confirming a HGV")
+    @Title("CVSB-6176 - AC3 Negative test - screen should remain the same following the confirmation of a Trailer")
     @Test
     public void testNewDesignIdentifyTrailerForTrl() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkHgvTestDetails("GH389BH", "P012301012938");
-        testSteps.checkAddATrailerButtonVisibility();
-        testSteps.clickAddATrailerButton();
-        identifyTrailerSteps.checkIdentifyVehicleTitleIsDisplayed();
-        identifyTrailerSteps.checkSearchBoxAndText("Enter trailer ID or VIN");
-        identifyTrailerSteps.clickCancel();
+        testSteps.checkTrailerTestDetails("C000001", "T12341234");
+        testSteps.checkAddAVehicleButtonVisibility();
+        testSteps.clickAddAVehicleButton();
+        identifyVehicleSteps.checkIdentitfyVehicleTitleIsDisplayed();
+        identifyVehicleSteps.checkSearchBoxAndText("Enter registration number, trailer ID or VIN");
+        identifyVehicleSteps.clickCancel();
     }
 }
