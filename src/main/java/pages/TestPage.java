@@ -109,6 +109,7 @@ public class TestPage extends BasePage {
     private static final String REVIEW_BUTTON_ID = "Review and submit";
     private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
 
+
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
 
@@ -392,4 +393,13 @@ public class TestPage extends BasePage {
     public void clickReviewAndSubmitButton() {
         findElementById(REVIEW_AND_SUBMIT).click();
     }
+
+    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
+
+    public void addATrailer() {
+        clickAddATrailerButton();
+    }
+
+    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
+
 }

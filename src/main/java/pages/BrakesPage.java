@@ -1,5 +1,6 @@
 package pages;
 
+import com.gargoylesoftware.htmlunit.html.DomNode;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
