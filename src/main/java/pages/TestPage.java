@@ -27,6 +27,8 @@ public class TestPage extends BasePage {
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
     private static final String REVIEW_AND_SUBMIT = "Review and submit";
     private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
+    private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
+
 
 
     public enum OdometerUnitIndicatives {
@@ -304,10 +306,13 @@ public class TestPage extends BasePage {
 
     public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
 
+    public void clickAddAVehicleButton() {findElementById(ADD_A_VEHICLE_BUTTON_ID).click();}
+
     public void addATrailer() {
         clickAddATrailerButton();
     }
 
     public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
+    public boolean checkAddAVehicleButtonIsDisplayed() {return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();}
 
 }
