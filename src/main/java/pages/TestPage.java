@@ -11,6 +11,7 @@ public class TestPage extends BasePage {
 
     private static final String SELECT_PREPARER_PAGE_TITLE = "Test";
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type";
+    private static final String ADD_A_TRAILER_BUTTON_ID = "Add a trailer";
     private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test";
     private static final String REMOVE_BUTTON_ID = "Remove";
@@ -26,6 +27,7 @@ public class TestPage extends BasePage {
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
     private static final String REVIEW_BUTTON_ID = "Review";
     private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
+
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -298,4 +300,13 @@ public class TestPage extends BasePage {
     public void clickReviewButton() {
         findElementById(REVIEW_BUTTON_ID).click();
     }
+
+    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
+
+    public void addATrailer() {
+        clickAddATrailerButton();
+    }
+
+    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
+
 }
