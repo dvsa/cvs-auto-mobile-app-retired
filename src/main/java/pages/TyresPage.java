@@ -1,5 +1,7 @@
 package pages;
 
+import model.vehicles.Axles;
+import model.vehicles.Weights;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;

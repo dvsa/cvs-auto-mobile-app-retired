@@ -36,21 +36,16 @@ public class TestSteps extends ScenarioSteps {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isTrailerRegistrationPlateDisplayed(trailer, vin)).isTrue();
         System.out.println(getDriver().getPageSource());
-    //   List<WebElement> allImages = getDriver().findElements (By.tagName("img"));
-      //  for (WebElement image:allImages){
-        //    System.out.println(image);
-        //}
-
     }
-//
-//    public boolean checkIfTrailerImageIsDisplayed() {
-//        return testPage.checkIfTrailerImageIsDisplayed();
-//    }
-
 
     @Step
     public void checkAddATestTypeButtonVisibility() {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkAddATrailerButtonVisibility(){
+        assertThat(testPage.checkAddATrailerButtonIsDisplayed()).isTrue();
     }
 
     @Step
@@ -300,5 +295,11 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void selectTrailerDetails() {
         selectVehicleDetails();
+    }
+
+    @Step
+    public void clickAddATrailerButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddATrailerButton();
     }
 }
