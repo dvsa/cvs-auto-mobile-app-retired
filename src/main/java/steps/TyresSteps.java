@@ -27,11 +27,11 @@ public class TyresSteps extends ScenarioSteps {
         tyresPage.waitUntilPageIsLoaded();
         List<WebElement> axleData = tyresPage.getAxleData(axle);
         List<WebElement> extractedValues = axleData.stream().filter(detail -> axleData.indexOf(detail)%2==0).collect(Collectors.toList());
-        System.out.println("AXLE: " + axle);
-        System.out.println("List of axleData: " + axleData);
-        System.out.println("details: " + Arrays.asList(details));
+//        System.out.println("AXLE: " + axle);
+//        System.out.println("List of axleData: " + axleData);
+//        System.out.println("details: " + Arrays.asList(details));
         List<String> valuesToString = extractedValues.stream().map(value -> value.getAttribute("name")).collect(Collectors.toList());
-        System.out.println("extracted values: " + valuesToString);
+//        System.out.println("extracted values: " + valuesToString);
             assertThat(Arrays.asList(details).equals(valuesToString)).isTrue();
     }
 

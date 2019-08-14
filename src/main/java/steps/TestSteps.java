@@ -233,4 +233,26 @@ public class TestSteps extends ScenarioSteps {
     public void reviewAndSubmitAction(){
         testPage.clickReviewAndSubmitButton();
     }
+
+    @Step
+    public void checkHgvTestDetails(String hgv, String vin) {
+            testPage.waitUntilPageIsLoaded();
+            assertThat(testPage.isPageTitleDisplayed() && testPage.isHgvRegistrationPlateDisplayed(hgv, vin)).isTrue();
+        }
+
+    @Step
+    public void selectHgvDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void selectTrailerDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void clickAddATrailerButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddATrailerButton();
+    }
 }
