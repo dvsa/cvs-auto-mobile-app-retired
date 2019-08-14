@@ -155,7 +155,6 @@ public class TestPage extends BasePage {
     }
 
     public void addTestType() {
-//        System.out.println(getDriver().getPageSource());
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
@@ -420,13 +419,5 @@ public class TestPage extends BasePage {
     public void addATrailer() {
         clickAddATrailerButton();
     }
-
-    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
-
-    public void addATrailer() {
-        clickAddATrailerButton();
-    }
-
-    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
 
 }
