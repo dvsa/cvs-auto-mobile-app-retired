@@ -419,5 +419,4 @@ public class TestPage extends BasePage {
     public void addATrailer() {
         clickAddATrailerButton();
     }
-
 }
