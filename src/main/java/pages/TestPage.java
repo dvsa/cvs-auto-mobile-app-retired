@@ -418,12 +418,8 @@ public class TestPage extends BasePage {
         scrollDownTo(500, -800);
     }
 
-    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
-
     public void addATrailer() {
         clickAddATrailerButton();
     }
-
-    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
 
 }
