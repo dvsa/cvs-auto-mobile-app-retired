@@ -381,4 +381,10 @@ public class TestSteps extends ScenarioSteps {
     public void selectTrailerDetails() {
         selectVehicleDetails();
     }
+
+    @Step
+    public void clickAddATrailerButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddATrailerButton();
+    }
 }
