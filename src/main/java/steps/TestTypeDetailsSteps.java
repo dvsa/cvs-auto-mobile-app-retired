@@ -276,15 +276,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void swipeDefectByName(String defectName) {
-        int initialXPosition = testTypeDetailsPage.getXPositionForElementByName(defectName);
-        testTypeDetailsPage.swipeLeftOnDefectByName(defectName);
-        int newXPosition = testTypeDetailsPage.getXPositionForElementByName(defectName);
-        System.out.println("initial X postion "+initialXPosition + "new X position"+newXPosition);
-        assertThat(initialXPosition).isNotEqualTo(newXPosition);
-    }
-
-    @Step
     public void pressRemove() {
         testTypeDetailsPage.clickOnRemoveButton();
     }
@@ -433,6 +424,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void enablePRS(){testTypeDetailsPage.enablePRS();}
 
     public void checkElementValue(String element, String value){
-        AssertionsForClassTypes.assertThat(testTypeDetailsPage.checkElementValue(element,value));
+        testTypeDetailsPage.checkElementValue(element,value);
     }
 }

@@ -106,15 +106,6 @@ public class TestTypeDetailsPage extends BasePage {
         js.executeScript("mobile: swipe", params);
     }
 
-    public void swipeLeftOnDefectByName(String defectName) {
-        WebElement defectToSwipe = findElementByName(defectName);
-        JavascriptExecutor js = (JavascriptExecutor) getDriver();
-        Map<String, Object> params = new HashMap<>();
-        params.put("direction", "left");
-        params.put("element", ((RemoteWebElement) defectToSwipe).getAttribute("name"));
-        js.executeScript("mobile: swipe", params);
-    }
-
     public void clickOnRemoveButton() {
         findElementById(REMOVE_BUTTON_ID).click();
     }

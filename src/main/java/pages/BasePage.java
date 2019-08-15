@@ -219,4 +219,16 @@ public class BasePage extends PageObject {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
     }
+
+
+    public boolean checkElementValue(String element, String value){
+        List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
+        for(WebElement e : webElementList){
+            if(e.getAttribute("name").equals(element)){
+                return webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value);
+            }
+        }
+        return false;
+    }
+
 }
