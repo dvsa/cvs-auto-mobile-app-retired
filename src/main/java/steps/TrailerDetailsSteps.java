@@ -120,7 +120,7 @@ public class TrailerDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkTrailerTestHistory() {
+    public void checkTrailerTestHistoryIsDisplayed() {
         trailerDetailsPage.waitUntilPageIsLoaded();
         trailerDetailsPage.scrollDetailPage();
         assertThat(trailerDetailsPage.isTestHistoryButtonDisplayed()).isTrue();
@@ -171,5 +171,33 @@ public class TrailerDetailsSteps extends ScenarioSteps {
         trailerDetailsPage.waitUntilPageIsLoaded();
         trailerDetailsPage.scrollDetailPage();
         trailerDetailsPage.clickAdditionalDetails();
+    }
+
+    @Step
+    public void checkWeightsIsDisplayed() {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.scrollDetailPage();
+        assertThat(trailerDetailsPage.isWeightsButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkTyresIsDisplayed() {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.scrollDetailPage();
+        assertThat(trailerDetailsPage.isTyresButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkAdditionalVehicleDetailsIsDisplayed() {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.scrollDetailPage();
+        assertThat(trailerDetailsPage.isAdditionalVehicleDetailsButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkBrakesIsDisplayed() {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.scrollDetailPage();
+        assertThat(trailerDetailsPage.isBrakesButtonDisplayed()).isTrue();
     }
 }

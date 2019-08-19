@@ -19,6 +19,9 @@ public class TrailerDetailsPage extends BasePage {
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
     private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Trailer test history";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
+    private static final String WEIGHTS_BUTTON_ID = "Weights";
+    private static final String TYRES_BUTTON_ID = "Tyres";
+    private static final String BRAKES_BUTTON_ID = "Brakes";
 
     public void waitUntilPageIsLoaded() {
 
@@ -142,5 +145,21 @@ public class TrailerDetailsPage extends BasePage {
 
     public void clickAdditionalDetails() {
         findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).click();
+    }
+
+    public boolean isWeightsButtonDisplayed() {
+        return findElementById(WEIGHTS_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isTyresButtonDisplayed() {
+        return findElementById(TYRES_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isAdditionalVehicleDetailsButtonDisplayed() {
+        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isBrakesButtonDisplayed() {
+        return findElementById(BRAKES_BUTTON_ID).isDisplayed();
     }
 }

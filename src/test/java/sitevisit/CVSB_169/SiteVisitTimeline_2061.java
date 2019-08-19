@@ -28,7 +28,7 @@ public class SiteVisitTimeline_2061 extends BaseTestClass {
         siteVisitComp.goToSiteVisit();
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.checkIdentitfyVehicleTitleIsDisplayed();
+        identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();
         identifyVehicleSteps.typeInSearchField(vehicleService.getVehicle().getVim());
         identifyVehicleSteps.checkSearchBoxAndText(vehicleService.getVehicle().getVim());
 

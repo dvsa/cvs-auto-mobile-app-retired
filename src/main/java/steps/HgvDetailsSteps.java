@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.VehicleDetailsPage;
 
@@ -109,5 +110,30 @@ public class HgvDetailsSteps extends ScenarioSteps {
         assertThat(vehicleDetailsPage.isAttribute("DTP", dtp)).isTrue();
     }
 
+
+    @Step
+    public void checkVinChassisNumberIs(String vinChassisNumber) {
+        assertThat(vehicleDetailsPage.isAttribute("VIN / Chassis number", vinChassisNumber)).isTrue();
+    }
+
+    @Step
+    public void checkVehicleTestHistoryIsDisplayed() {
+        assertThat(vehicleDetailsPage.isButtonDisplayed("Vehicle test history")).isTrue();
+    }
+
+    @Step
+    public void checkWeightsIsDisplayed() {
+        assertThat(vehicleDetailsPage.isButtonDisplayed("Weights")).isTrue();
+    }
+
+    @Step
+    public void checkTyresIsDisplayed() {
+        assertThat(vehicleDetailsPage.isButtonDisplayed("Tyres")).isTrue();
+    }
+
+    @Step
+    public void checkAdditionalVehicleDetailsIsDisplayed() {
+        assertThat(vehicleDetailsPage.isButtonDisplayed("Additional vehicle details")).isTrue();
+    }
 
 }
