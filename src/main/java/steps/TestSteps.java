@@ -12,8 +12,6 @@ public class TestSteps extends ScenarioSteps {
     private static final String NO_TEST_TYPE_ADDED_TITLE = "No test type added";
     private static final String NO_TEST_TYPE_ADDED_INFO = "Add a test type before reviewing.";
 
-    TestPage testPage;
-
     @Step
     public void addTestType() {
         testPage.waitUntilPageIsLoaded();

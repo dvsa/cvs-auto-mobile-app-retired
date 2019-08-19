@@ -152,7 +152,6 @@ public class TestPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_PAGE_TITLE);
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public void addTestType() {
@@ -420,13 +419,5 @@ public class TestPage extends BasePage {
     public void addATrailer() {
         clickAddATrailerButton();
     }
-
-    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
-
-    public void addATrailer() {
-        clickAddATrailerButton();
-    }
-
-    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
 
 }
