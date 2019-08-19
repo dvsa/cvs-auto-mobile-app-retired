@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class VehicleDetailsSteps extends ScenarioSteps {
 
     VehicleDetailsPage vehicleDetailsPage;
-    TrailerDetailsPage trailerDetailsPage;
 
     @Step
     public void selectConfirmButtonTopRight() {
