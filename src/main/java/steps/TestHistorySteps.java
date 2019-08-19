@@ -46,4 +46,9 @@ public class TestHistorySteps extends ScenarioSteps {
     public void clickLastTestByTestType(String testResult) {
         testHistoryPage.clickLastTestByTestType(testResult);
     }
+
+    @Step
+    public void checkNoTestHistoryIsDisplayed() {
+        assertThat(testHistoryPage.isNoTestHistoryDisplayed()).isTrue();
+    }
 }
