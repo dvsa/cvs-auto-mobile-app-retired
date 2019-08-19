@@ -30,6 +30,10 @@ public class TestPage extends BasePage {
     private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
 
 
+    public boolean OdometerOptionIsDisplayed() {
+        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
+    }
+
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
