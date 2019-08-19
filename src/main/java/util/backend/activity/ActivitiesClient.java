@@ -104,7 +104,7 @@ public class ActivitiesClient {
     private Response callGetActivities(String testerStaffId, String fromStartTime, String toStartTime) {
 
         RequestSpecification requestSpecification = given().filters(new BasePathFilter())
-                .contentType(ContentType.JSON);
+                .contentType(ContentType.JSON).log().all();
 
         if (testerStaffId != null) {
             requestSpecification.queryParam("testerStaffId", testerStaffId);
@@ -120,6 +120,7 @@ public class ActivitiesClient {
 
         Response response = requestSpecification
                 .queryParam("activityType", "visit")
+                .log().all()
                 .get("/activities/details");
 
 
@@ -134,6 +135,7 @@ public class ActivitiesClient {
                 .queryParam("activityType", "visit")
                 .queryParam("fromStartTime", LocalDateTime.now().minusDays(1).toString())
                 .queryParam("testerStaffId", testerStaffId)
+                .log().all()
                 .get("/activities/details");
 
         return response;
