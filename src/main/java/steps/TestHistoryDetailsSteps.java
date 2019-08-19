@@ -59,7 +59,7 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkAllElementsAreNotEditable() {
-        assertThat(testHistoryDetailsPage.checkAllElementsAreNoteditable()).isFalse();
+        assertThat(testHistoryDetailsPage.checkAllElementsAreNotEditable()).isFalse();
     }
 
     @Step

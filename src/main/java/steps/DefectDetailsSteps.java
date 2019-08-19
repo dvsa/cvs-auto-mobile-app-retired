@@ -213,4 +213,9 @@ public class DefectDetailsSteps extends ScenarioSteps {
     public void checkProhibitionPopUpNotDisplayed() {
         assertThat(defectDetailsPage.isProhibitionPopUpDisplayed()).isFalse();
     }
+
+    @Step
+    public void scroll() {
+        defectDetailsPage.scroll();
+    }
 }
