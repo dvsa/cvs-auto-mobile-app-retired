@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
 import pages.IdentifyVehiclePage;
 import static org.assertj.core.api.Assertions.assertThat;
 
