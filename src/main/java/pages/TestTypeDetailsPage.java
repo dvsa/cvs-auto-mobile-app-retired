@@ -478,5 +478,13 @@ public class TestTypeDetailsPage extends BasePage {
     public void enablePRS() {
         tap(findElementByXpath("//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]"));
     }
+
+    public boolean isAbandonButtonDisplayed() {
+        return findElementById(ABANDON_TEST_TYPE).isDisplayed();
+    }
+
+    public boolean isRemoveTestButtonDisplayed() {
+        return findElementById(REMOVE_TEST_TYPE).isDisplayed();
+    }
 }
 

@@ -406,7 +406,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setProhibisionIssued() {
+    public void setProhibitionIssued() {
         testTypeDetailsPage.enableProhibition();
     }
 
@@ -422,6 +422,18 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void enablePRS(){testTypeDetailsPage.enablePRS();}
+
+    @Step
+    public void checkTestTypeAbandonButton() {
+        assertThat(testTypeDetailsPage.isAbandonButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkTestTypeRemoveButton() {
+        assertThat(testTypeDetailsPage.isRemoveTestButtonDisplayed()).isTrue();
+    }
+
+
 
     public void checkElementValue(String element, String value){
         testTypeDetailsPage.checkElementValue(element,value);

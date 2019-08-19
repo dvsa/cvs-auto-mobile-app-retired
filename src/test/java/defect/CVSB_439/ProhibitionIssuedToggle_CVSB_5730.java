@@ -36,7 +36,7 @@ public class ProhibitionIssuedToggle_CVSB_5730 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setProhibisionIssued();
+        testTypeDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOn();
     }
 
