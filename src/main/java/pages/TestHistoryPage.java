@@ -46,4 +46,8 @@ public class TestHistoryPage extends BasePage {
         testResultList.get(0).click();
 
     }
+
+    public boolean isNoTestHistoryDisplayed() {
+        return findElementByXpath("//XCUIElementTypeStaticText[@name='No test history found for this vehicle']").isDisplayed();
+    }
 }
