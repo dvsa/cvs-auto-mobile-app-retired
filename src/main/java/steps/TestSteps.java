@@ -255,4 +255,20 @@ public class TestSteps extends ScenarioSteps {
         testPage.waitUntilPageIsLoaded();
         testPage.clickAddATrailerButton();
     }
+
+    @Step
+    public void checkAddAVehicleButtonVisibility() {
+        assertThat(testPage.checkAddAVehicleButtonIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void clickAddAVehicleButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddAVehicleButton();
+    }
+
+    @Step
+    public void checkOdometerOptionIsDisplayed() {
+        assertThat(testPage.OdometerOptionIsDisplayed()).isTrue();
+    }
 }
