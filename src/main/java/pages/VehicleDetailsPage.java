@@ -12,6 +12,7 @@ public class VehicleDetailsPage extends BasePage {
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
+    private static final String PAGE_ALL_BUTTON_XPATH = "//XCUIElementTypeButton";
     private static final String CANCEL_ID = "Cancel";
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
@@ -21,7 +22,7 @@ public class VehicleDetailsPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public boolean isDetailPageScrollable() {
@@ -138,4 +139,14 @@ public class VehicleDetailsPage extends BasePage {
         return false;
     }
 
+    public boolean isButtonDisplayed(String button) {
+
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTON_XPATH);
+        for (WebElement webElement : webElementList) {
+            if(webElement.getAttribute("name").equals(button)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
