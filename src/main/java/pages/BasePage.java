@@ -158,6 +158,12 @@ public class BasePage extends PageObject {
 
     }
 
+    protected void waitElementToDisappear(By locator, int timeOut, int poolingEvery){
+        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+
 
 
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {

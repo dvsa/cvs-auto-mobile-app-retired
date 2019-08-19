@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.By;
 import pages.IdentifyVehiclePage;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -42,12 +43,13 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     @Step
     public void pressSearch() {
+        identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.clickSearch();
     }
 
     @Step
     public void checkVehicleNotFoundPopUp() {
-        identifyVehiclePage.waitUntilPageIsLoaded();
+        identifyVehiclePage.waitForLoadingToEnd();
         assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isTrue();
     }
 
@@ -83,8 +85,9 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIdentitfyVehicleTitleIsDisplayed(){
+    public void checkIdentifyVehicleTitleIsDisplayed(){
         assertThat(identifyVehiclePage.isIdentifyVehicleTitleDisplayed()).isTrue();
     }
+
 }
 

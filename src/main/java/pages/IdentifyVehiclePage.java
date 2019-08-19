@@ -1,6 +1,9 @@
 package pages;
 
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
 import java.util.List;
 
@@ -11,7 +14,7 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String SEARCH_OPTION = "Search";
     private static final String OK_ID = "OK";
-    private static final String DESCRIPTION_ID = "You can find a vehicle by typing in its registration number or vehicle identification/chassis number";
+    private static final String DESCRIPTION_ID = "You can find a vehicle by typing in its registration number or vehicle identification / chassis number";
     private static final String TITLE_ID = "Vehicle not found";
     private static final String LOADING_SCREEN_ID = "Loading...";
 
@@ -82,6 +85,10 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isLoadingScreenDisplayed() {
         return findElementByAccessibilityId(LOADING_SCREEN_ID).isDisplayed();
+    }
+
+    public void waitForLoadingToEnd(){
+        waitElementToDisappear(MobileBy.AccessibilityId(LOADING_SCREEN_ID), 20, 200);
     }
 
     public boolean isIdentifyVehicleTitleDisplayed() {
