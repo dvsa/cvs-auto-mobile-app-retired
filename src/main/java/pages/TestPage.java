@@ -26,7 +26,6 @@ public class TestPage extends BasePage {
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
     private static final String REVIEW_AND_SUBMIT = "Review and submit";
-    private static final String REVIEW_BUTTON_ID = "Review and submit";
     private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
     private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
 
