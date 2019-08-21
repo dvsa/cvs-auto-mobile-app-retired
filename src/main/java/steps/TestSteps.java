@@ -272,4 +272,14 @@ public class TestSteps extends ScenarioSteps {
     public void checkOdometerOptionIsDisplayed() {
         assertThat(testPage.OdometerOptionIsDisplayed()).isTrue();
     }
+
+    @Step
+    public void checkPropertyIsDisplayedXTimes(String category, int times){
+        assertThat(testPage.isPropertyDisplayedXTimes(category, times)).isTrue();
+    }
+
+    @Step
+    public void checkVehicleCardIsDisplayedAfterVehicle(String item1, String item2) {
+        assertThat(testPage.isItemDisplayedAfter(item1,  item2));
+    }
 }
