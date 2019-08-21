@@ -115,6 +115,23 @@ public class TestPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
     }
 
+    public boolean isPropertyDisplayedXTimes(String property, int times) {
+        waitUntilPageIsLoaded();
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        int timesFound=0;
+        for (WebElement button : buttonList) {
+            if (button.getAttribute("name").contains(property)) {
+                timesFound++;
+            }
+        }
+            return(times == timesFound);
+    }
+
+    public boolean isItemDisplayedAfter(String item1, String item2) {
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        return buttonList.indexOf(item1)>buttonList.indexOf(item2);
+    }
+
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
