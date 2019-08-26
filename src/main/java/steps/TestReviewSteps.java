@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.assertj.core.api.AssertionsForClassTypes;
 import pages.SiteVisitPage;
 import pages.TestReviewPage;
 
