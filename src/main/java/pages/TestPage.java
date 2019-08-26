@@ -121,7 +121,6 @@ public class TestPage extends BasePage {
         return null;
     }
 
-
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
 
