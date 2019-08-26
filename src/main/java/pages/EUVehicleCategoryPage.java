@@ -1,5 +1,9 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
 public class EUVehicleCategoryPage extends BasePage{
     private static final String PAGE_TITLE_ID = "EU vehicle category";
     private static final String SAVE_BUTTON_ID = "Save";
@@ -11,6 +15,7 @@ public class EUVehicleCategoryPage extends BasePage{
     private static final String O2_TRAILER_DESCRIPTION_XPATH = "//XCUIElementTypeButton[@name=\"O2 exceeding 0.75 tonnes but not exceeding 3.5 tonnes\"]";
     private static final String O3_TRAILER_DESCRIPTION_XPATH = "//XCUIElementTypeButton[@name=\"O3 exceeding 3.5 tonnes but not exceeding 10 tonnes\"]";
     private static final String O4_TRAILER_DESCRIPTION_XPATH = "//XCUIElementTypeButton[@name=\"O4 exceeding 10 tonnes\"]";
+    private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(PAGE_TITLE_ID);
@@ -92,4 +97,13 @@ public class EUVehicleCategoryPage extends BasePage{
         findElementByXpath(O4_TRAILER_DESCRIPTION_XPATH).click();
     }
 
+    public void clickOption(String option) {
+        waitUntilPageIsLoaded();
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        for (WebElement button : buttonList) {
+            if (button.getAttribute("name").contains(option)) {
+                button.click();
+            }
+        }
+    }
 }

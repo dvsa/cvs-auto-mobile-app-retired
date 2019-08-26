@@ -29,6 +29,13 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectOption(String option){
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        euVehicleCategoryPage.clickOption(option);
+        clickSaveOptionButton();
+    }
+
+    @Step
     @Deprecated
     public void selectM2Option() {
         euVehicleCategoryPage.clickM2Option();

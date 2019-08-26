@@ -22,6 +22,12 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void addTestTypeFor(String vehicle) {
+        testPage.waitUntilPageIsLoaded();
+        testPage.addTestTypeFor(vehicle);
+    }
+
+    @Step
     public void checkTestDetails(String regPlate, String vin) {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
@@ -138,6 +144,11 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void selectOdometerReading() {
         testPage.clickOdometerReading();
+    }
+
+    @Step
+    public void clickOdometerReadingFor(String vehicle) {
+        testPage.clickOdometerReadingOf(vehicle);
     }
 
     @Step
@@ -323,5 +334,30 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void checkVehicleCardIsDisplayedAfterVehicle(String item1, String item2) {
         assertThat(testPage.isItemDisplayedAfter(item1,  item2));
+    }
+
+    @Step
+    public void selectEuVehicleCategory() {
+        testPage.clickEUVehicleCategoryOption();
+    }
+
+    @Step
+    public void clickCountryOfRegistrationFor(String vehicle) {
+        testPage.clickCountryOfRegistrationOf(vehicle);
+    }
+
+    @Step
+    public void scrollDown(){
+        testPage.scrollPageDown();
+    }
+
+    @Step
+    public void checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
+        assertThat(testPage.checkCountryOfRegistrationFieldIsUpdatedFor(country, vehicle)).isTrue();
+    }
+
+    @Step
+    public void clickEuVehicleCategoryFor(String vehicle){
+        testPage.clickEuVehicleCategoryFor(vehicle);
     }
 }
