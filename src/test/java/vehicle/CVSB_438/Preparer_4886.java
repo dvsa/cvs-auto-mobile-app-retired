@@ -21,7 +21,7 @@ public class Preparer_4886 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @Title("CVSB_438 - AC 1 VSA returns to the vehicle details screen")
+    @Title("CVSB_438 - CVSB-5105 - AC 1 VSA returns to the vehicle details screen")
     @Test
     public void selectPreparer() {
         preparerComp.goToSelectPreparer();

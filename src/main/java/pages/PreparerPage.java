@@ -100,4 +100,16 @@ public class PreparerPage extends BasePage {
         searchBar.sendKeys(preparerId);
         clickStartTest();
     }
+
+    public boolean isPreparerFieldPrePopulatedWith(String preparerId) {
+        waitUntilPageIsLoaded();
+        WebElement searchBar = findElementByXpath(SEARCH_PREPARER_ID);
+        return searchBar.getAttribute("value").equals(preparerId);
+    }
+
+    public void clearPreparerField() {
+        waitUntilPageIsLoaded();
+        WebElement searchBar = findElementByXpath(SEARCH_PREPARER_ID);
+        searchBar.clear();
+    }
 }
