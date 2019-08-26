@@ -22,6 +22,7 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public void clickSaveButton() {
+        waitUntilPageIsLoaded();
         findElementById(SAVE_BUTTON_ID).click();
     }
 
@@ -186,7 +187,12 @@ public class CountryOfRegistrationPage extends BasePage {
 
     public void selectACountry(String country) {
         searchForCountry(country);
-        findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + country + "')]").click();
+        for(Countries definedCountry : Countries.values()){
+            if (definedCountry.getValue().contains(country)){
+                findElementByXpath("//XCUIElementTypeButton[contains(@name,'"+definedCountry.getValue()+ "')]").click();
+            }
+        }
+
         clickSaveButton();
     }
 

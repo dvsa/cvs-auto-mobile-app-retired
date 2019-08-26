@@ -3,14 +3,16 @@ package pages;
 import org.openqa.selenium.*;
 
 public class TestReviewPage extends BasePage {
-    private static final String SUBMIT_BUTTON_ID = "Submit";
+    private static final String SUBMIT_BUTTON_ID = "Submit test";
+    private static final String SUBMIT_TESTS_BUTTON_ID = "Submit tests";
+    private static final String NEXT_VEHICLE_BUTTON_ID = "Next vehicle";
     private static final String BACK_TO_TEST_ID = "arrow back Test";
     private static final String TEST_REVIEW_TITLE_ID = "Test review";
     private static final String CHANGE_DETAILS_BUTTON_ID = "Change details";
     private static final String SAVE_CHANGED_DETAILS = "Save";
-    private static final String POP_UP_SUBMIT_XPATH = "(//XCUIElementTypeButton[@name='Submit'])[2]";
+    private static final String POP_UP_SUBMIT_XPATH = "(//XCUIElementTypeButton[@name='Submit'])";
     private static final String POP_UP_CANCEL_XPATH = "(//XCUIElementTypeButton[@name='Cancel'])";
-    private static final String POP_UP_TITLE = "Submit test";
+    private static final String POP_UP_TITLE_XPATH = "(//XCUIElementTypeOther[@name='Submit test'])";
     private static final String POP_UP_TEXT = "You will not be able to make changes to this test after it has been submitted.";
     private static final String LOADING_INDICATOR = "Loading...";
     private static final String ERROR_TITLE = "Unable to submit test";
@@ -105,7 +107,7 @@ public class TestReviewPage extends BasePage {
     public boolean checkPopUpIsDisplayed() {
         boolean status;
         try {
-            status = findElementByAccessibilityId(POP_UP_TITLE).isDisplayed() && findElementByAccessibilityId(POP_UP_TEXT).isDisplayed()
+            status = findElementByXpath(POP_UP_TITLE_XPATH).isDisplayed() && findElementByAccessibilityId(POP_UP_TEXT).isDisplayed()
                     && findElementByXpath(POP_UP_SUBMIT_XPATH).isDisplayed() && findElementByXpath(POP_UP_CANCEL_XPATH).isDisplayed();
         } catch (NoSuchElementException e) {
             status = false;
@@ -147,5 +149,14 @@ public class TestReviewPage extends BasePage {
     public boolean isLoadingIndicatorNotDisplayed() {
         waitUntilNumberOfElementsToBe(By.id(LOADING_INDICATOR), 0);
         return true;
+    }
+
+    public void clickNextVehicle() {
+        findElementByAccessibilityId(NEXT_VEHICLE_BUTTON_ID).click();
+    }
+
+    public void clickSubmitTestsButton() {
+        findElementByAccessibilityId(SUBMIT_TESTS_BUTTON_ID).click();
+
     }
 }
