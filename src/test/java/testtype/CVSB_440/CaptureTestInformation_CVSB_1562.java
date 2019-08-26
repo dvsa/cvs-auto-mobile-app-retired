@@ -52,7 +52,10 @@ public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
     @Steps
     TestHistorySteps testHistorySteps;
 
-    @Title("CVSB-440 - AC7 -  Going back from a test type")
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
+    @Title("CVSB-440 - CVSB-7422 - AC7 -  Going back from a test type")
     @Test
     public void testGoBackFromTestTypeDetails() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
@@ -72,6 +75,7 @@ public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();

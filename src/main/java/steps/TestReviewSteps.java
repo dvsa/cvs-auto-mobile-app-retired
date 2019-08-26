@@ -148,6 +148,15 @@ public class TestReviewSteps extends ScenarioSteps {
         assertThat(testReviewPage.isLoadingIndicatorNotDisplayed()).isTrue();
     }
 
+    @Step
+    public void pressNextVehicle() {
+        testReviewPage.clickNextVehicle();
+    }
+
+    public void pressSubmitTests() {
+        testReviewPage.clickSubmitTestsButton();
+    }
+
     public void checkElementValue(String element, String value){
         testReviewPage.checkElementValue(element,value);
     }

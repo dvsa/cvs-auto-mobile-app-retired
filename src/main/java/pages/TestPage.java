@@ -132,6 +132,67 @@ public class TestPage extends BasePage {
         return buttonList.indexOf(item1)>buttonList.indexOf(item2);
     }
 
+    public void clickCountryOfRegistrationOf(String vehicle) {
+        waitUntilPageIsLoaded();
+            for (WebElement button : getButtonsOfVehicle(vehicle)) {
+
+                if (button.getAttribute("name").contains("Country of registration")) {
+
+                    button.click();
+                }
+            }
+
+    }
+
+    public void clickEuVehicleCategoryFor(String vehicle) {
+        waitUntilPageIsLoaded();
+            for (WebElement button : getButtonsOfVehicle(vehicle)) {
+                if (button.getAttribute("name").contains("EU vehicle category")) {
+                    button.click();
+                }
+            }
+
+    }
+
+    public void clickOdometerReadingOf(String vehicle) {
+        waitUntilPageIsLoaded();
+        for (WebElement button : getButtonsOfVehicle(vehicle)) {
+            if (button.getAttribute("name").startsWith("Odometer reading")) {
+                button.click();
+            }
+        }
+
+    }
+
+    public boolean checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
+        waitUntilPageIsLoaded();
+        List<WebElement> allButtonsOfVehicle =  getButtonsOfVehicle(vehicle);
+        for (WebElement button : allButtonsOfVehicle) {
+            if (button.getAttribute("name").contains("Country of registration")) {
+                    return button.getAttribute("name").contains(country);
+            }
+        }
+        return false;
+    }
+
+    private List<WebElement> getButtonsOfVehicle(String vehicle){
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        for(WebElement button : buttonList){
+            if(button.getAttribute("name").contains(vehicle)){
+                int index = buttonList.indexOf(button) + 1;
+                do {
+                    System.out.println("button: " + buttonList.get(index).getAttribute("name"));
+                    index++;
+                    }
+                while(!buttonList.get(index).getAttribute("name").contains("Add a test type"));
+                for(WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1) ){
+                    System.out.println("element of list is: " + we.getAttribute("name"));
+                }
+                return buttonList.subList(buttonList.indexOf(button) + 1, index + 1);
+            }
+        }
+        return null;
+    }
 
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
@@ -421,11 +482,10 @@ public class TestPage extends BasePage {
 
     public void clickAddAVehicleButton() {findElementById(ADD_A_VEHICLE_BUTTON_ID).click();}
 
-    public void addATrailer() {
-        clickAddATrailerButton();
-    }
-
     public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
     public boolean checkAddAVehicleButtonIsDisplayed() {return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();}
 
+    public void scrollPageDown() {
+        scrollDownTo(500, -800);
+    }
 }
