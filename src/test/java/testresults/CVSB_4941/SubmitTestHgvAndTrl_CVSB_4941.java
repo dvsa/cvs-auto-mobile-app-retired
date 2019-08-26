@@ -37,9 +37,6 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     PreparerSteps preparerSteps;
 
     @Steps
-    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
-
-    @Steps
     SiteVisitSteps siteVisitSteps;
 
     @Steps
@@ -56,9 +53,6 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
 
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
-
-    @Steps
-    ATFDetailsSteps atfDetailsSteps;
 
     @Steps
     TrailerDetailsSteps trailerDetailsSteps;
