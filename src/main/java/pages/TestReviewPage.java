@@ -2,8 +2,8 @@ package pages;
 
 import org.openqa.selenium.*;
 
-
 public class TestReviewPage extends BasePage {
+    private static final String SUBMIT_BUTTON_ID = "Submit test";
     private static final String SUBMIT_TESTS_BUTTON_ID = "Submit tests";
     private static final String NEXT_VEHICLE_BUTTON_ID = "Next vehicle";
     private static final String BACK_TO_TEST_ID = "arrow back Test";
@@ -93,7 +93,7 @@ public class TestReviewPage extends BasePage {
     }
 
     public void clickSubmitButton() {
-        findElementByAccessibilityId(SUBMIT_TESTS_BUTTON_ID).click();
+        findElementByAccessibilityId(SUBMIT_BUTTON_ID).click();
     }
 
     public void clickSubmitInPopUp() {

@@ -409,4 +409,29 @@ public class TestSteps extends ScenarioSteps {
     public void checkVehicleCardIsDisplayedAfterVehicle(String item1, String item2) {
         assertThat(testPage.isItemDisplayedAfter(item1,  item2));
     }
+
+    @Step
+    public void selectEuVehicleCategory() {
+        testPage.clickEUVehicleCategoryOption();
+    }
+
+    @Step
+    public void clickCountryOfRegistrationFor(String vehicle) {
+        testPage.clickCountryOfRegistrationOf(vehicle);
+    }
+
+    @Step
+    public void scrollDown(){
+        testPage.scrollPageDown();
+    }
+
+    @Step
+    public void checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
+        assertThat(testPage.checkCountryOfRegistrationFieldIsUpdatedFor(country, vehicle)).isTrue();
+    }
+
+    @Step
+    public void clickEuVehicleCategoryFor(String vehicle){
+        testPage.clickEuVehicleCategoryFor(vehicle);
+    }
 }
