@@ -1,4 +1,4 @@
-package vehicle.CVSB_3486;
+package vehicle.CVSB_3846;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -84,6 +84,5 @@ public class TestAddPreparerForSecondVehicle extends BaseTestClass {
         preparerSteps.preparerIsFound("BL5545");
         preparerSteps.confirmInPopUp();
     }
-
 }
 
