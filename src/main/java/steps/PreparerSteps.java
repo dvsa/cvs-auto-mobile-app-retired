@@ -71,4 +71,19 @@ public class PreparerSteps extends ScenarioSteps {
         searchForPreparerId(preparerId);
         preparerPage.confirmPopUpOption();
     }
+
+    @Step
+    public void checkPreparerFieldIsNotPrePopulated() {
+        assertThat(preparerPage.isPreparerFieldPrePopulatedWith("Enter preparer ID if known")).isTrue();
+    }
+
+    @Step
+    public void checkPreparerFieldIsPrePopulatedWith(String preparerId) {
+        assertThat(preparerPage.isPreparerFieldPrePopulatedWith(preparerId)).isTrue();
+    }
+
+    @Step
+    public void clearPreparerIdInputField() {
+        preparerPage.clearPreparerField();
+    }
 }
