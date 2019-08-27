@@ -163,13 +163,12 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         testReviewSteps.checkSubmitPopUp();
         testReviewSteps.pressSubmitInPopUp();
         confirmationPageSteps.pressDone();
-        //TODO the confirmation response comes for each of the vehicle tested, uncomment when/if it will be fixed
-//        siteVisitSteps.createNewTest();
-//        identifyVehicleSteps.searchForVehicle("768594");
-//        trailerDetailsSteps.selectTrailerTestHistory();
-//        testHistorySteps.clickLastTestByTestType("Annual test");
-//        testHistoryDetailsSteps.pressBackButton();
-//        testHistorySteps.checkPage();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("768594");
+        trailerDetailsSteps.selectTrailerTestHistory();
+        testHistorySteps.clickLastTestByTestType("Annual test");
+        testHistoryDetailsSteps.pressBackButton();
+        testHistorySteps.checkPage();
     }
 
 }
