@@ -279,4 +279,8 @@ public class DefectDetailsPage extends BasePage {
             return false;
         }
     }
+
+    public void scroll() {
+        scroll(200, 700, 200, 300);
+    }
 }

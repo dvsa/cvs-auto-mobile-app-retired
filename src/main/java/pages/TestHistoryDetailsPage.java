@@ -123,7 +123,7 @@ public class TestHistoryDetailsPage extends BasePage {
         return isPresent;
     }
 
-    public boolean checkAllElementsAreNoteditable() {
+    public boolean checkAllElementsAreNotEditable() {
         List<WebElement> elementsDisplayed = findElementsByXpath("//XCUIElementTypeStaticText");
         boolean isEditable = false;
         for (WebElement we : elementsDisplayed) {

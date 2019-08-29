@@ -81,9 +81,11 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("1");
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
-        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
-        defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
-        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
+        defectItemSteps.selectDefectFromList("2. Anchorages");
+        defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
+        defectDetailsSteps.scroll();
+        defectDetailsSteps.setProhibitionIssued();
+        defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
@@ -92,6 +94,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestResult("PROHIBITION");
+        testHistoryDetailsSteps.scroll();
         testHistoryDetailsSteps.checkElementIsPresent("Prohibition issued - Yes");
     }
 }
