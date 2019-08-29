@@ -272,4 +272,42 @@ public class TestSteps extends ScenarioSteps {
     public void checkOdometerOptionIsDisplayed() {
         assertThat(testPage.OdometerOptionIsDisplayed()).isTrue();
     }
+
+    @Step
+    public void checkHgvTestDetails(String hgv, String vin) {
+            testPage.waitUntilPageIsLoaded();
+            assertThat(testPage.isPageTitleDisplayed() && testPage.isHgvRegistrationPlateDisplayed(hgv, vin)).isTrue();
+        }
+
+    @Step
+    public void selectHgvDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void selectTrailerDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void clickAddATrailerButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddATrailerButton();
+    }
+
+    @Step
+    public void checkAddAVehicleButtonVisibility() {
+        assertThat(testPage.checkAddAVehicleButtonIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void clickAddAVehicleButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddAVehicleButton();
+    }
+
+    @Step
+    public void checkOdometerOptionIsDisplayed() {
+        assertThat(testPage.OdometerOptionIsDisplayed()).isTrue();
+    }
 }
