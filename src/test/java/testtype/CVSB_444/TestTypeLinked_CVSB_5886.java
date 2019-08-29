@@ -53,7 +53,7 @@ public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();

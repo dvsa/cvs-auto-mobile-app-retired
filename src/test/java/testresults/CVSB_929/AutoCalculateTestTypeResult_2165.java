@@ -77,7 +77,7 @@ public class AutoCalculateTestTypeResult_2165 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("8.1 (d) (i) MINOR");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("PASS");
         testReviewSteps.checkElementIsDisplayed("Annual test");

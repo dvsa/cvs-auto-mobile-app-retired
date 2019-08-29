@@ -63,7 +63,7 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("123");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();

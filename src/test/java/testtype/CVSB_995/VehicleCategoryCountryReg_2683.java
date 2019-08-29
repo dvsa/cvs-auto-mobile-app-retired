@@ -46,7 +46,7 @@ public class VehicleCategoryCountryReg_2683 extends BaseTestClass {
         testSteps.checkOdometerReadingValue("1,234,567");
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("annual test");
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testSteps.checkTestNotCompleteDisplayedAndOkButton();
     }
 }

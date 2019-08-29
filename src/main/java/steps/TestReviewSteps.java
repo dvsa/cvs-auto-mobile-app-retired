@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.assertj.core.api.AssertionsForClassTypes;
 import pages.SiteVisitPage;
 import pages.TestReviewPage;
 
@@ -146,4 +147,10 @@ public class TestReviewSteps extends ScenarioSteps {
     public void checkLoadingIndicatorIsNotDisplayed() {
         assertThat(testReviewPage.isLoadingIndicatorNotDisplayed()).isTrue();
     }
+
+    public void checkElementValue(String element, String value){
+        testReviewPage.checkElementValue(element,value);
+    }
+
+
 }

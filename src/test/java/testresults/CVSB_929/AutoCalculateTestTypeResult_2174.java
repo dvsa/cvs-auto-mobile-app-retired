@@ -82,7 +82,7 @@ public class AutoCalculateTestTypeResult_2174 extends BaseTestClass {
         defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("T3st 1234 )(*");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAction();
+        testSteps.reviewAndSubmitAction();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("PRS");
         testReviewSteps.checkElementIsDisplayed("Annual test");
