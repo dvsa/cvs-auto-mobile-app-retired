@@ -55,6 +55,7 @@ public class ActivitiesClient {
     public Response getAllActivities() {
 
         Response response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , null);
+//        System.out.println("response: " + response.then().log().all());
 
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
             saveUtils();
