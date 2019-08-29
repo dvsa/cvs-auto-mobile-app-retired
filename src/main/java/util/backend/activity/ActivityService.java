@@ -34,8 +34,6 @@ public class ActivityService {
                     }
                     Collections.sort(activityDateId);
                     String toStartTimeData = activityDateId.get(0).minusSeconds(1).toString();
-
-
                     response = activitiesClient.getActivitiesToStartTime(toStartTimeData);
 
                 }
