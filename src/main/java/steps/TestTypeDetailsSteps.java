@@ -158,11 +158,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void checkCertificateSection(boolean isPresent) {
         if (isPresent) {
             assertThat(testTypeDetailsPage.checkLPLabelIsPresent()).isTrue();
-            assertThat(testTypeDetailsPage.checkCertificateNumberInputFIedIsPresent()).isTrue();
+            assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
             assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
         } else {
             assertThat(testTypeDetailsPage.checkLPLabelIsPresent()).isFalse();
-            assertThat(testTypeDetailsPage.checkCertificateNumberInputFIedIsPresent()).isFalse();
+            assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isFalse();
             assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isFalse();
         }
     }
@@ -433,4 +433,24 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
 
+    @Step
+    public void checkCertificateNumberIsDisplayed() {
+        assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
+        assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
+    }
+
+    @Step
+    public void checkCertificateGuidanceDisplays(String instruction) {
+        assertThat(testTypeDetailsPage.isCertificateNumberGuidance(instruction)).isTrue();
+    }
+
+    @Step
+    public void checkCertificateNumberIs(String certificateNumber) {
+        assertThat(testTypeDetailsPage.isCertificateNumber(certificateNumber)).isTrue();
+    }
+
+    @Step
+    public void checkCertificateNumberIsNotDisplayed() {
+        assertThat(testTypeDetailsPage.isStaticTextNotDisplayed("CERTIFICATE NUMBER")).isTrue();
+    }
 }
