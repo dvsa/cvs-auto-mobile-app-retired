@@ -217,6 +217,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
             defectDetailsSteps.tapDone();
             testTypeDetailsSteps.pressSave();
             testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+            testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
             testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
     }
 }
