@@ -77,7 +77,7 @@ public class AutoCalculateTestTypeResult_2204 extends BaseTestClass {
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("PASS");
         testReviewSteps.checkElementIsDisplayed("Annual test");

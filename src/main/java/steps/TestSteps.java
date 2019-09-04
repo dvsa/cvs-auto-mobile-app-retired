@@ -8,6 +8,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestSteps extends ScenarioSteps {
 
+    private static final String MESSAGE_COMPLETE_TEST_DETAILS = "You must complete all vehicle and test type details before reviewing.";
+    private static final String NO_TEST_TYPE_ADDED_TITLE = "No test type added";
+    private static final String NO_TEST_TYPE_ADDED_INFO = "Add a test type before reviewing.";
+
     TestPage testPage;
 
     @Step
@@ -22,6 +26,7 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
     }
 
+    @Step
     public void checkAddATestTypeButtonVisibility() {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
     }
@@ -44,7 +49,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReviewAndSubmitButton() {
+    public void checkReviewButton() {
         assertThat(testPage.isReviewAndSubmitButtonAvailable()).isTrue();
     }
 
@@ -114,7 +119,6 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkPageTitleDisplayed() {
-        testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed()).isTrue();
     }
 
@@ -187,7 +191,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfCorrectOptionIsDisplayed(String category) {
+    public void checkEUVehicleCategoryOptionIs(String category) {
         assertThat(testPage.checkMCategoryIsSelected(category)).isTrue();
     }
 
@@ -198,7 +202,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkCountryOfRegistrationOptionIsDisplayed() {
-        assertThat(testPage.checkCountryOfregistrationOptionIsDisplayed()).isTrue();
+        assertThat(testPage.checkCountryOfRegistrationOptionIsDisplayed()).isTrue();
     }
 
     @Step
@@ -217,7 +221,24 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void reviewAndSubmitAction(){
+    public void clickReview(){
         testPage.clickReviewAndSubmitButton();
     }
+
+    @Step
+    public void checkErrorMessageMandatoryFieldsDisplayed() {
+        assertThat(testPage.checkMessageIsDisplayed(MESSAGE_COMPLETE_TEST_DETAILS)).isTrue();
+    }
+
+    @Step
+    public void checkErrorMessageNoTestTypeAdded() {
+        assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_TITLE)).isTrue();
+    }
+
+    @Step
+    public void checkErrorMessageAddATestTypeBeforeReviewing() {
+        assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_INFO)).isTrue();
+    }
+
+
 }

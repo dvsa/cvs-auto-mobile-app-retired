@@ -69,7 +69,7 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.changeDetails();
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);

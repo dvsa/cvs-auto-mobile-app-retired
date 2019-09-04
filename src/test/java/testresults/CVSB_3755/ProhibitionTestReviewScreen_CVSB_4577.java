@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -27,6 +28,15 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
+    DefectCategorySteps defectCategorySteps;
+
+    @Steps
+    DefectItemSteps defectItemSteps;
+
+    @Steps
+    DefectDescriptionSteps defectDescriptionSteps;
+
+    @Steps
     DefectDetailsSteps defectDetailsSteps;
 
     @Steps
@@ -43,6 +53,9 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
 
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+    @Steps
+    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
 
     @WithTag("Smoke_1")
@@ -68,7 +81,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
         testTypeDetailsSteps.clickOnTitle();
         defectDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Prohibition Issued");

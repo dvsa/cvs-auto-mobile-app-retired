@@ -80,7 +80,7 @@ public class TestCodes_WEL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
 
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("X71LTA (PSV)");
         testReviewSteps.checkElementIsDisplayed("XMGDE02FS0H012356");

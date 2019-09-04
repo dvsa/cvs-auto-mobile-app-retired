@@ -26,6 +26,12 @@ public class TestPage extends BasePage {
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
     private static final String REVIEW_AND_SUBMIT = "Review and submit";
 
+
+    public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
+        waitUntilPageIsLoaded();
+        return findElementById(expectedErrorMessage).isDisplayed();
+    }
+
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
 
@@ -266,7 +272,7 @@ public class TestPage extends BasePage {
         findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Country of registration')]").click();
     }
 
-    public boolean checkCountryOfregistrationOptionIsDisplayed() {
+    public boolean checkCountryOfRegistrationOptionIsDisplayed() {
         return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Country of registration')]").isDisplayed();
     }
 

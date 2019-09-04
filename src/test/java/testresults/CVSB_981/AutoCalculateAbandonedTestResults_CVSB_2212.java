@@ -91,7 +91,6 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
-        defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
@@ -108,7 +107,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.ABANDONED);
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkTestStatus("Annual test", "ABANDONED");
         testReviewSteps.changeDetailsIsNotDisplayed();
     }
