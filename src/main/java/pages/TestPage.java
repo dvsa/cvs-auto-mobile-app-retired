@@ -11,6 +11,7 @@ public class TestPage extends BasePage {
 
     private static final String TEST_PAGE_TITLE = "Test";
     private static final String ADD_TEST_TYPE_BUTTON_ID = "Add a test type";
+    private static final String ADD_A_TRAILER_BUTTON_ID = "Add a trailer";
     private static final String PAGE_ALL_BUTTONS_CLASS_NAME = "XCUIElementTypeButton";
     private static final String ADD_LINKED_TEST_TYPE_BUTTON_ID = "Add a linked test";
     private static final String REMOVE_BUTTON_ID = "Remove";
@@ -24,12 +25,92 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
-    private static final String REVIEW_AND_SUBMIT = "Review and submit";
+    private static final String REVIEW_BUTTON_ID = "Review and submit";
+    private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
+    private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
 
 
-    public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
+    public boolean OdometerOptionIsDisplayed() {
+        return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
+    }
+
+    public boolean isPropertyDisplayedXTimes(String property, int times) {
         waitUntilPageIsLoaded();
-        return findElementById(expectedErrorMessage).isDisplayed();
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        int timesFound=0;
+        for (WebElement button : buttonList) {
+            if (button.getAttribute("name").contains(property)) {
+                timesFound++;
+            }
+        }
+            return(times == timesFound);
+    }
+
+    public boolean isItemDisplayedAfter(String item1, String item2) {
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        return buttonList.indexOf(item1)>buttonList.indexOf(item2);
+    }
+
+    public void clickCountryOfRegistrationOf(String vehicle) {
+        waitUntilPageIsLoaded();
+            for (WebElement button : getButtonsOfVehicle(vehicle)) {
+
+                if (button.getAttribute("name").contains("Country of registration")) {
+
+                    button.click();
+                }
+            }
+
+    }
+
+    public void clickEuVehicleCategoryFor(String vehicle) {
+        waitUntilPageIsLoaded();
+            for (WebElement button : getButtonsOfVehicle(vehicle)) {
+                if (button.getAttribute("name").contains("EU vehicle category")) {
+                    button.click();
+                }
+            }
+
+    }
+
+    public void clickOdometerReadingOf(String vehicle) {
+        waitUntilPageIsLoaded();
+        for (WebElement button : getButtonsOfVehicle(vehicle)) {
+            if (button.getAttribute("name").startsWith("Odometer reading")) {
+                button.click();
+            }
+        }
+
+    }
+
+    public boolean checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
+        waitUntilPageIsLoaded();
+        List<WebElement> allButtonsOfVehicle =  getButtonsOfVehicle(vehicle);
+        for (WebElement button : allButtonsOfVehicle) {
+            if (button.getAttribute("name").contains("Country of registration")) {
+                    return button.getAttribute("name").contains(country);
+            }
+        }
+        return false;
+    }
+
+    private List<WebElement> getButtonsOfVehicle(String vehicle){
+        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        for(WebElement button : buttonList){
+            if(button.getAttribute("name").contains(vehicle)){
+                int index = buttonList.indexOf(button) + 1;
+                do {
+                    System.out.println("button: " + buttonList.get(index).getAttribute("name"));
+                    index++;
+                    }
+                while(!buttonList.get(index).getAttribute("name").contains("Add a test type"));
+                for(WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1) ){
+                    System.out.println("element of list is: " + we.getAttribute("name"));
+                }
+                return buttonList.subList(buttonList.indexOf(button) + 1, index + 1);
+            }
+        }
+        return null;
     }
 
     public enum OdometerUnitIndicatives {
@@ -66,6 +147,18 @@ public class TestPage extends BasePage {
 
     public void addTestType() {
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
+    }
+
+    public void addTestTypeFor(String vehicle) {
+        waitUntilPageIsLoaded();
+        List<WebElement> allButtonsOfVehicle =  getButtonsOfVehicle(vehicle);
+        for (WebElement button : allButtonsOfVehicle) {
+            if (button.getAttribute("name").contains(ADD_TEST_TYPE_BUTTON_ID)) {
+                button.click();
+
+            }
+        }
+
     }
 
     public void clickOnTestType(String testType, TestTypeStatuses testTypeStatus) {
@@ -131,8 +224,8 @@ public class TestPage extends BasePage {
         findElementByXpath(VEHICLE_DETAILS_BUTTON_XPATH).click();
     }
 
-    public boolean isReviewAndSubmitButtonAvailable() {
-        return findElementById(REVIEW_AND_SUBMIT).isDisplayed();
+    public boolean isReviewButtonAvailable() {
+        return findElementById(REVIEW_BUTTON_ID).isDisplayed();
     }
 
     //TODO create generic swipe action in BasePage
@@ -281,11 +374,22 @@ public class TestPage extends BasePage {
     }
 
     public void clickReviewButtonAndScroll() {
-        findElementById(REVIEW_AND_SUBMIT).click();
+        findElementById(REVIEW_BUTTON_ID).click();
         scroll(200, 700, 200, 300);
     }
 
-    public void clickReviewAndSubmitButton() {
-        findElementById(REVIEW_AND_SUBMIT).click();
+    public void clickReviewButton() {
+        findElementById(REVIEW_BUTTON_ID).click();
+    }
+
+    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
+
+    public void clickAddAVehicleButton() {findElementById(ADD_A_VEHICLE_BUTTON_ID).click();}
+
+    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
+    public boolean checkAddAVehicleButtonIsDisplayed() {return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();}
+
+    public void scrollPageDown() {
+        scrollDownTo(500, -800);
     }
 }
