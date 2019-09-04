@@ -36,15 +36,23 @@ public class EUVehicleCategoryPage extends BasePage{
          findElementById(SAVE_BUTTON_ID).click();
     }
 
+    @Deprecated
     public void clickM1Option() {
         findElementByXpath(M1_VEHICLE_DESCRIPTION_XPATH).click();
     }
 
+    @Deprecated
     public void clickM2Option() {
         findElementByXpath(M2_VEHICLE_DESCRIPTION_XPATH).click();
     }
 
+    @Deprecated
     public void clickM3Option() {
         findElementByXpath(M3_VEHICLE_DESCRIPTION_XPATH).click();
+    }
+
+    public void clickVehicleCategory(String category) {
+        waitUntilPageIsLoaded();
+        findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'" + category + "')]").click();
     }
 }
