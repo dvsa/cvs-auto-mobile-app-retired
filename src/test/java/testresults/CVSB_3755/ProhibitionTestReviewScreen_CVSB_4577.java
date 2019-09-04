@@ -44,8 +44,6 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @Steps
-    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
 
     @WithTag("Smoke_1")
