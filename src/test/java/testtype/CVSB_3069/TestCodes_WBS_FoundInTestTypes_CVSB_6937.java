@@ -89,7 +89,7 @@ public class TestCodes_WBS_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         testTypeDetailsSteps.addNotes("Hello");
         testTypeDetailsSteps.pressSave();
 
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("JY58FPP (PSV)");
         testReviewSteps.checkElementIsDisplayed("XMGDE02FS0H012345");

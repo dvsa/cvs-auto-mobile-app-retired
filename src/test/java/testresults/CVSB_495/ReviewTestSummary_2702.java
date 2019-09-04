@@ -86,7 +86,7 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
         map.put("Seat Number", "4");
         defectDetailsSteps.selectOptionsAndTapAddDefect(map);
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkElementIsNotEditable("Annual test");
         testReviewSteps.checkElementIsNotEditable("FAIL");
         testReviewSteps.checkElementIsNotEditable("Seatbelt installation check");

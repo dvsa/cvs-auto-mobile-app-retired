@@ -29,7 +29,7 @@ public class TestReview_CVSB_1954 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testSteps.checkTestNotCompleteDisplayedAndOkButton();
     }
 }
