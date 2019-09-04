@@ -3,6 +3,7 @@ package testresults.CVSB_3755;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -26,15 +27,6 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
     DefectDetailsSteps defectDetailsSteps;
 
     @Steps
@@ -53,6 +45,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
 
+    @WithTag("Smoke_1")
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Technical Test)")
     @Test
     public void testProhibitionFieldOnTestReviewScreenTechnicalTest() {
