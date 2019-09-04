@@ -25,10 +25,7 @@ public class TestPage extends BasePage {
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
-    private static final String REVIEW_BUTTON_ID = "Review and submit";
-    private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
-    private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
-
+    private static final String REVIEW_AND_SUBMIT = "Review and submit";
 
     public boolean OdometerOptionIsDisplayed() {
         return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
@@ -65,22 +62,19 @@ public class TestPage extends BasePage {
 
     public void clickEuVehicleCategoryFor(String vehicle) {
         waitUntilPageIsLoaded();
-            for (WebElement button : getButtonsOfVehicle(vehicle)) {
-                if (button.getAttribute("name").contains("EU vehicle category")) {
-                    button.click();
-                }
-            }
-
-    }
-
-    public void clickOdometerReadingOf(String vehicle) {
-        waitUntilPageIsLoaded();
         for (WebElement button : getButtonsOfVehicle(vehicle)) {
-            if (button.getAttribute("name").startsWith("Odometer reading")) {
+            if (button.getAttribute("name").contains("EU vehicle category")) {
                 button.click();
             }
         }
+    }
 
+    public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
+        try {
+            return findElementById(expectedErrorMessage).isDisplayed();
+        } catch (Exception exception) {
+            return false;
+        }
     }
 
     public boolean checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
@@ -224,8 +218,8 @@ public class TestPage extends BasePage {
         findElementByXpath(VEHICLE_DETAILS_BUTTON_XPATH).click();
     }
 
-    public boolean isReviewButtonAvailable() {
-        return findElementById(REVIEW_BUTTON_ID).isDisplayed();
+    public boolean isReviewAndSubmitButtonAvailable() {
+        return findElementById(REVIEW_AND_SUBMIT).isDisplayed();
     }
 
     //TODO create generic swipe action in BasePage
@@ -374,22 +368,11 @@ public class TestPage extends BasePage {
     }
 
     public void clickReviewButtonAndScroll() {
-        findElementById(REVIEW_BUTTON_ID).click();
+        findElementById(REVIEW_AND_SUBMIT).click();
         scroll(200, 700, 200, 300);
     }
 
-    public void clickReviewButton() {
-        findElementById(REVIEW_BUTTON_ID).click();
-    }
-
-    public void clickAddATrailerButton() {findElementById(ADD_A_TRAILER_BUTTON_ID).click();}
-
-    public void clickAddAVehicleButton() {findElementById(ADD_A_VEHICLE_BUTTON_ID).click();}
-
-    public boolean checkAddATrailerButtonIsDisplayed() {return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();}
-    public boolean checkAddAVehicleButtonIsDisplayed() {return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();}
-
-    public void scrollPageDown() {
-        scrollDownTo(500, -800);
+    public void clickReviewAndSubmitButton() {
+        findElementById(REVIEW_AND_SUBMIT).click();
     }
 }

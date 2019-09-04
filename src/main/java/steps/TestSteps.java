@@ -133,8 +133,14 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkOdometerReadingIsSelected(TestPage.OdometerUnitIndicatives odometerUnitIndicatives) {
+        // The checkmark is verified in the followoing function.
+        checkOdometerReadingButton(odometerUnitIndicatives);
+    }
+
+    @Step
     public void checkOdometerReadingValue(String value) {
-        assertThat(testPage.getOdometerValue().equals(value)).isTrue();
+        assertThat(testPage.getOdometerValue().replace(",","").equals(value)).isTrue();
     }
 
     @Step
@@ -196,6 +202,11 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkEUVehicleCategoryOptionIsSelected(String category) {
+        checkEUVehicleCategoryOptionIs(category);
+    }
+
+    @Step
     public void checkNoEUCategoryIsSelected() {
         assertThat(testPage.checkNoEUCategoryIsSelected()).isTrue();
     }
@@ -231,6 +242,11 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkErrorMessageMandatoryFieldsNotDisplayed() {
+        assertThat(testPage.checkMessageIsDisplayed(MESSAGE_COMPLETE_TEST_DETAILS)).isFalse();
+    }
+
+    @Step
     public void checkErrorMessageNoTestTypeAdded() {
         assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_TITLE)).isTrue();
     }
@@ -239,6 +255,4 @@ public class TestSteps extends ScenarioSteps {
     public void checkErrorMessageAddATestTypeBeforeReviewing() {
         assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_INFO)).isTrue();
     }
-
-
 }

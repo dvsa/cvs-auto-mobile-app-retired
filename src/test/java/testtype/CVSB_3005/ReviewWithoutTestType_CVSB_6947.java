@@ -46,6 +46,9 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
+    @Steps
+    TestTypeDetailsSteps testTypeDetailsSteps;
+
     @Title("CVSB-6947-6948 - AC1 - User taps Review without adding a test type, regardless of whether vehicle category and odometer reading fields are filled in")
     @Test
     public void testReviewShowsErrorWithNoTestTypeSpecified() {
@@ -130,13 +133,12 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
         testSteps.selectVehicleCategoryOption();
 
         // Select the M1 category and save.
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectVehicleCategory("M1");
+        euVehicleCategorySteps.clickSaveOptionButton();
 
         // Verify that the selected option is now shown, and that the checkbox is displayed next to it.
         testSteps.checkEUVehicleCategoryOptionIs("M1");
-
-        // Check for checkbox.
-        // testSteps.checkEUVehicleCategoryIsSelected();
+        testSteps.checkEUVehicleCategoryOptionIsSelected("M1");
     }
 
     @Title("CVSB-6952 AC6 - Field error bar on user input fields")
@@ -163,16 +165,62 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
 
         // AC6 - Field error bar on user input fields
         String mileage = "12345";
-
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField(mileage);
+        odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.MILES);
         odometerReadingSteps.pressSave();
 
         // Verify that the selected option is now shown, and that the checkbox is displayed next to it.
         testSteps.checkOdometerReadingValue(mileage);
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.MI);
+        testSteps.checkOdometerReadingIsSelected(TestPage.OdometerUnitIndicatives.MI);
+    }
 
-        // Check for checkbox.
+    @Title("CVSB-6954 AC8 - Errors on the Test screen corrected")
+    @Test
+    public void testErrorsOnTheTestScreenCorrected() {
+        // Set up the test data.
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.startTest();
+        preparerSteps.advanceWithoutPreaprer();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkPageTitleDisplayed();
+
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.clickReview();
+
+        // Verify that the error message is present on the screen.
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
+        // AC5 - User selects EU vehicle category and provides category info.
+        testSteps.checkNoEUCategoryIsSelected();
+        testSteps.selectVehicleCategoryOption();
+        euVehicleCategorySteps.selectVehicleCategory("M1");
+        euVehicleCategorySteps.clickSaveOptionButton();
+
+        // AC6 - Provide an odometer reading.
+        String mileage = "12345";
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField(mileage);
+        odometerReadingSteps.pressEditUnit();
+        odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.MILES);
+        odometerReadingSteps.pressSave();
+
+        // Complete the Annual Test that is in progress.
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressSave();
+        testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
+
+        // AC8 - Errors on the Test screen corrected
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 }
