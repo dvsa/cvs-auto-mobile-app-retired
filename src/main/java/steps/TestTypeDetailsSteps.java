@@ -458,4 +458,8 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void checkCertificateNumberIsNotDisplayed() {
         assertThat(testTypeDetailsPage.isStaticTextNotDisplayed("CERTIFICATE NUMBER")).isTrue();
     }
+
+    public void checkErrorNotesDetailsIsDisplayed() {
+        assertThat(testTypeDetailsPage.isErrorMessageDisplayed("Before saving, give more details about the failure in the notes section."));
+    }
 }
