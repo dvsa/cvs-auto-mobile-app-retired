@@ -10,6 +10,7 @@ import java.text.DateFormatSymbols;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -507,6 +508,16 @@ public class TestTypeDetailsPage extends BasePage {
 
     public List<WebElement> getAllLabels(){
         return findElementsByClassName(PAGE_ALL_LABELS_CLASS_NAME);
+    }
+
+    public boolean isErrorMessageDisplayed(String errorMessage) {
+        List<WebElement> webElementList = getDriver().findElements(By.className("XCUIElementTypeStaticText"));
+        for (WebElement webElement : webElementList) {
+            if(webElement.getAttribute("name").contains(errorMessage)){
+                return true;
+            }
+        }
+        return false;
     }
 }
 
