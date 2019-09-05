@@ -433,8 +433,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         assertThat(testTypeDetailsPage.isRemoveTestButtonDisplayed()).isTrue();
     }
 
-
-
+    @Step
     public void checkElementValue(String element, String value){
         testTypeDetailsPage.checkElementValue(element,value);
     }
