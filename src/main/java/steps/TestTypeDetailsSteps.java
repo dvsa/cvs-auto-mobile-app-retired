@@ -497,7 +497,21 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         assertThat(testTypeDetailsPage.isStaticTextNotDisplayed("CERTIFICATE NUMBER")).isTrue();
     }
 
+    @Step
     public void checkErrorNotesDetailsIsDisplayed() {
         assertThat(testTypeDetailsPage.isErrorMessageDisplayed("Before saving, give more details about the failure in the notes section."));
+    }
+
+    @Step
+    public void checkNotesTitle(String notes) {
+        String[] stringArray = notes.split(" ");
+        boolean isDisplayed = true;
+        for(String string:stringArray){
+            System.out.println("string: " + string);
+            if(!testTypeDetailsPage.isStaticTextDisplayed(string)){
+                isDisplayed = false;
+            }
+        }
+        assertThat(isDisplayed).isTrue();
     }
 }
