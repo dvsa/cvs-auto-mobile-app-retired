@@ -72,7 +72,13 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
-        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(defectDetailsSteps.inputDangerousTyreDefect());
+        defectDetailsSteps.selectDefectDetail(Horizontal.INNER);
+        defectDetailsSteps.selectDefectDetail(Lateral.CENTRE);
+        defectDetailsSteps.selectDefectDetail(AxleNumber.EIGHT);
+        defectDetailsSteps.selectDefectRepairedDuringTest();
+        defectDetailsSteps.tapDone();
+
+//        defectDetailsSteps.selectOptionsWithPRSCheckAndTapAddDefect(defectDetailsSteps.inputDangerousTyreDefect());
         testTypeDetailsSteps.pressSave();
         testSteps.reviewAndSubmitAction();
         testReviewSteps.checkTestStatus("Part-paid prohibition clearance (partial inspection)", "PRS");

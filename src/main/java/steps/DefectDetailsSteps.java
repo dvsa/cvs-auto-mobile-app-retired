@@ -159,6 +159,54 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectDefectRepairedDuringTest() {
+        defectDetailsPage.clickDone();
+    }
+
+    @Step
+    public void selectDefectDetail(Horizontal horizontalSelection){
+        defectDetailsPage.selectOption("Horizontal");
+        defectDetailsPage.selectValue(horizontalSelection.option);
+    }
+
+    @Step
+    public void selectDefectDetail(Vertical verticalSelection){
+        defectDetailsPage.selectOption("Vertical");
+        defectDetailsPage.selectValue(verticalSelection.option);
+    }
+
+    @Step
+    public void selectDefectDetail(Lateral lateralSelection){
+        defectDetailsPage.selectOption("Lateral");
+        defectDetailsPage.selectValue(lateralSelection.option);
+    }
+
+    @Step
+    public void selectDefectDetail(Longitudinal longitudinalSelection){
+        defectDetailsPage.selectOption("Longitudinal");
+        defectDetailsPage.selectValue(longitudinalSelection.option);
+    }
+
+    @Step
+    public void selectDefectDetail(RowNumber rowNumberSelection){
+        defectDetailsPage.selectOption("Row Number");
+        defectDetailsPage.selectValue(rowNumberSelection.option);
+    }
+
+    @Step
+    public void selectDefectDetail(SitNumber sitNumberSelection){
+        defectDetailsPage.selectOption("Sit Number");
+        defectDetailsPage.selectValue(sitNumberSelection.option);
+    }
+
+    @Step
+    public void selectDefectDetail(AxleNumber axleNumberSelection){
+        defectDetailsPage.selectOption("Axle Number");
+        defectDetailsPage.selectValue(axleNumberSelection.option);
+    }
+
+
+    @Step
     public HashMap<String, String> inputDangerousTyreDefect() {
         HashMap<String, String> map = new HashMap<>();
         map.put("Horizontal", "Inner");
