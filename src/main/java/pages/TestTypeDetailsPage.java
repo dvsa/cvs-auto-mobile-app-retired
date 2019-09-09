@@ -498,6 +498,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isStaticTextNotDisplayed(String staticText) {
+        waitUntilPageIsLoaded();
         for(WebElement button : getAllLabels()){
             if(button.getAttribute("name").equals(staticText)){
                 return false;
@@ -505,6 +506,11 @@ public class TestTypeDetailsPage extends BasePage {
         }
         return true;
     }
+
+    public boolean isStaticTextDisplayed(String staticText) {
+        return !isStaticTextNotDisplayed(staticText);
+    }
+
 
     public List<WebElement> getAllLabels(){
         return findElementsByClassName(PAGE_ALL_LABELS_CLASS_NAME);
