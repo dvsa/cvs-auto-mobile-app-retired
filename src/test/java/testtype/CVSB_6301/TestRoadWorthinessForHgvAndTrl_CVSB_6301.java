@@ -216,7 +216,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
             defectDescriptionSteps.selectDefect("6.1 (a) * DANGEROUS");
             defectDetailsSteps.tapDone();
             testTypeDetailsSteps.pressSave();
-            testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
+            testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
             testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
     }
 }
