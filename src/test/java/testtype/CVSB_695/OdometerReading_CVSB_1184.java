@@ -33,7 +33,7 @@ public class OdometerReading_CVSB_1184 extends BaseTestClass {
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.MILES);
         odometerReadingSteps.pressSave();
-        testSteps.checkOdometerReadingValue("97,000");
+        testSteps.checkOdometerReadingValueFormatted("97,000");
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.MI);
     }
 }
