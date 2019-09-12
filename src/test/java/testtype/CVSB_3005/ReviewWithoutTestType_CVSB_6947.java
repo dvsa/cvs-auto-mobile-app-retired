@@ -83,6 +83,9 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
 
     @Title("CVSB-6949 AC3 - User taps Review and there is at least one mandatory field that has not been completed for the test")
     @Test
+    @Ignore
+    // TODO
+    // This is temporarily disabled until the correct updated functionality has been merge in to the app.
     public void testReviewShowsErrorForMissingMandatoryFields() {
         // Set up the test data.
         launchSteps.clickGetStarted();
