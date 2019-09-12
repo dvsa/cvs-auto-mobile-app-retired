@@ -34,13 +34,13 @@ public class OdometerReading_CVSB_1185 extends BaseTestClass {
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.MILES);
         odometerReadingSteps.pressSave();
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.MI);
-        testSteps.checkOdometerReadingValue("97,000");
+        testSteps.checkOdometerReadingValueFormatted("97,000");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("1089872");
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.KILOMETRES);
         odometerReadingSteps.pressSave();
         testSteps.checkOdometerReadingButton(TestPage.OdometerUnitIndicatives.KM);
-        testSteps.checkOdometerReadingValue("1,089,872");
+        testSteps.checkOdometerReadingValueFormatted("1,089,872");
     }
 }
