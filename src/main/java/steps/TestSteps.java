@@ -140,7 +140,15 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkOdometerReadingValue(String value) {
+        // This check will remove any numerical formatting from the number and do a basic value comparison.
+        // "1,234" will be stripped to be "1234".
         assertThat(testPage.getOdometerValue().replace(",","").equals(value)).isTrue();
+    }
+
+    @Step
+    public void checkOdometerReadingValueFormatted(String value) {
+        // This check will do a raw, visual comparison of the odometer reading (so may look like "1, 234").
+        assertThat(testPage.getOdometerValue().equals(value)).isTrue();
     }
 
     @Step
