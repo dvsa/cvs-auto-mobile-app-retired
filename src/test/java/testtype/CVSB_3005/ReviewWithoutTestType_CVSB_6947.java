@@ -3,6 +3,7 @@ package testtype.CVSB_3005;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.OdometerReadingPage;
@@ -51,6 +52,9 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
 
     @Title("CVSB-6947-6948 - AC1 - User taps Review without adding a test type, regardless of whether vehicle category and odometer reading fields are filled in")
     @Test
+    @Ignore
+    // This is being ignored for the moment, as the test is written for a change which hasn't been merged in yet.
+    // TODO
     public void testReviewShowsErrorWithNoTestTypeSpecified() {
         // Set up the test data.
         launchSteps.clickGetStarted();
