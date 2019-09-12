@@ -150,6 +150,9 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
 
     @Title("CVSB-6952 AC6 - Field error bar on user input fields")
     @Test
+    @Ignore
+    // TODO
+    // Disabled temporarily until the updated functionality is merged into the app.
     public void testUserSelectsOdometerReading() {
         // Set up the test data.
         launchSteps.clickGetStarted();
