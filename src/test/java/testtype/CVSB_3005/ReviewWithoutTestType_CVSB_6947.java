@@ -3,6 +3,7 @@ package testtype.CVSB_3005;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.jetbrains.annotations.TestOnly;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -189,6 +190,10 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
 
     @Title("CVSB-6954 AC8 - Errors on the Test screen corrected")
     @Test
+    @Ignore
+    // TODO
+    // This is being disabled, as the test has been merged before the functionality has been.
+    // Re-enable once the new error messages are present.
     public void testErrorsOnTheTestScreenCorrected() {
         // Set up the test data.
         launchSteps.clickGetStarted();
