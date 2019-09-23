@@ -30,6 +30,7 @@ public class VehicleSearch_CVSB_1054 extends BaseTestClass {
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.typeInSearchField("AAAAAA");
         identifyVehicleSteps.pressSearch();
+        identifyVehicleSteps.waitUntilPopUpShown();
         identifyVehicleSteps.checkVehicleNotFoundPopUp();
         identifyVehicleSteps.pressOkInPopUp();
         identifyVehicleSteps.checkVehicleNotFoundPopUpDismissed();

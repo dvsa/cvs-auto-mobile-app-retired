@@ -1,5 +1,6 @@
 package steps;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.IdentifyVehiclePage;
@@ -46,8 +47,13 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitUntilPopUpShown() {
+        // After clicking on the <Search> button, the Loading message is shown for a while, and then the popup search result.
+        identifyVehiclePage.waitForErrorPopUpToDisplay();
+    }
+
+    @Step
     public void checkVehicleNotFoundPopUp() {
-        identifyVehiclePage.waitUntilPageIsLoaded();
         assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isTrue();
     }
 
