@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import steps.PreparerSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.PreparerComp;
+import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -21,13 +22,15 @@ public class Preparer_4886 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
+    @Steps
+    TestTypeCategoryComp testTypeCategoryComp;
+
     @Title("CVSB_438 - CVSB-5105 - AC 1 VSA returns to the vehicle details screen")
     @Test
     public void selectPreparer() {
-        preparerComp.goToSelectPreparer();
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
         preparerSteps.checkPageTitleIsDisplayed();
         preparerSteps.goBackToVehicleDetailsPage();
         vehicleDetailsSteps.checkPageTitle();
     }
-
 }
