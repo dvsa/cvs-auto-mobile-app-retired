@@ -51,7 +51,7 @@ public class LECFailedTestTypeSubmission_3019  extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();

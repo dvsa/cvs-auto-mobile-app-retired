@@ -45,6 +45,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
 
+
     @WithTag("Smoke_1")
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Technical Test)")
     @Test
@@ -68,7 +69,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
         testTypeDetailsSteps.clickOnTitle();
         defectDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Prohibition Issued");

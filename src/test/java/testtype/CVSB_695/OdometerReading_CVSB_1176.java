@@ -25,11 +25,15 @@ public class OdometerReading_CVSB_1176 extends BaseTestClass {
     @Title("CVSB-695 - AC4 - Record odometer reading value")
     @Test
     public void testRecordOdometerReadingValue() {
+
+        String enteredOdometerReading = "12345678";
+        String expectedOdometerReading = "1234567";
+
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("12345678");
-        odometerReadingSteps.checkReadingValue("1234567");
+        odometerReadingSteps.typeInField(enteredOdometerReading);
+        odometerReadingSteps.checkReadingValue(expectedOdometerReading);
         odometerReadingSteps.pressSave();
-        testSteps.checkOdometerReadingValue("1,234,567");
+        testSteps.checkOdometerReadingValue(expectedOdometerReading);
     }
 }

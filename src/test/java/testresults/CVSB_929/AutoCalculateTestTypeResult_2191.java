@@ -93,7 +93,7 @@ public class AutoCalculateTestTypeResult_2191 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("8.1 (a) MAJOR");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("FAIL");
         testReviewSteps.checkElementIsDisplayed("Annual test");

@@ -8,6 +8,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestSteps extends ScenarioSteps {
 
+    private static final String MESSAGE_COMPLETE_TEST_DETAILS = "You must complete all vehicle and test type details before reviewing.";
+    private static final String NO_TEST_TYPE_ADDED_TITLE = "No test type added";
+    private static final String NO_TEST_TYPE_ADDED_INFO = "Add a test type before reviewing.";
+
     TestPage testPage;
 
     @Step
@@ -22,6 +26,7 @@ public class TestSteps extends ScenarioSteps {
         assertThat(testPage.isPageTitleDisplayed() && testPage.isVehicleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
     }
 
+    @Step
     public void checkAddATestTypeButtonVisibility() {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
     }
@@ -44,7 +49,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReviewAndSubmitButton() {
+    public void checkReviewButton() {
         assertThat(testPage.isReviewAndSubmitButtonAvailable()).isTrue();
     }
 
@@ -114,7 +119,6 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkPageTitleDisplayed() {
-        testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed()).isTrue();
     }
 
@@ -129,7 +133,21 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkOdometerReadingIsSelected(TestPage.OdometerUnitIndicatives odometerUnitIndicatives) {
+        // The checkmark is verified in the followoing function.
+        checkOdometerReadingButton(odometerUnitIndicatives);
+    }
+
+    @Step
     public void checkOdometerReadingValue(String value) {
+        // This check will remove any numerical formatting from the number and do a basic value comparison.
+        // "1,234" will be stripped to be "1234".
+        assertThat(testPage.getOdometerValue().replace(",","").equals(value)).isTrue();
+    }
+
+    @Step
+    public void checkOdometerReadingValueFormatted(String value) {
+        // This check will do a raw, visual comparison of the odometer reading (so may look like "1, 234").
         assertThat(testPage.getOdometerValue().equals(value)).isTrue();
     }
 
@@ -187,8 +205,13 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkIfCorrectOptionIsDisplayed(String category) {
+    public void checkEUVehicleCategoryOptionIs(String category) {
         assertThat(testPage.checkMCategoryIsSelected(category)).isTrue();
+    }
+
+    @Step
+    public void checkEUVehicleCategoryOptionIsSelected(String category) {
+        checkEUVehicleCategoryOptionIs(category);
     }
 
     @Step
@@ -198,7 +221,7 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkCountryOfRegistrationOptionIsDisplayed() {
-        assertThat(testPage.checkCountryOfregistrationOptionIsDisplayed()).isTrue();
+        assertThat(testPage.checkCountryOfRegistrationOptionIsDisplayed()).isTrue();
     }
 
     @Step
@@ -217,7 +240,27 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void reviewAndSubmitAction(){
+    public void clickReview(){
         testPage.clickReviewAndSubmitButton();
+    }
+
+    @Step
+    public void checkErrorMessageMandatoryFieldsDisplayed() {
+        assertThat(testPage.checkMessageIsDisplayed(MESSAGE_COMPLETE_TEST_DETAILS)).isTrue();
+    }
+
+    @Step
+    public void checkErrorMessageMandatoryFieldsNotDisplayed() {
+        assertThat(testPage.checkMessageIsDisplayed(MESSAGE_COMPLETE_TEST_DETAILS)).isFalse();
+    }
+
+    @Step
+    public void checkErrorMessageNoTestTypeAdded() {
+        assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_TITLE)).isTrue();
+    }
+
+    @Step
+    public void checkErrorMessageAddATestTypeBeforeReviewing() {
+        assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_INFO)).isTrue();
     }
 }

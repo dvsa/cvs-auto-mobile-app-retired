@@ -25,7 +25,6 @@ public class TestTypeRemove_CVSB_760 extends BaseTestClass {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
         testSteps.checkSelectedTestTypes("Annual test In progress arrow forward");
-        testSteps.checkReviewAndSubmitButton();
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.checkTestTypeRemoveButtonVisibility();
     }

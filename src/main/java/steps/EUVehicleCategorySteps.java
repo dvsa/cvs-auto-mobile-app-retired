@@ -16,18 +16,27 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectVehicleCategory(String category) {
+        euVehicleCategoryPage.clickVehicleCategory(category);
+    }
+
+
+    @Step
+    @Deprecated
     public void selectM1Option() {
         euVehicleCategoryPage.clickM1Option();
         clickSaveOptionButton();
     }
 
     @Step
+    @Deprecated
     public void selectM2Option() {
         euVehicleCategoryPage.clickM2Option();
         clickSaveOptionButton();
     }
 
     @Step
+    @Deprecated
     public void selectM3Option() {
         euVehicleCategoryPage.clickM3Option();
         clickSaveOptionButton();

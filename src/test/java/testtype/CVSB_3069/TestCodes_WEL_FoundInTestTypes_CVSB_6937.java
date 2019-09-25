@@ -3,6 +3,7 @@ package testtype.CVSB_3069;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -54,6 +55,10 @@ public class TestCodes_WEL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
 
     @Title("CVSB-6937,CVSB-6939 and CVSB-6941- AC1,AC2 and AC3 - Codes added are reflected in the selection of test types, recorded against the test and reviewed")
     @Test
+    @Ignore
+    // TODO
+    // This is being disabled temporarily.  The Prohibition Clearance check has been updated, but the new functionality hasn't been merged in to the app yet.
+    // Disabling until the new functionality has been merged.
     public void testTestCodeWEL() {
         testTypeCategoryComp.goToTestTypeUsingSpecificVin(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),"012356");
         testTypeCategorySteps.selectFromTestTypeList("Prohibition Clearance");
@@ -80,7 +85,7 @@ public class TestCodes_WEL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
 
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("X71LTA (PSV)");
         testReviewSteps.checkElementIsDisplayed("XMGDE02FS0H012356");

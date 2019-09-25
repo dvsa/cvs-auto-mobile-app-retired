@@ -3,6 +3,7 @@ package testresults.CVSB_3755;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -57,6 +58,7 @@ public class ProhibitionTestReviewScreen_CVSB_4573 extends BaseTestClass {
 
 
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Annual Test)")
+    @Ignore("Story not yet merged")
     @Test
     public void testProhibitionFieldOnTestReviewScreenClass6A() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
@@ -84,7 +86,7 @@ public class ProhibitionTestReviewScreen_CVSB_4573 extends BaseTestClass {
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.reviewAndSubmitAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Prohibition issued - Yes");

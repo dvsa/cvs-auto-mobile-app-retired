@@ -72,6 +72,10 @@ public class IdentifyVehiclePage extends BasePage {
         findElementById(OK_ID).click();
     }
 
+    public void waitForErrorPopUpToDisplay() {
+        waitUntilPageIsLoadedById(OK_ID);
+    }
+
     public boolean isSearchFieldUnique() {
         boolean status = false;
         List<WebElement> searchFieldList = findElementsByClassName(SEARCH_FIELD_CLASS_NAME);
