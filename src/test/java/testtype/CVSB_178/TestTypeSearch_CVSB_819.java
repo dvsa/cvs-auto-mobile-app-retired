@@ -3,6 +3,7 @@ package testtype.CVSB_178;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestSteps;
@@ -27,6 +28,7 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-178 - Return back to the Test overview screen")
     @Test
     public void testReturnToTestOverviewScreen() {

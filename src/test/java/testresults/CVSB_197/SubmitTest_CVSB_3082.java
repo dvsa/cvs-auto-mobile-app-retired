@@ -3,6 +3,7 @@ package testresults.CVSB_197;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -43,6 +44,7 @@ public class SubmitTest_CVSB_3082 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (4 second toast message)")
     @Test
     public void test4SecondToastMessageAfterSubmit() {

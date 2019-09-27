@@ -3,6 +3,7 @@ package testresults.CVSB_495;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -59,6 +60,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-495 - AC4 - VSA can change details of individual test types")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {

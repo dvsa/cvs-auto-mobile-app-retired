@@ -3,6 +3,7 @@ package testtype.CVSB_901;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -27,6 +28,7 @@ public class SeatbeltInstallationCheck_1948 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-901 - AC6 - Cancel typing/ editing of number of seat belts fitted")
     @Test
     public void testCancelEditingNumberOfSeatbelts() {

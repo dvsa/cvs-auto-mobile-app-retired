@@ -3,6 +3,7 @@ package vehicle.CVSB_317;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -21,6 +22,7 @@ public class TestCreate_CVSB_785 extends BaseTestClass {
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-317 - AC2 - Go back to site visit overview")
     @Test()
     public void testGoBackToSiteVisit() {

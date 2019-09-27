@@ -3,6 +3,7 @@ package testresults.CVSB_980;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -49,6 +50,7 @@ public class AutoCalculatedTestResults_2697 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB_980 - AC1 - Fail criteria (At least 1 Major + 1 PRS)")
     @Test
     public void failCriteriaWithOneMajorAndPRS() {
