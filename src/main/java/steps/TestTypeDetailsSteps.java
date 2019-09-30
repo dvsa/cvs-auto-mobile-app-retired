@@ -476,15 +476,4 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         assertThat(isDisplayed).isTrue();
     }
 
-    @Step
-    public void checkTestTypeAbandonButton() {
-        assertThat(testTypeDetailsPage.isAbandonButtonDisplayed()).isTrue();
-    }
-
-    @Step
-    public void checkTestTypeRemoveButton() {
-        assertThat(testTypeDetailsPage.isRemoveTestButtonDisplayed()).isTrue();
-    }
-
-
 }
