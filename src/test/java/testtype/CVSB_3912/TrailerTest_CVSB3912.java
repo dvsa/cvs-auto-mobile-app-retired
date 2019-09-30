@@ -53,7 +53,7 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
         euVehicleCategorySteps.checkTitleIsDisplayed();
         euVehicleCategorySteps.checkOptionsForTrailerAreDisplayed();
         euVehicleCategorySteps.selectO1Option();
-        testSteps.checkIfCorrectOptionIsDisplayed("O1");
+        testSteps.checkEUVehicleCategoryOptionIs("O1");
 
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
