@@ -3,6 +3,7 @@ package testtype.CVSB_995;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CountryOfRegistrationSteps;
@@ -22,6 +23,7 @@ public class VehicleCategoryCountryReg_2734 extends BaseTestClass {
     @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
+    @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-995 - AC3 - Adding Country of Registration - search field cancel action")
     @Test
     public void addingCountryOfRegistrationCancelSearchAction() {
