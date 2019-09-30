@@ -78,7 +78,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.reviewAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
@@ -107,7 +107,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O2");
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.reviewAction();
+        testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
@@ -155,7 +155,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O2");
         testSteps.addTestTypeFor("768594");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.reviewAction();
+        testSteps.clickReview();
         testReviewSteps.scrollDown();
         testReviewSteps.pressNextVehicle();
         testReviewSteps.scrollDown();
