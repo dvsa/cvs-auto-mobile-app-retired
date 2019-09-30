@@ -30,11 +30,10 @@ public class VehicleDetailsSteps extends ScenarioSteps {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
         int oldYPosition = vehicleDetailsPage.getYPositionForElement(element);
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.scrollDownPage();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = vehicleDetailsPage.getYPositionForElement(element);
         assertThat(oldYPosition).isNotEqualTo(newYPosition);
-
     }
 
     // TODO make this step receive less parameters
@@ -114,7 +113,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void selectVehicleTestHistory() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.scrollDownPage();
         vehicleDetailsPage.clickVehicleTestHistory();
     }
 
@@ -127,7 +126,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void checkVehicleTestHistory() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.scrollDownPage();
         assertThat(vehicleDetailsPage.isTestHistoryButtonDisplayed()).isTrue();
     }
 

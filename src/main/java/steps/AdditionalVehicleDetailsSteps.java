@@ -93,7 +93,7 @@ public class AdditionalVehicleDetailsSteps extends ScenarioSteps {
         additionalVehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(additionalVehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
         int oldYPosition = additionalVehicleDetailsPage.getYPositionForElement(element);
-        additionalVehicleDetailsPage.scrollDetailPage();
+        additionalVehicleDetailsPage.scrollDownPage();
         assertThat(additionalVehicleDetailsPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = additionalVehicleDetailsPage.getYPositionForElement(element);
         assertThat(oldYPosition).isNotEqualTo(newYPosition);

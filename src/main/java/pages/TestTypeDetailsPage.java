@@ -439,7 +439,7 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementByXpath(TEST_RESULT_XPATH).getAttribute("name").contains("Select");
     }
 
-    public void scrollDetailPage() {
+    public void scrollDownPage() {
         scrollDownTo(500, -100);
     }
 

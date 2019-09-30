@@ -1,7 +1,6 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.VehicleDetailsPage;
 
@@ -23,7 +22,7 @@ public class HgvDetailsSteps extends ScenarioSteps {
         vehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isTrue();
         int oldYPosition = vehicleDetailsPage.getYPositionForElement(element);
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.scrollDownPage();
         assertThat(vehicleDetailsPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = vehicleDetailsPage.getYPositionForElement(element);
         assertThat(oldYPosition).isNotEqualTo(newYPosition);
@@ -60,7 +59,7 @@ public class HgvDetailsSteps extends ScenarioSteps {
     @Step
     public void selectVehicleTestHistory() {
         vehicleDetailsPage.waitUntilPageIsLoaded();
-        vehicleDetailsPage.scrollDetailPage();
+        vehicleDetailsPage.scrollDownPage();
         vehicleDetailsPage.clickVehicleTestHistory();
     }
 

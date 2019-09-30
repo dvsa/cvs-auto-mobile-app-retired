@@ -350,8 +350,30 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void scrollDown(){
         testPage.scrollPageDown();
+        //wait for animation to end
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
+    @Step
+    public void scrollThePageDownTo(String element) {
+        testPage.scrollThePageDownTo(element);
+    }
+
+    @Step
+    public void scrollDownPixels(int pixels){
+        waitUntilPageIsLoaded();
+        testPage.scrollPageDownPixels(pixels);
+    }
+
+    @Step
+    public void scrollUpPixels(int pixels){
+        waitUntilPageIsLoaded();
+        testPage.scrollPageUpPixels(pixels);
+    }
     @Step
     public void checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
         assertThat(testPage.checkCountryOfRegistrationFieldIsUpdatedFor(country, vehicle)).isTrue();
@@ -360,6 +382,16 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void clickEuVehicleCategoryFor(String vehicle){
         testPage.clickEuVehicleCategoryFor(vehicle);
+    }
+
+    @Step
+    public void scrollUp() {
+        testPage.scrollPageUp();
+    }
+
+    @Step
+    public void scrollThePageDownTo(String element, int px) {
+        testPage.scrollThePageDownTo(element, px);
     }
 
 }

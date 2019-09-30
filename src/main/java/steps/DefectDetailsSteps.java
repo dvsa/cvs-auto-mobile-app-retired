@@ -119,7 +119,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void scrollDefectDetailsPage() {
-        defectDetailsPage.scrollDetailPage();
+        defectDetailsPage.scrollDownPage();
     }
 
     @Step

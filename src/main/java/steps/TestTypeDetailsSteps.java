@@ -227,7 +227,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         if (testTypeDetailsPage.isAddDefectButtonDisplayed()) {
             testTypeDetailsPage.getAddDefectElement().click();
         } else {
-            testTypeDetailsPage.scrollDetailPage();
+            testTypeDetailsPage.scrollDownPage();
             testTypeDetailsPage.getAddDefectElement().click();
         }
     }
@@ -380,18 +380,18 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void scrollTestTypeDetailsPage() {
-        testTypeDetailsPage.scrollDetailPage();
+        testTypeDetailsPage.scrollDownPage();
     }
 
     @Step
     public void pressTestTypeAbandonButton() {
-        testTypeDetailsPage.scrollDetailPage();
+        testTypeDetailsPage.scrollDownPage();
         testTypeDetailsPage.pressTestTypeAbandonButton();
     }
 
     @Step
     public void pressTestTypeRemoveButton() {
-        testTypeDetailsPage.scrollDetailPage();
+        testTypeDetailsPage.scrollDownPage();
         testTypeDetailsPage.pressTestTypeRemoveButton();
     }
 

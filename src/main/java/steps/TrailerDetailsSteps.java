@@ -29,7 +29,7 @@ public class TrailerDetailsSteps extends ScenarioSteps {
         trailerDetailsPage.waitUntilPageIsLoaded();
         assertThat(trailerDetailsPage.elementFromListIsDisplayed(element)).isTrue();
         int oldYPosition = trailerDetailsPage.getYPositionForElement(element);
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         assertThat(trailerDetailsPage.elementFromListIsDisplayed(element)).isFalse();
         int newYPosition = trailerDetailsPage.getYPositionForElement(element);
         assertThat(oldYPosition).isNotEqualTo(newYPosition);
@@ -114,7 +114,7 @@ public class TrailerDetailsSteps extends ScenarioSteps {
     @Step
     public void selectTrailerTestHistory() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         trailerDetailsPage.clickVehicleTestHistory();
     }
 
@@ -127,7 +127,7 @@ public class TrailerDetailsSteps extends ScenarioSteps {
     @Step
     public void checkTrailerTestHistoryIsDisplayed() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         assertThat(trailerDetailsPage.isTestHistoryButtonDisplayed()).isTrue();
     }
 
@@ -174,35 +174,35 @@ public class TrailerDetailsSteps extends ScenarioSteps {
     @Step
     public void selectAdditionalDetails() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         trailerDetailsPage.clickAdditionalDetails();
     }
 
     @Step
     public void checkWeightsIsDisplayed() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         assertThat(trailerDetailsPage.isWeightsButtonDisplayed()).isTrue();
     }
 
     @Step
     public void checkTyresIsDisplayed() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         assertThat(trailerDetailsPage.isTyresButtonDisplayed()).isTrue();
     }
 
     @Step
     public void checkAdditionalVehicleDetailsIsDisplayed() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         assertThat(trailerDetailsPage.isAdditionalVehicleDetailsButtonDisplayed()).isTrue();
     }
 
     @Step
     public void checkBrakesIsDisplayed() {
         trailerDetailsPage.waitUntilPageIsLoaded();
-        trailerDetailsPage.scrollDetailPage();
+        trailerDetailsPage.scrollDownPage();
         assertThat(trailerDetailsPage.isBrakesButtonDisplayed()).isTrue();
     }
 

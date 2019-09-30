@@ -139,6 +139,10 @@ public class BasePage extends PageObject {
         scrollDownTo(500, -100);
     }
 
+    public void scrollDownPage(int pixels) {
+        scrollDownTo(500, -pixels);
+    }
+
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
@@ -250,4 +254,29 @@ public class BasePage extends PageObject {
         return false;
     }
 
+
+    public void scrollPageDownPixels(int pixels) {
+        new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .press(PointOption.point(100, 100))
+                .moveTo(PointOption.point(100, 100 - pixels))
+                .release()
+                .perform();
+    }
+
+    public void scrollPageUpPixels(int pixels) {
+        new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
+                .press(PointOption.point(100, 100))
+                .moveTo(PointOption.point(100, 100 + pixels))
+                .release()
+                .perform();
+    }
+
+//    public void scrollToElement(WebElement element){
+//        System.out.println("scrolling to: " + element.getAttribute("name"));
+//        JavascriptExecutor js = (JavascriptExecutor) ((WebDriverFacade) getDriver()).getProxiedDriver();
+//        HashMap<String, String> scrollObject = new HashMap<>();
+//        scrollObject.put("element", element.getAttribute("name"));
+//        scrollObject.put("text", "Load more");
+//        js.executeScript("mobile: scroll", scrollObject);
+//    }
 }
