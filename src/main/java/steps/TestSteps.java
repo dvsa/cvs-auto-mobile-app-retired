@@ -12,6 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestSteps extends ScenarioSteps {
 
+    TestPage testPage;
+
     private static final String MESSAGE_COMPLETE_TEST_DETAILS = "You must complete all vehicle and test type details before reviewing.";
     private static final String NO_TEST_TYPE_ADDED_TITLE = "No test type added";
     private static final String NO_TEST_TYPE_ADDED_INFO = "Add a test type before reviewing.";
