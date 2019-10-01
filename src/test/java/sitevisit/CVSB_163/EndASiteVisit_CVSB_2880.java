@@ -3,6 +3,7 @@ package sitevisit.CVSB_163;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -26,6 +27,7 @@ public class EndASiteVisit_CVSB_2880 extends BaseTestClass {
     @Steps
     SiteVisitSubmittedSteps siteVisitSubmittedSteps;
 
+    @Ignore("[CVSB-8416] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-163 - AC6 Data loaded")
     @Test
     public void testDataLoaded() {
