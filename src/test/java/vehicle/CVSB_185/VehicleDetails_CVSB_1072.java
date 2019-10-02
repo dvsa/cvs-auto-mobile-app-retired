@@ -3,6 +3,7 @@ package vehicle.CVSB_185;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -22,8 +23,8 @@ public class VehicleDetails_CVSB_1072 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-
-    @Title("CVSB-185 - CVSB-6195- AC1 - Search without using an input")
+    @Ignore("[CVSB-8416] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
+    @Title("CVSB-185 - AC1 - Search without using an input")
     @Test
     public void testSearchNoInput() {
         vehicleComp.goToIdentifyVehicle();
