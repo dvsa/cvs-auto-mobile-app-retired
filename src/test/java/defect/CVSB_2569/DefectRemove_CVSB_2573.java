@@ -3,6 +3,7 @@ package defect.CVSB_2569;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -35,6 +36,7 @@ public class DefectRemove_CVSB_2573 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
 
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-2569 - CLONE - AC2 - Confirm removal of defect")
     @Test
     public void testConfirmRemovalOfDefect() {

@@ -3,6 +3,7 @@ package sitevisit.CVSB_169;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -50,6 +51,7 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
     @Steps
     EUVehicleCategorySteps euVehicleCategorySteps;
 
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-169 - AC2 - VSA is presented with the Site Visit timeline after submitting test results")
     @Test
     public void testSiteVisitTimelineAfterTestResults() {
