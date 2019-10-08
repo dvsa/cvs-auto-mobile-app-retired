@@ -3,6 +3,7 @@ package testtype.CVSB_194;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.AbandonTestSteps;
@@ -34,6 +35,7 @@ public class TestTypeAbandon_CVSB_791 extends BaseTestClass {
     @Steps
     AbandonedTestSteps abandonedTestSteps;
 
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-194 - AC1 Abandon option")
     @Test
     public void testRemoveTestType() {

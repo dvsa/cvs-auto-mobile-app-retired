@@ -3,6 +3,7 @@ package vehicle.CVSB_438;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.PreparerSteps;
@@ -21,6 +22,7 @@ public class Preparer_4797 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB_438 - AC 3 Select preparer and confirm")
     @Test
     public void searchPreparer() {
