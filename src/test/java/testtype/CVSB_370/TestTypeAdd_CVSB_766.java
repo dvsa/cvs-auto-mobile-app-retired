@@ -3,6 +3,7 @@ package testtype.CVSB_370;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestSteps;
@@ -23,7 +24,7 @@ public class TestTypeAdd_CVSB_766 extends BaseTestClass {
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
-
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-370 - AC2 Test types list")
     @Test
     public void testTestTypeList() {

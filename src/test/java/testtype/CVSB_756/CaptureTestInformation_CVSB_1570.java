@@ -3,6 +3,7 @@ package testtype.CVSB_756;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestHistorySteps;
@@ -26,7 +27,7 @@ public class CaptureTestInformation_CVSB_1570 extends BaseTestClass {
     @Steps
     TestHistorySteps testHistorySteps;
 
-
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-756 - AC6 - Go back to vehicle details")
     @Test
     public void testGoBackToVehicleDetails() {

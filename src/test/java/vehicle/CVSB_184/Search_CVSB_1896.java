@@ -3,6 +3,7 @@ package vehicle.CVSB_184;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -22,6 +23,7 @@ public class Search_CVSB_1896 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-184 - AC1 - Search by registration number does return the correct vehicle")
     @Test
     public void testSearchByLastDigitsVin() {
