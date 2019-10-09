@@ -66,7 +66,7 @@ public class BasePage extends PageObject {
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
 
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 100, 400);
+        return waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
@@ -162,7 +162,11 @@ public class BasePage extends PageObject {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 
-
+    public void waitForLoadingToFinish(){
+        waitForCondition().until(
+                ExpectedConditions.invisibilityOfElementLocated(By.name("Loading..."))
+        );
+    }
 
 
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
