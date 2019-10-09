@@ -177,7 +177,7 @@ public class DefectDetailsPage extends BasePage {
         findElementByXpath(LONGITUDINAL_POP_UP_REAR_XPATH).click();
     }
 
-    public void scrollDetailPage() {
+    public void scrollDownPage() {
         scrollDownTo(500, -100);
     }
 

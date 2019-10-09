@@ -89,8 +89,4 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         goToTestType(preparerId, preparerName);
         testTypeCategorySteps.selectFromTestTypeList(testType);
     }
-
-    public void goToTestPageBySelectingASpecificTrailer(String vin) {
-        preparerComp.goToSelectPreparerForASpecificTrailer(vin);
-    }
 }

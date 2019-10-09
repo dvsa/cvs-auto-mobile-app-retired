@@ -120,7 +120,7 @@ public class CombinationTestingReviewScreens_CVSB_3910 extends BaseTestClass {
         testSteps.addTestTypeFor("341237");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
 
-        testSteps.reviewAction();
+        testSteps.clickReview();
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Test review (1 of 3)");
         testReviewSteps.scrollDown();

@@ -1,8 +1,6 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.util.HashMap;
@@ -123,28 +121,6 @@ public class TestPage extends BasePage {
         return null;
     }
 
-    public void scrollThePageDownTo(String elementContaining) {
-        waitUntilPageIsLoaded();
-        String elementFullName = getButtonContainingText(elementContaining).getAttribute("name");
-        assertThat(elementIsDisplayed(elementFullName)).isTrue();
-        int oldYPosition = getYPositionForElement(elementFullName);
-        scrollDownPage();
-        assertThat(elementIsDisplayed(elementFullName)).isFalse();
-        int newYPosition = getYPositionForElement(elementFullName);
-        assertThat(oldYPosition).isNotEqualTo(newYPosition);
-    }
-
-    public WebElement getButtonContainingText(String buttonText){
-        waitUntilPageIsLoaded();
-        List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        for (WebElement button : buttonList) {
-            if (button.getAttribute("name").contains(buttonText)) {
-                return button;
-            }
-        }
-        return null;
-    }
-
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
 
@@ -175,7 +151,6 @@ public class TestPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public void addTestType() {
@@ -437,31 +412,10 @@ public class TestPage extends BasePage {
     public boolean checkAddAVehicleButtonIsDisplayed() {return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();}
 
     public void scrollPageDown() {
-        waitUntilPageIsLoaded();
         scrollDownTo(500, -800);
     }
     public void addATrailer() {
         clickAddATrailerButton();
-    }
-
-    public void scrollPageUp() {
-        waitUntilPageIsLoaded();
-        scrollDownTo(500, 800);
-    }
-
-    public boolean elementIsDisplayed(String element) {
-        return findElementById(element).isDisplayed();
-    }
-
-    public void scrollThePageDownTo(String element, int px) {
-        waitUntilPageIsLoaded();
-        String elementFullName = getButtonContainingText(element).getAttribute("name");
-        assertThat(elementIsDisplayed(elementFullName)).isTrue();
-        int oldYPosition = getYPositionForElement(elementFullName);
-        scrollDownPage(px);
-        assertThat(elementIsDisplayed(elementFullName)).isFalse();
-        int newYPosition = getYPositionForElement(elementFullName);
-        assertThat(oldYPosition).isNotEqualTo(newYPosition);
     }
 
 }

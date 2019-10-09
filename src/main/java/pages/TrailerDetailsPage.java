@@ -30,12 +30,12 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isDetailPageScrollable() {
-        scrollDetailPage();
+        scrollDownPage();
 
         return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
     }
 
-    public void scrollDetailPage() {
+    public void scrollDownPage() {
         scrollDownTo(500, -100);
     }
 

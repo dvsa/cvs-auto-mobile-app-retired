@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.assertj.core.api.AssertionsForClassTypes;
 import pages.TestTypeDetailsPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -474,26 +473,5 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
             }
         }
         assertThat(isDisplayed).isTrue();
-    }
-
-    @Step
-    public void checkCertificateNumberIsDisplayed() {
-        assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
-        assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
-    }
-
-    @Step
-    public void checkCertificateGuidanceDisplays(String instruction) {
-        assertThat(testTypeDetailsPage.isCertificateNumberGuidance(instruction)).isTrue();
-    }
-
-    @Step
-    public void checkCertificateNumberIs(String certificateNumber) {
-        assertThat(testTypeDetailsPage.isCertificateNumber(certificateNumber)).isTrue();
-    }
-
-    @Step
-    public void checkCertificateNumberIsNotDisplayed() {
-        assertThat(testTypeDetailsPage.isStaticTextNotDisplayed("CERTIFICATE NUMBER")).isTrue();
     }
 }
