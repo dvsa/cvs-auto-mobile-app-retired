@@ -54,6 +54,11 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkAddATrailerButtonExistence(){
+        assertThat(testPage.checkAddATrailerButtonIsPresent()).isEqualTo(0);
+    }
+
+    @Step
     public void checkSelectedTestTypes(String... selectedTestTypes) {
         testPage.waitUntilPageIsLoaded();
         for (String expectedTestType : selectedTestTypes) {

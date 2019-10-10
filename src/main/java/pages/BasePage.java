@@ -11,6 +11,7 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntilPageIsLoadedByElement(By.id(id), 50, 200);
+        return waitUntilPageIsLoadedByElement(By.id(id), 60, 200);
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
@@ -163,8 +164,8 @@ public class BasePage extends PageObject {
     }
 
     public void waitForLoadingToFinish(){
-        waitForCondition().until(
-                ExpectedConditions.invisibilityOfElementLocated(By.name("Loading..."))
+        WebDriverWait wait = new WebDriverWait(this.getDriver(), 20);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Loading..."))
         );
     }
 

@@ -9,6 +9,8 @@ public class TestReviewPage extends BasePage {
     private static final String BACK_TO_TEST_ID = "arrow back Test";
     private static final String TEST_REVIEW_TITLE_ID = "Test review";
     private static final String CHANGE_DETAILS_BUTTON_ID = "Change details";
+    private static final String CHANGE_VEHICLE_DETAILS_BUTTON_XPATH = "(//XCUIElementTypeButton[@name='Change details'][1])";
+    private static final String CHANGE_TEST_DETAILS_BUTTON_XPATH = "(//XCUIElementTypeButton[@name='Change details'][2])";
     private static final String SAVE_CHANGED_DETAILS = "Save";
     private static final String POP_UP_SUBMIT_XPATH = "(//XCUIElementTypeButton[@name='Submit'])";
     private static final String POP_UP_CANCEL_XPATH = "(//XCUIElementTypeButton[@name='Cancel'])";
@@ -19,6 +21,7 @@ public class TestReviewPage extends BasePage {
     private static final String ERROR_TEXT = "Make sure you are connected to the Internet and try again.";
     private static final String ERROR_SETTINGS = "Settings";
     private static final String ERROR_TRY_AGAIN = "Try again";
+    private static final String PREVIOUS_TEST_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
 
 
     public void goToTestPage() {
@@ -56,6 +59,25 @@ public class TestReviewPage extends BasePage {
         boolean status;
         try {
             status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NoSuchElementException e) {
+            status = false;
+        }
+
+        return status;
+    }
+
+    public void clickChangeVehicleDetailsButton() {
+        findElementByXpath(CHANGE_VEHICLE_DETAILS_BUTTON_XPATH).click();
+    }
+
+    public void clickChangeTestDetailsButton() {
+        findElementByXpath(CHANGE_TEST_DETAILS_BUTTON_XPATH).click();
+    }
+
+    public boolean isChangeTestDetailsButtonDisplayed() {
+        boolean status;
+        try {
+            status = findElementByXpath(CHANGE_TEST_DETAILS_BUTTON_XPATH).isDisplayed();
         } catch (NoSuchElementException e) {
             status = false;
         }
@@ -158,5 +180,9 @@ public class TestReviewPage extends BasePage {
     public void clickSubmitTestsButton() {
         findElementByAccessibilityId(SUBMIT_TESTS_BUTTON_ID).click();
 
+    }
+
+    public void goToPreviousVehicle() {
+        findElementByXpath(PREVIOUS_TEST_BUTTON_XPATH).click();
     }
 }
