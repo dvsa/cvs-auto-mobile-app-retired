@@ -24,7 +24,7 @@ public class VehicleDetails_CVSB_1070 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
 
-    @Ignore("[CVSB-8416] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-185 - AC1 - No search results")
     @Test
     public void testNoSearchResults() {

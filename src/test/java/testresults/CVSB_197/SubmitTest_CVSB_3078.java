@@ -3,6 +3,7 @@ package testresults.CVSB_197;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -40,6 +41,7 @@ public class SubmitTest_CVSB_3078 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-197 - AC A3. VSA confirms the submission of test results and is presented with the loading indicator")
     @Test
     public void testLoadingIndicatorAfterConfirmationToSubmitTestResults() {

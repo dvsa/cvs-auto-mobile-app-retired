@@ -37,6 +37,7 @@ public class SignaturePage extends BasePage {
     }
 
     public void createSignature() {
+//        longWaitUntilPageIsLoadedByIdAndClickable(SAVE_BUTTON_ID);
         tapByCoordinates(50, 100);
     }
 

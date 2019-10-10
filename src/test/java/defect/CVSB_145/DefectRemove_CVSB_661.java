@@ -3,6 +3,7 @@ package defect.CVSB_145;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -34,7 +35,7 @@ public class DefectRemove_CVSB_661 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-
+    @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-145 - AC1- Remove defect pop up message")
     @Test
     public void testRemoveDefectPopUp() {
