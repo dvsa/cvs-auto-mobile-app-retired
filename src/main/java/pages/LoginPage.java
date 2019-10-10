@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
 
-    private static final String EMAIL_PHONE_OR_SKYPE_FIELD_ID = "Enter your email, phone, or Skype.";
+    private static final String EMAIL_PHONE_OR_SKYPE_FIELD_ID = "Email, phone, or Skype";
     private static final String NEXT_BUTTON_ID = "Next";
     private static final String PASSWORD_FIELD_ID = "Password";
     private static final String SIGN_ID_BUTTON_ID = "Sign in";

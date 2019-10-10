@@ -36,7 +36,7 @@ public class ProhibitionIssuedToggle_CVSB_5731 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setProhibisionIssued();
+        testTypeDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOn();
     }
 

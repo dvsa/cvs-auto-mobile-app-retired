@@ -1,5 +1,6 @@
 package pages;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
@@ -26,6 +27,17 @@ public class TestPage extends BasePage {
     private static final String OK_BUTTON = "OK";
     private static final String VEHICLE_DETAILS_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Details')]";
     private static final String REVIEW_AND_SUBMIT = "Review and submit";
+    private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
+    private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
+
+
+    public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
+        try {
+            return findElementById(expectedErrorMessage).isDisplayed();
+        } catch (Exception exception) {
+            return false;
+        }
+    }
 
     public boolean OdometerOptionIsDisplayed() {
         return findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Odometer reading')]").isDisplayed();
@@ -34,29 +46,29 @@ public class TestPage extends BasePage {
     public boolean isPropertyDisplayedXTimes(String property, int times) {
         waitUntilPageIsLoaded();
         List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        int timesFound=0;
+        int timesFound = 0;
         for (WebElement button : buttonList) {
             if (button.getAttribute("name").contains(property)) {
                 timesFound++;
             }
         }
-            return(times == timesFound);
+        return (times == timesFound);
     }
 
     public boolean isItemDisplayedAfter(String item1, String item2) {
         List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        return buttonList.indexOf(item1)>buttonList.indexOf(item2);
+        return buttonList.indexOf(item1) > buttonList.indexOf(item2);
     }
 
     public void clickCountryOfRegistrationOf(String vehicle) {
         waitUntilPageIsLoaded();
-            for (WebElement button : getButtonsOfVehicle(vehicle)) {
+        for (WebElement button : getButtonsOfVehicle(vehicle)) {
 
-                if (button.getAttribute("name").contains("Country of registration")) {
+            if (button.getAttribute("name").contains("Country of registration")) {
 
-                    button.click();
-                }
+                button.click();
             }
+        }
 
     }
 
@@ -67,38 +79,41 @@ public class TestPage extends BasePage {
                 button.click();
             }
         }
+
     }
 
-    public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
-        try {
-            return findElementById(expectedErrorMessage).isDisplayed();
-        } catch (Exception exception) {
-            return false;
-        }
-    }
-
-    public boolean checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
+    public void clickOdometerReadingOf(String vehicle) {
         waitUntilPageIsLoaded();
-        List<WebElement> allButtonsOfVehicle =  getButtonsOfVehicle(vehicle);
+        for (WebElement button : getButtonsOfVehicle(vehicle)) {
+            if (button.getAttribute("name").startsWith("Odometer reading")) {
+                button.click();
+            }
+        }
+
+    }
+
+    public boolean checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle) {
+        waitUntilPageIsLoaded();
+        List<WebElement> allButtonsOfVehicle = getButtonsOfVehicle(vehicle);
         for (WebElement button : allButtonsOfVehicle) {
             if (button.getAttribute("name").contains("Country of registration")) {
-                    return button.getAttribute("name").contains(country);
+                return button.getAttribute("name").contains(country);
             }
         }
         return false;
     }
 
-    private List<WebElement> getButtonsOfVehicle(String vehicle){
+    private List<WebElement> getButtonsOfVehicle(String vehicle) {
         List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
-        for(WebElement button : buttonList){
-            if(button.getAttribute("name").contains(vehicle)){
+        for (WebElement button : buttonList) {
+            if (button.getAttribute("name").contains(vehicle)) {
                 int index = buttonList.indexOf(button) + 1;
                 do {
                     System.out.println("button: " + buttonList.get(index).getAttribute("name"));
                     index++;
-                    }
-                while(!buttonList.get(index).getAttribute("name").contains("Add a test type"));
-                for(WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1) ){
+                }
+                while (!buttonList.get(index).getAttribute("name").contains("Add a test type"));
+                for (WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1)) {
                     System.out.println("element of list is: " + we.getAttribute("name"));
                 }
                 return buttonList.subList(buttonList.indexOf(button) + 1, index + 1);
@@ -145,7 +160,7 @@ public class TestPage extends BasePage {
 
     public void addTestTypeFor(String vehicle) {
         waitUntilPageIsLoaded();
-        List<WebElement> allButtonsOfVehicle =  getButtonsOfVehicle(vehicle);
+        List<WebElement> allButtonsOfVehicle = getButtonsOfVehicle(vehicle);
         for (WebElement button : allButtonsOfVehicle) {
             if (button.getAttribute("name").contains(ADD_TEST_TYPE_BUTTON_ID)) {
                 button.click();
@@ -179,6 +194,20 @@ public class TestPage extends BasePage {
 
     public boolean isVehicleRegistrationPlateDisplayed(String regPlate, String vin) {
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (PSV) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+    public boolean isHgvRegistrationPlateDisplayed(String regPlate, String vin) {
+        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']");
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+
+    public boolean isTrailerRegistrationPlateDisplayed(String trailerId, String vin) {
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + trailerId + " (Trailer) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+    public boolean checkIfTrailerImageIsDisplayed() {
+        return findElementByClassName(TRAILER_ICON_IMAGE).isEnabled();
     }
 
     public boolean isAddATestTypeButtonDisplayed() {
@@ -375,4 +404,39 @@ public class TestPage extends BasePage {
     public void clickReviewAndSubmitButton() {
         findElementById(REVIEW_AND_SUBMIT).click();
     }
+
+    public void clickAddATrailerButton() {
+        findElementById(ADD_A_TRAILER_BUTTON_ID).click();
+    }
+
+    public void clickAddAVehicleButton() {
+        findElementById(ADD_A_VEHICLE_BUTTON_ID).click();
+    }
+
+    public boolean checkAddATrailerButtonIsDisplayed() {
+        return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean addATrailerButtonIsPresent() {
+        List<WebElementFacade> addTrailerButton = findAll(By.id(ADD_A_TRAILER_BUTTON_ID));
+        if (addTrailerButton.size() == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public boolean checkAddAVehicleButtonIsDisplayed() {
+        return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();
+    }
+
+    public void scrollPageDown() {
+        scrollDownTo(500, -1200);
+    }
+
+    public void addATrailer() {
+        clickAddATrailerButton();
+    }
+
 }

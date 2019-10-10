@@ -27,7 +27,7 @@ public class Search_CVSB_1897 extends BaseTestClass {
         vehicleComp.goToIdentifyVehicle();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.pressBackButton();
-        identifyVehicleSteps.checkIdentitfyVehicleTitleIsDisplayed();
+        identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();
         identifyVehicleSteps.checkSearchBoxDoesNotContainText("BQ91YHQ");
     }
 }

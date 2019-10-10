@@ -173,4 +173,9 @@ public class SiteVisitSteps extends ScenarioSteps {
     public void checkAddedReasons(String text) {
        assertThat(siteVisitPage.areAllReasonsDisplayed(text)).isTrue();
     }
+
+    @Step
+    public void checkVehiclePosition(String mrn, int position) {
+        assertThat(siteVisitPage.getVehiclePosition(mrn)).isEqualTo(position);
+    }
 }

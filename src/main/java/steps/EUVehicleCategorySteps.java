@@ -29,6 +29,13 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectOption(String option){
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        euVehicleCategoryPage.clickOption(option);
+        clickSaveOptionButton();
+    }
+
+    @Step
     @Deprecated
     public void selectM2Option() {
         euVehicleCategoryPage.clickM2Option();
@@ -39,6 +46,29 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
     @Deprecated
     public void selectM3Option() {
         euVehicleCategoryPage.clickM3Option();
+        clickSaveOptionButton();
+    }
+
+    @Step
+    public void selectO1Option() {
+        euVehicleCategoryPage.clickO1Option();
+        clickSaveOptionButton();
+    }
+    @Step
+    public void selectO2Option() {
+        euVehicleCategoryPage.clickO2Option();
+        clickSaveOptionButton();
+    }
+
+    @Step
+    public void selectO3Option() {
+        euVehicleCategoryPage.clickO3Option();
+        clickSaveOptionButton();
+    }
+
+    @Step
+    public void selectO4Option() {
+        euVehicleCategoryPage.clickO4Option();
         clickSaveOptionButton();
     }
 
@@ -54,5 +84,14 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
         assertThat(euVehicleCategoryPage.isM1Displayed()).isTrue();
         assertThat(euVehicleCategoryPage.isM2Displayed()).isTrue();
         assertThat(euVehicleCategoryPage.isM3Displayed()).isTrue();
+    }
+
+    @Step
+    public void checkOptionsForTrailerAreDisplayed() {
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        assertThat(euVehicleCategoryPage.isO1Displayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isO2Displayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isO3Displayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isO4Displayed()).isTrue();
     }
 }

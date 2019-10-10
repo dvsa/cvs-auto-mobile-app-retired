@@ -12,7 +12,7 @@ public class VehicleDetailsPage extends BasePage {
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
-
+    private static final String PAGE_ALL_BUTTON_XPATH = "//XCUIElementTypeButton";
     private static final String CANCEL_ID = "Cancel";
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
@@ -92,7 +92,7 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementByXpath("//*[@name='" + element + "']").isDisplayed();
+        return findElementById(element).isDisplayed();
     }
 
     public void clickExpandableInformation(String info) {
@@ -117,5 +117,35 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isTestHistoryButtonDisplayed() {
         return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+    }
+
+    public boolean isAttribute(String attribute, String value) {
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
+        List<String> actualData = new ArrayList<>();
+        for (WebElement webElement : webElementList) {
+            actualData.add(webElement.getAttribute("name"));
+        }
+//        System.out.println("list: " + actualData);
+        for(String data:actualData){
+//            System.out.println("inside for @: " + data);
+            if(data.equals(attribute)){
+//                System.out.println("comparing data: " + data + " with: " + value);
+                if(actualData.get(actualData.indexOf(data)+1).equals(value)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isButtonDisplayed(String button) {
+
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTON_XPATH);
+        for (WebElement webElement : webElementList) {
+            if(webElement.getAttribute("name").equals(button)){
+                return true;
+            }
+        }
+        return false;
     }
 }

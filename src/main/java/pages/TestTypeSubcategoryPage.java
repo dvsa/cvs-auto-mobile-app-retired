@@ -43,6 +43,11 @@ public class TestTypeSubcategoryPage extends BasePage {
 
     }
 
+    public List<WebElement> findAllTestTypesWebElements() {
+        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
+        return webElementList;
+    }
+
     public void selectBack() {
         findElementByXpath(BACK_BUTTON_XPATH).click();
     }

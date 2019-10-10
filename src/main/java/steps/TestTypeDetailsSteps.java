@@ -159,11 +159,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void checkCertificateSection(boolean isPresent) {
         if (isPresent) {
             assertThat(testTypeDetailsPage.checkLPLabelIsPresent()).isTrue();
-            assertThat(testTypeDetailsPage.checkCertificateNumberInputFIedIsPresent()).isTrue();
+            assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
             assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
         } else {
             assertThat(testTypeDetailsPage.checkLPLabelIsPresent()).isFalse();
-            assertThat(testTypeDetailsPage.checkCertificateNumberInputFIedIsPresent()).isFalse();
+            assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isFalse();
             assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isFalse();
         }
     }
@@ -406,7 +406,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setProhibisionIssued() {
+    public void setProhibitionIssued() {
         testTypeDetailsPage.enableProhibition();
     }
 
@@ -423,7 +423,57 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void enablePRS(){testTypeDetailsPage.enablePRS();}
 
+    @Step
+    public void checkTestTypeAbandonButton() {
+        assertThat(testTypeDetailsPage.isAbandonButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkTestTypeRemoveButton() {
+        assertThat(testTypeDetailsPage.isRemoveTestButtonDisplayed()).isTrue();
+    }
+
+    @Step
     public void checkElementValue(String element, String value){
         testTypeDetailsPage.checkElementValue(element,value);
     }
+    @Step
+    public void checkCertificateNumberIsDisplayed() {
+        assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
+        assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
+    }
+
+    @Step
+    public void checkCertificateGuidanceDisplays(String instruction) {
+        assertThat(testTypeDetailsPage.isCertificateNumberGuidance(instruction)).isTrue();
+    }
+
+    @Step
+    public void checkCertificateNumberIs(String certificateNumber) {
+        assertThat(testTypeDetailsPage.isCertificateNumber(certificateNumber)).isTrue();
+    }
+
+    @Step
+    public void checkCertificateNumberIsNotDisplayed() {
+        assertThat(testTypeDetailsPage.isStaticTextNotDisplayed("CERTIFICATE NUMBER")).isTrue();
+    }
+
+    @Step
+    public void checkErrorNotesDetailsIsDisplayed() {
+        assertThat(testTypeDetailsPage.isErrorMessageDisplayed("Before saving, give more details about the failure in the notes section."));
+    }
+
+    @Step
+    public void checkNotesTitle(String notes) {
+        String[] stringArray = notes.split(" ");
+        boolean isDisplayed = true;
+        for(String string:stringArray){
+            System.out.println("string: " + string);
+            if(!testTypeDetailsPage.isStaticTextDisplayed(string)){
+                isDisplayed = false;
+            }
+        }
+        assertThat(isDisplayed).isTrue();
+    }
+
 }

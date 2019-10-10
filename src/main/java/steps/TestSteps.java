@@ -8,16 +8,22 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestSteps extends ScenarioSteps {
 
+    TestPage testPage;
+
     private static final String MESSAGE_COMPLETE_TEST_DETAILS = "You must complete all vehicle and test type details before reviewing.";
     private static final String NO_TEST_TYPE_ADDED_TITLE = "No test type added";
     private static final String NO_TEST_TYPE_ADDED_INFO = "Add a test type before reviewing.";
-
-    TestPage testPage;
 
     @Step
     public void addTestType() {
         testPage.waitUntilPageIsLoaded();
         testPage.addTestType();
+    }
+
+    @Step
+    public void addTestTypeFor(String vehicle) {
+        testPage.waitUntilPageIsLoaded();
+        testPage.addTestTypeFor(vehicle);
     }
 
     @Step
@@ -27,8 +33,25 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTrailerTestDetails(String trailer, String vin) {
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isTrailerRegistrationPlateDisplayed(trailer, vin)).isTrue();
+        System.out.println(getDriver().getPageSource());
+    }
+
+    @Step
     public void checkAddATestTypeButtonVisibility() {
         assertThat(testPage.isAddATestTypeButtonDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkAddATrailerButtonVisibility(){
+        assertThat(testPage.checkAddATrailerButtonIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkAddATrailerButtonIsNotPresent(){
+        assertThat(testPage.addATrailerButtonIsPresent()).isFalse();
     }
 
     @Step
@@ -49,7 +72,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReviewButton() {
+    public void checkReviewAndSubmitButton() {
         assertThat(testPage.isReviewAndSubmitButtonAvailable()).isTrue();
     }
 
@@ -119,12 +142,18 @@ public class TestSteps extends ScenarioSteps {
 
     @Step
     public void checkPageTitleDisplayed() {
+        testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed()).isTrue();
     }
 
     @Step
     public void selectOdometerReading() {
         testPage.clickOdometerReading();
+    }
+
+    @Step
+    public void clickOdometerReadingFor(String vehicle) {
+        testPage.clickOdometerReadingOf(vehicle);
     }
 
     @Step
@@ -263,4 +292,78 @@ public class TestSteps extends ScenarioSteps {
     public void checkErrorMessageAddATestTypeBeforeReviewing() {
         assertThat(testPage.checkMessageIsDisplayed(NO_TEST_TYPE_ADDED_INFO)).isTrue();
     }
+
+    @Step
+    public void checkHgvTestDetails(String hgv, String vin) {
+            testPage.waitUntilPageIsLoaded();
+            assertThat(testPage.isPageTitleDisplayed() && testPage.isHgvRegistrationPlateDisplayed(hgv, vin)).isTrue();
+        }
+
+    @Step
+    public void selectHgvDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void selectTrailerDetails() {
+        selectVehicleDetails();
+    }
+
+    @Step
+    public void clickAddATrailerButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddATrailerButton();
+    }
+
+    @Step
+    public void checkAddAVehicleButtonVisibility() {
+        assertThat(testPage.checkAddAVehicleButtonIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void clickAddAVehicleButton() {
+        testPage.waitUntilPageIsLoaded();
+        testPage.clickAddAVehicleButton();
+    }
+
+    @Step
+    public void checkOdometerOptionIsDisplayed() {
+        assertThat(testPage.OdometerOptionIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkPropertyIsDisplayedXTimes(String category, int times){
+        assertThat(testPage.isPropertyDisplayedXTimes(category, times)).isTrue();
+    }
+
+    @Step
+    public void checkVehicleCardIsDisplayedAfterVehicle(String item1, String item2) {
+        assertThat(testPage.isItemDisplayedAfter(item1,  item2));
+    }
+
+    @Step
+    public void selectEuVehicleCategory() {
+        testPage.clickEUVehicleCategoryOption();
+    }
+
+    @Step
+    public void clickCountryOfRegistrationFor(String vehicle) {
+        testPage.clickCountryOfRegistrationOf(vehicle);
+    }
+
+    @Step
+    public void scrollDown(){
+        testPage.scrollPageDown();
+    }
+
+    @Step
+    public void checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
+        assertThat(testPage.checkCountryOfRegistrationFieldIsUpdatedFor(country, vehicle)).isTrue();
+    }
+
+    @Step
+    public void clickEuVehicleCategoryFor(String vehicle){
+        testPage.clickEuVehicleCategoryFor(vehicle);
+    }
+
 }

@@ -10,6 +10,7 @@ import java.text.DateFormatSymbols;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_TEST_TYPE_REMOVAL_TEXT_ID = "This action will remove this test type from the vehicle.";
     private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
     private static final String PROHIBITION_ISSUED_SWITCH_XPATH = "//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]";
+    private static final String PAGE_ALL_LABELS_CLASS_NAME = "XCUIElementTypeStaticText";
 
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
@@ -373,7 +375,7 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementById(LP_LABEL_ID).isDisplayed();
     }
 
-    public boolean checkCertificateNumberInputFIedIsPresent() {
+    public boolean checkCertificateNumberInputFieIdIsPresent() {
         return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).isDisplayed();
     }
 
@@ -477,6 +479,51 @@ public class TestTypeDetailsPage extends BasePage {
 
     public void enablePRS() {
         tap(findElementByXpath("//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]"));
+    }
+
+    public boolean isAbandonButtonDisplayed() {
+        return findElementById(ABANDON_TEST_TYPE).isDisplayed();
+    }
+
+    public boolean isRemoveTestButtonDisplayed() {
+        return findElementById(REMOVE_TEST_TYPE).isDisplayed();
+    }
+
+    public boolean isCertificateNumberGuidance(String instruction) {
+        return findElementById(instruction).isDisplayed();
+    }
+
+    public boolean isCertificateNumber(String certificateNumber) {
+        return findElementById(certificateNumber).isDisplayed();
+    }
+
+    public boolean isStaticTextNotDisplayed(String staticText) {
+        waitUntilPageIsLoaded();
+        for(WebElement button : getAllLabels()){
+            if(button.getAttribute("name").equals(staticText)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isStaticTextDisplayed(String staticText) {
+        return !isStaticTextNotDisplayed(staticText);
+    }
+
+
+    public List<WebElement> getAllLabels(){
+        return findElementsByClassName(PAGE_ALL_LABELS_CLASS_NAME);
+    }
+
+    public boolean isErrorMessageDisplayed(String errorMessage) {
+        List<WebElement> webElementList = getDriver().findElements(By.className("XCUIElementTypeStaticText"));
+        for (WebElement webElement : webElementList) {
+            if(webElement.getAttribute("name").contains(errorMessage)){
+                return true;
+            }
+        }
+        return false;
     }
 }
 

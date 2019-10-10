@@ -11,6 +11,7 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntilPageIsLoadedByElement(By.id(id), 20, 200);
+        return waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
@@ -66,7 +67,7 @@ public class BasePage extends PageObject {
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
 
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 100, 400);
+        return waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
@@ -135,6 +136,9 @@ public class BasePage extends PageObject {
         return findElementByXpath("//*[contains(@name, '" + element + "')]").getLocation().getY();
     }
 
+    public void scrollDetailPage() {
+        scrollDownTo(500, -100);
+    }
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
@@ -154,6 +158,16 @@ public class BasePage extends PageObject {
 
     }
 
+    protected void waitElementToDisappear(By locator, int timeOut, int poolingEvery){
+        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+    public void waitForLoadingToFinish(){
+        WebDriverWait wait = new WebDriverWait(this.getDriver(), 20);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Loading..."))
+        );
+    }
 
 
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
@@ -218,6 +232,16 @@ public class BasePage extends PageObject {
     public void closeAndLaunchApp() {
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
         ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
+    }
+
+    public boolean isNumeric(String element) {
+        try {
+            int d = Integer.parseInt(element);
+            System.out.println("d: " + d);
+        } catch (NumberFormatException | NullPointerException nfe) {
+            return false;
+        }
+        return true;
     }
 
 

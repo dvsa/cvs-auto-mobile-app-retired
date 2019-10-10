@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import pages.TrailerDetailsPage;
 import pages.VehicleDetailsPage;
 
 import java.util.List;
@@ -129,4 +130,46 @@ public class VehicleDetailsSteps extends ScenarioSteps {
         vehicleDetailsPage.scrollDetailPage();
         assertThat(vehicleDetailsPage.isTestHistoryButtonDisplayed()).isTrue();
     }
+
+    @Step
+    public void checkMakeIs(String make) {
+        assertThat(vehicleDetailsPage.isAttribute("Make", make)).isTrue();
+    }
+
+    @Step
+    public void checkModelIs(String model) {
+        assertThat(vehicleDetailsPage.isAttribute("Model", model)).isTrue();
+    }
+
+    @Step
+    public void checkBodyTypeIs(String bodyType) {
+        assertThat(vehicleDetailsPage.isAttribute("Body type", bodyType)).isTrue();
+    }
+
+    @Step
+    public void checkFunctionCodeIs(String functionCode) {
+        assertThat(vehicleDetailsPage.isAttribute("Function code", functionCode)).isTrue();
+    }
+
+    @Step
+    public void checkYearOfManufactureIs(String year) {
+        assertThat(vehicleDetailsPage.isAttribute("Year of manufacture", year)).isTrue();
+    }
+
+    @Step
+    public void checkDateOfFirstRegistrationIs(String date) {
+        assertThat(vehicleDetailsPage.isAttribute("Date of first registration", date)).isTrue();
+    }
+
+    @Step
+    public void checkAxleIs(String axles) {
+        assertThat(vehicleDetailsPage.isAttribute("Axles", axles)).isTrue();
+    }
+
+    @Step
+    public void checkDtpIs(String dtp) {
+        assertThat(vehicleDetailsPage.isAttribute("DTP", dtp)).isTrue();
+    }
+
+
 }

@@ -2,7 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.assertj.core.api.AssertionsForClassTypes;
+import org.assertj.core.api.Assertions;
 import pages.SiteVisitPage;
 import pages.TestReviewPage;
 
@@ -33,6 +33,11 @@ public class TestReviewSteps extends ScenarioSteps {
     }
 
     @Step
+    public void goToPreviousVehicle(){
+        testReviewPage.goToPreviousVehicle();
+    }
+
+    @Step
     public void checkElementIsNotDisplayed(String element){
         assertThat(testReviewPage.checkDisplayedElement(element)).isFalse();
     }
@@ -40,6 +45,16 @@ public class TestReviewSteps extends ScenarioSteps {
     @Step
     public void changeDetails() {
         testReviewPage.clickChangeDetailsButton();
+    }
+
+    @Step
+    public void changeVehicleDetails() {
+        testReviewPage.clickChangeVehicleDetailsButton();
+    }
+
+    @Step
+    public void changeTestDetails() {
+        testReviewPage.clickChangeTestDetailsButton();
     }
 
     @Step
@@ -148,9 +163,18 @@ public class TestReviewSteps extends ScenarioSteps {
         assertThat(testReviewPage.isLoadingIndicatorNotDisplayed()).isTrue();
     }
 
+    @Step
+    public void pressNextVehicle() {
+        testReviewPage.clickNextVehicle();
+    }
+
+    @Step
+    public void pressSubmitTests() {
+        testReviewPage.clickSubmitTestsButton();
+    }
+
+    @Step
     public void checkElementValue(String element, String value){
         testReviewPage.checkElementValue(element,value);
     }
-
-
 }

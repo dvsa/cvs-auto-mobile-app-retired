@@ -28,7 +28,7 @@ public class SignaturePage extends BasePage {
     }
 
     public void confirmSignature() {
-        WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 14, 200);
+        WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 50, 200);
         tapByCoordinates(we.getLocation().getX(), we.getLocation().getY());
     }
 
@@ -37,11 +37,14 @@ public class SignaturePage extends BasePage {
     }
 
     public void createSignature() {
+//        longWaitUntilPageIsLoadedByIdAndClickable(SAVE_BUTTON_ID);
         tapByCoordinates(50, 100);
     }
 
     public void waitPageToLoad() {
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
+        waitForLoadingToFinish();
+        System.out.println(getDriver().getPageSource());
     }
 
     public void shortestWaitPageToLoad() {

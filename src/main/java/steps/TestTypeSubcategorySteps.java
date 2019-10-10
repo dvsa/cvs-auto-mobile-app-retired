@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.WebElement;
 import pages.TestTypeSubcategoryPage;
 
 import java.util.List;
@@ -22,6 +23,14 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTestTypesInListAreSelectable(String... testTypes) {
+        List<WebElement> actualData = testTypeSubcategoryPage.findAllTestTypesWebElements();
+        for (WebElement testType: actualData ){
+            assertThat(testType.isEnabled()).isTrue();
+        }
+    }
+
+    @Step
     public void waitForPageToLoadBySubcategory(String subcategory) {
         testTypeSubcategoryPage.waitUntilPageIsLoaded(subcategory);
     }
@@ -30,6 +39,11 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     public void selectFromTestTypeList(String testType) {
         testTypeSubcategoryPage.selectTestTypeFromListByXpath(testType);
 
+    }
+
+    @Step
+    public void checkTestTypeListIsEmpty() {
+        assertThat(testTypeSubcategoryPage.findAllTestTypesWebElements().isEmpty());
     }
 
     @Step
