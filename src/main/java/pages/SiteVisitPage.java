@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -232,5 +233,17 @@ public class SiteVisitPage extends BasePage {
             status = false;
         }
         return status;
+    }
+
+    public int getVehiclePosition(String mrn) {
+        WebElement siteVisitTestList = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Started site visit')]/following-sibling::XCUIElementTypeButton");
+        String testList = siteVisitTestList.getAttribute("label");
+        String[] tests = testList.split(" • ");
+        for (int i = 0 ; i < tests.length; i++) {
+            if (tests[i].contains(mrn)) {
+                return i;
+            }
+        }
+        return 0;
     }
 }
