@@ -2,11 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.TestPage;
-
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -54,8 +50,8 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkAddATrailerButtonExistence(){
-        assertThat(testPage.checkAddATrailerButtonIsPresent()).isEqualTo(0);
+    public void checkAddATrailerButtonIsNotPresent(){
+        assertThat(testPage.addATrailerButtonIsPresent()).isFalse();
     }
 
     @Step

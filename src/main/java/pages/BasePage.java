@@ -53,7 +53,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        return waitUntilPageIsLoadedByElement(By.id(id), 60, 200);
+        return waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {

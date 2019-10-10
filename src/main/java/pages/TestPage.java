@@ -417,9 +417,14 @@ public class TestPage extends BasePage {
         return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();
     }
 
-    public int checkAddATrailerButtonIsPresent() {
+    public boolean addATrailerButtonIsPresent() {
         List<WebElementFacade> addTrailerButton = findAll(By.id(ADD_A_TRAILER_BUTTON_ID));
-        return addTrailerButton.size();
+        if (addTrailerButton.size() == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
     public boolean checkAddAVehicleButtonIsDisplayed() {

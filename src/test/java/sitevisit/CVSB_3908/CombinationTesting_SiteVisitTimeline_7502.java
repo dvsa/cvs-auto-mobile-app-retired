@@ -115,7 +115,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         testSteps.waitUntilPageIsLoaded();
         testSteps.addTestTypeFor("T12341237");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.checkAddATrailerButtonExistence();
+        testSteps.checkAddATrailerButtonIsNotPresent();
         //submit and review tests
         testSteps.checkReviewAndSubmitButton();
         testSteps.clickReview();
