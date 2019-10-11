@@ -29,6 +29,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementById(String id) {
+        System.out.println("Searching for element: " + id);
         return getDriver().findElement(By.id(id));
     }
 
@@ -37,6 +38,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementByXpath(String xpath) {
+        System.out.println("Finding element: " + xpath);
         return getDriver().findElement(By.xpath(xpath));
     }
 
@@ -53,6 +55,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
+        System.out.println("Waiting for page to load, waiting for item: " + id);
         return waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
     }
 
@@ -142,8 +145,12 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
+        System.out.println("Search using locator: " + locator);
+
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+
+        System.out.println("Found: " + locator);
 
         return getDriver().findElement(locator);
 
@@ -221,7 +228,10 @@ public class BasePage extends PageObject {
     }
 
     public String getStatusBarTime() {
-        return findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
+        System.out.println("Getting Time from status bar");
+        String time = findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
+        System.out.println("- " + time);
+        return time;
     }
 
     public void runAppInBackground() {
