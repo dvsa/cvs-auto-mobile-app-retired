@@ -88,6 +88,11 @@ public class TestReviewSteps extends ScenarioSteps {
     }
 
     @Step
+    public void changeDetailsIsDisplayed() {
+        assertThat(testReviewPage.isChangeDetailsButtonDisplayed()).isTrue();
+    }
+
+    @Step
     public void goToTestPage() {
         testReviewPage.goToTestPage();
     }
@@ -176,5 +181,10 @@ public class TestReviewSteps extends ScenarioSteps {
     @Step
     public void checkElementValue(String element, String value){
         testReviewPage.checkElementValue(element,value);
+    }
+
+    @Step
+    public void verifyOnlyOneChangeDetailsIsDisplayed() {
+        testReviewPage.checkOnlyOneChangeDetailsIsDisplayed();
     }
 }

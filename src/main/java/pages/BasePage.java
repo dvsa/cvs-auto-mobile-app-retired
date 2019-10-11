@@ -38,6 +38,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementByXpath(String xpath) {
+        System.out.println("Finding element: " + xpath);
         return getDriver().findElement(By.xpath(xpath));
     }
 
@@ -227,7 +228,10 @@ public class BasePage extends PageObject {
     }
 
     public String getStatusBarTime() {
-        return findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
+        System.out.println("Getting Time from status bar");
+        String time = findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
+        System.out.println("- " + time);
+        return time;
     }
 
     public void runAppInBackground() {

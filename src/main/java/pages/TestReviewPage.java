@@ -41,11 +41,14 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean checkDisplayedElement(String element) {
+        System.out.println("Checking element is displayed: " + element);
         boolean status;
         try {
             status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
+            System.out.println("- Found");
         } catch (NoSuchElementException e) {
             status = false;
+            System.out.println("- NOT found");
         }
 
         return status;
@@ -57,7 +60,7 @@ public class TestReviewPage extends BasePage {
 
     public boolean isChangeDetailsButtonDisplayed() {
         boolean status;
-        System.out.println("Checking if this is displayed: " + CHANGE_DETAILS_BUTTON_ID);
+        System.out.println("Checking if element is displayed: " + CHANGE_DETAILS_BUTTON_ID);
         try {
             status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
             System.out.println("- Found");
@@ -187,5 +190,9 @@ public class TestReviewPage extends BasePage {
 
     public void goToPreviousVehicle() {
         findElementByXpath(PREVIOUS_TEST_BUTTON_XPATH).click();
+    }
+
+    public void checkOnlyOneChangeDetailsIsDisplayed() {
+        assert (findElementsByAccessibilityId(CHANGE_DETAILS_BUTTON_ID).size() == 1);
     }
 }
