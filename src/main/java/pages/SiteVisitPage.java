@@ -14,7 +14,8 @@ import java.util.List;
 public class SiteVisitPage extends BasePage {
 
     private static final String PAGE_TITLE = "Site visit";
-    private static final String CREATE_TEST_ID = "Start test";
+    private static final String CREATE_TEST_ID = "Start visit";
+    private static final String START_TEST = "Start test";
     private static final String END_VISIT_ID = "End visit";
     private static final String END_VISIT_POP_UP_CONFIRM_ID = "End visit";
     private static final String END_VISIT_POP_UP_CANCEL_ID = "Cancel";
@@ -35,7 +36,7 @@ public class SiteVisitPage extends BasePage {
     }
 
     public void clickCreateNewTest() {
-        findElementById(CREATE_TEST_ID).click();
+        findElementById(START_TEST).click();
     }
 
     public boolean isPageTitleDisplayed() {

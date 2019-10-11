@@ -29,6 +29,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementById(String id) {
+        System.out.println("Searching for element: " + id);
         return getDriver().findElement(By.id(id));
     }
 
@@ -53,6 +54,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
+        System.out.println("Waiting for page to load, waiting for item: " + id);
         return waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
     }
 
@@ -142,8 +144,12 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
+        System.out.println("Search using locator: " + locator);
+
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+
+        System.out.println("Found: " + locator);
 
         return getDriver().findElement(locator);
 

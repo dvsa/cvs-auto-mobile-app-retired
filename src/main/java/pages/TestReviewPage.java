@@ -57,10 +57,13 @@ public class TestReviewPage extends BasePage {
 
     public boolean isChangeDetailsButtonDisplayed() {
         boolean status;
+        System.out.println("Checking if this is displayed: " + CHANGE_DETAILS_BUTTON_ID);
         try {
             status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
+            System.out.println("- Found");
         } catch (NoSuchElementException e) {
             status = false;
+            System.out.println("- NOT found");
         }
 
         return status;
