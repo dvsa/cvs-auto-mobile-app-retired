@@ -97,6 +97,7 @@ public class TestCodes_WBS_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         testReviewSteps.checkElementValue("Class 6A seatbelt installation check (first test)","PRS");
         testReviewSteps.checkElementValue("Seatbelt installation check","Yes");
         testReviewSteps.checkElementValue("Number of seatbelts fitted","2");
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Defects");
         testReviewSteps.checkElementIsDisplayed("1.1 (b) MAJOR PRS");
         testReviewSteps.checkElementIsDisplayed("1. Registration Plate");

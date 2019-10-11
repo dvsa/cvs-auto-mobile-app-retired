@@ -62,7 +62,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         testSteps.selectHgvDetails();
         hgvDetailsSteps.checkMakeIs("Isuzu");
         hgvDetailsSteps.checkModelIs("FM");
-        hgvDetailsSteps.checkBodyTypeIs("articulated");
+        hgvDetailsSteps.checkBodyTypeIs("tipper");
         hgvDetailsSteps.checkFunctionCodeIs("A");
         hgvDetailsSteps.checkYearOfManufactureIs("2018");
         hgvDetailsSteps.checkDateOfFirstRegistrationIs("24/06/2019");
@@ -82,7 +82,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         trailerDetailsSteps.checkVinChassisNumberIs("T12341237");
         trailerDetailsSteps.checkMakeIs("Isuzu");
         trailerDetailsSteps.checkModelIs("F06");
-        trailerDetailsSteps.checkBodyTypeIs("articulated");
+        trailerDetailsSteps.checkBodyTypeIs("skeletal");
         trailerDetailsSteps.checkYearOfManufactureIs("2018");
         trailerDetailsSteps.checkDateOfFirstUseIs("24/06/2019");
         trailerDetailsSteps.checkAxleIs("1");

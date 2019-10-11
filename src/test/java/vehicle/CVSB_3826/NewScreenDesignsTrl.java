@@ -121,7 +121,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         trailerDetailsSteps.checkVinChassisNumberIs("T12341234");
         trailerDetailsSteps.checkMakeIs("Isuzu");
         trailerDetailsSteps.checkModelIs("F06");
-        trailerDetailsSteps.checkBodyTypeIs("articulated");
+        trailerDetailsSteps.checkBodyTypeIs("petrol/oil tanker");
         trailerDetailsSteps.checkYearOfManufactureIs("2018");
         trailerDetailsSteps.checkDateOfFirstUseIs("24/06/2019");
         trailerDetailsSteps.checkAxleIs("2");

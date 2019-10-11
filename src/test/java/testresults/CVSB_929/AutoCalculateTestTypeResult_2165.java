@@ -80,6 +80,7 @@ public class AutoCalculateTestTypeResult_2165 extends BaseTestClass {
         testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("PASS");
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Annual test");
         testReviewSteps.checkElementIsDisplayed("8.1 (d) (i) MINOR");
     }
