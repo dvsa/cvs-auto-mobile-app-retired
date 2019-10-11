@@ -80,6 +80,7 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("1.1 (a) MAJOR");
         testReviewSteps.checkElementIsDisplayed("1. Registration Plate");
         testReviewSteps.checkElementIsDisplayed("1. A registration plate:");

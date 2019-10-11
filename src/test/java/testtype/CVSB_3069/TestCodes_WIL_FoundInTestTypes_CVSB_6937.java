@@ -98,6 +98,7 @@ public class TestCodes_WIL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         testReviewSteps.checkElementValue("Prohibition clearance (retest with Class 6A seatbelt installation check)","PASS");
         testReviewSteps.checkElementValue("Seatbelt installation check","Yes");
         testReviewSteps.checkElementValue("Number of seatbelts fitted","2");
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Defects");
         testReviewSteps.checkElementIsDisplayed("10.1 (i) MINOR");
         testReviewSteps.checkElementIsDisplayed("10. Spare Wheel & Carrier");

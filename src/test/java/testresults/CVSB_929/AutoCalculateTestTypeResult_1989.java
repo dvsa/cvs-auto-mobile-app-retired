@@ -79,6 +79,7 @@ public class AutoCalculateTestTypeResult_1989 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("FAIL");
         testReviewSteps.checkElementIsDisplayed("5.7 MAJOR");
     }

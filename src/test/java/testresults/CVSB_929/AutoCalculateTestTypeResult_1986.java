@@ -79,6 +79,7 @@ public class AutoCalculateTestTypeResult_1986 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
         testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("PASS");
         testReviewSteps.checkElementIsDisplayed("8.1 (d) (i) MINOR");
     }

@@ -122,7 +122,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         hgvDetailsSteps.checkVinChassisNumberIs("P012301012938");
         hgvDetailsSteps.checkMakeIs("Isuzu");
         hgvDetailsSteps.checkModelIs("FM");
-        hgvDetailsSteps.checkBodyTypeIs("articulated");
+        hgvDetailsSteps.checkBodyTypeIs("tipper");
         hgvDetailsSteps.checkFunctionCodeIs("A");
         hgvDetailsSteps.checkYearOfManufactureIs("2018");
         hgvDetailsSteps.checkDateOfFirstRegistrationIs("24/06/2019");

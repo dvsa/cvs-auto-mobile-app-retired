@@ -85,6 +85,7 @@ public class AutoCalculateTestTypeResult_2172 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("Annual test");
         testReviewSteps.checkElementIsDisplayed("1.2 ADVISORY");
         testReviewSteps.checkElementIsDisplayed("8.1 (d) (i) MINOR");
+        testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("T3st1234 &^%");
     }
 }
