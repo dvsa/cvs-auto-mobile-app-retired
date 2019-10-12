@@ -3,6 +3,7 @@ package testtype.CVSB_203;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -42,6 +43,7 @@ public class RecordResult_CVSB_2150 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
     @Title("CVSB-203 - AC 1 - Start a test type (Technical Notifiable Alteration)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testStartATestTypeTechnicalTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

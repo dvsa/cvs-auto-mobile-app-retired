@@ -3,6 +3,7 @@ package sitevisit.CVSB_163;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -27,6 +28,7 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     SiteVisitSubmittedSteps siteVisitSubmittedSteps;
 
     @Title("CVSB-163 - AC4 Proceed with a submission of a site visit")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testCancelSubmission() {
         launchSteps.clickGetStarted();

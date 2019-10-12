@@ -3,6 +3,7 @@ package testtype.CVSB_983;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -28,6 +29,7 @@ public class EditCompletedTestType_2022 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-983 - AC4 - VSA saves their edited test type details (at least one mandatory field is not populated)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testSaveEditedDetailsOneFieldNotPopulated() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

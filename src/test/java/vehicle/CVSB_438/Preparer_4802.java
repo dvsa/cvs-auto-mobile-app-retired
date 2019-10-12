@@ -3,6 +3,7 @@ package vehicle.CVSB_438;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.PreparerSteps;
@@ -22,6 +23,7 @@ public class Preparer_4802 extends BaseTestClass {
     TestSteps testSteps;
 
     @Title("CVSB_438 - AC 8 Click 'Confirm' on popup")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void confirmWithoutPreparerFromPopUp() {
         preparerComp.goToSelectPreparer();

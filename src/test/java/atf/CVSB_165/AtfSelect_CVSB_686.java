@@ -3,6 +3,7 @@ package atf.CVSB_165;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.LaunchSteps;
@@ -19,6 +20,7 @@ public class AtfSelect_CVSB_686 extends BaseTestClass {
     SearchForAnATFSteps searchForAnATFSteps;
 
     @Title("CVSB-686 - Search field - Address")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testSearchFieldAddress() {
         launchSteps.clickGetStarted();

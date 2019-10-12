@@ -3,6 +3,7 @@ package testresults.CVSB_495;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -48,6 +49,7 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-495 - AC7 - VSA cannot change details of abandoned test types")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void canNotChangeDetailsOfAbandonedTestTypes() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

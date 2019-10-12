@@ -115,6 +115,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     }
 
     @Title("CVSB-6951 AC5 - User selects EU vehicle category")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     @Ignore
     // TODO

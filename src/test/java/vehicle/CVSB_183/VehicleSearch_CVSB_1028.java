@@ -3,6 +3,7 @@ package vehicle.CVSB_183;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -28,6 +29,7 @@ public class VehicleSearch_CVSB_1028 extends BaseTestClass {
 
 
     @Title("CVSB-183 - AC2 Search for vehicle using full VIN number")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testSearchUsingFullVIN() {
         vehicleComp.goToSiteVisit();

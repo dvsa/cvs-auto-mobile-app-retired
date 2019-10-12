@@ -3,6 +3,7 @@ package testtype.CVSB_3911;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -57,6 +58,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     }
 
     @Title("CVSB-6771 - AC1 - Fields displayed on test screen - HGV (test history)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testFieldsDisplayedTestHistoryForHgv() {
 

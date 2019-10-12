@@ -3,6 +3,7 @@ package atf.CVSB_167;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.ATFDetailsSteps;
@@ -24,6 +25,7 @@ public class AtfSelect_CVSB_1456 extends BaseTestClass {
 
 
     @Title("CVSB-167 - AC6 - VSA is able to confirm that the site is not suitable for testing")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testConfirmSiteNotSuitableForTesting() {
         launchSteps.clickGetStarted();

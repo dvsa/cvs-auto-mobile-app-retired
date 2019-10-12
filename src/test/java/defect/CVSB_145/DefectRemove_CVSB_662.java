@@ -3,6 +3,7 @@ package defect.CVSB_145;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -36,6 +37,7 @@ public class DefectRemove_CVSB_662 extends BaseTestClass {
 
 
     @Title("CVSB-145 - AC2 - Confirm remove defect")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testConfirmRemoveDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

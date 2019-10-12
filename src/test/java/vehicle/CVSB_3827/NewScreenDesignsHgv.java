@@ -3,6 +3,7 @@ package vehicle.CVSB_3827;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -107,6 +108,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
 
 
     @Title("CVSB-6406 - AC1 New screen design for first vehicle")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testNewDesignVehicleDetailsHgv() {
         launchSteps.clickGetStarted();

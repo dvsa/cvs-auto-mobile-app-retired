@@ -3,6 +3,7 @@ package vehicle.CVSB_183;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -24,6 +25,7 @@ public class VehicleSearch_CVSB_1027 extends BaseTestClass {
 
 
     @Title("CVSB-183 - updated by CVSB-3826 - AC1 Search box is presented which asks the VSA for a registration number or VIN number")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testSearchBox() {
         vehicleComp.goToSiteVisit();

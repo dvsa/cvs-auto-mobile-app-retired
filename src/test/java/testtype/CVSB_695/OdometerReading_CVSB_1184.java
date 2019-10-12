@@ -3,6 +3,7 @@ package testtype.CVSB_695;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.OdometerReadingPage;
@@ -25,6 +26,7 @@ public class OdometerReading_CVSB_1184 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @Title("CVSB-695 - AC11 - Save odometer reading - all fields completed")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testSaveOdometerAllFieldsCompleted() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

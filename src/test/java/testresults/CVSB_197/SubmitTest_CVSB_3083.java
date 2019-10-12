@@ -3,6 +3,7 @@ package testresults.CVSB_197;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -44,6 +45,7 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
     @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (cannot edit submitted test results)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testCannotEditSubmittedTestResults() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

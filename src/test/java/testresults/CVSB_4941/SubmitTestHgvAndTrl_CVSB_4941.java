@@ -3,6 +3,7 @@ package testresults.CVSB_4941;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -61,6 +62,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     IdentifyTrailerSteps identifyTrailerSteps;
 
     @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testConfirmationToSubmitResultsHgv() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

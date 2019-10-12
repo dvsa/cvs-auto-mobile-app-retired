@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -34,6 +35,7 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
 
 
     @Title("CVSB-112 - AC4  Negative result for searching with the search bar (no results)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void checkNoResultsAllLevels() {
 

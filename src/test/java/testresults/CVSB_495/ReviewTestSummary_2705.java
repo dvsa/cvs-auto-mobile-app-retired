@@ -3,6 +3,7 @@ package testresults.CVSB_495;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -41,6 +42,7 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

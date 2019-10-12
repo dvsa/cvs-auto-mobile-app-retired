@@ -3,6 +3,7 @@ package testtype.CVSB_6988;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -54,6 +55,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
 
 
     @Title("CVSB-7607 - AC1 - MANDATORY NOTES FIELD INCOMPLETE (TEST RESULT=FAIL)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testMandatoryNotesFieldIncompleteTestResultFail() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

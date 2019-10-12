@@ -3,6 +3,7 @@ package testtype.CVSB_932;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -28,6 +29,7 @@ public class SeatbeltInstallationCheck_2004 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Title("CVSB-932 - AC - 2A VSA selects Yes")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void selectIsCarriedOut() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Retest");

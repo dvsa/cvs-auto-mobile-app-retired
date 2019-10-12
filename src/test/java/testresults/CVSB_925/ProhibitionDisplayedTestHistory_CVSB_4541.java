@@ -3,6 +3,7 @@ package testresults.CVSB_925;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -50,6 +51,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4541 extends BaseTestClass {
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Title("CVSB-925 - TCD - AC2 - Prohibition displayed on test history details at a defect level")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void prohibitionDisplayedOnTestHistoryDetailsAtDefectLevel() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary Test");

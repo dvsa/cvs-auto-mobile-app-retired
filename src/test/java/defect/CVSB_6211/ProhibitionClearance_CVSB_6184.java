@@ -3,7 +3,6 @@ package defect.CVSB_6211;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -39,7 +38,6 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
 
-    @WithTag("Smoke_2")
     @Title("CVSB-6184 - Bypass the prohibition raising for Prohibition Clearance tests")
     @Test
     public void testBypassProhibitionClearance() {

@@ -3,6 +3,7 @@ package sitevisit.CVSB_169;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CancelTestSteps;
@@ -27,6 +28,7 @@ public class SiteVisitTimeline_2060 extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
     @Title("CVSB-169 - AC3 - VSA is presented with the Site Visit timeline after cancelling a test")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testSiteVisitTimelineAfterTestCancel() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

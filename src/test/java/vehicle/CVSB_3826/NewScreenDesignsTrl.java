@@ -3,6 +3,7 @@ package vehicle.CVSB_3826;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -77,6 +78,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     }
 
     @Title("CVSB-6176 - AC3 Negative test - screen should remain the same following the confirmation of a Trailer")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testNewDesignIdentifyTrailerForTrl() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
@@ -150,6 +152,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     }
 
     @Title("CVSB-6192 - AC 6.3 Multiple vehicles found (pop-up shown)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testNewDesignMultipleVehicleFound() {
         launchSteps.clickGetStarted();

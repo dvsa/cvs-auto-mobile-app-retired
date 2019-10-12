@@ -3,6 +3,7 @@ package testtype.CVSB_995;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.EUVehicleCategorySteps;
@@ -23,6 +24,7 @@ public class VehicleCategoryCountryReg_2677 extends BaseTestClass {
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Title("CVSB-995 - AC5 - Adding EU vehicle category")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void addingVehicleCategory() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -3,6 +3,7 @@ package vehicle.CVSB_438;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.PreparerSteps;
@@ -26,6 +27,7 @@ public class Preparer_4886 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Title("CVSB_438 - CVSB-5105 - AC 1 VSA returns to the vehicle details screen")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void selectPreparer() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
