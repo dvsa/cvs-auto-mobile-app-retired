@@ -3,6 +3,7 @@ package atf.CVSB_167;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.ATFDetailsSteps;
@@ -28,6 +29,7 @@ public class AtfSelect_CVSB_1460 extends BaseTestClass {
 
 
     @Title("CVSB-167 - AC8 - VSA is unable to return to ATF search once they have added a site to the visit")
+    @WithTag("Smoke_2")
     @Test
     public void testInabilityToReturnToPreviousScreen() {
         launchSteps.clickGetStarted();

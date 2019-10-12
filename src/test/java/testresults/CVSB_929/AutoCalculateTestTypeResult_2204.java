@@ -3,6 +3,7 @@ package testresults.CVSB_929;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -56,6 +57,7 @@ public class AutoCalculateTestTypeResult_2204 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-929 - Pass test result - No defects")
+    @WithTag("Smoke_2")
     @Test
     public void testPassTestResultNoDefects() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

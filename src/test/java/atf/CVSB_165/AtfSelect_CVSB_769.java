@@ -3,6 +3,7 @@ package atf.CVSB_165;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.LaunchSteps;
@@ -20,6 +21,7 @@ public class AtfSelect_CVSB_769 extends BaseTestClass {
 
 
     @Title("CVSB-165 - Search for ATF option and list of ATFs")
+    @WithTag("Smoke_2")
     @Test
     public void testAtfListAndSearchOption() {
         launchSteps.clickGetStarted();

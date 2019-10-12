@@ -3,6 +3,7 @@ package sitevisit.CVSB_169;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -23,6 +24,7 @@ public class SiteVisitTimeline_2061 extends BaseTestClass {
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Title("CVSB-169 - AC4 - VSA creates a test for a new vehicle from the site visit timeline")
+    @WithTag("Smoke_2")
     @Test
     public void testSiteVisitTimelineForNewVehicle() {
         siteVisitComp.goToSiteVisit();

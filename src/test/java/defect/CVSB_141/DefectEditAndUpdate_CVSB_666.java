@@ -3,6 +3,7 @@ package defect.CVSB_141;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -36,6 +37,7 @@ public class DefectEditAndUpdate_CVSB_666 extends BaseTestClass {
 
 
     @Title("CVSB-141 - AC1 - Edit and update defect from test type details screen")
+    @WithTag("Smoke_2")
     @Test
     public void testEditAndUpdateFromTestTypeDetails() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

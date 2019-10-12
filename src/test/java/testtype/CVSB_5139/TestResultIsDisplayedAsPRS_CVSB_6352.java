@@ -3,6 +3,7 @@ package testtype.CVSB_5139;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -54,6 +55,7 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-5139 - TCD - AC2 - VSA saves test details")
+    @WithTag("Smoke_2")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRestes() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");

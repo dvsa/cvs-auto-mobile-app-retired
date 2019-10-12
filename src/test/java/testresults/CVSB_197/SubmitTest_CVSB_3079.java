@@ -3,6 +3,7 @@ package testresults.CVSB_197;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -41,6 +42,7 @@ public class SubmitTest_CVSB_3079 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (loading indicator removed)")
+    @WithTag("Smoke_2")
     @Test
     public void testLoadingIndicatorRemovedAfterConfirmationToSubmitTestResults() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

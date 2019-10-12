@@ -3,6 +3,7 @@ package testtype.CVSB_508;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CancelTestSteps;
@@ -26,6 +27,7 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
     @Title("CVSB-854 - AC3 Submit test cancellation when the test contains at least one test type")
+    @WithTag("Smoke_2")
     @Test
     public void submitCancellationWithAtLeastOneTestType() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

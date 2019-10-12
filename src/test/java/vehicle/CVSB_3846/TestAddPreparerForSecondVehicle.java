@@ -3,6 +3,7 @@ package vehicle.CVSB_3846;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -46,6 +47,7 @@ public class TestAddPreparerForSecondVehicle extends BaseTestClass {
     }
 
     @Title("CVSB-5099 - AC1 - Pre-populating Preparer ID from the first vehicle submission (Preparer ID added)")
+    @WithTag("Smoke_2")
     @Test
     public void testPreparerForTrailerToHgvPrePopulated() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

@@ -3,6 +3,7 @@ package sitevisit.CVSB_3908;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -55,6 +56,8 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
             "AC4 Navigating back to the test screen after triggering the 'Change details' call to action for test" +
             "AC5 Successful navigation to the previous vehicle" +
             "AC6 Successful submission")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testSiteVisitTimelineHGVPlus3TRL() {
         //add hgv
