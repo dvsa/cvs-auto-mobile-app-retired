@@ -3,6 +3,7 @@ package testresults.CVSB_980;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -45,6 +46,7 @@ public class AutoCalculatedTestResults_2699 extends BaseTestClass {
     SelectReasonSteps selectReasonSteps;
 
     @Title("CVSB_980 - AC1 - Abandon criteria")
+    @WithTag("Smoke_2")
     @Test
     public void abandonCriteria() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());

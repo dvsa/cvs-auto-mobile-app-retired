@@ -3,6 +3,7 @@ package testtype.CVSB_194;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.AbandonTestSteps;
@@ -36,6 +37,7 @@ public class TestTypeAbandon_CVSB_794 extends BaseTestClass {
 
 
     @Title("CVSB-194 - AC1 Select reasons to abandon a test type")
+    @WithTag("Smoke_2")
     @Test
     public void testReasonSelectionToAbandonList() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

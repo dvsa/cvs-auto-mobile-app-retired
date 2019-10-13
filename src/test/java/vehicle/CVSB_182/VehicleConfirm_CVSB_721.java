@@ -3,6 +3,7 @@ package vehicle.CVSB_182;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.VehicleDetailsSteps;
@@ -20,6 +21,7 @@ public class VehicleConfirm_CVSB_721 extends BaseTestClass {
 
 
     @Title("CVSB-182 - AC1 Vehicle details presented are correct, VSA confirms")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testVehicleDetailsConfirmationPopUp() {
         vehicleComp.goToVehicleDetails();

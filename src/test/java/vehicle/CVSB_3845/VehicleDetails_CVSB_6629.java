@@ -3,6 +3,8 @@ package vehicle.CVSB_3845;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -44,6 +46,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     BrakesSteps brakesSteps;
 
     @Title("CVSB-6629 - AC1 - Trailer ID display")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testTrailerIdDisplayed() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("T12341237");
@@ -53,6 +56,8 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     }
 
     @Title("CVSB-6638 - AC2 VSA can see all fields listed (HGV)")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testAllDetailsHgv() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
@@ -72,6 +77,8 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     }
 
     @Title("CVSB-6630 - AC2 VSA can see all fields listed (TRL)")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testAllDetailsTrl() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341237");
@@ -90,6 +97,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     }
 
     @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Weights Screen)")
+    @WithTag("Smoke_2")
     @Test
     public void testHgvWeightsScreen() {
         vehicleComp.goToVehicleDetails("012938");

@@ -3,6 +3,7 @@ package vehicle.CVSB_183;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
@@ -24,6 +25,7 @@ public class VehicleSearch_CVSB_1054 extends BaseTestClass {
 
 
     @Title("CVSB-183 - AC3.2 Vehicle not found in system (Try again)")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testVehicleNotFound() {
         vehicleComp.goToSiteVisit();

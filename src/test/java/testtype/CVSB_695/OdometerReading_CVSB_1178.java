@@ -3,6 +3,7 @@ package testtype.CVSB_695;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.OdometerReadingSteps;
@@ -23,6 +24,7 @@ public class OdometerReading_CVSB_1178 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @Title("CVSB-695 - AC3 - Edit the Reading value within the Odometer reading screen")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testEditReadingValueWithinTheOdometerReadingScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -3,6 +3,7 @@ package testtype.CVSB_440;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -54,6 +55,7 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
 
 
     @Title("CVSB-440 - AC6 - VSA cannot update Vehicle test history")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testCannotUpdateTestHistory() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

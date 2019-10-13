@@ -3,6 +3,7 @@ package defect.CVSB_139;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -37,6 +38,7 @@ public class DefectAdd_CVSB_674 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
     @Title("CVSB-139 - AC6 - Add PRS ")
+    @WithTag("Smoke_2")
     @Test
     public void defectAddDefectWithPRS() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

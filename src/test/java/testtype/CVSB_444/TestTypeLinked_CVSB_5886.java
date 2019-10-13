@@ -2,6 +2,7 @@ package testtype.CVSB_444;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -39,6 +40,7 @@ public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     @Title("CVSB-444 - Submit test (Tempo 100)")
     public void testListFromAddLinkedTestTypeTempo100() {

@@ -3,6 +3,7 @@ package testtype.CVSB_440;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -56,6 +57,7 @@ public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
     ConfirmationPageSteps confirmationPageSteps;
 
     @Title("CVSB-440 - CVSB-7422 - AC7 -  Going back from a test type")
+    @WithTag("Smoke_2")
     @Test
     public void testGoBackFromTestTypeDetails() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

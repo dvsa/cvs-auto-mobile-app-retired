@@ -3,6 +3,7 @@ package testtype.CVSB_6301;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -55,6 +56,8 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
 
 
     @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsary)")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testFullRoadWorthinessRetestRecordCertificateNumberCompulsatory() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
@@ -101,6 +104,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     }
 
     @Title("CVSB-7436 - CVSB-7444 - CVSB-7445 - AC1 - Perform a full roadworthiness test to completion (Voluntary) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsary)")
+    @WithTag("Smoke_2")
     @Test
     public void testFullRoadWorthinessVoluntaryRecordCertificateNumberCompulsatory() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

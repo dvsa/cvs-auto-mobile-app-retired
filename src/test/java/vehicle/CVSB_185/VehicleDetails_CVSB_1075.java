@@ -3,6 +3,7 @@ package vehicle.CVSB_185;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -31,6 +32,7 @@ public class VehicleDetails_CVSB_1075 extends BaseTestClass {
     AdditionalVehicleDetailsSteps additionalVehicleDetailsSteps;
 
     @Title("CVSB-185 - AC3 - VSA cannot update technical record")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testCannotUpdateTechRecords() {
         vehicleComp.goToVehicleDetails();

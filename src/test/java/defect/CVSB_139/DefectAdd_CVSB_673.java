@@ -3,6 +3,7 @@ package defect.CVSB_139;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -38,6 +39,7 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
 
 
     @Title("CVSB-139 - AC5 - Add a defect from the defect details screen")
+    @WithTag("Smoke_2")
     @Test
     public void defectAddDefectFromDefectDetails() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

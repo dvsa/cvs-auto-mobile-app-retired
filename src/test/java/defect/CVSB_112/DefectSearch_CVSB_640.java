@@ -3,6 +3,7 @@ package defect.CVSB_112;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -30,6 +31,7 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
 
 
     @Title("CVSB-112 - AC1 - Level 1 Test drilldrown")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void defectGoBackFromSecondLevelToFirstLevel() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

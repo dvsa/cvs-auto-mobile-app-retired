@@ -3,6 +3,7 @@ package testresults.CVSB_929;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -53,6 +54,7 @@ public class AutoCalculateTestTypeResult_1986 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
     @Title("CVSB-929 - AC1 - Auto-calculate test results upon pressing 'Save' for each test type")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testResultUponPressingSave() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

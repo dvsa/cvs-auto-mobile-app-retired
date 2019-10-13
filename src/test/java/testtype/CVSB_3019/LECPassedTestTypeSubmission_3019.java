@@ -3,6 +3,7 @@ package testtype.CVSB_3019;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -38,6 +39,7 @@ public class LECPassedTestTypeSubmission_3019 extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
     @Title("CVSB-3019 - Defect - Passed Technical LEC submission")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void submitPassedLECTechnicalTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");

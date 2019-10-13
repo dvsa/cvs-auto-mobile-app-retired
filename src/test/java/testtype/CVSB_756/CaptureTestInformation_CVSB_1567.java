@@ -3,6 +3,7 @@ package testtype.CVSB_756;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -21,6 +22,7 @@ public class CaptureTestInformation_CVSB_1567 extends BaseTestClass {
 
 
     @Title("CVSB-756 - AC1 - Record fields on test overview screen")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testRecordFieldsOnTestOverviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

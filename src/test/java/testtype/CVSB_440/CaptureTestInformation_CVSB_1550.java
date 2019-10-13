@@ -3,6 +3,7 @@ package testtype.CVSB_440;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.VehicleDetailsSteps;
@@ -19,6 +20,8 @@ public class CaptureTestInformation_CVSB_1550 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Title("CVSB-440 - AC2 - VSA views the test history section from vehicle search")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testVsaViewsTheTestHistorySectionFromVehicleSearch() {
         vehicleComp.goToVehicleDetails();

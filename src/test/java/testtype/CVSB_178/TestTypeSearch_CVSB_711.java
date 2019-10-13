@@ -3,6 +3,7 @@ package testtype.CVSB_178;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestSteps;
@@ -24,6 +25,7 @@ public class TestTypeSearch_CVSB_711 extends BaseTestClass {
 
 
     @Title("CVSB-178 - AC1 Test test type drilldown")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testTestTypeDrillDown() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

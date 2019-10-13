@@ -3,6 +3,8 @@ package vehicle.CVSB_3827;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -64,6 +66,8 @@ public class NewScreenDesignsHgv extends BaseTestClass {
 
 
     @Title("CVSB-6409 - AC 4 Search for vehicle (last six digits of the VIN)")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testNewDesignSearchForHgv() {
         launchSteps.clickGetStarted();
@@ -78,6 +82,8 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     }
 
     @Title("CVSB-6410 - AC 4 Search for vehicle (full VIN)")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testNewDesignSearchForHgvFullVin() {
         launchSteps.clickGetStarted();
@@ -92,6 +98,8 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     }
 
     @Title("CVSB-6411 - AC 4 Search for vehicle (registration number)")
+    @WithTag("Smoke_1")
+    @WithTag("Smoke_2")
     @Test
     public void testNewDesignSearchForHgvRegistration() {
         launchSteps.clickGetStarted();
@@ -107,6 +115,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
 
 
     @Title("CVSB-6406 - AC1 New screen design for first vehicle")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testNewDesignVehicleDetailsHgv() {
         launchSteps.clickGetStarted();

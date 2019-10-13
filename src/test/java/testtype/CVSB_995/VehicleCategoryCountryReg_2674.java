@@ -3,6 +3,7 @@ package testtype.CVSB_995;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CountryOfRegistrationSteps;
@@ -23,6 +24,7 @@ public class VehicleCategoryCountryReg_2674 extends BaseTestClass {
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Title("CVSB-995 - AC3 - Adding Country of Registration - the list is scrollable")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void listOfCountriesIsScrollable() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

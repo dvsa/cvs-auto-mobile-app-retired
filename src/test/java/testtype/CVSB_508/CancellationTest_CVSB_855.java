@@ -3,6 +3,7 @@ package testtype.CVSB_508;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CancelTestSteps;
@@ -27,6 +28,7 @@ public class CancellationTest_CVSB_855 extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
     @Title("CVSB-855 - AC2 Submit test cancellation when the test does not contain test types")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void submitCancellationWitoutTestType() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

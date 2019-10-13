@@ -3,6 +3,7 @@ package testtype.CVSB_3019;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -45,6 +46,7 @@ public class VoluntarySpeedLimiterAbandonedSubmission_3019  extends BaseTestClas
     SelectReasonSteps selectReasonSteps;
 
     @Title("CVSB-3019 - Defect - Abandoned Voluntary speed limiter check submission")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void submitAbandonedVoluntarySpeedLimiterCheckTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

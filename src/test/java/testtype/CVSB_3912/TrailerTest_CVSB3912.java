@@ -3,6 +3,7 @@ package testtype.CVSB_3912;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -40,6 +41,7 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
 
 
     @Title("CVSB-3912 - Ability to access the test screen to complete a test for trailers")
+    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     public void testConfirmationToSubmitTestResults() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
