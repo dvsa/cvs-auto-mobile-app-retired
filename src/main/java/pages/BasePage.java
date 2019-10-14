@@ -9,12 +9,14 @@ import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -60,6 +62,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 30, 200);
     }
 
@@ -263,6 +266,15 @@ public class BasePage extends PageObject {
             }
         }
         return false;
+    }
+
+    public void scrollToElement(String id) {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        HashMap scrollObject = new HashMap<>();
+        scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
+        js.executeScript("mobile: scroll", scrollObject);
+
+
     }
 
 }

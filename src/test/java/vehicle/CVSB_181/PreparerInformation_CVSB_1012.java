@@ -23,8 +23,8 @@ public class PreparerInformation_CVSB_1012 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
-    @Title("CVSB_181 - AC4 Confirm no preparer information given")
     @Ignore("This is not a valid test case anymore due to CVSB-438")
+    @Title("CVSB_181 - AC4 Confirm no preparer information given")
     @Test
     public void confirmNoPreparerInformationGiven() {
         preparerComp.goToSelectPreparer();

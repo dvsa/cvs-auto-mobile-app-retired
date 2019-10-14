@@ -28,8 +28,8 @@ public class SeatbeltInstallationCheck_1943 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-901 - AC3 - Access number of seat belts fitted")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-901 - AC3 - Access number of seat belts fitted")
     @Test
     public void checkSeabeltDetailsPage() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

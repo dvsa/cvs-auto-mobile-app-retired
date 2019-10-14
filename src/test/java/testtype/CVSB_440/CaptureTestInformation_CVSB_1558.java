@@ -52,6 +52,9 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-440 - AC4B - VSA views a test record")
     @Test
     public void testVsaViewsATestRecordB() {
@@ -72,6 +75,7 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();

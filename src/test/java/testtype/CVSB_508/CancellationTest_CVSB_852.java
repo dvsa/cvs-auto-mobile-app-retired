@@ -26,8 +26,8 @@ public class CancellationTest_CVSB_852 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @Title("CVSB-852 - AC4 Return back to the Test overview screen")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-852 - AC4 Return back to the Test overview screen")
     @Test
     public void returnToTestOverviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

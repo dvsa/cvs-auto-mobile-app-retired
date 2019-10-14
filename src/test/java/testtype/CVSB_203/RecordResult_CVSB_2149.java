@@ -42,8 +42,8 @@ public class RecordResult_CVSB_2149 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @Title("CVSB-203 - AC 1 - Start a test type (Voluntary brake test)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-203 - AC 1 - Start a test type (Voluntary brake test)")
     @Test
     public void testStartATestTypeVoluntaryTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

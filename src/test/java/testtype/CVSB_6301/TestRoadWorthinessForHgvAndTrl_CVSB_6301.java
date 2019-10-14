@@ -4,10 +4,10 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
-import pages.TestTypeDetailsPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -54,10 +54,8 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsary)")
-    @WithTag("Smoke_1")
-    @WithTag("Smoke_2")
     @Test
     public void testFullRoadWorthinessRetestRecordCertificateNumberCompulsatory() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
@@ -183,6 +181,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
     }
 

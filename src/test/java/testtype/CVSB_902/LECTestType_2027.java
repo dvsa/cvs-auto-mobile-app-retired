@@ -28,8 +28,8 @@ public class LECTestType_2027 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
-    @Title("CVSB-902 - AC4 - Cancel selecting of results – LEC")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-902 - AC4 - Cancel selecting of results – LEC")
     @Test
     public void cancelSelectingLecResults() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");

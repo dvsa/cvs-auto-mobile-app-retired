@@ -32,7 +32,7 @@ public class SiteVisitPage extends BasePage {
     private static String submitTestTime;
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedByAccessibilityId(CREATE_TEST_ID);
+        waitUntilPageIsLoadedByAccessibilityId(START_TEST);
     }
 
     public void clickCreateNewTest() {
@@ -78,7 +78,7 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isCreateTestButtonDisplayed() {
-        return findElementById(CREATE_TEST_ID).isDisplayed();
+        return findElementById(START_TEST).isDisplayed();
     }
 
     public boolean isEndVisitButtonDisplayed() {
@@ -175,7 +175,7 @@ public class SiteVisitPage extends BasePage {
 
     public boolean isSubmittedSiteVisitDisplayed(String regPlate, String... testTypesWithResults) {
         boolean status = false;
-        String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + regPlate + ")')]").getAttribute("name");
+        String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + regPlate + "')]").getAttribute("name");
         if (visitString.contains(createTestTime + " - " + submitTestTime))
             for (String value : testTypesWithResults) {
                 status = visitString.contains(value);

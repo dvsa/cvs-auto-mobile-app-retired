@@ -19,8 +19,8 @@ public class SiteVisitTimeline_2056 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @Title("CVSB-169 - AC1 - VSA is presented with the Site Visit timeline after completing an ATF site check")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-169 - AC1 - VSA is presented with the Site Visit timeline after completing an ATF site check")
     @Test
     public void testSiteVisitTimeline() {
         siteVisitComp.goToSiteVisit();

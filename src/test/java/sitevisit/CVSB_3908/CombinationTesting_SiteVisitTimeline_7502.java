@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -49,6 +50,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-3908 - AC1 + AC2 Accept max 4 vehicles (1 HGV + 3 TRL) in one test and vehicles in proper order on the site visit timeline page " +
             "CVSB-3910 - AC1 Successfully navigating to 'Review' & review screens displaying in the correct order" +
             "AC2 Vehicle cards & field iterations" +
@@ -56,8 +58,6 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
             "AC4 Navigating back to the test screen after triggering the 'Change details' call to action for test" +
             "AC5 Successful navigation to the previous vehicle" +
             "AC6 Successful submission")
-    @WithTag("Smoke_1")
-    @WithTag("Smoke_2")
     @Test
     public void testSiteVisitTimelineHGVPlus3TRL() {
         //add hgv

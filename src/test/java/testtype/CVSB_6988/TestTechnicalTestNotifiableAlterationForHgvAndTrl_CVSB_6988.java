@@ -53,9 +53,8 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-
-    @Title("CVSB-7607 - AC1 - MANDATORY NOTES FIELD INCOMPLETE (TEST RESULT=FAIL)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-7607 - AC1 - MANDATORY NOTES FIELD INCOMPLETE (TEST RESULT=FAIL)")
     @Test
     public void testMandatoryNotesFieldIncompleteTestResultFail() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

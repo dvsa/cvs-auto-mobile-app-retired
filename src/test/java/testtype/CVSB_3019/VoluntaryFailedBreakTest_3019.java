@@ -38,8 +38,11 @@ public class VoluntaryFailedBreakTest_3019 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @Title("CVSB-3019 - Defect - Failed Voluntary break test submission")
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-3019 - Defect - Failed Voluntary break test submission")
     @Test
     public void submitFailedVoluntaryBreakTestTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
@@ -56,6 +59,7 @@ public class VoluntaryFailedBreakTest_3019 extends BaseTestClass {
         testSteps.clickReview();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

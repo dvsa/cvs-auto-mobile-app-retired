@@ -19,9 +19,8 @@ public class AtfSelect_CVSB_679 extends BaseTestClass {
     @Steps
     SearchForAnATFSteps searchForAnATFSteps;
 
-
-    @Title("CVSB-165 - AC3 - No search results")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-165 - AC3 - No search results")
     @Test
     public void testNoSearchResults() {
         launchSteps.clickGetStarted();

@@ -20,8 +20,8 @@ public class TestTypeRemove_CVSB_763 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
 
-    @Title("CVSB-176 - AC4 Cancelling removal")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-176 - AC4 Cancelling removal")
     @Test
     public void testRemovalCanceling() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

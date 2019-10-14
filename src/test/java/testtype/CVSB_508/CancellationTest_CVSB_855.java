@@ -27,8 +27,8 @@ public class CancellationTest_CVSB_855 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @Title("CVSB-855 - AC2 Submit test cancellation when the test does not contain test types")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-855 - AC2 Submit test cancellation when the test does not contain test types")
     @Test
     public void submitCancellationWitoutTestType() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -144,4 +144,8 @@ public class TestHistoryDetailsPage extends BasePage {
     public void scroll() {
         scroll(200, 700, 200, 300);
     }
+
+    public void scrollPageDown() {
+        scrollDownTo(500, -100);
+    }
 }

@@ -67,7 +67,8 @@ public class AutoCalculatedTestResults_2698 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
-        testReviewSteps.changeDetails();
+        testReviewSteps.scrollDown();
+        testReviewSteps.changeTestDetails();
 
         //Adding major defect
         testTypeDetailsSteps.clickAddDefect();
@@ -80,7 +81,7 @@ public class AutoCalculatedTestResults_2698 extends BaseTestClass {
 
         //changing major defect to PRS
         testReviewSteps.scrollDown();
-        testReviewSteps.changeDetails();
+        testReviewSteps.changeTestDetails();
         testTypeDetailsSteps.selectDefectBasedOnDefectDescription("(a) missing.");
         defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();

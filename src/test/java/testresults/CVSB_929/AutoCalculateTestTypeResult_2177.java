@@ -82,6 +82,7 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
+        defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
@@ -89,8 +90,8 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("FAIL");
         testReviewSteps.checkElementIsDisplayed("Annual test");
         testReviewSteps.checkElementIsDisplayed("8.1 (d) (i) MINOR");
-        testReviewSteps.checkElementIsDisplayed("8.1 (b) DANGEROUS");
         testReviewSteps.scrollDown();
+        testReviewSteps.checkElementIsDisplayed("8.1 (b) DANGEROUS");
         testReviewSteps.checkElementIsDisplayed("Test 1234");
         testReviewSteps.checkElementIsDisplayed("1.2 ADVISORY");
     }

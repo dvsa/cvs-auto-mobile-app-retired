@@ -53,8 +53,8 @@ public class AutoCalculateTestTypeResult_1986 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @Title("CVSB-929 - AC1 - Auto-calculate test results upon pressing 'Save' for each test type")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-929 - AC1 - Auto-calculate test results upon pressing 'Save' for each test type")
     @Test
     public void testResultUponPressingSave() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

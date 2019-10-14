@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,8 +63,8 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Steps
     IdentifyTrailerSteps identifyTrailerSteps;
 
-    @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
     @Test
     public void testConfirmationToSubmitResultsHgv() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
@@ -96,9 +97,8 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         testHistorySteps.checkPage();
     }
 
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-7424 - AC4 - Submit a test for TRL")
-    @WithTag("Smoke_1")
-    @WithTag("Smoke_2")
     @Test
     public void testConfirmationToSubmitResultsTrl() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");

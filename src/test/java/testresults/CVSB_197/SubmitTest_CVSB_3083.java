@@ -44,8 +44,11 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (cannot edit submitted test results)")
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (cannot edit submitted test results)")
     @Test
     public void testCannotEditSubmittedTestResults() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
@@ -70,6 +73,8 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.waitUntilPageIsLoaded();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.waitUntilPageIsLoaded();
         siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS");
         siteVisitSteps.checkVisitIsNotEditable("BQ91 YHQ");

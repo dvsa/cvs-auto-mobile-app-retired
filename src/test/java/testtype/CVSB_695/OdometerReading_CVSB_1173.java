@@ -21,8 +21,8 @@ public class OdometerReading_CVSB_1173 extends BaseTestClass {
     TestSteps testSteps;
 
 
-    @Title("CVSB-695 - AC1 - Record fields on test overview screen")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-695 - AC1 - Record fields on test overview screen")
     @Test
     public void testRecordFieldsOnTestOverviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

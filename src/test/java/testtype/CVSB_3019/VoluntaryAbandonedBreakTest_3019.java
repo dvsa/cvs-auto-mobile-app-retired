@@ -44,6 +44,9 @@ public class VoluntaryAbandonedBreakTest_3019 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-3019 - Defect - Abandoned Voluntary break test submission")
     @Test
     public void submitAbandonedVoluntaryBreakTestTest() {
@@ -65,6 +68,7 @@ public class VoluntaryAbandonedBreakTest_3019 extends BaseTestClass {
         testSteps.clickReview();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

@@ -19,8 +19,8 @@ public class AtfSelect_CVSB_686 extends BaseTestClass {
     @Steps
     SearchForAnATFSteps searchForAnATFSteps;
 
-    @Title("CVSB-686 - Search field - Address")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-686 - Search field - Address")
     @Test
     public void testSearchFieldAddress() {
         launchSteps.clickGetStarted();
