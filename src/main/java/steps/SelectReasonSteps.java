@@ -40,7 +40,7 @@ public class SelectReasonSteps extends ScenarioSteps {
     @Step
     public void checkReasonsList() {
         selectReasonPage.waitUntilPageIsLoaded();
-        List<String> actualDataList = selectReasonPage.findAllValuesByXpath();
+        List<String> actualDataList = selectReasonPage.findAllReasonsByXpath();
         List<String> expectedDataList = selectReasonPage.getListOfReasonTexts();
         for (String expectedData : expectedDataList) {
             assertThat(actualDataList).contains(expectedData);
@@ -94,6 +94,11 @@ public class SelectReasonSteps extends ScenarioSteps {
         for (SelectReasonPage.Reasons reason : reasons) {
             selectAReason(reason);
         }
+    }
+
+    @Step
+    public void waitForPageToLoad() {
+        selectReasonPage.waitUntilPageIsLoaded();
     }
 }
 

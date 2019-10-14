@@ -10,7 +10,7 @@ public class SelectReasonPage extends BasePage {
     private static final String SELECT_REASON_PAGE_TITLE = "Select reason";
     private static final String SELECT_REASON_BACK_BUTTON = "arrow back Test";
     private static final String SELECT_REASON_TEXT_TIP = "You can select multiple reasons for abandoning this test";
-    private static final String REASON_LIST_ELEMENTS_XPATH = "//XCUIElementTypeButton";
+    private static final String REASON_LIST_ELEMENTS_XPATH = "//XCUIElementTypeStaticText[contains(@name,'You can select multiple reasons')]/../following-sibling::XCUIElementTypeButton";
     private static final String NEXT_BUTTON_ID = "Next";
 
     private static final String REASON_TEXT_1 = "The vehicle was not submitted for test at the appointed time";
@@ -32,9 +32,9 @@ public class SelectReasonPage extends BasePage {
 
 
     public boolean isReasonSelected(int reasonNumber) {
-        List<String> listOfExpectedReasonTexts = this.findAllValuesByXpath();
-        int selectionValue = Integer.parseInt(findElementByXpath("//XCUIElementTypeSwitch[@name=\""+listOfExpectedReasonTexts.get(reasonNumber - 1)+"\"]").getAttribute("value"));
-        return selectionValue == 1;
+        List<String> listOfExpectedReasonTexts = this.findAllReasonsByXpath();
+        boolean isSelected = findElementByXpath("//XCUIElementTypeButton[contains(@name, '"+listOfExpectedReasonTexts.get(reasonNumber - 1)+"')]").getAttribute("name").endsWith("checkmark");
+        return isSelected;
     }
 
     public void selectReason(Reasons reason) {
@@ -63,7 +63,7 @@ public class SelectReasonPage extends BasePage {
         return status;
     }
 
-    public List<String> findAllValuesByXpath() {
+    public List<String> findAllReasonsByXpath() {
         List<WebElement> webElementList = findElementsByXpath(REASON_LIST_ELEMENTS_XPATH);
         List<String> listOfData = new ArrayList<>();
         for (WebElement webElement : webElementList) {
