@@ -19,8 +19,8 @@ public class PreparerInformation_CVSB_1013 extends BaseTestClass {
     @Steps
     SelectPreparerSteps selectPreparerSteps;
 
-    @Title("CVSB_181 - AC3 Cancel popup for no preparer information given")
     @Ignore("This is not a valid test case anymore due to CVSB-438")
+    @Title("CVSB_181 - AC3 Cancel popup for no preparer information given")
     @Test
     public void confirmNoPreparerInformationGiven() {
         preparerComp.goToSelectPreparer();

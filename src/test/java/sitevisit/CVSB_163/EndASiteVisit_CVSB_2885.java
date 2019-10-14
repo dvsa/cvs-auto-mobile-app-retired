@@ -27,8 +27,8 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     @Steps
     SiteVisitSubmittedSteps siteVisitSubmittedSteps;
 
-    @Title("CVSB-163 - AC4 Proceed with a submission of a site visit")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-163 - AC4 Proceed with a submission of a site visit")
     @Test
     public void testCancelSubmission() {
         launchSteps.clickGetStarted();

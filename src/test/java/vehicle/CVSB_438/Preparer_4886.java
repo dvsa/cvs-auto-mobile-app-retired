@@ -26,8 +26,8 @@ public class Preparer_4886 extends BaseTestClass {
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
-    @Title("CVSB_438 - CVSB-5105 - AC 1 VSA returns to the vehicle details screen")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB_438 - CVSB-5105 - AC 1 VSA returns to the vehicle details screen")
     @Test
     public void selectPreparer() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

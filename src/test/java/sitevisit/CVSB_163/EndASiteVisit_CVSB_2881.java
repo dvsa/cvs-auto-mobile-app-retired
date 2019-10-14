@@ -27,8 +27,8 @@ public class EndASiteVisit_CVSB_2881 extends BaseTestClass {
     @Steps
     SiteVisitSubmittedSteps siteVisitSubmittedSteps;
 
-    @Title("CVSB-163 - AC7 - Confirm submission/ Go back to home page (beginning)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-163 - AC7 - Confirm submission/ Go back to home page (beginning)")
     @Test
     public void testGoBackToHomePage() {
         launchSteps.clickGetStarted();

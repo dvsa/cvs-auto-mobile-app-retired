@@ -37,8 +37,8 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     @Test
     public void passCriteriaWithNoDefects() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());

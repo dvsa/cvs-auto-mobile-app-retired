@@ -24,8 +24,8 @@ public class TestTypeSearch_CVSB_711 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
 
-    @Title("CVSB-178 - AC1 Test test type drilldown")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-178 - AC1 Test test type drilldown")
     @Test
     public void testTestTypeDrillDown() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -19,8 +19,8 @@ public class PreparerInformation_CVSB_1018 extends BaseTestClass {
     @Steps
     SelectPreparerSteps selectPreparerSteps;
 
-    @Title("CVSB_181 - AC7 Cancel popup continuing without preparer ID")
     @Ignore("This is not a valid test case anymore due to CVSB-438")
+    @Title("CVSB_181 - AC7 Cancel popup continuing without preparer ID")
     @Test
     public void cancelContinuingWithoutPreparerId() {
         preparerComp.goToSelectPreparer();

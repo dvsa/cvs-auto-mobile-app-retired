@@ -53,8 +53,8 @@ public class ProhibitionDisplayedTestHistory_CVSB_4541 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @Title("CVSB-925 - TCD - AC2 - Prohibition displayed on test history details at a defect level")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-925 - TCD - AC2 - Prohibition displayed on test history details at a defect level")
     @Test
     public void prohibitionDisplayedOnTestHistoryDetailsAtDefectLevel() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary Test");

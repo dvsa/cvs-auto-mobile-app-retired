@@ -25,8 +25,8 @@ public class OdometerReading_CVSB_1184 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-    @Title("CVSB-695 - AC11 - Save odometer reading - all fields completed")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-695 - AC11 - Save odometer reading - all fields completed")
     @Test
     public void testSaveOdometerAllFieldsCompleted() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

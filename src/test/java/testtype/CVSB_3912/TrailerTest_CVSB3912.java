@@ -39,9 +39,8 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
     TestHistorySteps testHistorySteps;
 
 
-
-    @Title("CVSB-3912 - Ability to access the test screen to complete a test for trailers")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-3912 - Ability to access the test screen to complete a test for trailers")
     @Test
     public void testConfirmationToSubmitTestResults() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");

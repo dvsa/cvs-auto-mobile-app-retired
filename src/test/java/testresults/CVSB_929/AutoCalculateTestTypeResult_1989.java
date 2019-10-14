@@ -53,8 +53,8 @@ public class AutoCalculateTestTypeResult_1989 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @Title("CVSB-929 - AC2 - Show the test result upon pressing 'Review'")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-929 - AC2 - Show the test result upon pressing 'Review'")
     @Test
     public void testResultUponPressingReview() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

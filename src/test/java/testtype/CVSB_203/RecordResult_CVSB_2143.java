@@ -42,8 +42,8 @@ public class RecordResult_CVSB_2143 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @Title("CVSB-203 - AC1 - Start a test type (Class 6A Seatbelt Installation Check (annual test))")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-203 - AC1 - Start a test type (Class 6A Seatbelt Installation Check (annual test))")
     @Test
     public void testStartATestTypeClass6A() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

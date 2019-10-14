@@ -30,8 +30,8 @@ public class DefectSearch_CVSB_643 extends BaseTestClass {
     DefectItemSteps defectItemSteps;
 
 
-    @Title("CVSB-112 - AC2 Test cancel adding a level 2 item")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-112 - AC2 Test cancel adding a level 2 item")
     @Test
     public void cancelAddingALevelTwoDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -41,8 +41,8 @@ public class VoluntaryFailedBreakTest_3019 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @Title("CVSB-3019 - Defect - Failed Voluntary break test submission")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-3019 - Defect - Failed Voluntary break test submission")
     @Test
     public void submitFailedVoluntaryBreakTestTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

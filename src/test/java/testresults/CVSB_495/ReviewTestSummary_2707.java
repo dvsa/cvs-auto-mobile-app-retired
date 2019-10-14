@@ -48,8 +48,8 @@ public class ReviewTestSummary_2707 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC7 - VSA cannot change details of abandoned test types")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-495 - AC7 - VSA cannot change details of abandoned test types")
     @Test
     public void canNotChangeDetailsOfAbandonedTestTypes() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

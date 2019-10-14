@@ -48,8 +48,8 @@ public class VoluntarySpeedLimiterAbandonedSubmission_3019  extends BaseTestClas
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @Title("CVSB-3019 - Defect - Abandoned Voluntary speed limiter check submission")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-3019 - Defect - Abandoned Voluntary speed limiter check submission")
     @Test
     public void submitAbandonedVoluntarySpeedLimiterCheckTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

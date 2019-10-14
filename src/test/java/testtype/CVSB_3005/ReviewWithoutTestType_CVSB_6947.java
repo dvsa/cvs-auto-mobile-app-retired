@@ -114,12 +114,10 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
         testSteps.checkPageTitleDisplayed();
     }
 
-    @Title("CVSB-6951 AC5 - User selects EU vehicle category")
+    // TODO This is temporarily disabled until the correct updated functionality has been merge in to the app.
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-6951 AC5 - User selects EU vehicle category")
     @Test
-    @Ignore
-    // TODO
-    // This is temporarily disabled until the correct updated functionality has been merge in to the app.
     public void testUserSelectsEUVehicleCategory() {
         // Set up the test data.
         launchSteps.clickGetStarted();

@@ -57,8 +57,8 @@ public class ProhibitionTestReviewScreen_CVSB_4573 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
 
-    @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Annual Test)")
     @Ignore("Story not yet merged")
+    @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Annual Test)")
     @Test
     public void testProhibitionFieldOnTestReviewScreenClass6A() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

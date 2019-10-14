@@ -41,8 +41,8 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
     @Test
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

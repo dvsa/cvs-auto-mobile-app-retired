@@ -28,8 +28,8 @@ public class SeatbeltInstallationCheck_1950 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-901 - AC8 - Edit number of seat belts fitted - from value = zero")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-901 - AC8 - Edit number of seat belts fitted - from value = zero")
     @Test
     public void testEditNumberOfSeatbeltsDifferentFromZeroBehaviour() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

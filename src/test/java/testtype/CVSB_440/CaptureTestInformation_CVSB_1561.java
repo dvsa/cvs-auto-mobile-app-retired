@@ -56,8 +56,8 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @Title("CVSB-440 - AC6 - VSA cannot update Vehicle test history")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-440 - AC6 - VSA cannot update Vehicle test history")
     @Test
     public void testCannotUpdateTestHistory() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

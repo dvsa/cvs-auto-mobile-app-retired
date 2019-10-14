@@ -36,8 +36,8 @@ public class DefectRemove_CVSB_663 extends BaseTestClass {
     DefectDetailsSteps defectDetailsSteps;
 
 
-    @Title("CVSB-145 - AC3 - Cancel remove defect")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-145 - AC3 - Cancel remove defect")
     @Test
     public void testCancelRemoveDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -34,8 +34,8 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
     DefectDescriptionSteps defectDescriptionSteps;
 
 
-    @Title("CVSB-112 - AC4  Negative result for searching with the search bar (no results)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-112 - AC4  Negative result for searching with the search bar (no results)")
     @Test
     public void checkNoResultsAllLevels() {
 

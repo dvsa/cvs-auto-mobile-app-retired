@@ -31,8 +31,8 @@ public class VehicleDetails_CVSB_1075 extends BaseTestClass {
     @Steps
     AdditionalVehicleDetailsSteps additionalVehicleDetailsSteps;
 
-    @Title("CVSB-185 - AC3 - VSA cannot update technical record")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-185 - AC3 - VSA cannot update technical record")
     @Test
     public void testCannotUpdateTechRecords() {
         vehicleComp.goToVehicleDetails();

@@ -63,8 +63,8 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Steps
     IdentifyTrailerSteps identifyTrailerSteps;
 
-    @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
     @Test
     public void testConfirmationToSubmitResultsHgv() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

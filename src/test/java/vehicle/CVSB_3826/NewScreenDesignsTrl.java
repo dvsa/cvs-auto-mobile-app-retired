@@ -79,8 +79,8 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyTrailerSteps.clickCancel();
     }
 
-    @Title("CVSB-6176 - AC3 Negative test - screen should remain the same following the confirmation of a Trailer")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-6176 - AC3 Negative test - screen should remain the same following the confirmation of a Trailer")
     @Test
     public void testNewDesignIdentifyTrailerForTrl() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
@@ -154,8 +154,8 @@ public class NewScreenDesignsTrl extends BaseTestClass {
 
     }
 
-    @Title("CVSB-6192 - AC 6.3 Multiple vehicles found (pop-up shown)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-6192 - AC 6.3 Multiple vehicles found (pop-up shown)")
     @Test
     public void testNewDesignMultipleVehicleFound() {
         launchSteps.clickGetStarted();

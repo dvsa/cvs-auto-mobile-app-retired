@@ -53,8 +53,8 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Title("CVSB-495 - AC1 - VSA goes to review screen (test types conducted non-mandatory fields filled)")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
+    @Title("CVSB-495 - AC1 - VSA goes to review screen (test types conducted non-mandatory fields filled)")
     @Test
     public void goToReviewScreen() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
