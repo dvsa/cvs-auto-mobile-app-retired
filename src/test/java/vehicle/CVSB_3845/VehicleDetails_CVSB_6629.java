@@ -153,11 +153,8 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         additionalVehicleDetailsSteps.checkAxleMinIs("FRONT AXLE TO 5TH WHEEL COUPLING", "1700");
         additionalVehicleDetailsSteps.checkAxleMaxIs("FRONT AXLE TO 5TH WHEEL COUPLING", "1900");
         additionalVehicleDetailsSteps.checkNotesAre("test note");
-        additionalVehicleDetailsSteps.checkVehicleTypeIs("hgv");
-        additionalVehicleDetailsSteps.checkEuVehicleCategoryIsDisplayed();
-        additionalVehicleDetailsSteps.checkCountryOfRegistration("gb");
-        additionalVehicleDetailsSteps.pressBackButton();
 
+        additionalVehicleDetailsSteps.pressBackButton();
     }
 
     @Title("CVSB-6640 - AC 3 Action fields navigate to the correct pages (TRL Brakes Screen)")
@@ -213,7 +210,6 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         tyresSteps.checkDetailsOfAxle("AXLE 2", "9.23648E+11","AB", "single", "345", "5678");
         tyresSteps.checkTyreUseCode("2B");
         tyresSteps.pressBackButton();
-
     }
 
     @Title("CVSB-6990 - AC 3 Action fields navigate to the correct pages (HGV Additional Vehicle Details Screen)")
@@ -234,6 +230,9 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         additionalVehicleDetailsSteps.checkCouplingTypeIs("F");
         additionalVehicleDetailsSteps.checkDimensionLengthIs("7500");
         additionalVehicleDetailsSteps.checkDimensionWidthIs("2200");
+
+        // Scroll to off-screen details
+        additionalVehicleDetailsSteps.scrollTheDetailPage("Axle spacing 1-2");
         additionalVehicleDetailsSteps.checkOneTwoIs("1200");
         additionalVehicleDetailsSteps.checkFrontAxleCentreToRearIs("1700");
         additionalVehicleDetailsSteps.checkRearAxleCentreToRearIs("400");
@@ -242,11 +241,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         additionalVehicleDetailsSteps.checkCouplingCentreToRearMinIs("800");
         additionalVehicleDetailsSteps.checkCouplingCentreToRearMaxIs("700");
         additionalVehicleDetailsSteps.checkNotesIsDisplayed();
-        additionalVehicleDetailsSteps.checkVehicleTypeIs("trl");
-        additionalVehicleDetailsSteps.scrollTheDetailPage("1-2");
-        additionalVehicleDetailsSteps.checkEuVehicleCategoryIsDisplayed();
-        additionalVehicleDetailsSteps.checkCountryOfRegistration("gb");
-        additionalVehicleDetailsSteps.pressBackButton();
 
+        additionalVehicleDetailsSteps.pressBackButton();
     }
 }
