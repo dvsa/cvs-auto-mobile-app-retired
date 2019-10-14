@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,9 +56,8 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
     }
 
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6638 - AC2 VSA can see all fields listed (HGV)")
-    @WithTag("Smoke_1")
-    @WithTag("Smoke_2")
     @Test
     public void testAllDetailsHgv() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
@@ -76,9 +76,8 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
 
     }
 
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6630 - AC2 VSA can see all fields listed (TRL)")
-    @WithTag("Smoke_1")
-    @WithTag("Smoke_2")
     @Test
     public void testAllDetailsTrl() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341237");

@@ -74,4 +74,7 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
         testHistoryDetailsPage.scroll();
     }
 
+    public void scrollToElement(String id) {
+        testHistoryDetailsPage.scrollToElement(id);
+    }
 }

@@ -53,6 +53,9 @@ public class CaptureTestInformation_CVSB_1557 extends BaseTestClass {
     @Steps
     TestHistorySteps testHistorySteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-440 - AC4A - VSA views a test record")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
@@ -74,6 +77,7 @@ public class CaptureTestInformation_CVSB_1557 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();

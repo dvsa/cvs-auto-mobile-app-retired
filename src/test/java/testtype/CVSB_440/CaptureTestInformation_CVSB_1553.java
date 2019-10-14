@@ -50,6 +50,9 @@ public class CaptureTestInformation_CVSB_1553 extends BaseTestClass {
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-440 - AC3 - Test history screen details")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
@@ -71,6 +74,7 @@ public class CaptureTestInformation_CVSB_1553 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();

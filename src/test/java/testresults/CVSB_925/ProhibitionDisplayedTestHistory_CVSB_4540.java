@@ -64,6 +64,9 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-925 - TCD - AC1 - Prohibition displayed instead of result field on test history")
     @Test
     public void prohibitionDisplayedInsteadOfResultFieldOnTestHistory() {
@@ -90,11 +93,14 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.waitUntilPageIsLoaded();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestResult("PROHIBITION");
-        testHistoryDetailsSteps.scroll();
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
+        testHistoryDetailsSteps.scrollToElement("Prohibition issued - Yes");
         testHistoryDetailsSteps.checkElementIsPresent("Prohibition issued - Yes");
     }
 }

@@ -53,6 +53,8 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
     @Steps
     TestHistorySteps testHistorySteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
 
     @Title("CVSB-440 - AC6 - VSA cannot update Vehicle test history")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
@@ -75,6 +77,7 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();

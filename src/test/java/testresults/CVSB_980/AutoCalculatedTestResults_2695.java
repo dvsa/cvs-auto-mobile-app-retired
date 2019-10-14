@@ -70,7 +70,8 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
-        testReviewSteps.changeDetails();
+        testReviewSteps.scrollDown();
+        testReviewSteps.changeTestDetails();
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("59");
         defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");

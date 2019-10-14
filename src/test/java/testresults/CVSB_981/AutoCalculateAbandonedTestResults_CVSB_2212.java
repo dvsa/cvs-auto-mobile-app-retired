@@ -1,6 +1,7 @@
 package testresults.CVSB_981;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
@@ -60,6 +61,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
     AdvisoryDetailsSteps advisoryDetailsSteps;
 
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type")
+    @Issue("CVSB-8735")
     @Test
     public void testAbandonTestTypeTestResultCalculation() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
@@ -91,6 +93,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
+        defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");

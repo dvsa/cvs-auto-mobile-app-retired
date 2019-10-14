@@ -50,6 +50,9 @@ public class ProhibitionDisplayedTestHistory_CVSB_4541 extends BaseTestClass {
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-925 - TCD - AC2 - Prohibition displayed on test history details at a defect level")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
@@ -68,10 +71,14 @@ public class ProhibitionDisplayedTestHistory_CVSB_4541 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.waitUntilPageIsLoaded();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestResult("PROHIBITION");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
+        testHistoryDetailsSteps.scrollToElement("Prohibition issued");
         testHistoryDetailsSteps.checkElementIsPresent("Prohibition issued");
         testHistoryDetailsSteps.checkElementIsPresent("Yes");
     }

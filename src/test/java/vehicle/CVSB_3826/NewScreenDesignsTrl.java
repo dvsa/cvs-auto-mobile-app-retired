@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -93,9 +94,8 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyVehicleSteps.clickCancel();
     }
 
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6185 - CVSB-6186 - AC 5 Search for vehicle (Trailer ID)")
-    @WithTag("Smoke_1")
-    @WithTag("Smoke_2")
     @Test
     public void testNewDesignSearchForATrailer() {
         launchSteps.clickGetStarted();

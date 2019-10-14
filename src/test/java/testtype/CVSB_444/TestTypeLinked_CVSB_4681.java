@@ -41,6 +41,9 @@ public class TestTypeLinked_CVSB_4681 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Voluntary Multi-Check Test)")
@@ -67,6 +70,7 @@ public class TestTypeLinked_CVSB_4681 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkCreateTestButton();
     }
 }

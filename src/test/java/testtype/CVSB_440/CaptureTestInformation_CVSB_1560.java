@@ -65,6 +65,9 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-440 - AC5B - Fields displayed in the app (e.g Defect details) are contextually sensitive," +
             " based on the data received for each test type from the database")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
@@ -93,10 +96,12 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
         testSteps.reviewActionAndScroll();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestType("Annual test");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementValueIsDisplayed("Test result", "FAIL");
         testHistoryDetailsSteps.checkElementValueIsDisplayed("5.7");
         testHistoryDetailsSteps.checkElementValueIsDisplayed("MAJOR");
@@ -104,7 +109,7 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
         testHistoryDetailsSteps.checkElementValueIsDisplayed("7. Engine MIL");
         testHistoryDetailsSteps.checkElementValueIsDisplayed("inoperative or indicating a malfunction.");
         testHistoryDetailsSteps.scroll();
-        testHistoryDetailsSteps.checkElementValueIsDisplayed("ODOMETER READING", "123 km");
+        testHistoryDetailsSteps.checkElementValueIsDisplayed("Odometer reading", "123 km");
         testHistoryDetailsSteps.checkElementValueIsDisplayed("Carried out during inspection", "Yes");
         testHistoryDetailsSteps.checkElementValueIsDisplayed("Number of seatbelts", "123");
         testHistoryDetailsSteps.checkElementValueIsDisplayed("Name", "Abshire-Kub");

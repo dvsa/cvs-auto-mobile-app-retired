@@ -45,6 +45,9 @@ public class LECAbandonedTestTypeSubmission_3019  extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-3019 - Defect - Abandoned Technical LEC submission")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
@@ -69,6 +72,7 @@ public class LECAbandonedTestTypeSubmission_3019  extends BaseTestClass {
         testSteps.clickReview();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

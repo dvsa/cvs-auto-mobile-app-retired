@@ -38,6 +38,9 @@ public class VoluntaryPassedBreakTest_3019 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-3019 - Defect - Passed Voluntary break test submission")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
@@ -56,6 +59,7 @@ public class VoluntaryPassedBreakTest_3019 extends BaseTestClass {
         testSteps.clickReview();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

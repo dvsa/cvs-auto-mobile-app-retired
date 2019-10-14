@@ -32,13 +32,13 @@ public class TestTypeLinked_CVSB_4680 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
-
-    @Steps
     TestReviewSteps testReviewSteps;
 
     @Steps
     SiteVisitSteps siteVisitSteps;
+
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
 
     @Test
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
@@ -67,6 +67,7 @@ public class TestTypeLinked_CVSB_4680 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkCreateTestButton();
     }
 }

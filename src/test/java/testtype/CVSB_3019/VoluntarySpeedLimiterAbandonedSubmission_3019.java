@@ -45,6 +45,9 @@ public class VoluntarySpeedLimiterAbandonedSubmission_3019  extends BaseTestClas
     @Steps
     SelectReasonSteps selectReasonSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-3019 - Defect - Abandoned Voluntary speed limiter check submission")
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Test
@@ -67,6 +70,7 @@ public class VoluntarySpeedLimiterAbandonedSubmission_3019  extends BaseTestClas
         testSteps.clickReview();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }
