@@ -36,6 +36,7 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
         cancelTestSteps.addReasonForCancellation("Automation Test");
         cancelTestSteps.pressSubmit();
         cancelTestSteps.pressSubmitInPopUp();
+        siteVisitSteps.waitUntilPageIsLoaded();
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.checkCancelledTestStatus("BQ91 YHQ");
     }

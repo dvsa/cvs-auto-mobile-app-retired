@@ -48,7 +48,7 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isCanceledTestDisplayed(String registrationPlate) {
-        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'Test (" + registrationPlate + ") CANCELLED')]").isDisplayed();
+        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + registrationPlate + " CANCELLED')]").isDisplayed();
     }
 
 
