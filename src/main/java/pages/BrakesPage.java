@@ -12,6 +12,10 @@ public class BrakesPage extends BasePage {
     private static final String PAGE_TITLE_ID = "Brakes";
     private static final String PAGE_ALL_TEXT_CLASS_NAME = "XCUIElementTypeStaticText";
 
+    // Offsets for field location, relative to each axle.
+    private static final int OFFSET_BRAKE_ACTUATOR = 1;
+    private static final int OFFSET_LEVER_LENGTH = 3;
+    private static final int OFFSET_SPRING_BRAKE_PARKING = 5;
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(PAGE_TITLE_ID);
@@ -41,57 +45,70 @@ public class BrakesPage extends BasePage {
     }
 
     public WebElement getBrakeActuatorForAxle(String axle) {
-        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
-        for(WebElement element : webElementList){
-            if(element.getAttribute("name").equals(axle)){
-                WebElement brakeActuator = webElementList.get(webElementList.indexOf(element)+1);
-                return brakeActuator.getAttribute("name").equals("Brake actuator")? brakeActuator:null;
-            }
-        }
-        return null;
+        return getAttributeForAxle(axle, OFFSET_BRAKE_ACTUATOR);
     }
 
     public WebElement getLeverLengthForAxle(String axle) {
-        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
-        for(WebElement element : webElementList){
-            if(element.getAttribute("name").equals(axle)){
-                WebElement leverLength = webElementList.get(webElementList.indexOf(element)+2);
-                return leverLength.getAttribute("name").equals("Lever length")? leverLength:null;
-            }
-        }
-        return null;
+        return getAttributeForAxle(axle, OFFSET_LEVER_LENGTH);
     }
 
     public WebElement getSpringBrakeParkingForAxle(String axle) {
+        return getAttributeForAxle(axle, OFFSET_SPRING_BRAKE_PARKING);
+    }
+
+    private WebElement getAttributeForAxle(String axle, int fieldOffset) {
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
+
+        // Verify the expected field name.
+        String expectedName = "";
+        switch (fieldOffset) {
+            case OFFSET_BRAKE_ACTUATOR:
+                expectedName = "Brake actuator";
+                break;
+            case OFFSET_LEVER_LENGTH:
+                expectedName = "Lever length";
+                break;
+            case OFFSET_SPRING_BRAKE_PARKING:
+                expectedName = "Spring brake parking";
+                break;
+        }
+
+        // Get the correct field value, which is relative to the supplied axle.
         for(WebElement element : webElementList){
             if(element.getAttribute("name").equals(axle)){
-                WebElement springBrakeParking = webElementList.get(webElementList.indexOf(element)+3);
-                return springBrakeParking.getAttribute("name").equals("Spring brake parking")? springBrakeParking:null;
+                WebElement springBrakeParking = webElementList.get(webElementList.indexOf(element)+fieldOffset);
+                System.out.println("Searching for attribute '" + expectedName + "' for axle: " + axle);
+
+                String foundName = springBrakeParking.getAttribute("name");
+                System.out.println("- Found: " + foundName);
+                assert (foundName.equals(expectedName));
+
+                return springBrakeParking;
             }
         }
+        System.out.println("- NOT found");
         return null;
     }
 
     public WebElement getLoadSensingValve() {
+        return getBrakeAttribute("Load sensing valve");
+    }
+
+    public WebElement getAntilockBrakingSystem() {
+        return getBrakeAttribute("Antilock braking system");
+    }
+
+    private WebElement getBrakeAttribute(String requiredAttribute) {
+
+        System.out.println("Searching for attribute: " + requiredAttribute);
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
         for(WebElement element : webElementList){
-            if(element.getAttribute("name").equals("Load sensing valve")){
+            if(element.getAttribute("name").equals(requiredAttribute)) {
+                System.out.println("- Found");
                 return element;
             }
         }
+        System.out.println("- NOT found");
         return null;
     }
-
-        public WebElement getAntilockBrakingSystem() {
-        List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
-        for(WebElement element : webElementList){
-            if(element.getAttribute("name").equals("Antilock braking system")){
-                return element;
-            }
-        }
-        return null;
-    }
-
-
 }
