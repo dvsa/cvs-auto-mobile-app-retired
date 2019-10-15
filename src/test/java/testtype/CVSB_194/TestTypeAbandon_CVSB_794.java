@@ -44,6 +44,7 @@ public class TestTypeAbandon_CVSB_794 extends BaseTestClass {
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.swipeTestType("Annual test In progress arrow forward");
         testSteps.pressTestTypeAbandonButton();
+        selectReasonSteps.waitForPageToLoad();
         selectReasonSteps.checkSelectReasonPage();
         selectReasonSteps.checkOneOrMoreReasonsAreSelectable();
     }

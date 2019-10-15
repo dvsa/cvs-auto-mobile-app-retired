@@ -459,8 +459,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("Notifiable alteration");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
-        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Paid notifiable alteration");
     }
 
@@ -506,8 +506,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
-        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Voluntary brake test");
     }
 

@@ -37,6 +37,9 @@ public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @Steps
+    ConfirmationPageSteps confirmationPageSteps;
+
     @Title("CVSB-3019 - Defect -Failed Voluntary speed limiter check submission")
     @Test
     public void submitFailedVoluntarySpeedLimiterCheckTest() {
@@ -52,8 +55,12 @@ public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
         odometerReadingSteps.typeInField("45");
         odometerReadingSteps.pressSave();
         testSteps.clickReview();
+        testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.waitUntilPageIsLoaded();
+        confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
     }
 }

@@ -64,7 +64,8 @@ public class AutoCalculatedTestResults_2699 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.clickReview();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
-        testReviewSteps.changeDetails();
+        testReviewSteps.scrollDown();
+        testReviewSteps.changeTestDetails();
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
                 SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);

@@ -58,6 +58,7 @@ public class BasePage extends PageObject {
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
         System.out.println("Waiting for page to load, waiting for item: " + id);
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         return waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
     }
 
