@@ -27,8 +27,6 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     @Steps
     SiteVisitSubmittedSteps siteVisitSubmittedSteps;
 
-<<<<<<< Updated upstream
-=======
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
@@ -41,8 +39,7 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     @Steps
     TestSteps testSteps;
 
-    @Title("CVSB-163 - AC4 Proceed with a submission of a site visit")
->>>>>>> Stashed changes
+
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-163 - AC4 Proceed with a submission of a site visit")
     @Test

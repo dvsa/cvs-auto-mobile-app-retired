@@ -39,13 +39,10 @@ public class TestTypeLinked_CVSB_5029 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-<<<<<<< Updated upstream
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
     @WithTagValuesOf({"Smoke_1", "Smoke_2"})
-=======
->>>>>>> Stashed changes
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Paid Retest Any PSV)")
     public void testListFromAddLinkedTestTypePaidRetestAnyPSV() {
