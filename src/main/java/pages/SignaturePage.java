@@ -30,8 +30,10 @@ public class SignaturePage extends BasePage {
     }
 
     public void confirmSignature() {
+        System.out.println("Confirming signature...");
         WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 50, 200);
         tapByCoordinates(we.getLocation().getX(), we.getLocation().getY());
+        System.out.println("- Confirmed");
     }
 
     public void cancelSignatureConfirmation() {
