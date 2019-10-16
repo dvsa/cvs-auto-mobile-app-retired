@@ -45,7 +45,7 @@ public class TestReviewPage extends BasePage {
         boolean status;
         try {
             status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
-            System.out.println("- Found");
+            System.out.println("- Found (Displayed: " + status + ")");
         } catch (NoSuchElementException e) {
             status = false;
             System.out.println("- NOT found");
