@@ -96,8 +96,9 @@ public class AutoCalculateTestTypeResult_2176 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("FAIL");
         testReviewSteps.checkElementIsDisplayed("Annual test");
         testReviewSteps.checkElementIsDisplayed("8.1 (d) (i) MINOR");
-        testReviewSteps.checkElementIsDisplayed("8.1 (b) DANGEROUS");
+
         testReviewSteps.scrollDown();
+        testReviewSteps.checkElementIsDisplayed("8.1 (b) DANGEROUS");
         testReviewSteps.checkElementIsDisplayed("Test 1234");
         testReviewSteps.checkElementIsDisplayed("1.2 ADVISORY");
         testReviewSteps.checkElementIsDisplayed("8.1 (a) MAJOR PRS");

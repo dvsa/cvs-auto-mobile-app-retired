@@ -19,8 +19,10 @@ public class SignaturePage extends BasePage {
     }
 
     public void clickSaveButton() {
+        System.out.println("Saving signature...");
         WebElement we = findElementByAccessibilityId(SAVE_BUTTON_ID);
         tapByCoordinates(700, 20);
+        System.out.println("- Signature saved.");
     }
 
     public boolean checkSignatureTitleIsDisplayed() {
@@ -28,8 +30,10 @@ public class SignaturePage extends BasePage {
     }
 
     public void confirmSignature() {
+        System.out.println("Confirming signature...");
         WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 50, 200);
         tapByCoordinates(we.getLocation().getX(), we.getLocation().getY());
+        System.out.println("- Confirmed");
     }
 
     public void cancelSignatureConfirmation() {
@@ -38,13 +42,17 @@ public class SignaturePage extends BasePage {
 
     public void createSignature() {
 //        longWaitUntilPageIsLoadedByIdAndClickable(SAVE_BUTTON_ID);
+        System.out.println("Creating signature...");
         tapByCoordinates(50, 100);
+        System.out.println("- Signed.");
     }
 
     public void waitPageToLoad() {
+        System.out.println("Waiting for Signature page to load...");
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
         waitForLoadingToFinish();
         System.out.println(getDriver().getPageSource());
+        System.out.println("- Signature page loaded.");
     }
 
     public void shortestWaitPageToLoad() {

@@ -61,7 +61,6 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
     AdvisoryDetailsSteps advisoryDetailsSteps;
 
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type")
-    @Issue("CVSB-8735")
     @Test
     public void testAbandonTestTypeTestResultCalculation() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
@@ -102,6 +101,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
         defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
+
         // abandon test type
         testSteps.swipeTestType("Annual test");
         testSteps.pressTestTypeAbandonButton();
@@ -112,6 +112,8 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.ABANDONED);
         testSteps.clickReview();
         testReviewSteps.checkTestStatus("Annual test", "ABANDONED");
-        testReviewSteps.changeDetailsIsNotDisplayed();
+
+        // There should only be one option to change details - at test level, not test type level.
+        testReviewSteps.verifyOnlyOneChangeDetailsIsDisplayed();
     }
 }

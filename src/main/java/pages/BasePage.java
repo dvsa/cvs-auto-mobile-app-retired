@@ -31,8 +31,16 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementById(String id) {
-        System.out.println("Searching for element: " + id);
-        return getDriver().findElement(By.id(id));
+        System.out.println("Searching for element by ID: " + id);
+        WebElement element = null;
+        try {
+            element = getDriver().findElement(By.id(id));
+            System.out.println("- Found");
+        } catch (NoSuchElementException exception) {
+            System.out.println("- NOT FOUND");
+            System.out.println(getDriver().getPageSource());
+        }
+        return element;
     }
 
     protected WebElement findElementByClassName(String className) {
@@ -176,28 +184,36 @@ public class BasePage extends PageObject {
 
     public void waitForLoadingToFinish(){
         WebDriverWait wait = new WebDriverWait(this.getDriver(), 20);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Loading..."))
-        );
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Loading...")));
     }
 
 
-    private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int poolingEvery) {
+    private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int pollingEvery) {
 
-        FluentWait wait = globalFluentWait(timeOut, poolingEvery);
+        System.out.println("Waiting for page to be loaded, using element: " + locator +
+                "(Timeout is " + timeOut + ", polling every " + pollingEvery + ")...");
+        FluentWait wait = globalFluentWait(timeOut, pollingEvery);
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
+        System.out.println("- Page loaded.");
 
-        getDriver().getPageSource();
-        return getDriver().findElement(locator);
+        System.out.println("- Verifying element is present...");
+        WebElement element = null;
+        try {
+            element = getDriver().findElement(locator);
+        } catch (NoSuchElementException exception) {
+            System.out.println("- NOT FOUND (" + locator + ")");
+            System.out.println(getDriver().getPageSource());
+        }
+        return element;
     }
 
-
-    private FluentWait globalFluentWait(int timeOut, int poolingEvery) {
+    private FluentWait globalFluentWait(int timeOutSeconds, int pollingEveryMilliseconds) {
         FluentWait wait = new FluentWait<>(getDriver())
-                .withTimeout(Duration.ofSeconds(timeOut))
-                .pollingEvery(ofMillis(poolingEvery))
+                .withTimeout(Duration.ofSeconds(timeOutSeconds))
+                .pollingEvery(ofMillis(pollingEveryMilliseconds))
                 .ignoring(NoSuchElementException.class);
 
         return wait;
@@ -274,8 +290,5 @@ public class BasePage extends PageObject {
         HashMap scrollObject = new HashMap<>();
         scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
         js.executeScript("mobile: scroll", scrollObject);
-
-
     }
-
 }
