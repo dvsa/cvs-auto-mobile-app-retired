@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 import java.util.List;
+import java.util.Locale;
 
 public class SiteVisitPage extends BasePage {
 
@@ -32,6 +33,8 @@ public class SiteVisitPage extends BasePage {
     private static String submitTestTime;
 
     public void waitUntilPageIsLoaded() {
+        System.out.println("----- 1");
+        System.out.println(getDriver().getPageSource());
         waitUntilPageIsLoadedByAccessibilityId(START_TEST);
     }
 
@@ -126,8 +129,8 @@ public class SiteVisitPage extends BasePage {
             }
         }
 
-        DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a");
-        DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a", Locale.ENGLISH);
+        DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm", Locale.ENGLISH);
 
         if (timeString.contains("AM") || timeString.contains("PM")) {
             temporalAccessor = dateTimeFormatterAmPm.parse(timeString);
