@@ -167,21 +167,24 @@ public class TestPage extends BasePage {
 
             }
         }
-
     }
 
     public void clickOnTestType(String testType, TestTypeStatuses testTypeStatus) {
+        String id;
         switch (testTypeStatus) {
             case EDIT:
-                findElementById(testType + " " + testTypeStatus.getValue() + " checkmark").click();
+                id = testType + " " + testTypeStatus.getValue() + " checkmark";
                 break;
             case ABANDONED:
-                findElementById(testType + " " + testTypeStatus.getValue()).click();
+                id = testType + " " + testTypeStatus.getValue();
                 break;
             default:
-                findElementById(testType + " " + testTypeStatus.getValue() + " arrow forward").click();
+                id = testType + " " + testTypeStatus.getValue() + " arrow forward";
                 break;
         }
+        System.out.println("Clicking on: " + id);
+        findElementById(id).click();
+        System.out.println("- Done");
     }
 
     public boolean isPageTitleDisplayed() {
@@ -223,19 +226,24 @@ public class TestPage extends BasePage {
     }
 
     public boolean isTestTypeStatusDisplayed(String testType, TestTypeStatuses status) {
+        String id;
         boolean isDisplayed;
         switch (status) {
             case EDIT:
-                isDisplayed = findElementById(testType + " " + status.getValue() + " checkmark").isDisplayed();
+                id = testType + " " + status.getValue() + " checkmark";
                 break;
             case ABANDONED:
                 // TODO refactor after bug fix for CVSB-2065
-                isDisplayed = findElementById(testType + " " + status.getValue()).isDisplayed();
+                id = testType + " " + status.getValue();
                 break;
             default:
-                isDisplayed = findElementById(testType + " " + status.getValue() + " arrow forward").isDisplayed();
+                id = testType + " " + status.getValue() + " arrow forward";
                 break;
         }
+
+        System.out.println("Checking for presence of: " + id);
+        isDisplayed = findElementById(id).isDisplayed();
+        System.out.println("- " + (isDisplayed ? "True" : "False"));
         return isDisplayed;
     }
 

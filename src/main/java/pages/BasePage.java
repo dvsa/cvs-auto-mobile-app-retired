@@ -31,8 +31,15 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementById(String id) {
-        System.out.println("Searching for element: " + id);
-        return getDriver().findElement(By.id(id));
+        System.out.println("Searching for element by ID: " + id);
+        WebElement element = null;
+        try {
+            element = getDriver().findElement(By.id(id));
+        } catch (NoSuchElementException exception) {
+            System.out.println("- NOT FOUND");
+            System.out.println(getDriver().getPageSource());
+        }
+        return element;
     }
 
     protected WebElement findElementByClassName(String className) {

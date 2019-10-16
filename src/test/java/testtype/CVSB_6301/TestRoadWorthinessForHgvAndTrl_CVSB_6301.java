@@ -75,7 +75,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS );
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
         testTypeDetailsSteps.clickAddDefect();
@@ -121,7 +121,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness test");
-        testSteps.checkTestTypeStatus("Voluntary test",TestPage.TestTypeStatuses.IN_PROGRESS );
+        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
         testTypeDetailsSteps.clickAddDefect();
@@ -185,42 +185,42 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
     }
 
-        @Title("CVSB-7457 - AC2 - Adding a Failure item to the Roadworthiness test (Retest)")
-        @Test
-        public void testFullRoadWorthinessRetestAddingAFailure() {
-            testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
-            preparerSteps.startTest();
-            preparerSteps.confirmInPopUp();
-            testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
-            testSteps.clickCountryOfRegistrationOption();
-            countryOfRegistrationSteps.selectACountry("Norway");
-            testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
-            testSteps.selectVehicleCategoryOption();
-            euVehicleCategorySteps.selectOption("N1");
-            testSteps.selectOdometerReading();
-            odometerReadingSteps.typeInField("123");
-            odometerReadingSteps.checkReadingValue("123");
-            odometerReadingSteps.pressSave();
-            testSteps.addTestType();
-            testTypeCategorySteps.selectFromTestTypeList("Retest");
-            testTypeCategorySteps.selectFromTestTypeList("Roadworthiness");
-            testTypeCategorySteps.selectFromTestTypeList("Paid");
-            testSteps.checkTestTypeStatus("Retest",TestPage.TestTypeStatuses.IN_PROGRESS );
-            testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-            testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
-            testTypeDetailsSteps.checkCertificateGuidanceDisplays("After conducting the test, call central support to obtain a certificate number and complete the Roadworthiness Inspection Document.");
-            testTypeDetailsSteps.sendCertificateNumberAndSave("HDK87&@£");
-            testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
-            testTypeDetailsSteps.checkCertificateNumberIs("HDK87&@£");
-            testTypeDetailsSteps.clickAddDefect();
-            defectCategorySteps.searchForDefect("6");
-            defectCategorySteps.selectDefectFromList("6. Road Wheels and Hubs");
-            defectItemSteps.selectDefectFromList("1. A tyre retaining ring:");
-            defectDescriptionSteps.selectDefect("6.1 (a) * DANGEROUS");
-            defectDetailsSteps.tapDone();
-            testTypeDetailsSteps.pressSave();
-            testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
-            testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
-            testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
+    @Title("CVSB-7457 - AC2 - Adding a Failure item to the Roadworthiness test (Retest)")
+    @Test
+    public void testFullRoadWorthinessRetestAddingAFailure() {
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.clickCountryOfRegistrationOption();
+        countryOfRegistrationSteps.selectACountry("Norway");
+        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
+        testSteps.selectVehicleCategoryOption();
+        euVehicleCategorySteps.selectOption("N1");
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("123");
+        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.pressSave();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Roadworthiness");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+        testTypeDetailsSteps.checkCertificateGuidanceDisplays("After conducting the test, call central support to obtain a certificate number and complete the Roadworthiness Inspection Document.");
+        testTypeDetailsSteps.sendCertificateNumberAndSave("HDK87&@£");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("HDK87&@£");
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.searchForDefect("6");
+        defectCategorySteps.selectDefectFromList("6. Road Wheels and Hubs");
+        defectItemSteps.selectDefectFromList("1. A tyre retaining ring:");
+        defectDescriptionSteps.selectDefect("6.1 (a) * DANGEROUS");
+        defectDetailsSteps.tapDone();
+        testTypeDetailsSteps.pressSave();
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
     }
 }

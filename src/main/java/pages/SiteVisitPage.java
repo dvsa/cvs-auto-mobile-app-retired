@@ -33,8 +33,6 @@ public class SiteVisitPage extends BasePage {
     private static String submitTestTime;
 
     public void waitUntilPageIsLoaded() {
-        System.out.println("----- 1");
-        System.out.println(getDriver().getPageSource());
         waitUntilPageIsLoadedByAccessibilityId(START_TEST);
     }
 
