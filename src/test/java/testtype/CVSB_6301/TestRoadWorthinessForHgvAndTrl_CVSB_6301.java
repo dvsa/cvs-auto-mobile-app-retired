@@ -55,7 +55,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @WithTagValuesOf({"Smoke_1", "Smoke_2"})
-    @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsary)")
+    @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsory)")
     @Test
     public void testFullRoadWorthinessRetestRecordCertificateNumberCompulsatory() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
@@ -87,8 +87,10 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.clickReview();
-        testSteps.checkTestNotCompleteDisplayedAndOkButton();
-        testSteps.clickOkButton();
+
+        // Expect the new on-screen validation error, rather than the popup.
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
         testTypeDetailsSteps.checkCertificateGuidanceDisplays("After conducting the test, call central support to obtain a certificate number and complete the Roadworthiness Inspection Document.");
@@ -133,8 +135,10 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.clickReview();
-        testSteps.checkTestNotCompleteDisplayedAndOkButton();
-        testSteps.clickOkButton();
+
+        // Expect the new on-screen validation error, rather than the popup.
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
         testTypeDetailsSteps.checkCertificateGuidanceDisplays("After conducting the test, call central support to obtain a certificate number and complete the Roadworthiness Inspection Document.");

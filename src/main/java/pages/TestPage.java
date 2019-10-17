@@ -29,6 +29,8 @@ public class TestPage extends BasePage {
     private static final String REVIEW_AND_SUBMIT = "Review and submit";
     private static final String TRAILER_ICON_IMAGE = "XCUIElementTypeImage";
     private static final String ADD_A_VEHICLE_BUTTON_ID = "Add a vehicle";
+    private static final String TEST_IN_PROGRESS_TITLE = "Voluntary test In progress";
+    private static final String TEST_IN_PROGRESS_INFO = "You must complete all vehicle and test type details before reviewing.";
 
 
     public boolean checkMessageIsDisplayed(String expectedErrorMessage) {
@@ -365,7 +367,8 @@ public class TestPage extends BasePage {
     }
 
     public boolean isTestNotCompleteDisplayed() {
-        return findElementByAccessibilityId(TEST_NOT_COMPLETE_TITLE).isDisplayed() && findElementByAccessibilityId(TEST_NOT_COMPLETE_INFO).isDisplayed();
+        // return findElementByAccessibilityId(TEST_NOT_COMPLETE_TITLE).isDisplayed() && findElementByAccessibilityId(TEST_NOT_COMPLETE_INFO).isDisplayed();
+        return findElementByAccessibilityId(TEST_IN_PROGRESS_TITLE).isDisplayed() && findElementByAccessibilityId(TEST_IN_PROGRESS_INFO).isDisplayed();
     }
 
     public boolean buttonOkIsClickable() {
@@ -410,7 +413,8 @@ public class TestPage extends BasePage {
     }
 
     public void clickReviewAndSubmitButton() {
-        findElementById(REVIEW_AND_SUBMIT).click();
+
+        click(findElementById(REVIEW_AND_SUBMIT));
     }
 
     public void clickAddATrailerButton() {

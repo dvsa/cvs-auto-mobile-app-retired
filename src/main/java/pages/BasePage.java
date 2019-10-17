@@ -1,5 +1,6 @@
 package pages;
 
+import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
@@ -26,8 +27,23 @@ import static java.time.Duration.ofMillis;
 
 public class BasePage extends PageObject {
 
+    private void showElementError(String element) {
+        System.out.println("- Element not found (" + element + ")");
+        System.out.println("----------------------------------------------------------------------------------------------------");
+        System.out.println(getDriver().getPageSource());
+        System.out.println("----------------------------------------------------------------------------------------------------");
+    }
+
     protected WebElement findElementByAccessibilityId(String idOrName) {
-        return getDriver().findElement(MobileBy.AccessibilityId(idOrName));
+        System.out.println("Finding element by Accessibility ID: " + idOrName);
+        WebElement element = null;
+        try {
+            element = getDriver().findElement(MobileBy.AccessibilityId(idOrName));
+            System.out.println("- Found.");
+        } catch (ElementNotFoundException exception) {
+            showElementError(idOrName);
+        }
+        return element;
     }
 
     protected WebElement findElementById(String id) {
@@ -37,8 +53,7 @@ public class BasePage extends PageObject {
             element = getDriver().findElement(By.id(id));
             System.out.println("- Found");
         } catch (NoSuchElementException exception) {
-            System.out.println("- NOT FOUND");
-            System.out.println(getDriver().getPageSource());
+            showElementError(id);
         }
         return element;
     }
@@ -49,7 +64,9 @@ public class BasePage extends PageObject {
 
     protected WebElement findElementByXpath(String xpath) {
         System.out.println("Finding element: " + xpath);
-        return getDriver().findElement(By.xpath(xpath));
+        WebElement element = getDriver().findElement(By.xpath(xpath));
+        System.out.println("- Found");
+        return element;
     }
 
     protected List<WebElement> findElementsByXpath(String xpath) {
@@ -61,18 +78,26 @@ public class BasePage extends PageObject {
     }
 
     protected List<WebElement> findElementsByAccessibilityId(String idOrName) {
-        return getDriver().findElements(MobileBy.AccessibilityId(idOrName));
+        System.out.println("Finding elements by Accessibility ID: " + idOrName);
+        List<WebElement> elements = getDriver().findElements(MobileBy.AccessibilityId(idOrName));
+        System.out.println("- Found " + elements.size());
+        return elements;
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        System.out.println("Waiting for page to load, waiting for item: " + id);
         System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
-        return waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
+        System.out.println("Waiting for page to load by ID, waiting for item: " + id);
+        WebElement element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
+        System.out.println("- Loaded.");
+        return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
         System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
-        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 30, 200);
+        System.out.println("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
+        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 60, 200);
+        System.out.println("- Loaded.");
+        return element;
     }
 
 
@@ -81,27 +106,38 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
-
-        return waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
+        System.out.println("Waiting (long) for page to be loaded, based on clickable element: " + id);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
+        System.out.println("- Loaded.");
+        return element;
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400);
-
+        System.out.println("Waiting (short) for page to be loaded, based on clickable element: " + id);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400);
+        System.out.println("- Loaded.");
+        return element;
     }
 
     protected WebElement shortestWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        return waitUntilPageIsLoadedByElementAndClickable(By.id(id), 2, 400);
-
+        System.out.println("Waiting (shortest) for page to be loaded, based on clickable element: " + id);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 2, 400);
+        System.out.println("- Loaded.");
+        return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
-        return waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
+        System.out.println("Waiting for page to be loaded, based on xPath: " + xPath);
+        WebElement element = waitUntilPageIsLoadedByElement(By.xpath(xPath), 20, 200);
+        System.out.println("- Loaded.");
+        return element;
     }
 
     protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
+        System.out.println("Waiting for number of elements to be present: (" + locator + ", expecting " + elementNumber + ")");
         FluentWait wait = globalFluentWait(30, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
+        System.out.println("- Found.");
     }
 
     protected void scrollDownTo(int xOffset, int yOffset) {
@@ -191,7 +227,7 @@ public class BasePage extends PageObject {
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int pollingEvery) {
 
         System.out.println("Waiting for page to be loaded, using element: " + locator +
-                "(Timeout is " + timeOut + ", polling every " + pollingEvery + ")...");
+                " (Timeout is " + timeOut + ", polling every " + pollingEvery + ")...");
         FluentWait wait = globalFluentWait(timeOut, pollingEvery);
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
@@ -204,8 +240,7 @@ public class BasePage extends PageObject {
         try {
             element = getDriver().findElement(locator);
         } catch (NoSuchElementException exception) {
-            System.out.println("- NOT FOUND (" + locator + ")");
-            System.out.println(getDriver().getPageSource());
+            showElementError(locator.toString());
         }
         return element;
     }
@@ -274,7 +309,6 @@ public class BasePage extends PageObject {
         return true;
     }
 
-
     public boolean checkElementValue(String element, String value){
         List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
         for(WebElement e : webElementList){
@@ -290,5 +324,15 @@ public class BasePage extends PageObject {
         HashMap scrollObject = new HashMap<>();
         scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
         js.executeScript("mobile: scroll", scrollObject);
+    }
+
+    public void click(WebElement element) {
+        System.out.println("Clicking on: " + element.getText());
+        try {
+            element.click();
+            System.out.println("- Clicked.");
+        } catch (ElementNotFoundException exception) {
+            showElementError(element.getText());
+        }
     }
 }

@@ -6,6 +6,7 @@ import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.UnsupportedDriverException;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import util.BaseUtils;
 import util.TestHandler;
 import util.TypeLoader;
@@ -22,6 +23,12 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage) {
 
+        // Extra debug info to assist with tracking down issues.
+        // This seems to be the area of highest incidental failure at present.
+        WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
+        RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
+        String sessionId = driver.getSessionId().toString();
+        System.out.println("Session ID: " + sessionId);
 
         if (!TestHandler.getInitializedStatus().get()) {
             try {
@@ -47,7 +54,7 @@ public class LaunchPage extends BasePage {
                 }
 
             } catch (TimeoutException e) {
-                throw new AutomationException("Could not get to get started page");
+                throw new AutomationException("Could not get to get started page (Session: " + sessionId + ")");
             }
 
 
@@ -80,7 +87,7 @@ public class LaunchPage extends BasePage {
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 } catch (TimeoutException ex) {
-                    throw new AutomationException("Could not get to get started page");
+                    throw new AutomationException("Could not get to get started page 2 ");
 //                    signaturePage.shortestWaitPageToLoad();
 //                    signaturePage.createSignature();
 //                    signaturePage.clickSaveButton();
