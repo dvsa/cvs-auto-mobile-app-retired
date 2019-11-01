@@ -41,7 +41,6 @@ public class SignaturePage extends BasePage {
     }
 
     public void createSignature() {
-//        longWaitUntilPageIsLoadedByIdAndClickable(SAVE_BUTTON_ID);
         System.out.println("Creating signature...");
         tapByCoordinates(50, 100);
         System.out.println("- Signed.");
@@ -49,9 +48,8 @@ public class SignaturePage extends BasePage {
 
     public void waitPageToLoad() {
         System.out.println("Waiting for Signature page to load...");
-        waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
         waitForLoadingToFinish();
-        System.out.println(getDriver().getPageSource());
+        waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
         System.out.println("- Signature page loaded.");
     }
 
