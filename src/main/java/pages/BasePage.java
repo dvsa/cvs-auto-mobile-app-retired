@@ -42,6 +42,7 @@ public class BasePage extends PageObject {
             System.out.println("- Found.");
         } catch (ElementNotFoundException exception) {
             showElementError(idOrName);
+            throw exception;
         }
         return element;
     }
@@ -54,6 +55,7 @@ public class BasePage extends PageObject {
             System.out.println("- Found");
         } catch (NoSuchElementException exception) {
             showElementError(id);
+            throw exception;
         }
         return element;
     }
@@ -64,8 +66,14 @@ public class BasePage extends PageObject {
 
     protected WebElement findElementByXpath(String xpath) {
         System.out.println("Finding element: " + xpath);
-        WebElement element = getDriver().findElement(By.xpath(xpath));
-        System.out.println("- Found");
+        WebElement element = null;
+        try {
+            element = getDriver().findElement(By.xpath(xpath));
+            System.out.println("- Found");
+        } catch (Exception exception) {
+            showElementError(xpath);
+            throw exception;
+        }
         return element;
     }
 
@@ -79,13 +87,18 @@ public class BasePage extends PageObject {
 
     protected List<WebElement> findElementsByAccessibilityId(String idOrName) {
         System.out.println("Finding elements by Accessibility ID: " + idOrName);
-        List<WebElement> elements = getDriver().findElements(MobileBy.AccessibilityId(idOrName));
-        System.out.println("- Found " + elements.size());
+        List<WebElement> elements = null;
+        try {
+            elements = getDriver().findElements(MobileBy.AccessibilityId(idOrName));
+            System.out.println("- Found " + elements.size());
+        } catch (Exception exception) {
+            showElementError(idOrName);
+            throw exception;
+        }
         return elements;
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        // System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         System.out.println("Waiting for page to load by ID, waiting for item: " + id);
         WebElement element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
         System.out.println("- Loaded.");
@@ -93,17 +106,9 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
-
         System.out.println("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
-
-        WebElement element = null;
-        try {
-            element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 60, 200);
-            System.out.println("- Loaded, based on " + idOrName);
-        } catch (Exception exception) {
-            showElementError(idOrName);
-            throw exception;
-        }
+        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 60, 200);
+        System.out.println("- Loaded.");
         return element;
     }
 
@@ -167,11 +172,9 @@ public class BasePage extends PageObject {
     }
 
     protected void tapByCoordinates(int x, int y) {
-        System.out.println("Tapping at (" + x + ", " + y + ")");
         new TouchAction(((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()))
                 .tap(PointOption.point(x, y))
                 .perform();
-        System.out.println("- Tapped.");
     }
 
     protected List<WebElement> findAllDataByComposedXpath(String... data) {
@@ -203,12 +206,11 @@ public class BasePage extends PageObject {
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
         System.out.println("Search using locator: " + locator + " waiting for " + timeOut + " polling every " + poolingEvery);
-        waitForLoadingToFinish();
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 
-        System.out.println("- Found: " + locator);
+        System.out.println("Found: " + locator);
 
         WebElement element = null;
         try {
@@ -255,7 +257,7 @@ public class BasePage extends PageObject {
 
     public void waitForLoadingToFinish(){
         System.out.println("Loading wait...");
-        WebDriverWait wait = new WebDriverWait(this.getDriver(), 30);
+        WebDriverWait wait = new WebDriverWait(this.getDriver(), 20);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Loading...")));
         System.out.println("- Loading complete.");
     }

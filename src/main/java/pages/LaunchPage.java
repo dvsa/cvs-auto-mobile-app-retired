@@ -46,6 +46,7 @@ public class LaunchPage extends BasePage {
                     signaturePage.waitPageToLoad();
                     signaturePage.createSignature();
                     signaturePage.clickSaveButton();
+                    signaturePage.waitPageToLoad();
                     signaturePage.confirmSignature();
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
 
