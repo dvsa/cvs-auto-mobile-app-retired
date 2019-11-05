@@ -55,6 +55,7 @@ public class LaunchPage extends BasePage {
                 }
 
             } catch (TimeoutException e) {
+                showElementError("Startup process");
                 throw new AutomationException("Could not get to get started page (Session: " + sessionId + ")");
             }
 

@@ -27,7 +27,7 @@ import static java.time.Duration.ofMillis;
 
 public class BasePage extends PageObject {
 
-    private void showElementError(String element) {
+    protected void showElementError(String element) {
         System.out.println("- Element not found (" + element + ")");
         System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.println(getDriver().getPageSource());
