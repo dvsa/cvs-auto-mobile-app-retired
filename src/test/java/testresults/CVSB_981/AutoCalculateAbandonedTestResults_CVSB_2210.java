@@ -57,7 +57,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.ABANDONED);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkTestStatus("Annual test", "ABANDONED");
 
         // There should only be one option to change details - at test level, not test type level.

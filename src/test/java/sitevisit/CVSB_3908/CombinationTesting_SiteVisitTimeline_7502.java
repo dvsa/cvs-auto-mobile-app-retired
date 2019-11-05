@@ -3,7 +3,6 @@ package sitevisit.CVSB_3908;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -121,7 +120,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         testSteps.checkAddATrailerButtonIsNotPresent();
         //submit and review tests
         testSteps.checkReviewAndSubmitButton();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         //check hgv test
         testReviewSteps.checkElementIsDisplayed("Test review (1 of 4)");
         testReviewSteps.checkElementIsDisplayed("P012301230123");
@@ -139,7 +138,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         testSteps.selectEuVehicleCategory();
         euVehicleCategorySteps.selectOption("N2");
         testSteps.checkReviewAndSubmitButton();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         //check hgv test
         testReviewSteps.checkElementIsDisplayed("Test review (1 of 4)");
         testReviewSteps.checkElementIsDisplayed("P012301230123");

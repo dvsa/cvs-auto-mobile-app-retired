@@ -81,7 +81,7 @@ public class ReviewTestSummary_2862 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("1.1 (a) MAJOR");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("1.1 (a) MAJOR");
         testReviewSteps.checkElementIsDisplayed("1. Registration Plate");

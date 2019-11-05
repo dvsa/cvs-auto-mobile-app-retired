@@ -3,7 +3,6 @@ package testresults.CVSB_4941;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -82,7 +81,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
@@ -112,7 +111,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O2");
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
@@ -160,7 +159,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O2");
         testSteps.addTestTypeFor("768594");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.scrollDown();
         testReviewSteps.pressNextVehicle();
         testReviewSteps.scrollDown();

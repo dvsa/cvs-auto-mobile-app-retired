@@ -69,7 +69,7 @@ public class TestTypeLinked_CVSB_4523 extends BaseTestClass {
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.sendCertificateNumberAndSave("12345");
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();

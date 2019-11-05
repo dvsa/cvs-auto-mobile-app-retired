@@ -86,7 +86,7 @@ public class ProhibitionTestReviewScreen_CVSB_4573 extends BaseTestClass {
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Prohibition issued - Yes");

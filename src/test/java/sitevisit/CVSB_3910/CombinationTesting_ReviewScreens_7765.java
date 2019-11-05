@@ -71,7 +71,7 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
         testTypeDetailsSteps.pressSave();
         //submit and review tests
         testSteps.checkReviewAndSubmitButton();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         //check psv test
         testReviewSteps.checkElementIsDisplayed("Test review");
         testReviewSteps.checkElementIsDisplayed("YV31MEC18GA011900");

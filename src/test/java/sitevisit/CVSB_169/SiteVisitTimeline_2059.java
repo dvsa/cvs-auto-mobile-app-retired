@@ -75,7 +75,7 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();

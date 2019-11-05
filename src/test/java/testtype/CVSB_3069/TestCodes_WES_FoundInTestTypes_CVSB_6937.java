@@ -85,7 +85,7 @@ public class TestCodes_WES_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
 
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.changeDetails();
         testTypeDetailsSteps.addNotes("Hello");
