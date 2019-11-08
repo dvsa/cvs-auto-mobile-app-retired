@@ -32,11 +32,17 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String CANCEL_LEC_TEST_ID = "Cancel";
     private static final String CERTIFICATE_NUMBER_LABEL_ID = "CERTIFICATE NUMBER";
     private static final String CERTIFICATE_NUMBER_COIFLABEL_ID = "CERTIFICATE NUMBER (COIF)";
+    private static final String EXPIRY_DATE = "EXPIRY DATE";
+    private static final String EXPIRY_DATE_DONE_BUTTON_ID = "Done";
+    private static final String EXPIRY_DATE_CHECK_CANCEL_BUTTON_ID = "Cancel";
     private static final String LP_LABEL_ID = "LP";
     private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
     private static final String CERTIFICATE_NUMBER_GUIDANCE_ID = "After conducting the test, complete the Low Emissions Certificate and enter the certificate number.";
     private static final String NOTES_INPUT_FIELD_CLASS_NAME = "XCUIElementTypeTextView";
+    private static final String NOTES_LABEL = "NOTES";
+    private static final String NOTES_FIELD_PROMPT = "Add notes";
+    private static final String NOTES_INFO = "Notes will be printed on the certificate.";
     private static final String ADD_DEFECT_ID = "Add defect";
     private static final String REMOVE_BUTTON_ID = "Remove";
     private static final String POP_UP_CANCEL_ID = "Cancel";
@@ -68,6 +74,12 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String EMISSION_STANDARD_TITLE = "Emission standard";
     private static final String EMISSION_DETAILS = "EMISSION DETAILS";
 
+    public boolean checkIfNotesFieldsArePresent() {
+        System.out.println("Checking if Notes fields are present...");
+        return (findElementByAccessibilityId(NOTES_LABEL) != null) &&
+                (findElementByAccessibilityId(NOTES_FIELD_PROMPT) != null) &&
+                (findElementByAccessibilityId(NOTES_INFO) != null);
+    }
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
     }
@@ -196,7 +208,9 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void clickSaveButton() {
+        System.out.println("Saving...");
         findElementById(SAVE_BUTTON_ID).click();
+        System.out.println("- Clicked on Save");
     }
 
     public void clickTechnicalTestEdited() {
@@ -495,12 +509,22 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void sendCertificateNumber(String certificateNumber) {
+        System.out.println("Setting Certificate Number to " + certificateNumber);
         WebElement inputField = findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH);
         inputField.clear();
         inputField.sendKeys(certificateNumber);
+        System.out.println("- Set");
+    }
+
+    public void setExpiryDateToToday() {
+        System.out.println("Setting Expiry Date to today");
+        findElementByAccessibilityId("Enter").click();
+        findElementByAccessibilityId(EXPIRY_DATE_DONE_BUTTON_ID).click();
+        System.out.println("- Set.");
     }
 
     public String getCertificateNumber() {
+        System.out.println("Retrieving Certificate Number...");
         clickTechnicalTestEdited();
         return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).getText();
     }

@@ -98,6 +98,16 @@ public class TestReviewSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkCertificateNumberIs(String expectedCertificateNumber) {
+        assertThat(testReviewPage.checkDisplayedElement(expectedCertificateNumber));
+    }
+
+    @Step
+    public void checkNotesAre(String expectedNotes) {
+        assertThat(testReviewPage.checkDisplayedElement(expectedNotes));
+    }
+
+    @Step
     public void scrollDown() {
         testReviewPage.scrollPageDown();
         // testReviewPage.waitUntilPageIsLoaded();

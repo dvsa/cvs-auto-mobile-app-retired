@@ -195,8 +195,20 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void setExpiryDateToDoday() {
+        // Clicking on the Expiry Date field shows a date picker.
+        // Just need to click on <Done> and today's date is inserted.
+        testTypeDetailsPage.setExpiryDateToToday();
+    }
+
+    @Step
     public void checkCertificateGuidance() {
         assertThat(testTypeDetailsPage.isCertificateGuidanceDisplayed()).isTrue();
+    }
+
+    @Step
+    public void verifyNotesFieldsArePresent() {
+        assert(testTypeDetailsPage.checkIfNotesFieldsArePresent());
     }
 
     @Step
