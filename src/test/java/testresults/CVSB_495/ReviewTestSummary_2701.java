@@ -64,7 +64,7 @@ public class ReviewTestSummary_2701 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("Annual test");
         testReviewSteps.checkElementIsDisplayed("PASS");

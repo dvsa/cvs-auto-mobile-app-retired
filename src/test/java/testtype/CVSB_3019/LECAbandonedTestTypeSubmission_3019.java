@@ -69,7 +69,7 @@ public class LECAbandonedTestTypeSubmission_3019  extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         confirmationPageSteps.pressDone();

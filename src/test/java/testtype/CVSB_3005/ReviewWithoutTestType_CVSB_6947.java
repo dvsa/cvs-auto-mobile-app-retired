@@ -3,7 +3,6 @@ package testtype.CVSB_3005;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.jetbrains.annotations.TestOnly;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -69,7 +68,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
         preparerSteps.advanceWithoutPreaprer();
         preparerSteps.confirmInPopUp();
         testSteps.checkPageTitleDisplayed();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
 
         // AC1 - User taps Review without adding a test type, regardless of whether vehicle category and odometer reading fields are filled in
         // Verify correct error is shown.
@@ -107,7 +106,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
 
         // AC3 - User taps Review and there is at least one mandatory field that has not been completed for the test
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
 
         // Verify that the page remains, and that the correct error message is shown.
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
@@ -135,7 +134,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // AC5 - User selects EU vehicle category
@@ -173,7 +172,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // AC6 - Field error bar on user input fields
@@ -213,7 +212,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
 
         // Verify that the error message is present on the screen.
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();

@@ -86,7 +86,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
 
         // Expect the new on-screen validation error, rather than the popup.
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
@@ -98,7 +98,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("HDK87&@£");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkTestStatus("Paid roadworthiness retest", "PASS");
     }
@@ -134,7 +134,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
 
         // Expect the new on-screen validation error, rather than the popup.
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
@@ -146,7 +146,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("CV26&£");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkTestStatus("Voluntary roadworthiness test", "PASS");
     }

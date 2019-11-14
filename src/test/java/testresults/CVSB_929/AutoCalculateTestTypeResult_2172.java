@@ -79,7 +79,7 @@ public class AutoCalculateTestTypeResult_2172 extends BaseTestClass {
         defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("T3st1234 &^%");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("PASS");
         testReviewSteps.checkElementIsDisplayed("Annual test");

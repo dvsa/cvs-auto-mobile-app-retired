@@ -1,6 +1,9 @@
 package pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 import util.EnvironmentType;
 import util.LoaderlLocalRealDeviceImpl;
@@ -10,7 +13,6 @@ import java.text.DateFormatSymbols;
 import java.time.Clock;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +51,8 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String POP_UP_TEST_TYPE_REMOVAL_TITLE_XPATH = "//XCUIElementTypeStaticText[@name=\"Remove test type\"]";
     private static final String PROHIBITION_ISSUED_SWITCH_XPATH = "//XCUIElementTypeSwitch[@name=\"Issued in Mobile Compliance\"]";
     private static final String PAGE_ALL_LABELS_CLASS_NAME = "XCUIElementTypeStaticText";
+    private static final String EXPIRY_DATE_INPUT_FIELD_XPATH = "//XCUIElementTypeButton[@name='Enter']";
+    private static final String DONE_ID = "Done";
 
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
@@ -360,6 +364,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean checkTestStatus(String status) {
+        waitUntilPageIsLoaded();
         return findElementById("Test result " + status).isDisplayed();
     }
 
@@ -524,6 +529,18 @@ public class TestTypeDetailsPage extends BasePage {
             }
         }
         return false;
+    }
+
+    public void setExpiryDateDefault() {
+        waitUntilPageIsLoaded();
+        findElementByXpath(EXPIRY_DATE_INPUT_FIELD_XPATH).click();
+        findElementById(DONE_ID).click();
+    }
+
+    public void clickOnDefect(String defectName) {
+        if (checkDefectIsPresent(defectName) != null) {
+            findElementByXpath("//*[contains(@label, '" + defectName + "')]").click();
+        }
     }
 }
 

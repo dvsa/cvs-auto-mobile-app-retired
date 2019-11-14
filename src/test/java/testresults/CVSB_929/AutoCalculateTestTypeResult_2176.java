@@ -91,7 +91,7 @@ public class AutoCalculateTestTypeResult_2176 extends BaseTestClass {
         defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("FAIL");
         testReviewSteps.checkElementIsDisplayed("Annual test");

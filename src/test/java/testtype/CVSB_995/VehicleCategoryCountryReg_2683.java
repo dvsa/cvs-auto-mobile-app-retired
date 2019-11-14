@@ -50,7 +50,7 @@ public class VehicleCategoryCountryReg_2683 extends BaseTestClass {
         testSteps.checkOdometerReadingValueFormatted("1,234,567");
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("annual test");
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
         testSteps.checkTestNotCompleteDisplayedAndOkButton();
     }

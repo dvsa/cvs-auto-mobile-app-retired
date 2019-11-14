@@ -53,7 +53,7 @@ public class VoluntarySpeedLimiterPassedSubmission_3019  extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("45");
         odometerReadingSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();

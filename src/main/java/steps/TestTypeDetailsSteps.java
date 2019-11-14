@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.assertj.core.api.AssertionsForClassTypes;
 import pages.TestTypeDetailsPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -476,4 +475,18 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         assertThat(isDisplayed).isTrue();
     }
 
+    @Step
+    public void setExpiryDateDefault() {
+        testTypeDetailsPage.setExpiryDateDefault();
+    }
+
+    @Step
+    public void checkTestStatusIsNotSet() {
+        assertThat(testTypeDetailsPage.checkTestStatus("Select arrow forward")).isTrue();
+    }
+
+    @Step
+    public void clickOnDefect(String defectName) {
+        testTypeDetailsPage.clickOnDefect(defectName);
+    }
 }

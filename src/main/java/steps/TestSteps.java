@@ -269,7 +269,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickReview(){
+    public void clickReviewAndSubmit(){
         testPage.clickReviewAndSubmitButton();
     }
 

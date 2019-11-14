@@ -92,7 +92,7 @@ public class TestCodes_WIL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         testTypeDetailsSteps.checkDefectRemoved("5. Exhaust Emissions");
         testTypeDetailsSteps.pressSave();
 
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkElementIsDisplayed("X71LTA (PSV)");
         testReviewSteps.checkElementValue("Odometer reading","44");

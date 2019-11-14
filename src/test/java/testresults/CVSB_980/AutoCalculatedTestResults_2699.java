@@ -62,7 +62,7 @@ public class AutoCalculatedTestResults_2699 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
         testReviewSteps.scrollDown();
         testReviewSteps.changeTestDetails();
