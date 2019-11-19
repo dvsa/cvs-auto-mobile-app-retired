@@ -56,7 +56,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
     @Title("CVSB-6638 - AC2 VSA can see all fields listed (HGV)")
     @Test
     public void testAllDetailsHgv() {
@@ -72,11 +72,11 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         hgvDetailsSteps.checkYearOfManufactureIs("2018");
         hgvDetailsSteps.checkDateOfFirstRegistrationIs("24/06/2019");
         hgvDetailsSteps.checkAxleIs("3");
-        hgvDetailsSteps.checkDtpIs("178202");
+        hgvDetailsSteps.checkDtpIs("sdgs");
 
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
     @Title("CVSB-6630 - AC2 VSA can see all fields listed (TRL)")
     @Test
     public void testAllDetailsTrl() {
@@ -92,7 +92,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         trailerDetailsSteps.checkYearOfManufactureIs("2018");
         trailerDetailsSteps.checkDateOfFirstUseIs("24/06/2019");
         trailerDetailsSteps.checkAxleIs("1");
-        trailerDetailsSteps.checkDtpIs("178202");
+        trailerDetailsSteps.checkDtpIs("sdsd");
     }
 
     @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Weights Screen)")

@@ -3,6 +3,7 @@ package testresults.CVSB_929;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -52,6 +53,7 @@ public class AutoCalculateTestTypeResult_2165 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @WithTag("In_test")
     @Title("CVSB-929 - Pass test result - Minor defect")
     @Test
     public void testPassResultMinorDefect() {

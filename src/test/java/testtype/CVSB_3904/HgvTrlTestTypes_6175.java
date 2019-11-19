@@ -3,6 +3,7 @@ package testtype.CVSB_3904;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -464,6 +465,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeDetailsSteps.checkTestTypeName("Paid notifiable alteration");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (retest)")
     @Test
     public void testTypeDrillDownShortLongRetest() {
@@ -475,8 +477,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("ADR");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
-        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Paid ADR retest");
     }
 

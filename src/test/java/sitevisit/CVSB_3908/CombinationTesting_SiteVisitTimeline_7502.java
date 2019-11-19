@@ -6,6 +6,7 @@ import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.context.annotation.Description;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -49,14 +50,19 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
-    @Title("CVSB-3908 - AC1 + AC2 Accept max 4 vehicles (1 HGV + 3 TRL) in one test and vehicles in proper order on the site visit timeline page " +
-            "CVSB-3910 - AC1 Successfully navigating to 'Review' & review screens displaying in the correct order" +
-            "AC2 Vehicle cards & field iterations" +
-            "AC3 Navigating back to the test screen after triggering the 'Change details' call to action for vehicle" +
-            "AC4 Navigating back to the test screen after triggering the 'Change details' call to action for test" +
-            "AC5 Successful navigation to the previous vehicle" +
-            "AC6 Successful submission")
+    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
+    @Title("CVSB-3908 - CVSB-3910 - Accept max 4 vehicles ")
+    @Description(
+            "CVSB-3908: \n" +
+                "AC1 + AC2 Accept max 4 vehicles (1 HGV + 3 TRL) in one test and vehicles in proper order on the site visit timeline page \n" +
+            "CVSB-3910: \n" +
+                "AC1 Successfully navigating to 'Review' & review screens displaying in the correct order \n" +
+                "AC2 Vehicle cards & field iterations \n" +
+                "AC3 Navigating back to the test screen after triggering the 'Change details' call to action for vehicle \n" +
+                "AC4 Navigating back to the test screen after triggering the 'Change details' call to action for test \n" +
+                "AC5 Successful navigation to the previous vehicle \n" +
+                "AC6 Successful submission \n"
+    )
     @Test
     public void testSiteVisitTimelineHGVPlus3TRL() {
         //add hgv

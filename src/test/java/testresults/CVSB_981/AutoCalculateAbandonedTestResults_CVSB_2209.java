@@ -3,6 +3,7 @@ package testresults.CVSB_981;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -37,6 +38,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2209 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
+    @WithTag("In_test")
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (test review screen)")
     @Test
     public void testAutoCalculateAbandonedTestInTestReview() {

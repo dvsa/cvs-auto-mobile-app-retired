@@ -3,6 +3,8 @@ package testtype.CVSB_902;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -27,6 +29,8 @@ public class LECTestType_2029 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
+    @WithTag("In_test")
+    @Ignore("Rendered obsolete by CVSB-7936")
     @Title("CVSB-902 - AC6 - Type in certificate number")
     @Test
     public void typeInCertificateNumber() {

@@ -3,6 +3,7 @@ package sitevisit.CVSB_169;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.SiteVisitSteps;
@@ -18,6 +19,7 @@ public class SiteVisitTimeline_2057 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @WithTag("In_test")
     @Title("CVSB-169 - AC1 - Site Visit timeline details")
     @Test
     public void testSiteVisitTimelineDetails() {
