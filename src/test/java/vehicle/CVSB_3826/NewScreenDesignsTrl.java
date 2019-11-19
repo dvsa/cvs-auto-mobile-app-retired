@@ -109,7 +109,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-
+    @WithTag("In_test")
     @Title("CVSB-6189 - CVSB-6186 - AC 6.1 Vehicle found in system (tech-record details screen)")
     @Test
     public void testNewDesignVehicleDetails() {
@@ -130,7 +130,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         trailerDetailsSteps.checkYearOfManufactureIs("2018");
         trailerDetailsSteps.checkDateOfFirstUseIs("24/06/2019");
         trailerDetailsSteps.checkAxleIs("2");
-        trailerDetailsSteps.checkDtpIs("178202");
+        trailerDetailsSteps.checkDtpIs("sdsdg");
         trailerDetailsSteps.checkTrailerTestHistoryIsDisplayed();
         trailerDetailsSteps.checkWeightsIsDisplayed();
         trailerDetailsSteps.checkTyresIsDisplayed();

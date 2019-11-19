@@ -123,6 +123,7 @@ public class CountryOfRegistrationPage extends BasePage {
     }
 
     public void checkListOfCountryIsFiltered(String filterString) {
+        waitUntilPageIsLoaded();
         List<WebElement> elementsBeforeFilter = findElementsByXpath("//XCUIElementTypeButton");
         List<String> countriesDisplayedTextBeforeFilter = new ArrayList<>();
         for (WebElement we : elementsBeforeFilter) {
@@ -148,6 +149,7 @@ public class CountryOfRegistrationPage extends BasePage {
 
         List<String> cleanAfterList = eliminateUnwantedButtonsDisplayed(countriesDisplayedTextAfterFilter);
         for (String s : cleanAfterList) {
+            System.out.println("Countries are: " + s);
             assertThat(s.contains(filterString)).isTrue();
         }
         assertThat(Ordering.natural().isOrdered(cleanAfterList)).isTrue();
@@ -175,6 +177,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Country of registration Great Britain and Northern Ireland arrow forward".equals(line))
                 .filter(line -> !"Dictate".equals(line))
                 .filter(line -> !"English (UK)".equals(line))
+                .filter(line -> !"Français (Canada)".equals(line))
                 .filter(line -> !"return".equals(line))
                 .filter(line -> !line.isEmpty())
                 .collect(Collectors.toList());
