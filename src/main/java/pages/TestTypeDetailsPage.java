@@ -5,9 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
-import util.EnvironmentType;
-import util.LoaderlLocalRealDeviceImpl;
-import util.TypeLoader;
+import util.*;
 
 import java.text.DateFormatSymbols;
 import java.time.Clock;
@@ -53,6 +51,17 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String PAGE_ALL_LABELS_CLASS_NAME = "XCUIElementTypeStaticText";
     private static final String EXPIRY_DATE_INPUT_FIELD_XPATH = "//XCUIElementTypeButton[@name='Enter']";
     private static final String DONE_ID = "Done";
+    private static final String EMISSION_STANDARD_BUTTON_XPATH = "//XCUIElementTypeButton[@name='Emission standard Select arrow forward']" ;
+    private static final String SMOKE_TEST_K_LIMIT_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Smoke test')]";
+    private static final String SMOKE_TEST_K_LIMIT_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
+    private static final String FUEL_TYPE_XPATH = "//XCUIElementTypeButton[@name='Fuel type Select arrow forward']";
+    private static final String MOD_TYPE_XPATH = "//XCUIElementTypeButton[@name='Mod type Select arrow forward']";
+    private static final String PARTICULATE_TRAP_FITTED_XPATH = "//XCUIElementTypeButton[@name='Particulate trap fitted Enter']";
+    private static final String PARTICULATE_TRAP_SERIAL_NUMBER_XPATH = "//XCUIElementTypeButton[@name='Particulate trap serial number Enter']";
+    private static final String PARTICULATE_TRAP_FITTED_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
+    private static final String PARTICULATE_TRAP_SERIAL_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
+    private static final String MODIFICATION_TYPE_USED_XPATH = "//XCUIElementTypeButton[@name='Modification type used Enter']";
+    private static final String MODIFICATION_TYPE_USED_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
 
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
@@ -541,6 +550,55 @@ public class TestTypeDetailsPage extends BasePage {
         if (checkDefectIsPresent(defectName) != null) {
             findElementByXpath("//*[contains(@label, '" + defectName + "')]").click();
         }
+    }
+
+    public void setEmissionStandard(EmissionStandard emission) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(EMISSION_STANDARD_BUTTON_XPATH).click();
+        waitUntilPageIsLoaded();
+        findElementById(emission.getDescription()).click();
+    }
+
+    public void setSmokeTestKLimit(String amount) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(SMOKE_TEST_K_LIMIT_BUTTON_XPATH).click();
+        findElementByXpath(SMOKE_TEST_K_LIMIT_INPUT_FIELD_XPATH).sendKeys(amount);
+        findElementById(DONE_ID).click();
+    }
+
+    public void setFuelType(FuelType fuelType) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(FUEL_TYPE_XPATH).click();
+        waitUntilPageIsLoaded();
+        findElementById(fuelType.getName()).click();
+    }
+
+    public void setModeType(ModType modType) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(MOD_TYPE_XPATH).click();
+        waitUntilPageIsLoaded();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + modType.getDescription() + "']").click();
+    }
+
+    public void setParticulateTrapFitted(String trapFitted) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(PARTICULATE_TRAP_FITTED_XPATH).click();
+        findElementByXpath(PARTICULATE_TRAP_FITTED_INPUT_FIELD_XPATH).sendKeys(trapFitted);
+        findElementById(DONE_ID).click();
+    }
+
+    public void setParticulateTrapSerialNumber(String trapFitted) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(PARTICULATE_TRAP_SERIAL_NUMBER_XPATH).click();
+        findElementByXpath(PARTICULATE_TRAP_SERIAL_NUMBER_INPUT_FIELD_XPATH).sendKeys(trapFitted);
+        findElementById(DONE_ID).click();
+    }
+
+    public void setModificationTypeUsed(String modificationType) {
+        waitUntilPageIsLoaded();
+        findElementByXpath(MODIFICATION_TYPE_USED_XPATH).click();
+        findElementByXpath(MODIFICATION_TYPE_USED_INPUT_FIELD_XPATH).sendKeys(modificationType);
+        findElementById(DONE_ID).click();
     }
 }
 
