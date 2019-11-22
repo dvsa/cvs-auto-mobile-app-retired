@@ -2,6 +2,7 @@ package testtype.CVSB_444;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -42,7 +43,8 @@ public class TestTypeLinked_CVSB_5029 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
+    @Ignore("Rendered obsolete by CVSB-7936 ")
     @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Paid Retest Any PSV)")
     public void testListFromAddLinkedTestTypePaidRetestAnyPSV() {

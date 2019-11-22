@@ -3,6 +3,9 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeDetailsPage;
+import util.EmissionStandard;
+import util.FuelType;
+import util.ModType;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -488,5 +491,40 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void clickOnDefect(String defectName) {
         testTypeDetailsPage.clickOnDefect(defectName);
+    }
+
+    @Step
+    public void setEmissionStandard(EmissionStandard emission) {
+        testTypeDetailsPage.setEmissionStandard(emission);
+    }
+
+    @Step
+    public void setSmokeTestKLimitApplied(String amount) {
+        testTypeDetailsPage.setSmokeTestKLimit(amount);
+    }
+
+    @Step
+    public void setFuelType(FuelType fuelType) {
+        testTypeDetailsPage.setFuelType(fuelType);
+    }
+
+    @Step
+    public void setModeType(ModType modeType) {
+        testTypeDetailsPage.setModeType(modeType);
+    }
+
+    @Step
+    public void setParticulateTrapFitted(String trapFitted) {
+        testTypeDetailsPage.setParticulateTrapFitted(trapFitted);
+    }
+
+    @Step
+    public void setParticulateTrapSerialNumber(String serialNumber) {
+        testTypeDetailsPage.setParticulateTrapSerialNumber(serialNumber);
+    }
+
+    @Step
+    public void setModificationTypeUsed(String modificationType) {
+        testTypeDetailsPage.setModificationTypeUsed(modificationType);
     }
 }

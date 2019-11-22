@@ -3,6 +3,8 @@ package testresults.CVSB_3755;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -43,8 +45,8 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-
-
+    @WithTag("In_test")
+    @Ignore("Rendered obsolete by CVSB-7936 ")
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Technical Test)")
     @Test
     public void testProhibitionFieldOnTestReviewScreenTechnicalTest() {
