@@ -55,7 +55,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String SMOKE_TEST_K_LIMIT_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'Smoke test')]";
     private static final String SMOKE_TEST_K_LIMIT_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String FUEL_TYPE_XPATH = "//XCUIElementTypeButton[@name='Fuel type Select arrow forward']";
-    private static final String MOD_TYPE_XPATH = "//XCUIElementTypeButton[@name='Mod type Select arrow forward']";
+    private static final String MOD_TYPE_XPATH = "//XCUIElementTypeButton[@name='Modification type Select arrow forward']";
     private static final String PARTICULATE_TRAP_FITTED_XPATH = "//XCUIElementTypeButton[@name='Particulate trap fitted Enter']";
     private static final String PARTICULATE_TRAP_SERIAL_NUMBER_XPATH = "//XCUIElementTypeButton[@name='Particulate trap serial number Enter']";
     private static final String PARTICULATE_TRAP_FITTED_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";

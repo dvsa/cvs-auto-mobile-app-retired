@@ -1,9 +1,9 @@
 package util;
 
 public enum ModType {
-    P("P - Particulate Trap"),
-    M("M - Modification Or Change Of Engine"),
-    G("G - Gas Engine");
+    P("P - Particulate trap"),
+    M("M - Modification or change of engine"),
+    G("G - Gas engine");
 
     String description;
 
