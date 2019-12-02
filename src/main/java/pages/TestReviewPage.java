@@ -41,6 +41,7 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean checkDisplayedElement(String element) {
+        waitUntilPageIsLoaded();
         System.out.println("Checking element is displayed: " + element);
         boolean status;
         try {

@@ -206,4 +206,20 @@ public class TrailerDetailsSteps extends ScenarioSteps {
         assertThat(trailerDetailsPage.isBrakesButtonDisplayed()).isTrue();
     }
 
+    @Step
+    public void selectAdrDetails() {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.clickExpandableInformation("ADR details");
+    }
+
+    @Step
+    public void scrollToElement(String element) {
+        trailerDetailsPage.waitUntilPageIsLoaded();
+        trailerDetailsPage.scrollToElement(element);
+    }
+
+    @Step
+    public void scrollTheDetailPage() {
+        trailerDetailsPage.scrollDetailPage();
+    }
 }
