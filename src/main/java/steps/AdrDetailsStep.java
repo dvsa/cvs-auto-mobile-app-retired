@@ -48,4 +48,9 @@ public class AdrDetailsStep {
     public void checkAdrDetailSectionNotContains(String adrSection, String adrDetail) {
         assertThat(adrDetailsPage.elementIsDisplayedAfter(adrDetail, adrSection)).isFalse();
     }
+
+    @Step
+    public void checkThePageTitleIs(String pageTitle) {
+        assertThat(adrDetailsPage.isPageTitleDisplayed(pageTitle)).isTrue();
+    }
 }

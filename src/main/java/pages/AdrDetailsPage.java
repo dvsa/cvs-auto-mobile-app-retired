@@ -124,18 +124,18 @@ public class AdrDetailsPage extends BasePage {
     }
 
     public boolean elementIsDisplayedAfter(String adrDetail, String adrSection) {
-        System.out.println("inside element is displayed after: " + adrDetail + " , " + adrSection);
+//        System.out.println("inside element is displayed after: " + adrDetail + " , " + adrSection);
         List<WebElement> webElementList = getAllElements();
         WebElement sectionElement = null;
         WebElement detailElement = null;
         for(WebElement webElement : webElementList){
-            System.out.println("element is: " + webElement.getAttribute("name"));
+//            System.out.println("element is: " + webElement.getAttribute("name"));
             if(webElement.getAttribute("name").equals(adrSection)){
-                System.out.println("found: " + adrSection + "index is: " + webElementList.indexOf(webElement));
+//                System.out.println("found: " + adrSection + " index is: " + webElementList.indexOf(webElement));
                 sectionElement = webElement;
             }
             if(webElement.getAttribute("name").equals(adrDetail)){
-                System.out.println("found: " + adrDetail + "index is: " + webElementList.indexOf(webElement));
+//                System.out.println("found: " + adrDetail + " index is: " + webElementList.indexOf(webElement));
                 detailElement = webElement;
             }
         }
@@ -144,20 +144,15 @@ public class AdrDetailsPage extends BasePage {
 
     public boolean elementIsDisplayedRightAfter(String detail, String value) {
         List<WebElement> webElementList = getAllElements();
-        WebElement valueElement = null;
-        WebElement detailElement = null;
-        for(WebElement webElement:webElementList){
-            if(webElement.getAttribute("name").equals(detail)){
-                System.out.println("found: " + detail + "index is: " + webElementList.indexOf(webElement));
-                detailElement = webElement;
+        for(int i = 0 ; i < webElementList.size()-1 ; i++){
+            if(webElementList.get(i).getAttribute("name").equals(detail) && webElementList.get(i+1).getAttribute("name").equals(value)){
+                return true;
             }
-            if(webElement.getAttribute("name").equals(value)){
-                System.out.println("found: " + value + "index is: " + webElementList.indexOf(webElement));
-                valueElement = webElement;
-                break;
-            }
-
         }
-        return (webElementList.indexOf(valueElement) == webElementList.indexOf(detailElement)+1);
+        return false;
+    }
+
+    public boolean isPageTitleDisplayed(String pageTitle) {
+        return pageTitle.equals(ADR_DETAILS_PAGE_TITLE);
     }
 }
