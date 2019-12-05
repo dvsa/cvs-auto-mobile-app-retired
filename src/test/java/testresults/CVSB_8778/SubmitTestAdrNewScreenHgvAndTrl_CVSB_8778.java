@@ -88,7 +88,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionContains("BATTERY LIST", "Applicable");
         adrDetailsStep.checkAdrDetailHasValue("Applicable", "Yes");
         adrDetailsStep.checkAdrDetailSectionContains("BATTERY LIST", "Reference number");
-        adrDetailsStep.checkAdrDetailHasValue("Reference number", "H903");
+        adrDetailsStep.checkAdrDetailHasValue("Reference number", "Not entered");
     }
 
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC2 - AC2 - Field 'Applicable' = No")
