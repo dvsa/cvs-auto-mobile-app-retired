@@ -138,7 +138,6 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         trailerDetailsSteps.checkBrakesIsDisplayed();
     }
 
-    @WithTag("In_test")
     @Title("CVSB-6190 - CVSB-6191 - AC 6.2 Vehicle not found in system (pop-up shown) (press OK)")
     @Test
     public void testNewDesignVehicleNotFound() {
