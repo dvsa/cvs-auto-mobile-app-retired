@@ -42,18 +42,6 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-    @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps
@@ -61,9 +49,6 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
 
     @Steps
     SelectReasonSteps selectReasonSteps;
-
-    @Steps
-    ConfirmationPageSteps confirmationPageSteps;
 
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
