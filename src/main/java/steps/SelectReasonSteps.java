@@ -49,6 +49,17 @@ public class SelectReasonSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkReasonsTirList() {
+        selectReasonPage.waitUntilPageIsLoaded();
+        List<String> actualDataList = selectReasonPage.findAllReasonsByXpath();
+        List<String> expectedDataList = selectReasonPage.getListOfReasonTirTexts();
+        for (String expectedData : expectedDataList) {
+            assertThat(actualDataList).contains(expectedData);
+
+        }
+    }
+
+    @Step
     public void checkSpecialistReasonsList() {
         selectReasonPage.waitUntilPageIsLoaded();
         List<String> actualDataList = selectReasonPage.findAllReasonsByXpath();
@@ -95,11 +106,26 @@ public class SelectReasonSteps extends ScenarioSteps {
         }
     }
 
+    @Step
+    public void selectTheReason(SelectReasonPage.ReasonsTir reason) {
+        if (selectReasonPage.isReasonFromListDisplayed(reason)){
+            selectReasonPage.selectReason(reason);
+        } else {
+            selectReasonPage.scrollPageDown();
+            if (selectReasonPage.isReasonFromListDisplayed(reason)) {
+                selectReasonPage.selectReason(reason);
+            } else {
+                selectReasonPage.scrollPageUp();
+                selectReasonPage.selectReason(reason);
+            }
+        }
+    }
+
+    @Step
     /**
      * Step that selects any reason. If the reason is not displayed, the page is scrolled.
      * @param reason
      */
-    @Step
     public void selectAReason(SelectReasonPage.ReasonsSpecialist reason) {
         waitForPageToLoad();
         if (selectReasonPage.isSpecialistReasonFromListDisplayed(reason)){
@@ -156,6 +182,31 @@ public class SelectReasonSteps extends ScenarioSteps {
     @Step
     public void waitForPageToLoad() {
         selectReasonPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void checkReasonIsDisplayed(String reason) {
+        assertThat(selectReasonPage.isElementFromListDisplayed(reason)).isTrue();
+    }
+
+    @Step
+    public void selectTheReason(String reason) {
+        selectReasonPage.selectReason(reason);
+    }
+
+    @Step
+    public void checkReasonIsDisplayed(SelectReasonPage.ReasonsTir reason) {
+        assertThat(selectReasonPage.isReasonFromListDisplayed(reason)).isTrue();
+    }
+
+    @Step
+    public String getReasonTexts(SelectReasonPage.ReasonsTir reason) {
+        return selectReasonPage.getReasonTexts(reason);
+    }
+
+    @Step
+    public String getReasonTexts(SelectReasonPage.Reasons reason) {
+        return selectReasonPage.getReasonTexts(reason);
     }
 }
 

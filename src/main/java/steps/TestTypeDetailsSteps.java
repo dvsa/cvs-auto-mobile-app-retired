@@ -453,6 +453,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkCertificateNumberIsDisplayed() {
+        testTypeDetailsPage.waitUntilPageIsLoaded();
         assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
         assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
     }
@@ -599,6 +600,16 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void setModificationTypeUsed(String modificationType) {
         testTypeDetailsPage.setModificationTypeUsed(modificationType);
+    }
+
+    @Step
+    public void checkCertificateErrorIsDisplayed() {
+        assertThat(testTypeDetailsPage.isErrorMessageDisplayed("Certificate number must be 5 digits.")).isTrue();
+    }
+
+    @Step
+    public void checkCertificateErrorIsNotDisplayed() {
+        assertThat(testTypeDetailsPage.isErrorMessageNotDisplayed("Certificate number must be 5 digits.")).isTrue();
     }
 
     @Step

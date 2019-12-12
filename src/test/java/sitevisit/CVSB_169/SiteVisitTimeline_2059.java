@@ -70,7 +70,7 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
         testSteps.swipeTestType("Technical test");
         testSteps.pressTestTypeAbandonButton();
-        selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
+        selectReasonSteps.selectTheReason(SelectReasonPage.Reasons.REASON_1);
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();

@@ -30,6 +30,14 @@ public class AbandonTestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSelectedReasons(SelectReasonPage.ReasonsTir... reasons) {
+        List<String> actualDataList = abandonTestPage.findAllValuesByXpath();
+        for (SelectReasonPage.ReasonsTir expectedReason : reasons) {
+            assertThat(actualDataList.contains(selectReasonPage.getReasonTexts(expectedReason))).isTrue();
+        }
+    }
+
+    @Step
     public void checkCommentSection() {
         if (!abandonTestPage.isCommentSectionDisplayed())
             abandonTestPage.scrollPageDown();
