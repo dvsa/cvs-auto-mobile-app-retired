@@ -102,7 +102,7 @@ public class TestReviewSteps extends ScenarioSteps {
     }
 
     @Step
-    public void scrollDown(){
+    public void scrollDown() {
         testReviewPage.scrollPageDown();
     }
 

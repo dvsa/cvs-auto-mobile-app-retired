@@ -12,8 +12,7 @@ import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class
-AutoCalculateTestTypeResult_2179 extends BaseTestClass {
+public class AutoCalculateTestTypeResult_2179 extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
