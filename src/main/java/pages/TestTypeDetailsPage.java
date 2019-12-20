@@ -214,11 +214,17 @@ public class TestTypeDetailsPage extends BasePage {
         }
     }
 
+
+
     public void selectIsCarriedOut() {
+        waitUntilPageIsLoaded();
         findElementById(CARRIED_OUT_YES_OPTION_ID).click();
     }
 
+
+
     public void selectIsNotCarriedOut() {
+        waitUntilPageIsLoaded();
         findElementById(CARRIED_OUT_NO_OPTION_ID).click();
     }
 
@@ -239,6 +245,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void selectSeatbeltsNumberOption() {
+        waitUntilPageIsLoaded();
         findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Number of seatbelts fitted')]").click();
     }
 
@@ -353,14 +360,17 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void passLecTest() {
+        waitUntilPageIsLoaded();
         findElementByAccessibilityId(PASS_ID).click();
     }
 
     public void failLecTest() {
+        waitUntilPageIsLoaded();
         findElementByAccessibilityId(FAIL_ID).click();
     }
 
     public void cancelLecTest() {
+        waitUntilPageIsLoaded();
         findElementByAccessibilityId(CANCEL_LEC_TEST_ID).click();
     }
 
@@ -543,6 +553,7 @@ public class TestTypeDetailsPage extends BasePage {
     public void setExpiryDateDefault() {
         waitUntilPageIsLoaded();
         findElementByXpath(EXPIRY_DATE_INPUT_FIELD_XPATH).click();
+        waitUntilPageIsLoaded();
         findElementById(DONE_ID).click();
     }
 

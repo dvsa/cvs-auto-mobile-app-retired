@@ -28,6 +28,7 @@ public class SeatbeltInstallationCheckPage extends BasePage {
     }
 
     public void clickCancel() {
+        waitUntilPageIsLoaded();
         findElementById(CANCEL_BUTTON_ID).click();
     }
 

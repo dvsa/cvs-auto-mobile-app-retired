@@ -90,7 +90,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");
-        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.setExpiryDateDefault();
         testTypeDetailsSteps.setEmissionStandard(EmissionStandard.OPTION_1);
         testTypeDetailsSteps.setSmokeTestKLimitApplied("5000");
@@ -128,7 +128,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");
-        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.setExpiryDateDefault();
         testTypeDetailsSteps.setEmissionStandard(EmissionStandard.OPTION_1);
         testTypeDetailsSteps.setSmokeTestKLimitApplied("5000");
@@ -166,7 +166,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");
-        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.setExpiryDateDefault();
         testTypeDetailsSteps.setEmissionStandard(EmissionStandard.OPTION_1);
         testTypeDetailsSteps.setSmokeTestKLimitApplied("5000");
