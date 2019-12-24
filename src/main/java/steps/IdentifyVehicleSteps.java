@@ -5,6 +5,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 import pages.IdentifyVehiclePage;
 import pages.SearchCriteriaPage;
 
+import util.SearchCriteria;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class IdentifyVehicleSteps extends ScenarioSteps {
@@ -123,5 +125,25 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
         assertThat(identifyVehiclePage.isIdentifyVehicleTitleDisplayed()).isTrue();
     }
 
+    @Step
+    public void checkSearchCriteriaSectionIsDisplayed() {
+        assertThat(identifyVehiclePage.isSearchCriteriaSectionDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkSearchCriteriaButtonIsSelected(SearchCriteria searchCriteria) {
+        assertThat(identifyVehiclePage.isSearchCriteriaButtonDisplayed(searchCriteria)).isTrue();
+    }
+
+    @Step
+    public void checkSearchBoxAndText(SearchCriteria searchCriteriaText) {
+        assertThat(identifyVehiclePage.isSearchFieldDisplayed()).isTrue();
+        assertThat(identifyVehiclePage.getSearchFieldText()).contains("Enter " + searchCriteriaText.getDescription().substring(0, 1).toLowerCase() + searchCriteriaText.getDescription().substring(1));
+    }
+
+    @Step
+    public void clickSearchCriteriaButton() {
+        identifyVehiclePage.pressSearchCriteriaButton();
+    }
 }
 
