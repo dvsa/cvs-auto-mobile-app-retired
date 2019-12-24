@@ -1,6 +1,11 @@
 package pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class TestReviewPage extends BasePage {
     private static final String SUBMIT_BUTTON_ID = "Submit test";
@@ -22,7 +27,7 @@ public class TestReviewPage extends BasePage {
     private static final String ERROR_SETTINGS = "Settings";
     private static final String ERROR_TRY_AGAIN = "Try again";
     private static final String PREVIOUS_TEST_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
-
+    private static final String ELEMENT_TEXT_ID = "XCUIElementTypeStaticText";
 
     public void goToTestPage() {
         findElementById(BACK_TO_TEST_ID).click();
@@ -106,14 +111,13 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean verifyTestStatus(String testType, String status) {
-        boolean isTestTypeDisplayed = checkDisplayedElement(testType);
-        boolean isStatusDisplayed = checkDisplayedElement(status);
-
-        if (isStatusDisplayed && isTestTypeDisplayed) {
-            return true;
-        } else {
-            return false;
+        List<WebElement> allTexts = findElementsByClassName(ELEMENT_TEXT_ID);
+        for(int i  = 0; i < allTexts.size() - 1; i++){
+            if(allTexts.get(i).getAttribute("name").equals(testType) && allTexts.get(i+1).getAttribute("name").equals(status)){
+                return true;
+            }
         }
+        return false;
     }
 
     public void scrollPageDown() {
