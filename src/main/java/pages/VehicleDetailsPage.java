@@ -56,7 +56,7 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public void clickConfirmPopUp() {
-        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID), 2);
         findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
     }
 
@@ -85,11 +85,8 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean isRegistrationPlateDisplayed(String registrationPlate) {
-        boolean status = false;
-        if (findElementById(registrationPlate).isDisplayed()) {
-            status = true;
-        }
-        return status;
+        waitUntilPageIsLoaded();
+        return findElementById(registrationPlate).isDisplayed();
     }
 
     public boolean elementFromListIsDisplayed(String element) {
@@ -127,11 +124,11 @@ public class VehicleDetailsPage extends BasePage {
             actualData.add(webElement.getAttribute("name"));
         }
 //        System.out.println("list: " + actualData);
-        for(String data:actualData){
+        for (String data : actualData) {
 //            System.out.println("inside for @: " + data);
-            if(data.equals(attribute)){
+            if (data.equals(attribute)) {
 //                System.out.println("comparing data: " + data + " with: " + value);
-                if(actualData.get(actualData.indexOf(data)+1).equals(value)){
+                if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
                     return true;
                 }
             }
@@ -143,11 +140,16 @@ public class VehicleDetailsPage extends BasePage {
 
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTON_XPATH);
         for (WebElement webElement : webElementList) {
-            if(webElement.getAttribute("name").equals(button)){
+            if (webElement.getAttribute("name").equals(button)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean isVinDisplayed(String vin) {
+        waitUntilPageIsLoaded();
+        return findElementById(vin).isDisplayed();
     }
 
     public boolean isSectionHeadingDisplayed(String sectionHeading) {
