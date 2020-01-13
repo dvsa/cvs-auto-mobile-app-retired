@@ -215,10 +215,12 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void selectIsCarriedOut() {
+        waitUntilPageIsLoaded();
         findElementById(CARRIED_OUT_YES_OPTION_ID).click();
     }
 
     public void selectIsNotCarriedOut() {
+        waitUntilPageIsLoaded();
         findElementById(CARRIED_OUT_NO_OPTION_ID).click();
     }
 

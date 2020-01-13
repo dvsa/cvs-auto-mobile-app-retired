@@ -42,15 +42,29 @@ public class TestReviewPage extends BasePage {
 
     public boolean checkDisplayedElement(String element) {
         System.out.println("Checking element is displayed: " + element);
-        boolean status;
-        try {
-            status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
-            System.out.println("- Found (Displayed: " + status + ")");
-        } catch (NoSuchElementException e) {
-            status = false;
-            System.out.println("- NOT found");
+        int numberOfElements = findElementsByXpath("//*[@name=\"" + element + "\"]").size();
+        boolean status = false;
+        if (numberOfElements == 1) {
+            try {
+                status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
+                System.out.println("- Found (Displayed: " + status + ")");
+            } catch (ElementNotVisibleException e) {
+                status = false;
+                System.out.println("Element was found but is not visible");
+            }
         }
-
+        if (numberOfElements > 1) {
+            try {
+                status = findElementByXpath("//*[@name=\"" + element + "\"][@visible=\"true\"]").isDisplayed();
+                System.out.println("- Found (Displayed: " + status + ")");
+            } catch (ElementNotVisibleException e) {
+                status = false;
+                System.out.println("Element was found but is not visible");
+            }
+        }
+        if (numberOfElements == 0) {
+            throw new NoSuchElementException("No elements found");
+        }
         return status;
     }
 
