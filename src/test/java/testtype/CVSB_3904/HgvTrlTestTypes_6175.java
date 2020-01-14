@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -58,6 +59,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV Technical)")
     @Test
     public void testTypeDrillDownHgvTechnical() {
@@ -73,6 +75,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeSubcategorySteps.checkTestTypesInListAreSelectable(availableTestTypesSubcategory);
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (TRL Technical)")
     @Test
     public void testTypeDrillDownTrlTechnical() {
@@ -89,6 +92,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV 2-5 axles Retest)")
     @Test
     public void testTypeDrillDownHgv2to5AxlesRetest() {
@@ -105,6 +109,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV not between 2-5 axles Retest)")
     @Test
     public void testTypeDrillDownHgvNot2to5AxlesRetest() {
@@ -121,6 +126,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-6556 - AC2 - Select a test type category that contains other test type categories (TRL 1-5 axles Retest)")
     @Test
     public void testTypeDrillDownTrl1to5AxlesRetest() {
@@ -137,6 +143,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-6556 - AC2 - Select a test type category that contains other test type categories (TRL greater than 5 axles Retest)")
     @Test
     public void testTypeDrillDownTrlGraterThan5AxlesRetest() {
@@ -153,6 +160,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV 2-5 axles Prohibition clearance)")
     @Test
     public void testTypeDrillDownHgv2to5AxlesProhibition() {
@@ -169,6 +177,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV not between 2-5 axles Prohibition clearance)")
     @Test
     public void testTypeDrillDownHgvNot2to5AxlesProhibition() {
@@ -186,6 +195,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (TRL 1-5 axles Prohibition Clearance)")
     @Test
     public void testTypeDrillDownTrl1to5AxlesProhibition() {
@@ -202,6 +212,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (TRL greater than 5 axles Prohibition Clearance)")
     @Test
     public void testTypeDrillDownTrlGreaterThan5AxlesProhibition() {
@@ -219,6 +230,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV 2-5 axles Voluntary)")
     @Test
     public void testTypeDrillDownHgv2to5AxlesVoluntary() {
@@ -235,6 +247,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (HGV not between 2-5 axles Voluntary)")
     @Test
     public void testTypeDrillDownHgvNot2to5AxlesVoluntary() {
@@ -251,6 +264,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (TRL 1-5 axles Voluntary)")
     @Test
     public void testTypeDrillDownTrl1to5AxlesVoluntary() {
@@ -267,6 +281,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories (TRL greater than 5 axles Voluntary)")
     @Test
     public void testTypeDrillDownTrlGreaterThan5AxlesVoluntary() {
@@ -283,6 +298,23 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories")
+    @Test
+    public void testTypeDrillDownTrlGreaterThan5AxlesProhibitionClearence() {
+        String[] availableTestTypes = {"Technical test", "Retest", "Voluntary test"};
+        String[] notAvailableTestTypes = {"Prohibition clearance"};
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("TIR");
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+
+    }
+
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV 2-5 axles annual test)")
     @Test
     public void testTypeDrillDownHgv2to5AxlesAnnual() {
@@ -297,6 +329,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV not between 2-5 axles annual test)")
     @Test
     public void testTypeDrillDownHgvNot2to5AxlesAnnual() {
@@ -313,6 +346,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL 1-5 axles annual test)")
     @Test
     public void testTypeDrillDownTrl1to5AxlesAnnual() {
@@ -327,6 +361,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL greater than 5 axles annual test)")
     @Test
     public void testTypeDrillDownTrlGreaterThan5AxlesAnnual() {
@@ -342,6 +377,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV 2-5 axles first test)")
     @Test
     public void testTypeDrillDownHgv2to5AxlesFirst() {
@@ -356,6 +392,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (HGV not between 2-5 axles first test)")
     @Test
     public void testTypeDrillDownHgvNot2to5AxlesFirst() {
@@ -372,6 +409,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL 1-5 axles first test)")
     @Test
     public void testTypeDrillDownTrl1to5AxlesFirst() {
@@ -386,6 +424,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     }
 
+    @Ignore
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories (TRL greater than 5 axles first test)")
     @Test
     public void testTypeDrillDownTrlGreaterThan5AxlesFirst() {
@@ -399,6 +438,18 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.checkNotInTestTypeList(notAvailableTestTypes);
         testTypeSubcategorySteps.seeInTestTypeList(availableTestTypes);
+    }
+
+    @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories")
+    @Test
+    public void testTypeCategoryThatDoesNotContainOtherTestTypeCategories() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("First test");
+        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
     }
 
     @Title("CVSB-3904 - AC4 - Add a linked test ")
