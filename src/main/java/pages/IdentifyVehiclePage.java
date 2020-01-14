@@ -14,7 +14,7 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String SEARCH_OPTION = "Search";
     private static final String OK_ID = "OK";
-    private static final String DESCRIPTION_ID = "You can find a vehicle by typing in its registration number or vehicle identification / chassis number";
+    private static final String DESCRIPTION_ID = "Check you have entered the correct value or change the search criteria to identify a vehicle";
     private static final String TITLE_ID = "Vehicle not found";
     private static final String LOADING_SCREEN_ID = "Loading...";
 

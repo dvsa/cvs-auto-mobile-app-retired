@@ -99,6 +99,7 @@ public class EUVehicleCategoryPage extends BasePage{
 
     public void clickOption(String option) {
         waitUntilPageIsLoaded();
+        waitUntilPageIsLoaded();
         List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
         for (WebElement button : buttonList) {
             if (button.getAttribute("name").contains(option)) {
