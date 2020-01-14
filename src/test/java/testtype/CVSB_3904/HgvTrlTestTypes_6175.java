@@ -300,10 +300,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories")
     @Test
-    public void testTypeDrillDownTrlGreaterThan5AxlesProhibitionClearence() {
-        String[] availableTestTypes = {"Technical test", "Retest", "Voluntary test"};
-        String[] notAvailableTestTypes = {"Prohibition clearance"};
-
+    public void testTypeCategoryThatContainsOtherTestTypeCategories() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
