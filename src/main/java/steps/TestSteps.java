@@ -45,6 +45,12 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkMotorcycleTestDetails(String regPlate, String vin) {
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isMotorcycleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
+    }
+
+    @Step
     public void checkTrailerTestDetails(String trailer, String vin) {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isTrailerRegistrationPlateDisplayed(trailer, vin)).isTrue();
@@ -310,23 +316,6 @@ public class TestSteps extends ScenarioSteps {
             testPage.waitUntilPageIsLoaded();
             assertThat(testPage.isPageTitleDisplayed() && testPage.isHgvRegistrationPlateDisplayed(hgv, vin)).isTrue();
         }
-    @Step
-    public void checkCarTestDetails(String car, String vin) {
-        testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isCarRegistrationPlateDisplayed(car, vin)).isTrue();
-    }
-
-    @Step
-    public void checkMotorcycleTestDetails(String moto, String vin) {
-        testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isMotoRegistrationPlateDisplayed(moto, vin)).isTrue();
-    }
-
-    @Step
-    public void checkMotorcycleTestDetails(String regPlate, String vin) {
-        testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isMotorcycleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
-    }
 
     @Step
     public void selectHgvDetails() {
@@ -403,10 +392,5 @@ public class TestSteps extends ScenarioSteps {
     @Step
     public void clickUnsetEuVehicleCategory() {
         testPage.clickUnsetEuVehicleCategory();
-    }
-    @Step
-    public void checkLgvTestDetails(String lgv  , String vin) {
-        testPage.waitUntilPageIsLoaded();
-        assertThat(testPage.isPageTitleDisplayed() && testPage.isLgvRegistrationPlateDisplayed(lgv, vin)).isTrue();
     }
 }
