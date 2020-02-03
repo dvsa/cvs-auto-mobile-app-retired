@@ -128,6 +128,22 @@ public class TestPage extends BasePage {
         return null;
     }
 
+
+    public boolean isCarRegistrationPlateDisplayed(String regPlate, String vin) {
+        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (CAR) " + vin + " Details arrow forward']");
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (CAR) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+    public boolean isMotoRegistrationPlateDisplayed(String moto, String vin) {
+        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + moto + " (MOTORCYCLE) " + vin + " Details arrow forward']");
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + moto + " (MOTORCYCLE) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
+    public boolean isLgvRegistrationPlateDisplayed(String lgv, String vin) {
+        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + lgv + " (LGV) " + vin + " Details arrow forward']");
+        return findElementByXpath("//XCUIElementTypeButton[@name='" + lgv + " (LGV) " + vin + " Details arrow forward']").isDisplayed();
+    }
+
     public enum OdometerUnitIndicatives {
         ENTER("Enter"), KM("km"), MI("mi");
 
