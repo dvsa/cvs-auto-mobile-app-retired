@@ -22,6 +22,7 @@ public class AbandonTestSteps extends ScenarioSteps {
 
     @Step
     public void checkSelectedReasons(SelectReasonPage.Reasons... reasons) {
+        abandonTestPage.waitUntilPageIsLoaded();
         List<String> actualDataList = abandonTestPage.findAllValuesByXpath();
         for (SelectReasonPage.Reasons expectedReason : reasons) {
             assertThat(actualDataList.contains(selectReasonPage.getReasonTexts(expectedReason))).isTrue();
