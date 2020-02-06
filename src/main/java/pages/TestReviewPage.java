@@ -46,6 +46,7 @@ public class TestReviewPage extends BasePage {
     }
 
     public boolean checkDisplayedElement(String element) {
+        waitUntilPageIsLoaded();
         System.out.println("Checking element is displayed: " + element);
         int numberOfElements = findElementsByXpath("//*[@name=\"" + element + "\"]").size();
         boolean status = false;

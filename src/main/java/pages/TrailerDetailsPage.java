@@ -100,7 +100,8 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public void clickExpandableInformation(String info) {
-        waitUntilPageIsLoadedById(info).click();
+        waitUntilPageIsLoaded();
+        findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + info + "')]").click();
     }
 
     public boolean isFieldValueNull(String value) {
