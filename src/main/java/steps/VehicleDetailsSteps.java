@@ -42,10 +42,23 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     public void checkDetailPageData(String VIN, String chassisMake, String chassisModel, String bodyMake,
                                     String bodyModel, String bodyType, String yearOfManufacture,
                                     String dateOfFirstReg, String axles, String brakeCode ) {
+
+        // VIN should ONLY have uppercase characters in it.
+        VIN = VIN.toUpperCase();
+
         vehicleDetailsPage.waitUntilPageIsLoaded();
         List<String> actualData = vehicleDetailsPage.findAllValuesByXpath();
+
+        // If any fields are blank, ensure it's handled by matching the empty search values to a "found" value.
+        actualData.add("");
+
         assertThat(actualData).contains(VIN, chassisMake, chassisModel, bodyMake, bodyModel, bodyType
                 , yearOfManufacture, dateOfFirstReg, axles, brakeCode);
+    }
+
+    @Step
+    public void verifySectionHeadingIsDisplayed(String heading) {
+        assertThat(vehicleDetailsPage.isSectionHeadingDisplayed(heading)).isTrue();
     }
 
     @Step
@@ -159,6 +172,11 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     @Step
     public void checkDateOfFirstRegistrationIs(String date) {
         assertThat(vehicleDetailsPage.isAttribute("Date of first registration", date)).isTrue();
+    }
+
+    @Step
+    public void checkNumberOfWheelsIs(String wheels) {
+        assertThat(vehicleDetailsPage.isAttribute("Number of wheels", wheels)).isTrue();
     }
 
     @Step

@@ -148,4 +148,8 @@ public class VehicleDetailsPage extends BasePage {
         }
         return false;
     }
+
+    public boolean isSectionHeadingDisplayed(String sectionHeading) {
+        return (findElementById(sectionHeading).isDisplayed());
+    }
 }

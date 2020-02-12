@@ -33,6 +33,24 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkCarTestDetails(String regPlate, String vin) {
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isCarRegistrationPlateDisplayed(regPlate, vin)).isTrue();
+    }
+
+    @Step
+    public void checkLGVTestDetails(String regPlate, String vin) {
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isLGVRegistrationPlateDisplayed(regPlate, vin)).isTrue();
+    }
+
+    @Step
+    public void checkMotorcycleTestDetails(String regPlate, String vin) {
+        testPage.waitUntilPageIsLoaded();
+        assertThat(testPage.isPageTitleDisplayed() && testPage.isMotorcycleRegistrationPlateDisplayed(regPlate, vin)).isTrue();
+    }
+
+    @Step
     public void checkTrailerTestDetails(String trailer, String vin) {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isTrailerRegistrationPlateDisplayed(trailer, vin)).isTrue();

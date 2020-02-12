@@ -190,9 +190,15 @@ public class AdditionalVehicleDetailsSteps extends ScenarioSteps {
         assertThat(additionalVehicleDetailsPage.getMaxOfElement("COUPLING CENTRE TO THE REAR OF THE TRAILER (MM)").getAttribute("name").equals(couplingCentreToRearAxleMinValue)).isTrue();
     }
 
+    @Step
     public void checkNotesIsDisplayed() {
         additionalVehicleDetailsPage.waitUntilPageIsLoaded();
         assertThat(additionalVehicleDetailsPage.isDetailDisplayed("NOTES")).isTrue();
+    }
+
+    @Step
+    public void checkNotesIsEmpty() {
+        assertThat(additionalVehicleDetailsPage.getNotes().getText().contentEquals("Not entered")).isTrue();
     }
 }
 
