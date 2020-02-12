@@ -1,0 +1,134 @@
+package vehicle.CVSB_10751;
+
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import steps.*;
+import util.BaseTestClass;
+
+
+
+@RunWith(SerenityRunner.class)
+public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
+    @Steps
+    LaunchSteps launchSteps;
+
+    @Steps
+    SearchForAnATFSteps searchForAnATFSteps;
+
+    @Steps
+    ATFDetailsSteps atfDetailsSteps;
+
+    @Steps
+    SiteVisitSteps siteVisitSteps;
+
+    @Steps
+    IdentifyVehicleSteps identifyVehicleSteps;
+
+    @Steps
+    SelectVehicleSteps selectVehicleSteps;
+
+    @Steps
+    TrailerDetailsSteps trailerDetailsSteps;
+
+    @Steps
+   TestHistorySteps testHistorySteps;
+
+    @Steps
+    VehicleDetailsSteps vehicleDetailsSteps;
+
+    @Title("CVSB - 10751 - AC1 Single vehicle retrieved, access vehicle details")
+    @Test
+    public void testSingleVehicleDetails(){
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("012356");
+        vehicleDetailsSteps.checkPageTitle();
+        selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
+        selectVehicleSteps.pressBackCta();
+        identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();
+        identifyVehicleSteps.checkSearchBoxIsDisplayed();
+
+    }
+
+    @Title("CVSB - 10752 - AC2 Single vehicle retrieved - go back from vehicle details")
+    @Test
+    public void testGoBackToSingleVehicleList(){
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("012356");
+        vehicleDetailsSteps.checkPageTitle();
+        selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
+
+    }
+
+
+    @Title("CVSB - 10751 - AC3 Multiple vehicles retrieved, access vehicle list")
+    @Test
+    public void testMultipleVehicleAccessList() {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("484009");
+        selectVehicleSteps.waitUntilPageIsLoaded();
+        selectVehicleSteps.multipleVehicleDisplayed();
+        selectVehicleSteps.checkPageTitle();
+        selectVehicleSteps.checkVehicleDetails();
+        selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
+        selectVehicleSteps.selectTrailer();
+        trailerDetailsSteps.checkPageTitle();
+        trailerDetailsSteps.selectTrailerTestHistory();
+        testHistorySteps.checkNoTestHistoryIsDisplayed();
+    }
+
+    //Defect - 12007
+    @Title("CVSB - 10751 - AC4 Multiple vehicles retrieved, access vehicle details & AC5 Multiple vehicles retrieved - go back from vehicle details")
+    @Test
+    public void testMultipleVehicleDetails(){
+
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("484009");
+        selectVehicleSteps.waitUntilPageIsLoaded();
+        selectVehicleSteps.checkPageTitle();
+        selectVehicleSteps.multipleVehicleDisplayed();
+        selectVehicleSteps.checkVehicleDetails();
+        selectVehicleSteps.selectTrailer();
+        trailerDetailsSteps.checkPageTitle();
+        //TO DO - checkBackCta to be Select Vehicle(Defect 12007)
+        selectVehicleSteps.multipleVehicleDisplayed();
+        selectVehicleSteps.checkPageTitle();
+        selectVehicleSteps.checkVehicleDetails();
+        selectVehicleSteps.selectPsv();
+        trailerDetailsSteps.checkPageTitle();
+    }
+
+    @Title("CVSB - 10751 - AC6 Multiple vehicles retrieved - go back from vehicle list")
+    @Test
+    public void testGoBackToMultipleVehicleList(){
+
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("484009");
+        selectVehicleSteps.waitUntilPageIsLoaded();
+        selectVehicleSteps.multipleVehicleDisplayed();
+        selectVehicleSteps.checkPageTitle();
+        selectVehicleSteps.checkVehicleDetails();
+        selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
+        selectVehicleSteps.pressBackCta();
+        identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();
+        identifyVehicleSteps.checkSearchBoxIsDisplayed();
+    }
+}
