@@ -28,8 +28,10 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String TEST_RESULT_XPATH = "//XCUIElementTypeButton[contains(@name, 'Test result')]";
     private static final String PASS_ID = "Pass";
     private static final String FAIL_ID = "Fail";
+    private static final String PRS_ID = "PRS";
     private static final String CANCEL_LEC_TEST_ID = "Cancel";
     private static final String CERTIFICATE_NUMBER_LABEL_ID = "CERTIFICATE NUMBER";
+    private static final String CERTIFICATE_NUMBER_COIFLABEL_ID = "CERTIFICATE NUMBER (COIF)";
     private static final String LP_LABEL_ID = "LP";
     private static final String CERTIFICATE_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String TECHNICAL_TEST_EDIT_ID = "Technical test Edit checkmark";
@@ -372,6 +374,11 @@ public class TestTypeDetailsPage extends BasePage {
         findElementByAccessibilityId(FAIL_ID).click();
     }
 
+    public void setPRSTest() {
+        waitUntilPageIsLoaded();
+        findElementByAccessibilityId(PRS_ID).click();
+    }
+
     public void cancelLecTest() {
         waitUntilPageIsLoaded();
         findElementByAccessibilityId(CANCEL_LEC_TEST_ID).click();
@@ -408,6 +415,10 @@ public class TestTypeDetailsPage extends BasePage {
 
     public boolean checkCertificateNumberLabelIsPresent() {
         return findElementById(CERTIFICATE_NUMBER_LABEL_ID).isDisplayed();
+    }
+
+    public boolean checkCertificateNumberCOIFLabelIsPresent() {
+        return findElementById(CERTIFICATE_NUMBER_COIFLABEL_ID).isDisplayed();
     }
 
     public void sendCertificateNumberAndSave(String certificateNumber) {
@@ -460,6 +471,10 @@ public class TestTypeDetailsPage extends BasePage {
 
     public boolean isFailOptionDisplayed() {
         return findElementByAccessibilityId(FAIL_ID).isDisplayed();
+    }
+
+    public boolean isPRSOptionDisplayed() {
+        return findElementByAccessibilityId(PRS_ID).isDisplayed();
     }
 
     public boolean isSelectStatusDisplayed() {

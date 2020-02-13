@@ -100,17 +100,32 @@ public class SelectReasonSteps extends ScenarioSteps {
      * @param reason
      */
     @Step
-    public void selectAReason(SelectReasonPage.SpecialistReasons reason) {
+    public void selectAReason(SelectReasonPage.ReasonsSpecialist reason) {
         waitForPageToLoad();
-        if (selectReasonPage.isReasonFromListDisplayed(reason)){
-            selectReasonPage.selectReason(reason);
+        if (selectReasonPage.isSpecialistReasonFromListDisplayed(reason)){
+            selectReasonPage.selectSpecialistReason(reason);
         } else {
             selectReasonPage.scrollPageDown();
-            if (selectReasonPage.isReasonFromListDisplayed(reason)) {
-                selectReasonPage.selectReason(reason);
+            if (selectReasonPage.isSpecialistReasonFromListDisplayed(reason)) {
+                selectReasonPage.selectSpecialistReason(reason);
             } else {
                 selectReasonPage.scrollPageUp();
-                selectReasonPage.selectReason(reason);
+                selectReasonPage.selectSpecialistReason(reason);
+            }
+        }
+    }
+
+    @Step
+    public void selectASpecialistReason(SelectReasonPage.ReasonsSpecialist reason) {
+        if (selectReasonPage.isSpecialistReasonFromListDisplayed(reason)){
+            selectReasonPage.selectSpecialistReason(reason);
+        } else {
+            selectReasonPage.scrollPageDown();
+            if (selectReasonPage.isSpecialistReasonFromListDisplayed(reason)) {
+                selectReasonPage.selectSpecialistReason(reason);
+            } else {
+                selectReasonPage.scrollPageUp();
+                selectReasonPage.selectSpecialistReason(reason);
             }
         }
     }
@@ -134,7 +149,7 @@ public class SelectReasonSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkReasonsAreDisplayed(SelectReasonPage.SpecialistReasons... reasons) {
+    public void checkReasonsAreDisplayed(SelectReasonPage.ReasonsSpecialist... reasons) {
         assertThat(selectReasonPage.areAllReasonsDisplayed(reasons)).isTrue();
     }
 
