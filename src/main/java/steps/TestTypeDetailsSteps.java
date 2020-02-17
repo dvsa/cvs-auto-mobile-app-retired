@@ -612,4 +612,9 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void checkFuelTypeIsShown(FuelType fuelType) {
         assertThat(testTypeDetailsPage.getSelectedFuelType().equalsIgnoreCase(fuelType.getName())).isTrue();
     }
+
+    @Step
+    public void checkDefectIsPresent(String defect) {
+        assertThat(testTypeDetailsPage.containsText(defect)).isTrue();
+    }
 }

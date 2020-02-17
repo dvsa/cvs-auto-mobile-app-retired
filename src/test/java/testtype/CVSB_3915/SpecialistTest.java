@@ -47,6 +47,9 @@ public class SpecialistTest extends BaseTestClass {
     @Steps
     TestReviewSteps testReviewSteps;
 
+    @Steps
+    DefectDetailsSteps defectDetailsSteps;
+
     @Title("CVSB-3915 - AC1 - Specialist Test Details")
     @Test
     public void testFieldsDisplayedInApp() {
@@ -224,9 +227,18 @@ public class SpecialistTest extends BaseTestClass {
 
         testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+        testTypeDetailsSteps.pressSave();
 
+        // AC10 - Entering no certificate number.
+        testSteps.clickReviewAndSubmit();
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
+        // AC9 - Digit certificate number validation
         // Verify certificate field is 20 alphanumeric characters (by removing character 21).
-        testTypeDetailsSteps.sendCertificateNumberAndSave("1234567890ABCDEFGHIJ1");
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ1");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
 
         // Also, as the last field (certificate number) has been populated, validation error should be removed.
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
@@ -270,6 +282,7 @@ public class SpecialistTest extends BaseTestClass {
         // Certificate field not displayed until a Pass or PRS option is selected.
         testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
 
+        // AC7 - VSA selects result = FAIL
         testTypeDetailsSteps.setTestToOption("fail");
         testTypeDetailsSteps.checkCertificateNumberCOIFIsNotDisplayed();
 
@@ -277,12 +290,17 @@ public class SpecialistTest extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberCOIFIsDisplayed();
         testTypeDetailsSteps.pressSave();
 
+        // AC10 - Entering no certificate number.
         // Only field missing now is the certificate number - should be a validation error.
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
+        // AC9 - Digit certificate number validation
         // Verify certificate field is 20 alphanumeric characters (by removing character 21).
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.sendCertificateNumberAndSave("1234567890ABCDEFGHIJ1");
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ1");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
         testTypeDetailsSteps.pressSave();
@@ -319,6 +337,7 @@ public class SpecialistTest extends BaseTestClass {
         // Certificate field not displayed until a Pass or PRS option is selected.
         testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
 
+        // AC7 - VSA selects result = FAIL
         testTypeDetailsSteps.setTestToOption("fail");
         testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
 
@@ -329,9 +348,12 @@ public class SpecialistTest extends BaseTestClass {
         // Only field missing now is the certificate number - as this is optional, should not cause a validation error.
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
 
+        // AC9 - Digit certificate number validation
         // Verify certificate field is 20 alphanumeric characters (by removing character 21).
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.sendCertificateNumberAndSave("1234567890ABCDEFGHIJ1");
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ1");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
         testTypeDetailsSteps.pressSave();
@@ -339,5 +361,112 @@ public class SpecialistTest extends BaseTestClass {
         // Verify certificate number is optional - should progress to Test Review screen.
         testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
+    }
+
+    @Title("CVSB-3915 - AC11 - Defects")
+    @Test
+    public void testDefects() {
+
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+
+        // View the Specialist Test details.
+        // In order to verify that the test result is mandatory, fill all other test fields first.
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.selectM2Option();
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("12345");
+        odometerReadingSteps.pressSave();
+
+        // View the Specialist Test details - and add a defect.
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.clickAddDefect();
+        defectDetailsSteps.checkPageTitleIsDisplayed();
+        defectDetailsSteps.checkSectionHeadingIsShown("REFERENCE NUMBER");
+        defectDetailsSteps.checkSectionHeadingIsShown("DEFECT NAME");
+        defectDetailsSteps.checkSectionHeadingIsShown("DEFECT NOTES");
+
+        // Add a defect.
+        defectDetailsSteps.setReferenceNumber("12345");
+        defectDetailsSteps.setDefectName("My defect 1");
+        defectDetailsSteps.setDefectNotes("My defect 1 notes.");
+        defectDetailsSteps.tapDone();
+
+        // Verify can add more than 1 defect.
+        testTypeDetailsSteps.clickAddDefect();
+        defectDetailsSteps.setReferenceNumber("23456");
+        defectDetailsSteps.setDefectName("My defect 2");
+        defectDetailsSteps.setDefectNotes("My defect 2 notes.");
+        defectDetailsSteps.tapDone();
+
+        // Verify that the defects are listed.
+        testTypeDetailsSteps.checkDefectIsPresent("My defect 1");
+        testTypeDetailsSteps.checkDefectIsPresent("My defect 2");
+
+        // Remove a defect.
+        testTypeDetailsSteps.selectDefectBasedOnDefectDescription("My defect 1");
+        defectDetailsSteps.pressRemove();
+        defectDetailsSteps.pressRemoveInPopUp();
+        testTypeDetailsSteps.checkDefectRemoved("My defect 1");
+
+        // Mandatory field check
+        testTypeDetailsSteps.clickAddDefect();
+        defectDetailsSteps.tapDone();
+        // exepect a fail of some kind here.
+    }
+
+    @Title("CVSB-3915 - AC12 - Reference Number, AC13 - Defect Name, AC14 - Defect Notes")
+    @Test
+    public void testDefectAttributes() {
+
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+
+        // View the Specialist Test details.
+        // In order to verify that the test result is mandatory, fill all other test fields first.
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.selectM2Option();
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("12345");
+        odometerReadingSteps.pressSave();
+
+        // View the Specialist Test details - and add a defect.
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.clickAddDefect();
+        defectDetailsSteps.checkPageTitleIsDisplayed();
+
+        // AC12 - Reference Number (Maximum 10 characters).
+        String longReferenceNumber = "12345ABCDE";
+        defectDetailsSteps.setReferenceNumber(longReferenceNumber + "X");
+        defectDetailsSteps.checkReferenceNumberIs(longReferenceNumber);
+
+        // AC13 - Defect Name (Maximum 200 characters)
+        String longText200 = "12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+        defectDetailsSteps.setDefectName(longText200 + "X");
+        defectDetailsSteps.checkDefectNameIs(longText200);
+
+        // AC14 - Defect Notes (Maximum 200 characters)
+       defectDetailsSteps.setDefectNotes(longText200 + "X");
+       defectDetailsSteps.checkDefectNotesIs(longText200);
     }
 }
