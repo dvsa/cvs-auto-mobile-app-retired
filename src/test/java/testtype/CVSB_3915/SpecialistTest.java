@@ -397,6 +397,7 @@ public class SpecialistTest extends BaseTestClass {
         defectDetailsSteps.checkSectionHeadingIsShown("DEFECT NOTES");
 
         // Add a defect.
+        String defect1 = "12345 My defect 1 My defect 1 notes.";
         defectDetailsSteps.setReferenceNumber("12345");
         defectDetailsSteps.setDefectName("My defect 1");
         defectDetailsSteps.setDefectNotes("My defect 1 notes.");
@@ -404,25 +405,21 @@ public class SpecialistTest extends BaseTestClass {
 
         // Verify can add more than 1 defect.
         testTypeDetailsSteps.clickAddDefect();
+        String defect2 = "23456 My defect 2 My defect 2 notes.";
         defectDetailsSteps.setReferenceNumber("23456");
         defectDetailsSteps.setDefectName("My defect 2");
         defectDetailsSteps.setDefectNotes("My defect 2 notes.");
         defectDetailsSteps.tapDone();
 
         // Verify that the defects are listed.
-        testTypeDetailsSteps.checkDefectIsPresent("My defect 1");
-        testTypeDetailsSteps.checkDefectIsPresent("My defect 2");
+        testTypeDetailsSteps.checkDefectIsPresent(defect1);
+        testTypeDetailsSteps.checkDefectIsPresent(defect2);
 
         // Remove a defect.
-        testTypeDetailsSteps.selectDefectBasedOnDefectDescription("My defect 1");
+        testTypeDetailsSteps.selectDefectBasedOnDefectDescription(defect1);
         defectDetailsSteps.pressRemove();
         defectDetailsSteps.pressRemoveInPopUp();
-        testTypeDetailsSteps.checkDefectRemoved("My defect 1");
-
-        // Mandatory field check
-        testTypeDetailsSteps.clickAddDefect();
-        defectDetailsSteps.tapDone();
-        // exepect a fail of some kind here.
+        testTypeDetailsSteps.checkDefectRemoved(defect1);
     }
 
     @Title("CVSB-3915 - AC12 - Reference Number, AC13 - Defect Name, AC14 - Defect Notes")

@@ -6,9 +6,7 @@ import pages.TestTypeDetailsPage;
 import util.EmissionStandard;
 import util.FuelType;
 import util.ModType;
-
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class TestTypeDetailsSteps extends ScenarioSteps {
 
@@ -615,6 +613,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkDefectIsPresent(String defect) {
-        assertThat(testTypeDetailsPage.containsText(defect)).isTrue();
+        assertThat(testTypeDetailsPage.getElementByLabel(defect).isDisplayed()).isTrue();
     }
 }
