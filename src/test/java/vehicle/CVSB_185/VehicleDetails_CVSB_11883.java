@@ -39,6 +39,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
         // CVSB-11883 - AC2 - Vehicle details screen (car)
         // Note: Following step may fail once date formats are changed.
         vehicleDetailsSteps.checkDetailPageData("P0123010911250", "", "", "", "","","2019-06-24","24/06/2019","","");
+        vehicleDetailsSteps.checkCountryOfRegistrationIs("Great Brit...");
 
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");
@@ -63,7 +64,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp_Car() {
 
-        vehicleComp.goToVehicleDetails("P0123010911250");
+        vehicleComp.goToVehicleDetails("P0123010911250"); // Car QW123RT
 
         // Check all ACs against the Vehicle Details screen (in the "look up vehicle" context).
         checkVehicleDetails_Car();

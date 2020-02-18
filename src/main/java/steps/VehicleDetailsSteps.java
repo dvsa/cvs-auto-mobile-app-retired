@@ -189,5 +189,8 @@ public class VehicleDetailsSteps extends ScenarioSteps {
         assertThat(vehicleDetailsPage.isAttribute("DTP", dtp)).isTrue();
     }
 
-
+    @Step
+    public void checkCountryOfRegistrationIs(String country) {
+        assertThat(vehicleDetailsPage.isAttribute("Country of registration", country)).isTrue();
+    }
 }
