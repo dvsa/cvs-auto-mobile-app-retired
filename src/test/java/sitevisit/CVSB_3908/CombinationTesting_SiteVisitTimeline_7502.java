@@ -50,7 +50,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-3908 - CVSB-3910 - Accept max 4 vehicles ")
     @Description(
             "CVSB-3908: \n" +

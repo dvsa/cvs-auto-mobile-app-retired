@@ -53,7 +53,6 @@ public class AutoCalculateTestTypeResult_2179 extends BaseTestClass {
     @Steps
     AdvisoryDetailsSteps advisoryDetailsSteps;
 
-    @WithTag("In_test")
     @Title("CVSB-929 - Fail test result - Major + Minor + Advisory defects")
     @Test
     public void testFailTestResultMajorMinorAdvisoryDefects() {
