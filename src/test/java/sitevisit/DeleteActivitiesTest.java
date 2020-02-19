@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.composed.TestTypeCategoryComp;
@@ -15,7 +16,7 @@ public class DeleteActivitiesTest extends BaseTestClass {
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
-    @WithTag("In_Test")
+    @Ignore("This is just a test to verify the deletion of activities from Dynamo works as expected")
     @Title("CVSB-12181 - Delete activities from Dynamo")
     @Test
     public void testChangesSingularVehicleTests() {
