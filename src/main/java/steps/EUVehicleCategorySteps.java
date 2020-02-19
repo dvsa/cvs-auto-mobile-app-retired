@@ -94,4 +94,22 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
         assertThat(euVehicleCategoryPage.isO3Displayed()).isTrue();
         assertThat(euVehicleCategoryPage.isO4Displayed()).isTrue();
     }
+
+    @Step
+    public void checkOptionsForMotorcycleAreDisplayed() {
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        assertThat(euVehicleCategoryPage.isLDescriptionLabelDisplayed());
+        assertThat(euVehicleCategoryPage.isL1eADisplayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isL1eDisplayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isL2eDisplayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isL3eDisplayed()).isTrue();
+        euVehicleCategoryPage.scrollToElement("L4e");
+        assertThat(euVehicleCategoryPage.isL4eDisplayed()).isTrue();
+        euVehicleCategoryPage.scrollToElement("L5e");
+        assertThat(euVehicleCategoryPage.isL5eDisplayed()).isTrue();
+        euVehicleCategoryPage.scrollToElement("L6e");
+        assertThat(euVehicleCategoryPage.isL6eDisplayed()).isTrue();
+        euVehicleCategoryPage.scrollToElement("L7e");
+        assertThat(euVehicleCategoryPage.isL7eDisplayed()).isTrue();
+    }
 }

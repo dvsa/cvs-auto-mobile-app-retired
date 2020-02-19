@@ -58,7 +58,6 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @Title("CVSB-11032 - AC1 - Fields displayed on test screen - LGV")
-    @WithTag("Smoke_2")
     @Test
     public void testFieldsDisplayedForLGV() {
 
@@ -70,6 +69,12 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.checkOdometerOptionIsDisplayed();
+
+        // AC4 - Pre-populated EU vehicle category.  NOTE: Can't "edit" this as only one option for LGV.
+        testSteps.checkEUVehicleCategoryOptionIs("N1");
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.clickSaveOptionButton();
 
         // Verify can access the Vehicle Details
         testSteps.selectVehicleDetails();
@@ -123,59 +128,147 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("22222");
         odometerReadingSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.scrollUp();
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 
-    @Ignore("CVSB-8749 - maintenance for improving test suite speed")
-    @Title("CVSB-6771 - AC1 - Fields displayed on test screen - HGV (test history)")
+    @Title("CVSB-11032 - AC2 - Fields displayed on test screen - CAR")
     @Test
-    public void testFieldsDisplayedTestHistoryForHgv() {
+    public void testFieldsDisplayedForCar() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250"); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","QW123RT");
+        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
+        testSteps.checkOdometerOptionIsDisplayed();
+
+        // AC4 - Pre-populated EU vehicle category.  NOTE: Can't "edit" this as only one option for Car.
+        testSteps.checkEUVehicleCategoryOptionIs("M1");
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.clickSaveOptionButton();
+
+        // Verify can access the Vehicle Details
         testSteps.selectVehicleDetails();
-        hgvDetailsSteps.selectVehicleTestHistory();
+        vehicleDetailsSteps.checkPageTitle();
+
+        // Verify can access the Test History
+        vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.checkPage();
-        testHistorySteps.checkRegPlate("CT70 VRL");
-        testHistorySteps.checkNoTestHistoryIsDisplayed();
+
         testHistorySteps.pressBackButton();
-        hgvDetailsSteps.selectWeights();
-        weightsSteps.checkFieldIsListed("AXLE 1");
-        weightsSteps.checkFieldIsListed("AXLE 2");
-        weightsSteps.checkFieldIsListed("TRAIN");
-        weightsSteps.checkFieldIsListed("GROSS");
-        weightsSteps.checkContentCategories("AXLE 1", "1400", "1800");
-        weightsSteps.checkContentCategories("AXLE 2", "1600", "1900");
-        weightsSteps.checkContentCategories("TRAIN", "1500", "2000");
-        weightsSteps.checkContentCategories("GROSS", "0", "0");
-        weightsSteps.pressBackButton();
+        vehicleDetailsSteps.pressBackButton();
+        testSteps.checkPageTitleDisplayed();
+
+        // Add a test type.
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
+        testTypeDetailsSteps.pressSave();
+        testSteps.checkPageTitleDisplayed();
+
+        // Verify that I am unable to add another vehicle to the test.
+        testSteps.checkAddATrailerButtonIsNotPresent();
+
+        // Verify that EU Vehicle Category is mandatory.
+        // (Difficult to test - the value is set to something already, and can't be "unset").
+
+        // Verify that Odometer Reading is mandatory.
+        testSteps.clickReviewAndSubmit();
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("22222");
+        odometerReadingSteps.pressSave();
+
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 
-    @Title("CVSB-6776 - AC1 - Fields displayed on test screen - HGV (select a test type)")
+    @Title("CVSB-11032 - AC3 - Fields displayed on test screen - Motorcycle")
     @Test
-    public void testFieldsDisplayedAddTestsForHgv() {
+    public void testFieldsDisplayedForMotorcycle() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789"); // MOTORCYCLE ZX345CV
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","ZX345CV");
+        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
+        testSteps.checkOdometerOptionIsDisplayed();
+
+        // AC4 - Pre-populated EU vehicle category / editable.
+        testSteps.checkEUVehicleCategoryOptionIs("L1e-A");
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.selectOption("L2e");
+        testSteps.checkEUVehicleCategoryOptionIs("L2e");
+
+        // Verify can access the Vehicle Details
+        testSteps.selectVehicleDetails();
+        vehicleDetailsSteps.checkPageTitle();
+
+        // Verify can access the Test History
+        vehicleDetailsSteps.selectVehicleTestHistory();
+        testHistorySteps.checkPage();
+
+        testHistorySteps.pressBackButton();
+        vehicleDetailsSteps.pressBackButton();
+        testSteps.checkPageTitleDisplayed();
+
+        // Add a test type.
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromTestTypeList("First test");
-        testSteps.addLinkedTestType();
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
-        testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
-        testTypeSubcategorySteps.selectFromTestTypeList("With certification");
-        testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.checkTestTypeStatus("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.checkTestTypeName("Paid prohibition clearance (full inspection with certification)");
-        testTypeDetailsSteps.checkNotesText("Add notes");
-        testTypeDetailsSteps.checkAddDefectIsPresent();
-        testTypeDetailsSteps.checkTestTypeAbandonButton();
-        testTypeDetailsSteps.checkTestTypeRemoveButton();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
+        testTypeDetailsSteps.pressSave();
+        testSteps.checkPageTitleDisplayed();
+
+        // Verify that I am unable to add another vehicle to the test.
+        testSteps.checkAddATrailerButtonIsNotPresent();
+
+        // Verify that EU Vehicle Category is mandatory.
+        // (Difficult to test - the value is set to something already, and can't be "unset").
+
+        // Verify that Odometer Reading is mandatory.
+        testSteps.clickReviewAndSubmit();
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("22222");
+        odometerReadingSteps.pressSave();
+
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+    }
+
+    @Title("CVSB-11032 - AC5 - EU vehicle category options - Motorcycle")
+    @Test
+    public void testEUVehicleCategoryOptionsForMotorcycle() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789"); // MOTORCYCLE ZX345CV
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","ZX345CV");
+        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
+        testSteps.checkOdometerOptionIsDisplayed();
+        testSteps.checkEUVehicleCategoryOptionIs("L1e-A");
+
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.checkOptionsForMotorcycleAreDisplayed();
     }
 
 }
