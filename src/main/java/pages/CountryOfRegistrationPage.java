@@ -205,6 +205,12 @@ public class CountryOfRegistrationPage extends BasePage {
         clickSaveButton();
     }
 
+    public void selectNotApplicable() {
+        searchForCountry("Norway");
+        findElementByXpath("//XCUIElementTypeButton[contains(@name,'Not applicable')]").click();
+        clickSaveButton();
+    }
+
     public boolean checkNoResultFoundMessageIsDisplayed() {
         return findElementByXpath(NO_RESULTS_MESSAGE_XPATH).isDisplayed();
     }

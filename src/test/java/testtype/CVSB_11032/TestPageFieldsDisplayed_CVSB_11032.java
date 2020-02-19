@@ -57,6 +57,9 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
+    @Steps
+    CountryOfRegistrationSteps countryOfRegistrationSteps;
+
     @Title("CVSB-11032 - AC1 - Fields displayed on test screen - LGV")
     @Test
     public void testFieldsDisplayedForLGV() {
@@ -69,6 +72,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.checkOdometerOptionIsDisplayed();
+
+        // AC10 - "Not Applicable" added to list of options.
+        testSteps.clickCountryOfRegistrationOption();
+        countryOfRegistrationSteps.selectNotApplicableOption();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Not applicable", "AS234TY");
 
         // AC4 - Pre-populated EU vehicle category.  NOTE: Can't "edit" this as only one option for LGV.
         testSteps.checkEUVehicleCategoryOptionIs("N1");
@@ -146,6 +154,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.checkOdometerOptionIsDisplayed();
 
+        // AC10 - "Not Applicable" added to list of options.
+        testSteps.clickCountryOfRegistrationOption();
+        countryOfRegistrationSteps.selectNotApplicableOption();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Not applicable", "QW123RT");
+
         // AC4 - Pre-populated EU vehicle category.  NOTE: Can't "edit" this as only one option for Car.
         testSteps.checkEUVehicleCategoryOptionIs("M1");
         testSteps.selectEuVehicleCategory();
@@ -204,6 +217,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","ZX345CV");
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.checkOdometerOptionIsDisplayed();
+
+        // AC10 - "Not Applicable" added to list of options.
+        testSteps.clickCountryOfRegistrationOption();
+        countryOfRegistrationSteps.selectNotApplicableOption();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Not applicable", "ZX345CV");
 
         // AC4 - Pre-populated EU vehicle category / editable.
         testSteps.checkEUVehicleCategoryOptionIs("L1e-A");
@@ -271,4 +289,60 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         euVehicleCategorySteps.checkOptionsForMotorcycleAreDisplayed();
     }
 
+    @Title("CVSB-11032 - AC6 - EU vehicle category options - Car")
+    @Test
+    public void testEUVehicleCategoryOptionsForCar() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250"); // CAR QW123RT
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","QW123RT");
+        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
+        testSteps.checkOdometerOptionIsDisplayed();
+        testSteps.checkEUVehicleCategoryOptionIs("M1");
+
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.checkOptionsForCarAreDisplayed();
+    }
+
+    @Title("CVSB-11032 - AC7 - EU vehicle category options - LGV")
+    @Test
+    public void testEUVehicleCategoryOptionsForLGV() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkLGVTestDetails("AS234TY", "P0123010951264");
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
+        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
+        testSteps.checkOdometerOptionIsDisplayed();
+        testSteps.checkEUVehicleCategoryOptionIs("N1");
+
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.checkOptionsForLGVAreDisplayed();
+    }
+
+    @Title("CVSB-11032 - AC9 - EU vehicle category options - HGV")
+    @Test
+    public void testEUVehicleCategoryOptionsForHGV() {
+
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123"); // HGV CT70 VRL
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
+        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","CT70VRL");
+        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
+        testSteps.checkOdometerOptionIsDisplayed();
+        testSteps.checkEUVehicleCategoryOptionIs("N2");
+
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.checkOptionsForHGVAreDisplayed();
+    }
 }

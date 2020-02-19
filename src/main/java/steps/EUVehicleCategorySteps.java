@@ -81,7 +81,7 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
     @Step
     public void checkOptionsAreDisplayed() {
         euVehicleCategoryPage.waitUntilPageIsLoaded();
-        assertThat(euVehicleCategoryPage.isM1Displayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isM1Displayed()).isFalse();
         assertThat(euVehicleCategoryPage.isM2Displayed()).isTrue();
         assertThat(euVehicleCategoryPage.isM3Displayed()).isTrue();
     }
@@ -111,5 +111,28 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
         assertThat(euVehicleCategoryPage.isL6eDisplayed()).isTrue();
         euVehicleCategoryPage.scrollToElement("L7e");
         assertThat(euVehicleCategoryPage.isL7eDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkOptionsForCarAreDisplayed() {
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        assertThat(euVehicleCategoryPage.isMDescriptionLabelDisplayed());
+        assertThat(euVehicleCategoryPage.isM1CheckedDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkOptionsForLGVAreDisplayed() {
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        assertThat(euVehicleCategoryPage.isNDescriptionLabelDisplayed());
+        assertThat(euVehicleCategoryPage.isN1CheckedDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkOptionsForHGVAreDisplayed() {
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
+        assertThat(euVehicleCategoryPage.isNDescriptionLabelDisplayed());
+        assertThat(euVehicleCategoryPage.isN1Displayed()).isFalse();
+        assertThat(euVehicleCategoryPage.isN2CheckedDisplayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isN3Displayed()).isTrue();
     }
 }
