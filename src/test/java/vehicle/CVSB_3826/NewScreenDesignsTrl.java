@@ -109,7 +109,6 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-    @WithTag("In_test")
     @Title("CVSB-6189 - CVSB-6186 - AC 6.1 Vehicle found in system (tech-record details screen)")
     @Test
     public void testNewDesignVehicleDetails() {
