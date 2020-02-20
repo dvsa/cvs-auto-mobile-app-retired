@@ -94,7 +94,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyVehicleSteps.clickCancel();
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
     @Title("CVSB-6185 - CVSB-6186 - AC 5 Search for vehicle (Trailer ID)")
     @Test
     public void testNewDesignSearchForATrailer() {

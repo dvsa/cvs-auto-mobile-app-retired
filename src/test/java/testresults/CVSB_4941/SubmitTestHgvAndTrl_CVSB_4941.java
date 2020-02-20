@@ -96,7 +96,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         testHistorySteps.checkPage();
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
     @Title("CVSB-7424 - AC4 - Submit a test for TRL")
     @Test
     public void testConfirmationToSubmitResultsTrl() {

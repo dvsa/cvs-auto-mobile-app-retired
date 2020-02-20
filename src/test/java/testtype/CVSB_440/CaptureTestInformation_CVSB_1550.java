@@ -20,7 +20,7 @@ public class CaptureTestInformation_CVSB_1550 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
     @Title("CVSB-440 - AC2 - VSA views the test history section from vehicle search")
     @Test
     public void testVsaViewsTheTestHistorySectionFromVehicleSearch() {
