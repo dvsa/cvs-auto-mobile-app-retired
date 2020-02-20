@@ -180,6 +180,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Français (Canada)".equals(line))
                 .filter(line -> !"return".equals(line))
                 .filter(line -> !line.isEmpty())
+                .filter(line -> !"Not applicable".equals(line))
                 .collect(Collectors.toList());
     }
 

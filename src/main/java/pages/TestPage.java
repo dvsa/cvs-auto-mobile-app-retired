@@ -410,6 +410,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean checkNoEUCategoryIsSelected() {
+        waitUntilPageIsLoadedById("EU vehicle category Select arrow forward");
         return findElementById("EU vehicle category Select arrow forward").isDisplayed();
     }
 
