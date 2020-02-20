@@ -43,7 +43,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
     @Test
     public void addsDefectsToHgv() {

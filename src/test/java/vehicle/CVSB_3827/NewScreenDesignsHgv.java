@@ -65,7 +65,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
 
-    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6409 - AC 4 Search for vehicle (last six digits of the VIN)")
     @Test
     public void testNewDesignSearchForHgv() {
@@ -80,7 +80,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6410 - AC 4 Search for vehicle (full VIN)")
     @Test
     public void testNewDesignSearchForHgvFullVin() {
@@ -95,7 +95,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-    @WithTagValuesOf({"Smoke_3", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6411 - AC 4 Search for vehicle (registration number)")
     @Test
     public void testNewDesignSearchForHgvRegistration() {
