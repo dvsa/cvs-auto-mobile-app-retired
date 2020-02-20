@@ -49,7 +49,6 @@ public class ActivityService {
 
         switch (envType) {
             case CI_BROWSERSTACK:
-                System.out.println("====================================================");
                 AwsUtil.deleteActivitiesForUser("a53ae740-eac4-4eb6-99ef-42afb63ce819");
                 break;
             case LOCAL_REAL_DEVICE:

@@ -22,7 +22,6 @@ public class AwsUtil {
         AWSSecurityTokenService stsClient =
                 AWSSecurityTokenServiceClientBuilder.standard().withRegion(clientRegion).build();
         String uuid = String.valueOf(UUID.randomUUID());
-        System.out.println(System.getProperty("AWS_ROLE"));
         AssumeRoleRequest assumeRequest = new AssumeRoleRequest()
                 .withRoleArn(System.getProperty("AWS_ROLE"))
                 .withDurationSeconds(3600)
@@ -39,7 +38,6 @@ public class AwsUtil {
         client.setRegion(Region.getRegion(clientRegion));
         DynamoDB dynamoDB = new DynamoDB(client);
         String tableName = "cvs-" + System.getProperty("BRANCH") + "-activities";
-        System.out.println(tableName);
 
         Table table = dynamoDB.getTable(tableName);
 
@@ -50,7 +48,6 @@ public class AwsUtil {
                         .withString(":staff_id",testerName));
 
         ItemCollection<QueryOutcome> items = index.query(spec);
-        System.out.println(items.getAccumulatedItemCount());
         for (Item item : items) {
             String id = JsonPath.read(item.toJSON(), "$.id");
             System.out.println("Delete item:\n" + item.toJSONPretty());
