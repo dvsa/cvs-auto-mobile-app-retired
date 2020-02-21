@@ -9,10 +9,12 @@ import java.util.List;
 
 public class SearchForAnATFPage extends BasePage {
 
-    private static final String SEARCH_FOR_ATF_TITLE_ID = "Find an ATF";
+    //private static final String SEARCH_FOR_ATF_TITLE_ID = "Find an ATF";
+    private static final String SEARCH_FOR_ATF_TITLE_ID = "Find test facility";
     private static final String PAGE_ALL_TEXT_XPATH = "XCUIElementTypeStaticText";
     private static final String SEARCH_FIELD_XPATH = "XCUIElementTypeSearchField";
     private static final String BACK_BUTTON_ID = "Back";
+    private static final String CANCEL_BUTTON_XPATH = "(//XCUIElementTypeButton[@name=\"Cancel\"])";
 
 
     public void waitUntilPageIsLoaded() {
@@ -76,5 +78,22 @@ public class SearchForAnATFPage extends BasePage {
 
     public void clickBack() {
         getDriver().findElement(By.id(BACK_BUTTON_ID)).click();
+    }
+
+    public void clickCancel(){
+        getDriver().findElement(By.xpath(CANCEL_BUTTON_XPATH)).click();
+    }
+
+    public boolean isSearchedTestingFacilityPresent(String name, String number){
+
+        String searchString = name+" "+number;
+        boolean status=false;
+        if(findElementByXpath("//XCUIElementTypeButton[@name=\""+searchString+"\"]").isDisplayed()){
+            status = true;
+        }
+        return status;
+
+
+
     }
 }
