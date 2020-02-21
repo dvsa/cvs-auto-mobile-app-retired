@@ -9,14 +9,14 @@ import java.util.List;
 
 public class SearchForAnATFPage extends BasePage {
 
-    private static final String SEARCH_FOR_ATF_TITLE_ID = "Find an ATF";
+    private static final String FIND_TEST_FACILITY_TITLE_ID = "Find test facility";
     private static final String PAGE_ALL_TEXT_XPATH = "XCUIElementTypeStaticText";
     private static final String SEARCH_FIELD_XPATH = "XCUIElementTypeSearchField";
     private static final String BACK_BUTTON_ID = "Back";
 
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(SEARCH_FOR_ATF_TITLE_ID);
+        waitUntilPageIsLoadedById(FIND_TEST_FACILITY_TITLE_ID);
     }
 
     public List<String> findAllLabelsByXpath() {
@@ -34,7 +34,7 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public boolean isTitleDisplayed() {
-        return getDriver().findElement(By.id(SEARCH_FOR_ATF_TITLE_ID)).isDisplayed();
+        return getDriver().findElement(By.id(FIND_TEST_FACILITY_TITLE_ID)).isDisplayed();
     }
 
     public boolean isBackButtonPresent() {

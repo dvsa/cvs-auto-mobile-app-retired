@@ -25,19 +25,10 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     PreparerSteps preparerSteps;
 
     @Steps
-    HgvDetailsSteps hgvDetailsSteps;
-
-    @Steps
     TestHistorySteps testHistorySteps;
 
     @Steps
-    WeightsSteps weightsSteps;
-
-    @Steps
     TestTypeCategorySteps testTypeCategorySteps;
-
-    @Steps
-    TestTypeSubcategorySteps testTypeSubcategorySteps;
 
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
@@ -101,19 +92,21 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
+        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.sendCertificateNumber("123456");
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
 
         // Add a trailer to the test.
         testSteps.clickAddATrailerButton();
-        identifyTrailerSteps.searchForTrailer("T12111111");
+        identifyTrailerSteps.searchForTrailer("T12341234");
         trailerDetailsSteps.selectConfirmButtonTopRight();
         trailerDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTrailerTestDetails("C234567", "T12111111");
+        testSteps.checkTrailerTestDetails("C000001", "T12341234");
         testSteps.scrollDown();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
@@ -123,6 +116,15 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.scrollUp();
         testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
+        // Set the trailer's test to passed as well.
+        testSteps.scrollDown();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
+        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.sendCertificateNumber("234567");
+        testTypeDetailsSteps.pressSave();
+        testSteps.checkPageTitleDisplayed();
 
         // Verify that EU Vehicle Category is mandatory.
         testSteps.scrollDown();
@@ -182,8 +184,10 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
+        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.sendCertificateNumber("1234321");
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
 
@@ -247,8 +251,10 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
+        testTypeDetailsSteps.setTestToOption("Pass");
+        testTypeDetailsSteps.sendCertificateNumber("34567");
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
 

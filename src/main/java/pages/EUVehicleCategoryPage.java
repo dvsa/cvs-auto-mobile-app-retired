@@ -39,9 +39,19 @@ public class EUVehicleCategoryPage extends BasePage{
     public boolean isLDescriptionLabelDisplayed() {
         return findElementById(L_CATEGORY_DESCRIPTION_ID).isDisplayed();
     }
+
     public boolean isL1eADisplayed() {
-        return findElementByXpath(L1EA_VEHICLE_DESCRIPTION_XPATH).isDisplayed();
+
+        // Sometimes this first element is checked.
+        boolean isL1eaShown = false;
+        if (findElementByXpath(L1E_VEHICLE_DESCRIPTION_XPATH).isDisplayed()) {
+            isL1eaShown = true;
+        } else if (findElementByXpath(L1E_VEHICLE_DESCRIPTION_XPATH + " checkmark").isDisplayed()) {
+            isL1eaShown = true;
+        }
+        return isL1eaShown;
     }
+
     public boolean isL1eDisplayed() {
         return findElementByXpath(L1E_VEHICLE_DESCRIPTION_XPATH).isDisplayed();
     }
