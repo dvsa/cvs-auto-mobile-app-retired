@@ -47,13 +47,12 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("012356");
+        identifyVehicleSteps.searchForVehicle("000000");
         vehicleDetailsSteps.checkPageTitle();
         selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
         selectVehicleSteps.pressBackCta();
         identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();
         identifyVehicleSteps.checkSearchBoxIsDisplayed();
-
     }
 
     @Title("CVSB - 10752 - AC2 Single vehicle retrieved - go back from vehicle details")
@@ -63,12 +62,10 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("012356");
+        identifyVehicleSteps.searchForVehicle("000000");
         vehicleDetailsSteps.checkPageTitle();
         selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
-
     }
-
 
     @Title("CVSB - 10751 - AC3 Multiple vehicles retrieved, access vehicle list")
     @Test
@@ -89,7 +86,6 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         testHistorySteps.checkNoTestHistoryIsDisplayed();
     }
 
-    //Defect - 12007
     @Title("CVSB - 10751 - AC4 Multiple vehicles retrieved, access vehicle details & AC5 Multiple vehicles retrieved - go back from vehicle details")
     @Test
     public void testMultipleVehicleDetails(){
@@ -105,12 +101,12 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         selectVehicleSteps.checkVehicleDetails();
         selectVehicleSteps.selectTrailer();
         trailerDetailsSteps.checkPageTitle();
-        //TO DO - checkBackCta to be Select Vehicle(Defect 12007)
+        trailerDetailsSteps.checkSelectVehicleCta("arrow back Select vehicle");
+        trailerDetailsSteps.pressSelectVehicleCta();
         selectVehicleSteps.multipleVehicleDisplayed();
         selectVehicleSteps.checkPageTitle();
         selectVehicleSteps.checkVehicleDetails();
         selectVehicleSteps.selectPsv();
-        trailerDetailsSteps.checkPageTitle();
     }
 
     @Title("CVSB - 10751 - AC6 Multiple vehicles retrieved - go back from vehicle list")

@@ -12,6 +12,7 @@ public class TrailerDetailsPage extends BasePage {
     private static final String CONFIRM_BUTTON_ID = "Confirm";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
+    private static final String SELECT_VEHICLE_CTA_XPATH = "(//XCUIElementTypeButton[@name='arrow back Select vehicle'])";
 
     private static final String CANCEL_ID = "Cancel";
     private static final String CONFIRM_ID = "Confirm";
@@ -26,6 +27,18 @@ public class TrailerDetailsPage extends BasePage {
     public void waitUntilPageIsLoaded() {
 
         waitUntilPageIsLoadedById(TRAILER_DETAILS_PAGE_TITLE);
+    }
+
+    public String getSelectVehicleCtaText() {
+        return findElementByXpath(SELECT_VEHICLE_CTA_XPATH).getText();
+    }
+
+    public boolean isSelectVehicleCtaDisplayed() {
+        return findElementByXpath(SELECT_VEHICLE_CTA_XPATH).isDisplayed();
+    }
+
+    public void clickSelectVehicleCta(){
+        findElementByXpath(SELECT_VEHICLE_CTA_XPATH).click();
     }
 
     public boolean isDetailPageScrollable() {
