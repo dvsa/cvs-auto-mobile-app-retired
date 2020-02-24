@@ -179,7 +179,7 @@ public class TestReviewSteps extends ScenarioSteps {
 
     @Step
     public void checkElementValue(String element, String value){
-        testReviewPage.checkElementValue(element,value);
+        assertThat(testReviewPage.checkElementValue(element,value)).isTrue();
     }
 
     @Step

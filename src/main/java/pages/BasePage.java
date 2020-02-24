@@ -312,12 +312,20 @@ public class BasePage extends PageObject {
     }
 
     public boolean checkElementValue(String element, String value){
+        System.out.println("Verifying that element " + element + " equals " + value);
         List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
         for(WebElement e : webElementList){
             if(e.getAttribute("name").equals(element)){
-                return webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value);
+                if (webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value)) {
+                    System.out.println("- Value matches.");
+                    return true;
+                } else {
+                    System.out.println("- Value mismatch.");
+                    return false;
+                }
             }
         }
+        System.out.println("- Element not found.");
         return false;
     }
 

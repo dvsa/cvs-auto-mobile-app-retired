@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.assertj.core.api.AssertionsForClassTypes;
 import pages.TestHistoryDetailsPage;
 
 import java.util.List;
@@ -70,8 +71,18 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkElementValue(String element, String value){
+        AssertionsForClassTypes.assertThat(testHistoryDetailsPage.checkElementValue(element,value)).isTrue();
+    }
+
+    @Step
     public void scroll() {
         testHistoryDetailsPage.scroll();
+    }
+
+    @Step
+    public void scrollDown() {
+        testHistoryDetailsPage.scrollPageDown();
     }
 
     public void scrollToElement(String id) {
