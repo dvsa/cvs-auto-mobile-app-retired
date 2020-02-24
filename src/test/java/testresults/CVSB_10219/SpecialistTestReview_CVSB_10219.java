@@ -161,7 +161,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testHistoryDetailsSteps.checkElementValue("NOTES", "Overall Notes");
     }
 
-    @Title("CVSB-10219 - AC4 - Test history - two certificate numbers (Annual + COIF)")
+    @Title("CVSB-10219 - AC4 - Test history - two certificate numbers (Annual + COIF), CVSB-10219 - AC5 - Annual test expiry date")
     @Test
     public void testSpecialistTest_TwoCertificateNumbers_COIF() {
 
@@ -249,5 +249,10 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testHistoryDetailsSteps.checkElementValue("Certificate number (COIF)", "234567");
         testHistoryDetailsSteps.checkAutoCertificateNumberIsShown("(Annual test)");
         testHistoryDetailsSteps.pressBackButton();
+
+        // AC5 - Annual test expiry date
+        testHistorySteps.selectTestAtPosition("Specialist test", 0); // Pos 0 = current / most recent test.
+        testHistoryDetailsSteps.checkPageTitle();
+        testHistoryDetailsSteps.checkExpiryDateIsCorrect();
     }
 }
