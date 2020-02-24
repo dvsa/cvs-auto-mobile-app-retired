@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
 public class ATFDetailsPage extends BasePage {
 
     private static final String START_VISIT_ID = "Start visit";
+    private static final String TEST_FACILITY_DETAILS_ID = "Test facility details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String POP_UP_CANCEL_BUTTON_ID = "Cancel";
     private static final String POP_UP_CALL_BUTTON_ID = "Call";
@@ -30,6 +31,14 @@ public class ATFDetailsPage extends BasePage {
 
     public void clickStartVisit() {
         findElementById(START_VISIT_ID).click();
+    }
+
+    public void waitUntilPageIsLoadedById(){
+        waitUntilPageIsLoadedById(TEST_FACILITY_DETAILS_ID);
+    }
+
+    public void isPageTitleDisplayed(){
+        findElementById(TEST_FACILITY_DETAILS_ID).isDisplayed();
     }
 
     public void selectConfirmInPopUp() {

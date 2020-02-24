@@ -91,6 +91,7 @@ public class BasePage extends PageObject {
         System.out.println("Waiting for page to load by ID, waiting for item: " + id);
         WebElement element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
         System.out.println("- Loaded.");
+        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         return element;
     }
 
