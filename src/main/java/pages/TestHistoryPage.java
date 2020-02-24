@@ -47,6 +47,11 @@ public class TestHistoryPage extends BasePage {
 
     }
 
+    public void clickTestAtPosition(String testType, int testPosition) {
+        List<WebElement> testResultList = findElementsByXpath("//XCUIElementTypeButton[contains(@name, '" + testType + "')]");
+        testResultList.get(testPosition).click();
+    }
+
     public boolean isNoTestHistoryDisplayed() {
         return findElementByXpath("//XCUIElementTypeStaticText[@name='No test history found for this vehicle']").isDisplayed();
     }

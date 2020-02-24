@@ -161,212 +161,93 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testHistoryDetailsSteps.checkElementValue("NOTES", "Overall Notes");
     }
 
-    @Title("CVSB-11032 - AC2 - Fields displayed on test screen - CAR")
+    @Title("CVSB-10219 - AC4 - Test history - two certificate numbers (Annual + COIF)")
     @Test
-    public void testFieldsDisplayedForCar() {
+    public void testSpecialistTest_TwoCertificateNumbers_COIF() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250"); // CAR QW123RT
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410"); // PSV BQ91 YHQ
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
-        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","QW123RT");
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.checkOdometerOptionIsDisplayed();
+        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
 
-        // AC10 - "Not Applicable" added to list of options.
-        testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectNotApplicableOption();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Not applicable", "QW123RT");
-
-        // AC4 - Pre-populated EU vehicle category.  NOTE: Can't "edit" this as only one option for Car.
-        testSteps.checkEUVehicleCategoryOptionIs("M1");
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.checkTitleIsDisplayed();
-        euVehicleCategorySteps.clickSaveOptionButton();
-
-        // Verify can access the Vehicle Details
-        testSteps.selectVehicleDetails();
-        vehicleDetailsSteps.checkPageTitle();
-
-        // Verify can access the Test History
-        vehicleDetailsSteps.selectVehicleTestHistory();
-        testHistorySteps.checkPage();
-
-        testHistorySteps.pressBackButton();
-        vehicleDetailsSteps.pressBackButton();
-        testSteps.checkPageTitleDisplayed();
-
-        // Add a test type.
+        // Add a test type (Specialist Test -> COIF -> With annual test).
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
-        testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
+        testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeCategorySteps.selectFromTestTypeList("With annual test");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
-        testTypeDetailsSteps.sendCertificateNumber("1234321");
+        testTypeDetailsSteps.sendCertificateNumber("123456");
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
-
-        // Verify that I am unable to add another vehicle to the test.
-        testSteps.checkAddATrailerButtonIsNotPresent();
-
-        // Verify that EU Vehicle Category is mandatory.
-        // (Difficult to test - the value is set to something already, and can't be "unset").
-
-        // Verify that Odometer Reading is mandatory.
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("11111");
+        odometerReadingSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.clickReviewAndSubmit();
-        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+        testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.scrollDown();
+        testReviewSteps.pressSubmit();
+        testReviewSteps.pressSubmitInPopUp();
+        confirmationPage.waitUntilPageIsLoaded();
+        confirmationPage.clickDoneButton();
+        siteVisit.waitUntilPageIsLoaded();
 
+        // Add another test (Specialist Test -> COIF -> With annual test retest).
+        siteVisit.createNewTest();
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkPageTitleDisplayed();
+        testSteps.selectEuVehicleCategory();
+        euVehicleCategorySteps.checkTitleIsDisplayed();
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("22222");
         odometerReadingSteps.pressSave();
-
-        testSteps.waitUntilPageIsLoaded();
-        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
-    }
-
-    @Title("CVSB-11032 - AC3 - Fields displayed on test screen - Motorcycle")
-    @Test
-    public void testFieldsDisplayedForMotorcycle() {
-
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789"); // MOTORCYCLE ZX345CV
-        preparerSteps.startTest();
-        preparerSteps.confirmInPopUp();
-        testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
-        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","ZX345CV");
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.checkOdometerOptionIsDisplayed();
-
-        // AC10 - "Not Applicable" added to list of options.
-        testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.selectNotApplicableOption();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Not applicable", "ZX345CV");
-
-        // AC4 - Pre-populated EU vehicle category / editable.
-        testSteps.checkEUVehicleCategoryOptionIs("L1e-A");
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.checkTitleIsDisplayed();
-        euVehicleCategorySteps.selectOption("L2e");
-        testSteps.checkEUVehicleCategoryOptionIs("L2e");
-
-        // Verify can access the Vehicle Details
-        testSteps.selectVehicleDetails();
-        vehicleDetailsSteps.checkPageTitle();
-
-        // Verify can access the Test History
-        vehicleDetailsSteps.selectVehicleTestHistory();
-        testHistorySteps.checkPage();
-
-        testHistorySteps.pressBackButton();
-        vehicleDetailsSteps.pressBackButton();
-        testSteps.checkPageTitleDisplayed();
-
-        // Add a test type.
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
-        testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeCategorySteps.selectFromTestTypeList("With annual test");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
-        testTypeDetailsSteps.sendCertificateNumber("34567");
+        testTypeDetailsSteps.sendCertificateNumber("234567");
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
-
-        // Verify that I am unable to add another vehicle to the test.
-        testSteps.checkAddATrailerButtonIsNotPresent();
-
-        // Verify that EU Vehicle Category is mandatory.
-        // (Difficult to test - the value is set to something already, and can't be "unset").
-
-        // Verify that Odometer Reading is mandatory.
         testSteps.clickReviewAndSubmit();
-        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+        testReviewSteps.checkPageTitleIsDisplayed();
+        testReviewSteps.scrollDown();
+        testReviewSteps.pressSubmit();
+        testReviewSteps.pressSubmitInPopUp();
+        confirmationPage.waitUntilPageIsLoaded();
+        confirmationPage.clickDoneButton();
+        siteVisit.waitUntilPageIsLoaded();
 
-        testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("22222");
-        odometerReadingSteps.pressSave();
+        // Now go and verify the certificate numbers.  Manually-set and auto-generated values should be shown for each test.
+        siteVisit.createNewTest();
+        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        vehicleDetailsSteps.selectVehicleTestHistory();
 
-        testSteps.waitUntilPageIsLoaded();
-        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
-    }
+        testHistorySteps.selectTestAtPosition("Specialist test", 1); // Pos 1 = previous test.
+        testHistoryDetailsSteps.checkPageTitle();
+        testHistoryDetailsSteps.checkElementValue("TEST TYPE", "COIF With Annual Test");
+        testHistoryDetailsSteps.checkElementValue("Certificate number (COIF)", "123456");
+        testHistoryDetailsSteps.checkAutoCertificateNumberIsShown("(Annual test)");
+        testHistoryDetailsSteps.pressBackButton();
 
-    @Title("CVSB-11032 - AC5 - EU vehicle category options - Motorcycle")
-    @Test
-    public void testEUVehicleCategoryOptionsForMotorcycle() {
-
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789"); // MOTORCYCLE ZX345CV
-        preparerSteps.startTest();
-        preparerSteps.confirmInPopUp();
-        testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
-        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","ZX345CV");
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.checkOdometerOptionIsDisplayed();
-        testSteps.checkEUVehicleCategoryOptionIs("L1e-A");
-
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.checkTitleIsDisplayed();
-        euVehicleCategorySteps.checkOptionsForMotorcycleAreDisplayed();
-    }
-
-    @Title("CVSB-11032 - AC6 - EU vehicle category options - Car")
-    @Test
-    public void testEUVehicleCategoryOptionsForCar() {
-
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250"); // CAR QW123RT
-        preparerSteps.startTest();
-        preparerSteps.confirmInPopUp();
-        testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
-        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","QW123RT");
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.checkOdometerOptionIsDisplayed();
-        testSteps.checkEUVehicleCategoryOptionIs("M1");
-
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.checkTitleIsDisplayed();
-        euVehicleCategorySteps.checkOptionsForCarAreDisplayed();
-    }
-
-    @Title("CVSB-11032 - AC7 - EU vehicle category options - LGV")
-    @Test
-    public void testEUVehicleCategoryOptionsForLGV() {
-
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
-        preparerSteps.startTest();
-        preparerSteps.confirmInPopUp();
-        testSteps.checkLGVTestDetails("AS234TY", "P0123010951264");
-        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.checkOdometerOptionIsDisplayed();
-        testSteps.checkEUVehicleCategoryOptionIs("N1");
-
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.checkTitleIsDisplayed();
-        euVehicleCategorySteps.checkOptionsForLGVAreDisplayed();
-    }
-
-    @Title("CVSB-11032 - AC9 - EU vehicle category options - HGV")
-    @Test
-    public void testEUVehicleCategoryOptionsForHGV() {
-
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123"); // HGV CT70 VRL
-        preparerSteps.startTest();
-        preparerSteps.confirmInPopUp();
-        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
-        testSteps.checkCountryOfRegistrationOptionIsDisplayed();
-        testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","CT70VRL");
-        testSteps.checkEUVehicleCategoryOptionIsDisplayed();
-        testSteps.checkOdometerOptionIsDisplayed();
-        testSteps.checkEUVehicleCategoryOptionIs("N2");
-
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.checkTitleIsDisplayed();
-        euVehicleCategorySteps.checkOptionsForHGVAreDisplayed();
+        testHistorySteps.selectTestAtPosition("Specialist test", 0); // Pos 0 = current / most recent test.
+        testHistoryDetailsSteps.checkPageTitle();
+        testHistoryDetailsSteps.checkElementValue("TEST TYPE", "COIF Retest With Annual Test");
+        testHistoryDetailsSteps.checkElementValue("Certificate number (COIF)", "234567");
+        testHistoryDetailsSteps.checkAutoCertificateNumberIsShown("(Annual test)");
+        testHistoryDetailsSteps.pressBackButton();
     }
 }

@@ -329,6 +329,21 @@ public class BasePage extends PageObject {
         return false;
     }
 
+    public String getElementValueByLabel(String element){
+        String elementValue = "";
+        System.out.println("Getting value for element following after label: " + element);
+        List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
+        for(WebElement e : webElementList){
+            if(e.getAttribute("name").equals(element)){
+                elementValue = webElementList.get(webElementList.indexOf(e)+1).getAttribute("value");
+                System.out.println("- Value found: " + elementValue);
+                return elementValue;
+            }
+        }
+        System.out.println("- Element not found.");
+        return elementValue;
+    }
+
     public void scrollToElement(String id) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();

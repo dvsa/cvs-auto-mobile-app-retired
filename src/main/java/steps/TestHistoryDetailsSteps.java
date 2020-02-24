@@ -76,6 +76,11 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkAutoCertificateNumberIsShown(String certificateType) {
+        assertThat(testHistoryDetailsPage.getElementValueByLabel(certificateType)).isNotEmpty();
+    }
+
+    @Step
     public void scroll() {
         testHistoryDetailsPage.scroll();
     }
