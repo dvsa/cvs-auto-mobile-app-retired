@@ -61,7 +61,10 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementByClassName(String className) {
-        return getDriver().findElement(By.className(className));
+        System.out.println("Finding element by class: " + className);
+        WebElement element = getDriver().findElement(By.className(className));
+        System.out.println("- Found");
+        return element;
     }
 
     protected WebElement findElementByXpath(String xpath) {

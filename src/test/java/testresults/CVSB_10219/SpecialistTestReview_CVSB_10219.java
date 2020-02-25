@@ -10,6 +10,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
+import util.BaseUtils;
 
 @RunWith(SerenityRunner.class)
 public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
@@ -228,6 +229,11 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         confirmationPage.waitUntilPageIsLoaded();
+
+        // CVSB-11100 - AC1 - COIF with annual test is submitted  (PASS)
+        // This verifies that the email address is shown correctly.
+        confirmationPage.checkElementContainingStringIsDisplayed(BaseUtils.getUserName());
+
         confirmationPage.clickDoneButton();
         siteVisit.waitUntilPageIsLoaded();
 
