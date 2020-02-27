@@ -180,6 +180,7 @@ public class TestReviewSteps extends ScenarioSteps {
 
     @Step
     public void checkElementValue(String element, String value){
+        testReviewPage.waitUntilPageIsLoaded();
         testReviewPage.checkElementValue(element,value);
     }
 
