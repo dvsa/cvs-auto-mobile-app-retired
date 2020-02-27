@@ -38,7 +38,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
 
         // CVSB-11883 - AC2 - Vehicle details screen (car)
         // Note: Following step may fail once date formats are changed.
-        vehicleDetailsSteps.checkDetailPageData("P0123010911250", "", "", "", "","","2019-06-24","24/06/2019","","");
+        vehicleDetailsSteps.checkDetailPageData("P0123010911250", "", "", "", "","","","","","");
 
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");

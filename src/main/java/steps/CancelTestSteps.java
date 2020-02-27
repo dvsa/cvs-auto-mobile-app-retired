@@ -43,6 +43,7 @@ public class CancelTestSteps extends ScenarioSteps {
     @Step
     public void pressOKNoReasonPopUp() {
         cancelTestPage.clickOnNoReasonPopUpOkButton();
+        cancelTestPage.waitUntilPageIsLoaded();
         assertThat(cancelTestPage.isNoReasonPopUpTitleDisplayed()).isFalse();
         assertThat(cancelTestPage.isNoReasonPopUpTextDisplayed()).isFalse();
         assertThat(cancelTestPage.isNoReasonPopUpButtonDisplayed()).isFalse();
