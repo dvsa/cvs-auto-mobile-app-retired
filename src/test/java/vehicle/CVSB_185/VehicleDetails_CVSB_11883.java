@@ -37,7 +37,6 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
         vehicleDetailsSteps.checkIfInDetailPageByPlate("QW12 3RT");
 
         // CVSB-11883 - AC2 - Vehicle details screen (car)
-        // Note: Following step may fail once date formats are changed.
         vehicleDetailsSteps.checkDetailPageData("P0123010911250", "", "", "", "","","","","","");
 
         // CVSB-11884 - AC3 - Tech records fields
@@ -93,8 +92,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
         vehicleDetailsSteps.checkIfInDetailPageByPlate("AS23 4TY");
 
         // CVSB-11883 - AC2 - Vehicle details screen (LGV)
-        // Note: Following step may fail once date formats are changed.
-        vehicleDetailsSteps.checkDetailPageData("P0123010951264", "", "", "", "", "", "2020-05-05", "01/01/2020", "", "");
+        vehicleDetailsSteps.checkDetailPageData("P0123010951264", "", "", "", "", "", "", "", "", "");
 
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");
@@ -150,9 +148,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
         vehicleDetailsSteps.checkIfInDetailPageByPlate("ZX34 5CV");
 
         // CVSB-11883 - AC2 - Vehicle details screen (motorcycle)
-        // Note: Following step may fail once date formats are changed.
-        vehicleDetailsSteps.checkDetailPageData("P0123010956789", "", "", "", "","","2019-04-05","05/04/2019","","");
-        vehicleDetailsSteps.checkNumberOfWheelsIs("Not entered");
+        vehicleDetailsSteps.checkDetailPageData("P0123010956789", "", "", "", "","","","","","");
 
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");
