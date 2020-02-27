@@ -98,6 +98,7 @@ public class TestReviewSteps extends ScenarioSteps {
 
     @Step
     public void checkTestStatus(String testType, String status) {
+        waitForPageToLoad();
         assertThat(testReviewPage.verifyTestStatus(testType,status)).isTrue();
     }
 

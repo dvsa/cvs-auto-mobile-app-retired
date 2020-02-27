@@ -7,6 +7,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.document.*;
 import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
+import com.amazonaws.services.dynamodbv2.model.ResourceNotFoundException;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenService;
 import com.amazonaws.services.securitytoken.AWSSecurityTokenServiceClientBuilder;
 import com.amazonaws.services.securitytoken.model.AssumeRoleRequest;
@@ -47,14 +48,15 @@ public class AwsUtil {
                 .withValueMap(new ValueMap()
                         .withString(":staff_id",testerName));
 
-        ItemCollection<QueryOutcome> items = index.query(spec);
-        for (Item item : items) {
-            String id = JsonPath.read(item.toJSON(), "$.id");
-            System.out.println("Delete item:\n" + item.toJSONPretty());
-
-            DeleteItemOutcome outcome = table.deleteItem("id", id);
+        try {
+            ItemCollection<QueryOutcome> items = index.query(spec);
+            for (Item item : items) {
+                String id = JsonPath.read(item.toJSON(), "$.id");
+                System.out.println("Delete item:\n" + item.toJSONPretty());
+                DeleteItemOutcome outcome = table.deleteItem("id", id);
+            }
+        } catch (ResourceNotFoundException e) {
+            System.out.println("No activities to delete");
         }
     }
-
-
 }
