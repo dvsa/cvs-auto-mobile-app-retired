@@ -12,6 +12,7 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
 
     @Step
     public void clickSaveOptionButton() {
+        euVehicleCategoryPage.waitUntilPageIsLoaded();
         euVehicleCategoryPage.clickSaveButton();
     }
 
