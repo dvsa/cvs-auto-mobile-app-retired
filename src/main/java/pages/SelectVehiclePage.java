@@ -1,15 +1,17 @@
 package pages;
 
-import io.appium.java_client.MobileBy;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class SelectVehiclePage extends BasePage {
 
     private static final String SELECT_VEHICLE_PAGE_TITLE = "Select Vehicle";
     private static final String MULTIPLE_VEHICLES_FOUND_XPATH = "(//XCUIElementTypeStaticText[@name='Multiple vehicles found matching this search'])";
     private static final String BACK_BUTTON_XPATH = "(//XCUIElementTypeButton[@name='arrow back Identify vehicle'])";
+    private static final String INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION_ID = "Some vehicles matching this search do not have enough data to be tested. Call Technical Support to correct these records and use SAR to test this vehicle.";
+    private static final String INCOMPLETE_RECORD_DESCRIPTION_ID = "This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.";
+    private static final String INCOMPLETE_RECORD_TITLE_ID = "Incomplete vehicle record";
+    private static final String OK_ID = "OK";
+    private static final String INCOMPLETE_RECORD_VEHICLE = "Incomplete vehicle record Requires more data to be tested";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_VEHICLE_PAGE_TITLE);
@@ -25,6 +27,41 @@ public class SelectVehiclePage extends BasePage {
             status = true;
         }
         return status;
+    }
+
+    public boolean isSkeletonRecordWarningShown() {
+        return findElementById(INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION_ID).isDisplayed();
+    }
+
+    public boolean isIncompleteVehiclePresent() {
+        return findElementById(INCOMPLETE_RECORD_VEHICLE).isDisplayed();
+    }
+
+    public boolean isIncompleteRecordPopupShown() {
+        System.out.println("Checking if the 'Incomplete Record' popup is shown...");
+        boolean status = false;
+        boolean isException = false;
+        WebElement okButton = null;
+        try {
+            okButton = findElementById(OK_ID);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            WebElement description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
+            WebElement title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
+            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+                System.out.println("- Popup found.");
+                status = true;
+            }
+        }
+        return status;
+    }
+
+    public void clickOkInPopUp() {
+        waitUntilPageIsLoadedById(OK_ID);
+        findElementById(OK_ID).click();
     }
 
     public String getBackCtaText() {
@@ -51,6 +88,14 @@ public class SelectVehiclePage extends BasePage {
     public void clickOnVehicle(String make, String year, String model){
         String searchString = make+" "+year+","+" "+model;
         findElementByXpath("//XCUIElementTypeButton[@name=\""+searchString+"\"]").click();
+    }
+
+    public void clickOnIncompleteVehicle(){
+        findElementById(INCOMPLETE_RECORD_VEHICLE).click();
+    }
+
+    public void waitForErrorPopUpToDisplay() {
+        waitUntilPageIsLoadedById(OK_ID);
     }
 }
 
