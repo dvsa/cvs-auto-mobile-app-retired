@@ -35,12 +35,10 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public void waitUntilPageIsLoadedById(){
-//        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         waitUntilPageIsLoadedById(TEST_FACILITY_DETAILS_ID);
     }
 
     public void isPageTitleDisplayed(){
-//        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         findElementById(TEST_FACILITY_DETAILS_ID).isDisplayed();
     }
 

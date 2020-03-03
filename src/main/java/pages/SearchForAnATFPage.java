@@ -17,8 +17,7 @@ public class SearchForAnATFPage extends BasePage {
 
 
     public void waitUntilPageIsLoaded() {
-//        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        waitUntilPageIsLoadedById(FIND_TEST_FACILITY_TITLE_ID);//
+        waitUntilPageIsLoadedById(FIND_TEST_FACILITY_TITLE_ID);
     }
 
     public List<String> findAllLabelsByXpath() {
