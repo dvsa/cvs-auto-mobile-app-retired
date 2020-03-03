@@ -21,6 +21,21 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
     @Steps
     ATFDetailsSteps atfDetailsSteps;
 
+    @Steps
+    SiteVisitSteps siteVisitSteps;
+
+    @Steps
+    IdentifyVehicleSteps identifyVehicleSteps;
+
+    @Steps
+    VehicleDetailsSteps vehicleDetailsSteps;
+
+    @Steps
+    TestHistorySteps testHistorySteps;
+
+    @Steps
+    TestHistoryDetailsSteps testHistoryDetailsSteps;
+
     @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC1 - Sites list + AC2 - No search results")
     public void testSitesList() {
@@ -59,7 +74,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
         atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
                 atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
-        searchForAnATFSteps.clickBackButton();
+        atfDetailsSteps.pressBackButton();
         searchForAnATFSteps.checkAtfPageDisplay();
     }
 
@@ -72,6 +87,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
                 atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
         atfDetailsSteps.startVisit();
+        siteVisitSteps.checkSiteVisitPage();
     }
 
     @Ignore("ignore until ticket is merged in develop")
@@ -79,6 +95,39 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
     public void testTestingFacilitiesConfirmedAndProceededByVsa() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
+        atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
+                atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
         atfDetailsSteps.startVisit();
+        siteVisitSteps.checkSiteVisitPage();
+        siteVisitSteps.checkEndVisitButton();
+        siteVisitSteps.selectEndVisit();
+        siteVisitSteps.checkEndVisitPopUp();
     }
+
+    @Title("CVSB - 1865 - AC7 - VSA is able to confirm that the site is not suitable for testing ")
+    @Test public void testTestingFacilitiesNotSuitableForTesting() {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
+                atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
+        atfDetailsSteps.pressStartVisit();
+        atfDetailsSteps.pressReportIssueInStartVisitPopUp();
+        atfDetailsSteps.checkReportIssuePopUp();
+    }
+
+    @Title("CVSB - 1865 - AC8 - Submit a test - test certificate and history fields ")
+    @Test public void testSubmitTestAndViewCertificateAndHistory() {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
+                atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
+        vehicleDetailsSteps.selectVehicleTestHistory();
+        testHistorySteps.selectTestAtPosition("Annual test", 0);
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "");
+    }
+
 }
