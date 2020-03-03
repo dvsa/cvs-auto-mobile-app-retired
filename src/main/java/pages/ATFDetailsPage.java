@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 public class ATFDetailsPage extends BasePage {
 
@@ -34,10 +35,12 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public void waitUntilPageIsLoadedById(){
+//        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         waitUntilPageIsLoadedById(TEST_FACILITY_DETAILS_ID);
     }
 
     public void isPageTitleDisplayed(){
+//        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         findElementById(TEST_FACILITY_DETAILS_ID).isDisplayed();
     }
 
@@ -82,6 +85,7 @@ public class ATFDetailsPage extends BasePage {
 
     public boolean isStartVisitPopUpDisplayed() {
         boolean status = true;
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         try {
                 findElementById(POP_UP_START_VISIT_TITLE).isDisplayed();
                 findElementById(POP_UP_START_VISIT_CANCEL_BUTTON_ID).isDisplayed();

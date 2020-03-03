@@ -50,4 +50,36 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkCallPopUp(atfService.getAtfByIndex(0).getAtfContactNumber());
     }
 
+    @Title("CVSB - 1865 - AC4 - VSA is able to return to the Testing facilities search results")
+    @Test
+    public void testTestingFacilitiesSearchResults(){
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
+        atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
+                atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
+        searchForAnATFSteps.clickBackButton();
+        searchForAnATFSteps.checkAtfPageDisplay();
+    }
+
+    @Title("CVSB - 1865 - AC5 - VSA is able to confirm the selected testing facility")
+    @Test public void testTestingFacilitiesConfirmedByVsa(){
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
+        atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
+                atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
+        atfDetailsSteps.startVisit();
+    }
+
+    @Title("CVSB - 1865 - AC6 - VSA is able to confirm and proceed with the visit ")
+    @Test public void testTestingFacilitiesConfirmedAndProceededByVsa(){
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+    }
+
+
+
+
 }
