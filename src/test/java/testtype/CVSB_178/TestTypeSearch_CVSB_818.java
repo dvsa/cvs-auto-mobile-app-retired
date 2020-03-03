@@ -27,7 +27,6 @@ public class TestTypeSearch_CVSB_818 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-178 - AC1/AC2 - Select a test type category that contains other test type categories")
-    @Test
     public void testTestTypeCategoryContainingOtherCategories() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.checkTestTypePage();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",

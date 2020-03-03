@@ -26,7 +26,6 @@ public class TestTypeAdd_CVSB_766 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-370 - AC2 Test types list")
-    @Test
     public void testTestTypeList() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkAddATestTypeButtonVisibility();

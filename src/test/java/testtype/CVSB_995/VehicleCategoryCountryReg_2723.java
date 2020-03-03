@@ -25,7 +25,6 @@ public class VehicleCategoryCountryReg_2723 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-995 - AC10 - Country not known recorded as 'Not known' in the backend")
-    @Test
     public void editingCountryOfRegistrationField() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();

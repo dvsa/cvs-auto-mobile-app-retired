@@ -18,7 +18,6 @@ public class DeleteActivitiesTest extends BaseTestClass {
 
     @Ignore("this is just a test to verify the deletion")
     @Title("CVSB-12181 - Delete activities from Dynamo")
-    @Test
     public void testChangesSingularVehicleTests() {
         //add hgv
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123");

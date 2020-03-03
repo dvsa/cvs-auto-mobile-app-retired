@@ -32,7 +32,6 @@ public class DefectSearch_CVSB_640 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-112 - AC1 - Level 1 Test drilldrown")
-    @Test
     public void defectGoBackFromSecondLevelToFirstLevel() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);

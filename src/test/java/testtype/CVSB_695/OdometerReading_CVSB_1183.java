@@ -27,7 +27,6 @@ public class OdometerReading_CVSB_1183 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-695 - AC10 - Save odometer reading - no fields completed")
-    @Test
     public void testSaveOdometerReadingNoFields() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();

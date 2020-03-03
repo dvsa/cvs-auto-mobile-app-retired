@@ -26,7 +26,6 @@ public class AtfSelect_CVSB_1456 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-167 - AC6 - VSA is able to confirm that the site is not suitable for testing")
-    @Test
     public void testConfirmSiteNotSuitableForTesting() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));

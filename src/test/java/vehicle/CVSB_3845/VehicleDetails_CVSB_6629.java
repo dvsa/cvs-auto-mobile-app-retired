@@ -48,7 +48,6 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6629 - AC1 - Trailer ID display")
-    @Test
     public void testTrailerIdDisplayed() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("T12341237");
         preparerSteps.startTest();
