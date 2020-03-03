@@ -499,6 +499,46 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectEmissionStandard(EmissionStandard emissionStandard) {
+        testTypeDetailsPage.selectEmissionStandard(emissionStandard);
+    }
+
+    @Step
+    public void selectFuelType(FuelType fuelType) {
+        testTypeDetailsPage.selectFuelType(fuelType);
+    }
+
+    @Step
+    public void checkEmissionStandardsArePresent() {
+        assertThat(testTypeDetailsPage.checkEmissionStandardsArePresent()).isTrue();
+    }
+
+    @Step
+    public void checkFuelTypesArePresent() {
+        assertThat(testTypeDetailsPage.checkFuelTypesArePresent()).isTrue();
+    }
+
+    @Step
+    public void clickEmissionStandard() {
+        testTypeDetailsPage.clickEmissionStandard();
+    }
+
+    @Step
+    public void clickFuelType() {
+        testTypeDetailsPage.clickFuelType();
+    }
+
+    @Step
+    public void clickFuelType(FuelType fuelType) {
+        testTypeDetailsPage.clickFuelType(fuelType);
+    }
+
+    @Step
+    public void clickEmissionStandard(EmissionStandard emissionStandard) {
+        testTypeDetailsPage.clickEmissionStandard(emissionStandard);
+    }
+
+    @Step
     public void setSmokeTestKLimitApplied(String amount) {
         testTypeDetailsPage.setSmokeTestKLimit(amount);
     }
@@ -526,5 +566,15 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void setModificationTypeUsed(String modificationType) {
         testTypeDetailsPage.setModificationTypeUsed(modificationType);
+    }
+
+    @Step
+    public void checkEmissionStandardIsShown(EmissionStandard emissionStandard) {
+        assertThat(testTypeDetailsPage.getSelectedEmissionStandard().equalsIgnoreCase(emissionStandard.getDescription())).isTrue();
+    }
+
+    @Step
+    public void checkFuelTypeIsShown(FuelType fuelType) {
+        assertThat(testTypeDetailsPage.getSelectedFuelType().equalsIgnoreCase(fuelType.getName())).isTrue();
     }
 }
