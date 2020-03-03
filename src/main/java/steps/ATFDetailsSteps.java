@@ -12,6 +12,8 @@ public class ATFDetailsSteps extends ScenarioSteps {
     ATFDetailsPage atfDetailsPage;
     SiteVisitPage siteVisitPage;
 
+
+
     @Step
     public void startVisit() {
         atfDetailsPage.waitUntilPageIsLoaded();
@@ -23,6 +25,12 @@ public class ATFDetailsSteps extends ScenarioSteps {
     @Step
     public void waitUntilPageIsLoaded() {
         atfDetailsPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void checkTestFacilitiesDetailsPageDisplayed(){
+        atfDetailsPage.waitUntilPageIsLoadedById();
+        atfDetailsPage.isPageTitleDisplayed();
     }
 
     @Step
@@ -43,7 +51,6 @@ public class ATFDetailsSteps extends ScenarioSteps {
     @Step
     public void checkCallPopUp(String number) {
         assertThat(atfDetailsPage.isCallPopUpDisplayedByNumber(number)).isTrue();
-
     }
 
     @Step

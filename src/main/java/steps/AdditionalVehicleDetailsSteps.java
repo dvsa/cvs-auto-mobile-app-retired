@@ -198,7 +198,7 @@ public class AdditionalVehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkNotesIsEmpty() {
-        assertThat(additionalVehicleDetailsPage.getNotes().getText().contentEquals("Not entered")).isTrue();
+        assertThat(additionalVehicleDetailsPage.getNotes().getText().contentEquals("None")).isTrue();
     }
 }
 

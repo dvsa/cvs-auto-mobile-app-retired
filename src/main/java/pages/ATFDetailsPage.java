@@ -6,10 +6,12 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 public class ATFDetailsPage extends BasePage {
 
     private static final String START_VISIT_ID = "Start visit";
+    private static final String TEST_FACILITY_DETAILS_ID = "Test facility details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String POP_UP_CANCEL_BUTTON_ID = "Cancel";
     private static final String POP_UP_CALL_BUTTON_ID = "Call";
@@ -30,6 +32,16 @@ public class ATFDetailsPage extends BasePage {
 
     public void clickStartVisit() {
         findElementById(START_VISIT_ID).click();
+    }
+
+    public void waitUntilPageIsLoadedById(){
+//        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        waitUntilPageIsLoadedById(TEST_FACILITY_DETAILS_ID);
+    }
+
+    public void isPageTitleDisplayed(){
+//        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        findElementById(TEST_FACILITY_DETAILS_ID).isDisplayed();
     }
 
     public void selectConfirmInPopUp() {
@@ -73,6 +85,7 @@ public class ATFDetailsPage extends BasePage {
 
     public boolean isStartVisitPopUpDisplayed() {
         boolean status = true;
+        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         try {
                 findElementById(POP_UP_START_VISIT_TITLE).isDisplayed();
                 findElementById(POP_UP_START_VISIT_CANCEL_BUTTON_ID).isDisplayed();

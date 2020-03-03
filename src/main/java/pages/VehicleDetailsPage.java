@@ -152,4 +152,8 @@ public class VehicleDetailsPage extends BasePage {
     public boolean isSectionHeadingDisplayed(String sectionHeading) {
         return (findElementById(sectionHeading).isDisplayed());
     }
+
+    public boolean isFieldDisplayed(String field) {
+        return (findElementById(field).isDisplayed());
+    }
 }

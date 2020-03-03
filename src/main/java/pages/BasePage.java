@@ -61,7 +61,10 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementByClassName(String className) {
-        return getDriver().findElement(By.className(className));
+        System.out.println("Finding element by class: " + className);
+        WebElement element = getDriver().findElement(By.className(className));
+        System.out.println("- Found");
+        return element;
     }
 
     protected WebElement findElementByXpath(String xpath) {
@@ -313,13 +316,36 @@ public class BasePage extends PageObject {
     }
 
     public boolean checkElementValue(String element, String value){
+        System.out.println("Verifying that element " + element + " equals " + value);
         List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
         for(WebElement e : webElementList){
             if(e.getAttribute("name").equals(element)){
-                return webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value);
+                if (webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value)) {
+                    System.out.println("- Value matches.");
+                    return true;
+                } else {
+                    System.out.println("- Value mismatch.");
+                    return false;
+                }
             }
         }
+        System.out.println("- Element not found.");
         return false;
+    }
+
+    public String getElementValueByLabel(String element){
+        String elementValue = "";
+        System.out.println("Getting value for element following after label: " + element);
+        List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
+        for(WebElement e : webElementList){
+            if(e.getAttribute("name").equals(element)){
+                elementValue = webElementList.get(webElementList.indexOf(e)+1).getAttribute("value");
+                System.out.println("- Value found: " + elementValue);
+                return elementValue;
+            }
+        }
+        System.out.println("- Element not found.");
+        return elementValue;
     }
 
     public void scrollToElement(String id) {

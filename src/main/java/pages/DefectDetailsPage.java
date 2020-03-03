@@ -40,6 +40,10 @@ public class DefectDetailsPage extends BasePage {
     private static final String ISSUED_IN_MOBILE_COMPLIANCE_ID = "Issued in Mobile Compliance";
     private static final String PROHIBITION = "PROHIBITION";
 
+    private static final String DEFECT_REFERENCE_NUMBER = "//XCUIElementTypeStaticText[@value='REFERENCE NUMBER']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeOther/XCUIElementTypeTextField";
+    private static final String DEFECT_NAME = "//XCUIElementTypeStaticText[@value='DEFECT NAME']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeOther/XCUIElementTypeTextField";
+    private static final String DEFECT_NOTES = "//XCUIElementTypeStaticText[@value='DEFECT NAME']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeTextView";
+
     public WebElement getDefectLabel() {
         return findElementById(DEFECT_ITEM_LABEL_ID);
     }
@@ -184,6 +188,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public boolean checkPageTitleIsDisplayed() {
+        waitUntilPageIsLoaded();
         return findElementById(DEFECT_DETAILS_PAGE_ID).isDisplayed();
     }
 
@@ -285,4 +290,42 @@ public class DefectDetailsPage extends BasePage {
     public void scroll() {
         scroll(200, 700, 200, 300);
     }
+
+    public void setReferenceNumber(String referenceNumber) {
+
+        waitUntilPageIsLoadedByXpath(DEFECT_REFERENCE_NUMBER);
+        WebElement referenceNumberField = findElementByXpath(DEFECT_REFERENCE_NUMBER);
+        referenceNumberField.click();
+        referenceNumberField.sendKeys(referenceNumber);
+    }
+
+    public String getReferenceNumber() {
+
+        WebElement referenceNumberField = findElementByXpath(DEFECT_REFERENCE_NUMBER);
+        return referenceNumberField.getText();
+    }
+
+    public void setDefectName(String defectName) {
+        WebElement defectNameField = findElementByXpath(DEFECT_NAME);
+        defectNameField.click();
+        defectNameField.sendKeys(defectName);
+    }
+
+    public String getDefectName() {
+        WebElement defectNameField = findElementByXpath(DEFECT_NAME);
+        return defectNameField.getText();
+    }
+
+    public void setDefectNotes(String defectNotes) {
+        WebElement defectNotesField = findElementByXpath(DEFECT_NOTES);
+        defectNotesField.click();
+        defectNotesField.sendKeys(defectNotes);
+    }
+
+    public String getDefectNotes() {
+        WebElement defectNotesField = findElementByXpath(DEFECT_NOTES);
+        return defectNotesField.getText();
+    }
+
+
 }
