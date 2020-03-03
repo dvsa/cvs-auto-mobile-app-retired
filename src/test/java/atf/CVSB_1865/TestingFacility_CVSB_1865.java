@@ -127,7 +127,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.selectTestAtPosition("Annual test", 0);
-        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub, 09-4129632" );
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub, 09-4129632");
     }
 
 }
