@@ -18,6 +18,17 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkIncompleteRecordPopupIsShown() {
+        assertThat(identifyVehiclePage.isIncompleteRecordPopupShown()).isTrue();
+    }
+
+    @Step
+    public void checkIncompleteRecordPopupIsNotShown() {
+        identifyVehiclePage.waitUntilPageIsLoaded();
+        assertThat(identifyVehiclePage.isIncompleteRecordPopupShown()).isFalse();
+    }
+
+    @Step
     public void typeInSearchField(String registrationOrVIM) {
         identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.searchForVehicle(registrationOrVIM);

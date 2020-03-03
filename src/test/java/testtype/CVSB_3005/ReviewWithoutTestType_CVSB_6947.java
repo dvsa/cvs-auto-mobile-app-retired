@@ -51,7 +51,6 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Title("CVSB-6947-6948 - AC1 - User taps Review without adding a test type, regardless of whether vehicle category and odometer reading fields are filled in")
-    @Test
     @Ignore
     // This is being ignored for the moment, as the test is written for a change which hasn't been merged in yet.
     // TODO
@@ -82,7 +81,6 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     }
 
     @Title("CVSB-6949 AC3 - User taps Review and there is at least one mandatory field that has not been completed for the test")
-    @Test
     @Ignore
     // TODO
     // This is temporarily disabled until the correct updated functionality has been merge in to the app.
@@ -116,7 +114,6 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // TODO This is temporarily disabled until the correct updated functionality has been merge in to the app.
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6951 AC5 - User selects EU vehicle category")
-    @Test
     public void testUserSelectsEUVehicleCategory() {
         // Set up the test data.
         launchSteps.clickGetStarted();
@@ -151,7 +148,6 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     }
 
     @Title("CVSB-6952 AC6 - Field error bar on user input fields")
-    @Test
     @Ignore
     // TODO
     // Disabled temporarily until the updated functionality is merged into the app.
@@ -190,7 +186,6 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     }
 
     @Title("CVSB-6954 AC8 - Errors on the Test screen corrected")
-    @Test
     @Ignore
     // TODO
     // This is being disabled, as the test has been merged before the functionality has been.

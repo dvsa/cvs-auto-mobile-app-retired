@@ -30,7 +30,6 @@ public class LECTestType_2031 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-902 - AC7 - Record certificate number")
-    @Test
     public void recordCertificateNumber() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");

@@ -20,7 +20,6 @@ public class Preparer_4804 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB_438 -  AC 10 Press Cancel on popup")
-    @Test
     public void searchAgainInPreparerNotFoundPopUp() {
         preparerComp.goToSelectPreparer();
         preparerSteps.checkPageTitleIsDisplayed();

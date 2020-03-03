@@ -46,7 +46,6 @@ public class SubmitTest_CVSB_3082 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-197 - AC A4. Test results are successfully processed and uploaded to the CVS database (4 second toast message)")
-    @Test
     public void test4SecondToastMessageAfterSubmit() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();

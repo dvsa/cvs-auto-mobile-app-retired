@@ -47,7 +47,6 @@ public class AppState_CVSB_1936 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-469 - AC1 Reopen the app from the background (ex. open another app, press the home button, lock the device)")
-    @Test
     public void testAppStateReopenFromBackground() {
         launchSteps.clickGetStarted();
         commonSteps.getPage().runAppInBackground();

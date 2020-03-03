@@ -40,7 +40,6 @@ public class ReviewTestSummary_2706 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-495 - AC6 - Deleting a required field in the test type result and going back to the test review screen")
-    @Test
     public void deleteARequiredFieldFromTestType() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();

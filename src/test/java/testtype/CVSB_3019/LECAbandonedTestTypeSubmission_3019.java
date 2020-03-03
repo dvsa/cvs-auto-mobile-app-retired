@@ -50,7 +50,6 @@ public class LECAbandonedTestTypeSubmission_3019  extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-3019 - Defect - Abandoned Technical LEC submission")
-    @Test
     public void submitAbandonedLECTechnicalTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");

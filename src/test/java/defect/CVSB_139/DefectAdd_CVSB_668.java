@@ -31,7 +31,6 @@ public class DefectAdd_CVSB_668 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-139 - AC1 - Add a defect from test type details screen")
-    @Test
     public void testTypeAddDefectOption() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Technical test");

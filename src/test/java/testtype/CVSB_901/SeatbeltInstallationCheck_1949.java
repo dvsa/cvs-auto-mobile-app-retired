@@ -30,7 +30,6 @@ public class SeatbeltInstallationCheck_1949 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-901 - AC7 - Record zero seat belts fitted")
-    @Test
     public void testZeroSeatbeltsFittedBehaviour() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);

@@ -27,7 +27,6 @@ public class VehicleConfirm_CVSB_722 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-182 - AC2 VSA further confirms")
-    @Test
     public void testVehicleDetailsFurtherConfirmation() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.selectConfirmButtonTopRight();

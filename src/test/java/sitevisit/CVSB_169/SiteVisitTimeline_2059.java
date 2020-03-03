@@ -53,7 +53,6 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-169 - AC2 - VSA is presented with the Site Visit timeline after submitting test results")
-    @Test
     public void testSiteVisitTimelineAfterTestResults() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();

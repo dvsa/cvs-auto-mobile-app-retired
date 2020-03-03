@@ -21,7 +21,6 @@ public class PreparerInformation_CVSB_1020 extends BaseTestClass {
 
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC6 No results returned for preparer information")
-    @Test
     public void noResultsReturnedForPreparerInformationSearch() {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.searchForInvalidPreparerId("test", "test", "test");

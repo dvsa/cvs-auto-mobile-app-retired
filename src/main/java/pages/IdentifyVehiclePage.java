@@ -2,9 +2,6 @@ package pages;
 
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-
 import java.util.List;
 
 public class IdentifyVehiclePage extends BasePage {
@@ -17,6 +14,8 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String DESCRIPTION_ID = "Check you have entered the correct value or change the search criteria to identify a vehicle";
     private static final String TITLE_ID = "Vehicle not found";
     private static final String LOADING_SCREEN_ID = "Loading...";
+    private static final String INCOMPLETE_RECORD_DESCRIPTION_ID = "This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.";
+    private static final String INCOMPLETE_RECORD_TITLE_ID = "Incomplete vehicle record";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE);
@@ -44,6 +43,28 @@ public class IdentifyVehiclePage extends BasePage {
     public boolean isSearchFieldEmpty() {
         String inputText = findElementByClassName(SEARCH_FIELD_CLASS_NAME).getText();
         return inputText.isEmpty();
+    }
+
+    public boolean isIncompleteRecordPopupShown() {
+        System.out.println("Checking if the 'Incomplete Record' popup is shown...");
+        boolean status = false;
+        boolean isException = false;
+        WebElement okButton = null;
+        try {
+            okButton = findElementById(OK_ID);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if (!isException) {
+            WebElement description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
+            WebElement title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
+            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+                System.out.println("- Popup found.");
+                status = true;
+            }
+        }
+        return status;
     }
 
     public String getSearchFieldText() {

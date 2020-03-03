@@ -26,7 +26,6 @@ public class VehicleSearch_CVSB_1031 extends BaseTestClass {
 
     @Ignore("[CVSB-8416] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-183 - AC4 VSA tries to search without entering a Registration Number or a VIN number")
-    @Test
     public void testVehicleSearchWithoutEnteringVinOrRegPlate() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();
