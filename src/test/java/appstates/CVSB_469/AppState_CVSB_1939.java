@@ -60,7 +60,6 @@ public class AppState_CVSB_1939  extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title( "CVSB-469 - AC4 Reopen the app after it was closed - redirected to test screen (ex. app closed by the user, app closed by the device, device turned off)")
-    @Test
     public void testAppStateCloseAtTestPage() {
 
         launchSteps.clickGetStarted();

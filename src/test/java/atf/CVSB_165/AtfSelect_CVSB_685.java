@@ -22,7 +22,6 @@ public class AtfSelect_CVSB_685 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-165 - Search field -pNumber")
-    @Test
     public void testSearchFieldpNumber() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.searchForValidPNumberOrAddress(atfService.getAtfByIndex(3).getAtfNumber());

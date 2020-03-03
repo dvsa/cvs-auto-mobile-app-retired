@@ -61,7 +61,6 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6771 - AC1 - Fields displayed on test screen - HGV (test history)")
-    @Test
     public void testFieldsDisplayedTestHistoryForHgv() {
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

@@ -71,7 +71,6 @@ public class CaptureTestInformation_CVSB_1560 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-440 - AC5B - Fields displayed in the app (e.g Defect details) are contextually sensitive," +
             " based on the data received for each test type from the database")
-    @Test
     public void testFieldsDisplayed() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();

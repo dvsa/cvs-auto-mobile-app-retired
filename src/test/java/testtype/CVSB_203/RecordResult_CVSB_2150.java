@@ -44,7 +44,6 @@ public class RecordResult_CVSB_2150 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-203 - AC 1 - Start a test type (Technical Notifiable Alteration)")
-    @Test
     public void testStartATestTypeTechnicalTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Technical test");

@@ -29,7 +29,6 @@ public class EndASiteVisit_CVSB_2884 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-163 - AC1 - Start visit")
-    @Test
     public void testStartVisit() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");

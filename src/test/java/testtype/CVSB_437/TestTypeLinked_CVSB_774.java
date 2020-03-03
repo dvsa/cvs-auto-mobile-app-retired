@@ -29,7 +29,6 @@ public class TestTypeLinked_CVSB_774 extends BaseTestClass {
 
     @Ignore("Invalid due to CVSB-444")
     @Title("CVSB-437 - Add a linked test")
-    @Test
     public void testAddALinkedTestType() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.addLinkedTestType();

@@ -25,7 +25,6 @@ public class OdometerReading_CVSB_1176 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-695 - AC4 - Record odometer reading value")
-    @Test
     public void testRecordOdometerReadingValue() {
 
         String enteredOdometerReading = "12345678";

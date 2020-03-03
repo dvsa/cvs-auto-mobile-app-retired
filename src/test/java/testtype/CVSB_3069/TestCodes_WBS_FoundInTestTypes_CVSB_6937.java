@@ -54,7 +54,6 @@ public class TestCodes_WBS_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6937,CVSB-6939 and CVSB-6941- AC1,AC2 and AC3 - Codes added are reflected in the selection of test types, recorded against the test and reviewed")
-    @Test
     public void testTestCodeWBS() {
         testTypeCategoryComp.goToTestTypeUsingSpecificVin(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),"012345");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");

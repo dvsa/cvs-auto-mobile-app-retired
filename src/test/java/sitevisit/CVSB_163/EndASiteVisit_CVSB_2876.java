@@ -29,7 +29,6 @@ public class EndASiteVisit_CVSB_2876 extends BaseTestClass {
 
     @Ignore("[CVSB-8416] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-163 - AC3 - Cancel submission of a site visit")
-    @Test
     public void testCancelSubmission() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");

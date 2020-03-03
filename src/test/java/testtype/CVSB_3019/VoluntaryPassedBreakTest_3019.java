@@ -43,7 +43,6 @@ public class VoluntaryPassedBreakTest_3019 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-3019 - Defect - Passed Voluntary break test submission")
-    @Test
     public void submitPassedVoluntaryBreakTestTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");

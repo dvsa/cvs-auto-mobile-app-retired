@@ -32,7 +32,6 @@ public class VehicleCategoryCountryReg_2683 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @Title("CVSB-995 - AC9 - Fields that are mandatory")
-    @Test
     @Ignore
     // TODO
     // Temporarily disabled.  This is checking for the new updated error message format, before the functionality has been merged into the app.

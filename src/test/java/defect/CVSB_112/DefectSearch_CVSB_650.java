@@ -36,7 +36,6 @@ public class DefectSearch_CVSB_650  extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-112 - AC4  Negative result for searching with the search bar (no results)")
-    @Test
     public void checkNoResultsAllLevels() {
 
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

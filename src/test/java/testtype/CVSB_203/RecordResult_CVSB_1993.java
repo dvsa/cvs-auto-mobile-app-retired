@@ -44,7 +44,6 @@ public class RecordResult_CVSB_1993 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-203 - AC8 - Go back to test overview")
-    @Test
     public void testGoBackToTestOverview() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Technical test");

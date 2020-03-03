@@ -37,7 +37,6 @@ public class TestTypeAbandon_CVSB_791 extends BaseTestClass {
 
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-194 - AC1 Abandon option")
-    @Test
     public void testRemoveTestType() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
