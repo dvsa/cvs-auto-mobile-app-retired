@@ -49,7 +49,15 @@ public class ActivityService {
 
         switch (envType) {
             case CI_BROWSERSTACK:
-                AwsUtil.deleteActivitiesForUser("a53ae740-eac4-4eb6-99ef-42afb63ce819");
+                if (TypeLoader.getAppUsername() == "Cvs.automation2@dvsagov.onmicrosoft.com") {
+                    AwsUtil.deleteActivitiesForUser("a53ae740-eac4-4eb6-99ef-42afb63ce819");
+                }
+                else if (TypeLoader.getAppUsername() == "Cvs.automation3@dvsagov.onmicrosoft.com") {
+                    AwsUtil.deleteActivitiesForUser("d463f9f3-1ce7-4944-930a-ce9fd51e506b");
+                }
+                else if (TypeLoader.getAppUsername() == "Cvs.automation4@dvsagov.onmicrosoft.com") {
+                    AwsUtil.deleteActivitiesForUser("c26d6b02-49b2-456a-ac20-7435e9397bac");
+                }
                 break;
             case LOCAL_REAL_DEVICE:
             case LOCAL_SIMULATOR:
