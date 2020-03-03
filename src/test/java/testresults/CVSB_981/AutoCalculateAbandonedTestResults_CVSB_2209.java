@@ -38,7 +38,6 @@ public class AutoCalculateAbandonedTestResults_CVSB_2209 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
-    @WithTag("In_test")
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (test review screen)")
     @Test
     public void testAutoCalculateAbandonedTestInTestReview() {

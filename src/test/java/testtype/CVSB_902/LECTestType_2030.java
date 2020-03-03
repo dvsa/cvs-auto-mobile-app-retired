@@ -29,7 +29,6 @@ public class LECTestType_2030 extends BaseTestClass {
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
 
-    @WithTag("In_test")
     @Ignore("Rendered obsolete by CVSB-7936 ")
     @Title("CVSB-902 - AC6 - Edit certificate number")
     @Test

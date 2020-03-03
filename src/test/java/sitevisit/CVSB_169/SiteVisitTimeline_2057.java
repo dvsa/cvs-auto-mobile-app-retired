@@ -19,7 +19,6 @@ public class SiteVisitTimeline_2057 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
-    @WithTag("In_test")
     @Title("CVSB-169 - AC1 - Site Visit timeline details")
     @Test
     public void testSiteVisitTimelineDetails() {

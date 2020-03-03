@@ -38,8 +38,6 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
 
         // CVSB-11883 - AC2 - Vehicle details screen (car)
         vehicleDetailsSteps.checkDetailPageData("P0123010911250", "", "", "", "","","","","","");
-        vehicleDetailsSteps.checkFieldIsPresent("Year of manufacture");
-        vehicleDetailsSteps.checkFieldIsPresent("Date of first registration");
 
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");
@@ -64,7 +62,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp_Car() {
 
-        vehicleComp.goToVehicleDetails("P0123010911250"); // Car QW123RT
+        vehicleComp.goToVehicleDetails("P0123010911250");
 
         // Check all ACs against the Vehicle Details screen (in the "look up vehicle" context).
         checkVehicleDetails_Car();
@@ -95,8 +93,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
 
         // CVSB-11883 - AC2 - Vehicle details screen (LGV)
         vehicleDetailsSteps.checkDetailPageData("P0123010951264", "", "", "", "", "", "", "", "", "");
-        vehicleDetailsSteps.checkFieldIsPresent("Year of manufacture");
-        vehicleDetailsSteps.checkFieldIsPresent("Date of first registration");
+
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VIEW MORE INFORMATION");
@@ -151,10 +148,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
         vehicleDetailsSteps.checkIfInDetailPageByPlate("ZX34 5CV");
 
         // CVSB-11883 - AC2 - Vehicle details screen (motorcycle)
-        // Note: Following step may fail once date formats are changed.
         vehicleDetailsSteps.checkDetailPageData("P0123010956789", "", "", "", "","","","","","");
-        vehicleDetailsSteps.checkFieldIsPresent("Year of manufacture");
-        vehicleDetailsSteps.checkFieldIsPresent("Date of first registration");
 
         // CVSB-11884 - AC3 - Tech records fields
         vehicleDetailsSteps.verifySectionHeadingIsDisplayed("VEHICLE SUMMARY");

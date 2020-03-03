@@ -148,7 +148,6 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeDetailsSteps.checkTestTypeName("Paid notifiable alteration");
     }
 
-    @WithTag("In_test")
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (retest)")
     @Test
     public void testTypeDrillDownShortLongRetest() {

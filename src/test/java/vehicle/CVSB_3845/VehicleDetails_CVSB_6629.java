@@ -56,7 +56,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6638 - AC2 VSA can see all fields listed (HGV)")
     @Test
     public void testAllDetailsHgv() {
@@ -76,7 +76,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
 
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_test"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6630 - AC2 VSA can see all fields listed (TRL)")
     @Test
     public void testAllDetailsTrl() {

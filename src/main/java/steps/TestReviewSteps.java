@@ -98,6 +98,7 @@ public class TestReviewSteps extends ScenarioSteps {
 
     @Step
     public void checkTestStatus(String testType, String status) {
+        waitForPageToLoad();
         assertThat(testReviewPage.verifyTestStatus(testType,status)).isTrue();
     }
 
@@ -179,7 +180,8 @@ public class TestReviewSteps extends ScenarioSteps {
 
     @Step
     public void checkElementValue(String element, String value){
-        assertThat(testReviewPage.checkElementValue(element,value)).isTrue();
+        testReviewPage.waitUntilPageIsLoaded();
+        testReviewPage.checkElementValue(element,value);
     }
 
     @Step
