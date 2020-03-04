@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SearchForAnATFPage extends BasePage {
 
-    private static final String FIND_TEST_FACILITY_TITLE_ID = "Find test facility";
+    private static final String FIND_TEST_FACILITY_TITLE_ID = "Find an ATF";
     private static final String PAGE_ALL_TEXT_XPATH = "XCUIElementTypeStaticText";
     private static final String SEARCH_FIELD_XPATH = "XCUIElementTypeSearchField";
     private static final String BACK_BUTTON_ID = "Back";
