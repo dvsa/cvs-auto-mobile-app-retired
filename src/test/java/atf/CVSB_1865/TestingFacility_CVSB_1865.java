@@ -1,7 +1,8 @@
 package atf.CVSB_1865;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.*;
+import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import steps.*;
