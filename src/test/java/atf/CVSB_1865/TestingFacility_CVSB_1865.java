@@ -3,7 +3,6 @@ package atf.CVSB_1865;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
@@ -107,7 +106,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
 
     @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC7 - VSA is able to confirm that the site is not suitable for testing ")
-    @Test public void testTestingFacilitiesNotSuitableForTesting() {
+    public void testTestingFacilitiesNotSuitableForTesting() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
@@ -119,7 +118,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
 
     @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC8 - Submit a test - test certificate and history fields ")
-    @Test public void testSubmitTestAndViewCertificateAndHistory() {
+    public void testSubmitTestAndViewCertificateAndHistory() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.checkAtfDetails(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber(),
@@ -131,5 +130,4 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         testHistorySteps.selectTestAtPosition("Annual test", 0);
         testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub, 09-4129632");
     }
-
 }
