@@ -2,6 +2,7 @@ package atf.CVSB_1865;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -35,6 +36,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
     @Steps
     TestHistoryDetailsSteps testHistoryDetailsSteps;
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC1 - Sites list + AC2 - No search results")
     @Test
     public void testSitesList(){
@@ -51,10 +53,9 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         searchForAnATFSteps.checkNoResultsFoundAndSuggestion();
     }
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1856 - AC3 - Select testing facility")
-    @Test
-    public void testTestingFacilities(){
-
+    public void testTestingFacilities() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
@@ -64,9 +65,9 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkCallPopUp(atfService.getAtfByIndex(0).getAtfContactNumber());
     }
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC4 - VSA is able to return to the Testing facilities search results")
-    @Test
-    public void testTestingFacilitiesSearchResults(){
+    public void testTestingFacilitiesSearchResults() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
@@ -76,8 +77,9 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         searchForAnATFSteps.checkAtfPageDisplay();
     }
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC5 - VSA is able to confirm the selected testing facility")
-    @Test public void testTestingFacilitiesConfirmedByVsa(){
+    public void testTestingFacilitiesConfirmedByVsa() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
@@ -87,8 +89,9 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         siteVisitSteps.checkSiteVisitPage();
     }
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC6 - VSA is able to confirm and proceed with the visit ")
-    @Test public void testTestingFacilitiesConfirmedAndProceededByVsa(){
+    public void testTestingFacilitiesConfirmedAndProceededByVsa() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.checkTestFacilitiesDetailsPageDisplayed();
@@ -125,5 +128,4 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         testHistorySteps.selectTestAtPosition("Annual test", 0);
         testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub, 09-4129632");
     }
-
 }
