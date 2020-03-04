@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class TestHistoryDetailsPage extends BasePage {
@@ -15,7 +14,6 @@ public class TestHistoryDetailsPage extends BasePage {
     private static final String PAGE_ALL_TEXT_CLASS_NAME = "XCUIElementTypeStaticText";
 
     public void waitUntilPageIsLoaded() {
-        getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         waitUntilPageIsLoadedById(TEST_HISTORY_DETAILS_PAGE_TITLE);
     }
 
