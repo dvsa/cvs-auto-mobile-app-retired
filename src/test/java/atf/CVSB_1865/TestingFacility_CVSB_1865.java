@@ -105,6 +105,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         siteVisitSteps.checkEndVisitPopUp();
     }
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC7 - VSA is able to confirm that the site is not suitable for testing ")
     @Test public void testTestingFacilitiesNotSuitableForTesting() {
         launchSteps.clickGetStarted();
@@ -116,6 +117,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkReportIssuePopUp();
     }
 
+    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC8 - Submit a test - test certificate and history fields ")
     @Test public void testSubmitTestAndViewCertificateAndHistory() {
         launchSteps.clickGetStarted();
