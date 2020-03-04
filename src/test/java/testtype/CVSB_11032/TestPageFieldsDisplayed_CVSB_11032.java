@@ -3,8 +3,6 @@ package testtype.CVSB_11032;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -58,7 +56,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkLGVTestDetails("AS234TY", "P0123010951264");
+        testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
         testSteps.checkCountryOfRegistrationOptionIsDisplayed();
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
@@ -321,7 +319,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkLGVTestDetails("AS234TY", "P0123010951264");
+        testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
         testSteps.checkCountryOfRegistrationOptionIsDisplayed();
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
