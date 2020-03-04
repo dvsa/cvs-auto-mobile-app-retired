@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
 import net.thucydides.core.annotations.WithTag;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -39,7 +38,6 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
     @Steps
     TestHistoryDetailsSteps testHistoryDetailsSteps;
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC1 - Sites list + AC2 - No search results")
     public void testSitesList() {
 
@@ -132,6 +130,6 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.selectTestAtPosition("Annual test", 0);
-        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub, 09-4129632");
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub", "09-4129632", "Great Britain and Northern Ireland", "Cvs.automation4@Dvsagov.onmicrosoft.com");
     }
 }
