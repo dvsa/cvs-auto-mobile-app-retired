@@ -47,7 +47,6 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
 
     @Ignore("Rendered obsolete by CVSB-7936 ")
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Technical Test)")
-    @Test
     public void testProhibitionFieldOnTestReviewScreenTechnicalTest() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();

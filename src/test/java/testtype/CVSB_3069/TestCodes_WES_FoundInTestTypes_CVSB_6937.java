@@ -54,7 +54,6 @@ public class TestCodes_WES_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
 
 
     @Title("CVSB-6937,CVSB-6939 and CVSB-6941- AC1,AC2 and AC3 - Codes added are reflected in the selection of test types, recorded against the test and reviewed")
-    @Test
     @Ignore
     // TODO
     // This is being disabled temporarily.  The Prohibition Clearance check has been updated, but the new functionality hasn't been merged in to the app yet.

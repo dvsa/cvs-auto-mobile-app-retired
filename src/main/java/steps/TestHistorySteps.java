@@ -38,6 +38,11 @@ public class TestHistorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectTestAtPosition(String testType, int testPosition) {
+        testHistoryPage.clickTestAtPosition(testType, testPosition);
+    }
+
+    @Step
     public void clickLastTestByTestResult(String testResult) {
         testHistoryPage.clickLastTestByTestResult(testResult);
     }

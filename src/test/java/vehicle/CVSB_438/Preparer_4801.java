@@ -20,7 +20,6 @@ public class Preparer_4801 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB_438 - AC 7 click 'Cancel' on popup")
-    @Test
     public void cancelWithoutPreparerFromPopUp() {
         preparerComp.goToSelectPreparer();
         preparerSteps.checkPageTitleIsDisplayed();

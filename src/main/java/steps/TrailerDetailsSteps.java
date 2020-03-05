@@ -19,6 +19,17 @@ public class TrailerDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSelectVehicleCta(String text) {
+        assertThat(trailerDetailsPage.isSelectVehicleCtaDisplayed()).isTrue();
+        assertThat(trailerDetailsPage.getSelectVehicleCtaText()).contains(text);
+    }
+
+    @Step
+    public void pressSelectVehicleCta(){
+        trailerDetailsPage.clickSelectVehicleCta();
+    }
+
+    @Step
     public void checkPageTitle() {
         trailerDetailsPage.waitUntilPageIsLoaded();
         assertThat(trailerDetailsPage.isPageTitleDisplayed()).isTrue();

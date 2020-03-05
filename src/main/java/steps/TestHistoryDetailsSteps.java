@@ -2,10 +2,12 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.assertj.core.api.AssertionsForClassTypes;
 import pages.TestHistoryDetailsPage;
-
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-
+import static java.time.LocalDate.now;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestHistoryDetailsSteps extends ScenarioSteps {
@@ -16,6 +18,19 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     public void checkPageTitle() {
         testHistoryDetailsPage.waitUntilPageIsLoaded();
         assertThat(testHistoryDetailsPage.isPageTitleDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkExpiryDateIsCorrect() {
+
+        String expiryDate = testHistoryDetailsPage.getElementValueByLabel("Test expiry");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM uuuu");
+        LocalDate expiryDateCalculated = LocalDate.parse(expiryDate, formatter);
+        LocalDate expiryDateExpected = now().plusYears(1).minusDays(1);
+
+        System.out.println("Comparing found expiry date to expected...");
+        assertThat(expiryDateExpected.compareTo(expiryDateCalculated)).isEqualTo(0);
+        System.out.println("- OK");
     }
 
     @Step
@@ -37,6 +52,10 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
         }
     }
 
+    @Step
+    public String getValueAfterLabel(String label) {
+        return testHistoryDetailsPage.getElementValueByLabel(label);
+    }
     @Step
     public void checkElementIsPresent(String element) {
         assertThat(testHistoryDetailsPage.checkElementIsPresent(element)).isTrue();
@@ -70,8 +89,23 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkElementValue(String element, String value){
+        AssertionsForClassTypes.assertThat(testHistoryDetailsPage.checkElementValue(element,value)).isTrue();
+    }
+
+    @Step
+    public void checkAutoCertificateNumberIsShown(String certificateType) {
+        assertThat(testHistoryDetailsPage.getElementValueByLabel(certificateType)).isNotEmpty();
+    }
+
+    @Step
     public void scroll() {
         testHistoryDetailsPage.scroll();
+    }
+
+    @Step
+    public void scrollDown() {
+        testHistoryDetailsPage.scrollPageDown();
     }
 
     public void scrollToElement(String id) {

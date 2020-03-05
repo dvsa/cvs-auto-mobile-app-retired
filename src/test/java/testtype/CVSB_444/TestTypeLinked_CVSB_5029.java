@@ -45,7 +45,6 @@ public class TestTypeLinked_CVSB_5029 extends BaseTestClass {
 
     @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Ignore("Rendered obsolete by CVSB-7936 ")
-    @Test
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Paid Retest Any PSV)")
     public void testListFromAddLinkedTestTypePaidRetestAnyPSV() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest");

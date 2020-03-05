@@ -57,6 +57,11 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkFieldIsPresent(String field) {
+        vehicleDetailsPage.isFieldDisplayed(field);
+    }
+
+    @Step
     public void verifySectionHeadingIsDisplayed(String heading) {
         assertThat(vehicleDetailsPage.isSectionHeadingDisplayed(heading)).isTrue();
     }
@@ -112,6 +117,7 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectAdditionalVehicleDetails() {
+        vehicleDetailsPage.scrollToElement("Additional vehicle details");
         vehicleDetailsPage.clickExpandableInformation("Additional vehicle details");
     }
 
@@ -189,5 +195,8 @@ public class VehicleDetailsSteps extends ScenarioSteps {
         assertThat(vehicleDetailsPage.isAttribute("DTP", dtp)).isTrue();
     }
 
-
+    @Step
+    public void checkCountryOfRegistrationIs(String country) {
+        assertThat(vehicleDetailsPage.isAttribute("Country of registration", country)).isTrue();
+    }
 }

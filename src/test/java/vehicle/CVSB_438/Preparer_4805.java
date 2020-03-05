@@ -24,7 +24,6 @@ public class Preparer_4805 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB_438 - AC 1 VSA searches for preparer ID")
-    @Test
     public void cancelInPreparerNotFoundPopUp() {
         preparerComp.goToSelectPreparer();
         preparerSteps.checkPageTitleIsDisplayed();

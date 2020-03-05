@@ -54,7 +54,6 @@ public class AutoCalculateTestTypeResult_2174 extends BaseTestClass {
     AdvisoryDetailsSteps advisoryDetailsSteps;
 
     @Title("CVSB-929 - Pass test result - Minor defect PRS + Advisory")
-    @Test
     @Ignore("Deprecated due to CVSB-972 and CVSB-3228")
     public void testPassResultMinorDefectPRSAndAdvisory() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());

@@ -113,7 +113,6 @@ public class NewScreenDesignsHgv extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6406 - AC1 New screen design for first vehicle")
-    @Test
     public void testNewDesignVehicleDetailsHgv() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");

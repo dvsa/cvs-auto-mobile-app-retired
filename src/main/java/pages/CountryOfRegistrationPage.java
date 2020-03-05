@@ -180,6 +180,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Français (Canada)".equals(line))
                 .filter(line -> !"return".equals(line))
                 .filter(line -> !line.isEmpty())
+                .filter(line -> !"Not applicable".equals(line))
                 .collect(Collectors.toList());
     }
 
@@ -202,6 +203,12 @@ public class CountryOfRegistrationPage extends BasePage {
     public void selectNotKnown() {
         searchForCountry("Norway");
         findElementByXpath("//XCUIElementTypeButton[contains(@name,'Country Not Known')]").click();
+        clickSaveButton();
+    }
+
+    public void selectNotApplicable() {
+        searchForCountry("Norway");
+        findElementByXpath("//XCUIElementTypeButton[contains(@name,'Not applicable')]").click();
         clickSaveButton();
     }
 

@@ -26,7 +26,6 @@ public class VehicleSearch_CVSB_1033 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-183 - AC5 VSA cancels screen (no search input)")
-    @Test
     public void testCancelScreenNoInput() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();
