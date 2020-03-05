@@ -86,7 +86,6 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
 
     @Title("CVSB-3904 - AC4 - Add a linked test ")
     @Test
-//    @Ignore("Ignored until adding linked test for trailers issue will be fixed")
     public void testTypeDrillDownAddLinkedTest() {
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
@@ -99,11 +98,9 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("TIR");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.EDIT);
-
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
     }
 
-//    @Ignore("ignored until figure what to test")
     @Title("CVSB-3904 - TCD - AC5 - Display test types' short/ long name when appropriate (annual test)")
     @Test
     public void testTypeDrillDownShortLongAnnual() {

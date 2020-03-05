@@ -123,9 +123,8 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness test");
-        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("8");
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
@@ -133,19 +132,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("8.1 (d) (i) MINOR");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReviewAndSubmit();
-
-        // Expect the new on-screen validation error, rather than the popup.
-        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
-
-        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
-        testTypeDetailsSteps.checkCertificateGuidanceDisplays("After conducting the test, call central support to obtain a certificate number and complete the Roadworthiness Inspection Document.");
-        testTypeDetailsSteps.sendCertificateNumberAndSave("CV26&£");
-        testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.checkCertificateNumberIs("CV26&£");
-        testTypeDetailsSteps.pressSave();
+        testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
         testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkTestStatus("Voluntary roadworthiness test", "PASS");
