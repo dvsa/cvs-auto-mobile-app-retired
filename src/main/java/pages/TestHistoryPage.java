@@ -53,6 +53,7 @@ public class TestHistoryPage extends BasePage {
     }
 
     public boolean isNoTestHistoryDisplayed() {
+        waitUntilPageIsLoaded();
         return findElementByXpath("//XCUIElementTypeStaticText[@name='No test history found for this vehicle']").isDisplayed();
     }
 }

@@ -176,6 +176,7 @@ public class TestPage extends BasePage {
     }
 
     public void clickOnTestType(String testType, TestTypeStatuses testTypeStatus) {
+        waitUntilPageIsLoaded();
         String id;
         switch (testTypeStatus) {
             case EDIT:
@@ -246,6 +247,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isTestTypeStatusDisplayed(String testType, TestTypeStatuses status) {
+        waitUntilPageIsLoaded();
         String id;
         boolean isDisplayed;
         switch (status) {
