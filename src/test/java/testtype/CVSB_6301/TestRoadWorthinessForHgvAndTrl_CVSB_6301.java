@@ -75,9 +75,8 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("8");
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
@@ -85,19 +84,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("8.1 (d) (i) MINOR");
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
-        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.clickReviewAndSubmit();
-
-        // Expect the new on-screen validation error, rather than the popup.
-        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
-
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
-        testTypeDetailsSteps.checkCertificateGuidanceDisplays("After conducting the test, call central support to obtain a certificate number and complete the Roadworthiness Inspection Document.");
-        testTypeDetailsSteps.sendCertificateNumberAndSave("HDK87&@£");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.checkCertificateNumberIs("HDK87&@£");
-        testTypeDetailsSteps.pressSave();
+        testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
         testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
         testReviewSteps.checkTestStatus("Paid roadworthiness retest", "PASS");
