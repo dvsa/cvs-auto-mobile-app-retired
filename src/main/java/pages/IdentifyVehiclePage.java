@@ -16,6 +16,11 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String LOADING_SCREEN_ID = "Loading...";
     private static final String INCOMPLETE_RECORD_DESCRIPTION_ID = "This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.";
     private static final String INCOMPLETE_RECORD_TITLE_ID = "Incomplete vehicle record";
+    private static final String SEARCH_CRITERIA_BUTTON = "//*[contains(@name, 'Change arrow forward')]";
+
+    public void clickSearchCriteriaButton() {
+        findElementByXpath(SEARCH_CRITERIA_BUTTON).click();
+    }
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE);
