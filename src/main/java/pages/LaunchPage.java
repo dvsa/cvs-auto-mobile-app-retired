@@ -51,8 +51,9 @@ public class LaunchPage extends BasePage {
 
                 } catch (TimeoutException e) {
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+                } catch (Exception e) {
+                    throw new AutomationException("Unable to start Signature service / access reference data. #1");
                 }
-
             } catch (TimeoutException e) {
                 throw new AutomationException("Could not get to get started page (Session: " + sessionId + ")");
             }
@@ -94,6 +95,8 @@ public class LaunchPage extends BasePage {
 //                    signaturePage.confirmSignature();
 //                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
 
+                } catch (Exception e2) {
+                    throw new AutomationException("Unable to start Signature service / access reference data. #2");
                 }
             }
 
