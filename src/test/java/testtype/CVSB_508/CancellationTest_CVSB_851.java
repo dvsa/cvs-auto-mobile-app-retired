@@ -25,7 +25,6 @@ public class CancellationTest_CVSB_851 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-851 - AC1 VSA decides to cancel a test")
-    @Test
     public void cancelTet() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");

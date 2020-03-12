@@ -24,7 +24,6 @@ public class AppState_CVSB_1937 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-469 - AC2 Reopen the app after it was closed - redirected to the homepage screen (ex. app closed by the user, app closed by the device, device turned off)")
-    @Test
     public void testAppStateCloseAtSearchForAtfPage() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));

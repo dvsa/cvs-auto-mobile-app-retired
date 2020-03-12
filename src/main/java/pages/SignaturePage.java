@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class SignaturePage extends BasePage {
@@ -12,6 +13,7 @@ public class SignaturePage extends BasePage {
     private static final String SIGNATURE_TEXT_INSTRUCTIONS_2_ID = "Once you are happy with your signature, select 'Save'. After it has been saved, it cannot be edited and will be used each time you need to sign a certificate.";
     private static final String CANCEL_SIGNATURE_POP_UP_ID = "Cancel";
     private static final String CONFIRM_SIGNATURE_POP_UP_ID = "Confirm";
+    private static final String UNABLE_TO_LOAD_DATA_ID = "Unable to load data";
 
 
     public void clickClearButton() {
@@ -47,12 +49,33 @@ public class SignaturePage extends BasePage {
         System.out.println("- Signed.");
     }
 
-    public void waitPageToLoad() {
+    public boolean isErrorMessageDisplayed() {
+        boolean status;
+        System.out.println("Checking if error message is displayed: " + UNABLE_TO_LOAD_DATA_ID);
+        try {
+            status = findElementById(UNABLE_TO_LOAD_DATA_ID).isDisplayed();
+            System.out.println("- FOUND");
+        } catch (NoSuchElementException e) {
+            status = false;
+            System.out.println("- Not found");
+        }
+        return status;
+    }
+
+    public void waitPageToLoad() throws Exception {
         System.out.println("Waiting for Signature page to load...");
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
         waitForLoadingToFinish();
         System.out.println(getDriver().getPageSource());
         System.out.println("- Signature page loaded.");
+
+        // Check to see if there was an error shown (either caused by
+        // 1. The Signature service not being available, or
+        // 2. Reference data not being present, e.g. defects, test types, etc.
+        if (isErrorMessageDisplayed()) {
+            System.out.println("*** Error starting the app - unable to load setup data.");
+            throw new Exception("Signature service or Reference Data unavailable.  Unable to proceed with app initialisation.");
+        }
     }
 
     public void shortestWaitPageToLoad() {

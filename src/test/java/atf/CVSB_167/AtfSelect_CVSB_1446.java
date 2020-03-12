@@ -26,7 +26,6 @@ public class AtfSelect_CVSB_1446 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-167 - AC2 - VSA cancels call pop up")
-    @Test
     public void testAtfCancelCall() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));

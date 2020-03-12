@@ -23,6 +23,11 @@ public class CountryOfRegistrationSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectNotApplicableOption() {
+        countryOfRegistrationPage.selectNotApplicable();
+    }
+
+    @Step
     public void checkAllCountriesAreDisplayed() {
         countryOfRegistrationPage.checkAllElementsAreDisplayed();
     }

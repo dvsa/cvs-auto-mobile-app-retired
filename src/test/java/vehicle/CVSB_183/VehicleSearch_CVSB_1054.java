@@ -26,7 +26,6 @@ public class VehicleSearch_CVSB_1054 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-183 - AC3.2 Vehicle not found in system (Try again)")
-    @Test
     public void testVehicleNotFound() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();

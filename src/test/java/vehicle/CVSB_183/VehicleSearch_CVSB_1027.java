@@ -26,7 +26,6 @@ public class VehicleSearch_CVSB_1027 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-183 - updated by CVSB-3826 - AC1 Search box is presented which asks the VSA for a registration number or VIN number")
-    @Test
     public void testSearchBox() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();

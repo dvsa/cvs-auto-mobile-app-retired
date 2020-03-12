@@ -77,7 +77,7 @@ public class SelectVehiclePage extends BasePage {
     }
 
     public boolean isVehicleDetailsPresent(String make, String year, String model){
-        String searchString = make+" "+year+","+" "+model;
+        String searchString = make + " " + year + " , " + model;
         boolean status = false;
         if(findElementByXpath("//XCUIElementTypeButton[@name=\""+searchString+"\"]").isDisplayed()){
             status = true;
@@ -86,7 +86,7 @@ public class SelectVehiclePage extends BasePage {
     }
 
     public void clickOnVehicle(String make, String year, String model){
-        String searchString = make+" "+year+","+" "+model;
+        String searchString = make + " " + year + " , " + model;
         findElementByXpath("//XCUIElementTypeButton[@name=\""+searchString+"\"]").click();
     }
 

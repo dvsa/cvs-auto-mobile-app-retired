@@ -39,6 +39,36 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void setReferenceNumber(String referenceNumber) {
+        defectDetailsPage.setReferenceNumber(referenceNumber);
+    }
+
+    @Step
+    public void checkReferenceNumberIs(String referenceNumber) {
+        assertThat(defectDetailsPage.getReferenceNumber().equalsIgnoreCase(referenceNumber));
+    }
+
+    @Step
+    public void setDefectName(String defectName) {
+        defectDetailsPage.setDefectName(defectName);
+    }
+
+    @Step
+    public void checkDefectNameIs(String defectName) {
+        assertThat(defectDetailsPage.getDefectName().equalsIgnoreCase(defectName));
+    }
+
+    @Step
+    public void setDefectNotes(String notes) {
+        defectDetailsPage.setDefectNotes(notes);
+    }
+
+    @Step
+    public void checkDefectNotesIs(String notes) {
+        assertThat(defectDetailsPage.getDefectNotes().equalsIgnoreCase(notes));
+    }
+
+    @Step
     public void selectOptionsWithPRSCheckAndTapAddDefect(Map<String, String> map) {
         defectDetailsPage.selectOptionAndItsValue(map);
         defectDetailsPage.enablePRS();

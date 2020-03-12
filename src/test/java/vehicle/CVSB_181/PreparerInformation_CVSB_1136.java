@@ -25,7 +25,6 @@ public class PreparerInformation_CVSB_1136 extends BaseTestClass {
 
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC10 Select preparer and confirm")
-    @Test
     public void selectPreparer() {
         preparerComp.goToSelectPreparer();
         selectPreparerSteps.selectPreparerAndConfirm(

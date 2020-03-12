@@ -40,6 +40,7 @@ public class VehicleDetailsPage extends BasePage {
      * @return the list of data containing both Keys and Values of the details page
      */
     public List<String> findAllValuesByXpath() {
+        waitUntilPageIsLoaded();
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         List<String> listOfData = new ArrayList<>();
         for (WebElement webElement : webElementList) {
@@ -151,5 +152,9 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isSectionHeadingDisplayed(String sectionHeading) {
         return (findElementById(sectionHeading).isDisplayed());
+    }
+
+    public boolean isFieldDisplayed(String field) {
+        return (findElementById(field).isDisplayed());
     }
 }

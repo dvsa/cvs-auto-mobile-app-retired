@@ -35,7 +35,10 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     public void checkNoResultsFoundAndSuggestion() {
         searchForAnATFPage.waitByElement("No results found", 2);
         List<String> actualData = searchForAnATFPage.findAllLabelsByXpath();
-        assertThat(actualData).contains("No results found", "You can search for an ATF by typing in", "it's name, address or P-number");
+        String dataFieldsStringList = ("No results found, You can search for an ATF by typing in, it's name, address or P-number");
+        for (String dataField : actualData){
+            assertThat(dataFieldsStringList.contains(dataField));
+        }
     }
 
     @Step
@@ -105,5 +108,17 @@ public class SearchForAnATFSteps extends ScenarioSteps {
     public void clickBackButton() {
         searchForAnATFPage.waitUntilPageIsLoaded();
         searchForAnATFPage.clickBack();
+    }
+
+    @Step
+    public void isTestingFacilityPresentPNumberAndName(){
+        assertThat(searchForAnATFPage.isSearchedTestingFacilityPresent("Abshire-Kub", "09-4129632"));
+        searchForAnATFPage.clickCancel();
+    }
+
+    @Step
+    public void isTestingFacilityPresentAddress(){
+        assertThat(searchForAnATFPage.isSearchedTestingFacilityPresent("Abshire-Kub", "5 Lukken Lane"));
+        searchForAnATFPage.clickCancel();
     }
 }

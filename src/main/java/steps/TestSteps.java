@@ -375,6 +375,11 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void scrollUp(){
+        testPage.scrollPageUp();
+    }
+
+    @Step
     public void checkCountryOfRegistrationFieldIsUpdatedFor(String country, String vehicle){
         assertThat(testPage.checkCountryOfRegistrationFieldIsUpdatedFor(country, vehicle)).isTrue();
     }
@@ -384,4 +389,8 @@ public class TestSteps extends ScenarioSteps {
         testPage.clickEuVehicleCategoryFor(vehicle);
     }
 
+    @Step
+    public void clickUnsetEuVehicleCategory() {
+        testPage.clickUnsetEuVehicleCategory();
+    }
 }

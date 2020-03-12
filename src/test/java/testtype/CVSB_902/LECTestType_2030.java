@@ -31,7 +31,6 @@ public class LECTestType_2030 extends BaseTestClass {
 
     @Ignore("Rendered obsolete by CVSB-7936 ")
     @Title("CVSB-902 - AC6 - Edit certificate number")
-    @Test
     public void editCertificateNumber() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("LEC");

@@ -24,7 +24,6 @@ public class TestCreate_CVSB_785 extends BaseTestClass {
 
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-317 - AC2 - Go back to site visit overview")
-    @Test()
     public void testGoBackToSiteVisit() {
         vehicleComp.goToSiteVisit();
         siteVisitSteps.createNewTest();

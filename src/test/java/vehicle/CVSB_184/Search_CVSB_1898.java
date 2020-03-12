@@ -25,7 +25,6 @@ public class Search_CVSB_1898 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-184 - AC3 - VSA searches by full VIN number instead")
-    @Test
     public void testSearchByVin() {
         vehicleComp.goToIdentifyVehicle();
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");

@@ -17,9 +17,9 @@ public class Preparer_4798 extends BaseTestClass {
 
     @Steps
     PreparerSteps preparerSteps;
+
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB_438 - AC 4 Select preparer and cancel")
-    @Test
     public void selectPreparerAndCancel() {
         preparerComp.goToSelectPreparer();
         preparerSteps.checkPageTitleIsDisplayed();

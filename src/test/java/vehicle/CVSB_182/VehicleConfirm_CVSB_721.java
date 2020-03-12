@@ -22,7 +22,6 @@ public class VehicleConfirm_CVSB_721 extends BaseTestClass {
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-182 - AC1 Vehicle details presented are correct, VSA confirms")
-    @Test
     public void testVehicleDetailsConfirmationPopUp() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");

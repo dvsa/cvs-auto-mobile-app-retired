@@ -29,7 +29,7 @@ public class VehicleCategoryCountryReg_2678 extends BaseTestClass {
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.checkTitleIsDisplayed();
         euVehicleCategorySteps.checkOptionsAreDisplayed();
-        euVehicleCategorySteps.selectM1Option();
-        testSteps.checkEUVehicleCategoryOptionIs("M1");
+        euVehicleCategorySteps.selectM2Option();
+        testSteps.checkEUVehicleCategoryOptionIs("M2");
     }
 }

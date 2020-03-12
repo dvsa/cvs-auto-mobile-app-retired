@@ -81,7 +81,11 @@ public class TestPage extends BasePage {
                 button.click();
             }
         }
+    }
 
+    public void clickUnsetEuVehicleCategory() {
+        waitUntilPageIsLoaded();
+        findElementByXpath("//*[@name='EU vehicle category Select arrow forward']").click();
     }
 
     public void clickOdometerReadingOf(String vehicle) {
@@ -114,7 +118,7 @@ public class TestPage extends BasePage {
                     System.out.println("button: " + buttonList.get(index).getAttribute("name"));
                     index++;
                 }
-                while (!buttonList.get(index).getAttribute("name").contains("Add a test type"));
+                while (!(buttonList.get(index).getAttribute("name").contains("Add a test type")) && (index < buttonList.size()));
                 for (WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1)) {
                     System.out.println("element of list is: " + we.getAttribute("name"));
                 }
@@ -172,6 +176,7 @@ public class TestPage extends BasePage {
     }
 
     public void clickOnTestType(String testType, TestTypeStatuses testTypeStatus) {
+        waitUntilPageIsLoaded();
         String id;
         switch (testTypeStatus) {
             case EDIT:
@@ -242,6 +247,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean isTestTypeStatusDisplayed(String testType, TestTypeStatuses status) {
+        waitUntilPageIsLoaded();
         String id;
         boolean isDisplayed;
         switch (status) {
@@ -406,6 +412,7 @@ public class TestPage extends BasePage {
     }
 
     public boolean checkNoEUCategoryIsSelected() {
+        waitUntilPageIsLoadedById("EU vehicle category Select arrow forward");
         return findElementById("EU vehicle category Select arrow forward").isDisplayed();
     }
 
@@ -459,6 +466,10 @@ public class TestPage extends BasePage {
 
     public void scrollPageDown() {
         scrollDownTo(500, -1200);
+    }
+
+    public void scrollPageUp() {
+        scrollDownTo(500, 1200);
     }
 
     public void addATrailer() {

@@ -41,7 +41,6 @@ public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
     ConfirmationPageSteps confirmationPageSteps;
 
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
-    @Test
     @Title("CVSB-444 - Submit test (Tempo 100)")
     public void testListFromAddLinkedTestTypeTempo100() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary test");
