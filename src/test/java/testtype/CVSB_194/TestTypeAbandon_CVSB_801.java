@@ -37,7 +37,7 @@ public class TestTypeAbandon_CVSB_801 extends BaseTestClass {
     AbandonedTestSteps abandonedTestSteps;
 
     @Title("CVSB-194 - AC3 Edit reasons after abandon")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testEditReasonAfterAbandon() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);

@@ -24,7 +24,7 @@ public class TestTypeSearch_CVSB_820 extends BaseTestClass {
 
 
     @Title("CVSB-178 - Add test type from the latest level of test type drilldown")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testAddTestTypeFromLatestLevel() {
         testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Retest", preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeSubcategorySteps.seeInTestTypeList("Paid", "Part paid");

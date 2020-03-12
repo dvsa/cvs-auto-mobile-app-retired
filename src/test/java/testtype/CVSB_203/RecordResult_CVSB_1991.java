@@ -42,7 +42,7 @@ public class RecordResult_CVSB_1991 extends BaseTestClass {
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
     @Title("CVSB-203 - AC6 – Select results for test types (Fail)")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSelectResultForTestTypeFail() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
