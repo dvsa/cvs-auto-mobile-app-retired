@@ -25,7 +25,7 @@ public class CaptureTestInformation_CVSB_1565 extends BaseTestClass {
 
 
     @Title("CVSB-756 - AC2 - Update test type status once added")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testUpdateTestTypeStatusOnceAdded() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());

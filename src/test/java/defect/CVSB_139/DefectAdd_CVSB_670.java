@@ -36,7 +36,7 @@ public class DefectAdd_CVSB_670 extends BaseTestClass {
 
 
     @Title("CVSB-139 - AC3 - Add advisory defect screen")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void addAdvisoryDefectScreen() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);

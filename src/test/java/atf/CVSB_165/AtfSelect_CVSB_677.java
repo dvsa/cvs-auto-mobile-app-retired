@@ -20,7 +20,7 @@ public class AtfSelect_CVSB_677 extends BaseTestClass {
 
 
     @Title("CVSB-165 - AC1 - ATF's scrollable list")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testAtfListScrollable() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.checkListIsScrollableByElement(atfService.getUniqueIdentifier(0));

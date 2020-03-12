@@ -53,7 +53,7 @@ public class AutoCalculateTestTypeResult_2172 extends BaseTestClass {
     AdvisoryDetailsSteps advisoryDetailsSteps;
 
     @Title("CVSB-929 - Pass test results - Minor + Advisory defects")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testPassResultAdvisoryAndMinorDefect() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.clickCountryOfRegistrationOption();
