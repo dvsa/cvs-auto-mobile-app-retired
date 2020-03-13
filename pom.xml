@@ -13,6 +13,7 @@
         <junit.version>4.12</junit.version>
         <serenity.version>2.0.20</serenity.version>
         <sl4j.version>1.7.7</sl4j.version>
+        <parallel.tests>1</parallel.tests>
     </properties>
 
     <dependencies>
@@ -97,9 +98,9 @@
                                 <include>**/*.java</include>
                                 <!--<include>**/AtfSelect_CVSB_678*.java</include>-->
                             </includes>
-                            <!--<threadCount>5</threadCount>-->
-                            <!--<forkCount>5</forkCount>-->
-                            <!--<reuseForks>true</reuseForks>-->
+                            <parallel>classes</parallel>
+                            <forkCount>${parallel.tests}</forkCount>
+                            <reuseForks>true</reuseForks>
                             <excludes>
                                 <exclude>**/MainPageError*.java</exclude>
                                 <exclude>**/SubmitTest_CVSB_3084*.java</exclude>

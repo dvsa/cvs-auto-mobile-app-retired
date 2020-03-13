@@ -2,10 +2,7 @@ package util;
 
 import exceptions.AutomationException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
@@ -14,7 +11,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BaseUtils {
 
@@ -42,24 +38,28 @@ public class BaseUtils {
                         list.remove(userName);
                     }
 
-                    String string2 = list.stream()
-                            .map(n -> n.toString())
-                            .collect(Collectors.joining(","));
+                    String string2 = String.join(",", list);
                     fileChannel
-                            .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2 + ",END")));
+                            .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                     fileChannel.force(true);
                     Thread.sleep(1000);
 
 
-                } catch (IOException e) {
-                    e.printStackTrace();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     fileLock.release();
                 }
 
-            } else {
+            }
+            else {
+                while (!file.canRead() && !file.canWrite()) {
+                    try {
+                        Thread.sleep(250);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
                 userName = getUser(fileLock);
             }
 
@@ -81,19 +81,17 @@ public class BaseUtils {
 
     private static String getUser(FileLock lock) {
 
-        String username = null;
-
-
+        String username;
 
         try {
-            List<String> myNewList = null;
+            List<String> myNewList;
 
 
             ByteBuffer bytes = ByteBuffer.allocate(500);
             int noOfBytesRead = fileChannel.read(bytes);
             StringBuilder users = new StringBuilder();
 
-            Thread.sleep(5000);
+            Thread.sleep(1000);
             while (noOfBytesRead != -1) {
                 bytes.flip();
                 while (bytes.hasRemaining()) {
@@ -106,26 +104,27 @@ public class BaseUtils {
             fileChannel.truncate(0);
 
             myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
+            ;
 
-            username = myNewList.get(0);
 
-            if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
-                myNewList.remove(myNewList.get(0));
-            }
-
-            String string2 = myNewList.stream()
-                    .map(n -> n.toString())
-                    .collect(Collectors.joining(","));
-
-            fileChannel
-                    .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
-            fileChannel.force(true);
-
-            Thread.sleep(1000);
-
-            lock.release();
-            if (myNewList.get(0).equalsIgnoreCase("END")) {
+            if (myNewList.isEmpty()) {
+                lock.release();
                 fileChannel.close();
+                throw new AutomationException("User pool is empty");
+            }
+            else {
+                username = myNewList.get(0);
+                if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
+                    myNewList.remove(myNewList.get(0));
+                }
+                String string2 = String.join(",", myNewList);
+                fileChannel
+                        .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
+                fileChannel.force(true);
+
+                Thread.sleep(1000);
+
+                lock.release();
             }
 
         } catch (IOException | InterruptedException e) {

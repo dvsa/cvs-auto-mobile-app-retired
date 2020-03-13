@@ -1,14 +1,28 @@
 package appstates.CVSB_469;
 
 
+import exceptions.AutomationException;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.AfterClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
+import util.AfterClassUtils;
 import util.BaseTestClass;
+import util.TypeLoader;
+
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RunWith(SerenityRunner.class)
 public class AppState_CVSB_1936 extends BaseTestClass {
@@ -75,4 +89,9 @@ public class AppState_CVSB_1936 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
 
     }
+//
+//    @AfterClass
+//    public static void addUserBackToUserPool() {
+//        AfterClassUtils.addUserBackToUserPool();
+//    }
 }
