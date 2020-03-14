@@ -74,6 +74,8 @@ public class ActivityService {
                     case "Cvs.automation10@dvsagov.onmicrosoft.com":
                         AwsUtil.deleteActivitiesForUser("8272a386-098b-4dc9-ab1d-c2ea561aa4a0");
                         break;
+                    default:
+                        throw new AutomationException("The provided user is incorrect");
                 }
             case LOCAL_REAL_DEVICE:
             case LOCAL_SIMULATOR:
