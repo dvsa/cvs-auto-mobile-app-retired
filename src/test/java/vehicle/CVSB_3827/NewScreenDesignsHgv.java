@@ -5,12 +5,14 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.AfterClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.composed.VehicleComp;
+import util.AfterClassUtils;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -137,6 +139,11 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         hgvDetailsSteps.checkWeightsIsDisplayed();
         hgvDetailsSteps.checkTyresIsDisplayed();
         hgvDetailsSteps.checkAdditionalVehicleDetailsIsDisplayed();
+    }
+
+    @AfterClass
+    public static void addUserBackToUserPool() {
+        AfterClassUtils.addUserBackToUserPool();
     }
 
 }

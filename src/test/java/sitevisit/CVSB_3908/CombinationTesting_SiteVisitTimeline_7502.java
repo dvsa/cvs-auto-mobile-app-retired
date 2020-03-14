@@ -4,11 +4,13 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Description;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import util.AfterClassUtils;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -181,4 +183,10 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         siteVisitSteps.checkVehiclePosition("C000001",2);
         siteVisitSteps.checkVehiclePosition("C000002",3);
     }
+
+    @AfterClass
+    public static void addUserBackToUserPool() {
+        AfterClassUtils.addUserBackToUserPool();
+    }
+
 }

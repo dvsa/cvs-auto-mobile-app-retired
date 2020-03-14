@@ -5,11 +5,13 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import util.AfterClassUtils;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -201,4 +203,10 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIsNotDisplayed();
     }
+
+    @AfterClass
+    public static void addUserBackToUserPool() {
+        AfterClassUtils.addUserBackToUserPool();
+    }
+
 }

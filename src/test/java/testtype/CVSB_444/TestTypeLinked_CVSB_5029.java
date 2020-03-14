@@ -2,12 +2,14 @@ package testtype.CVSB_444;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
+import org.junit.AfterClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import util.AfterClassUtils;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -75,4 +77,10 @@ public class TestTypeLinked_CVSB_5029 extends BaseTestClass {
         confirmationPageSteps.pressDone();
         siteVisitSteps.checkCreateTestButton();
     }
+
+    @AfterClass
+    public static void addUserBackToUserPool() {
+        AfterClassUtils.addUserBackToUserPool();
+    }
+
 }
