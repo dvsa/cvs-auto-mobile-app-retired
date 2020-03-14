@@ -5,11 +5,13 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
 import net.thucydides.core.annotations.WithTagValuesOf;
+import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import util.AfterClassUtils;
 import util.BaseTestClass;
 
 
@@ -117,4 +119,10 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.checkTrailerTestDetails("0285678", "T12768594");
     }
+
+    @AfterClass
+    public static void addUserBackToUserPool() {
+        AfterClassUtils.addUserBackToUserPool();
+    }
+
 }

@@ -89,9 +89,4 @@ public class AppState_CVSB_1936 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
 
     }
-//
-//    @AfterClass
-//    public static void addUserBackToUserPool() {
-//        AfterClassUtils.addUserBackToUserPool();
-//    }
 }
