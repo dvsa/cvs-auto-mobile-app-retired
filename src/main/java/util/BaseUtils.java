@@ -42,11 +42,8 @@ public class BaseUtils {
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                     fileChannel.force(true);
-                    Thread.sleep(1000);
 
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 } finally {
                     fileLock.release();
                 }
@@ -91,7 +88,6 @@ public class BaseUtils {
             int noOfBytesRead = fileChannel.read(bytes);
             StringBuilder users = new StringBuilder();
 
-            Thread.sleep(1000);
             while (noOfBytesRead != -1) {
                 bytes.flip();
                 while (bytes.hasRemaining()) {
@@ -125,12 +121,11 @@ public class BaseUtils {
                         .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                 fileChannel.force(true);
 
-                Thread.sleep(1000);
 
                 lock.release();
             }
 
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new AutomationException("Initializing users failed");
         }
