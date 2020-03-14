@@ -104,7 +104,10 @@ public class BaseUtils {
             fileChannel.truncate(0);
 
             myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
-            ;
+            for (String s : myNewList) {
+                System.out.println("=======================================================");
+                System.out.println(s);
+            }
 
 
             if (myNewList.isEmpty()) {
