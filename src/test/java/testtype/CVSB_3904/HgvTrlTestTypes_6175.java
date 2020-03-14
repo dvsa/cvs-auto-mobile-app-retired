@@ -85,7 +85,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     }
 
     @Title("CVSB-3904 - AC4 - Add a linked test ")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testTypeDrillDownAddLinkedTest() {
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");

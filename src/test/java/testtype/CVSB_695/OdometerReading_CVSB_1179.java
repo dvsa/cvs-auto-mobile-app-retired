@@ -23,7 +23,7 @@ public class OdometerReading_CVSB_1179 extends BaseTestClass {
     OdometerReadingSteps odometerReadingSteps;
 
     @Title("CVSB-695 - AC6 - Edit odometer reading unit ")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testEditOdometerReadingUnit() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectOdometerReading();

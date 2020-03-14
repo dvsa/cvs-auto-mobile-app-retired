@@ -24,7 +24,7 @@ public class CaptureTestInformation_CVSB_1550 extends BaseTestClass {
 
     @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-440 - AC2 - VSA views the test history section from vehicle search")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testVsaViewsTheTestHistorySectionFromVehicleSearch() {
         vehicleComp.goToVehicleDetails();
         vehicleDetailsSteps.checkVehicleTestHistory();

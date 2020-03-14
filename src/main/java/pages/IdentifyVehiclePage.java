@@ -54,6 +54,7 @@ public class IdentifyVehiclePage extends BasePage {
             okButton = findElementById(OK_ID);
         } catch (Exception e) {
             isException = true;
+            System.out.println("- NOT found.");
         }
 
         if (!isException) {
@@ -72,6 +73,7 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public boolean isVehicleNotFoundPopUpDisplayed() {
+        System.out.println("Checking for the presence of the 'Vehicle not found' popup...");
         boolean status = false;
         boolean isException = false;
         WebElement okButton = null;
@@ -79,6 +81,7 @@ public class IdentifyVehiclePage extends BasePage {
             okButton = findElementById(OK_ID);
         } catch (Exception e) {
             isException = true;
+            System.out.println("- NOT found.");
         }
 
         if (!isException) {
@@ -86,6 +89,7 @@ public class IdentifyVehiclePage extends BasePage {
             WebElement title = findElementById(TITLE_ID);
             if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
                 status = true;
+                System.out.println("- Popup found.");
             }
         }
         return status;

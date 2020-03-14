@@ -69,7 +69,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
 
     @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6409 - AC 4 Search for vehicle (last six digits of the VIN)")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgv() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -97,9 +97,8 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6411 - AC 4 Search for vehicle (registration number)")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgvRegistration() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");

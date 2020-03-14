@@ -23,7 +23,7 @@ public class VehicleCategoryCountryReg_2682 extends BaseTestClass {
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Title("CVSB-995 - AC8 - Editing 'EU Vehicle category' field")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void editingVehicleCategory() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();

@@ -24,7 +24,7 @@ public class SeatbeltInstallationCheck_1951 extends BaseTestClass {
     TestTypeDetailsSteps testTypeDetailsSteps;
 
     @Title("CVSB-901 - AC9 - Select most recent installation check")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testMostRecentInstallationCheckSelection() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);

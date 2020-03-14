@@ -28,7 +28,7 @@ public class SeatbeltInstallationCheck_1945 extends BaseTestClass {
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
     @Title("CVSB-901 - AC4 - Type in number of seat belts fitted")
-    @Test
+    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testTypeInNumberOfSeatBealts() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
