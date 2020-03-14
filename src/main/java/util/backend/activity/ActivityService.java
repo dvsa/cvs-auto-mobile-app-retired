@@ -84,6 +84,7 @@ public class ActivityService {
             case LOCAL_REAL_DEVICE:
             case LOCAL_SIMULATOR:
             case LOCAL_BROWSERSTACK:
+                System.out.println("======================= NOT CI===================================");
                 if (testerStaffId == null) {
                     searchForTesterStaffId();
                 }
