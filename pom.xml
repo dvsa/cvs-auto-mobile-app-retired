@@ -98,7 +98,6 @@
                                 <include>**/*.java</include>
                                 <!--<include>**/AtfSelect_CVSB_678*.java</include>-->
                             </includes>
-                            <parallel>classes</parallel>
                             <forkCount>${parallel.tests}</forkCount>
                             <reuseForks>true</reuseForks>
                             <excludes>
