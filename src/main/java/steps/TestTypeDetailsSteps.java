@@ -6,9 +6,7 @@ import pages.TestTypeDetailsPage;
 import util.EmissionStandard;
 import util.FuelType;
 import util.ModType;
-
 import static org.assertj.core.api.Assertions.assertThat;
-
 
 public class TestTypeDetailsSteps extends ScenarioSteps {
 
@@ -46,7 +44,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkNumberOfSeatbeltsIsNotDisplayed(){
+    public void checkNumberOfSeatbeltsIsNotDisplayed() {
         assertThat(testTypeDetailsPage.checkNumberOfSeatbeltsIsNotDisplayed()).isTrue();
     }
 
@@ -78,7 +76,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setMostRecentInstallationCheckDateOneUnit(){
+    public void setMostRecentInstallationCheckDateOneUnit() {
         testTypeDetailsPage.setRecentInstallationDateCheckOneUnit();
     }
 
@@ -131,7 +129,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         } else if (option.equalsIgnoreCase("cancel")) {
             testTypeDetailsPage.clickPassedTest();
             testTypeDetailsPage.cancelLecTest();
-        } else throw new IllegalArgumentException("The input argument should be pass, fail or cancel!");
+        } else if (option.equalsIgnoreCase("prs")) {
+            testTypeDetailsPage.clickSetTestResult();
+            testTypeDetailsPage.setPRSTest();
+        }
+        else throw new IllegalArgumentException("The input argument should be pass, fail, prs or cancel!");
     }
 
     @Step
@@ -181,7 +183,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void cancelCertificateNumberInput (String certificateNumberAfterCancellation) {
+    public void cancelCertificateNumberInput(String certificateNumberAfterCancellation) {
         String certificateNumber = testTypeDetailsPage.cancelInputCertificateNumber();
         assertThat(certificateNumberAfterCancellation.equals(certificateNumber)).isTrue();
     }
@@ -310,7 +312,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void checkDefectWasNotAdded(String testType, String... defects) {
         testTypeDetailsPage.waitUntilPageIsLoadedByTestType(testType);
-        for (String defect: defects) {
+        for (String defect : defects) {
             assertThat(testTypeDetailsPage.checkElementIsNotPresent(defect).isEmpty()).isTrue();
         }
     }
@@ -336,7 +338,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkOptionsForCarriedOutSeatbeltCheckAreDisplayed(){
+    public void checkOptionsForCarriedOutSeatbeltCheckAreDisplayed() {
         testTypeDetailsPage.selectCarriedOutOption();
         testTypeDetailsPage.isCarriedOutDisplayed();
         testTypeDetailsPage.isCancelCarriedOutDisplayed();
@@ -344,20 +346,20 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSeatbeltPopUpIsDisplayed(){
+    public void checkSeatbeltPopUpIsDisplayed() {
         assertThat(testTypeDetailsPage.checkSeatbeltPopUpTitle()).isTrue();
         assertThat(testTypeDetailsPage.checkSeatbeltPopUpMessage()).isTrue();
         assertThat(testTypeDetailsPage.checkSeatbeltPopUpOkButton()).isTrue();
     }
 
     @Step
-    public void pressOkButtonForSeatbeltPopUp(){
-       testTypeDetailsPage.clickOkButtonForSeatbeltPopUp();
+    public void pressOkButtonForSeatbeltPopUp() {
+        testTypeDetailsPage.clickOkButtonForSeatbeltPopUp();
     }
 
     @Step
     public void checkTestResultField() {
-       assertThat(testTypeDetailsPage.isTestResultFieldDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.isTestResultFieldDisplayed()).isTrue();
     }
 
     @Step
@@ -367,7 +369,14 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkFailAndPassOptions() {
-       assertThat(testTypeDetailsPage.isPassOptionDisplayed() && testTypeDetailsPage.isFailOptionDisplayed()).isTrue();
+        assertThat(testTypeDetailsPage.isPassOptionDisplayed() && testTypeDetailsPage.isFailOptionDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkFailPassPRSOptions() {
+        assertThat(testTypeDetailsPage.isPassOptionDisplayed() &&
+                testTypeDetailsPage.isFailOptionDisplayed() &&
+                testTypeDetailsPage.isPRSOptionDisplayed()).isTrue();
     }
 
     @Step
@@ -423,7 +432,9 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void enablePRS(){testTypeDetailsPage.enablePRS();}
+    public void enablePRS() {
+        testTypeDetailsPage.enablePRS();
+    }
 
     @Step
     public void checkTestTypeAbandonButton() {
@@ -436,12 +447,19 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkElementValue(String element, String value){
-        testTypeDetailsPage.checkElementValue(element,value);
+    public void checkElementValue(String element, String value) {
+        testTypeDetailsPage.checkElementValue(element, value);
     }
+
     @Step
     public void checkCertificateNumberIsDisplayed() {
         assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
+        assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
+    }
+
+    @Step
+    public void checkCertificateNumberCOIFIsDisplayed() {
+        assertThat(testTypeDetailsPage.checkCertificateNumberCOIFLabelIsPresent()).isTrue();
         assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
     }
 
@@ -461,6 +479,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkCertificateNumberCOIFIsNotDisplayed() {
+        assertThat(testTypeDetailsPage.isStaticTextNotDisplayed("CERTIFICATE NUMBER (COIF)")).isTrue();
+    }
+
+    @Step
     public void checkErrorNotesDetailsIsDisplayed() {
         assertThat(testTypeDetailsPage.isErrorMessageDisplayed("Before saving, give more details about the failure in the notes section."));
     }
@@ -469,11 +492,21 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public void checkNotesTitle(String notes) {
         String[] stringArray = notes.split(" ");
         boolean isDisplayed = true;
-        for(String string:stringArray){
+        for (String string : stringArray) {
             System.out.println("string: " + string);
-            if(!testTypeDetailsPage.isStaticTextDisplayed(string)){
+            if (!testTypeDetailsPage.isStaticTextDisplayed(string)) {
                 isDisplayed = false;
             }
+        }
+        assertThat(isDisplayed).isTrue();
+    }
+
+    @Step
+    public void checkSectionHeadingIsShown(String section) {
+        boolean isDisplayed = true;
+        System.out.println("Checking for heading: " + section);
+        if (!testTypeDetailsPage.isStaticTextDisplayed(section)) {
+            isDisplayed = false;
         }
         assertThat(isDisplayed).isTrue();
     }
@@ -576,5 +609,10 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void checkFuelTypeIsShown(FuelType fuelType) {
         assertThat(testTypeDetailsPage.getSelectedFuelType().equalsIgnoreCase(fuelType.getName())).isTrue();
+    }
+
+    @Step
+    public void checkDefectIsPresent(String defect) {
+        assertThat(testTypeDetailsPage.getElementByLabel(defect).isDisplayed()).isTrue();
     }
 }

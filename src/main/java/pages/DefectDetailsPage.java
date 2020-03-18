@@ -5,6 +5,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class DefectDetailsPage extends BasePage {
@@ -36,9 +37,13 @@ public class DefectDetailsPage extends BasePage {
     private static final String PROHIBITION_POP_UP_TITLE_ID = "Prohibition alert";
     private static final String PROHIBITION_POP_UP_DESCRIPTION_ID = "Explain why you haven't issued a prohibition for this defect in the Notes section.";
     private static final String PROHIBITION_POP_UP_DESCRIPTION_2_ID = "This defect requires you to issue a prohibition in Mobile Compliance. Confirm you’ve done this in the Prohibition section.";
-
+    private static final String PAGE_ALL_LABELS_CLASS_NAME = "XCUIElementTypeStaticText";
     private static final String ISSUED_IN_MOBILE_COMPLIANCE_ID = "Issued in Mobile Compliance";
     private static final String PROHIBITION = "PROHIBITION";
+
+    private static final String REFERENCE_NUMBER_FIELD = "//XCUIElementTypeTextField[1]";
+    private static final String DEFECT_NAME_FIELD = "//XCUIElementTypeTextField[2]";
+    private static final String DEFECT_NOTES_FIELD = "//XCUIElementTypeTextField[2]";
 
     private static final String DEFECT_REFERENCE_NUMBER = "//XCUIElementTypeStaticText[@value='REFERENCE NUMBER']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeOther/XCUIElementTypeTextField";
     private static final String DEFECT_NAME = "//XCUIElementTypeStaticText[@value='DEFECT NAME']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeOther/XCUIElementTypeTextField";
@@ -285,6 +290,24 @@ public class DefectDetailsPage extends BasePage {
         } catch (NoSuchElementException ex) {
             return false;
         }
+    }
+
+    public boolean isStaticTextDisplayed(String staticText) {
+        return !isStaticTextNotDisplayed(staticText);
+    }
+
+    public boolean isStaticTextNotDisplayed(String staticText) {
+        waitUntilPageIsLoaded();
+        for(WebElement button : getAllLabels()){
+            if(button.getAttribute("name").equals(staticText)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public List<WebElement> getAllLabels(){
+        return findElementsByClassName(PAGE_ALL_LABELS_CLASS_NAME);
     }
 
     public void scroll() {

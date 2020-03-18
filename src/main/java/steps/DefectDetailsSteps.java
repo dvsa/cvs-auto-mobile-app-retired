@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class DefectDetailsSteps extends ScenarioSteps {
 
@@ -155,6 +156,16 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void checkPageTitleIsDisplayed() {
         assertThat(defectDetailsPage.checkPageTitleIsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkSectionHeadingIsShown(String section) {
+        boolean isDisplayed = true;
+        System.out.println("Checking for heading: " + section);
+        if (!defectDetailsPage.isStaticTextDisplayed(section)) {
+            isDisplayed = false;
+        }
+        assertThat(isDisplayed).isTrue();
     }
 
     @Step
