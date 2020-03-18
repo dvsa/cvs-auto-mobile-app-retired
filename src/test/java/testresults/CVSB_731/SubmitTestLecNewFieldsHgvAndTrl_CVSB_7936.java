@@ -32,9 +32,6 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
-
-    @Steps
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Steps
@@ -45,30 +42,6 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
 
     @Steps
     PreparerSteps preparerSteps;
-
-    @Steps
-    SiteVisitSteps siteVisitSteps;
-
-    @Steps
-    IdentifyVehicleSteps identifyVehicleSteps;
-
-    @Steps
-    VehicleDetailsSteps vehicleDetailsSteps;
-
-    @Steps
-    TestHistorySteps testHistorySteps;
-
-    @Steps
-    TestHistoryDetailsSteps testHistoryDetailsSteps;
-
-    @Steps
-    ConfirmationPageSteps confirmationPageSteps;
-
-    @Steps
-    TrailerDetailsSteps trailerDetailsSteps;
-
-    @Steps
-    IdentifyTrailerSteps identifyTrailerSteps;
 
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - HGV - Mod Type = P")
     @Test
@@ -94,7 +67,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testTypeDetailsSteps.setExpiryDateDefault();
         testTypeDetailsSteps.setEmissionStandard(EmissionStandard.OPTION_1);
         testTypeDetailsSteps.setSmokeTestKLimitApplied("5000");
-        testTypeDetailsSteps.setFuelType(FuelType.GAS);
+        testTypeDetailsSteps.setFuelType(FuelType.GAS_CNG);
         testTypeDetailsSteps.setModeType(ModType.P);
         testTypeDetailsSteps.scrollTestTypeDetailsPage();
         testTypeDetailsSteps.setParticulateTrapFitted("some text");
@@ -143,7 +116,6 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testReviewSteps.checkElementValue("Emission Standard", EmissionStandard.OPTION_1.getDescription());
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-
     }
 
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - PSV - Mod Type = M")
@@ -181,9 +153,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testReviewSteps.checkElementValue("Emission Standard", EmissionStandard.OPTION_1.getDescription());
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-
     }
-
 
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - Error MEssage for incomplete data")
     @Test
@@ -250,7 +220,61 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testSteps.clickReviewAndSubmit();
 
         testReviewSteps.checkPageTitleIsDisplayed();
-
     }
 
+    @Title("CVSB-11099 - AC1 - VSA selects Emission standard")
+    @Test
+    public void testLecFieldsEmissionStandard() {
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testTypeSubcategorySteps.selectFromTestTypeList("With linked test");
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");
+        testTypeDetailsSteps.setTestToOption("Pass");
+
+        // Check the options are present and correct.
+        testTypeDetailsSteps.clickEmissionStandard();
+        testTypeDetailsSteps.checkEmissionStandardsArePresent();
+        testTypeDetailsSteps.selectEmissionStandard(EmissionStandard.OPTION_2);
+        testTypeDetailsSteps.checkEmissionStandardIsShown(EmissionStandard.OPTION_2);
+
+        // Verify the selection is editable.
+        testTypeDetailsSteps.clickEmissionStandard(EmissionStandard.OPTION_2);
+        testTypeDetailsSteps.selectEmissionStandard(EmissionStandard.OPTION_3);
+        testTypeDetailsSteps.checkEmissionStandardIsShown(EmissionStandard.OPTION_3);
+    }
+
+    @Title("CVSB-11099 - AC2 - VSA selects Fuel type")
+    @Test
+    public void testLecFieldsFuelType() {
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testTypeSubcategorySteps.selectFromTestTypeList("With linked test");
+        testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");
+        testTypeDetailsSteps.setTestToOption("Pass");
+
+        // Check the options are present and correct.
+        testTypeDetailsSteps.clickFuelType();
+        testTypeDetailsSteps.checkFuelTypesArePresent();
+        testTypeDetailsSteps.selectFuelType(FuelType.GAS_CNG);
+        testTypeDetailsSteps.checkFuelTypeIsShown(FuelType.GAS_CNG);
+
+        // Verify the selection is editable.
+        testTypeDetailsSteps.clickFuelType(FuelType.GAS_CNG);
+        testTypeDetailsSteps.selectFuelType(FuelType.FULL_ELECTRIC);
+        testTypeDetailsSteps.checkFuelTypeIsShown(FuelType.FULL_ELECTRIC);
+    }
 }

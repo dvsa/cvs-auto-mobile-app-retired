@@ -1,9 +1,13 @@
 package util;
 
 public enum FuelType {
-    GAS("Gas"),
     DIESEL("Diesel"),
-    PETROL("Petrol");
+    GAS_CNG("Gas-CNG"),
+    GAS_LNG("Gas-LNG"),
+    GAS_LPG("Gas-LPG"),
+    FUEL_CELL("Fuel Cell"),
+    PETROL("Petrol"),
+    FULL_ELECTRIC("Full Electric");
 
     String name;
 

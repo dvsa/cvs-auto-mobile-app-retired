@@ -62,6 +62,9 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String PARTICULATE_TRAP_SERIAL_NUMBER_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
     private static final String MODIFICATION_TYPE_USED_XPATH = "//XCUIElementTypeButton[@name='Modification type used Enter']";
     private static final String MODIFICATION_TYPE_USED_INPUT_FIELD_XPATH = "//XCUIElementTypeTextField";
+    private static final String FUEL_TYPE_TITLE = "Fuel type";
+    private static final String EMISSION_STANDARD_TITLE = "Emission standard";
+    private static final String EMISSION_DETAILS = "EMISSION DETAILS";
 
     public WebElement getTestTypeDetails() {
         return findElementById(TEST_TYPE_DETAILS);
@@ -564,10 +567,88 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void setEmissionStandard(EmissionStandard emission) {
-        waitUntilPageIsLoaded();
+        waitUntilPageIsLoadedById(EMISSION_DETAILS);
         findElementByXpath(EMISSION_STANDARD_BUTTON_XPATH).click();
-        waitUntilPageIsLoaded();
+        waitUntilPageIsLoadedById(EMISSION_STANDARD_TITLE);
         findElementById(emission.getDescription()).click();
+    }
+
+    public void selectEmissionStandard(EmissionStandard emission) {
+        waitUntilPageIsLoadedById(EMISSION_STANDARD_TITLE);
+        findElementById(emission.getDescription()).click();
+    }
+
+    public void selectFuelType(FuelType fuelType) {
+        waitUntilPageIsLoadedById(FUEL_TYPE_TITLE);
+        findElementById(fuelType.getName()).click();
+    }
+
+    public void clickEmissionStandard() {
+        findElementByXpath(EMISSION_STANDARD_BUTTON_XPATH).click();
+    }
+
+    public void clickFuelType() {
+        findElementByXpath(FUEL_TYPE_XPATH).click();
+    }
+
+    public void clickFuelType(FuelType fuelType) {
+        String label = FUEL_TYPE_TITLE + " " + fuelType.getName() + " arrow forward";
+        findElementById(label).click();
+    }
+
+    public void clickEmissionStandard(EmissionStandard emissionStandard) {
+        String label = EMISSION_STANDARD_TITLE + " " + emissionStandard.getDescription() + " arrow forward";
+        findElementById(label).click();
+    }
+
+    public boolean checkEmissionStandardsArePresent() {
+        waitUntilPageIsLoadedById(EMISSION_STANDARD_TITLE);
+        String emissionType;
+        for (EmissionStandard emissionStandard : EmissionStandard.values()) {
+            emissionType = emissionStandard.getDescription();
+            System.out.println("Looking for Emission Standard: " + emissionType);
+            try {
+                findElementById(emissionType).isDisplayed();
+                System.out.println("- Found: " + emissionType);
+            } catch (Exception e) {
+                System.out.println("- NOT Found: " + emissionType);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkFuelTypesArePresent() {
+        waitUntilPageIsLoadedById(FUEL_TYPE_TITLE);
+        String fuelTypeName;
+        for (FuelType fuelType : FuelType.values()) {
+            fuelTypeName = fuelType.getName();
+            System.out.println("Looking for Fuel Type: " + fuelTypeName);
+            try {
+                findElementById(fuelTypeName).isDisplayed();
+                System.out.println("- Found: " + fuelTypeName);
+            } catch (Exception e) {
+                System.out.println("- NOT Found: " + fuelTypeName);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public String getSelectedEmissionStandard() {
+        waitUntilPageIsLoadedById(EMISSION_DETAILS);
+        WebElement element = findElementByXpath("//*[contains(@name, '" + EMISSION_STANDARD_TITLE + "')]");
+        String emissionLabel = element.getAttribute("name");
+        String emissionText = emissionLabel.substring(EMISSION_STANDARD_TITLE.length()+1, emissionLabel.indexOf(" arrow forward"));
+        return emissionText;
+    }
+
+    public String getSelectedFuelType() {
+        waitUntilPageIsLoadedById(EMISSION_DETAILS);
+        WebElement element = findElementByXpath("//*[contains(@name, '" + FUEL_TYPE_TITLE + "')]");
+        String fuelLabel = element.getAttribute("name");
+        String fuelText = fuelLabel.substring(FUEL_TYPE_TITLE.length()+1, fuelLabel.indexOf(" arrow forward"));
+        return fuelText;
     }
 
     public void setSmokeTestKLimit(String amount) {
@@ -578,9 +659,9 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void setFuelType(FuelType fuelType) {
-        waitUntilPageIsLoaded();
+        waitUntilPageIsLoadedById(EMISSION_DETAILS);
         findElementByXpath(FUEL_TYPE_XPATH).click();
-        waitUntilPageIsLoaded();
+        waitUntilPageIsLoadedById(FUEL_TYPE_TITLE);
         findElementById(fuelType.getName()).click();
     }
 

@@ -1,9 +1,13 @@
 package util;
 
 public enum EmissionStandard {
-    OPTION_1("0.16 g/kWh Euro 3 PM"),
-    OPTION_2("0.08 g/kWh Euro 3 PM"),
-    OPTION_3("0.03 g/kWh Euro 4 PM");
+    OPTION_1("0.10 g/kWh Euro 3 PM"),
+    OPTION_2("0.03 g/kWh Euro IV PM"),
+    OPTION_3("Euro 3"),
+    OPTION_4("Euro 4"),
+    OPTION_5("Euro 6"),
+    OPTION_6("Euro VI"),
+    OPTION_7("Full Electric");
 
     String description;
     EmissionStandard(String description) {
