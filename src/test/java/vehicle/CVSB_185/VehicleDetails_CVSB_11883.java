@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pages.TestHistoryPage;
 import steps.*;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
@@ -135,7 +134,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
         testSteps.checkPageTitleDisplayed();
 
         // Navigate to the Vehicle Details screen.
-        testSteps.checkLGVTestDetails("AS234TY", "P0123010951264");
+        testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
         testSteps.selectVehicleDetails();
 
         // Check all ACs against the Vehicle Details screen (in the "test-in-progress" context).

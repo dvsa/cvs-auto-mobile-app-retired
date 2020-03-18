@@ -1,7 +1,6 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
-import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;

@@ -49,6 +49,16 @@ public class SelectReasonSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSpecialistReasonsList() {
+        selectReasonPage.waitUntilPageIsLoaded();
+        List<String> actualDataList = selectReasonPage.findAllReasonsByXpath();
+        List<String> expectedDataList = selectReasonPage.getListOfSpecialistReasonTexts();
+        for (String expectedData : expectedDataList) {
+            assertThat(actualDataList).contains(expectedData);
+        }
+    }
+
+    @Step
     public void checkOneOrMoreReasonsAreSelectable() {
         assertThat(selectReasonPage.isNextButtonDisplayed()).isFalse();
         selectReasonPage.selectReason(SelectReasonPage.Reasons.REASON_1);
@@ -71,6 +81,7 @@ public class SelectReasonSteps extends ScenarioSteps {
      */
     @Step
     public void selectAReason(SelectReasonPage.Reasons reason) {
+        waitForPageToLoad();
         if (selectReasonPage.isReasonFromListDisplayed(reason)){
             selectReasonPage.selectReason(reason);
         } else {
@@ -84,6 +95,27 @@ public class SelectReasonSteps extends ScenarioSteps {
         }
     }
 
+    /**
+     * Step that selects any reason. If the reason is not displayed, the page is scrolled.
+     * @param reason
+     */
+    @Step
+    public void selectAReason(SelectReasonPage.SpecialistReasons reason) {
+        waitForPageToLoad();
+        if (selectReasonPage.isReasonFromListDisplayed(reason)){
+            selectReasonPage.selectReason(reason);
+        } else {
+            selectReasonPage.scrollPageDown();
+            if (selectReasonPage.isReasonFromListDisplayed(reason)) {
+                selectReasonPage.selectReason(reason);
+            } else {
+                selectReasonPage.scrollPageUp();
+                selectReasonPage.selectReason(reason);
+            }
+        }
+    }
+
+    @Step
     public void pressNextButton() {
         assertThat(selectReasonPage.isNextButtonDisplayed()).isTrue();
         selectReasonPage.clickOnNextButton();
@@ -94,6 +126,16 @@ public class SelectReasonSteps extends ScenarioSteps {
         for (SelectReasonPage.Reasons reason : reasons) {
             selectAReason(reason);
         }
+    }
+
+    @Step
+    public void checkReasonsAreDisplayed(SelectReasonPage.Reasons... reasons) {
+        selectReasonPage.areAllReasonsDisplayed(reasons);
+    }
+
+    @Step
+    public void checkReasonsAreDisplayed(SelectReasonPage.SpecialistReasons... reasons) {
+        assertThat(selectReasonPage.areAllReasonsDisplayed(reasons)).isTrue();
     }
 
     @Step

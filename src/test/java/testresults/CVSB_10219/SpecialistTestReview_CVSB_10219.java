@@ -76,7 +76,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkLGVTestDetails("AS234TY", "P0123010951264");
+        testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
         testSteps.checkCountryOfRegistrationOptionIsDisplayed();
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","AS234TY");
 

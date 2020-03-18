@@ -229,7 +229,7 @@ public class TestPage extends BasePage {
     public boolean isTrailerRegistrationPlateDisplayed(String trailerId, String vin) {
         return findElementByXpath("//XCUIElementTypeButton[@name='" + trailerId + " (Trailer) " + vin + " Details arrow forward']").isDisplayed();
     }
-
+    
     public boolean checkIfTrailerImageIsDisplayed() {
         return findElementByClassName(TRAILER_ICON_IMAGE).isEnabled();
     }

@@ -92,4 +92,9 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         goToTestType(preparerId, preparerName);
         testTypeCategorySteps.selectFromTestTypeList(testType);
     }
+
+    @Step
+    public void goToTestPageBySelectingASpecificCar(String vehiclePartialVin) {
+        preparerComp.goToSelectPreparerForASpecificCar(vehiclePartialVin);
+    }
 }

@@ -39,7 +39,7 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkLGVTestDetails(String regPlate, String vin) {
+    public void checkLgvTestDetails(String regPlate, String vin) {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isLGVRegistrationPlateDisplayed(regPlate, vin)).isTrue();
     }
