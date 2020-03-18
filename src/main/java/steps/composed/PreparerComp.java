@@ -54,6 +54,18 @@ public class PreparerComp extends ScenarioSteps {
     }
 
     @Step
+    public void goToSelectPreparerForASpecificVehicleUsingPartialVin(String partialVin) {
+        launchSteps.clickGetStarted();
+        searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
+        atfDetailsSteps.startVisit();
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.setSearchCriteria("Partial VIN (last 6 characters)");
+        identifyVehicleSteps.searchForVehicle(partialVin);
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+    }
+
+    @Step
     public void goToSelectPreparerForASpecificTrailer(String partialVin) {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -63,5 +75,4 @@ public class PreparerComp extends ScenarioSteps {
         trailerDetailsSteps.selectConfirmButtonTopRight();
         trailerDetailsSteps.selectConfirmFromPopUp();
     }
-
 }

@@ -2,13 +2,16 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import org.openqa.selenium.By;
 import pages.IdentifyVehiclePage;
+import pages.SearchCriteriaPage;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class IdentifyVehicleSteps extends ScenarioSteps {
 
     IdentifyVehiclePage identifyVehiclePage;
+
+    SearchCriteriaPage searchCriteriaPage;
 
     @Step
     public void searchForVehicle(String registrationOrVIM) {
@@ -26,6 +29,13 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     public void checkIncompleteRecordPopupIsNotShown() {
         identifyVehiclePage.waitUntilPageIsLoaded();
         assertThat(identifyVehiclePage.isIncompleteRecordPopupShown()).isFalse();
+    }
+
+    @Step
+    public void setSearchCriteria(String searchOption) {
+        identifyVehiclePage.clickSearchCriteriaButton();
+        searchCriteriaPage.setSearchCriteriaOption(searchOption);
+        searchCriteriaPage.clickSave();
     }
 
     @Step
