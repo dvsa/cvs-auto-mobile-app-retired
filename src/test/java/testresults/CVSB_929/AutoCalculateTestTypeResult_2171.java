@@ -60,7 +60,7 @@ public class AutoCalculateTestTypeResult_2171 extends BaseTestClass {
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");

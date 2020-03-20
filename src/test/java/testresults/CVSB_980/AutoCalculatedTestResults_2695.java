@@ -57,7 +57,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
     public void passCriteriaMinorPlusAdvisoryDefects() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("8");
         odometerReadingSteps.pressSave();
