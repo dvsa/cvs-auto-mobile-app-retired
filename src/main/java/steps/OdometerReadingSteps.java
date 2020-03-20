@@ -52,6 +52,7 @@ public class OdometerReadingSteps extends ScenarioSteps {
     public void selectUnitOption(OdometerReadingPage.UnitOptions unitOptions) {
         odometerReadingPage.waitUntilPageIsLoaded();
         odometerReadingPage.clickUnitOption(unitOptions);
+        odometerReadingPage.waitUntilPageIsLoaded();
     }
 
     @Step
@@ -59,6 +60,5 @@ public class OdometerReadingSteps extends ScenarioSteps {
         odometerReadingPage.waitUntilPageIsLoaded();
         odometerReadingPage.isUnitDisplayed(unitOptions);
     }
-
 }
 
