@@ -1,5 +1,6 @@
 package pages;
 
+import exceptions.AutomationException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
@@ -190,10 +191,15 @@ public class EUVehicleCategoryPage extends BasePage{
         waitUntilPageIsLoaded();
         waitUntilPageIsLoaded();
         List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
+        int i = 0;
         for (WebElement button : buttonList) {
             if (button.getAttribute("name").contains(option)) {
                 button.click();
             }
+            else i++;
+        }
+        if ( i == buttonList.size()) {
+            throw  new AutomationException("The selected option does not exist");
         }
     }
 }
