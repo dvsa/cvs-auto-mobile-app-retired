@@ -10,6 +10,7 @@ public class TestReviewPage extends BasePage {
     private static final String NEXT_VEHICLE_BUTTON_ID = "Next vehicle";
     private static final String BACK_TO_TEST_ID = "arrow back Test";
     private static final String TEST_REVIEW_TITLE_ID = "Test";
+    private static final String TEST_REVIEW_LONG_TITLE_ID = "Test review";
     private static final String CHANGE_DETAILS_BUTTON_ID = "Change details";
     private static final String CHANGE_VEHICLE_DETAILS_BUTTON_XPATH = "(//XCUIElementTypeButton[@name='Change details'][1])";
     private static final String CHANGE_TEST_DETAILS_BUTTON_XPATH = "(//XCUIElementTypeButton[@name='Change details'][2])";
@@ -35,11 +36,19 @@ public class TestReviewPage extends BasePage {
     }
 
     public void waitUntilPageIsLoaded() {
-        waitUntilPageIsLoadedById(TEST_REVIEW_TITLE_ID);
+        waitUntilPageIsLoadedById(TEST_REVIEW_LONG_TITLE_ID);
     }
 
     public boolean checkPageTitleIsDisplayed() {
-        return findElementById(TEST_REVIEW_TITLE_ID).isDisplayed();
+        WebElement element;
+        element = findElementById(TEST_REVIEW_TITLE_ID);
+        if (element == null) {
+            element = findElementById(TEST_REVIEW_LONG_TITLE_ID);
+            return element.isDisplayed();
+        }
+        else {
+            return element.isDisplayed();
+        }
     }
 
     public boolean checkDisplayedElement(String element) {
