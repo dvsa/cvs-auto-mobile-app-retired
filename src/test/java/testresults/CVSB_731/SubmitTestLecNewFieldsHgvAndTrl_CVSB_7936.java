@@ -89,7 +89,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("35000");
         odometerReadingSteps.checkReadingValue("35000");
