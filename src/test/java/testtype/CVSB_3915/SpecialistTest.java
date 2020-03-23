@@ -64,7 +64,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
 
         // View the Specialist Test details.
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -88,7 +88,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectASpecialistReason(SelectReasonPage.ReasonsSpecialist.REASON_SPECIALIST_1);
