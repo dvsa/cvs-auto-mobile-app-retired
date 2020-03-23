@@ -42,15 +42,22 @@ public class SelectVehiclePage extends BasePage {
         boolean status = false;
         boolean isException = false;
         WebElement okButton = null;
+        WebElement description = null;
+        WebElement title = null;
+
         try {
             okButton = findElementById(OK_ID);
+            description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
+            title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
         } catch (Exception e) {
             isException = true;
         }
 
+        if ((okButton == null) || (description == null) || (title == null)) {
+            isException = true;
+        }
+
         if (!isException) {
-            WebElement description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
-            WebElement title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
             if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
                 System.out.println("- Popup found.");
                 status = true;
