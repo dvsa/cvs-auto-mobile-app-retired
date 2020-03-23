@@ -70,7 +70,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");

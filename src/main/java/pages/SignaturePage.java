@@ -53,7 +53,12 @@ public class SignaturePage extends BasePage {
         boolean status;
         System.out.println("Checking if error message is displayed: " + UNABLE_TO_LOAD_DATA_ID);
         try {
-            status = findElementById(UNABLE_TO_LOAD_DATA_ID).isDisplayed();
+            if (findElementById(UNABLE_TO_LOAD_DATA_ID) != null) {
+                status = findElementById(UNABLE_TO_LOAD_DATA_ID).isDisplayed();
+            }
+            else {
+                status = false;
+            }
             System.out.println("- FOUND");
         } catch (NoSuchElementException e) {
             status = false;

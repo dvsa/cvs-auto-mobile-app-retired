@@ -1,10 +1,14 @@
 package steps;
 
 
+import exceptions.AutomationException;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.openqa.selenium.WebElement;
 import pages.DefectCategoryPage;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,8 +26,9 @@ public class DefectCategorySteps extends ScenarioSteps {
     @Step
     public void checkListOfDefects(String... defectList) {
         defectCategoryPage.waitUntilPageIsLoaded();
+        ArrayList<String> expectedDefects = new ArrayList<>(Arrays.asList(defectList));
         assertThat(defectCategoryPage.getElementsNumberFromList(defectList)).isGreaterThan(0);
-
+        assertThat(defectCategoryPage.getElementsNumberFromList(defectList)).isEqualTo(expectedDefects.size());
     }
 
     @Step

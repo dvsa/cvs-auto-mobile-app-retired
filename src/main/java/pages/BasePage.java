@@ -9,10 +9,7 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,7 +18,6 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -92,7 +88,22 @@ public class BasePage extends PageObject {
     protected WebElement waitUntilPageIsLoadedById(String id) {
         System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         System.out.println("Waiting for page to load by ID, waiting for item: " + id);
-        WebElement element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
+        WebElement element = null;
+        if (id.equals("Test review")) {
+            while (element == null) {
+                try {
+                    element = waitUntilPageIsLoadedByElement(By.id(id), 1, 200);
+                } catch (ElementNotVisibleException e) {
+                    try {
+                        element = waitUntilPageIsLoadedByElement(By.id("Test"), 1, 200);
+                    } catch (ElementNotVisibleException e1) {
+                    }
+                }
+            }
+        }
+        else {
+            element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
+        }
         System.out.println("- Loaded.");
         System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         return element;
@@ -171,7 +182,7 @@ public class BasePage extends PageObject {
                 .perform();
     }
 
-    protected List<WebElement> findAllDataByComposedXpath(String... data) {
+    public List<WebElement> findAllDataByComposedXpath(String... data) {
         List<String> xpathList = new ArrayList<>();
 
         for (String value : data) {
@@ -179,7 +190,7 @@ public class BasePage extends PageObject {
             xpathList.add(currentXpathElement);
         }
 
-        String xpathToSearch = xpathList.stream().collect(Collectors.joining(" | "));
+        String xpathToSearch = String.join(" | ", xpathList);
 
         return findElementsByXpath(xpathToSearch);
 
@@ -225,7 +236,7 @@ public class BasePage extends PageObject {
     }
 
     public void waitForLoadingToFinish(){
-        WebDriverWait wait = new WebDriverWait(this.getDriver(), 20);
+        WebDriverWait wait = new WebDriverWait(this.getDriver(), 30);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("Loading...")));
     }
 

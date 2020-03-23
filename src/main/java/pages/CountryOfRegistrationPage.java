@@ -174,11 +174,8 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Save".equals(line))
                 .filter(line -> !"Country of registration Great Britain and Northern Ireland arrow forward".equals(line))
                 .filter(line -> !"Odometer reading Enter arrow forward".equals(line))
-                .filter(line -> !"Country of registration Great Britain and Northern Ireland arrow forward".equals(line))
-                .filter(line -> !"Dictate".equals(line))
                 .filter(line -> !"English (UK)".equals(line))
                 .filter(line -> !"Français (Canada)".equals(line))
-                .filter(line -> !"return".equals(line))
                 .filter(line -> !line.isEmpty())
                 .filter(line -> !"Not applicable".equals(line))
                 .collect(Collectors.toList());
@@ -218,7 +215,7 @@ public class CountryOfRegistrationPage extends BasePage {
 
     public void scrollThroughList() {
         WebElement we = findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Great Britain and Northern Ireland - GB')]");
-        scroll(we.getLocation().x, we.getLocation().y, we.getLocation().y, we.getLocation().y - 150);
+        scroll(we.getLocation().x, we.getLocation().y, we.getLocation().x, we.getLocation().y - 150);
     }
 
     public void optionsAreDisplayedAtTopAndBottomAfterSearch(String country) {

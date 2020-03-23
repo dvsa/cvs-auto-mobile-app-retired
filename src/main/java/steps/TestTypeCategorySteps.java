@@ -1,10 +1,13 @@
 package steps;
 
+import exceptions.AutomationException;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import pages.TestTypeCategoryPage;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,7 +38,7 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     @Step
     public void checkTestTypeListOnlyContainsTestTypes(String... testTypes) {
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
-        assertThat(actualData.size() == testTypes.length);
+        Assert.assertEquals(actualData.size(), testTypes.length);
         for (String test_type : testTypes) {
             assertThat(actualData).contains(test_type);
         }
@@ -44,16 +47,27 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     @Step
     public void checkTestTypesInListAreSelectable(String... testTypes) {
         List<WebElement> actualData = testTypeCategoryPage.findAllTestTypesWebElements();
-        for (WebElement testType : actualData) {
-            if (Arrays.stream(testTypes).parallel().anyMatch(testType.getAttribute("name")::contains)) {
-                assertThat(testType.isEnabled()).isTrue();
+        ArrayList<String> expectedTestTypes = new ArrayList<>(Arrays.asList(testTypes));
+        for (String expectedTestType: expectedTestTypes) {
+            int i = 0;
+            for (WebElement testType : actualData) {
+                if (testType.getAttribute("name").contains(expectedTestType)) {
+                    assertThat(testType.isEnabled()).isTrue();
+                    break;
+                }
+                else {
+                    i++;
+                }
+            }
+            if (i == actualData.size()) {
+                throw new AutomationException("Test type " + expectedTestType + "was not present");
             }
         }
     }
 
     @Step
     public void checkThatTestTypeListIsEmpty(){
-        assertThat(testTypeCategoryPage.findAllTestTypesWebElements().size() == 0);
+        Assert.assertEquals(0, testTypeCategoryPage.findAllTestTypesWebElements().size());
     }
 
     @Step

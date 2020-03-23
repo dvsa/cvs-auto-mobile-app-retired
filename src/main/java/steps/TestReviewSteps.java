@@ -105,7 +105,7 @@ public class TestReviewSteps extends ScenarioSteps {
     @Step
     public void scrollDown() {
         testReviewPage.scrollPageDown();
-        testReviewPage.waitUntilPageIsLoaded();
+        // testReviewPage.waitUntilPageIsLoaded();
     }
 
     @Step

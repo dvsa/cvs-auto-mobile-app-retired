@@ -62,7 +62,7 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectM2Option();
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");

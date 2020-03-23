@@ -61,7 +61,7 @@ public class SkeletonRecords_CVSB_11547 extends BaseTestClass {
         selectVehicleSteps.waitUntilPageIsLoaded();
         selectVehicleSteps.checkSkeletonRecordWarningIsShown();
 
-        selectVehicleSteps.checkVehicleIsShown("VOLVO", "1984 ", "F12-33");
+        selectVehicleSteps.checkVehicleIsShown("VOLVO", "1984", "F12-33");
         selectVehicleSteps.checkIncompleteRecordShown();
 
         // AC3 Multiple vehicles retrieved, access vehicle details
