@@ -92,9 +92,10 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isDefectVisible(String defect) {
+        waitUntilPageIsLoaded();
         try {
             return findElementById(defect).isDisplayed();
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
             return false;
         }
     }

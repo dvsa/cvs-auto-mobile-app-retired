@@ -377,7 +377,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
 
         // View the Specialist Test details.
         // In order to verify that the test result is mandatory, fill all other test fields first.

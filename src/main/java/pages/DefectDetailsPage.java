@@ -152,6 +152,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void clickOnRemoveButton() {
+        waitUntilPageIsLoadedByAccessibilityId(REMOVE_BUTTON_ID);
         findElementById(REMOVE_BUTTON_ID).click();
     }
 
