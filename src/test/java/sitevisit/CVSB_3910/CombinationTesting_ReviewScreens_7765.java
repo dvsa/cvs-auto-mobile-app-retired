@@ -59,7 +59,7 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("M1");
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");

@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
@@ -37,8 +38,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
     TestHistoryDetailsSteps testHistoryDetailsSteps;
 
     @Title("CVSB - 1865 - AC1 - Sites list + AC2 - No search results")
+    @Test
     public void testSitesList() {
-
         launchSteps.clickGetStarted();
         searchForAnATFSteps.checkAtfPageDisplay();
         searchForAnATFSteps.checkListIsScrollableByElement(atfService.getUniqueIdentifier(0));
@@ -52,8 +53,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         searchForAnATFSteps.checkNoResultsFoundAndSuggestion();
     }
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1856 - AC3 - Select testing facility")
+    @Test
     public void testTestingFacilities() {
 
         launchSteps.clickGetStarted();
@@ -65,8 +66,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkCallPopUp(atfService.getAtfByIndex(0).getAtfContactNumber());
     }
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC4 - VSA is able to return to the Testing facilities search results")
+    @Test
     public void testTestingFacilitiesSearchResults() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -77,8 +78,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         searchForAnATFSteps.checkAtfPageDisplay();
     }
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC5 - VSA is able to confirm the selected testing facility")
+    @Test
     public void testTestingFacilitiesConfirmedByVsa() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -89,8 +90,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         siteVisitSteps.checkSiteVisitPage();
     }
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC6 - VSA is able to confirm and proceed with the visit ")
+    @Test
     public void testTestingFacilitiesConfirmedAndProceededByVsa() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -104,8 +105,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         siteVisitSteps.checkEndVisitPopUp();
     }
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC7 - VSA is able to confirm that the site is not suitable for testing ")
+    @Test
     public void testTestingFacilitiesNotSuitableForTesting() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -116,8 +117,8 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkReportIssuePopUp();
     }
 
-    @Ignore("ignore until ticket is merged in develop")
     @Title("CVSB - 1865 - AC8 - Submit a test - test certificate and history fields ")
+    @Test
     public void testSubmitTestAndViewCertificateAndHistory() {
         launchSteps.clickGetStarted();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -128,6 +129,6 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.selectTestAtPosition("Annual test", 0);
-        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub", "09-4129632", "Great Britain and Northern Ireland", "Cvs.automation4@Dvsagov.onmicrosoft.com");
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub", "09-4129632", "Great Britain and Northern Ireland");
     }
 }

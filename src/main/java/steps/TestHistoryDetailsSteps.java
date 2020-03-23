@@ -56,6 +56,7 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     public String getValueAfterLabel(String label) {
         return testHistoryDetailsPage.getElementValueByLabel(label);
     }
+
     @Step
     public void checkElementIsPresent(String element) {
         assertThat(testHistoryDetailsPage.checkElementIsPresent(element)).isTrue();

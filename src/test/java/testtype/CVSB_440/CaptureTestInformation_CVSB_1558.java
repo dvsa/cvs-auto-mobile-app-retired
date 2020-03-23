@@ -60,7 +60,7 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     public void testVsaViewsATestRecordB() {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
