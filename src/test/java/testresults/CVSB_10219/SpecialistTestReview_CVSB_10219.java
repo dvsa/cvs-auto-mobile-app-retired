@@ -84,7 +84,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
@@ -146,7 +146,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.selectTestTypeRecord("Specialist test");
         testHistoryDetailsSteps.checkPageTitle();
-        testHistoryDetailsSteps.checkElementValue("TEST TYPE", "Normal IVA Inspection");
+        testHistoryDetailsSteps.checkElementValue("TEST TYPE", "IVA Mutual Recognition/ End Of Series & Inspection");
         testHistoryDetailsSteps.checkElementValue("Test result", "PASS");
         testHistoryDetailsSteps.checkElementValue("Certificate number", "123456");
 
@@ -154,6 +154,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testHistoryDetailsSteps.checkElementValue(defectRefNumber, defectName);
         testHistoryDetailsSteps.checkElementValue(defectName, defectNotes);
 
+        testHistoryDetailsSteps.scrollDown();
         testHistoryDetailsSteps.checkElementValue("Country of registration", "Great Britain and Northern Ireland");
         testHistoryDetailsSteps.checkElementValue("EU vehicle category", "N1");
         testHistoryDetailsSteps.checkElementValue("Odometer reading", "22,222 km");
