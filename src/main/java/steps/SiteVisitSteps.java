@@ -112,7 +112,6 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void checkVisitResults(String regPlate, String... testTypesWithResults) {
        assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
-
     }
 
     @Step

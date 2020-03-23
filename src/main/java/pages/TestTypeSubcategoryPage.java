@@ -1,5 +1,6 @@
 package pages;
 
+import exceptions.AutomationException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -34,18 +35,23 @@ public class TestTypeSubcategoryPage extends BasePage {
 
     public void selectTestTypeFromListByXpath(String testType) {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
+        int i = 0;
         for (WebElement webElement : webElementList) {
             if(webElement.getAttribute("name").equalsIgnoreCase(testType)) {
                 webElement.click();
                 break;
             }
+            i++;
+            if (i == webElementList.size()) {
+                throw new AutomationException("The " + testType + " test type is not present in the page");
+            }
         }
+
 
     }
 
     public List<WebElement> findAllTestTypesWebElements() {
-        List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
-        return webElementList;
+        return findElementsByXpath(PAGE_ALL_TEXT_XPATH);
     }
 
     public void selectBack() {

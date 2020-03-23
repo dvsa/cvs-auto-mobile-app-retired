@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.junit.Assert;
 import pages.DefectDescriptionPage;
 
 import java.util.List;
@@ -44,7 +45,7 @@ public class DefectDescriptionSteps extends ScenarioSteps {
     public void checkItemsArePresent(String... items) {
         defectDescriptionPage.waitUntilPageIsLoaded();
         for (String item: items) {
-            assertThat(defectDescriptionPage.findItemInList(item).isDisplayed()).isTrue();
+            Assert.assertTrue(defectDescriptionPage.findItemInList(item).isDisplayed());
         }
     }
 

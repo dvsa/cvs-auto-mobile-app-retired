@@ -1,5 +1,6 @@
 package pages;
 
+import exceptions.AutomationException;
 import org.openqa.selenium.WebElement;
 
 import java.text.ParseException;
@@ -28,19 +29,24 @@ public class TestHistoryDetailsPage extends BasePage {
     public List<String> getDataSetBetweenTitles(String dataSetStartText, String dataSetEndText) {
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
         List<String> listOfData = new ArrayList<>();
-        boolean isInInterval = false;
-        for (WebElement webElement : webElementList) {
-            if (webElement.getAttribute("name").equalsIgnoreCase(dataSetStartText)) {
-                isInInterval = true;
+        int startIndex = 0;
+        int endIndex = 0;
+        for (int i = 0; i < webElementList.size(); i++) {
+            if (webElementList.get(i).getAttribute("name").equalsIgnoreCase(dataSetStartText)) {
+                startIndex = i;
             }
-            if (isInInterval) {
-                listOfData.add(webElement.getAttribute("value"));
+            else {
+                throw new AutomationException("Field not present in page");
             }
-            if (webElement.getAttribute("name").equalsIgnoreCase(dataSetEndText)) {
-                isInInterval = false;
+            if (webElementList.get(i).getAttribute("name").equalsIgnoreCase(dataSetEndText)) {
+                endIndex = i;
+            }
+            else {
+                throw new AutomationException("Field not present in page");
             }
         }
-        return listOfData;
+
+        return listOfData.subList(startIndex + 1, endIndex);
     }
 
     public boolean checkElementIsPresent(String element) {

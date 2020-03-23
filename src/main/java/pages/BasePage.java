@@ -182,7 +182,7 @@ public class BasePage extends PageObject {
                 .perform();
     }
 
-    protected List<WebElement> findAllDataByComposedXpath(String... data) {
+    public List<WebElement> findAllDataByComposedXpath(String... data) {
         List<String> xpathList = new ArrayList<>();
 
         for (String value : data) {
@@ -190,7 +190,7 @@ public class BasePage extends PageObject {
             xpathList.add(currentXpathElement);
         }
 
-        String xpathToSearch = xpathList.stream().collect(Collectors.joining(" | "));
+        String xpathToSearch = String.join(" | ", xpathList);
 
         return findElementsByXpath(xpathToSearch);
 
