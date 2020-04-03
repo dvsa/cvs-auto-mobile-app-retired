@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
@@ -53,22 +54,13 @@ public class IdentifyVehiclePage extends BasePage {
     public boolean isIncompleteRecordPopupShown() {
         System.out.println("Checking if the 'Incomplete Record' popup is shown...");
         boolean status = false;
-        boolean isException = false;
-        WebElement okButton = null;
         try {
-            okButton = findElementById(OK_ID);
+            findElementById(OK_ID);
+            findElementById(INCOMPLETE_RECORD_TITLE_ID);
+            findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
         } catch (Exception e) {
-            isException = true;
+            status = true;
             System.out.println("- NOT found.");
-        }
-
-        if (!isException) {
-            WebElement description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
-            WebElement title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
-            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
-                System.out.println("- Popup found.");
-                status = true;
-            }
         }
         return status;
     }
@@ -80,22 +72,13 @@ public class IdentifyVehiclePage extends BasePage {
     public boolean isVehicleNotFoundPopUpDisplayed() {
         System.out.println("Checking for the presence of the 'Vehicle not found' popup...");
         boolean status = false;
-        boolean isException = false;
-        WebElement okButton = null;
         try {
-            okButton = findElementById(OK_ID);
+            findElementById(OK_ID);
+            findElementById(DESCRIPTION_ID);
+            findElementById(TITLE_ID);
         } catch (Exception e) {
-            isException = true;
+            status = true;
             System.out.println("- NOT found.");
-        }
-
-        if (!isException) {
-            WebElement description = findElementById(DESCRIPTION_ID);
-            WebElement title = findElementById(TITLE_ID);
-            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
-                status = true;
-                System.out.println("- Popup found.");
-            }
         }
         return status;
     }
