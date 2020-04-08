@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
@@ -52,23 +53,10 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isIncompleteRecordPopupShown() {
         System.out.println("Checking if the 'Incomplete Record' popup is shown...");
-        boolean status = false;
-        boolean isException = false;
-        WebElement okButton = null;
-        try {
-            okButton = findElementById(OK_ID);
-        } catch (Exception e) {
-            isException = true;
-            System.out.println("- NOT found.");
-        }
-
-        if (!isException) {
-            WebElement description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
-            WebElement title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
-            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
-                System.out.println("- Popup found.");
-                status = true;
-            }
+        boolean status = true;
+        if ((findElementById(OK_ID) == null) || (findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID) == null ) ||
+                (findElementById(INCOMPLETE_RECORD_TITLE_ID)) == null) {
+            status = false;
         }
         return status;
     }
@@ -79,23 +67,10 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isVehicleNotFoundPopUpDisplayed() {
         System.out.println("Checking for the presence of the 'Vehicle not found' popup...");
-        boolean status = false;
-        boolean isException = false;
-        WebElement okButton = null;
-        try {
-            okButton = findElementById(OK_ID);
-        } catch (Exception e) {
-            isException = true;
-            System.out.println("- NOT found.");
-        }
-
-        if (!isException) {
-            WebElement description = findElementById(DESCRIPTION_ID);
-            WebElement title = findElementById(TITLE_ID);
-            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
-                status = true;
-                System.out.println("- Popup found.");
-            }
+        boolean status = true;
+        if ((findElementById(OK_ID) == null) || (findElementById(DESCRIPTION_ID) == null ) ||
+                (findElementById(TITLE_ID)) == null) {
+            status = false;
         }
         return status;
     }
@@ -122,7 +97,7 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public void waitForLoadingToEnd(){
-        waitElementToDisappear(MobileBy.AccessibilityId(LOADING_SCREEN_ID), 20, 200);
+        waitElementToDisappear(MobileBy.AccessibilityId(LOADING_SCREEN_ID), 30, 200);
     }
 
     public boolean isIdentifyVehicleTitleDisplayed() {

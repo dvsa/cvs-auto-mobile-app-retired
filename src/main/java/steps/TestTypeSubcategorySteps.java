@@ -42,7 +42,7 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
                 }
             }
             if (i == actualData.size()) {
-                throw new AutomationException("Test type " + expectedTestType + "was not present");
+                throw new AutomationException("Test type " + expectedTestType + " was not present");
             }
         }
 
