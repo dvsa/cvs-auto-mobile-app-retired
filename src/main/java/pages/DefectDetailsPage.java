@@ -225,11 +225,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public boolean checkPRSOptionIsDisplayed() {
-        try {
-            return findElementById(PRS_ENABLE).isDisplayed();
-        } catch (NoSuchElementException ex) {
-            return false;
-        }
+            return findElementsByXpath("//XCUIElementTypeStaticText[@value=\"" + PRS_ENABLE + "\"]").size()>0;
     }
 
     public boolean isProhibitionPopUpDisplayed() {
@@ -278,11 +274,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public boolean isProhibitionLabelDisplayed() {
-        try {
-            return findElementById(PROHIBITION).isDisplayed();
-        } catch (NoSuchElementException ex) {
-            return false;
-        }
+        return findElementsByXpath("//XCUIElementTypeStaticText[@name=\""+ PROHIBITION + "\"]").size() > 0;
     }
 
     public boolean isIssuedInMobileCompliancePresent() {

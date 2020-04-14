@@ -159,6 +159,7 @@ public class CountryOfRegistrationPage extends BasePage {
         return list.stream()
                 .filter(line -> !"Review and submit".equals(line))
                 .filter(line -> !"BQ91YHQ (PSV) 1B7GG36N12S678410 Details arrow forward".equals(line))
+                .filter(line -> !"EU vehicle category M3 checkmark".equals(line))
                 .filter(line -> !"EU vehicle category Select arrow forward".equals(line))
                 .filter(line -> !"Add a test type".equals(line))
                 .filter(line -> !"Add a trailer".equals(line))
