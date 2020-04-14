@@ -72,7 +72,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
     public void prohibitionDisplayedInsteadOfResultFieldOnTestHistory() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectM2Option();
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("1");
         odometerReadingSteps.checkReadingValue("1");

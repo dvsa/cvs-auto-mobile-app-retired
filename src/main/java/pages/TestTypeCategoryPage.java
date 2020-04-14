@@ -25,12 +25,13 @@ public class TestTypeCategoryPage extends BasePage {
     }
 
     public List<String> findAllTestTypesFromListByXpath() {
+        waitUntilPageIsLoaded();
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         List<String> listOfData = new ArrayList<>();
         for (WebElement webElement : webElementList) {
             listOfData.add(webElement.getAttribute("name"));
         }
-
+        listOfData.remove(TEST_TYPE_PAGE_TITLE);
         return listOfData;
     }
 

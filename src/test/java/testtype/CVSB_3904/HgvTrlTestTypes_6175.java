@@ -3,7 +3,6 @@ package testtype.CVSB_3904;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -35,7 +34,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC1 - Test type drilldown (HGV 3 axles)")
     @Test
     public void testTypeDrillDownHgv3Axles() {
-        String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test"};
+        String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test", "Specialist test"};
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
         preparerSteps.startTest();
@@ -48,7 +47,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC1 - Test type drilldown (TRL 2 axles)")
     @Test
     public void testTypeDrillDownTrl2Axles() {
-        String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test"};
+        String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test", "Specialist test"};
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
         preparerSteps.startTest();
