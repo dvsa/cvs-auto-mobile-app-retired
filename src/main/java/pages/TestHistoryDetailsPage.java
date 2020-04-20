@@ -29,24 +29,36 @@ public class TestHistoryDetailsPage extends BasePage {
     public List<String> getDataSetBetweenTitles(String dataSetStartText, String dataSetEndText) {
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
         List<String> listOfData = new ArrayList<>();
-        int startIndex = 0;
-        int endIndex = 0;
+        int startIndex = -1;
+        int endIndex = -1;
+        boolean addingData = false;
+        String attribute;
+
         for (int i = 0; i < webElementList.size(); i++) {
-            if (webElementList.get(i).getAttribute("name").equalsIgnoreCase(dataSetStartText)) {
+            attribute = webElementList.get(i).getAttribute("name");
+            System.out.println("Attribute: " + attribute);
+            if (attribute.equalsIgnoreCase(dataSetStartText)) {
                 startIndex = i;
+                addingData = true;
             }
-            else {
-                throw new AutomationException("Field not present in page");
-            }
-            if (webElementList.get(i).getAttribute("name").equalsIgnoreCase(dataSetEndText)) {
+            if (attribute.equalsIgnoreCase(dataSetEndText)) {
                 endIndex = i;
+                addingData = false;
             }
-            else {
-                throw new AutomationException("Field not present in page");
+
+            if (addingData) {
+                listOfData.add(attribute);
             }
         }
 
-        return listOfData.subList(startIndex + 1, endIndex);
+        if (startIndex == -1) {
+            throw new AutomationException("Start field not present in page: " + dataSetStartText);
+        }
+        if (endIndex == -1) {
+            throw new AutomationException("End field not present in page: " + dataSetEndText);
+        }
+
+        return listOfData;
     }
 
     public boolean checkElementIsPresent(String element) {

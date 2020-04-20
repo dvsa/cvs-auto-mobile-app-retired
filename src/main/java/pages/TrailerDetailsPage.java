@@ -18,7 +18,7 @@ public class TrailerDetailsPage extends BasePage {
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
-    private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Trailer test history";
+    private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Vehicle test history";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
     private static final String WEIGHTS_BUTTON_ID = "Weights";
     private static final String TYRES_BUTTON_ID = "Tyres";

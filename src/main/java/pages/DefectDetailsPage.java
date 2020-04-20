@@ -279,7 +279,8 @@ public class DefectDetailsPage extends BasePage {
 
     public boolean isIssuedInMobileCompliancePresent() {
         try {
-            return findElementById(ISSUED_IN_MOBILE_COMPLIANCE_ID).isDisplayed();
+            WebElement element = findElementById(ISSUED_IN_MOBILE_COMPLIANCE_ID);
+            return (element != null ? element.isDisplayed() : false);
         } catch (NoSuchElementException ex) {
             return false;
         }

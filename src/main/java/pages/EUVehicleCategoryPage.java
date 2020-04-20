@@ -194,8 +194,10 @@ public class EUVehicleCategoryPage extends BasePage{
         int i = 0;
         for (WebElement button : buttonList) {
             if (button.getAttribute("name").contains(option)) {
-                shortWaitUntilPageIsLoadedByIdAndClickable(button.getAttribute("name"));
+                // shortWaitUntilPageIsLoadedByIdAndClickable(button.getAttribute("name"));
+                System.out.println("Clicking on Option: " + button.getAttribute("name"));
                 button.click();
+                break;
             }
             else i++;
         }

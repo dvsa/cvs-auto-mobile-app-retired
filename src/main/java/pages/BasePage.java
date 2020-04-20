@@ -85,21 +85,31 @@ public class BasePage extends PageObject {
         return elements;
     }
 
+    protected WebElement waitUntilPageIsLoadedByEitherId(String id1, String id2) {
+        System.out.println("Waiting for page to load, using these IDs: #1: " + id1 + ", #2: " + id2);
+        WebElement element = null;
+        while (element == null) {
+            try {
+                element = waitUntilPageIsLoadedByElement(By.id(id1), 1, 200);
+            } catch (ElementNotVisibleException e) {
+                try {
+                    element = waitUntilPageIsLoadedByElement(By.id(id2), 1, 200);
+                } catch (ElementNotVisibleException e1) {
+                }
+            }
+        }
+        return element;
+    }
+
     protected WebElement waitUntilPageIsLoadedById(String id) {
         System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         System.out.println("Waiting for page to load by ID, waiting for item: " + id);
         WebElement element = null;
         if (id.equals("Test review")) {
-            while (element == null) {
-                try {
-                    element = waitUntilPageIsLoadedByElement(By.id(id), 1, 200);
-                } catch (ElementNotVisibleException e) {
-                    try {
-                        element = waitUntilPageIsLoadedByElement(By.id("Test"), 1, 200);
-                    } catch (ElementNotVisibleException e1) {
-                    }
-                }
-            }
+            element = waitUntilPageIsLoadedByEitherId(id, "Test");
+        }
+        else if (id.equals("Trailer details")) {
+            element = waitUntilPageIsLoadedByEitherId(id, "Vehicle details");
         }
         else {
             element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
