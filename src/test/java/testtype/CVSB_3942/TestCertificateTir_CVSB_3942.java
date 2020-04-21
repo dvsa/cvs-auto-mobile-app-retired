@@ -118,9 +118,6 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.checkTestStatus("Paid TIR retest", "PASS");
         testReviewSteps.checkElementValue("Certificate number", "CB/V54321");
-//        testReviewSteps.pressSubmit();
-//        testReviewSteps.pressSubmitInPopUp();
-//        confirmationPageSteps.pressDone();
     }
 
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
@@ -187,8 +184,5 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.checkTestStatus("Paid TIR retest", "PASS");
         testReviewSteps.checkElementValue("Certificate number", "CB/T54321");
-//        testReviewSteps.pressSubmit();
-//        testReviewSteps.pressSubmitInPopUp();
-//        confirmationPageSteps.pressDone();
     }
 }
