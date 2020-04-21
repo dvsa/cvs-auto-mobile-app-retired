@@ -124,15 +124,8 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
 
-        // Verify that EU Vehicle Category is mandatory.
-        testSteps.scrollDown();
-        testSteps.clickUnsetEuVehicleCategory();
-        euVehicleCategorySteps.selectO1Option();
-        testSteps.clickReviewAndSubmit();
-        testSteps.scrollUp();
-        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
-
         // Verify that Odometer Reading is mandatory.
+        testSteps.scrollUp();
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("22222");
         odometerReadingSteps.pressSave();

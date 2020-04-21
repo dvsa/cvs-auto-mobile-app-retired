@@ -73,7 +73,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("IVA", "Voluntary IVA", "Retest");
         testTypeSubCategorySteps.selectFromTestTypeList("IVA");
-        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Normal Inspection", "Appeal", "Mutual recognition/ end of series & inspection");
+        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Appeal", "Mutual recognition/ end of series & inspection");
         testTypeSubCategorySteps.selectFromTestTypeList("Appeal");
         testTypeSubCategorySteps.goBackToCategory();
         testTypeSubCategorySteps.selectFromTestTypeList("Voluntary IVA");
@@ -90,11 +90,10 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         testTypeSubCategorySteps.selectFromTestTypeList("Voluntary IVA");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Normal Inspection");
         testTypeSubCategorySteps.selectFromTestTypeList("Normal Inspection");
-        testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSpecialistReasonsList();
-
     }
 
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - motorcycle")
@@ -114,24 +113,24 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         testTypeSubCategorySteps.selectFromTestTypeList("MSVA");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Full inspection", "Part inspection", "Appeal");
         testTypeSubCategorySteps.selectFromTestTypeList("Full inspection");
-        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Bodied vehicle");
+        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Moped vehicle");
         testTypeSubCategorySteps.goBackToCategory();
         testTypeSubCategorySteps.selectFromTestTypeList("Appeal");
-        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Bodied vehicle");
+        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Moped vehicle");
         testTypeSubCategorySteps.goBackToCategory();
         testTypeSubCategorySteps.goBackToCategory();
         testTypeSubCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("MSVA");
         testTypeSubCategorySteps.selectFromTestTypeList("MSVA");
-        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Bodied vehicle");
+        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Moped vehicle");
         testTypeSubCategorySteps.selectFromTestTypeList("Unbodied vehicle");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Paid", "Free");
         testTypeSubCategorySteps.goBackToCategory();
-        testTypeSubCategorySteps.selectFromTestTypeList("Bodied vehicle");
+        testTypeSubCategorySteps.selectFromTestTypeList("Moped vehicle");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Paid", "Free");
         testTypeSubCategorySteps.selectFromTestTypeList("Paid");
-        testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSpecialistReasonsList();
 
@@ -150,7 +149,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("IVA", "Voluntary IVA", "Retest");
         testTypeSubCategorySteps.selectFromTestTypeList("IVA");
-        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Normal inspection", "Appeal", "Mutual recognition/ end of series & inspection");
+        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Appeal", "Mutual recognition/ end of series & inspection");
         testTypeSubCategorySteps.selectFromTestTypeList("Appeal");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Normal inspection");
         testTypeSubCategorySteps.goBackToCategory();
@@ -168,10 +167,9 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         testTypeSubCategorySteps.goBackToCategory();
         testTypeSubCategorySteps.selectFromTestTypeList("Voluntary IVA");
         testTypeSubCategorySteps.selectFromTestTypeList("Normal inspection");
-        testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSpecialistReasonsList();
-
     }
 }

@@ -94,7 +94,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -127,7 +127,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -158,7 +158,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -188,7 +188,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -219,7 +219,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -249,7 +249,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
