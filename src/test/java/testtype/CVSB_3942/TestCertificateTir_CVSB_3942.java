@@ -61,7 +61,7 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
