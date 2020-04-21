@@ -138,6 +138,7 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isAttribute(String attribute, String value) {
+        waitUntilPageIsLoaded();
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         List<String> actualData = new ArrayList<>();
         for (WebElement webElement : webElementList) {
@@ -146,9 +147,9 @@ public class TrailerDetailsPage extends BasePage {
 //        System.out.println("list: " + actualData);
         for (String data : actualData) {
 //            System.out.println("inside for @: " + data);
-            if (data.equals(attribute)) {
+            if (data.contentEquals(attribute)) {
 //                System.out.println("comparing data: " + data + " with: " + value);
-                if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
+                if (actualData.get(actualData.indexOf(data) + 1).contentEquals(value)) {
                     return true;
                 }
             }

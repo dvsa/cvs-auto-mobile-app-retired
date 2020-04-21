@@ -15,7 +15,11 @@ public class SearchCriteriaPage extends IdentifyVehiclePage {
     private static final String SAVE_BUTTON = "Save";
 
     public boolean isPageTitleDisplayed() {
-        return findElementByAccessibilityId(SEARCH_CRITERIA_PAGE_TITLE).isDisplayed();
+        try {
+            return findElementByAccessibilityId(SEARCH_CRITERIA_PAGE_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean areSearchCriteriaDisplayed() {

@@ -77,20 +77,28 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        boolean status = false;
-        if (findElementById(VEHICLE_DETAILS_PAGE_TITLE).isDisplayed()) {
-            status = true;
+        try {
+            return findElementById(VEHICLE_DETAILS_PAGE_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
         }
-        return status;
     }
 
     public boolean isRegistrationPlateDisplayed(String registrationPlate) {
         waitUntilPageIsLoaded();
-        return findElementById(registrationPlate).isDisplayed();
+        try {
+            return findElementById(registrationPlate).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementById(element).isDisplayed();
+        try {
+            return findElementById(element).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickExpandableInformation(String info) {
@@ -114,7 +122,11 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAttribute(String attribute, String value) {
@@ -141,7 +153,7 @@ public class VehicleDetailsPage extends BasePage {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_BUTTON_XPATH);
         for (WebElement webElement : webElementList) {
             if (webElement.getAttribute("name").equals(button)) {
-                return true;
+                return webElement.isDisplayed();
             }
         }
         return false;
@@ -149,14 +161,26 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isVinDisplayed(String vin) {
         waitUntilPageIsLoaded();
-        return findElementById(vin).isDisplayed();
+        try {
+            return findElementById(vin).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isSectionHeadingDisplayed(String sectionHeading) {
-        return (findElementById(sectionHeading).isDisplayed());
+        try {
+            return findElementById(sectionHeading).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isFieldDisplayed(String field) {
-        return (findElementById(field).isDisplayed());
+        try {
+            return findElementById(field).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 }
