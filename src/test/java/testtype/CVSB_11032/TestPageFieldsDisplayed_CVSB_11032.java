@@ -89,7 +89,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");

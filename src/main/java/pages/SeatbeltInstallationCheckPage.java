@@ -33,11 +33,19 @@ public class SeatbeltInstallationCheckPage extends BasePage {
     }
 
     public boolean isCancelDisplayed() {
-        return findElementById(CANCEL_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(CANCEL_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isDoneDisplayed() {
-        return findElementById(DONE_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(DONE_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isPageTitleDisplayed() {

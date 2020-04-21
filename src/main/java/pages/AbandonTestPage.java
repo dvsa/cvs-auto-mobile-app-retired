@@ -36,15 +36,27 @@ public class AbandonTestPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        return findElementById(PAGE_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(PAGE_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isReasonsListTitleDisplayed() {
-        return findElementById(REASON_LIST_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(REASON_LIST_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAdditionalCommentsTitleDisplayed() {
-        return findElementById(COMMENT_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(COMMENT_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollPageDown() {

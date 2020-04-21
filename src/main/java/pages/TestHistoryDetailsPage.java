@@ -19,7 +19,11 @@ public class TestHistoryDetailsPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        return findElementById(TEST_HISTORY_DETAILS_PAGE_TITLE).isDisplayed();
+        try {
+            return findElementById(TEST_HISTORY_DETAILS_PAGE_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickBackButton() {
@@ -44,6 +48,7 @@ public class TestHistoryDetailsPage extends BasePage {
             if (attribute.equalsIgnoreCase(dataSetEndText)) {
                 endIndex = i;
                 addingData = false;
+                break;
             }
 
             if (addingData) {
@@ -62,7 +67,11 @@ public class TestHistoryDetailsPage extends BasePage {
     }
 
     public boolean checkElementIsPresent(String element) {
-        return findElementById(element).isDisplayed();
+        try {
+            return findElementById(element).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkIsValidDateFormat() {
@@ -156,7 +165,11 @@ public class TestHistoryDetailsPage extends BasePage {
     }
 
     public boolean elementIsDisplayed(String element) {
-        return findElementById(element).isDisplayed();
+        try {
+            return findElementById(element).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scroll() {

@@ -13,7 +13,11 @@ public class TestHistoryPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        return findElementById(TEST_HISTORY_PAGE_TITLE).isDisplayed();
+        try {
+            return findElementById(TEST_HISTORY_PAGE_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickBackButton() {

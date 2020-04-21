@@ -30,11 +30,19 @@ public class SelectVehiclePage extends BasePage {
     }
 
     public boolean isSkeletonRecordWarningShown() {
-        return findElementById(INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION_ID).isDisplayed();
+        try {
+            return findElementById(INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isIncompleteVehiclePresent() {
-        return findElementById(INCOMPLETE_RECORD_VEHICLE).isDisplayed();
+        try {
+            return findElementById(INCOMPLETE_RECORD_VEHICLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isIncompleteRecordPopupShown() {

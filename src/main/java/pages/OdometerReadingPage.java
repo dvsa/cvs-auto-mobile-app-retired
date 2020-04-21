@@ -28,6 +28,7 @@ public class OdometerReadingPage extends BasePage {
         }
 
     }
+
     public enum UnitOptions {
         KILOMETRES("Kilometres"), MILES("Miles"), CANCEL("Cancel");
 
@@ -44,21 +45,27 @@ public class OdometerReadingPage extends BasePage {
 
 
     public boolean isUnitDisplayed(UnitOptions unitOptions) {
-        return findElementById(unitOptions.getValue() + " Edit").isDisplayed();
+        try {
+            return findElementById(unitOptions.getValue() + " Edit").isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isOptionDisplayed(UnitOptions unitOptions) {
-        return findElementById(unitOptions.getValue()).isDisplayed();
-
+        try {
+            return findElementById(unitOptions.getValue()).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
-
 
     public String getExpectedUnit(Units unit) {
         return unit.getValue();
     }
 
     public void clickUnitOption(UnitOptions unitOptions) {
-                findElementById(unitOptions.getValue()).click();
+        findElementById(unitOptions.getValue()).click();
     }
 
     public String getActualUnit() {
@@ -91,11 +98,19 @@ public class OdometerReadingPage extends BasePage {
     }
 
     public boolean isReadingTitleDisplayed() {
-        return findElementById(READING_TITLE).isDisplayed();
+        try {
+            return findElementById(READING_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isUnitTitleDisplayed() {
-        return findElementById(UNIT_TITLE).isDisplayed();
+        try {
+            return findElementById(UNIT_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public String getReadingValue() {

@@ -43,8 +43,11 @@ public class TrailerDetailsPage extends BasePage {
 
     public boolean isDetailPageScrollable() {
         scrollDetailPage();
-
-        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollDetailPage() {
@@ -134,7 +137,11 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAttribute(String attribute, String value) {
@@ -161,18 +168,34 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isWeightsButtonDisplayed() {
-        return findElementById(WEIGHTS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(WEIGHTS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isTyresButtonDisplayed() {
-        return findElementById(TYRES_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(TYRES_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAdditionalVehicleDetailsButtonDisplayed() {
-        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isBrakesButtonDisplayed() {
-        return findElementById(BRAKES_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(BRAKES_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 }

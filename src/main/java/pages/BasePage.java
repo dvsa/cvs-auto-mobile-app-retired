@@ -90,10 +90,10 @@ public class BasePage extends PageObject {
         WebElement element = null;
         while (element == null) {
             try {
-                element = waitUntilPageIsLoadedByElement(By.id(id1), 1, 200);
+                element = waitUntilPageIsLoadedByElement(By.id(id1), 3, 200);
             } catch (ElementNotVisibleException e) {
                 try {
-                    element = waitUntilPageIsLoadedByElement(By.id(id2), 1, 200);
+                    element = waitUntilPageIsLoadedByElement(By.id(id2), 3, 200);
                 } catch (ElementNotVisibleException e1) {
                 }
             }
@@ -372,7 +372,14 @@ public class BasePage extends PageObject {
     public void scrollToElement(String id) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();
-        scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
+        scrollObject.put("predicateString", "name == '" + id + "'");
+        js.executeScript("mobile: scroll", scrollObject);
+    }
+
+    public void scrollToElementWithAttribute(String attributeName, String attributeValue) {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        HashMap scrollObject = new HashMap<>();
+        scrollObject.put("predicateString", attributeName + "== '" + attributeValue + "'");
         js.executeScript("mobile: scroll", scrollObject);
     }
 

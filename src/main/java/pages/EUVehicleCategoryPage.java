@@ -38,7 +38,11 @@ public class EUVehicleCategoryPage extends BasePage{
     private static final String N3_VEHICLE_DESCRIPTION_XPATH = "//XCUIElementTypeButton[contains(@name, 'N3 exceeding 12 tonnes')]";
 
     public boolean isLDescriptionLabelDisplayed() {
-        return findElementById(L_CATEGORY_DESCRIPTION_ID).isDisplayed();
+        try {
+            return findElementById(L_CATEGORY_DESCRIPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isL1eADisplayed() {
@@ -84,7 +88,11 @@ public class EUVehicleCategoryPage extends BasePage{
     }
 
     public boolean isMDescriptionLabelDisplayed() {
-        return findElementById(M_CATEGORY_DESCRIPTION_ID).isDisplayed();
+        try {
+            return findElementById(M_CATEGORY_DESCRIPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isM1Displayed() {
@@ -100,7 +108,11 @@ public class EUVehicleCategoryPage extends BasePage{
     }
 
     public boolean isNDescriptionLabelDisplayed() {
-        return findElementById(N_CATEGORY_DESCRIPTION_ID).isDisplayed();
+        try {
+            return findElementById(N_CATEGORY_DESCRIPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isN1CheckedDisplayed() {

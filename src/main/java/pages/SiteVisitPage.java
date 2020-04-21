@@ -40,7 +40,11 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        return findElementById(PAGE_TITLE).isDisplayed();
+        try {
+            return findElementById(PAGE_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isPageTitleWithRetryDisplayed() {
@@ -78,11 +82,19 @@ public class SiteVisitPage extends BasePage {
     }
 
     public boolean isCreateTestButtonDisplayed() {
-        return findElementById(START_TEST).isDisplayed();
+        try {
+            return findElementById(START_TEST).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isEndVisitButtonDisplayed() {
-        return findElementById(END_VISIT_ID).isDisplayed();
+        try {
+            return findElementById(END_VISIT_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAtfRowDisplayed(String atfName, String atfNumber) {
