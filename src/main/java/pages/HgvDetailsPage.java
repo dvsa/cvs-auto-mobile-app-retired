@@ -25,8 +25,11 @@ public class HgvDetailsPage extends BasePage {
 
     public boolean isDetailPageScrollable() {
         this.scrollDetailPage();
-
-        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollDetailPage() {
@@ -54,7 +57,7 @@ public class HgvDetailsPage extends BasePage {
     }
 
     public void clickConfirmPopUp() {
-        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
+        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID), 2);
         findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
     }
 
@@ -115,7 +118,11 @@ public class HgvDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAttribute(String attribute, String value) {
@@ -125,11 +132,11 @@ public class HgvDetailsPage extends BasePage {
             actualData.add(webElement.getAttribute("name"));
         }
 //        System.out.println("list: " + actualData);
-        for(String data:actualData){
+        for (String data : actualData) {
 //            System.out.println("inside for @: " + data);
-            if(data.equals(attribute)){
+            if (data.equals(attribute)) {
 //                System.out.println("comparing data: " + data + " with: " + value);
-                if(actualData.get(actualData.indexOf(data)+1).equals(value)){
+                if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
                     return true;
                 }
             }

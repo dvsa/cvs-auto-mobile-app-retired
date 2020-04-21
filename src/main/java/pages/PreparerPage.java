@@ -30,7 +30,11 @@ public class PreparerPage extends BasePage {
     }
 
     public boolean isTitleDisplayed() {
-        return findElementById(LABEL_ID).isDisplayed();
+        try {
+            return findElementById(LABEL_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isPreparerFoundPopUpDisplayed(String preparerId) {
@@ -67,7 +71,11 @@ public class PreparerPage extends BasePage {
     }
 
     public boolean isLableDisplayed() {
-        return findElementById(PAGE_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(PAGE_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void confirmPopUpOption() {

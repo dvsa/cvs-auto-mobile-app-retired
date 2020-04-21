@@ -26,8 +26,11 @@ public class VehicleDetailsPage extends BasePage {
 
     public boolean isDetailPageScrollable() {
         this.scrollDetailPage();
-
-        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollDetailPage() {
@@ -93,7 +96,11 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementById(element).isDisplayed();
+        try {
+            return findElementById(element).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickExpandableInformation(String info) {
@@ -117,7 +124,11 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAttribute(String attribute, String value) {

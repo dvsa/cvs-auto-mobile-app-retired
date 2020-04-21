@@ -92,10 +92,10 @@ public class BasePage extends PageObject {
         if (id.equals("Test review")) {
             while (element == null) {
                 try {
-                    element = waitUntilPageIsLoadedByElement(By.id(id), 1, 200);
+                    element = waitUntilPageIsLoadedByElement(By.id(id), 3, 200);
                 } catch (ElementNotVisibleException e) {
                     try {
-                        element = waitUntilPageIsLoadedByElement(By.id("Test"), 1, 200);
+                        element = waitUntilPageIsLoadedByElement(By.id("Test"), 3, 200);
                     } catch (ElementNotVisibleException e1) {
                     }
                 }
@@ -362,7 +362,14 @@ public class BasePage extends PageObject {
     public void scrollToElement(String id) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();
-        scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
+        scrollObject.put("predicateString", "name == '" + id + "'");
+        js.executeScript("mobile: scroll", scrollObject);
+    }
+
+    public void scrollToElementWithAttribute(String attributeName, String attributeValue) {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        HashMap scrollObject = new HashMap<>();
+        scrollObject.put("predicateString", attributeName + "== '" + attributeValue + "'");
         js.executeScript("mobile: scroll", scrollObject);
     }
 

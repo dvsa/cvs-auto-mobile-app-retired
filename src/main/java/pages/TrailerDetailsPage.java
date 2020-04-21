@@ -1,10 +1,17 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.time.Duration.ofMillis;
 
 public class TrailerDetailsPage extends BasePage {
 
@@ -43,8 +50,11 @@ public class TrailerDetailsPage extends BasePage {
 
     public boolean isDetailPageScrollable() {
         scrollDetailPage();
-
-        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollDetailPage() {
@@ -134,7 +144,11 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isTestHistoryButtonDisplayed() {
-        return findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAttribute(String attribute, String value) {
@@ -161,18 +175,34 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isWeightsButtonDisplayed() {
-        return findElementById(WEIGHTS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(WEIGHTS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isTyresButtonDisplayed() {
-        return findElementById(TYRES_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(TYRES_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isAdditionalVehicleDetailsButtonDisplayed() {
-        return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isBrakesButtonDisplayed() {
-        return findElementById(BRAKES_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(BRAKES_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 }
