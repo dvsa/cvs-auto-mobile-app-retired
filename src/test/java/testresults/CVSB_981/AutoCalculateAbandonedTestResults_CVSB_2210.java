@@ -3,7 +3,6 @@ package testresults.CVSB_981;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
 import pages.TestPage;
@@ -52,7 +51,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.swipeTestType("Annual test");
         testSteps.pressTestTypeAbandonButton();
-        selectReasonSteps.selectTheReason(SelectReasonPage.Reasons.REASON_1);
+        selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();

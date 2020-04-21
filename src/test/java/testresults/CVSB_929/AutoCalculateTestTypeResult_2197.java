@@ -84,7 +84,7 @@ public class AutoCalculateTestTypeResult_2197 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.swipeTestType("Annual test");
         testSteps.pressTestTypeAbandonButton();
-        selectReasonSteps.selectTheReason(SelectReasonPage.Reasons.REASON_1);
+        selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
         selectReasonSteps.pressNextButton();
         abandonTestSteps.addAdditionalComments("Test Abandoned 1234");
         abandonTestSteps.pressDone();

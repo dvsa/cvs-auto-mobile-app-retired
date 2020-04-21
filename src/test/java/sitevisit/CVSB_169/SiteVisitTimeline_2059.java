@@ -4,7 +4,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
 import pages.TestPage;
@@ -70,7 +69,7 @@ public class SiteVisitTimeline_2059 extends BaseTestClass {
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
         testSteps.swipeTestType("Technical test");
         testSteps.pressTestTypeAbandonButton();
-        selectReasonSteps.selectTheReason(SelectReasonPage.Reasons.REASON_1);
+        selectReasonSteps.selectAReason(SelectReasonPage.Reasons.REASON_1);
         selectReasonSteps.pressNextButton();
         abandonTestSteps.pressDone();
         abandonTestSteps.pressAbandon();
