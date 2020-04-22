@@ -89,7 +89,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
-        testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
@@ -124,15 +124,8 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
 
-        // Verify that EU Vehicle Category is mandatory.
-        testSteps.scrollDown();
-        testSteps.clickUnsetEuVehicleCategory();
-        euVehicleCategorySteps.selectO1Option();
-        testSteps.clickReviewAndSubmit();
-        testSteps.scrollUp();
-        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
-
         // Verify that Odometer Reading is mandatory.
+        testSteps.scrollUp();
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("22222");
         odometerReadingSteps.pressSave();

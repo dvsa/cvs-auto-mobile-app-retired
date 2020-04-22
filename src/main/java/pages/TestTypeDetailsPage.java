@@ -239,15 +239,27 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isCarriedOutDisplayed() {
-        return findElementById(CARRIED_OUT_YES_OPTION_ID).isDisplayed();
+        try {
+            return findElementById(CARRIED_OUT_YES_OPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isNotCarriedOutDisplayed() {
-        return findElementById(CARRIED_OUT_NO_OPTION_ID).isDisplayed();
+        try {
+            return findElementById(CARRIED_OUT_NO_OPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isCancelCarriedOutDisplayed() {
-        return findElementById(CARRIED_OUT_CANCEL_OPTION_ID).isDisplayed();
+        try {
+            return findElementById(CARRIED_OUT_CANCEL_OPTION_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void selectSeatbeltsNumberOption() {
@@ -260,7 +272,11 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isSeatbeltTitleDisplayed() {
-        return findElementById(SEATBELT_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(SEATBELT_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void selectRecentInstallationCheckOption() {
@@ -317,7 +333,11 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean verifyThatNoRecentInstallationDateIsDisplayed() {
-        return findElementById("Most recent installation check Most recent installation check Enter").isDisplayed();
+        try {
+            return findElementById("Most recent installation check Most recent installation check Enter").isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isMostInstallationCheckButtonDisplayed() {
@@ -330,19 +350,35 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isDateCalendarPickerDisplayed() {
-        return findElementById("web dialog").isDisplayed();
+        try {
+            return findElementById("web dialog").isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isCancelOptionDisplayedForDatePicker() {
-        return findElementById(MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(MOST_RECENT_INSTALLATION_CHECK_CANCEL_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isDoneOptionDisplayedForDatePicker() {
-        return findElementById(MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(MOST_RECENT_INSTALLATION_CHECK_DONE_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isTestTypeDetailsTitleDisplayed() {
-        return findElementById(TEST_TYPE_DETAILS).isDisplayed();
+        try {
+            return findElementById(TEST_TYPE_DETAILS).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollOneDay() {
@@ -387,16 +423,28 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean checkPassTestOptionIsPresent() {
-        return findElementById(PASS_ID).isDisplayed();
+        try {
+            return findElementById(PASS_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkFailTestOptionIsPresent() {
-        return findElementById(FAIL_ID).isDisplayed();
+        try {
+            return findElementById(FAIL_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkTestStatus(String status) {
         waitUntilPageIsLoaded();
-        return findElementById("Test result " + status).isDisplayed();
+        try {
+            return findElementById("Test result " + status).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickPassedTest() {
@@ -405,11 +453,19 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean checkCancelTestOptionIsPresent() {
-        return findElementById(CANCEL_LEC_TEST_ID).isDisplayed();
+        try {
+            return findElementById(CANCEL_LEC_TEST_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkLPLabelIsPresent() {
-        return findElementById(LP_LABEL_ID).isDisplayed();
+        try {
+            return findElementById(LP_LABEL_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkCertificateNumberInputFieIdIsPresent() {
@@ -418,11 +474,19 @@ public class TestTypeDetailsPage extends BasePage {
 
     public boolean checkCertificateNumberLabelIsPresent() {
         waitUntilPageIsLoaded();
-        return findElementById(CERTIFICATE_NUMBER_LABEL_ID).isDisplayed();
+        try {
+            return findElementById(CERTIFICATE_NUMBER_LABEL_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkCertificateNumberCOIFLabelIsPresent() {
-        return findElementById(CERTIFICATE_NUMBER_COIFLABEL_ID).isDisplayed();
+        try {
+            return findElementById(CERTIFICATE_NUMBER_COIFLABEL_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void sendCertificateNumberAndSave(String certificateNumber) {
@@ -448,7 +512,11 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isCertificateGuidanceDisplayed() {
-        return findElementById(CERTIFICATE_NUMBER_GUIDANCE_ID).isDisplayed();
+        try {
+            return findElementById(CERTIFICATE_NUMBER_GUIDANCE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickNotes() {
@@ -507,7 +575,11 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean checkNumberOfSeatbeltsIsNotDisplayed() {
-        return findElementById("Number of seatbelts fitted Enter").isDisplayed();
+        try {
+            return findElementById("Number of seatbelts fitted Enter").isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void tapTitleTwiceToCloseIOSKeyboard() {
@@ -528,19 +600,35 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean isAbandonButtonDisplayed() {
-        return findElementById(ABANDON_TEST_TYPE).isDisplayed();
+        try {
+            return findElementById(ABANDON_TEST_TYPE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isRemoveTestButtonDisplayed() {
-        return findElementById(REMOVE_TEST_TYPE).isDisplayed();
+        try {
+            return findElementById(REMOVE_TEST_TYPE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isCertificateNumberGuidance(String instruction) {
-        return findElementById(instruction).isDisplayed();
+        try {
+            return findElementById(instruction).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isCertificateNumber(String certificateNumber) {
-        return findElementById(certificateNumber).isDisplayed();
+        try {
+            return findElementById(certificateNumber).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isStaticTextNotDisplayed(String staticText) {

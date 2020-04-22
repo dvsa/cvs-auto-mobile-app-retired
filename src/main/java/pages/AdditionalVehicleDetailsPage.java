@@ -19,7 +19,11 @@ public class AdditionalVehicleDetailsPage extends BasePage {
     }
 
     public boolean elementFromListIsDisplayed(String element) {
-        return findElementById(element).isDisplayed();
+        try {
+            return findElementById(element).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public List<String> getDataSetBetweenTitles(String dataSetStartText, String dataSetEndText) {

@@ -195,7 +195,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        return findElementById(TEST_PAGE_TITLE).isDisplayed();
+        try {
+            return findElementById(TEST_PAGE_TITLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isCancelButtonDisplayed() {
@@ -235,7 +239,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean isAddATestTypeButtonDisplayed() {
-        return findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADD_TEST_TYPE_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isTestTypeDisplayedByXpath(String testType) {
@@ -278,7 +286,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean isReviewAndSubmitButtonAvailable() {
-        return findElementById(REVIEW_AND_SUBMIT).isDisplayed();
+        try {
+            return findElementById(REVIEW_AND_SUBMIT).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     //TODO create generic swipe action in BasePage
@@ -292,7 +304,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean isRemoveButtonDisplayed() {
-        return findElementById(REMOVE_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(REMOVE_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickOnRedRemoveButton() {
@@ -333,7 +349,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean isAbandonButtonDisplayed() {
-        return findElementById(ABANDON_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ABANDON_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void pressAbandonButton() {
@@ -341,7 +361,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean isAddALinkedTestVisible() {
-        return findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADD_LINKED_TEST_TYPE_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void addALinkedTestType() {
@@ -408,12 +432,20 @@ public class TestPage extends BasePage {
     }
 
     public boolean checkMCategoryIsSelected(String category) {
-        return findElementById("EU vehicle category " + category + " checkmark").isDisplayed();
+        try {
+            return findElementById("EU vehicle category " + category + " checkmark").isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean checkNoEUCategoryIsSelected() {
         waitUntilPageIsLoadedById("EU vehicle category Select arrow forward");
-        return findElementById("EU vehicle category Select arrow forward").isDisplayed();
+        try {
+            return findElementById("EU vehicle category Select arrow forward").isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickCountryOfRegistrationOption() {
@@ -447,7 +479,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean checkAddATrailerButtonIsDisplayed() {
-        return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADD_A_TRAILER_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean addATrailerButtonIsPresent() {
@@ -461,7 +497,11 @@ public class TestPage extends BasePage {
     }
 
     public boolean checkAddAVehicleButtonIsDisplayed() {
-        return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(ADD_A_VEHICLE_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void scrollPageDown() {

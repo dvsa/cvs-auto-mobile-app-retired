@@ -23,7 +23,11 @@ public class CancelTestPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
-        return findElementById(PAGE_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(PAGE_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isTextTipDisplayed() {
@@ -35,7 +39,11 @@ public class CancelTestPage extends BasePage {
     }
 
     public boolean isInputTitleDisplayed() {
-        return findElementById(REASON_INPUT_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(REASON_INPUT_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void clickSubmit() {

@@ -93,14 +93,14 @@ public class DefectDetailsPage extends BasePage {
         return findElementByXpath("//*[@label='" + label + "']");
     }
 
-    public void selectVerticalValue(String id) {
+    public void selectVerticalValue(String label) {
         getVertical().click();
-        findElementById(id).click();
+        findElementByXpath("//XCUIElementTypeButton[@label='" + label + "']").click();
     }
 
-    public void selectLateralValue(String id) {
+    public void selectLateralValue(String label) {
         getLateral().click();
-        findElementById(id).click();
+        findElementByXpath("//XCUIElementTypeButton[@label='" + label + "']").click();
     }
 
     public void selectRowNumberValue(String id) {
@@ -195,7 +195,11 @@ public class DefectDetailsPage extends BasePage {
 
     public boolean checkPageTitleIsDisplayed() {
         waitUntilPageIsLoaded();
-        return findElementById(DEFECT_DETAILS_PAGE_ID).isDisplayed();
+        try {
+            return findElementById(DEFECT_DETAILS_PAGE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public void selectOption(String option) {
@@ -225,7 +229,12 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public boolean checkPRSOptionIsDisplayed() {
-            return findElementsByXpath("//XCUIElementTypeStaticText[@value=\"" + PRS_ENABLE + "\"]").size()>0;
+        // return findElementsByXpath("//XCUIElementTypeStaticText[@value=\"" + PRS_ENABLE + "\"]").size()>0;
+        try {
+            return findElementById(PRS_ENABLE).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isProhibitionPopUpDisplayed() {
@@ -274,12 +283,18 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public boolean isProhibitionLabelDisplayed() {
-        return findElementsByXpath("//XCUIElementTypeStaticText[@name=\""+ PROHIBITION + "\"]").size() > 0;
+        // return findElementsByXpath("//XCUIElementTypeStaticText[@name=\""+ PROHIBITION + "\"]").size() > 0;
+        try {
+            return findElementById(PROHIBITION).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     public boolean isIssuedInMobileCompliancePresent() {
         try {
-            return findElementById(ISSUED_IN_MOBILE_COMPLIANCE_ID).isDisplayed();
+            WebElement element = findElementById(ISSUED_IN_MOBILE_COMPLIANCE_ID);
+            return (element != null ? element.isDisplayed() : false);
         } catch (NoSuchElementException ex) {
             return false;
         }

@@ -62,7 +62,7 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Part inspection/ part fee");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
+        euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("1");
         odometerReadingSteps.pressSave();

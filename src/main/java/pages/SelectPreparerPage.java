@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
-
+import exceptions.AutomationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,32 +94,56 @@ public class SelectPreparerPage extends BasePage {
 
     @Deprecated
     public boolean withoutPreparerIdLinkIsDisplayed() {
-        return findElementById(CONTINUE_WITHOUT_PREPARER).isDisplayed();
+        try {
+            return findElementById(CONTINUE_WITHOUT_PREPARER).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
     public boolean isTitleDisplayed() {
-        return findElementById(PAGE_TITLE_ID).isDisplayed();
+        try {
+            return findElementById(PAGE_TITLE_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
     public boolean isNoResultsFoundDisplayed() {
-       return findElementById(NO_PREPARER_FOUND).isDisplayed();
+        try {
+            return findElementById(NO_PREPARER_FOUND).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
     public boolean isWarningForMissingPreparerDisplayed() {
-       return findElementById(WARNING_MESSAGE_PREPARER).isDisplayed();
+        try {
+            return findElementById(WARNING_MESSAGE_PREPARER).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
     public boolean isConfirmOptionDisplayed() {
-        return findElementById(CONFIRM_BUTTON_ID).isDisplayed();
+        try {
+            return findElementById(CONFIRM_BUTTON_ID).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
     public boolean isCancelOptionDisplayed() {
-        return findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH_1).isDisplayed();
+        try {
+            return findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH_1).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
@@ -129,11 +153,19 @@ public class SelectPreparerPage extends BasePage {
 
     @Deprecated
     public boolean isSearchBarDisplayed() {
-        return findElementByXpath(SEARCH_PREPARER_ID_BAR).isDisplayed();
+        try {
+            return findElementByXpath(SEARCH_PREPARER_ID_BAR).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
     }
 
     @Deprecated
     public void clickCancelInPopUp() {
-        findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH_2).click();
+        try {
+            findElementByXpath(CANCEL_BUTTON_POP_UP_XPATH_2).click();
+        } catch (NullPointerException ex) {
+            throw new AutomationException("Element with xpath " + CANCEL_BUTTON_POP_UP_XPATH_2 + " not found");
+        }
     }
 }
