@@ -371,7 +371,7 @@ public class BasePage extends PageObject {
     public void scrollToElement(String id) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();
-        scrollObject.put("predicateString", "name == '" + id + "'");
+        scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
         js.executeScript("mobile: scroll", scrollObject);
     }
 
