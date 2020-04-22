@@ -58,7 +58,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -76,7 +76,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.setTestToOption("Fail");
         testTypeDetailsSteps.checkTestIsFailed();
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.pressSubmit();
         testReviewSteps.checkSubmitPopUp();
         testReviewSteps.pressSubmitInPopUp();
@@ -112,7 +112,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.setTestToOption("Fail");
         testTypeDetailsSteps.checkTestIsFailed();
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.pressSubmit();
         testReviewSteps.checkSubmitPopUp();
         testReviewSteps.pressSubmitInPopUp();
@@ -134,7 +134,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
         testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectOption("N1");
+        euVehicleCategorySteps.selectOption("N2");
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("123");
         odometerReadingSteps.checkReadingValue("123");
@@ -157,7 +157,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         // CVSB-8281: TC - AC8 - Entering no certificate number
         // CVSB-8283: TC - AC10 - Expiry date field is mandatory
         // Attempt to submit with missing mandatory info.
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // CVSB-8278: TC - AC5 - VSA inputs certificate number
@@ -167,7 +167,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.sendCertificateNumber("1234567");
         testTypeDetailsSteps.checkCertificateNumberIs("123456");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // CVSB-8279: TC - AC6 - VSA inputs expiry date
@@ -184,7 +184,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
 
         // Now the mandatory fields have been provided, submit the test results.
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkTestStatus("ADR test", "PASS");
         testReviewSteps.checkCertificateNumberIs("123456");
         testReviewSteps.checkNotesAre("This is an ADR test.");
@@ -229,7 +229,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         // CVSB-8281: TC - AC8 - Entering no certificate number
         // CVSB-8283: TC - AC10 - Expiry date field is mandatory
         // Attempt to submit with missing mandatory info.
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // CVSB-8278: TC - AC5 - VSA inputs certificate number
@@ -239,7 +239,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.sendCertificateNumber("1234567");
         testTypeDetailsSteps.checkCertificateNumberIs("123456");
         testTypeDetailsSteps.pressSave();
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // CVSB-8279: TC - AC6 - VSA inputs expiry date
@@ -256,7 +256,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
 
         // Now the mandatory fields have been provided, submit the test results.
-        testSteps.clickReview();
+        testSteps.clickReviewAndSubmit();
         testReviewSteps.checkTestStatus("ADR test", "PASS");
         testReviewSteps.checkCertificateNumberIs("123456");
         testReviewSteps.checkNotesAre("This is an ADR test.");
