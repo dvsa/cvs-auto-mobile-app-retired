@@ -362,6 +362,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void clickSetTestResult() {
+        waitUntilPageIsLoaded();
         findElementByXpath(TEST_RESULT_XPATH).click();
     }
 
@@ -399,6 +400,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void clickPassedTest() {
+        waitUntilPageIsLoaded();
         findElementById("Test result Pass").click();
     }
 
@@ -415,6 +417,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean checkCertificateNumberLabelIsPresent() {
+        waitUntilPageIsLoaded();
         return findElementById(CERTIFICATE_NUMBER_LABEL_ID).isDisplayed();
     }
 
@@ -569,6 +572,11 @@ public class TestTypeDetailsPage extends BasePage {
         return false;
     }
 
+    public boolean isErrorMessageNotDisplayed(String errorMessage) {
+        waitUntilPageIsLoaded();
+        return !isErrorMessageDisplayed(errorMessage);
+    }
+
     public void setExpiryDateDefault() {
         waitUntilPageIsLoaded();
         findElementByXpath(EXPIRY_DATE_INPUT_FIELD_XPATH).click();
@@ -708,5 +716,6 @@ public class TestTypeDetailsPage extends BasePage {
         findElementByXpath(MODIFICATION_TYPE_USED_INPUT_FIELD_XPATH).sendKeys(modificationType);
         findElementById(DONE_ID).click();
     }
+
 }
 

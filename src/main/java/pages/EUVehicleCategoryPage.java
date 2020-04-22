@@ -193,11 +193,12 @@ public class EUVehicleCategoryPage extends BasePage{
         List<WebElement> buttonList = findElementsByClassName(PAGE_ALL_BUTTONS_CLASS_NAME);
         int i = 0;
         for (WebElement button : buttonList) {
+            // shortWaitUntilPageIsLoadedByIdAndClickable(button.getAttribute("name"));
             if (button.getAttribute("name").contains(option)) {
-                shortWaitUntilPageIsLoadedByIdAndClickable(button.getAttribute("name"));
+                System.out.println("Clicking on Option: " + button.getAttribute("name"));
                 button.click();
+                break;
             }
-            else i++;
         }
         if ( i == buttonList.size()) {
             throw  new AutomationException("The selected option does not exist");

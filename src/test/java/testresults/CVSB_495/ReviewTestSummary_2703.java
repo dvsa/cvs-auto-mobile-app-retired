@@ -64,7 +64,7 @@ public class ReviewTestSummary_2703 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.goBackToTestOverviewScreen();
+        testReviewSteps.goToTestPage();
         testSteps.checkPageTitleDisplayed();
     }
 }
