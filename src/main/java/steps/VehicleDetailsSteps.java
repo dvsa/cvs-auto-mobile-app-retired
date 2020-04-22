@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import pages.TrailerDetailsPage;
 import pages.VehicleDetailsPage;
 
 import java.util.List;
@@ -199,4 +198,15 @@ public class VehicleDetailsSteps extends ScenarioSteps {
     public void checkCountryOfRegistrationIs(String country) {
         assertThat(vehicleDetailsPage.isAttribute("Country of registration", country)).isTrue();
     }
+    @Step
+    public void checkVinChassisNumber(String vin) {
+        assertThat(vehicleDetailsPage.isVinDisplayed(vin)).isTrue();
+    }
+
+    @Step
+    public void checkRegistrationNumber(String vrm) {
+        assertThat(vehicleDetailsPage.isRegistrationPlateDisplayed(vrm)).isTrue();
+    }
+
+
 }
