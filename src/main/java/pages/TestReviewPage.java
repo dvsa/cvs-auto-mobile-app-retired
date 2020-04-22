@@ -31,10 +31,6 @@ public class TestReviewPage extends BasePage {
         findElementById(BACK_TO_TEST_ID).click();
     }
 
-    public void clickGoToTestOverviewScreen() {
-        findElementById(BACK_TO_TEST_ID).click();
-    }
-
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_REVIEW_LONG_TITLE_ID);
     }

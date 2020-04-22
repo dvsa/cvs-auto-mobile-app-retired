@@ -3,12 +3,15 @@ package pages;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import util.SearchCriteria;
+
 import java.util.List;
 
 public class IdentifyVehiclePage extends BasePage {
 
     private static final String IDENTIFY_VEHICLE_PAGE_TITLE = "Identify vehicle";
     private static final String SEARCH_FIELD_CLASS_NAME = "XCUIElementTypeSearchField";
+    private static final String SEARCH_BUTTON_CLASS_NAME = "XCUIElementTypeButton";
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String SEARCH_OPTION = "Search";
     private static final String OK_ID = "OK";
@@ -22,6 +25,7 @@ public class IdentifyVehiclePage extends BasePage {
     public void clickSearchCriteriaButton() {
         findElementByXpath(SEARCH_CRITERIA_BUTTON).click();
     }
+    private static final String SEARCH_CRITERIA_ID = "SEARCH CRITERIA";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE);
@@ -102,6 +106,26 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isIdentifyVehicleTitleDisplayed() {
         return waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE).isDisplayed();
+    }
+
+    public boolean isSearchCriteriaSectionDisplayed() {
+        waitUntilPageIsLoaded();
+        return findElementByAccessibilityId(SEARCH_CRITERIA_ID).isDisplayed();
+    }
+
+    public boolean isSearchCriteriaButtonDisplayed(SearchCriteria searchCriteria) {
+        waitUntilPageIsLoaded();
+        return findElementByAccessibilityId(searchCriteria.getDescription()+" Change arrow forward").isDisplayed();
+    }
+
+    public void pressSearchCriteriaButton() {
+        List<WebElement> allButtons = findElementsByClassName(SEARCH_BUTTON_CLASS_NAME);
+        for(WebElement button: allButtons){
+            if (button.getAttribute("name").endsWith("Change arrow forward")){
+                button.click();
+                break;
+            }
+        }
     }
 }
 

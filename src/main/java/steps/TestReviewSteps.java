@@ -16,11 +16,6 @@ public class TestReviewSteps extends ScenarioSteps {
     SiteVisitPage siteVisitPage;
 
     @Step
-    public void goBackToTestOverviewScreen() {
-        testReviewPage.clickGoToTestOverviewScreen();
-    }
-
-    @Step
     public void checkPageTitleIsDisplayed(){
         testReviewPage.waitUntilPageIsLoaded();
         assertThat(testReviewPage.checkPageTitleIsDisplayed()).isTrue();
