@@ -18,7 +18,7 @@ public class TrailerDetailsPage extends BasePage {
     private static final String CONFIRM_ID = "Confirm";
     private static final String CONFIRM_VEHICLE_ID = "Confirm vehicle";
     private static final String CONFIRMATION_TEXT_ID = "This action will confirm the vehicle for testing.";
-    private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Vehicle test history";
+    private static final String TRAILER_TEST_HISTORY_BUTTON_ID = "Trailer test history";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name,'arrow back')]";
     private static final String WEIGHTS_BUTTON_ID = "Weights";
     private static final String TYRES_BUTTON_ID = "Tyres";
@@ -96,9 +96,16 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public boolean isPageTitleDisplayed() {
+        // This page may use two different titles.
         boolean status = false;
-        if (findElementById(TRAILER_DETAILS_PAGE_TITLE).isDisplayed()) {
-            status = true;
+        try {
+            if (findElementById(TRAILER_DETAILS_PAGE_TITLE).isDisplayed()) {
+                status = true;
+            }
+        } catch (Exception e) {
+            if (findElementById("Vehicle details").isDisplayed()) {
+                status = true;
+            }
         }
         return status;
     }
@@ -129,7 +136,14 @@ public class TrailerDetailsPage extends BasePage {
     }
 
     public void clickVehicleTestHistory() {
-        findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).click();
+        // This may be "Trailer test history" or "Vehicle test history".
+        try {
+            System.out.println("Clicking on the button: " + TRAILER_TEST_HISTORY_BUTTON_ID);
+            findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).click();
+        } catch (Exception e) {
+            System.out.println("Clicking on alternative name for button: Vehicle test history");
+            findElementById("Vehicle test history").click();
+        }
     }
 
     public void clickBackButton() {

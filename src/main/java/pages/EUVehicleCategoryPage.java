@@ -35,6 +35,7 @@ public class EUVehicleCategoryPage extends BasePage{
     private static final String N1_VEHICLE_DESCRIPTION_CHECKED_XPATH = "//XCUIElementTypeButton[contains(@name, 'N1 not exceeding 3.5 tonnes checkmark')]";
     private static final String N1_VEHICLE_DESCRIPTION_XPATH = "//XCUIElementTypeButton[contains(@name, 'N1 not exceeding 3.5 tonnes checkmark')]";
     private static final String N2_VEHICLE_DESCRIPTION_CHECKED_XPATH = "//XCUIElementTypeButton[contains(@name, 'N2 exceeding 3.5 tonnes but not exceeding 12 tonnes checkmark')]";
+    private static final String N2_VEHICLE_DESCRIPTION_XPATH = "//XCUIElementTypeButton[contains(@name, 'N2 exceeding 3.5 tonnes but not exceeding 12 tonnes')]";
     private static final String N3_VEHICLE_DESCRIPTION_XPATH = "//XCUIElementTypeButton[contains(@name, 'N3 exceeding 12 tonnes')]";
 
     public boolean isLDescriptionLabelDisplayed() {
@@ -49,9 +50,9 @@ public class EUVehicleCategoryPage extends BasePage{
 
         // Sometimes this first element is checked.
         boolean isL1eaShown = false;
-        if (findElementByXpath(L1E_VEHICLE_DESCRIPTION_XPATH).isDisplayed()) {
+        if (findElementByXpath(L1EA_VEHICLE_DESCRIPTION_XPATH).isDisplayed()) {
             isL1eaShown = true;
-        } else if (findElementByXpath(L1E_VEHICLE_DESCRIPTION_XPATH + " checkmark").isDisplayed()) {
+        } else if (findElementByXpath(L1EA_VEHICLE_DESCRIPTION_XPATH + " checkmark").isDisplayed()) {
             isL1eaShown = true;
         }
         return isL1eaShown;
@@ -125,6 +126,10 @@ public class EUVehicleCategoryPage extends BasePage{
         } catch (NoSuchElementException ex) {
             return false;
         }
+    }
+
+    public boolean isN2Displayed() {
+        return findElementByXpath(N2_VEHICLE_DESCRIPTION_XPATH).isDisplayed();
     }
 
     public boolean isN2CheckedDisplayed() {

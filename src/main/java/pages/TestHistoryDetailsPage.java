@@ -27,6 +27,7 @@ public class TestHistoryDetailsPage extends BasePage {
     }
 
     public void clickBackButton() {
+        System.out.println("Clicking the Back button...");
         findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 

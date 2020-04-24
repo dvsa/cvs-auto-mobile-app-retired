@@ -131,12 +131,15 @@ public class AdrDetailsPage extends BasePage {
         for(WebElement webElement : webElementList){
 //            System.out.println("element is: " + webElement.getAttribute("name"));
             if(webElement.getAttribute("name").equals(adrSection)){
-//                System.out.println("found: " + adrSection + " index is: " + webElementList.indexOf(webElement));
+//                System.out.println("found: " + adrSection + " index is: " + webElementList.indexOf(webElement))
                 sectionElement = webElement;
             }
             if(webElement.getAttribute("name").equals(adrDetail)){
 //                System.out.println("found: " + adrDetail + " index is: " + webElementList.indexOf(webElement));
-                detailElement = webElement;
+                if (webElement.isDisplayed()) {
+                    // Just in case the element is present on screen but hidden.
+                    detailElement = webElement;
+                }
             }
         }
         return (webElementList.indexOf(sectionElement) < webElementList.indexOf(detailElement));

@@ -102,6 +102,7 @@ public class SelectVehiclePage extends BasePage {
 
     public void clickOnVehicle(String make, String year, String model){
         String searchString = make + " " + year + " , " + model;
+        System.out.println("Selecting vehicle: " + searchString);
         findElementByXpath("//XCUIElementTypeButton[@name=\""+searchString+"\"]").click();
     }
 

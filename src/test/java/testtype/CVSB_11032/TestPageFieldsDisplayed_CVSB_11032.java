@@ -124,6 +124,14 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
         testSteps.checkPageTitleDisplayed();
 
+        // Verify that EU Vehicle Category is mandatory.
+        testSteps.scrollDown();
+        testSteps.clickUnsetEuVehicleCategory();
+        euVehicleCategorySteps.selectO1Option();
+        testSteps.clickReviewAndSubmit();
+        testSteps.scrollUp();
+        testSteps.checkErrorMessageMandatoryFieldsDisplayed();
+
         // Verify that Odometer Reading is mandatory.
         testSteps.scrollUp();
         testSteps.selectOdometerReading();
@@ -336,8 +344,6 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkCountryOfRegistrationFieldIsUpdatedFor("Great Britain and Northern Ireland","CT70VRL");
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.checkOdometerOptionIsDisplayed();
-        testSteps.checkEUVehicleCategoryOptionIs("N2");
-
         testSteps.selectEuVehicleCategory();
         euVehicleCategorySteps.checkTitleIsDisplayed();
         euVehicleCategorySteps.checkOptionsForHGVAreDisplayed();
