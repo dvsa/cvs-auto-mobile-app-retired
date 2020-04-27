@@ -89,11 +89,14 @@ public class BasePage extends PageObject {
         WebElement element = null;
         while (element == null) {
             try {
-                element = waitUntilPageIsLoadedByElement(By.id(id1), 3, 200);
-            } catch (ElementNotVisibleException e) {
+                System.out.println("Searching for title #1: " + id1);
+                element = waitUntilPageIsLoadedByElement(By.id(id1), 30, 200);
+            } catch (Exception e) {
                 try {
-                    element = waitUntilPageIsLoadedByElement(By.id(id2), 3, 200);
+                    System.out.println("Searching for title #2: " + id2);
+                    element = waitUntilPageIsLoadedByElement(By.id(id2), 30, 200);
                 } catch (ElementNotVisibleException e1) {
+                    showElementError(id2);
                 }
             }
         }

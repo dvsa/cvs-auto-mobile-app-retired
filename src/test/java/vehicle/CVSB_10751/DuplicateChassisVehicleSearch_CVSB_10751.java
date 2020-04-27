@@ -81,6 +81,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         selectVehicleSteps.checkVehicleDetails();
         selectVehicleSteps.checkBackCta("arrow back Identify vehicle");
         selectVehicleSteps.selectTrailer();
+        trailerDetailsSteps.waitUntilPageIsLoaded();
         trailerDetailsSteps.checkPageTitle();
         trailerDetailsSteps.selectTrailerTestHistory();
         testHistorySteps.checkNoTestHistoryIsDisplayed();

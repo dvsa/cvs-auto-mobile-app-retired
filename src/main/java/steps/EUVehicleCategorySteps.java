@@ -133,7 +133,7 @@ public class EUVehicleCategorySteps extends ScenarioSteps {
         euVehicleCategoryPage.waitUntilPageIsLoaded();
         assertThat(euVehicleCategoryPage.isNDescriptionLabelDisplayed());
         assertThat(euVehicleCategoryPage.isN1Displayed()).isFalse();
-        assertThat(euVehicleCategoryPage.isN2CheckedDisplayed()).isTrue();
+        assertThat(euVehicleCategoryPage.isN2Displayed()).isTrue();
         assertThat(euVehicleCategoryPage.isN3Displayed()).isTrue();
     }
 }

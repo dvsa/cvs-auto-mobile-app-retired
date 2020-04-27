@@ -72,10 +72,12 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC3 - AC3 - Field 'Applicable' = Yes")
     @Test
     public void testAdrDetailsFieldsSemiTrailerBatteryApplicable() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777776");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("800000");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTrailerTestDetails("C777776", "ABCDEFGH777776");
+        // testSteps.checkTrailerTestDetails("C777776", "ABCDEFGH777776");
+        testSteps.checkTrailerTestDetails("SJG0001", "SJGAF6WIUW16P800000");
+
         testSteps.selectTrailerDetails();
         trailerDetailsSteps.scrollTheDetailPage();
         trailerDetailsSteps.selectAdrDetails();
@@ -94,10 +96,10 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC2 - AC2 - Field 'Applicable' = No")
     @Test
     public void testAdrDetailsFieldsRigidBatteryApplicableNo() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777775");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("800002");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTrailerTestDetails("C777775", "ABCDEFGH777775");
+        testSteps.checkTrailerTestDetails("SJG0002", "SJGAF6WIUW16P800002");
         testSteps.selectTrailerDetails();
         trailerDetailsSteps.scrollTheDetailPage();
         trailerDetailsSteps.selectAdrDetails();
@@ -168,10 +170,10 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-9663 - TC - AC5 - Field not selected in source - AC6 - Fields with no data which are still displayed")
     @Test
     public void testAdrDetailsFieldsNotDisplayed() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777776");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("800000");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTrailerTestDetails("C777776", "ABCDEFGH777776");
+        testSteps.checkTrailerTestDetails("SJG0001", "SJGAF6WIUW16P800000");
         testSteps.selectTrailerDetails();
         trailerDetailsSteps.scrollTheDetailPage();
         trailerDetailsSteps.selectAdrDetails();
