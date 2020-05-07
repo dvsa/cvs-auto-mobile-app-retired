@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+import org.openqa.selenium.WebElement;
 import pages.AdrDetailsPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,6 +28,11 @@ public class AdrDetailsStep {
     @Step
     public void scrollTheAdrDetailPage() {
         adrDetailsPage.scrollDetailPage();
+    }
+
+    @Step
+    public void scrollToElement(String name) {
+        adrDetailsPage.scrollToElement(name);
     }
 
     @Step
