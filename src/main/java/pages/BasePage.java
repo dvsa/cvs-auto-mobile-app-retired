@@ -10,6 +10,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -371,10 +372,11 @@ public class BasePage extends PageObject {
         return elementValue;
     }
 
-    public void scrollToElement(String id) {
+    public void scrollToElement(String name) {
+        System.out.println("Scrolling to element with name '" + name + "' ...");
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();
-        scrollObject.put("predicateString", "name CONTAINS '" + id + "'");
+        scrollObject.put("predicateString", "name CONTAINS '" + name + "'");
         js.executeScript("mobile: scroll", scrollObject);
     }
 
@@ -382,6 +384,7 @@ public class BasePage extends PageObject {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();
         scrollObject.put("predicateString", attributeName + "== '" + attributeValue + "'");
+        scrollObject.put("direction", "down");
         js.executeScript("mobile: scroll", scrollObject);
     }
 

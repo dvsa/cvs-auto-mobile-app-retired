@@ -145,25 +145,30 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("ADR DETAILS");
         adrDetailsStep.checkAdrDetailHasValue("Vehicle type", "semi trailer battery");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("PERMITTED DANGEROUS GOODS");
-        adrDetailsStep.scrollTheAdrDetailPage();
+        adrDetailsStep.scrollToElement("TANK DETAILS");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("TANK DETAILS");
+        adrDetailsStep.scrollToElement("SUBSTANCES PERMITTED");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("SUBSTANCES PERMITTED");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Substances (class UN number and if necessary packing group and proper shipping name) may be carried");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Statement reference number");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Product list reference number");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "UN number");
+        adrDetailsStep.scrollToElement("INITIAL TANK INSPECTION");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Additional product list details");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("INITIAL TANK INSPECTION");
-        adrDetailsStep.scrollTheAdrDetailPage();
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("SUBSEQUENT TANK INSPECTION");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSEQUENT TANK INSPECTION", "Inspection type");
+        adrDetailsStep.scrollToElement("MEMO 07/09 (3 MONTH EXTENSION)");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSEQUENT TANK INSPECTION", "Certificate number");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSEQUENT TANK INSPECTION", "Expiry Date");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("MEMO 07/09 (3 MONTH EXTENSION)");
+        adrDetailsStep.scrollToElement("BATTERY LIST");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("BATTERY LIST");
+        adrDetailsStep.scrollToElement("CERTIFICATE");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("CERTIFICATE");
-        adrDetailsStep.scrollTheAdrDetailPage();
+        adrDetailsStep.scrollToElement("ADDITIONAL ADR DETAILS");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("ADDITIONAL ADR DETAILS");
+        adrDetailsStep.scrollToElement("APPLICANT DETAILS");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("APPLICANT DETAILS");
     }
 
