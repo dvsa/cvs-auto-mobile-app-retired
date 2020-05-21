@@ -13,7 +13,7 @@
         <junit.version>4.12</junit.version>
         <serenity.version>2.0.20</serenity.version>
         <sl4j.version>1.7.7</sl4j.version>
-        <PARALLEL_TEST>1</PARALLEL_TEST>
+        <PARALLEL_TEST>6</PARALLEL_TEST>
     </properties>
 
     <dependencies>
