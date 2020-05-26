@@ -104,9 +104,9 @@ public class AwsUtil {
         for (Map<String, AttributeValue> item : result.getItems()) {
             System.out.println("item.size: " + item.size());
             System.out.println("item.values: " + item.values());
-            System.out.println("item.get(id).getS(): " + item.get("testerName").getS());
+            System.out.println("item.get(id).getS(): " + item.get("id").getS());
             DeleteItemSpec deleteItemSpec = new DeleteItemSpec()
-                    .withPrimaryKey("id", item.get("id").getS(), "testerName", userName);
+                    .withPrimaryKey("id", item.get("id").getS());
             DeleteItemOutcome outcome = table.deleteItem(deleteItemSpec);
         }
     }
