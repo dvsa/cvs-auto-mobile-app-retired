@@ -122,4 +122,50 @@ public class ActivityService {
         return decodedJWT.getClaims().get(NAME_ID).asString();
     }
 
+    public void closeCurrentUserActivity() {
+        EnvironmentType envType = TypeLoader.getType();
+        System.out.println("=========================ENV TYPE================================");
+        System.out.println(envType);
+        switch (envType) {
+            case CI_BROWSERSTACK:
+                System.out.println(envType);
+                System.out.println("======================= CURRENT USERNAME ==================================");
+                System.out.println(BaseUtils.getUserName());
+                AwsUtil.deleteActivitiesForUserName(BaseUtils.getUserName());
+                break;
+            case LOCAL_REAL_DEVICE:
+            case LOCAL_SIMULATOR:
+            case LOCAL_BROWSERSTACK:
+                System.out.println("======================= NOT CI===================================");
+                System.out.println(envType);
+                if (testerStaffId == null) {
+                    searchForTesterStaffId();
+                }
+
+                if (testerStaffId != null) {
+                    response = activitiesClient.getActivities(testerStaffId);
+                    if (!response.getBody().asString().contains("No resources match the search criteria")) {
+                        if (response.getStatusCode() != 200) {
+                            throw new AutomationException("Response for get activities failed - Backend API Issue failed with status code "
+                                    + response.getStatusCode() + " and body message " + response.getBody().asString());
+                        }
+                        List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
+                        if (activityIds != null) {
+                            for (String activityId : activityIds) {
+                                response = activitiesClient.putActivities(activityId);
+                                if (response.getStatusCode() != 204) {
+                                    throw new AutomationException("Response for put activities failed - Backend API Issue failed with status code "
+                                            + response.getStatusCode() + " and body message " + response.getBody().asString());
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+            default:
+                throw new AutomationException("Environment configuration not found");
+
+        }
+    }
+
 }
