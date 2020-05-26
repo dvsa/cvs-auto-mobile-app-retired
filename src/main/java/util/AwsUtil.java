@@ -106,7 +106,7 @@ public class AwsUtil {
             System.out.println("item.values: " + item.values());
             System.out.println("item.get(id).getS(): " + item.get("testerName").getS());
             DeleteItemSpec deleteItemSpec = new DeleteItemSpec()
-                    .withPrimaryKey("testerName", userName, "id", item.get("id").getS());
+                    .withPrimaryKey("id", item.get("id").getS(), "testerName", userName);
             DeleteItemOutcome outcome = table.deleteItem(deleteItemSpec);
         }
     }
