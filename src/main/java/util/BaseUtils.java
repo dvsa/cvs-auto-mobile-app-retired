@@ -62,12 +62,9 @@ public class BaseUtils {
                 userName = getUser(fileLock);
             }
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            throw new AutomationException("User Pool file was not found");
         } catch (IOException e) {
             e.printStackTrace();
-            throw new AutomationException("User Pool file cannot be read");
+            throw new AutomationException("User Pool file was not found");
         }
 
     }
