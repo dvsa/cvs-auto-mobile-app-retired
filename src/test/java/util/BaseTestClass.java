@@ -37,6 +37,7 @@ public class BaseTestClass extends BaseUtils {
             utilSteps.resetAndQuitDriver();
             currentStartTimeTime = LocalDateTime.now();
         }
+        addCurrentUserBackToUserPool();
         activityService.closeCurrentUserActivity();
     }
 

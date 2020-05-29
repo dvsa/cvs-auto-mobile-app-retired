@@ -50,8 +50,7 @@ public class BaseUtils {
                     fileLock.release();
                 }
 
-            }
-            else {
+            } else {
                 while (!file.canRead() || !file.canWrite()) {
                     try {
                         Thread.sleep(50);
@@ -100,19 +99,26 @@ public class BaseUtils {
             fileChannel.truncate(0);
 
             myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
+            username = myNewList.get(0);
+
             System.out.println("====================== CURRENT LIST =================================");
             for (String s : myNewList) {
                 System.out.println(s);
             }
             System.out.println("====================== END OF CURRENT LIST =================================");
 
-            if (myNewList.isEmpty()) {
+            if (myNewList.get(0).equalsIgnoreCase("END")) {
                 lock.release();
                 fileChannel.close();
-                throw new AutomationException("User pool is empty");
-            }
-            else {
-                username = myNewList.get(0);
+                try {
+                    Thread.sleep(1000);
+                    getUser(lock);
+                } catch (Exception e) {
+                    throw new AutomationException("User pool is empty: " + e.getMessage());
+                }
+
+            } else {
+
                 if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
                     myNewList.remove(myNewList.get(0));
                 }
@@ -128,12 +134,66 @@ public class BaseUtils {
                 }
             }
 
-        }  catch (IOException | InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
             throw new AutomationException("Initializing users failed");
         }
 
         return username;
+    }
+
+    public static void addCurrentUserBackToUserPool() {
+        if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
+
+            boolean fileExists = mainFile.exists();
+            if (!fileExists) {
+                throw new AutomationException("User pool file does not exist");
+            } else {
+                try {
+                    FileChannel fileChannel = new RandomAccessFile(mainFile, "rw").getChannel();
+                    FileLock lock = fileChannel.lock();
+                    while (!mainFile.canRead() || !mainFile.canWrite()) {
+                        try {
+                            Thread.sleep(50);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    ByteBuffer bytes = ByteBuffer.allocate(500);
+                    int noOfBytesRead = fileChannel.read(bytes);
+                    StringBuilder users = new StringBuilder();
+
+                    Thread.sleep(2000);
+                    while (noOfBytesRead != -1) {
+                        bytes.flip();
+                        while (bytes.hasRemaining()) {
+                            users.append((char) bytes.get());
+                        }
+                        bytes.clear();
+                        noOfBytesRead = fileChannel.read(bytes);
+                    }
+
+                    fileChannel.truncate(0);
+                    List<String> myNewList = new ArrayList<>();
+                    if (users.length() != 0) {
+                        myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
+                    }
+                    myNewList.add(userName);
+                    String string2 = String.join(",", myNewList);
+                    fileChannel
+                            .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
+                    fileChannel.force(true);
+
+                    Thread.sleep(1000);
+
+                    lock.release();
+
+                } catch (IOException | InterruptedException e) {
+                    e.printStackTrace();
+                    throw new AutomationException("Adding back users in user pool failed");
+                }
+            }
+        }
     }
 
 }
