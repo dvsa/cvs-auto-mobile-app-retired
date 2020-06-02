@@ -135,10 +135,92 @@ $ brew install node
 
 ## Setting up the framework
 
-TBD
+### Git Hooks
+
+Please set up the following prepush git hook in .git/hooks/pre-push
+
+```
+#!/bin/sh
+npm run prepush && git log -p | scanrepo
+
+```
+
+#### Security
+
+Please install and run the following securiy programs as part of your testing process:
+
+https://github.com/awslabs/git-secrets
+
+- After installing, do a one-time set up with `git secrets --register-aws`. Run with `git secrets --scan`.
+
+https://github.com/UKHomeOffice/repo-security-scanner
+
+- After installing, run with `git log -p | scanrepo`.
+
+These will be run as part of prepush so please make sure you set up the git hook above so you don't accidentally introduce any new security vulnerabilities.
+
+### Config File
+
+In the project structure create the file: `cvs-auto-svc/src/main/resources/conf/environment.properties` 
+
+(Do NOT add it to Git versioning !)
+The file should contain:
+
+```properties
+type=localBrowserstack
+hub.url=http://107.0.0.1:4723/wd/hub
+platform.version=11.4
+device.name=Adrian - Mihai 's iPhone
+platform.name-iOS
+bundle.id=uk.gov.dvsa.cvsmobile
+udid=d09a2532e20a526bbc51d29ac70e62e2e0dde4c5
+
+browserstack.username=<browserstack_username>
+browserstack.password=<browserstack_password>
+
+browserstack.hostname=hub-cloud.browserstack.com
+browserstack.os.version=11
+browserstack.device=iPhone 8 Plus
+browserstack.local=false
+browserstack.realMobile = true
+browserstack.app=bs://<browserstack_app_id>
+
+app.username=<automation_username>
+app.password=<automation_userpass>
+
+microsoftonline.url=https://login.microsoftonline.com/<azure_app_id>/oauth2/authorize?client_id=<azure_client_id>&response_type=id_token&redirect_uri=http://localhost:3000&scope=openid&response_mode=fragment&nonce=678910
+base.path.url=https://api.nonprod.cvs.dvsacloud.uk/<branch_name>
+
+simulator.platform.name=iOS
+simulator.platform.version=11
+simulator.device.name=iPhone 8 Plus
+simulator.bundle.id=uk.gov.dvsa.cvsmobile
+local.name=<your_name>
+```
+#### where:
+   - **browserstack_app_id** can be obtain via: [DEVELOP_DISPLAY_BROWSERSTACK_ID](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__DEVELOP/job/job_develop_display_browserstack_id/) or [FEATURE_DISPLAY_BROWSERSTACK_ID](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__BRANCH/job/job_feature_display_browserstack_id/) Jenkins jobs
+   - **azure_app_id** and **azure_client_id** are provided by the devOps team
+
+## Running locally
+
+Running can be triggered from IntelliJ or via mvn command in the terminal
+
+## Running in CI
+
+In Jenkins tests may be executed against either a branch or develop:
+
+- [UPDATE__BRANCH](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__BRANCH/job/job_feature_test_mobile/)
+- [UPDATE__DEVELOP](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__DEVELOP/job/job_develop_test_mobile/)
+
+Execution is triggered via "Build with Parameters" job with the options to select the test group from the 'MVN_TAG' dropdown.
+
+A full data reseed and the number of parallel threads are also optional
 
  
 ## Contributors
 
  - Teodor Cosmin Alexandru - @teoAlexandru
  - Laurentiu George Vasile - @lgvasile
+ - Bogdan Catalin Florea - @bflorea
+ - Dragos Panzaru - @dpanzaru
+ - Deepika Singh - @deepikasingh
