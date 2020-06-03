@@ -66,7 +66,6 @@ public class ActivityService {
                 if (testerStaffId == null) {
                     searchForTesterStaffId();
                 }
-
                 if (testerStaffId != null) {
                     response = activitiesClient.getActivities(testerStaffId);
                     if (!response.getBody().asString().contains("No resources match the search criteria")) {

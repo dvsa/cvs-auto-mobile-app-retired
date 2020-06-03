@@ -1,4 +1,4 @@
-package util;
+package data.util;
 
 public enum EmissionStandard {
     OPTION_1("0.10 g/kWh Euro 3 PM"),

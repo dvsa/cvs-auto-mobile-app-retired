@@ -9,9 +9,9 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
-import util.EmissionStandard;
-import util.FuelType;
-import util.ModType;
+import data.util.EmissionStandard;
+import data.util.FuelType;
+import data.util.ModType;
 
 @RunWith(SerenityRunner.class)
 public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {

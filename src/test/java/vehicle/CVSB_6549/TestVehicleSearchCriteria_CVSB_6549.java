@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
-import util.SearchCriteria;
+import data.util.SearchCriteria;
 
 @RunWith(SerenityRunner.class)
 public class TestVehicleSearchCriteria_CVSB_6549 extends BaseTestClass {

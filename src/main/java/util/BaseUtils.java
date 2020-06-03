@@ -24,7 +24,7 @@ public class BaseUtils {
     static {
 
         try {
-
+            System.out.println("\nDEBUG: inside BaseUtils");
             File file = new File("userPool.txt");
             boolean fileExists = file.exists();
             fileChannel = new RandomAccessFile(mainFile, "rw").getChannel();
@@ -35,10 +35,18 @@ public class BaseUtils {
                     mainFile.createNewFile();
                     userName = list.get(0);
                     if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
+
+                        // TODO please remove
+                        System.out.println("\nDEBUG: list of users: ");
+                        for(String element:list){
+                            System.out.println("\nDEBUG: element of list: " + element);
+                        }
+                        System.out.println("\nDEBUG: removing userName:" + userName);
                         list.remove(userName);
                     }
 
                     String string2 = String.join(",", list);
+                    System.out.println("\nDEBUG: Writing back to file: " + string2);
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2 + ",END")));
                     fileChannel.force(true);
@@ -59,6 +67,7 @@ public class BaseUtils {
                     }
                 }
                 userName = getUser(fileLock);
+                System.out.println("\nDEBUG: userName is: " + userName);
             }
 
         } catch (IOException e) {
@@ -80,8 +89,7 @@ public class BaseUtils {
 
         try {
             List<String> myNewList;
-
-
+            System.out.println("\nDEBUG: Inside getUser");
             ByteBuffer bytes = ByteBuffer.allocate(500);
             int noOfBytesRead = fileChannel.read(bytes);
             StringBuilder users = new StringBuilder();
@@ -99,6 +107,13 @@ public class BaseUtils {
             fileChannel.truncate(0);
 
             myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
+            //TODO please remove
+            System.out.println("\nDEBUG: myNewList: ");
+
+            for(String element:myNewList){
+                System.out.println("\nDEBUG: elementul: " + myNewList.indexOf(element) + " - " + element );
+            }
+
             username = myNewList.get(0);
 
             System.out.println("====================== CURRENT LIST =================================");
@@ -143,6 +158,7 @@ public class BaseUtils {
     }
 
     public static void addCurrentUserBackToUserPool() {
+        System.out.println("\nDEBUG: adding users back in the pool file ");
         if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
 
             boolean fileExists = mainFile.exists();
