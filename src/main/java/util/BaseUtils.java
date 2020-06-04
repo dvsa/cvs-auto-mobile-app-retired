@@ -194,7 +194,19 @@ public class BaseUtils {
                     if (users.length() != 0) {
                         myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
                     }
+                    System.out.println("====================== Before adding LIST =================================");
+                    for (String s : myNewList) {
+                        System.out.println(s);
+                    }
+                    System.out.println("====================== END OF CURRENT LIST =================================");
                     myNewList.add(userName);
+                    System.out.println("\nDEBUG: user: " + userName + " was returned to the pool file ");
+                    System.out.println("====================== After adding LIST =================================");
+                    for (String s : myNewList) {
+                        System.out.println(s);
+                    }
+                    System.out.println("====================== END OF CURRENT LIST =================================");
+
                     String string2 = String.join(",", myNewList);
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
