@@ -19,7 +19,7 @@ public class BaseUtils {
     private static File mainFile = new File("userPool.txt");
     private static final FileChannel fileChannel;
     private static List<String> list = new ArrayList<>(Arrays.asList(TypeLoader.getAppUsername().split(",")));
-
+    private static int recursion_counter = 0;
 
     static {
 
@@ -123,10 +123,13 @@ public class BaseUtils {
             System.out.println("====================== END OF CURRENT LIST =================================");
 
             if (myNewList.get(0).equalsIgnoreCase("END")) {
+                System.out.println("\nDEBUG: down to the last element ");
                 lock.release();
                 fileChannel.close();
                 try {
                     Thread.sleep(1000);
+                    recursion_counter++;
+                    System.out.println("\nDEBUG: re-trying after 1 second.. retry no: " + recursion_counter);
                     getUser(lock);
                 } catch (Exception e) {
                     throw new AutomationException("User pool is empty: " + e.getMessage());
@@ -142,7 +145,6 @@ public class BaseUtils {
                         .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                 fileChannel.force(true);
                 Thread.sleep(1000);
-
                 lock.release();
                 if (myNewList.get(0).equalsIgnoreCase("END")) {
                     fileChannel.close();
@@ -153,7 +155,7 @@ public class BaseUtils {
             e.printStackTrace();
             throw new AutomationException("Initializing users failed");
         }
-
+        recursion_counter = 0;
         return username;
     }
 
@@ -199,7 +201,7 @@ public class BaseUtils {
                         System.out.println(s);
                     }
                     System.out.println("====================== END OF CURRENT LIST =================================");
-                    myNewList.add(userName);
+                    myNewList.add(0, userName);
                     System.out.println("\nDEBUG: user: " + userName + " was returned to the pool file ");
                     System.out.println("====================== After adding LIST =================================");
                     for (String s : myNewList) {
