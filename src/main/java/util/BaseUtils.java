@@ -36,29 +36,34 @@ public class BaseUtils {
     }
 
     public static String getUserName() {
+        System.out.println("...getting the user: " );
         return userName;
     }
 
     public static void addCurrentUserBackToUserPool(){
         System.out.println("\n =============== CURRENT USER: " + userName + " IS RETURNED TO THE POOL ================");
-        userPool.push(userName);
-        printStack(userPool);
-
+        if(!userPool.contains(userName)) {
+            userPool.push(userName);
+            printStack(userPool);
+        }
+        else{
+            System.out.println("User " + userName + " is already in the pool");
+        }
     }
 
     public static void printStack(Stack<String> pool){
+        System.out.println("\n userPool is: ");
         for (String user:pool) {
-            System.out.println("\n userPool is: ");
             System.out.println("\n user no: " + pool.indexOf(user) + " is: " + user);
-            System.out.println("\n end of userPool");
         }
+        System.out.println("\n end of userPool");
     }
 
     public static void printArray(ArrayList<String> list){
+        System.out.println("\n list of users is: ");
         for (String user:list) {
-            System.out.println("\n list of users is: ");
             System.out.println("\n user no: " + list.indexOf(user) + " is: " + user);
-            System.out.println("\n end of list");
         }
+        System.out.println("\n end of list");
     }
 }
