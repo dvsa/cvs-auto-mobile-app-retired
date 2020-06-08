@@ -81,7 +81,7 @@ public class BaseUtils {
 
             File file = new File("userPool.txt");
 
-            fileChannel = new RandomAccessFile(mainFile, "r").getChannel();
+            fileChannel = new RandomAccessFile(mainFile, "rw").getChannel();
 
             // file does not exist
             if (!file.exists()) {
