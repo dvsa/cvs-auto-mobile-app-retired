@@ -32,7 +32,7 @@ public class BaseUtils {
         System.out.println();
             userName = userPool.pop();
             System.out.println("\n =============== CURRENT USER IS: " + userName + " ================");
-
+            printStack(userPool);
     }
 
     public static String getUserName() {
