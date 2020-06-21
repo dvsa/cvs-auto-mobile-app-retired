@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import steps.util.UtilSteps;
 import util.backend.activity.ActivityService;
 
@@ -18,6 +20,7 @@ import java.time.LocalDateTime;
 
 public class BaseTestClass extends BaseUtils {
 
+    private static Logger logger = LoggerFactory.getLogger(BaseTestClass.class);
     private static LocalDateTime currentStartTimeTime = LocalDateTime.now();
 
     protected AtfService atfService = new AtfService();
@@ -34,7 +37,7 @@ public class BaseTestClass extends BaseUtils {
 
     @Before
     public void closeActivity() {
-        System.out.println("\nDEBUG: inside BaseTestClass @Before - closing user's activity");
+        logger.info("closing user's activity");
         if (currentStartTimeTime.plusHours(1).plusMinutes(52).isBefore(LocalDateTime.now())) {
             utilSteps.resetAndQuitDriver();
             currentStartTimeTime = LocalDateTime.now();
@@ -44,7 +47,7 @@ public class BaseTestClass extends BaseUtils {
 
     @After
     public void returnUserToPool(){
-        System.out.println("\nDEBUG: Inside BaseTestClass @After - adding users back in the pool file");
+        logger.info("returning user to the user pool");
         BaseUtils.addCurrentUserBackToUserPool();
     }
 

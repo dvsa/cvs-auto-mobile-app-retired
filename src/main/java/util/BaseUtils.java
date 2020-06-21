@@ -1,6 +1,8 @@
 package util;
 
 import exceptions.AutomationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -10,43 +12,44 @@ import java.nio.channels.FileLock;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class BaseUtils {
 
+    private static Logger logger = LoggerFactory.getLogger(BaseUtils.class);
     private static String userName;
     private static final String CI_ENV = "CI";
-    private static File mainFile = new File("userPool.txt");
+    private static File userPoolFile = new File("userPool.txt");
     private static final FileChannel fileChannel;
-    private static List<String> list = new ArrayList<>(Arrays.asList(TypeLoader.getAppUsername().split(",")));
+    private static final ArrayList<String> list = new ArrayList<String>(Arrays.asList(TypeLoader.getAppUsername().split(",")));
 
 
     static {
-
+        logger.debug("Initializing BaseUtils class");
         try {
-            System.out.println("\nDEBUG: inside BaseUtils");
+
             File file = new File("userPool.txt");
             boolean fileExists = file.exists();
-            fileChannel = new RandomAccessFile(mainFile, "rw").getChannel();
+            fileChannel = new RandomAccessFile(userPoolFile, "rw").getChannel();
             FileLock fileLock = fileChannel.lock();
             if (!fileExists) {
-
                 try {
-                    mainFile.createNewFile();
+                    userPoolFile.createNewFile();
                     userName = list.get(0);
+                    logger.info("the userName was set to: {}", userName);
                     if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
 
-                        // TODO please remove
-                        System.out.println("\nDEBUG: list of users: ");
-                        for(String element:list){
-                            System.out.println("\nDEBUG: element of list: " + element);
-                        }
-                        System.out.println("\nDEBUG: removing userName:" + userName);
+                        // TODO for debugging purposes - please remove
+                        printUserList(list);
+
+                        logger.info("removing userName: {} from the user list", userName);
                         list.remove(userName);
                     }
 
-                    String string2 = String.join(",", list);
-                    System.out.println("\nDEBUG: Writing back to file: " + string2);
+                    // TODO for debugging purposes - please remove
+                    printUserList(list);
+
+                    String string2 = String.join("," , list);
+                    logger.info("writing the list back to the file: {}", string2);
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2 + ",END")));
                     fileChannel.force(true);
@@ -66,8 +69,9 @@ public class BaseUtils {
                         e.printStackTrace();
                     }
                 }
+                logger.info("getting a user name from the file");
                 userName = getUser(fileLock);
-                System.out.println("\nDEBUG: userName is: " + userName);
+                logger.info("userName is: {}", userName);
             }
 
         } catch (IOException e) {
@@ -79,17 +83,16 @@ public class BaseUtils {
 
 
     public static String getUserName() {
+        logger.info("retrieving the current user name: {}", userName);
         return userName;
     }
 
 
     private static String getUser(FileLock lock) {
-
-        String username;
-
+        String userName;
         try {
-            List<String> myNewList;
-            System.out.println("\nDEBUG: Inside getUser");
+            ArrayList<String> userList;
+
             ByteBuffer bytes = ByteBuffer.allocate(500);
             int noOfBytesRead = fileChannel.read(bytes);
             StringBuilder users = new StringBuilder();
@@ -106,23 +109,14 @@ public class BaseUtils {
 
             fileChannel.truncate(0);
 
-            myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
-            //TODO please remove
-            System.out.println("\nDEBUG: myNewList: ");
+            userList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
 
-            for(String element:myNewList){
-                System.out.println("\nDEBUG: elementul: " + myNewList.indexOf(element) + " - " + element );
-            }
+            // TODO for debugging purposes - please remove
+            printUserList(userList);
 
-            username = myNewList.get(0);
+            userName = userList.get(0);
 
-            System.out.println("====================== CURRENT LIST =================================");
-            for (String s : myNewList) {
-                System.out.println(s);
-            }
-            System.out.println("====================== END OF CURRENT LIST =================================");
-
-            if (myNewList.get(0).equalsIgnoreCase("END")) {
+            if (userList.get(0).equalsIgnoreCase("END")) {
                 lock.release();
                 fileChannel.close();
                 try {
@@ -135,16 +129,16 @@ public class BaseUtils {
             } else {
 
                 if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
-                    myNewList.remove(myNewList.get(0));
+                    userList.remove(userList.get(0));
                 }
-                String string2 = String.join(",", myNewList);
+                String string2 = String.join(",", userList);
                 fileChannel
                         .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                 fileChannel.force(true);
                 Thread.sleep(1000);
 
                 lock.release();
-                if (myNewList.get(0).equalsIgnoreCase("END")) {
+                if (userList.get(0).equalsIgnoreCase("END")) {
                     fileChannel.close();
                 }
             }
@@ -154,21 +148,21 @@ public class BaseUtils {
             throw new AutomationException("Initializing users failed");
         }
 
-        return username;
+        return userName;
     }
 
     public static void addCurrentUserBackToUserPool() {
-        System.out.println("\nDEBUG: adding users back in the pool file ");
+        logger.info ("adding users back in the pool file");
         if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
 
-            boolean fileExists = mainFile.exists();
+            boolean fileExists = userPoolFile.exists();
             if (!fileExists) {
                 throw new AutomationException("User pool file does not exist");
             } else {
                 try {
-                    FileChannel fileChannel = new RandomAccessFile(mainFile, "rw").getChannel();
+                    FileChannel fileChannel = new RandomAccessFile(userPoolFile, "rw").getChannel();
                     FileLock lock = fileChannel.lock();
-                    while (!mainFile.canRead() || !mainFile.canWrite()) {
+                    while (!userPoolFile.canRead() || !userPoolFile.canWrite()) {
                         try {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {
@@ -190,29 +184,28 @@ public class BaseUtils {
                     }
 
                     fileChannel.truncate(0);
-                    List<String> myNewList = new ArrayList<>();
+                    ArrayList<String> userList = new ArrayList<>();
                     if (users.length() != 0) {
-                        myNewList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
+                        userList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
                     }
-                    System.out.println("====================== Before adding LIST =================================");
-                    for (String s : myNewList) {
-                        System.out.println(s);
-                    }
-                    System.out.println("====================== END OF CURRENT LIST =================================");
-                    if(!myNewList.contains(userName)) {
-                        myNewList.add(0, userName);
+                    logger.info("====================== Before adding LIST =================================");
+                    // TODO for debugging purposes - please remove
+                    printUserList(userList);
+                    logger.info("====================== END OF CURRENT LIST =================================");
+                    if(!userList.contains(userName)) {
+                        userList.add(0, userName);
+                        logger.info("user {} was added back to the userPool", userName);
                     }
                     else{
-                        System.out.println("\n Username already exists !");
+                        logger.info("user name {} already exists in the userPool !", userName);
                     }
-                    System.out.println("\nDEBUG: user: " + userName + " was returned to the pool file ");
-                    System.out.println("====================== After adding LIST =================================");
-                    for (String s : myNewList) {
-                        System.out.println(s);
-                    }
-                    System.out.println("====================== END OF CURRENT LIST =================================");
 
-                    String string2 = String.join(",", myNewList);
+                    logger.info("====================== After adding LIST =================================");
+                    // TODO for debugging purposes - please remove
+                    printUserList(userList);
+                    logger.info("====================== END OF CURRENT LIST =================================");
+
+                    String string2 = String.join(",", userList);
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                     fileChannel.force(true);
@@ -227,6 +220,15 @@ public class BaseUtils {
                 }
             }
         }
+    }
+
+    // used for debugging purposes
+    private static void printUserList(ArrayList<String> list){
+        logger.info("\nprinting user list: ");
+        for(String element : list){
+            logger.info("elementul: " + list.indexOf(element) + " - " + element );
+        }
+        logger.info("\nend list ");
     }
 
 }
