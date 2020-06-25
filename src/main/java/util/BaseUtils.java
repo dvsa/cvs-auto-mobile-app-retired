@@ -35,13 +35,13 @@ public class BaseUtils {
                 try {
                     userPoolFile.createNewFile();
                     userName = list.get(0);
-                    logger.info("the userName was set to: {}", userName);
+                    logger.debug("the userName was set to: {}", userName);
                     if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
 
                         // TODO for debugging purposes - please remove
                         printUserList(list);
 
-                        logger.info("removing userName: {} from the user list", userName);
+                        logger.debug("removing userName: {} from the user list", userName);
                         list.remove(userName);
                     }
 
@@ -49,7 +49,7 @@ public class BaseUtils {
                     printUserList(list);
 
                     String string2 = String.join("," , list);
-                    logger.info("writing the list back into the file: {}", string2);
+                    logger.debug("writing the list back into the file: {}", string2);
                     fileChannel
                             .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                     fileChannel.force(true);
@@ -69,7 +69,7 @@ public class BaseUtils {
                         e.printStackTrace();
                     }
                 }
-                logger.debug("getting a user name from the file");
+                logger.info("getting a user name from the pool file");
                 userName = getUser(fileLock);
                 logger.debug("userName is: {}", userName);
             }
@@ -109,7 +109,6 @@ public class BaseUtils {
 
             ArrayList<String> userList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
 
-            // TODO for debugging purposes - please remove
             printUserList(userList);
 
             userName = userList.get(0);
@@ -149,7 +148,7 @@ public class BaseUtils {
         return userName;
     }
 
-    public static void addCurrentUserBackToUserPool() {
+    static void addCurrentUserBackToUserPool() {
         logger.info ("adding users back in the pool file");
         if (TypeLoader.getType().getEnvType().equalsIgnoreCase(CI_ENV)) {
 
@@ -186,22 +185,22 @@ public class BaseUtils {
                     if (users.length() != 0) {
                         userList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
                     }
-                    logger.info("====================== Before adding LIST =================================");
+                    logger.debug("====================== Before adding LIST =================================");
                     // TODO for debugging purposes - please remove
                     printUserList(userList);
-                    logger.info("====================== END OF CURRENT LIST =================================");
+                    logger.debug("====================== END OF CURRENT LIST =================================");
                     if(!userList.contains(userName)) {
                         userList.add(0, userName);
-                        logger.info("user {} was added back to the userPool", userName);
+                        logger.debug("user {} was added back to the userPool", userName);
                     }
                     else{
-                        logger.info("user name {} already exists in the userPool !", userName);
+                        logger.debug("user name {} already exists in the userPool !", userName);
                     }
 
-                    logger.info("====================== After adding LIST =================================");
+                    logger.debug("====================== After adding LIST =================================");
                     // TODO for debugging purposes - please remove
                     printUserList(userList);
-                    logger.info("====================== END OF CURRENT LIST =================================");
+                    logger.debug("====================== END OF CURRENT LIST =================================");
 
                     String string2 = String.join(",", userList);
                     fileChannel
@@ -222,11 +221,11 @@ public class BaseUtils {
 
     // used for debugging purposes
     private static void printUserList(ArrayList<String> list){
-        logger.info("\nprinting user list: ");
+        logger.debug("printing user list: ");
         for(String element : list){
-            logger.info("elementul: " + list.indexOf(element) + " - " + element );
+            logger.debug("elementul: " + list.indexOf(element) + " - " + element );
         }
-        logger.info("\nend list ");
+        logger.debug("end list ");
     }
 
 }
