@@ -49,9 +49,9 @@ public class BaseUtils {
                     printUserList(list);
 
                     String string2 = String.join("," , list);
-                    logger.info("writing the list back to the file: {}", string2);
+                    logger.info("writing the list back into the file: {}", string2);
                     fileChannel
-                            .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2 + ",END")));
+                            .write(Charset.defaultCharset().encode(CharBuffer.wrap(string2)));
                     fileChannel.force(true);
                     Thread.sleep(1000);
 
@@ -69,9 +69,9 @@ public class BaseUtils {
                         e.printStackTrace();
                     }
                 }
-                logger.info("getting a user name from the file");
+                logger.debug("getting a user name from the file");
                 userName = getUser(fileLock);
-                logger.info("userName is: {}", userName);
+                logger.debug("userName is: {}", userName);
             }
 
         } catch (IOException e) {
@@ -83,7 +83,7 @@ public class BaseUtils {
 
 
     public static String getUserName() {
-        logger.info("retrieving the current user name: {}", userName);
+        logger.debug("retrieving the current user name: {}", userName);
         return userName;
     }
 
@@ -91,8 +91,6 @@ public class BaseUtils {
     private static String getUser(FileLock lock) {
         String userName;
         try {
-            ArrayList<String> userList;
-
             ByteBuffer bytes = ByteBuffer.allocate(500);
             int noOfBytesRead = fileChannel.read(bytes);
             StringBuilder users = new StringBuilder();
@@ -109,14 +107,14 @@ public class BaseUtils {
 
             fileChannel.truncate(0);
 
-            userList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
+            ArrayList<String> userList = new ArrayList<>(Arrays.asList(users.toString().split(",")));
 
             // TODO for debugging purposes - please remove
             printUserList(userList);
 
             userName = userList.get(0);
 
-            if (userList.get(0).equalsIgnoreCase("END")) {
+            if (userList.isEmpty()) {
                 lock.release();
                 fileChannel.close();
                 try {
@@ -138,7 +136,7 @@ public class BaseUtils {
                 Thread.sleep(1000);
 
                 lock.release();
-                if (userList.get(0).equalsIgnoreCase("END")) {
+                if (userList.isEmpty()) {
                     fileChannel.close();
                 }
             }
