@@ -3,7 +3,7 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SearchCriteriaPage;
-import util.SearchCriteria;
+import data.util.SearchCriteria;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

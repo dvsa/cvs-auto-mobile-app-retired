@@ -1,9 +1,8 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import util.SearchCriteria;
+import data.util.SearchCriteria;
 
 import java.util.List;
 

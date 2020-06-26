@@ -1,7 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebElement;
-import util.SearchCriteria;
+import data.util.SearchCriteria;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package util;
+package data.util;
 
 public enum FuelType {
     DIESEL("Diesel"),

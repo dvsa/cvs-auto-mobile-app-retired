@@ -4,10 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import exceptions.AutomationException;
 import io.restassured.response.Response;
-import util.AwsUtil;
-import util.EnvironmentType;
-import util.TypeLoader;
-import util.WriterReader;
+import util.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -44,20 +41,31 @@ public class ActivityService {
         }
     }
 
-    public void closeUserActivity() {
-        EnvironmentType envType = TypeLoader.getType();
+    private static String getTesterName() {
+        JWT parsedJWT = new JWT();
+        DecodedJWT decodedJWT = parsedJWT.decodeJwt(WriterReader.getToken());
+        return decodedJWT.getClaims().get(NAME_ID).asString();
+    }
 
+    public void closeCurrentUserActivity() {
+        EnvironmentType envType = TypeLoader.getType();
+        System.out.println("=========================ENV TYPE================================");
+        System.out.println(envType);
         switch (envType) {
             case CI_BROWSERSTACK:
-                AwsUtil.deleteActivitiesForUser("a53ae740-eac4-4eb6-99ef-42afb63ce819");
+                System.out.println(envType);
+                System.out.println("======================= CURRENT USERNAME ==================================");
+                System.out.println(BaseUtils.getUserName());
+                AwsUtil.deleteActivitiesForUserName(BaseUtils.getUserName());
                 break;
             case LOCAL_REAL_DEVICE:
             case LOCAL_SIMULATOR:
             case LOCAL_BROWSERSTACK:
+                System.out.println("======================= NOT CI ===================================");
+                System.out.println(envType);
                 if (testerStaffId == null) {
                     searchForTesterStaffId();
                 }
-
                 if (testerStaffId != null) {
                     response = activitiesClient.getActivities(testerStaffId);
                     if (!response.getBody().asString().contains("No resources match the search criteria")) {
@@ -82,12 +90,6 @@ public class ActivityService {
                 throw new AutomationException("Environment configuration not found");
 
         }
-    }
-
-    private static String getTesterName() {
-        JWT parsedJWT = new JWT();
-        DecodedJWT decodedJWT = parsedJWT.decodeJwt(WriterReader.getToken());
-        return decodedJWT.getClaims().get(NAME_ID).asString();
     }
 
 }

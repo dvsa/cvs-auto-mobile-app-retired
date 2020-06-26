@@ -38,6 +38,7 @@ public class WebDriverBrowsertack {
     }
 
     public static String getToken() {
+        System.out.println("\n ...getting token...");
         WebDriverBrowsertack.setup();
 
         driver.get(TypeLoader.getMicrosoftonlineUrl());

@@ -25,6 +25,7 @@ public class LoaderBrowserstackCIImpl implements Loader {
 
     @Override
     public DesiredCapabilities loadCapabilities() {
+        System.out.println("Loading CI capabilities...");
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("os_version", "11.0");
         caps.setCapability("device", "iPhone 8 Plus");

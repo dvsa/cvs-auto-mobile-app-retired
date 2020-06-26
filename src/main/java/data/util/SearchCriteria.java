@@ -1,4 +1,4 @@
-package util;
+package data.util;
 
 public enum SearchCriteria {
     ALL ("Registration number, VIN or trailer ID"),

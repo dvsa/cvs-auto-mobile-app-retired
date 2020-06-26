@@ -3,9 +3,9 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.TestTypeDetailsPage;
-import util.EmissionStandard;
-import util.FuelType;
-import util.ModType;
+import data.util.EmissionStandard;
+import data.util.FuelType;
+import data.util.ModType;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestTypeDetailsSteps extends ScenarioSteps {
