@@ -208,5 +208,8 @@ public class VehicleDetailsSteps extends ScenarioSteps {
         assertThat(vehicleDetailsPage.isRegistrationPlateDisplayed(vrm)).isTrue();
     }
 
-
+    @Step
+    public void scrollTheDetailPage() {
+        vehicleDetailsPage.scrollDetailPage();
+    }
 }
