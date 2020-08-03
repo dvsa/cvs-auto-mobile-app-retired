@@ -109,5 +109,6 @@ public class AwsUtil {
                     .withPrimaryKey("id", item.get("id").getS());
             DeleteItemOutcome outcome = table.deleteItem(deleteItemSpec);
         }
+        System.out.println("activity deleted for: " + userName);
     }
 }

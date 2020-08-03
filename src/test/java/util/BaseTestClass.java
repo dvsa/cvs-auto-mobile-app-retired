@@ -38,10 +38,10 @@ public class BaseTestClass extends BaseUtils {
     @Before
     public void closeActivity() {
         logger.info("closing user's activity");
-        if (currentStartTimeTime.plusHours(1).plusMinutes(52).isBefore(LocalDateTime.now())) {
+//        if (currentStartTimeTime.plusHours(1).plusMinutes(52).isBefore(LocalDateTime.now())) {
             utilSteps.resetAndQuitDriver();
-            currentStartTimeTime = LocalDateTime.now();
-        }
+//            currentStartTimeTime = LocalDateTime.now();
+//        }
         activityService.closeCurrentUserActivity();
     }
 
