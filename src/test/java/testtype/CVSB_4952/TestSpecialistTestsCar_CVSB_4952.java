@@ -3,6 +3,7 @@ package testtype.CVSB_4952;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -73,7 +74,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("IVA", "Voluntary IVA", "Retest");
         testTypeSubCategorySteps.selectFromTestTypeList("IVA");
-        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Basic inspection", "Appeal", "Mutual recognition/ end of series & inspection");
+        testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Appeal", "Mutual recognition/ end of series & inspection");
         testTypeSubCategorySteps.selectFromTestTypeList("Appeal");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Basic inspection");
         testTypeSubCategorySteps.goBackToCategory();
@@ -137,7 +138,6 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         selectReasonSteps.checkSpecialistReasonsList();
 
     }
-
 
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - lgv")
     @Test

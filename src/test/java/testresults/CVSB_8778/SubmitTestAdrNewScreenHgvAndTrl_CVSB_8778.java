@@ -72,11 +72,11 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC3 - AC3 - Field 'Applicable' = Yes")
     @Test
     public void testAdrDetailsFieldsSemiTrailerBatteryApplicable() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("800000");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         // testSteps.checkTrailerTestDetails("C777776", "ABCDEFGH777776");
-        testSteps.checkTrailerTestDetails("SJG0001", "SJGAF6WIUW16P800000");
+        testSteps.checkTrailerTestDetails("C777778", "ABCDEFGH777778");
 
         testSteps.selectTrailerDetails();
         trailerDetailsSteps.scrollTheDetailPage();
@@ -86,26 +86,27 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("ADR DETAILS");
         adrDetailsStep.checkAdrDetailHasValue("Vehicle type", "semi trailer battery");
         adrDetailsStep.scrollTheAdrDetailPage();
+        adrDetailsStep.scrollTheAdrDetailPage();
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("BATTERY LIST");
         adrDetailsStep.checkAdrDetailSectionContains("BATTERY LIST", "Applicable");
         adrDetailsStep.checkAdrDetailHasValue("Applicable", "Yes");
         adrDetailsStep.checkAdrDetailSectionContains("BATTERY LIST", "Reference number");
-        adrDetailsStep.checkAdrDetailHasValue("Reference number", "Not entered");
+        adrDetailsStep.checkAdrDetailHasValue("Reference number", "H903");
     }
 
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC2 - AC2 - Field 'Applicable' = No")
     @Test
     public void testAdrDetailsFieldsRigidBatteryApplicableNo() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("800002");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("037985");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTrailerTestDetails("SJG0002", "SJGAF6WIUW16P800002");
+        testSteps.checkTrailerTestDetails("B4036851", "A00037985");
         testSteps.selectTrailerDetails();
         trailerDetailsSteps.scrollTheDetailPage();
         trailerDetailsSteps.selectAdrDetails();
         adrDetailsStep.waitUntilPageIsLoaded();
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("ADR DETAILS");
-        adrDetailsStep.checkAdrDetailHasValue("Vehicle type", "rigid battery tank");
+        adrDetailsStep.checkAdrDetailHasValue("Vehicle type", "SEMI TRAILER BATTERY");
         adrDetailsStep.scrollTheAdrDetailPage();
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("BATTERY LIST");
         adrDetailsStep.checkAdrDetailSectionContains("BATTERY LIST", "Applicable");
@@ -175,18 +176,18 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-9663 - TC - AC5 - Field not selected in source - AC6 - Fields with no data which are still displayed")
     @Test
     public void testAdrDetailsFieldsNotDisplayed() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("800000");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("535848");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTrailerTestDetails("SJG0001", "SJGAF6WIUW16P800000");
+        testSteps.checkTrailerTestDetails("D530001", "9VQAF6WIUW16P535848");
         testSteps.selectTrailerDetails();
         trailerDetailsSteps.scrollTheDetailPage();
         trailerDetailsSteps.selectAdrDetails();
         adrDetailsStep.waitUntilPageIsLoaded();
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("ADR DETAILS");
-        adrDetailsStep.checkAdrDetailHasValue("Vehicle type", "semi trailer battery");
+        adrDetailsStep.checkAdrDetailHasValue("Vehicle type", "Centre axle battery");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("PERMITTED DANGEROUS GOODS");
-        adrDetailsStep.checkAdrDetailSectionNotContains("PERMITTED DANGEROUS GOODS", "FP &lt;61 (FL)");
+        adrDetailsStep.checkAdrDetailSectionContains("PERMITTED DANGEROUS GOODS", "FP <61 (FL)");
         adrDetailsStep.checkAdrDetailSectionNotContains("PERMITTED DANGEROUS GOODS", "AT");
         adrDetailsStep.checkAdrDetailSectionNotContains("PERMITTED DANGEROUS GOODS", "Class 5.1 Hydrogen Peroxide (OX)");
         adrDetailsStep.checkAdrDetailSectionNotContains("PERMITTED DANGEROUS GOODS", "MEMU");
@@ -198,11 +199,11 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionNotContains("PERMITTED DANGEROUS GOODS", "Statement reference number");
         adrDetailsStep.checkAdrDetailSectionNotContains("PERMITTED DANGEROUS GOODS", "Additional product list details");
         adrDetailsStep.checkAdrDetailSectionIsNotDisplayed("SUBSEQUENT TANK INSPECTION");
-        adrDetailsStep.checkAdrDetailHasValue("Name", "Not entered");
-        adrDetailsStep.checkAdrDetailHasValue("Street", "Not entered");
-        adrDetailsStep.checkAdrDetailHasValue("Town", "Not entered");
-        adrDetailsStep.checkAdrDetailHasValue("City", "Not entered");
-        adrDetailsStep.checkAdrDetailHasValue("Postcode", "Not entered");
+        adrDetailsStep.checkAdrDetailHasValue("Name", "string");
+        adrDetailsStep.checkAdrDetailHasValue("Street", "string");
+        adrDetailsStep.checkAdrDetailHasValue("Town", "string");
+        adrDetailsStep.checkAdrDetailHasValue("City", "string");
+        adrDetailsStep.checkAdrDetailHasValue("Postcode", "string");
     }
 
 }

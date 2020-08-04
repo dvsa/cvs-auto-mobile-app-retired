@@ -126,9 +126,9 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
                 atfService.getAtfByIndex(0).getAtfAddress(), atfService.getAtfByIndex(0).getAtfContactNumber());
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
+        identifyVehicleSteps.searchForVehicle("T12111000");
         vehicleDetailsSteps.selectVehicleTestHistory();
-        testHistorySteps.selectTestAtPosition("Annual test", 0);
-        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub", "09-4129632", "Great Britain and Northern Ireland");
+        testHistorySteps.selectTestAtPosition("First test", 0);
+        testHistoryDetailsSteps.checkDetails("TEST TYPE", "NOTES", "Abshire-Kub", "09-4129632", "Austria");
     }
 }
