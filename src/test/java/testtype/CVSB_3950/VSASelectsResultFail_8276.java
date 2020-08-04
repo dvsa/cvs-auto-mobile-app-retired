@@ -3,6 +3,7 @@ package testtype.CVSB_3950;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -119,6 +120,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Passed_RequiringInfo() {
@@ -195,6 +197,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (TRL)")
     @Test
     public void submitADRTestTRL_Passed_RequiringInfo() {

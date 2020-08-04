@@ -3,6 +3,7 @@ package atf.CVSB_1865;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -117,6 +118,7 @@ public class TestingFacility_CVSB_1865 extends BaseTestClass {
         atfDetailsSteps.checkReportIssuePopUp();
     }
 
+    @WithTag("In_Test")
     @Title("CVSB - 1865 - AC8 - Submit a test - test certificate and history fields ")
     @Test
     public void testSubmitTestAndViewCertificateAndHistory() {

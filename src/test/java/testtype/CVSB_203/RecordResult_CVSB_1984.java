@@ -35,7 +35,7 @@ public class RecordResult_CVSB_1984 extends BaseTestClass {
 
 
     @Title("CVSB-203 - AC2 - Fields automatically populated - other test types / current test (seatbelt installation check)")
-    @WithTag("Smoke_2")
+    @WithTag("In_Test")
     @Test
     public void testFieldsAutomaticPopulation() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Class 6A");

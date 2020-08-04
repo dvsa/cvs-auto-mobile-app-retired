@@ -23,6 +23,7 @@ public class VehicleCategoryCountryReg_2733 extends BaseTestClass {
     @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-995 - AC3 - Adding Country of Registration - list is filtered")
     @Test
     public void addingCountryOfRegistrationAfterListIsFiltered() {

@@ -3,6 +3,7 @@ package testresults.CVSB_8778;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -69,6 +70,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Steps
     IdentifyTrailerSteps identifyTrailerSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC3 - AC3 - Field 'Applicable' = Yes")
     @Test
     public void testAdrDetailsFieldsSemiTrailerBatteryApplicable() {
@@ -93,6 +95,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailHasValue("Reference number", "Not entered");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC2 - AC2 - Field 'Applicable' = No")
     @Test
     public void testAdrDetailsFieldsRigidBatteryApplicableNo() {
@@ -172,6 +175,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("APPLICANT DETAILS");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-9663 - TC - AC5 - Field not selected in source - AC6 - Fields with no data which are still displayed")
     @Test
     public void testAdrDetailsFieldsNotDisplayed() {

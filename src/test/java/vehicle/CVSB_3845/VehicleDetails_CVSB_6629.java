@@ -95,7 +95,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     }
 
     @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Weights Screen)")
-    @WithTag("Smoke_2")
+    @WithTag("In_Test")
     @Test
     public void testHgvWeightsScreen() {
         vehicleComp.goToVehicleDetails("012938");

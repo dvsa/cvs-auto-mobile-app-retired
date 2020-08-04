@@ -3,6 +3,7 @@ package testtype.CVSB_11032;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -49,6 +50,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-11032 - AC1 - Fields displayed on test screen - LGV")
     @Test
     public void testFieldsDisplayedForLGV() {

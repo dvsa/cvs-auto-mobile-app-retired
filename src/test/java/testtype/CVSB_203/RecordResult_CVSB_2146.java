@@ -3,6 +3,7 @@ package testtype.CVSB_203;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -41,6 +42,7 @@ public class RecordResult_CVSB_2146 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-203 - AC1 - Start a test type (Retest Paid Any PSV)")
     @Test
     public void testStartATestTypeRetest() {

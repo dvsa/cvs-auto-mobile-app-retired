@@ -3,6 +3,7 @@ package testtype.CVSB_203;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -44,6 +45,7 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-203 - AC2 - Fields automatically populated - other test types / current test (no seatbelt installation check)")
     @Test
     public void testFieldsAutomaticallyPopulated() {

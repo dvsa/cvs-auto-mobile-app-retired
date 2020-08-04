@@ -3,6 +3,7 @@ package testtype.CVSB_203;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -38,6 +39,7 @@ public class RecordResult_CVSB_1987 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-203 - AC4 - Automatically updated results based on defects - not the process of adding (out of scope) but the result")
     @Test
     public void testAutomaticUpdateResultsBasedOnDefects() {

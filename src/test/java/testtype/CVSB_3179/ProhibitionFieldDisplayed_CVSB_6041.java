@@ -3,6 +3,7 @@ package testtype.CVSB_3179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -37,6 +38,7 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Retest)")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRetest() {

@@ -3,6 +3,7 @@ package testtype.CVSB_3904;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -114,6 +115,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeDetailsSteps.checkTestTypeName("Annual test");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (first test)")
     @Test
     public void testTypeDrillDownShortLongFirst() {
