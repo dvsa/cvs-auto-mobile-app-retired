@@ -134,7 +134,6 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionIsNotDisplayed("BATTERY LIST");
     }
 
-    @WithTag("In_Test")
     @Title("CVSB-9663 - TC - AC1 - View ADR tech record - AC2 - Subsequent tank inspections - AC3 - Substances permitted section")
     @Test
     public void testAdrDetailsFields() {

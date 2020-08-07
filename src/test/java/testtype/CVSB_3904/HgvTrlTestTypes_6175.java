@@ -58,7 +58,6 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
 
-    @WithTag("In_Test")
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories")
     @Test
     public void testTypeCategoryThatContainsOtherTestTypeCategories() {

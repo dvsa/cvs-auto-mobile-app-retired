@@ -224,7 +224,6 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     }
 
     @Title("CVSB-11099 - AC1 - VSA selects Emission standard")
-    @WithTag("In_Test")
     @Test
     public void testLecFieldsEmissionStandard() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
