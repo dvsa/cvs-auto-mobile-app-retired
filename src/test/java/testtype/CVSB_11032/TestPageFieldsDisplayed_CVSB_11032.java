@@ -50,7 +50,6 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-11032 - AC1 - Fields displayed on test screen - LGV")
     @Test
     public void testFieldsDisplayedForLGV() {

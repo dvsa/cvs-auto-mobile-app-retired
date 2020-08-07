@@ -51,7 +51,6 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
     public void testTestTypeTirDetailsHgv() {
@@ -122,7 +121,6 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
         testReviewSteps.checkElementValue("Certificate number", "CB/V54321");
     }
 
-    @WithTag("In_Test")
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
     public void testTestTypeTirDetailsTrl() {

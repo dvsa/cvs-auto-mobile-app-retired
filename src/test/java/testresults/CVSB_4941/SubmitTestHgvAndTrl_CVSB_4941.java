@@ -98,7 +98,6 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
 
     @Title("CVSB-7424 - AC4 - Submit a test for TRL")
     @Test
-    @WithTag("In_Test")
     public void testConfirmationToSubmitResultsTrl() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
         preparerSteps.startTest();

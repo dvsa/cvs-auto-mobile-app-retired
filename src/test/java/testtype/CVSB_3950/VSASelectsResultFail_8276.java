@@ -197,7 +197,6 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
     }
 
-    @WithTag("In_Test")
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (TRL)")
     @Test
     public void submitADRTestTRL_Passed_RequiringInfo() {

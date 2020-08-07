@@ -38,7 +38,6 @@ public class ProhibitionFieldDisplayed_CVSB_6040 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Annual test)")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {

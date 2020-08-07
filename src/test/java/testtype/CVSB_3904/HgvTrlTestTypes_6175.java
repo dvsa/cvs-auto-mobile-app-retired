@@ -58,6 +58,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories")
     @Test
     public void testTypeCategoryThatContainsOtherTestTypeCategories() {
@@ -115,7 +116,6 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testTypeDetailsSteps.checkTestTypeName("Annual test");
     }
 
-    @WithTag("In_Test")
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (first test)")
     @Test
     public void testTypeDrillDownShortLongFirst() {

@@ -3,6 +3,7 @@ package testresults.CVSB_731;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -223,6 +224,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     }
 
     @Title("CVSB-11099 - AC1 - VSA selects Emission standard")
+    @WithTag("In_Test")
     @Test
     public void testLecFieldsEmissionStandard() {
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");

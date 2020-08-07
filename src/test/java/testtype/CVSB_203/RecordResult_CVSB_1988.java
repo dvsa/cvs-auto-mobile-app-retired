@@ -42,7 +42,6 @@ public class RecordResult_CVSB_1988 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-203 - AC5 - Enter results for test types")
     @Test
     public void testEnterResultsForTestTypes() {

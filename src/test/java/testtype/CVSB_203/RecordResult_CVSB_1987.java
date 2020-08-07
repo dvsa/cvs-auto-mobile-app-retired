@@ -39,7 +39,6 @@ public class RecordResult_CVSB_1987 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-203 - AC4 - Automatically updated results based on defects - not the process of adding (out of scope) but the result")
     @Test
     public void testAutomaticUpdateResultsBasedOnDefects() {
