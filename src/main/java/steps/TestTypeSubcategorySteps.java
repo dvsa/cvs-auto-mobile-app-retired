@@ -27,6 +27,15 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTestTypeListOnlyContainsTestTypes(String... testTypes) {
+        List<String> actualData = testTypeSubcategoryPage.findAllTestTypesFromListByXpath();
+        Assert.assertEquals(actualData.size(), testTypes.length);
+        for (String test_type : testTypes) {
+            assertThat(actualData).contains(test_type);
+        }
+    }
+
+    @Step
     public void checkTestTypesInListAreSelectable(String... testTypes) {
         List<WebElement> actualData = testTypeSubcategoryPage.findAllTestTypesWebElements();
         ArrayList<String> expectedTestTypes = new ArrayList<>(Arrays.asList(testTypes));

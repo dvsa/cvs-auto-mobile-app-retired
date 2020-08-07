@@ -29,7 +29,7 @@ public class TestTypeSubcategoryPage extends BasePage {
         for (WebElement webElement : webElementList) {
             listOfData.add(webElement.getAttribute("name"));
         }
-
+        listOfData.remove(0);
         return listOfData;
     }
 
