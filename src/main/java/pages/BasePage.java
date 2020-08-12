@@ -114,6 +114,9 @@ public class BasePage extends PageObject {
         else if (id.equals("Trailer details")) {
             element = waitUntilPageIsLoadedByEitherId(id, "Vehicle details");
         }
+        else if (id.equals("Vehicle details")) {
+            element = waitUntilPageIsLoadedByEitherId(id, "Trailer details");
+        }
         else {
             element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
         }
