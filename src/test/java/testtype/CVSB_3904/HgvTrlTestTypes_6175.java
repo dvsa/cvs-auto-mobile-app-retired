@@ -153,8 +153,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("ADR");
-        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("ADR retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Paid ADR retest");

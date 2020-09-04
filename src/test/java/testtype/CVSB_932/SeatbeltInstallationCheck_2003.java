@@ -30,9 +30,10 @@ public class SeatbeltInstallationCheck_2003 extends BaseTestClass {
     @Title("CVSB-932 - AC - 2 Editing 'Carried out during this test'")
     @Test
     public void editingCarriedOutDuringTest() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeCategorySteps.selectFromTestTypeList("Part Paid");
-        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Part Paid retest");
+        testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.checkOptionsForCarriedOutSeatbeltCheckAreDisplayed();

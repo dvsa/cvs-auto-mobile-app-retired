@@ -73,8 +73,8 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeCategorySteps.selectFromTestTypeList("Roadworthiness");
-        testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testTypeCategorySteps.selectFromTestTypeList("Roadworthiness retest");
+        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.clickAddDefect();
@@ -181,8 +181,8 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeCategorySteps.selectFromTestTypeList("Roadworthiness");
-        testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testTypeCategorySteps.selectFromTestTypeList("Roadworthiness retest");
+        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         // testTypeDetailsSteps.checkCertificateNumberIsDisplayed();

@@ -20,6 +20,9 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+    @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
@@ -41,8 +44,8 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRetest() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest");
-        testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
+        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Class 6A retest (seatbelt installation check)");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");

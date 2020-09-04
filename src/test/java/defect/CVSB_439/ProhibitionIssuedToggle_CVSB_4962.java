@@ -46,8 +46,8 @@ public class ProhibitionIssuedToggle_CVSB_4962 extends BaseTestClass {
     public void testProhibitionIssuedRetest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
-        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Paid retest");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");

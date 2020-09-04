@@ -49,8 +49,8 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
     public void testFieldsAutomaticallyPopulated() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
-        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setCarriedOutDuringTest(true);

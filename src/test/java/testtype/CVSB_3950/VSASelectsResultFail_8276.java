@@ -173,7 +173,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         // CVSB-8279: TC - AC6 - VSA inputs expiry date
         // Verify (certificate number, expiry date).  This should remove the validation error onscreen.
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setExpiryDateToDoday();
+        testTypeDetailsSteps.setExpiryDateToToday();
         testTypeDetailsSteps.pressSave();
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
 
@@ -245,7 +245,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         // CVSB-8279: TC - AC6 - VSA inputs expiry date
         // Verify (certificate number, expiry date).  This should remove the validation error onscreen.
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testTypeDetailsSteps.setExpiryDateToDoday();
+        testTypeDetailsSteps.setExpiryDateToToday();
         testTypeDetailsSteps.pressSave();
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
 

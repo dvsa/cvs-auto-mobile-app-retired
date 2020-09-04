@@ -75,8 +75,8 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
         //Retest Paid Class 6A (Seatbelt Installation Check)
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeCategorySteps.selectFromTestTypeList("Paid");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
+        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A retest (seatbelt installation check)");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestIsNotDisplayed();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
