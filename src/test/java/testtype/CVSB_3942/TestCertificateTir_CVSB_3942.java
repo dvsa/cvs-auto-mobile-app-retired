@@ -102,8 +102,8 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.ABANDONED);
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("TIR");
-        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("TIR retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
@@ -168,8 +168,8 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.ABANDONED);
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("TIR");
-        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("TIR retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");

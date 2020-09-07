@@ -195,7 +195,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void setExpiryDateToDoday() {
+    public void setExpiryDateToToday() {
         // Clicking on the Expiry Date field shows a date picker.
         // Just need to click on <Done> and today's date is inserted.
         testTypeDetailsPage.setExpiryDateToToday();
