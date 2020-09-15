@@ -88,12 +88,12 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     public void submitADRTestTRL_Failed_NotRequiringInfo() {
 
         // Start a test for a TRL.
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
         // Select a TRL and set basic test info.
-        testSteps.checkTrailerTestDetails("C000001", "T12341234");
+        testSteps.checkTrailerTestDetails("0285678", "T12768594");
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
@@ -200,12 +200,12 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     public void submitADRTestTRL_Passed_RequiringInfo() {
 
         // Start a test for a TRL.
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
         // Select a TRL and set basic test info.
-        testSteps.checkTrailerTestDetails("C000001", "T12341234");
+        testSteps.checkTrailerTestDetails("0285678", "T12768594");
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

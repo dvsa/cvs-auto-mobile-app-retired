@@ -96,17 +96,17 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         //add second trailer
         testSteps.scrollDown();
         testSteps.clickAddATrailerButton();
-        identifyTrailerSteps.searchForTrailer("T12341234");
+        identifyTrailerSteps.searchForTrailer("T12876765");
         trailerDetailsSteps.selectConfirmButtonTopRight();
         trailerDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.waitUntilPageIsLoaded();
         testSteps.scrollDown();
-        testSteps.clickEuVehicleCategoryFor("T12341234");
+        testSteps.clickEuVehicleCategoryFor("T12876765");
         euVehicleCategorySteps.selectOption("O2");
         testSteps.waitUntilPageIsLoaded();
-        testSteps.addTestTypeFor("T12341234");
+        testSteps.addTestTypeFor("T12876765");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         //add third trailer
         testSteps.scrollDown();
@@ -163,7 +163,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         testReviewSteps.pressNextVehicle();
         //check second trailer test
         testReviewSteps.checkElementIsDisplayed("Test review (3 of 4)");
-        testReviewSteps.checkElementIsDisplayed("T12341234");
+        testReviewSteps.checkElementIsDisplayed("T12876765");
         testReviewSteps.scrollDown();
         testReviewSteps.pressNextVehicle();
         //check third trailer test
@@ -178,7 +178,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         //validate order in site visit timeline
         siteVisitSteps.checkVehiclePosition("CT70VRL",0);
         siteVisitSteps.checkVehiclePosition("C100001",1);
-        siteVisitSteps.checkVehiclePosition("C000001",2);
+        siteVisitSteps.checkVehiclePosition("C456789",2);
         siteVisitSteps.checkVehiclePosition("C000002",3);
     }
 }
