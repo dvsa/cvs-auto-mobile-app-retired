@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -62,6 +63,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
+    @Ignore("Untill CVSB-18344 is fixed")
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - car")
     @Test
     public void testSpecialistTestCar() {
@@ -139,6 +141,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
 
     }
 
+    @Ignore("Untill CVSB-18344 is fixed")
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - lgv")
     @Test
     public void testSpecialistTestLgv() {
