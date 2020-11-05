@@ -26,7 +26,7 @@ public class OdometerReading_CVSB_1182 extends BaseTestClass {
     @Title("CVSB-695 - AC9 - Cancel picking up unit")
     @Test
     public void testCancelPickingUpUnit() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressEditUnit();
         odometerReadingSteps.selectUnitOption(OdometerReadingPage.UnitOptions.CANCEL);

@@ -23,8 +23,8 @@ public class VehicleComp extends ScenarioSteps {
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Step
-    public void goToVehicleDetails() {
-        launchSteps.clickGetStarted();
+    public void goToVehicleDetails(String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -33,8 +33,8 @@ public class VehicleComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToVehicleDetails(String vin) {
-        launchSteps.clickGetStarted();
+    public void goToVehicleDetails(String vin, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -43,15 +43,15 @@ public class VehicleComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToSiteVisit() {
-        launchSteps.clickGetStarted();
+    public void goToSiteVisit(String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
     }
 
     @Step
-    public void goToIdentifyVehicle() {
-        launchSteps.clickGetStarted();
+    public void goToIdentifyVehicle(String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

@@ -36,7 +36,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     public void testTypeDrillDownHgv3Axles() {
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test", "Specialist test"};
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -49,7 +49,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     public void testTypeDrillDownTrl2Axles() {
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test", "Specialist test"};
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -60,7 +60,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories")
     @Test
     public void testTypeCategoryThatContainsOtherTestTypeCategories() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -75,7 +75,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeCategoryThatDoesNotContainOtherTestTypeCategories() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -87,7 +87,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testTypeDrillDownAddLinkedTest() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -104,7 +104,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongAnnual() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -118,7 +118,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongFirst() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -132,7 +132,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongTechnical() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -148,7 +148,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongRetest() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -164,7 +164,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongProhibition() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -180,7 +180,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongVoluntary() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -190,5 +190,4 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Voluntary brake test");
     }
-
 }

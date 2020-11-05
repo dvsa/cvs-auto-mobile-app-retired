@@ -26,7 +26,7 @@ public class VehicleDetails_CVSB_1067 extends BaseTestClass {
     @Title("CVSB-185 - AC1 - Search results")
     @Test
     public void testSearchResults() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.checkDetailPageData("1B7GG36N12S678410","Mercedes", "632,01"
                 ,"Plaxton","Tourismo","single decker","2010",

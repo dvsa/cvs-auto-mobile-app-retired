@@ -41,7 +41,7 @@ public class CountryOfRegistrationNonMandatory_CVSB_9644 extends BaseTestClass {
     @Title("CVSB-9644 - AC1 - Country of registration is null")
     @Test
     public void testCountryOfRegistrationNull() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -59,7 +59,7 @@ public class CountryOfRegistrationNonMandatory_CVSB_9644 extends BaseTestClass {
     @Title("CVSB-9644 - AC2 - Country of registration is not present")
     @Test
     public void testCountryOfRegistrationMissing() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

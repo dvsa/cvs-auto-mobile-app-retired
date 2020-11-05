@@ -35,7 +35,7 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
     @Test
     public void seatbeltInstallationCheckBehaviourWhenConductingCategoryBTestTypes() {
         // Class 6A (Seatbelt Installation Check)-Annual
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);

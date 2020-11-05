@@ -3,13 +3,13 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
 
@@ -43,7 +43,7 @@ public class TestTypeLinked_CVSB_5886 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-444 - Submit test (Tempo 100)")
     public void testListFromAddLinkedTestTypeTempo100() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary test");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary test", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Tempo 100");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();

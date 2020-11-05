@@ -30,7 +30,7 @@ public class EditCompletedTestType_2021 extends BaseTestClass {
     @Title("CVSB-983 - AC3 - VSA saves their edited details within the test type (all mandatory fields are populated)")
     @Test
     public void testSaveEditedDetailsPopulatedFields() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();

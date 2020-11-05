@@ -41,7 +41,7 @@ public class AddsDangerousDefect_CVSB_4437 extends BaseTestClass{
     @Test
     public void addsADangerousDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"Prohibition clearance");
+                preparerService.getPreparerByIndex(0).getPreparerName(),"Prohibition clearance",super.username);
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Full inspection/ part fee");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);

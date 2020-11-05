@@ -33,7 +33,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2208 extends BaseTestClass {
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (test overview screen)")
     @Test
     public void testAbandonTestTypeInTestOverview() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.swipeTestType("Annual test");

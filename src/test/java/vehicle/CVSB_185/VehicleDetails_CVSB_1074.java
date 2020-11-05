@@ -33,7 +33,7 @@ public class VehicleDetails_CVSB_1074 extends BaseTestClass {
     @Title("CVSB-185 - AC2 - VSA views expandable technical record fields")
     @Test
     public void testExpandableTechRecordFields() {
-        vehicleComp.goToVehicleDetails();
+        vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         // TODO add Vehicle Test History part after bug fix
         vehicleDetailsSteps.selectBrakes();

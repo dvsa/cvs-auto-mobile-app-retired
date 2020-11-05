@@ -55,7 +55,7 @@ public class AutoCalculateTestTypeResult_2176 extends BaseTestClass {
     @Title("CVSB-929 - Fail test result - Dangerous + Major + Minor + Advisory defects ")
     @Test
     public void testFailTestResultDangerousMajorMinorAdvisoryDefects() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

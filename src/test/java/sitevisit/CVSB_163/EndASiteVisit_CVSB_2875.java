@@ -29,7 +29,7 @@ public class EndASiteVisit_CVSB_2875 extends BaseTestClass {
     @Title("CVSB-163 - AC2 - End a visit")
     @Test
     public void testStartVisit() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.checkSiteVisitPage();

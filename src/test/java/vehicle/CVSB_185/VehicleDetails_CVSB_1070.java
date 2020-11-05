@@ -11,6 +11,7 @@ import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class VehicleDetails_CVSB_1070 extends BaseTestClass {
 
@@ -27,7 +28,7 @@ public class VehicleDetails_CVSB_1070 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-185 - AC1 - No search results")
     public void testNoSearchResults() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle("No results");
         identifyVehicleSteps.checkVehicleNotFoundPopUp();
         identifyVehicleSteps.pressOkInPopUp();

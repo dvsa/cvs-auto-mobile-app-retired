@@ -35,7 +35,7 @@ public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
     @Title("CVSB-439 - AC7 - VSA switches prohibition issued field off for a test type")
     @Test
     public void testProhibitionIssuedTestTypeSwitchOff() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);

@@ -10,6 +10,7 @@ import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
+
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_769 extends BaseTestClass {
 
@@ -24,7 +25,7 @@ public class AtfSelect_CVSB_769 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testAtfListAndSearchOption() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.checkATFSearchButtonAndList(atfService.getUniqueIdentifier(0), atfService.getUniqueIdentifier(1), atfService.getFirstLetter(2));
     }
 }

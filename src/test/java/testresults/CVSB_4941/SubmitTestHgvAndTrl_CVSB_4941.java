@@ -65,7 +65,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
     public void testConfirmationToSubmitResultsHgv() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -98,7 +98,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Title("CVSB-7424 - AC4 - Submit a test for TRL")
     @Test
     public void testConfirmationToSubmitResultsTrl() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("0285678", "T12768594");
@@ -127,7 +127,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Title("CVSB-7425 - AC4 -Submit a test for a HGV and TRL")
     @Test
     public void testConfirmationToSubmitResultsHgvTrl() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");

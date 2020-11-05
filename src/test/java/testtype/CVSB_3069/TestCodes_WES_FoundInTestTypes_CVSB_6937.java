@@ -4,13 +4,13 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestCodes_WES_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
 
@@ -59,7 +59,7 @@ public class TestCodes_WES_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
     // This is being disabled temporarily.  The Prohibition Clearance check has been updated, but the new functionality hasn't been merged in to the app yet.
     // Disabling until the new functionality has been merged.
     public void testTestCodeWES() {
-        testTypeCategoryComp.goToTestTypeUsingSpecificVin(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),"012345");
+        testTypeCategoryComp.goToTestTypeUsingSpecificVin(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),"012345",super.username);
         testTypeCategorySteps.selectFromTestTypeList("Prohibition Clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (No seatbelt installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 Retest");

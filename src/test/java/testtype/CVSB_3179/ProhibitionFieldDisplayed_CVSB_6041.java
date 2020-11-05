@@ -43,7 +43,7 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Retest)")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRetest() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Class 6A retest (seatbelt installation check)");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);

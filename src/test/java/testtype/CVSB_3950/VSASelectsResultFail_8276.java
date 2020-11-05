@@ -48,7 +48,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     public void submitADRTestHGV_Failed_NotRequiringInfo() {
 
         // Start a test for an HGV.
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
@@ -88,7 +88,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     public void submitADRTestTRL_Failed_NotRequiringInfo() {
 
         // Start a test for a TRL.
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
@@ -124,7 +124,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     public void submitADRTestHGV_Passed_RequiringInfo() {
 
         // Start a test for an HGV.
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
@@ -200,7 +200,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     public void submitADRTestTRL_Passed_RequiringInfo() {
 
         // Start a test for a TRL.
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 

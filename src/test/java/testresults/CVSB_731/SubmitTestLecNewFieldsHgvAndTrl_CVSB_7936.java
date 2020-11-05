@@ -46,7 +46,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - HGV - Mod Type = P")
     @Test
     public void testLecFieldsHgvModTypeP() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -84,7 +84,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - HGV - Mod Type = G")
     @Test
     public void testLecFieldsHgvModTypeG() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -121,7 +121,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - PSV - Mod Type = M")
     @Test
     public void testLecFieldsPsvModTypeM() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012356");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012356",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTestDetails("X71LTA", "XMGDE02FS0H012356");
@@ -158,7 +158,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - Error MEssage for incomplete data")
     @Test
     public void testLecFieldsHgvErrorMessage() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -225,7 +225,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Title("CVSB-11099 - AC1 - VSA selects Emission standard")
     @Test
     public void testLecFieldsEmissionStandard() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -253,7 +253,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Title("CVSB-11099 - AC2 - VSA selects Fuel type")
     @Test
     public void testLecFieldsFuelType() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");

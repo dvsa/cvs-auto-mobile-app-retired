@@ -38,7 +38,7 @@ public class AddsMinorDefect_CVSB_4380 extends BaseTestClass {
     @Title("CVSB-972 - AC1 - VSA adds a minor defect (annual test)")
     @Test
     public void addsAMinorDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.searchForDefect("59");

@@ -26,7 +26,7 @@ public class AtfSelect_CVSB_1449 extends BaseTestClass {
     @Title("CVSB-167 - AC3 - VSA is able to return to the ATF search results")
     @Test
     public void testReturnToAtfSearch() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressBackButton();
         searchForAnATFSteps.checkListIsAlphabeticallyOrdered();
