@@ -3,7 +3,6 @@ package sitevisit.CVSB_179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.SiteVisitSelectReasonSteps;
@@ -26,7 +25,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes")
     @Test
     public void test5minInactivity() {
-        siteVisitComp.goToSiteVisit();
+        siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.waitUntilTimeNotTesting();
         siteVisitSteps.checkTimeNotTesting();

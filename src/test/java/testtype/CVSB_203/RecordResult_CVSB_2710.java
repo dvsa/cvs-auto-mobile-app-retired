@@ -47,7 +47,7 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
     @Title("CVSB-203 - AC2 - Fields automatically populated - other test types / current test (no seatbelt installation check)")
     @Test
     public void testFieldsAutomaticallyPopulated() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");

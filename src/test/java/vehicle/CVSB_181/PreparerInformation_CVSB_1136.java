@@ -11,6 +11,7 @@ import steps.TestSteps;
 import steps.composed.PreparerComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class PreparerInformation_CVSB_1136 extends BaseTestClass {
 
@@ -26,7 +27,7 @@ public class PreparerInformation_CVSB_1136 extends BaseTestClass {
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC10 Select preparer and confirm")
     public void selectPreparer() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         selectPreparerSteps.selectPreparerAndConfirm(
                 preparerService.getPreparerByIndex(0).getPreparerId(),
                 preparerService.getPreparerByIndex(0).getPreparerName());

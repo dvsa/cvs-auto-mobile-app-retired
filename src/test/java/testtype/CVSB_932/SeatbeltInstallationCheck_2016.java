@@ -34,7 +34,7 @@ public class SeatbeltInstallationCheck_2016 extends BaseTestClass {
     @Title("CVSB-932 - AC - 6 0 seatbelts entered")
     @Test
     public void zeroSeatbeltEnteredForCategoryBTestType() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt Installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);

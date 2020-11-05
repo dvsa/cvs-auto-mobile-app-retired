@@ -38,7 +38,7 @@ public class AddsDangerousDefect_CVSB_4407 extends BaseTestClass{
     @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (annual test)")
     @Test
     public void addsADangerousDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.searchForDefect("59");

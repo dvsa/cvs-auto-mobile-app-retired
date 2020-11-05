@@ -69,7 +69,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Title("CVSB-6409 - AC 4 Search for vehicle (last six digits of the VIN)")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgv() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -84,7 +84,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Title("CVSB-6410 - AC 4 Search for vehicle (full VIN)")
     @Test
     public void testNewDesignSearchForHgvFullVin() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -98,7 +98,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Title("CVSB-6411 - AC 4 Search for vehicle (registration number)")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgvRegistration() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -113,7 +113,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6406 - AC1 New screen design for first vehicle")
     public void testNewDesignVehicleDetailsHgv() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

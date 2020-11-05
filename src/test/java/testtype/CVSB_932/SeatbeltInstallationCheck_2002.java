@@ -31,7 +31,7 @@ public class SeatbeltInstallationCheck_2002 extends BaseTestClass {
     @Test
     //TODO Vary data so that the tests cover all the category A test types from the story after all of them are working properly
     public void testSeatBeltInstallationCheckCategoryATestTypes() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");

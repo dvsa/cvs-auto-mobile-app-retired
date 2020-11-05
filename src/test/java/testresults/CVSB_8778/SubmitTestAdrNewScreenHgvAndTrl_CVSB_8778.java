@@ -72,7 +72,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC3 - AC3 - Field 'Applicable' = Yes")
     @Test
     public void testAdrDetailsFieldsSemiTrailerBatteryApplicable() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         // testSteps.checkTrailerTestDetails("C777776", "ABCDEFGH777776");
@@ -97,7 +97,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC2 - AC2 - Field 'Applicable' = No")
     @Test
     public void testAdrDetailsFieldsRigidBatteryApplicableNo() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("037985");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("037985",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("B4036851", "A00037985");
@@ -118,7 +118,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - Trl - Non semi trailer battery - not displayed")
     @Test
     public void testAdrDetailsFieldsNonSemiTrailerBattery() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777777");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777777",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C108802", "ABCDEFGH777777");
@@ -135,7 +135,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-9663 - TC - AC1 - View ADR tech record - AC2 - Subsequent tank inspections - AC3 - Substances permitted section")
     @Test
     public void testAdrDetailsFields() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C777778", "ABCDEFGH777778");
@@ -176,7 +176,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-9663 - TC - AC5 - Field not selected in source - AC6 - Fields with no data which are still displayed")
     @Test
     public void testAdrDetailsFieldsNotDisplayed() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("535848");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("535848",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("D530001", "9VQAF6WIUW16P535848");

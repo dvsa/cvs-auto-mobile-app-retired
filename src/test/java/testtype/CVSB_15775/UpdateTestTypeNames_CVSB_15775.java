@@ -55,7 +55,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     @Test
     public void testTypeNamesForPsvHgvTrl(){
         // for PSV
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();

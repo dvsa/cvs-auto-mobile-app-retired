@@ -24,7 +24,7 @@ public class SearchUsingVin_SpecialCharactersl_CVSB_12013 extends BaseTestClass 
     @Title("CVSV-12013 - TC1 - AC1 FE VSA performs a vehicle search (Partial VIN)")
     @Test
     public void testSearchUsingVin_FPartialVin() {
-        preparerComp.goToSelectPreparerForASpecificVehicleUsingPartialVin("1/\\*-1");
+        preparerComp.goToSelectPreparerForASpecificVehicleUsingPartialVin("1/\\*-1",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTestDetails("AB12CDE", "YV31ME00000 1/\\*-1");
@@ -33,7 +33,7 @@ public class SearchUsingVin_SpecialCharactersl_CVSB_12013 extends BaseTestClass 
     @Title("CVSV-12013 - TC2 - AC1 FE VSA performs a vehicle search (Full VIN)")
     @Test
     public void testSearchUsingVin_FullVin() {
-        preparerComp.goToSelectPreparerForASpecificVehicle("YV31ME00000 1/\\*-1");
+        preparerComp.goToSelectPreparerForASpecificVehicle("YV31ME00000 1/\\*-1",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTestDetails("AB12CDE", "YV31ME00000 1/\\*-1");

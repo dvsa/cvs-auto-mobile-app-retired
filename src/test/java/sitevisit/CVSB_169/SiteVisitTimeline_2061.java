@@ -27,7 +27,7 @@ public class SiteVisitTimeline_2061 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testSiteVisitTimelineForNewVehicle() {
-        siteVisitComp.goToSiteVisit();
+        siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();

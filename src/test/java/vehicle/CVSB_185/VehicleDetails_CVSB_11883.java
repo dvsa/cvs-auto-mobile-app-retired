@@ -61,7 +61,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp_Car() {
 
-        vehicleComp.goToVehicleDetails("P0123010911250");
+        vehicleComp.goToVehicleDetails("P0123010911250", super.username);
 
         // Check all ACs against the Vehicle Details screen (in the "look up vehicle" context).
         checkVehicleDetails_Car();
@@ -117,7 +117,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp_LGV() {
 
-        vehicleComp.goToVehicleDetails("P0123010951264");
+        vehicleComp.goToVehicleDetails("P0123010951264", super.username);
 
         // Check all ACs against the Vehicle Details screen (in the "look up vehicle" context).
         checkVehicleDetails_LGV();
@@ -172,7 +172,7 @@ public class VehicleDetails_CVSB_11883 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp_Motorcycle() {
 
-        vehicleComp.goToVehicleDetails("P0123010956789");
+        vehicleComp.goToVehicleDetails("P0123010956789", super.username);
 
         // Check all ACs against the Vehicle Details screen (in the "look up vehicle" context).
         checkVehicleDetails_Motorcycle();

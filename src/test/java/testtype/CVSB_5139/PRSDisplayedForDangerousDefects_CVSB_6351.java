@@ -3,13 +3,14 @@ package testtype.CVSB_5139;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class PRSDisplayedForDangerousDefects_CVSB_6351 extends BaseTestClass {
 
@@ -37,7 +38,7 @@ public class PRSDisplayedForDangerousDefects_CVSB_6351 extends BaseTestClass {
     @Title("CVSB-5139 - TCD - AC1 - VSA adds a dangerous defect")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test", super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");

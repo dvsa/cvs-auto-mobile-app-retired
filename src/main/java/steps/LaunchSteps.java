@@ -14,8 +14,8 @@ public class LaunchSteps extends ScenarioSteps {
     SignaturePage signaturePage;
 
     @Step()
-    public void clickGetStarted() {
-        launchPage.clickGetStarted(loginPage, signaturePage);
+    public void clickGetStarted(String username) {
+        launchPage.clickGetStarted(loginPage, signaturePage, username);
     }
 
     @Step()
@@ -27,7 +27,6 @@ public class LaunchSteps extends ScenarioSteps {
     public void clickStartButton() {
         launchPage.clickStartButton();
     }
-
 
     @Step
     public void resetAppAndWaitUntilPageIsLoaded() {

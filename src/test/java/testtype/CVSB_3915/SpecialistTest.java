@@ -54,7 +54,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp() {
 
-        vehicleComp.goToVehicleDetails("P0123010911250"); // Car
+        vehicleComp.goToVehicleDetails("P0123010911250", super.username); // Car
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -102,7 +102,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testVSASelectsResult_NonIVA() {
 
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -142,7 +142,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testVSASelectsResultIVA() {
 
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -183,7 +183,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testVSASelectsResultPass_NonCOIF_CertificateAttributes() {
 
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -251,7 +251,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testVSASelectsResultPass_COIF_CertificateAttributes() {
 
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -313,7 +313,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testCertificateNumberForNotifiableAlteration_PSV() {
 
-        vehicleComp.goToVehicleDetails("XMGDE02FS0H012356"); // PSV X71LTA
+        vehicleComp.goToVehicleDetails("XMGDE02FS0H012356", super.username); // PSV X71LTA
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -367,7 +367,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testDefects() {
 
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -426,7 +426,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testDefectAttributes() {
 
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410"); // PSV
+        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();

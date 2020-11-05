@@ -58,7 +58,7 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRestes() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Part inspection/ part fee");
         testSteps.selectVehicleCategoryOption();

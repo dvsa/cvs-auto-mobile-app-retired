@@ -1,6 +1,5 @@
 package util;
 
-import exceptions.AutomationException;
 import io.appium.java_client.ios.IOSDriver;
 import net.thucydides.core.webdriver.DriverSource;
 import org.openqa.selenium.WebDriver;
@@ -15,26 +14,7 @@ public class DriverSourceImpl implements DriverSource {
     @Override
     public WebDriver newDriver() {
 
-        WebDriver webDriver = null;
-        EnvironmentType envType = TypeLoader.getType();
-
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                webDriver = setupWebDriver(new LoaderBrowserstackCIImpl());
-                break;
-            case LOCAL_REAL_DEVICE:
-                webDriver = setupWebDriver(new LoaderlLocalRealDeviceImpl());
-                break;
-            case LOCAL_SIMULATOR:
-                webDriver = setupWebDriver(new LoaderLocalSimulatorImpl());
-                break;
-            case LOCAL_BROWSERSTACK:
-                webDriver = setupWebDriver(new LoaderBrowserstackLocalImpl());
-                break;
-            default:
-                throw new AutomationException("Environment configuration not found");
-
-        }
+        WebDriver webDriver = setupWebDriver(new LoaderBrowserstackLocalImpl());
 
         return webDriver;
 

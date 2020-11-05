@@ -37,7 +37,7 @@ public class VehicleSearch_1 extends BaseTestClass {
 
     @Test
     public void searchForASpecificVehicle() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle(searchVin);
         vehicleDetailsSteps.checkPageTitle();
     }

@@ -100,7 +100,7 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public void waitForLoadingToEnd(){
-        waitElementToDisappear(MobileBy.AccessibilityId(LOADING_SCREEN_ID), 30, 200);
+        waitElementToDisappear(MobileBy.AccessibilityId(LOADING_SCREEN_ID), 90, 200);
     }
 
     public boolean isIdentifyVehicleTitleDisplayed() {
