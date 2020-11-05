@@ -27,9 +27,6 @@ public class BasePage extends PageObject {
 
     private void showElementError(String element) {
         System.out.println("- Element not found (" + element + ")");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.println(getDriver().getPageSource());
-        System.out.println("----------------------------------------------------------------------------------------------------");
     }
 
     protected WebElement findElementByAccessibilityId(String idOrName) {
@@ -105,7 +102,6 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         System.out.println("Waiting for page to load by ID, waiting for item: " + id);
         WebElement element = null;
         if (id.equals("Test review")) {
@@ -121,12 +117,10 @@ public class BasePage extends PageObject {
             element = waitUntilPageIsLoadedByElement(By.id(id), 90, 200);
         }
         System.out.println("- Loaded.");
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
-        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
         System.out.println("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
         WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 60, 200);
         System.out.println("- Loaded.");
@@ -147,14 +141,14 @@ public class BasePage extends PageObject {
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
         System.out.println("Waiting (short) for page to be loaded, based on clickable element: " + id);
-        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 20, 400);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 90, 400);
         System.out.println("- Loaded.");
         return element;
     }
 
     protected WebElement shortestWaitUntilPageIsLoadedByIdAndClickable(String id) {
         System.out.println("Waiting (shortest) for page to be loaded, based on clickable element: " + id);
-        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 2, 400);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 45, 400);
         System.out.println("- Loaded.");
         return element;
     }

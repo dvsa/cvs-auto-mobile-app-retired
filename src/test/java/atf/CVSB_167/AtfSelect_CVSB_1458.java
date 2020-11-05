@@ -27,7 +27,7 @@ public class AtfSelect_CVSB_1458 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-167 - AC7 - VSA presses 'Cancel' on confirmation message")
     public void testCancelConfirmation() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();

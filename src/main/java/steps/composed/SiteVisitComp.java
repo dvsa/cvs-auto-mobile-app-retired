@@ -17,8 +17,8 @@ public class SiteVisitComp extends ScenarioSteps {
     ATFDetailsSteps atfDetailsSteps;
 
     @Step
-    public void goToSiteVisit() {
-        launchSteps.clickGetStarted();
+    public void goToSiteVisit(String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
     }

@@ -22,7 +22,7 @@ public class PreparerInformation_CVSB_1024 extends BaseTestClass {
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC1 Scroll through list of preparer IDs")
     public void scrollPreparerIdList() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         selectPreparerSteps.checkPreparerPageIsScrollable(
                 preparerService.getPreparerByIndex(0).getPreparerId(),
                 preparerService.getPreparerByIndex(0).getPreparerName());

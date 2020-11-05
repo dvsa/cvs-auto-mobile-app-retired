@@ -8,12 +8,11 @@
     <artifactId>cvs-auto-mobile-app</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <properties>
         <junit.version>4.12</junit.version>
         <serenity.version>2.0.20</serenity.version>
         <sl4j.version>1.7.7</sl4j.version>
-        <PARALLEL_TEST>1</PARALLEL_TEST>
+        <PARALLEL_TEST>6</PARALLEL_TEST>
     </properties>
 
     <dependencies>
@@ -72,154 +71,18 @@
             <artifactId>aws-java-sdk-dynamodb</artifactId>
             <version>1.11.718</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.194</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
     </dependencies>
-
-
-    <profiles>
-        <profile>
-            <id>CI-Browserstack</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.22.1</version>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.1</version>
-                        <configuration>
-                            <includes>
-                                <include>**/*.java</include>
-                                <!--<include>**/AtfSelect_CVSB_678*.java</include>-->
-                            </includes>
-                            <forkCount>${PARALLEL_TEST}</forkCount>
-                            <reuseForks>true</reuseForks>
-                            <excludes>
-                                <exclude>**/MainPageError*.java</exclude>
-                                <exclude>**/SubmitTest_CVSB_3084*.java</exclude>
-                                <exclude>**/SubmitTest_CVSB_3085*.java</exclude>
-                                <exclude>**/SubmitTest_CVSB_3086*.java</exclude>
-                                <exclude>**/VehicleSearch_1*.java</exclude>
-                                <exclude>**/SubmitTest_1*.java</exclude>
-                            </excludes>
-                            <testFailureIgnore>true</testFailureIgnore>
-                            <systemPropertyVariables>
-                                <environment>CI</environment>
-                            </systemPropertyVariables>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>net.serenity-bdd.maven.plugins</groupId>
-                        <artifactId>serenity-maven-plugin</artifactId>
-                        <version>${serenity.version}</version>
-                        <executions>
-                            <execution>
-                                <id>serenity-reports</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>aggregate</goal>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.0</version>
-                        <configuration>
-                            <source>1.8</source>
-                            <target>1.8</target>
-                        </configuration>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
-            <id>Scaling</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>2.22.1</version>
-                        <configuration>
-                            <skip>true</skip>
-                        </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.1</version>
-                        <configuration>
-                            <includes>
-                                <include>**/SubmitTest_1.java</include>
-                            </includes>
-                            <testFailureIgnore>true</testFailureIgnore>
-                            <systemPropertyVariables>
-                                <environment>CI</environment>
-                            </systemPropertyVariables>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>net.serenity-bdd.maven.plugins</groupId>
-                        <artifactId>serenity-maven-plugin</artifactId>
-                        <version>${serenity.version}</version>
-                        <executions>
-                            <execution>
-                                <id>serenity-reports</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>aggregate</goal>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.0</version>
-                        <configuration>
-                            <source>1.8</source>
-                            <target>1.8</target>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
-
-
-
 
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
@@ -234,7 +97,6 @@
                 <directory>src/test/resources</directory>
             </testResource>
         </testResources>
-
 
         <plugins>
             <plugin>
@@ -257,7 +119,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -266,17 +127,13 @@
                     <includes>
                         <include>**/*.java</include>
                     </includes>
-                    <excludes>
-                        <exclude>**/MainPageError*.java</exclude>
-                    </excludes>
+                    <forkCount>${PARALLEL_TEST}</forkCount>
+                    <reuseForks>true</reuseForks>
                     <testFailureIgnore>true</testFailureIgnore>
                     <systemPropertyVariables>
                     </systemPropertyVariables>
                 </configuration>
-
-
             </plugin>
-
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>

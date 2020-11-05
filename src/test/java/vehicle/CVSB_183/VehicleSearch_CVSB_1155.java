@@ -30,7 +30,7 @@ public class VehicleSearch_CVSB_1155 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-183 - AC2 Search for vehicle using registration number")
     public void testSearchUsingRegistrationNumber() {
-        vehicleComp.goToSiteVisit();
+        vehicleComp.goToSiteVisit(super.username);
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.typeInSearchField("BQ91YHQ");
         identifyVehicleSteps.checkSearchBoxAndText("BQ91YHQ");

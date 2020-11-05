@@ -3,15 +3,12 @@ package util;
 import org.apache.commons.exec.environment.EnvironmentUtils;
 
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 
 public class TypeLoader {
 
     private static Properties properties;
     private static final String FILE_PATH = "conf/environment.properties";
-    private static final List<String> PROFILE_LIST = Arrays.asList("CI");
 
     static {
         try {
@@ -27,115 +24,103 @@ public class TypeLoader {
         }
     }
 
-    public static EnvironmentType getType() {
-        return isProfileActive() ? EnvironmentType.get(getProfileName()) : EnvironmentType.get(properties.getProperty("type"));
-    }
-
     public static String getAppUsername() {
 
-        EnvironmentType envType = getType();
-        String userName;
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                userName = System.getProperty("MICROSOFT_USERNAME");
-                break;
-            default:
-                userName = properties.getProperty("app.username");
-                break;
-
-        }
-        return userName;
+        return properties.getProperty("app.username");
     }
 
     public static String getAppPassword() {
-        EnvironmentType envType = getType();
-        String password;
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                password = System.getProperty("MICROSOFT_PASS");
-                break;
-            default:
-                password = properties.getProperty("app.password");
-                break;
 
-        }
-        return password;
+        return properties.getProperty("app.password");
     }
 
+    public static String getBasePathUrl() {
+
+        return properties.getProperty("base.path.url");
+    }
 
     public static String getBsUsername() {
 
-        EnvironmentType envType = getType();
-        String userName;
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                userName = System.getenv("BROWSERSTACK_USERNAME");
-                break;
-            default:
-                userName = properties.getProperty("browserstack.username");
-                break;
-
-        }
-        return userName;
+        return properties.getProperty("browserstack.username");
     }
-
 
     public static String getBsPass() {
 
-        EnvironmentType envType = getType();
-        String userName;
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                userName = System.getenv("BROWSERSTACK_ACCESS_KEY");
-                break;
-            default:
-                userName = properties.getProperty("browserstack.password");
-                break;
+        return properties.getProperty("browserstack.password");
+    }
 
-        }
-        return userName;
+    public static String getBsOSVersion() {
+
+        return properties.getProperty("browserstack.os.version");
     }
 
     public static String getMicrosoftonlineUrl() {
 
-        EnvironmentType envType = getType();
-        String userName;
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                userName = System.getProperty("MICROSOFT_URL");
-                break;
-            default:
-                userName = properties.getProperty("microsoftonline.url");
-                break;
-
-        }
-        return userName;
+        return properties.getProperty("microsoftonline.url");
     }
 
+    public static String getBsDevice() {
 
-    public static String getBasePathUrl() {
-
-        EnvironmentType envType = getType();
-        String userName;
-        switch (envType) {
-            case CI_BROWSERSTACK:
-                userName = System.getProperty("DEVELOP_BASE_PATH");
-                break;
-            default:
-                userName = properties.getProperty("base.path.url");
-                break;
-
-        }
-        return userName;
+        return properties.getProperty("browserstack.device");
     }
 
+    public static String getLocalName() {
 
-    private static boolean isProfileActive() {
-        return PROFILE_LIST.stream().anyMatch(t -> t.equalsIgnoreCase(getProfileName()));
+        return properties.getProperty("local.name");
     }
 
-    private static String getProfileName() {
-        return System.getProperty("environment");
+    public static String getRealMobile() {
+
+        return properties.getProperty("browserstack.real.mobile");
     }
 
+    public static String getBsLocal() {
+
+        return properties.getProperty("browserstack.local");
+    }
+
+    public static String getBsAppiumVersion(){
+
+        return properties.getProperty("browserstack.appium.version");
+    }
+
+    public static String getBsVideoEnabled() {
+
+        return properties.getProperty("browserstack.video.enabled");
+    }
+
+    public static String getWaitForQuiescence() {
+
+        return properties.getProperty("waitForQuiescence");
+    }
+
+    public static String getBsTimeZone() {
+
+        return properties.getProperty("browserstack.timezone");
+    }
+
+    public static String getBsIdleTimeout() {
+
+        return properties.getProperty("browserstack.idle.timeout");
+    }
+
+    public static String getBsNetworkLogsEnabled() {
+
+        return properties.getProperty("browserstack.network.logs");
+    }
+
+    public static String getBsAppId() {
+
+        return properties.getProperty("browserstack.app");
+    }
+
+    public static String getAutomationName() {
+
+        return properties.getProperty("automationName");
+    }
+
+    public static String getBsHostname(){
+
+        return properties.getProperty("browserstack.hostname");
+    }
 }

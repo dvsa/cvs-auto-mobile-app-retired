@@ -30,7 +30,7 @@ public class CombinationTesting_CVSB_3909 extends BaseTestClass {
     @Title("CVSB-6930 - AC1 – Dynamic ‘Add trailer’ button, with previously added HGV")
     @Test
     public void testAddTrailerForHgv() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("GH389BH", "P012301012938");
@@ -49,7 +49,7 @@ public class CombinationTesting_CVSB_3909 extends BaseTestClass {
     @Test
     public void testTrailerCardWhenAddingToHgv() {
         //TODO Due to limitations of Appium, is not possible to associate properties to specific vehicle
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("GH389BH", "P012301012938");
@@ -73,7 +73,7 @@ public class CombinationTesting_CVSB_3909 extends BaseTestClass {
     @Title("CVSB-6936 - AC5 – Finishes additional vehicle confirmation (vehicle card order)")
     @Test
     public void testCardOrder() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("GH389BH", "P012301012938");

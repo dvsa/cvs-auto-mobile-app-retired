@@ -37,7 +37,7 @@ public class PRSDisplayedForDangerousDefects_CVSB_6351 extends BaseTestClass {
     @Title("CVSB-5139 - TCD - AC1 - VSA adds a dangerous defect")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test", super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");

@@ -30,7 +30,7 @@ public class SeatbeltInstallationCheck_3180 extends BaseTestClass {
     @Title("CVSB-3180 - Improvement ticket - Update seatbelt installation check")
     @Test
     public void updateSeatbeltInstallationCheck() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkMostRecentInstallationCheckButtonIsDisplayed();
         testTypeDetailsSteps.setCarriedOutDuringTest(false);

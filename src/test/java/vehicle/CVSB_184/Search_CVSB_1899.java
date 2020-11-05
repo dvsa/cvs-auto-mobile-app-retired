@@ -26,7 +26,7 @@ public class Search_CVSB_1899 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-184 - AC3 - VSA searches by the last six digits of the VIN number instead")
     public void testSearchByLastDigitsVin() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle("678410");
         vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91 YHQ");
     }

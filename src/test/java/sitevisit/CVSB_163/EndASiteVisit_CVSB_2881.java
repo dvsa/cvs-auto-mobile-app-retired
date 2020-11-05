@@ -30,7 +30,7 @@ public class EndASiteVisit_CVSB_2881 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-163 - AC7 - Confirm submission/ Go back to home page (beginning)")
     public void testGoBackToHomePage() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.checkCreateTestButton();

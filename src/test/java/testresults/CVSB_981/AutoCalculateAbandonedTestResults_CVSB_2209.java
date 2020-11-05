@@ -41,7 +41,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2209 extends BaseTestClass {
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (test review screen)")
     @Test
     public void testAutoCalculateAbandonedTestInTestReview() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();

@@ -26,7 +26,7 @@ public class AtfSelect_CVSB_1450 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-167 - AC4 - VSA is able to confirm the selected ATF")
     public void testConfirmSelectedAtf() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();

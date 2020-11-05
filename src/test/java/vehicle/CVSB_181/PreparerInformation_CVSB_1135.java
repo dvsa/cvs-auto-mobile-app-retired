@@ -22,7 +22,7 @@ public class PreparerInformation_CVSB_1135 extends BaseTestClass {
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC9 Select preparer")
     public void selectPreparer() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         selectPreparerSteps.checkPreparerPopUp(
                 preparerService.getPreparerByIndex(0).getPreparerId(),
                 preparerService.getPreparerByIndex(0).getPreparerName());

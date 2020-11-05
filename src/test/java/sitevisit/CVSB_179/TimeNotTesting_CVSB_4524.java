@@ -26,7 +26,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes")
     @Test
     public void test5minInactivity() {
-        siteVisitComp.goToSiteVisit();
+        siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.waitUntilTimeNotTesting();
         siteVisitSteps.checkTimeNotTesting();

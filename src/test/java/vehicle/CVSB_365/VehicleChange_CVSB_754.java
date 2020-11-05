@@ -31,7 +31,7 @@ public class VehicleChange_CVSB_754 extends BaseTestClass {
     @Title("CVSB-365 - AC2 - Change a vehicle after confirming vehicle details")
     @Test()
     public void testChangeAVehicleAfterConfirmVehicleDetails() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         preparerSteps.goBackToVehicleDetailsPage();
         vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");

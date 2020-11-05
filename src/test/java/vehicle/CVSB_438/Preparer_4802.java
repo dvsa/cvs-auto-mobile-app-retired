@@ -25,7 +25,7 @@ public class Preparer_4802 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB_438 - AC 8 Click 'Confirm' on popup")
     public void confirmWithoutPreparerFromPopUp() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         preparerSteps.checkPageTitleIsDisplayed();
         preparerSteps.startTest();
         preparerSteps.advanceWithoutPreaprer();

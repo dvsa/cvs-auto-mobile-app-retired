@@ -64,7 +64,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
     @Title("CVSB-495 - AC4 - VSA can change details of individual test types")
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
         //Adding a test type and making it a non progress one
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

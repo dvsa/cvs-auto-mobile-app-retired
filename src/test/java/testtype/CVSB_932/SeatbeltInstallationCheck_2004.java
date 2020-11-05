@@ -31,7 +31,7 @@ public class SeatbeltInstallationCheck_2004 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-932 - AC - 2A VSA selects Yes")
     public void selectIsCarriedOut() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Part Paid");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);

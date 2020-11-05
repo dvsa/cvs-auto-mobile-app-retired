@@ -44,7 +44,7 @@ public class RecordResult_CVSB_2146 extends BaseTestClass {
     @Title("CVSB-203 - AC1 - Start a test type (Retest Paid Any PSV)")
     @Test
     public void testStartATestTypeRetest() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");

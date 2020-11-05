@@ -24,7 +24,7 @@ public class Search_CVSB_1897 extends BaseTestClass {
     @Title("CVSB-184 - AC2 - VSA exits erroneous search in order to search again")
     @Test
     public void researchAfterErrorDisplayed() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.checkIdentifyVehicleTitleIsDisplayed();

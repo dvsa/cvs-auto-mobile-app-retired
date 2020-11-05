@@ -30,7 +30,7 @@ public class VehicleSearch_CVSB_1053 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-183 - AC3.1 Vehicle found in system")
     public void testVehicleFoundInSystem() {
-        vehicleComp.goToSiteVisit();
+        vehicleComp.goToSiteVisit(super.username);
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.typeInSearchField("BQ91YHQ");
         identifyVehicleSteps.checkSearchBoxAndText("BQ91YHQ");

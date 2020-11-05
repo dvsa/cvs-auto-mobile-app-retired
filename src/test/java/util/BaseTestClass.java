@@ -8,7 +8,6 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +16,10 @@ import util.backend.activity.ActivityService;
 
 import java.time.LocalDateTime;
 
+import static java.lang.Thread.sleep;
 
-public class BaseTestClass extends BaseUtils {
+
+public class BaseTestClass {
 
     private static Logger logger = LoggerFactory.getLogger(BaseTestClass.class);
     private static LocalDateTime currentStartTimeTime = LocalDateTime.now();
@@ -26,6 +27,8 @@ public class BaseTestClass extends BaseUtils {
     protected AtfService atfService = new AtfService();
     protected PreparerService preparerService = new PreparerService();
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
+    protected String username;
+
     private ActivityService activityService = new ActivityService();
 
     @Steps
@@ -34,7 +37,6 @@ public class BaseTestClass extends BaseUtils {
     @Managed(uniqueSession = true, clearCookies = ClearCookiesPolicy.Never)
     public WebDriver webDriver;
 
-
     @Before
     public void closeActivity() {
         logger.info("closing user's activity");
@@ -42,13 +44,18 @@ public class BaseTestClass extends BaseUtils {
             utilSteps.resetAndQuitDriver();
             currentStartTimeTime = LocalDateTime.now();
         }
-        activityService.closeCurrentUserActivity();
+        username = activityService.closeCurrentUserActivity();
     }
 
     @After
     public void returnUserToPool(){
         logger.info("returning user to the user pool");
-        BaseUtils.addCurrentUserBackToUserPool();
+        activityService.closeCurrentUserActivity();
+        try {
+            sleep(20000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        new FileLocking().putUsernameInQueue(username);
     }
-
 }

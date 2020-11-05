@@ -56,7 +56,7 @@ public class AutoCalculateTestTypeResult_2189 extends BaseTestClass {
     @Title("CVSB-929 - Fail test result - Dangerous + Major + Minor PRS + Advisory defect")
     @Ignore("Deprecated due to CVSB-972 and CVSB-3228")
     public void testFailTestResultDangerousMajorMinorPRSAdvisoryDefects() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

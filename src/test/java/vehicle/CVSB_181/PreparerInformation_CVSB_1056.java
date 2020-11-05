@@ -22,7 +22,7 @@ public class PreparerInformation_CVSB_1056 extends BaseTestClass {
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC1 Search for preparer ID with letters and numbers")
     public void searchPreparerIdLettersAndNumbers() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         selectPreparerSteps.searchForPreparerIdAndCancel(
                 preparerService.getPreparerByIndex(0).getPreparerId().substring(0, 2),
                 preparerService.getPreparerByIndex(0).getPreparerId(),

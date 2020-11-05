@@ -30,7 +30,6 @@ public class DefectDescriptionPage extends BasePage {
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(PAGE_TITLE);
-//        System.out.println("***************************  PAGE SOURCE  ****************************\n"+getDriver().getPageSource()+"\n***************************   PAGE END   ****************************");
     }
 
     public void selectById(String defectId) {

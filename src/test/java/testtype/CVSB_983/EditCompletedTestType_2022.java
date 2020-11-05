@@ -31,7 +31,7 @@ public class EditCompletedTestType_2022 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-983 - AC4 - VSA saves their edited test type details (at least one mandatory field is not populated)")
     public void testSaveEditedDetailsOneFieldNotPopulated() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");

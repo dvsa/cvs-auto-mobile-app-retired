@@ -56,7 +56,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // TODO
     public void testReviewShowsErrorWithNoTestTypeSpecified() {
         // Set up the test data.
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -86,7 +86,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // This is temporarily disabled until the correct updated functionality has been merge in to the app.
     public void testReviewShowsErrorForMissingMandatoryFields() {
         // Set up the test data.
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -116,7 +116,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     @Title("CVSB-6951 AC5 - User selects EU vehicle category")
     public void testUserSelectsEUVehicleCategory() {
         // Set up the test data.
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -153,7 +153,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // Disabled temporarily until the updated functionality is merged into the app.
     public void testUserSelectsOdometerReading() {
         // Set up the test data.
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -192,7 +192,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // Re-enable once the new error messages are present.
     public void testErrorsOnTheTestScreenCorrected() {
         // Set up the test data.
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

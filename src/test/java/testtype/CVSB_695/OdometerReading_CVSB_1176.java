@@ -30,7 +30,7 @@ public class OdometerReading_CVSB_1176 extends BaseTestClass {
         String enteredOdometerReading = "12345678";
         String expectedOdometerReading = "1234567";
 
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField(enteredOdometerReading);
         odometerReadingSteps.checkReadingValue(expectedOdometerReading);

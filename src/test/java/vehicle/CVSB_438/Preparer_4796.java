@@ -21,7 +21,7 @@ public class Preparer_4796 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB_438 - AC 2 VSA starts test after adding preparer ID")
     public void searchPreparer() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         preparerSteps.checkPageTitleIsDisplayed();
         preparerSteps.searchForPreparerId("AK4434");
         preparerSteps.preparerIsFound("AK4434");

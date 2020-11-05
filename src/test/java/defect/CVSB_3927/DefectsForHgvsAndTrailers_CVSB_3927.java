@@ -47,7 +47,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
     @Test
     public void addsDefectsToHgv() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -86,7 +86,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
     @Test
     public void addsDefectsToTrl() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();

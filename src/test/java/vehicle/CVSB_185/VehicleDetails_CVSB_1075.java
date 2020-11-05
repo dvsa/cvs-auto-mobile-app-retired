@@ -34,7 +34,7 @@ public class VehicleDetails_CVSB_1075 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-185 - AC3 - VSA cannot update technical record")
     public void testCannotUpdateTechRecords() {
-        vehicleComp.goToVehicleDetails();
+        vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         // TODO add Vehicle Test History part after bug fix
         vehicleDetailsSteps.selectBrakes();

@@ -67,7 +67,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - car")
     @Test
     public void testSpecialistTestCar() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificCar("911250");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificCar("911250",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
@@ -104,7 +104,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - motorcycle")
     @Test
     public void testSpecialistTestMotorcycle() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
@@ -145,7 +145,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - lgv")
     @Test
     public void testSpecialistTestLgv() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");

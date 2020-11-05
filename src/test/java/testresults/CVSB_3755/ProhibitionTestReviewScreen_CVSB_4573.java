@@ -60,7 +60,7 @@ public class ProhibitionTestReviewScreen_CVSB_4573 extends BaseTestClass {
     @Ignore("Story not yet merged")
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Annual Test)")
     public void testProhibitionFieldOnTestReviewScreenClass6A() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

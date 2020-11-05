@@ -58,7 +58,7 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     @Title("CVSB-440 - AC4B - VSA views a test record")
     @Test
     public void testVsaViewsATestRecordB() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();

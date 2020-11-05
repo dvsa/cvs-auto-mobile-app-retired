@@ -24,7 +24,7 @@ public class VehicleDetails_CVSB_1141 extends BaseTestClass {
     @Title("CVSB-185 - AC1 - VSA searches by VIN number")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSearchByVIN() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");
         vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91 YHQ");
     }

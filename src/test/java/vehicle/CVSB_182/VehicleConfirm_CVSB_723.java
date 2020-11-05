@@ -23,7 +23,7 @@ public class VehicleConfirm_CVSB_723 extends BaseTestClass {
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-182 - AC3 VSA cancels confirmation")
     public void testVehicleDetailsCancelConfirmation() {
-        vehicleComp.goToVehicleDetails();
+        vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.checkConfirmationPopUp();
         vehicleDetailsSteps.selectCancelFromPopUp();

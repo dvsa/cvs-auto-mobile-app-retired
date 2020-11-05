@@ -35,8 +35,8 @@ public class PreparerComp extends ScenarioSteps {
     TrailerDetailsSteps trailerDetailsSteps;
 
     @Step
-    public void goToSelectPreparer() {
-        launchSteps.clickGetStarted();
+    public void goToSelectPreparer(String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -46,8 +46,8 @@ public class PreparerComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToSelectPreparerForASpecificVehicle(String vin) {
-        launchSteps.clickGetStarted();
+    public void goToSelectPreparerForASpecificVehicle(String vin, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -57,8 +57,8 @@ public class PreparerComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToSelectPreparerForASpecificVehicleUsingPartialVin(String partialVin) {
-        launchSteps.clickGetStarted();
+    public void goToSelectPreparerForASpecificVehicleUsingPartialVin(String partialVin, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -69,8 +69,8 @@ public class PreparerComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToSelectPreparerForASpecificTrailer(String partialVin) {
-        launchSteps.clickGetStarted();
+    public void goToSelectPreparerForASpecificTrailer(String partialVin, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -80,8 +80,8 @@ public class PreparerComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToSelectPreparerForASpecificCar(String carPartialVin) {
-        launchSteps.clickGetStarted();
+    public void goToSelectPreparerForASpecificCar(String carPartialVin, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

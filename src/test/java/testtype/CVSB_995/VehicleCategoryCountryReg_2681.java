@@ -25,7 +25,7 @@ public class VehicleCategoryCountryReg_2681 extends BaseTestClass {
     @Title("CVSB-995 - AC8 - Editing 'Country of registration' field")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void editingCountryOfRegistrationField() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

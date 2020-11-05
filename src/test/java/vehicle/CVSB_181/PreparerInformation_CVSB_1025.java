@@ -22,7 +22,7 @@ public class PreparerInformation_CVSB_1025 extends BaseTestClass {
     @Ignore("This is not a valid test case anymore due to CVSB-438")
     @Title("CVSB_181 - AC1 Search for preparer ID only")
     public void searchPreparerIdOnly() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         selectPreparerSteps.searchForPreparerIdAndCancel(
                 preparerService.getPreparerByIndex(0).getPreparerId(),
                 preparerService.getPreparerByIndex(0).getPreparerId(),

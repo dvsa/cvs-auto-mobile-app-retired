@@ -41,7 +41,7 @@ public class VoluntarySpeedLimiterPassedSubmission_3019  extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-3019 - Defect - Passed Voluntary speed limiter check submission")
     public void submitPassedVoluntarySpeedLimiterCheckTest() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Speed limiter check");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);

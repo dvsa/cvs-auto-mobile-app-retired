@@ -43,7 +43,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Title("CVSB - 10751 - AC1 Single vehicle retrieved, access vehicle details")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSingleVehicleDetails(){
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -58,7 +58,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Title("CVSB - 10752 - AC2 Single vehicle retrieved - go back from vehicle details")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testGoBackToSingleVehicleList(){
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -70,7 +70,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Title("CVSB - 10751 - AC3 Multiple vehicles retrieved, access vehicle list")
     @Test
     public void testMultipleVehicleAccessList() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -91,7 +91,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Test
     public void testMultipleVehicleDetails(){
 
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -114,7 +114,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Test
     public void testGoBackToMultipleVehicleList(){
 
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

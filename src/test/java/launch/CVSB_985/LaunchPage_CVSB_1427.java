@@ -22,7 +22,7 @@ public class LaunchPage_CVSB_1427 extends BaseTestClass {
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-985 - AC3 - VSA goes 'Back' from 'Find an ATF' screen")
     public void testAtfListAlphabeticallyOrdered() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.checkAtfPageDisplay();
         searchForAnATFSteps.clickBackButton();
         launchSteps.clickStartButton();

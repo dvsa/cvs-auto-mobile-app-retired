@@ -10,7 +10,6 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
-import util.BaseUtils;
 
 @RunWith(SerenityRunner.class)
 public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
@@ -73,7 +72,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     @Test
     public void testSpecialistTestDetails() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
@@ -167,7 +166,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     @Test
     public void testSpecialistTest_TwoCertificateNumbers_COIF() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410"); // PSV BQ91 YHQ
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username); // PSV BQ91 YHQ
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
@@ -233,7 +232,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
 
         // CVSB-11100 - AC1 - COIF with annual test is submitted  (PASS)
         // This verifies that the email address is shown correctly.
-        confirmationPage.checkElementContainingStringIsDisplayed(BaseUtils.getUserName());
+        confirmationPage.checkElementContainingStringIsDisplayed(super.username);
 
         confirmationPage.clickDoneButton();
         siteVisit.waitUntilPageIsLoaded();

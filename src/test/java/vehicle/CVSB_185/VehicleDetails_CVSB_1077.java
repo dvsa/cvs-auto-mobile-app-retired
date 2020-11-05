@@ -28,7 +28,7 @@ public class VehicleDetails_CVSB_1077 extends BaseTestClass {
     @Test
     public void testWeightsAndTyresFieldsBasedOnContext() {
         //TO DO Refactor after mock date is added
-        vehicleComp.goToVehicleDetails();
+        vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
         vehicleDetailsSteps.selectWeights();
         weightsSteps.checkDetails("5018", "7100", "7100", "7100",

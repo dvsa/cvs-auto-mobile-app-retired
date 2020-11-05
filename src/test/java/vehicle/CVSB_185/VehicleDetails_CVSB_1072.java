@@ -26,7 +26,7 @@ public class VehicleDetails_CVSB_1072 extends BaseTestClass {
     @Ignore("[CVSB-8416] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-185 - AC1 - Search without using an input")
     public void testSearchNoInput() {
-        vehicleComp.goToIdentifyVehicle();
+        vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.pressSearch();
         identifyVehicleSteps.checkVehicleNotFoundPopUp();
         identifyVehicleSteps.pressOkInPopUp();

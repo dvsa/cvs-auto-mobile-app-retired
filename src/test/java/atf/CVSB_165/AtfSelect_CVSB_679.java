@@ -22,7 +22,7 @@ public class AtfSelect_CVSB_679 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-165 - AC3 - No search results")
     public void testNoSearchResults() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.searchForInvalidAtf();
         searchForAnATFSteps.checkNoResultsFoundAndSuggestion();
     }

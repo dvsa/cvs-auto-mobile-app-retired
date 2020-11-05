@@ -55,7 +55,7 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
     @Test
     public void testChangesSingularVehicleTests() {
         //add psv
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("YV31MEC18GA011900");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("YV31MEC18GA011900",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();

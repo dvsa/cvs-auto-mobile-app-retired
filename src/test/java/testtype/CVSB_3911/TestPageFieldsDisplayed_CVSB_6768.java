@@ -47,7 +47,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedForHgv() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -63,7 +63,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     @Title("CVSB-6771 - AC1 - Fields displayed on test screen - HGV (test history)")
     public void testFieldsDisplayedTestHistoryForHgv() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -89,7 +89,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedAddTestsForHgv() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");

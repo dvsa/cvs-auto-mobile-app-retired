@@ -31,7 +31,7 @@ public class AtfSelect_CVSB_1460 extends BaseTestClass {
     @Title("CVSB-167 - AC8 - VSA is unable to return to ATF search once they have added a site to the visit")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testInabilityToReturnToPreviousScreen() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();

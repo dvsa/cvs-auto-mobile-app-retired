@@ -62,7 +62,7 @@ public class AppState_CVSB_1939  extends BaseTestClass {
     @Title( "CVSB-469 - AC4 Reopen the app after it was closed - redirected to test screen (ex. app closed by the user, app closed by the device, device turned off)")
     public void testAppStateCloseAtTestPage() {
 
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

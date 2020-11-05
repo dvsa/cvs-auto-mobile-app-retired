@@ -22,7 +22,7 @@ public class SiteVisitTimeline_2057 extends BaseTestClass {
     @Title("CVSB-169 - AC1 - Site Visit timeline details")
     @Test
     public void testSiteVisitTimelineDetails() {
-        siteVisitComp.goToSiteVisit();
+        siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.checkATFRow(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber());
         siteVisitSteps.checkDate();

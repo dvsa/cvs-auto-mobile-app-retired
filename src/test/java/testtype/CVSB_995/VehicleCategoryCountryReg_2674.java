@@ -26,7 +26,7 @@ public class VehicleCategoryCountryReg_2674 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-995 - AC3 - Adding Country of Registration - the list is scrollable")
     public void listOfCountriesIsScrollable() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.scrollThroughList();
         countryOfRegistrationSteps.optionsAreDisplayedAtTopAndBottomAfterSearch("Romania");

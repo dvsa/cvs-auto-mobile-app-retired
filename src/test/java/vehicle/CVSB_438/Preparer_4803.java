@@ -21,7 +21,7 @@ public class Preparer_4803 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB_438 - AC 9 Preparer not found")
     public void preparerNotFound() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         preparerSteps.checkPageTitleIsDisplayed();
         preparerSteps.searchForPreparerId("Durrell");
         preparerSteps.noPreparerFound();

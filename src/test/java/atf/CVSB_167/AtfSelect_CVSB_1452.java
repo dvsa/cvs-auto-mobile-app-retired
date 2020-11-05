@@ -30,7 +30,7 @@ public class AtfSelect_CVSB_1452 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-167 - AC5 - VSA is able to confirm that the selected ATF site is suitable for testing")
     public void testConfirmAtfSite() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.pressConfirmInSiteVisitPopUp();

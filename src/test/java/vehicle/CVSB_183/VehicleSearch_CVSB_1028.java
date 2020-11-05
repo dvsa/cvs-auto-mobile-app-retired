@@ -31,7 +31,7 @@ public class VehicleSearch_CVSB_1028 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-183 - AC2 Search for vehicle using full VIN number")
     public void testSearchUsingFullVIN() {
-        vehicleComp.goToSiteVisit();
+        vehicleComp.goToSiteVisit(super.username);
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.typeInSearchField("1B7GG36N12S678410");
         identifyVehicleSteps.checkSearchBoxAndText("1B7GG36N12S678410");

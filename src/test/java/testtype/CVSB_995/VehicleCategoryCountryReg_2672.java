@@ -29,7 +29,7 @@ public class VehicleCategoryCountryReg_2672 extends BaseTestClass {
     @Title("CVSB-995 - AC1 - Record fields on test overview screen")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void recordFieldsOnTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.checkCountryOfRegistrationOptionIsDisplayed();
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.selectVehicleCategoryOption();

@@ -20,6 +20,6 @@ public class DeleteActivitiesTest extends BaseTestClass {
     @Title("CVSB-12181 - Delete activities from Dynamo")
     public void testChangesSingularVehicleTests() {
         //add hgv
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123",super.username);
     }
 }
