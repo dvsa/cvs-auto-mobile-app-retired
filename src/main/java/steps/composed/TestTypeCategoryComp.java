@@ -38,8 +38,8 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     PreparerSteps preparerSteps;
 
     @Step
-    public void goToTestType(String preparerId, String preparerName) {
-        launchSteps.clickGetStarted();
+    public void goToTestType(String preparerId, String preparerName, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -53,8 +53,8 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToTestTypeUsingSpecificVin(String preparerId, String preparerName, String vin) {
-        launchSteps.clickGetStarted();
+    public void goToTestTypeUsingSpecificVin(String preparerId, String preparerName, String vin, String username) {
+        launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -67,34 +67,35 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     }
 
     @Step
-    public void goToTestPage(String preparerId, String preparerName) {
-        preparerComp.goToSelectPreparer();
+    public void goToTestPage(String preparerId, String preparerName, String username) {
+        preparerComp.goToSelectPreparer(username);
         preparerSteps.selectAndConfirmPreparerId(preparerId);
     }
 
     @Step
-    public void goToTestPageBySelectingASpecificVehicle(String vehiclePartialVin) {
-        preparerComp.goToSelectPreparerForASpecificVehicle(vehiclePartialVin);
+    public void goToTestPageBySelectingASpecificVehicle(String vehiclePartialVin, String username) {
+        preparerComp.goToSelectPreparerForASpecificVehicle(vehiclePartialVin, username);
     }
 
-    public void goToTestPageBySelectingASpecificTrailer(String trailerPartialVin) {
-        preparerComp.goToSelectPreparerForASpecificTrailer(trailerPartialVin);
+    @Step
+    public void goToTestPageBySelectingASpecificTrailer(String trailerPartialVin, String username) {
+        preparerComp.goToSelectPreparerForASpecificTrailer(trailerPartialVin, username);
     }
 
-    @Step()
-    public void completeAddTestType(String preparerId, String preparerName) {
-        goToTestType(preparerId, preparerName);
+    @Step
+    public void completeAddTestType(String preparerId, String preparerName, String username) {
+        goToTestType(preparerId, preparerName, username);
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
     }
 
-    @Step()
-    public void completeAddTestType(String preparerId, String preparerName,String testType) {
-        goToTestType(preparerId, preparerName);
+    @Step
+    public void completeAddTestType(String preparerId, String preparerName,String testType, String username) {
+        goToTestType(preparerId, preparerName, username);
         testTypeCategorySteps.selectFromTestTypeList(testType);
     }
 
     @Step
-    public void goToTestPageBySelectingASpecificCar(String vehiclePartialVin) {
-        preparerComp.goToSelectPreparerForASpecificCar(vehiclePartialVin);
+    public void goToTestPageBySelectingASpecificCar(String vehiclePartialVin, String username) {
+        preparerComp.goToSelectPreparerForASpecificCar(vehiclePartialVin, username);
     }
 }

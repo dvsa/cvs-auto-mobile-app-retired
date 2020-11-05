@@ -11,6 +11,7 @@ import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_678 extends BaseTestClass {
 
@@ -26,7 +27,7 @@ public class AtfSelect_CVSB_678 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-165 - AC2 - Select an ATF from the list in alphabetical order")
     public void testAtfListAlphabeticallyOrdered() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.checkListIsAlphabeticallyOrdered();
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.waitUntilPageIsLoaded();

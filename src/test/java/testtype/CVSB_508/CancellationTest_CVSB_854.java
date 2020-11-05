@@ -30,7 +30,7 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void submitCancellationWithAtLeastOneTestType() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.addReasonForCancellation("Automation Test");

@@ -14,8 +14,8 @@ public class TestTypeSubategoryComp extends ScenarioSteps {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Step
-    public void goToTestTypeSubcategoryFromCategory(String category, String preparerId, String preparerName) {
-        testTypeCategoryComp.goToTestType(preparerId, preparerName);
+    public void goToTestTypeSubcategoryFromCategory(String category, String preparerId, String preparerName, String username) {
+        testTypeCategoryComp.goToTestType(preparerId, preparerName, username);
         testTypeCategorySteps.checkTestTypePage();
         testTypeCategorySteps.selectFromTestTypeList(category);
     }

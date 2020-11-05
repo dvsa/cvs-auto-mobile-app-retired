@@ -44,7 +44,7 @@ public class AddsDangerousDefect_CVSB_4436 extends BaseTestClass{
     @Test
     public void addsADangerousDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest");
+                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest",super.username);
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);

@@ -26,7 +26,7 @@ public class VehicleChange_CVSB_753 extends BaseTestClass {
     @Title("CVSB-365 - AC1 - Change a vehicle before confirming vehicle details")
     @Test()
     public void testChangeBeforeConfirmVehicleDetails() {
-        vehicleComp.goToVehicleDetails();
+        vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.waitUntilPageIsLoaded();

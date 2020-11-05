@@ -21,7 +21,7 @@ public class SiteVisitTimeline_2064 extends BaseTestClass {
     @Title("CVSB-169 - AC5 - VSA ends the visit from the site visit timeline")
     @Test
     public void testEndVisit() {
-        siteVisitComp.goToSiteVisit();
+        siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.selectEndVisit();
         siteVisitSteps.checkEndVisitPopUp();

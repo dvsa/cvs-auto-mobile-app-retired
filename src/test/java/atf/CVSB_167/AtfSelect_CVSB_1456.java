@@ -11,6 +11,7 @@ import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_1456 extends BaseTestClass {
 
@@ -27,7 +28,7 @@ public class AtfSelect_CVSB_1456 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-167 - AC6 - VSA is able to confirm that the site is not suitable for testing")
     public void testConfirmSiteNotSuitableForTesting() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
         atfDetailsSteps.checkStartVisitPopUp();

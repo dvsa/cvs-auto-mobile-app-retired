@@ -3,7 +3,7 @@ package testtype.CVSB_983;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.SeatbeltInstallationCheckSteps;
@@ -12,6 +12,7 @@ import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class EditCompletedTestType_2023 extends BaseTestClass {
 
@@ -30,7 +31,7 @@ public class EditCompletedTestType_2023 extends BaseTestClass {
     @Title("CVSB-983 - AC5 - VSA edits the in progress test type")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSEditInProgressTestType() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");

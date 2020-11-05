@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
 
@@ -43,7 +44,7 @@ public class EndASiteVisit_CVSB_2885 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-163 - AC4 Proceed with a submission of a site visit")
     public void testCancelSubmission() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.checkCreateTestButton();

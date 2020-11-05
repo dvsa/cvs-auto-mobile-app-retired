@@ -1,6 +1,7 @@
 package vehicle.CVSB_6549;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
@@ -39,7 +40,8 @@ public class TestVehicleSearchCriteria_CVSB_6549 extends BaseTestClass {
     @Title("CVSB-6549 - AC1 Search criteria selector displayed on the search vehicle screen")
     @Test
     public void testVehicleSearchCriteria() {
-        launchSteps.clickGetStarted();
+
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

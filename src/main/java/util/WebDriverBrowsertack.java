@@ -29,22 +29,20 @@ public class WebDriverBrowsertack {
         caps.setCapability("browserstack.video", "false");
         caps.setCapability("browserstack.selenium_version", "3.5.2");
 
-
         try {
-            driver = new RemoteWebDriver(new URL("http://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + "hub-cloud.browserstack.com" + "/wd/hub"), caps);
+            driver = new RemoteWebDriver(new URL("https://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + "hub-cloud.browserstack.com" + "/wd/hub"), caps);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
 
-    public static String getToken() {
-        System.out.println("\n ...getting token...");
+    public static String getToken(String username) {
+        System.out.println("\nRequest to retrieve JWT Token...");
         WebDriverBrowsertack.setup();
 
         driver.get(TypeLoader.getMicrosoftonlineUrl());
         driver.manage().window().maximize();
         WebElement element = driver.findElement(By.xpath("//div[@class='placeholderContainer']/*[1]"));
-        String username = BaseUtils.getUserName();
         element.sendKeys(username);
 
 

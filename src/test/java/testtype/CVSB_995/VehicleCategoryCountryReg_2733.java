@@ -26,7 +26,7 @@ public class VehicleCategoryCountryReg_2733 extends BaseTestClass {
     @Title("CVSB-995 - AC3 - Adding Country of Registration - list is filtered")
     @Test
     public void addingCountryOfRegistrationAfterListIsFiltered() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.checkListIsFilteredByCriteria("Swed");
         countryOfRegistrationSteps.optionsRemainAtBottomAndTop("OrTuga");

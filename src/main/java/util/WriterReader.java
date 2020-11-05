@@ -6,14 +6,22 @@ import java.io.*;
 
 public class WriterReader {
 
+    private String username;
 
-    private static final String FILE_NAME = "fileUtils";
+    public WriterReader(String username){
+        this.username=username;
+    }
 
-    public static void saveUtils() {
+    public String getToken() {
 
+        new FileLocking().deleteFileToken(username);
 
-        FileUtils p1 = new FileUtils(WebDriverBrowsertack.getToken());
-        try (FileOutputStream f = new FileOutputStream(new File(FILE_NAME + "_" + BaseUtils.getUserName().split("@")[0] + ".txt")); ObjectOutputStream o = new ObjectOutputStream(f)) {
+        FileUtils fileUtils;
+        File file = new File(username + ".txt");
+
+        FileUtils p1 = new FileUtils(WebDriverBrowsertack.getToken(username));
+
+        try (FileOutputStream f = new FileOutputStream(new File(username + ".txt")); ObjectOutputStream o = new ObjectOutputStream(f)) {
 
             o.writeObject(p1);
 
@@ -25,18 +33,7 @@ public class WriterReader {
             throw new AutomationException("Error initializing stream");
         }
 
-    }
-
-    public static String getToken() {
-
-        FileUtils fileUtils;
-        File file = new File(FILE_NAME + "_" + BaseUtils.getUserName().split("@")[0] + ".txt");
-        if (!file.exists()) {
-            saveUtils();
-        }
-
         try (FileInputStream fi = new FileInputStream(file); ObjectInputStream oi = new ObjectInputStream(fi)) {
-
             fileUtils = (FileUtils) oi.readObject();
 
         } catch (IOException e) {
@@ -50,6 +47,6 @@ public class WriterReader {
     }
 
     public static void main(String[] args) {
-        getToken();
+
     }
 }

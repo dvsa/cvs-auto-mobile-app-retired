@@ -25,7 +25,7 @@ public class DefectRemove_CVSB_2576 extends BaseTestClass {
     @Title("CVSB-2569 CLONE - AC5 - Confirm removal of test type")
     @Test
     public void confirmTestTypeRemoval() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.checkTestTypeRemovalPopUp();

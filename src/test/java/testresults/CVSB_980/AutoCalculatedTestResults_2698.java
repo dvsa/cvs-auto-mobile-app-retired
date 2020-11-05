@@ -52,7 +52,7 @@ public class AutoCalculatedTestResults_2698 extends BaseTestClass {
     @Title("CVSB_980 - AC1 - PRS criteria (At least 1 PRS'd defect)")
     @Test
     public void PRSCriteriaAtLeastOneDefect() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();

@@ -66,7 +66,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
     @Test
     public void testSiteVisitTimelineHGVPlus3TRL() {
         //add hgv
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();

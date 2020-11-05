@@ -12,6 +12,7 @@ import steps.*;
 import util.BaseTestClass;
 import util.TestHandler;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AppState_CVSB_1938 extends BaseTestClass {
 
@@ -44,7 +45,7 @@ public class AppState_CVSB_1938 extends BaseTestClass {
     @Title("CVSB-469 - AC3 Reopen the app after it was closed - redirected to visit timeline screen (ex. app closed by the user, app closed by the device, device turned off)")
     public void testAppStateCloseAfterStartVisit() {
 
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.startVisit();
         siteVisitSteps.waitUntilPageIsLoaded();
