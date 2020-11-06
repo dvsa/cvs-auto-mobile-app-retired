@@ -10,6 +10,7 @@ import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeRemove_CVSB_760 extends BaseTestClass {
 

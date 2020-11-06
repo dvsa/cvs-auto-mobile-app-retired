@@ -16,9 +16,6 @@ import util.backend.activity.ActivityService;
 
 import java.time.LocalDateTime;
 
-import static java.lang.Thread.sleep;
-
-
 public class BaseTestClass {
 
     private static Logger logger = LoggerFactory.getLogger(BaseTestClass.class);
@@ -28,8 +25,6 @@ public class BaseTestClass {
     protected PreparerService preparerService = new PreparerService();
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
     protected String username;
-
-    private ActivityService activityService = new ActivityService();
 
     @Steps
     UtilSteps utilSteps;
@@ -44,18 +39,12 @@ public class BaseTestClass {
             utilSteps.resetAndQuitDriver();
             currentStartTimeTime = LocalDateTime.now();
         }
-        username = activityService.closeCurrentUserActivity();
+        username = new ActivityService().closeCurrentUserActivity();
     }
 
     @After
     public void returnUserToPool(){
         logger.info("returning user to the user pool");
-        activityService.closeCurrentUserActivity();
-        try {
-            sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         new FileLocking().putUsernameInQueue(username);
     }
 }

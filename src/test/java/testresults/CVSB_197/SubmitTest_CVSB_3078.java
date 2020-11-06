@@ -11,6 +11,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class SubmitTest_CVSB_3078 extends BaseTestClass {
 

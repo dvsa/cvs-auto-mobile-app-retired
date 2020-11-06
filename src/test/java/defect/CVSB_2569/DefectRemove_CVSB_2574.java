@@ -11,6 +11,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class DefectRemove_CVSB_2574 extends BaseTestClass {
 

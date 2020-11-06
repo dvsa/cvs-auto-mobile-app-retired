@@ -10,6 +10,7 @@ import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2056 extends BaseTestClass {
 

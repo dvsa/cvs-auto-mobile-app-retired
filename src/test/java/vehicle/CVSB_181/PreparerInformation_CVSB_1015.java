@@ -10,6 +10,7 @@ import steps.SelectPreparerSteps;
 import steps.composed.PreparerComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class PreparerInformation_CVSB_1015 extends BaseTestClass {
 

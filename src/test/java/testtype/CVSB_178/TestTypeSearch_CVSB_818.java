@@ -12,6 +12,7 @@ import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_818 extends BaseTestClass {
 

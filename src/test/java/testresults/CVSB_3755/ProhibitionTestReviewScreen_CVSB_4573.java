@@ -10,7 +10,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
-
+@Ignore
 @RunWith(SerenityRunner.class)
 public class ProhibitionTestReviewScreen_CVSB_4573 extends BaseTestClass {
 

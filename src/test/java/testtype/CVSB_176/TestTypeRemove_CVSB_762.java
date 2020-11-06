@@ -10,6 +10,7 @@ import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeRemove_CVSB_762 extends BaseTestClass {
 
@@ -28,7 +29,5 @@ public class TestTypeRemove_CVSB_762 extends BaseTestClass {
         testSteps.checkTestTypeRemovalPopUp();
         testSteps.pressRemoveInPopUp();
         testSteps.checkTestTypeDeleted("Annual test In progress arrow forward");
-
     }
-
 }

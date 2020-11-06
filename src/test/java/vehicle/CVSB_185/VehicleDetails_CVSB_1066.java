@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
-
+@Ignore
 @RunWith(SerenityRunner.class)
 public class VehicleDetails_CVSB_1066 extends BaseTestClass {
 

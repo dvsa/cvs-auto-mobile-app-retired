@@ -11,6 +11,7 @@ import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class VehicleDetails_CVSB_1072 extends BaseTestClass {
 

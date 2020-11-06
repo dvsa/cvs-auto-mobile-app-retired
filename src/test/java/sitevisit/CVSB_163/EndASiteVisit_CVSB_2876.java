@@ -12,6 +12,7 @@ import steps.SearchForAnATFSteps;
 import steps.SiteVisitSteps;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class EndASiteVisit_CVSB_2876 extends BaseTestClass {
 

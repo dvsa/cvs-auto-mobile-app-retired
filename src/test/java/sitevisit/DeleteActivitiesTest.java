@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class DeleteActivitiesTest extends BaseTestClass {
 

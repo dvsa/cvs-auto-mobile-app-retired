@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class EndASiteVisit_CVSB_2879 extends BaseTestClass {
 

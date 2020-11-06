@@ -10,6 +10,7 @@ import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_686 extends BaseTestClass {
 

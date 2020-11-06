@@ -12,6 +12,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class ReviewTestSummary_2707 extends BaseTestClass {
 

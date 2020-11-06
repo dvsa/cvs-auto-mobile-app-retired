@@ -10,6 +10,7 @@ import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class LaunchPage_CVSB_1422 extends BaseTestClass {
 

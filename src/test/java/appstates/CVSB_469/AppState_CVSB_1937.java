@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import steps.*;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AppState_CVSB_1937 extends BaseTestClass {
 

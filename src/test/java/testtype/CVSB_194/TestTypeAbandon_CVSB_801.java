@@ -3,6 +3,7 @@ package testtype.CVSB_194;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -15,6 +16,7 @@ import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeAbandon_CVSB_801 extends BaseTestClass {
 

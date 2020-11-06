@@ -3,12 +3,14 @@ package vehicle.CVSB_185;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class VehicleDetails_CVSB_1076 extends BaseTestClass {
 

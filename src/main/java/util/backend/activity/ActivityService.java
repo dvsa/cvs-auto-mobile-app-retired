@@ -54,6 +54,17 @@ public class ActivityService {
         if (testerStaffId == null) {
             username=searchForTesterStaffId();
         }else {
+
+            System.out.println("YYYYYYYYYYYYYYYYYYYYY");
+            System.out.println("YYYYYYYYYYYYYYYYYYYYY");
+
+            System.out.println("YYYYYYYYYYYYYYYYYYYYY");
+
+            System.out.println("YYYYYYYYYYYYYYYYYYYYY");
+
+            System.out.println("YYYYYYYYYYYYYYYYYYYYY");
+
+            System.out.println("YYYYYYYYYYYYYYYYYYYYY");
             response = activitiesClient.getActivities(testerStaffId);
             if (!response.getBody().asString().contains("No resources match the search criteria")) {
                 if (response.getStatusCode() != 200) {
@@ -63,7 +74,7 @@ public class ActivityService {
                 List<String> activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
                 if (activityIds != null) {
                     for (String activityId : activityIds) {
-                        response = activitiesClient.putActivities(activityId);
+                        response = activitiesClient.closeActivity(activityId);
                         if (response.getStatusCode() != 204) {
                             throw new AutomationException("Response for put activities failed - Backend API Issue failed with status code "
                                     + response.getStatusCode() + " and body message " + response.getBody().asString());

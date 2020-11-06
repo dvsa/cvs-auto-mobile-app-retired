@@ -12,6 +12,7 @@ import steps.*;
 import util.BaseTestClass;
 import util.TestHandler;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AppState_CVSB_1939  extends BaseTestClass {
 

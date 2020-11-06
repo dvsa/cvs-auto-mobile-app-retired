@@ -12,6 +12,7 @@ import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeLinked_CVSB_774 extends BaseTestClass {
 

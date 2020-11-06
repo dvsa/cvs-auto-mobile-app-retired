@@ -12,6 +12,7 @@ import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2060 extends BaseTestClass {
 

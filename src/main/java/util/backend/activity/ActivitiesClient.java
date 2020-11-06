@@ -13,16 +13,14 @@ import static util.WriterReader.saveUtils;
 
 public class ActivitiesClient {
 
-    public Response putActivities(String id) {
+    public Response closeActivity(String id) {
 
         Response response = callPutActivities(id);
 
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
-            saveUtils();
             response = callPutActivities(id);
 
             if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
-                saveUtils();
                 response = callPutActivities(id);
             }
             if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
@@ -40,7 +38,6 @@ public class ActivitiesClient {
         Response response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , toStartTime);
 
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
-            saveUtils();
             response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , toStartTime);
 
             if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
@@ -55,21 +52,15 @@ public class ActivitiesClient {
     public Response getAllActivities() {
 
         Response response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , null);
-//        System.out.println("response: " + response.then().log().all());
 
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
-            saveUtils();
             response = callGetActivities(null, LocalDateTime.now().minusYears(1).toString() , null);
 
             if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
                 throw new AutomationException("User is not configured properly has invalid bearer token - GET");
             }
         }
-
-
-
         return response;
-
     }
 
 
@@ -86,9 +77,7 @@ public class ActivitiesClient {
                 throw new AutomationException("User is not configured properly has invalid bearer token - GET");
             }
         }
-
         return response;
-
     }
 
 

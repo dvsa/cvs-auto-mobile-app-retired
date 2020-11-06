@@ -3,6 +3,7 @@ package testtype.CVSB_178;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.TestSteps;
@@ -10,6 +11,7 @@ import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeSubategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_820 extends BaseTestClass {
 
