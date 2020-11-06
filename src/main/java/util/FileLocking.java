@@ -18,7 +18,9 @@ public class FileLocking
                 List<String> queue = new ArrayList(readQueue());
                 if (queue.size() > 0) {
                     username = queue.get(0);
+                    System.out.println("ARRAY BEFORE GET: " + Arrays.toString(queue.toArray()));
                     queue.remove(0);
+                    System.out.println("ARRAY AFTER GET: " + Arrays.toString(queue.toArray()));
                     writeQueue(queue);
                 }
             }
@@ -33,7 +35,9 @@ public class FileLocking
         synchronized (file) {
             System.out.println("PUT "+username);
             List<String> queue = new ArrayList(readQueue());
-            queue.add(username);
+            System.out.println("ARRAY BEFORE PUT: " + Arrays.toString(queue.toArray()));
+            if(!queue.contains(username)){queue.add(username);}
+            System.out.println("ARRAY AFTER PUT: " + Arrays.toString(queue.toArray()));
             writeQueue(queue);
         }
     }

@@ -16,12 +16,17 @@ public class ActivityService {
 
     private static final String NAME_ID = "name";
     private static String testerStaffId;
-    private static ActivitiesClient activitiesClient = new ActivitiesClient();
+    private ActivitiesClient activitiesClient;
     private static Response response;
+    private static String token;
+    public ActivityService(String token){
+        this.token = token;
+        this.activitiesClient = new ActivitiesClient(token);
+    }
 
     private String searchForTesterStaffId() {
         response = activitiesClient.getAllActivities();
-        String testerName = getTesterName();
+        String testerName = getTesterName(token);
         testerStaffId = null;
         if (!response.getBody().asString().contains("No resources match the search criteria")) {
             while (testerStaffId == null && !response.getBody().asString().contains("No resources match the search criteria")) {
@@ -35,16 +40,15 @@ public class ActivityService {
                     Collections.sort(activityDateId);
                     String toStartTimeData = activityDateId.get(0).minusSeconds(1).toString();
                     response = activitiesClient.getActivitiesToStartTime(toStartTimeData);
-
                 }
             }
         }
         return testerName;
     }
 
-    private static String getTesterName() {
+    private static String getTesterName(String token) {
         JWT parsedJWT = new JWT();
-        DecodedJWT decodedJWT = parsedJWT.decodeJwt(WriterReader.getToken());
+        DecodedJWT decodedJWT = parsedJWT.decodeJwt(token);
         return decodedJWT.getClaims().get(NAME_ID).asString();
     }
 

@@ -37,7 +37,7 @@ public class WebDriverBrowsertack {
     }
 
     public static String getToken(String username) {
-        System.out.println("\n ...getting token...");
+        System.out.println("\nRequest to retrieve JWT Token...");
         WebDriverBrowsertack.setup();
 
         driver.get(TypeLoader.getMicrosoftonlineUrl());

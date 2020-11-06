@@ -9,9 +9,14 @@ import util.backend.BasePathFilter;
 import java.time.LocalDateTime;
 
 import static io.restassured.RestAssured.given;
-import static util.WriterReader.saveUtils;
 
 public class ActivitiesClient {
+
+    private String token;
+
+    public ActivitiesClient(String token){
+        this.token =token;
+    }
 
     public Response closeActivity(String id) {
 
@@ -70,7 +75,6 @@ public class ActivitiesClient {
         Response response = callGetActivities(testerStaffId, LocalDateTime.now().minusYears(1).toString() , null);
 
         if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
-            saveUtils();
             response = callGetActivities(testerStaffId, LocalDateTime.now().minusYears(1).toString() , null);
 
             if (response.getStatusCode() == 401 || response.getStatusCode() == 403) {
@@ -83,7 +87,7 @@ public class ActivitiesClient {
 
     private Response callPutActivities(String id) {
 
-        Response response = given().filters(new BasePathFilter())
+        Response response = given().filters(new BasePathFilter(token))
                 .contentType(ContentType.JSON)
                 .pathParam("id", id)
                 .put("/activities/{id}/end");
@@ -93,7 +97,7 @@ public class ActivitiesClient {
 
     private Response callGetActivities(String testerStaffId, String fromStartTime, String toStartTime) {
 
-        RequestSpecification requestSpecification = given().filters(new BasePathFilter())
+        RequestSpecification requestSpecification = given().filters(new BasePathFilter(token))
                 .contentType(ContentType.JSON).log().method().log().uri().log().body();
 
         if (testerStaffId != null) {
@@ -110,10 +114,8 @@ public class ActivitiesClient {
 
         Response response = requestSpecification
                 .queryParam("activityType", "visit")
-//                .log().all()
                 .log().method().log().uri().log().body()
                 .get("/activities/details");
-
 
         return response;
     }
@@ -121,12 +123,11 @@ public class ActivitiesClient {
 
     private Response callGetActivities(String testerStaffId) {
 
-        Response response = given().filters(new BasePathFilter())
+        Response response = given().filters(new BasePathFilter(token))
                 .contentType(ContentType.JSON)
                 .queryParam("activityType", "visit")
                 .queryParam("fromStartTime", LocalDateTime.now().minusDays(1).toString())
                 .queryParam("testerStaffId", testerStaffId)
-//                .log().all()
                 .log().method().log().uri().log().body()
                 .get("/activities/details");
 

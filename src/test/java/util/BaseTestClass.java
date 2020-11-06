@@ -14,18 +14,14 @@ import org.slf4j.LoggerFactory;
 import steps.util.UtilSteps;
 import util.backend.activity.ActivityService;
 
-import java.time.LocalDateTime;
-
 public class BaseTestClass {
 
     private static Logger logger = LoggerFactory.getLogger(BaseTestClass.class);
-    private static LocalDateTime currentStartTimeTime = LocalDateTime.now();
-
     protected AtfService atfService = new AtfService();
     protected PreparerService preparerService = new PreparerService();
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
     protected String username;
-
+    protected String token;
     @Steps
     UtilSteps utilSteps;
 
@@ -33,13 +29,12 @@ public class BaseTestClass {
     public WebDriver webDriver;
 
     @Before
-    public void closeActivity() {
+    public void initialise() {
+        utilSteps.resetAndQuitDriver();
         logger.info("closing user's activity");
-        if (currentStartTimeTime.plusHours(1).plusMinutes(52).isBefore(LocalDateTime.now())) {
-            utilSteps.resetAndQuitDriver();
-            currentStartTimeTime = LocalDateTime.now();
-        }
-        username = new ActivityService().closeCurrentUserActivity();
+        username = new FileLocking().getUsernameFromQueue();
+        token = new WriterReader(username).getToken();
+        new ActivityService(token).closeCurrentUserActivity();
     }
 
     @After
