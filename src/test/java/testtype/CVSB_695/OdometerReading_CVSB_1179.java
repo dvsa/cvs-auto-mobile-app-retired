@@ -3,13 +3,14 @@ package testtype.CVSB_695;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import steps.OdometerReadingSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class OdometerReading_CVSB_1179 extends BaseTestClass {
 

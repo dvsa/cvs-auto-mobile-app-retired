@@ -3,7 +3,7 @@ package vehicle.CVSB_183;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.SiteVisitSteps;
@@ -11,6 +11,7 @@ import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class VehicleSearch_CVSB_1154 extends BaseTestClass {
 
@@ -35,7 +36,6 @@ public class VehicleSearch_CVSB_1154 extends BaseTestClass {
         identifyVehicleSteps.typeInSearchField("678410");
         identifyVehicleSteps.checkSearchBoxAndText("678410");
         identifyVehicleSteps.pressSearch();
-        // identifyVehicleSteps.checkLoadingScreen();
         vehicleDetailsSteps.checkIfInDetailPageByPlate("BQ91 YHQ");
 
     }

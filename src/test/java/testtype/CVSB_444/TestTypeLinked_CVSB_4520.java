@@ -48,7 +48,7 @@ public class TestTypeLinked_CVSB_4520 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Annual Class 6A)")
     public void testListFromAddLinkedTestTypeAnnualClass6A() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Class 6A");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Class 6A", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();

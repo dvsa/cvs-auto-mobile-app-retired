@@ -4,13 +4,13 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestCodes_WEL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
 
@@ -49,9 +49,6 @@ public class TestCodes_WEL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
 
     @Steps
     TestReviewSteps testReviewSteps;
-
-
-
 
     @Title("CVSB-6937,CVSB-6939 and CVSB-6941- AC1,AC2 and AC3 - Codes added are reflected in the selection of test types, recorded against the test and reviewed")
     @Ignore
