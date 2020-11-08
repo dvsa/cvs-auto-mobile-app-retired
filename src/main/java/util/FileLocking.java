@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 public class FileLocking
 {
     private static final File file = new File("user_pool.txt");
@@ -23,6 +25,11 @@ public class FileLocking
                     System.out.println("ARRAY AFTER GET: " + Arrays.toString(queue.toArray()));
                     writeQueue(queue);
                 }
+            }
+            try {
+                sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
         while(username == null);
