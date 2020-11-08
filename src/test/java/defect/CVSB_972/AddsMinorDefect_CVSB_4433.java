@@ -42,7 +42,7 @@ public class AddsMinorDefect_CVSB_4433 extends BaseTestClass {
     @Test
     public void addsAMinorDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest");
+                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);

@@ -43,7 +43,7 @@ public class AddsMinorDefect_CVSB_4432 extends BaseTestClass {
     @Test
     public void addsAMinorDefect() {
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"Class 6A");
+                preparerService.getPreparerByIndex(0).getPreparerName(),"Class 6A", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();

@@ -75,7 +75,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeCategoryThatDoesNotContainOtherTestTypeCategories() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -104,7 +104,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongAnnual() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -118,7 +118,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongFirst() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -132,7 +132,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongTechnical() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -148,7 +148,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongRetest() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -164,7 +164,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongProhibition() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -180,7 +180,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Test
     public void testTypeDrillDownShortLongVoluntary() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486",super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
@@ -190,5 +190,4 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Voluntary brake test");
     }
-
 }

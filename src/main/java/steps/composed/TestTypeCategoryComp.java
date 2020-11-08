@@ -77,17 +77,18 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         preparerComp.goToSelectPreparerForASpecificVehicle(vehiclePartialVin, username);
     }
 
+    @Step
     public void goToTestPageBySelectingASpecificTrailer(String trailerPartialVin, String username) {
         preparerComp.goToSelectPreparerForASpecificTrailer(trailerPartialVin, username);
     }
 
-    @Step()
+    @Step
     public void completeAddTestType(String preparerId, String preparerName, String username) {
         goToTestType(preparerId, preparerName, username);
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
     }
 
-    @Step()
+    @Step
     public void completeAddTestType(String preparerId, String preparerName,String testType, String username) {
         goToTestType(preparerId, preparerName, username);
         testTypeCategorySteps.selectFromTestTypeList(testType);

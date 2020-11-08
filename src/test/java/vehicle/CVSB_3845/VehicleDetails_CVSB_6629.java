@@ -98,7 +98,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testHgvWeightsScreen() {
-        vehicleComp.goToVehicleDetails("012938");
+        vehicleComp.goToVehicleDetails("012938", super.username);
         hgvDetailsSteps.scrollTheDetailPage("VIN / Chassis number");
         hgvDetailsSteps.selectWeights();
         weightsSteps.checkFieldIsListed("AXLE 1");
@@ -120,7 +120,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Tyres Screen)")
     @Test
     public void testHgvTyresScreen() {
-        vehicleComp.goToVehicleDetails("012938");
+        vehicleComp.goToVehicleDetails("012938",super.username);
         hgvDetailsSteps.scrollTheDetailPage("VIN / Chassis number");
         hgvDetailsSteps.selectTyres();
         tyresSteps.checkDetailsOfAxle("AXLE 1", "9.23648E+11","AB", "single", "345", "1234");
@@ -134,7 +134,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6990 - AC 3 Action fields navigate to the correct pages (HGV Additional Vehicle Details Screen)")
     @Test
     public void testHgvAdditionalVehicleDetailsScreen() {
-        vehicleComp.goToVehicleDetails("012938");
+        vehicleComp.goToVehicleDetails("012938", super.username);
         hgvDetailsSteps.scrollTheDetailPage("VIN / Chassis number");
         hgvDetailsSteps.selectAdditionalVehicleDetails();
         additionalVehicleDetailsSteps.checkNtaNumberIs("123456");
