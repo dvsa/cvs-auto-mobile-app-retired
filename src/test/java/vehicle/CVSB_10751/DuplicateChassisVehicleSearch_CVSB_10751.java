@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -40,6 +41,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
+    @Ignore
     @Title("CVSB - 10751 - AC1 Single vehicle retrieved, access vehicle details")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSingleVehicleDetails(){
@@ -55,6 +57,7 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         identifyVehicleSteps.checkSearchBoxIsDisplayed();
     }
 
+    @Ignore
     @Title("CVSB - 10752 - AC2 Single vehicle retrieved - go back from vehicle details")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testGoBackToSingleVehicleList(){

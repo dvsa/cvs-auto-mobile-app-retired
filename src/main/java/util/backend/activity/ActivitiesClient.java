@@ -12,12 +12,6 @@ import static io.restassured.RestAssured.given;
 
 public class ActivitiesClient {
 
-    private String token;
-
-    public ActivitiesClient(String token){
-        this.token =token;
-    }
-
     public Response closeActivity(String id) {
 
         Response response = callPutActivities(id);
@@ -87,12 +81,12 @@ public class ActivitiesClient {
 
     private Response callPutActivities(String id) {
 
-        Response response = given().filters(new BasePathFilter(token))
-                .contentType(ContentType.JSON)
-                .pathParam("id", id)
-                .put("/activities/{id}/end");
+            Response response = given().filters(new BasePathFilter(token))
+                    .contentType(ContentType.JSON)
+                    .pathParam("id", id)
+                    .put("/activities/{id}/end");
 
-        return response;
+            return response;
     }
 
     private Response callGetActivities(String testerStaffId, String fromStartTime, String toStartTime) {

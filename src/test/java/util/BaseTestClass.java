@@ -34,7 +34,7 @@ public class BaseTestClass {
         logger.info("closing user's activity");
         username = new FileLocking().getUsernameFromQueue();
         token = new WriterReader(username).getToken();
-        new ActivityService(token).closeCurrentUserActivity();
+        new ActivityService.closeCurrentUserActivity(token);
     }
 
     @After
