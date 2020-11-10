@@ -3,12 +3,15 @@ package pages;
 
 import exceptions.AutomationException;
 import io.appium.java_client.ios.IOSDriver;
-import net.thucydides.core.webdriver.UnsupportedDriverException;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import util.TestHandler;
 import util.TypeLoader;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class LaunchPage extends BasePage {
@@ -22,42 +25,54 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage, String username) {
 
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("os_version", TypeLoader.getBsOSVersion());
+        caps.setCapability("device", TypeLoader.getBsDevice());
+        caps.setCapability("name", TypeLoader.getLocalName());
+        caps.setCapability("real_mobile", TypeLoader.getRealMobile());
+        caps.setCapability("browserstack.local", TypeLoader.getBsLocal());
+        caps.setCapability("browserstack.appium_version", TypeLoader.getBsAppiumVersion());
+        caps.setCapability("browserstack.video", TypeLoader.getBsVideoEnabled());
+        caps.setCapability("waitForQuiescence", TypeLoader.getWaitForQuiescence());
+        caps.setCapability("browserstack.timezone", TypeLoader.getBsTimeZone());
+        caps.setCapability("browserstack.idleTimeout", TypeLoader.getBsIdleTimeout());
+        caps.setCapability("browserstack.networkLogs", TypeLoader.getBsNetworkLogsEnabled());
+        caps.setCapability("app", TypeLoader.getBsAppId());
+        caps.setCapability("automationName", TypeLoader.getAutomationName());
+
+
         // Extra debug info to assist with tracking down issues.
         // This seems to be the area of highest incidental failure at present.
         WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
-        RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
+        RemoteWebDriver driver = null;
+        try {
+            driver = new RemoteWebDriver(new URL("https://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + "hub-cloud.browserstack.com" + "/wd/hub"), caps);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
         String sessionId = driver.getSessionId().toString();
         System.out.println("Session ID: " + sessionId);
 
         String password = TypeLoader.getAppPassword();
 
         if (!TestHandler.getInitializedStatus().get()) {
-            try {
-                try {
-                    loginPage.waitUsernamePageToLoad();
-                } catch (UnsupportedDriverException e) {
-                    loginPage.waitUsernamePageToLoad();
-                }
+
+                loginPage.waitUsernamePageToLoad();
                 loginPage.insertUserName(username);
                 loginPage.clickNext();
                 loginPage.waitPasswordPageToLoad();
                 loginPage.insertPassword(password);
                 loginPage.clickSignIn();
-                try {
-                    signaturePage.waitPageToLoad();
-                    signaturePage.createSignature();
-                    signaturePage.clickSaveButton();
-                    signaturePage.confirmSignature();
-                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-
-                } catch (TimeoutException e) {
-                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-                } catch (Exception e) {
-                    throw new AutomationException("Unable to start Signature service / access reference data. #1");
-                }
-            } catch (TimeoutException e) {
-                throw new AutomationException("Could not get to get started page (Session: " + sessionId + ")");
+            try {
+                signaturePage.waitPageToLoad();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            signaturePage.createSignature();
+                signaturePage.clickSaveButton();
+                signaturePage.confirmSignature();
+                shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
 
             if (!TestHandler.testTypeEnabledCached().get()) {
                 clickToEnableOrDisable();
