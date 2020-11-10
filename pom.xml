@@ -9,9 +9,16 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <junit.version>4.12</junit.version>
-        <serenity.version>2.0.20</serenity.version>
-        <sl4j.version>1.7.7</sl4j.version>
+        <junit.version>4.13.1</junit.version>
+        <serenity.version>2.3.8</serenity.version>
+        <sl4j.version>1.7.30</sl4j.version>
+        <javajwt.version>3.11.0</javajwt.version>
+        <assertj.version>3.18.0</assertj.version>
+        <jsonpath.version>2.4.0</jsonpath.version>
+        <mavenjarplugin.version>3.2.0</mavenjarplugin.version>
+        <mavensurefireplugin.version>2.22.2</mavensurefireplugin.version>
+        <mavenfailsafeplugin.version>2.22.2</mavenfailsafeplugin.version>
+        <mavencompilerplugin.version>3.8.1</mavencompilerplugin.version>
         <PARALLEL_TEST>1</PARALLEL_TEST>
     </properties>
 
@@ -39,7 +46,7 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>3.7.0</version>
+            <version>${javajwt.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -49,17 +56,17 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.11.1</version>
+            <version>${assertj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-            <version>3.1.0</version>
+            <version>${mavenjarplugin.version}</version>
         </dependency>
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
-            <version>2.4.0</version>
+            <version>${jsonpath.version}</version>
         </dependency>
         <dependency>
             <groupId>com.mashape.unirest</groupId>
@@ -85,7 +92,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>${mavensurefireplugin.version}</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
@@ -93,7 +100,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>${mavenfailsafeplugin.version}</version>
                 <configuration>
                     <includes>
                         <include>**/*.java</include>
@@ -136,7 +143,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>${mavencompilerplugin.version}</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
