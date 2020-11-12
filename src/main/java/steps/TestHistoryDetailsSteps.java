@@ -40,6 +40,7 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
 
     @Step
     public void pressBackButton() {
+        waitUntilPageIsLoaded();
         testHistoryDetailsPage.clickBackButton();
     }
 
