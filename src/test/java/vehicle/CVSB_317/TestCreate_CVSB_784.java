@@ -4,12 +4,12 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.VehicleComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestCreate_CVSB_784 extends BaseTestClass {
     @Steps
@@ -30,7 +30,7 @@ public class TestCreate_CVSB_784 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-317 - AC1 - Create a test")
     public void createATest() {
-        vehicleComp.goToSiteVisit();
+        vehicleComp.goToSiteVisit(super.username);
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectConfirmButtonTopRight();

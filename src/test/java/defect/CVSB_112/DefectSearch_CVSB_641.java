@@ -3,6 +3,7 @@ package defect.CVSB_112;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -10,6 +11,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class DefectSearch_CVSB_641 extends BaseTestClass {
 
@@ -32,7 +34,7 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     @Title("CVSB-112 AC1 Test cancel adding a level 1 defect category")
     @Test
     public void cancelAddingALevelOneDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");

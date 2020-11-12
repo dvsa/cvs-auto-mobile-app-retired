@@ -55,7 +55,7 @@ public class AnnualTestAndAdrLogic_CVSB_3951 extends BaseTestClass {
     @Title("CVSB-3951 - TCD - AC1 - Annual test has failed")
     @Test
     public void testListFromAddLinkedTestTypeAnnualPlusTechnical() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");

@@ -11,6 +11,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class ReviewTestSummary_2701 extends BaseTestClass {
 
@@ -44,7 +45,7 @@ public class ReviewTestSummary_2701 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-495 - AC1 - AC8 VSA goes to review screen (test types conducted non-mandatory fields not filled)")
     public void goToReviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

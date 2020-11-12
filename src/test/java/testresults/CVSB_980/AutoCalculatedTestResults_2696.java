@@ -52,7 +52,7 @@ public class AutoCalculatedTestResults_2696 extends BaseTestClass {
     @Title("CVSB_980 - AC1 - Fail criteria (At least 1 Major + no PRS)")
     @Test
     public void failCriticalOneMajorNoPRS() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();

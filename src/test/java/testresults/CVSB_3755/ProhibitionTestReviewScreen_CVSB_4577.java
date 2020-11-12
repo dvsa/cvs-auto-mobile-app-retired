@@ -12,6 +12,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
 
@@ -48,7 +49,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
     @Ignore("Rendered obsolete by CVSB-7936 ")
     @Title("CVSB_4572 - AC1- Prohibition field displayed on Test review screen at defect level (Technical Test)")
     public void testProhibitionFieldOnTestReviewScreenTechnicalTest() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

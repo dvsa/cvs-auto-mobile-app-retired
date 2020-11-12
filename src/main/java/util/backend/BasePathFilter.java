@@ -13,12 +13,17 @@ import static io.restassured.RestAssured.config;
 
 public class BasePathFilter implements Filter {
 
+    private String token;
+
+    public BasePathFilter(String token){
+        this.token=token;
+    }
 
     @Override
     public Response filter(FilterableRequestSpecification filterableRequestSpecification, FilterableResponseSpecification filterableResponseSpecification, FilterContext filterContext) {
 
         filterableRequestSpecification.given().baseUri(TypeLoader.getBasePathUrl()).config(config().sslConfig(new SSLConfig().relaxedHTTPSValidation()));
-        filterableRequestSpecification.header("Authorization", "Bearer " + WriterReader.getToken());
+        filterableRequestSpecification.header("Authorization", "Bearer " + token);
 
         return filterContext.next(filterableRequestSpecification, filterableResponseSpecification);
     }

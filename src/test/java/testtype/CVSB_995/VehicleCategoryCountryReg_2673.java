@@ -25,9 +25,8 @@ public class VehicleCategoryCountryReg_2673 extends BaseTestClass {
     @Title("CVSB-995 - AC2 - Access Country Of registration")
     @Test
     public void accessCountryOfRegistration() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
-        countryOfRegistrationSteps.checkAllCountriesAreDisplayed();
         countryOfRegistrationSteps.checkCountriesAreOrdered();
     }
 

@@ -53,7 +53,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedForLGV() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
@@ -146,7 +146,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedForCar() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250"); // CAR QW123RT
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250",super.username); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
@@ -212,7 +212,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedForMotorcycle() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789"); // MOTORCYCLE ZX345CV
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789",super.username); // MOTORCYCLE ZX345CV
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
@@ -279,7 +279,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testEUVehicleCategoryOptionsForMotorcycle() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789"); // MOTORCYCLE ZX345CV
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789",super.username); // MOTORCYCLE ZX345CV
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
@@ -298,7 +298,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testEUVehicleCategoryOptionsForCar() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250"); // CAR QW123RT
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250",super.username); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
@@ -317,7 +317,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testEUVehicleCategoryOptionsForLGV() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264"); // LGV AS23 4TY
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkLgvTestDetails("AS234TY", "P0123010951264");
@@ -336,7 +336,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testEUVehicleCategoryOptionsForHGV() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123"); // HGV CT70 VRL
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username); // HGV CT70 VRL
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");

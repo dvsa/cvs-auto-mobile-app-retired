@@ -11,6 +11,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class ReviewTestSummary_2705 extends BaseTestClass {
 
@@ -44,7 +45,7 @@ public class ReviewTestSummary_2705 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-495 - AC5 - Editing test type results and going back to the test review screen")
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

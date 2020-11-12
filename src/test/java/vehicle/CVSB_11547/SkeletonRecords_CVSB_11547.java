@@ -32,7 +32,7 @@ public class SkeletonRecords_CVSB_11547 extends BaseTestClass {
     @Title("CVSB-11547 - AC1 Single vehicle retrieved, skeleton record")
     @Test
     public void testSingleVehicleDetails_SkeletonRecord(){
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
@@ -50,7 +50,7 @@ public class SkeletonRecords_CVSB_11547 extends BaseTestClass {
     @Title("CVSB-11547 - AC2 Multiple vehicles retrieved, at least one skeleton record, CVSB-11547 - AC3 Multiple vehicles retrieved, access vehicle details")
     @Test
     public void testMultipleVehicleDetails_SkeletonRecord(){
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();

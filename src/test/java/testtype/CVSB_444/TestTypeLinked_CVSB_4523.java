@@ -4,13 +4,13 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeLinked_CVSB_4523 extends BaseTestClass {
 
@@ -47,7 +47,7 @@ public class TestTypeLinked_CVSB_4523 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-444 - TCD - AC1 As a VSA I would like to view only relevant linked tests so that I don't have to go through the full test type taxonomy (Paid Retest Class 6A)")
     public void testListFromAddLinkedTestTypePaidRetestClass6A() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest");
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Retest", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testSteps.selectVehicleCategoryOption();

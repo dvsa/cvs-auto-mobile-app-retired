@@ -7,7 +7,6 @@ import net.thucydides.core.webdriver.UnsupportedDriverException;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import util.BaseUtils;
 import util.TestHandler;
 import util.TypeLoader;
 
@@ -21,7 +20,7 @@ public class LaunchPage extends BasePage {
     private static final String SUBTITLE_1 = "Use this app to record PSV tests at";
     private static final String SUBTITLE_2 = "Authorised Testing Facilities (ATFs).";
 
-    public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage) {
+    public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage, String username) {
 
         // Extra debug info to assist with tracking down issues.
         // This seems to be the area of highest incidental failure at present.
@@ -30,6 +29,8 @@ public class LaunchPage extends BasePage {
         String sessionId = driver.getSessionId().toString();
         System.out.println("Session ID: " + sessionId);
 
+        String password = TypeLoader.getAppPassword();
+
         if (!TestHandler.getInitializedStatus().get()) {
             try {
                 try {
@@ -37,10 +38,10 @@ public class LaunchPage extends BasePage {
                 } catch (UnsupportedDriverException e) {
                     loginPage.waitUsernamePageToLoad();
                 }
-                loginPage.insertUserName(BaseUtils.getUserName());
+                loginPage.insertUserName(username);
                 loginPage.clickNext();
                 loginPage.waitPasswordPageToLoad();
-                loginPage.insertPassword(TypeLoader.getAppPassword());
+                loginPage.insertPassword(password);
                 loginPage.clickSignIn();
                 try {
                     signaturePage.waitPageToLoad();
@@ -57,7 +58,6 @@ public class LaunchPage extends BasePage {
             } catch (TimeoutException e) {
                 throw new AutomationException("Could not get to get started page (Session: " + sessionId + ")");
             }
-
 
             if (!TestHandler.testTypeEnabledCached().get()) {
                 clickToEnableOrDisable();
@@ -77,7 +77,7 @@ public class LaunchPage extends BasePage {
             } catch (TimeoutException e) {
                 try {
                     loginPage.shortestWaitUsernamePageToLoad();
-                    loginPage.insertUserName(BaseUtils.getUserName());
+                    loginPage.insertUserName(username);
                     loginPage.clickNext();
                     loginPage.waitPasswordPageToLoad();
                     loginPage.insertPassword(TypeLoader.getAppPassword());
@@ -89,12 +89,6 @@ public class LaunchPage extends BasePage {
                     shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
                 } catch (TimeoutException ex) {
                     throw new AutomationException("Could not get to get started page 2 ");
-//                    signaturePage.shortestWaitPageToLoad();
-//                    signaturePage.createSignature();
-//                    signaturePage.clickSaveButton();
-//                    signaturePage.confirmSignature();
-//                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-
                 } catch (Exception e2) {
                     throw new AutomationException("Unable to start Signature service / access reference data. #2");
                 }
@@ -107,10 +101,8 @@ public class LaunchPage extends BasePage {
                 clickToEnableOrDisable();
                 TestHandler.currentCacheDisabled().set(true);
             }
-
             findElementById(GET_STARTED_ID).click();
         }
-
     }
 
 
@@ -120,11 +112,8 @@ public class LaunchPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         int initial = 0;
         while (initial != 5) {
-
-
             try {
                 Thread.sleep(300);
                 initial++;

@@ -45,7 +45,7 @@ public class SubmitTest_CVSB_3079 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testLoadingIndicatorRemovedAfterConfirmationToSubmitTestResults() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");

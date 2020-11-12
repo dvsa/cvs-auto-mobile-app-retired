@@ -1,7 +1,6 @@
 package pages;
 
 import data.util.EmissionStandard;
-import util.EnvironmentType;
 import data.util.FuelType;
 import data.util.ModType;
 import org.openqa.selenium.By;
@@ -318,19 +317,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public boolean verifyMostRecentInstallationDate() {
-        EnvironmentType envType = TypeLoader.getType();
-        LocalDateTime ldt;
-        switch (envType) {
-            case LOCAL_SIMULATOR:
-                ldt = LocalDateTime.now();
-                break;
-            case LOCAL_REAL_DEVICE:
-                ldt = LocalDateTime.now(ZoneId.of(LoaderlLocalRealDeviceImpl.getTimezone()));
-                break;
-            default:
-                ldt = LocalDateTime.now(Clock.systemUTC());
-                break;
-        }
+        LocalDateTime ldt = LocalDateTime.now(Clock.systemUTC());
 
         Integer dayOfSystem = 1;
         if(ldt.getDayOfMonth() > 1) {

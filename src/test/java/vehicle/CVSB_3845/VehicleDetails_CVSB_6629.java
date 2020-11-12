@@ -49,7 +49,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6629 - AC1 - Trailer ID display")
     public void testTrailerIdDisplayed() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("T12341237");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("T12341237",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
@@ -59,7 +59,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6638 - AC2 VSA can see all fields listed (HGV)")
     @Test
     public void testAllDetailsHgv() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("GH389BH", "P012301012938");
@@ -79,7 +79,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6630 - AC2 VSA can see all fields listed (TRL)")
     @Test
     public void testAllDetailsTrl() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341237");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341237",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
@@ -98,7 +98,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testHgvWeightsScreen() {
-        vehicleComp.goToVehicleDetails("012938");
+        vehicleComp.goToVehicleDetails("012938", super.username);
         hgvDetailsSteps.scrollTheDetailPage("VIN / Chassis number");
         hgvDetailsSteps.selectWeights();
         weightsSteps.checkFieldIsListed("AXLE 1");
@@ -120,7 +120,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Tyres Screen)")
     @Test
     public void testHgvTyresScreen() {
-        vehicleComp.goToVehicleDetails("012938");
+        vehicleComp.goToVehicleDetails("012938",super.username);
         hgvDetailsSteps.scrollTheDetailPage("VIN / Chassis number");
         hgvDetailsSteps.selectTyres();
         tyresSteps.checkDetailsOfAxle("AXLE 1", "9.23648E+11","AB", "single", "345", "1234");
@@ -134,7 +134,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6990 - AC 3 Action fields navigate to the correct pages (HGV Additional Vehicle Details Screen)")
     @Test
     public void testHgvAdditionalVehicleDetailsScreen() {
-        vehicleComp.goToVehicleDetails("012938");
+        vehicleComp.goToVehicleDetails("012938", super.username);
         hgvDetailsSteps.scrollTheDetailPage("VIN / Chassis number");
         hgvDetailsSteps.selectAdditionalVehicleDetails();
         additionalVehicleDetailsSteps.checkNtaNumberIs("123456");
@@ -160,7 +160,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Test
     public void testTrlBrakesScreen() {
 
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341237");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341237",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
@@ -178,7 +178,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6641 - AC 3 Action fields navigate to the correct pages (TRL Weights Screen)")
     @Test
     public void testTrlWeightsScreen() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C000001", "T12341234");
@@ -198,7 +198,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6642 - AC 3 Action fields navigate to the correct pages (TRL Tyres Screen)")
     @Test
     public void testTrlTyresScreen() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C000001", "T12341234");
@@ -214,7 +214,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     @Title("CVSB-6990 - AC 3 Action fields navigate to the correct pages (HGV Additional Vehicle Details Screen)")
     @Test
     public void tesTrlAdditionalVehicleDetailsScreen() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C000001", "T12341234");

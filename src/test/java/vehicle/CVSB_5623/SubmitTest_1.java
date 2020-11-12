@@ -58,7 +58,7 @@ public class SubmitTest_1 extends BaseTestClass {
 
     @Test
     public void submitTestForASpecificVehicle() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle(searchVin);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle(searchVin,super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();

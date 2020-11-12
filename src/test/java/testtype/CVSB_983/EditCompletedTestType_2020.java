@@ -30,7 +30,7 @@ public class EditCompletedTestType_2020 extends BaseTestClass {
     @Title("CVSB-983 - AC2 - VSA edits details within the test type after saving")
     @Test
     public void testEditSavedDetails() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();

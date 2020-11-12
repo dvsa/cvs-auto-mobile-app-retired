@@ -71,7 +71,6 @@ public class SignaturePage extends BasePage {
         System.out.println("Waiting for Signature page to load...");
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
         waitForLoadingToFinish();
-        System.out.println(getDriver().getPageSource());
         System.out.println("- Signature page loaded.");
 
         // Check to see if there was an error shown (either caused by

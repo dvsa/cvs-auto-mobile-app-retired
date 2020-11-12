@@ -10,6 +10,7 @@ import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_686 extends BaseTestClass {
 
@@ -22,7 +23,7 @@ public class AtfSelect_CVSB_686 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-686 - Search field - Address")
     public void testSearchFieldAddress() {
-        launchSteps.clickGetStarted();
+        launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.searchForValidPNumberOrAddress(atfService.getAtfByIndex(3).getAtfName());
         searchForAnATFSteps.checkAddressAndPNumberIsFiltered(atfService.getUniqueIdentifier(3), atfService.getFirstLetter(3));
 

@@ -4,7 +4,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.CancelTestSteps;
 import steps.SiteVisitSteps;
@@ -12,6 +11,7 @@ import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
+@Ignore
 @RunWith(SerenityRunner.class)
 public class CancellationTest_CVSB_852 extends BaseTestClass {
     @Steps
@@ -29,7 +29,7 @@ public class CancellationTest_CVSB_852 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-852 - AC4 Return back to the Test overview screen")
     public void returnToTestOverviewScreen() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.pressBackButton();

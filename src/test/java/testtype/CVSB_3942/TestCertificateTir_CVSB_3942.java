@@ -53,7 +53,7 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
     public void testTestTypeTirDetailsHgv() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -123,7 +123,7 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
     public void testTestTypeTirDetailsTrl() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777777");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777777",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("C108802", "ABCDEFGH777777");

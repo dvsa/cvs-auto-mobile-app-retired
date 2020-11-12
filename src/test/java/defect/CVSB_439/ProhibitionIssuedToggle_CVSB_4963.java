@@ -44,7 +44,7 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
     @Title("CVSB-439 - AC1 - VSA confirms a prohibition have been issued against a dangerous defect (Prohibition Clearance test)")
     @Test
     public void testProhibitionIssuedProhibitionClearance() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
         testTypeSubcategorySteps.selectFromTestTypeList("PG9 retest");

@@ -27,7 +27,7 @@ public class OdometerReading_CVSB_1185 extends BaseTestClass {
     @Title("CVSB-695 - AC10/11 - Edit odometer reading after saving")
     @Test
     public void testEditAfterSaving() {
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName());
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("97000");
         odometerReadingSteps.pressEditUnit();

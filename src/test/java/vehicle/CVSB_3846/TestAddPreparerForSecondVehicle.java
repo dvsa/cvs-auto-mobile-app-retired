@@ -31,7 +31,7 @@ public class TestAddPreparerForSecondVehicle extends BaseTestClass {
     @Title("CVSB-5102 - AC1 - Pre-populating Preparer ID from the first vehicle submission (no Preparer ID added)")
     @Test
     public void testPreparerForTrailerToHgvNotPrePopulated() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
@@ -50,7 +50,7 @@ public class TestAddPreparerForSecondVehicle extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testPreparerForTrailerToHgvPrePopulated() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.searchForPreparerId("AK 44 34");
         preparerSteps.preparerIsFound("AK4434");
         preparerSteps.confirmInPopUp();
@@ -69,7 +69,7 @@ public class TestAddPreparerForSecondVehicle extends BaseTestClass {
     @Title("CVSB-5104 - AC2 - Removing the pre populated field and entering a separate Preparer ID")
     @Test
     public void testPreparerForTrailerToHgvReplacePrePopulated() {
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123");
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.searchForPreparerId("AK 44 34");
         preparerSteps.preparerIsFound("AK4434");
         preparerSteps.confirmInPopUp();

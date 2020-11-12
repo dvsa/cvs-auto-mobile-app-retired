@@ -27,7 +27,7 @@ public class VehicleChange_CVSB_755 extends BaseTestClass {
     @Title("CVSB-365 - AC3 - Change a vehicle after selecting a preparer")
     @Test()
     public void testChangeAVehicleAfterSelectingAPreparer() {
-        preparerComp.goToSelectPreparer();
+        preparerComp.goToSelectPreparer(super.username);
         preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
         testSteps.checkNoIdentifyVehicleOptionAvailable();
     }
