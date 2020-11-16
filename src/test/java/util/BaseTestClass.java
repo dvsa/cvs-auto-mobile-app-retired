@@ -20,8 +20,10 @@ public class BaseTestClass {
     protected AtfService atfService = new AtfService();
     protected PreparerService preparerService = new PreparerService();
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
+    protected TokenGenerator tokenGenerator = new TokenGenerator();
     protected String username;
     protected String token;
+
     @Steps
     UtilSteps utilSteps;
 
@@ -29,11 +31,11 @@ public class BaseTestClass {
     public WebDriver webDriver;
 
     @Before
-    public void initialise() {
+    public void initialise() throws Exception{
         utilSteps.resetAndQuitDriver();
         logger.info("closing user's activity");
         username = new FileLocking().getUsernameFromQueue();
-        token = new WriterReader(username).getToken();
+        token = tokenGenerator.getToken(username);
         new ActivityService().closeCurrentUserActivity(token);
     }
 
