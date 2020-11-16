@@ -36,6 +36,16 @@ public class TypeLoader {
         return properties.getProperty("app.password");
     }
 
+    public static String getAppTokenUrl() {
+
+        return properties.getProperty("app.token.url");
+    }
+
+    public static String getAppClientId() {
+
+        return properties.getProperty("app.client.id");
+    }
+
     public static String getBasePathUrl() {
 
         return properties.getProperty("base.path.url");
@@ -54,11 +64,6 @@ public class TypeLoader {
     public static String getBsOSVersion() {
 
         return properties.getProperty("browserstack.os.version");
-    }
-
-    public static String getMicrosoftonlineUrl() {
-
-        return properties.getProperty("microsoftonline.url");
     }
 
     public static String getBsDevice() {

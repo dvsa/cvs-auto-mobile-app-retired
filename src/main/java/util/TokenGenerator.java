@@ -1,25 +1,25 @@
 package util;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
 import exceptions.AutomationException;
 
 import java.io.*;
 
-public class WriterReader {
+public class TokenGenerator {
 
-    private String username;
-
-    public WriterReader(String username){
-        this.username=username;
+    public TokenGenerator(){
     }
 
-    public String getToken() {
+    public String getToken(String username) throws Exception {
 
         new FileLocking().deleteFileToken(username);
 
         FileUtils fileUtils;
         File file = new File(username + ".txt");
 
-        FileUtils p1 = new FileUtils(WebDriverBrowsertack.getToken(username));
+        FileUtils p1 = new FileUtils(getNewToken(username));
 
         try (FileOutputStream f = new FileOutputStream(new File(username + ".txt")); ObjectOutputStream o = new ObjectOutputStream(f)) {
 
@@ -46,7 +46,19 @@ public class WriterReader {
         return fileUtils.getToken();
     }
 
-    public static void main(String[] args) {
+    public String getNewToken(String username) throws Exception {
 
+        Unirest.setTimeouts(0, 0);
+        HttpResponse<JsonNode> jsonResponse  = Unirest.post(TypeLoader.getAppTokenUrl())
+                    .field("grant_type", "password")
+                    .field("client_id", TypeLoader.getAppClientId())
+                    .field("userName", username)
+                    .field("password", TypeLoader.getAppPassword())
+                    .field("resource", TypeLoader.getAppClientId())
+                    .asJson();
+
+        String token = jsonResponse.getBody().getObject().get("access_token").toString();
+
+        return token;
     }
 }
