@@ -7,7 +7,6 @@ import io.restassured.response.Response;
 import io.restassured.specification.FilterableRequestSpecification;
 import io.restassured.specification.FilterableResponseSpecification;
 import util.TypeLoader;
-import util.WriterReader;
 
 import static io.restassured.RestAssured.config;
 
