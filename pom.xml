@@ -19,6 +19,7 @@
         <mavensurefireplugin.version>2.22.2</mavensurefireplugin.version>
         <mavenfailsafeplugin.version>2.22.2</mavenfailsafeplugin.version>
         <mavencompilerplugin.version>3.8.1</mavencompilerplugin.version>
+        <unirest.version>1.4.9</unirest.version>
         <PARALLEL_TEST>1</PARALLEL_TEST>
     </properties>
 
@@ -71,7 +72,7 @@
         <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
-            <version>1.4.9</version>
+            <version>${unirest.version}</version>
         </dependency>
     </dependencies>
 
