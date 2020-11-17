@@ -12,11 +12,10 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import steps.util.UtilSteps;
-import util.backend.activity.ActivityService;
 
 public class BaseTestClass {
 
-    private static Logger logger = LoggerFactory.getLogger(BaseTestClass.class);
+    protected Logger logger = LoggerFactory.getLogger(super.getClass().getName());
     protected AtfService atfService = new AtfService();
     protected PreparerService preparerService = new PreparerService();
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();

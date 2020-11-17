@@ -16,8 +16,6 @@ public class TestHandler  {
         return currentCacheEnabled;
     }
 
-    public static AtomicBoolean testTypeEnabledCached() {
-        return enableFlag;
-    }
+    public static AtomicBoolean testTypeEnabledCached() { return enableFlag; }
 
 }

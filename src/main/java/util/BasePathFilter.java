@@ -1,4 +1,4 @@
-package util.backend;
+package util;
 
 import io.restassured.config.SSLConfig;
 import io.restassured.filter.Filter;

@@ -98,4 +98,9 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     public void goToTestPageBySelectingASpecificCar(String vehiclePartialVin, String username) {
         preparerComp.goToSelectPreparerForASpecificCar(vehiclePartialVin, username);
     }
+
+    @Step
+    public void waitUntilPageIsLoaded() {
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+    }
 }

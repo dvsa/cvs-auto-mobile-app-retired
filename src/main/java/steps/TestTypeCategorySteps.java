@@ -2,6 +2,7 @@ package steps;
 
 import exceptions.AutomationException;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -77,11 +78,17 @@ public class TestTypeCategorySteps extends ScenarioSteps {
 
     @Step
     public void selectFromTestTypeList(String testType) {
+        testTypeCategoryPage.waitUntilPageIsLoaded();
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
     }
 
     @Step
     public void goBackToTestOverview() {
         testTypeCategoryPage.selectCancel();
+    }
+
+    @Step
+    public void waitUntilPageIsLoaded() {
+        testTypeCategoryPage.waitUntilPageIsLoaded();
     }
 }
