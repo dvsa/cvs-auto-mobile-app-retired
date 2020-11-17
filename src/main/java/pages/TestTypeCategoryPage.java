@@ -7,11 +7,9 @@ import java.util.List;
 
 public class TestTypeCategoryPage extends BasePage {
 
-
     private static final String TEST_TYPE_PAGE_TITLE = "Test type";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String CANCEL_ID = "Cancel";
-
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_TYPE_PAGE_TITLE);
@@ -43,7 +41,8 @@ public class TestTypeCategoryPage extends BasePage {
     public void selectTestTypeFromListByXpath(String testType) {
         List<WebElement> webElementList = findElementsByXpath(PAGE_ALL_TEXT_XPATH);
         for (WebElement webElement : webElementList) {
-            if(webElement.getAttribute("name").equalsIgnoreCase(testType)) {
+            String text = webElement.getAttribute("name");
+            if(text.equalsIgnoreCase(testType)) {
                 webElement.click();
                 break;
             }

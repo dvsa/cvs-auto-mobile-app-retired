@@ -5,19 +5,13 @@ import net.thucydides.core.webdriver.DriverSource;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class DriverSourceImpl implements DriverSource {
 
-
     @Override
     public WebDriver newDriver() {
-
-        WebDriver webDriver = setupWebDriver(new LoaderBrowserstackLocalImpl());
-
-        return webDriver;
-
+        return setupWebDriver(new LoaderBrowserstackLocalImpl());
     }
 
     @Override
@@ -26,9 +20,7 @@ public class DriverSourceImpl implements DriverSource {
     }
 
     private WebDriver setupWebDriver(Loader loader) {
-
-        DesiredCapabilities caps = getDesireCapByImpl(loader);
-        return new IOSDriver<>(getUrl(loader), caps);
+        return new IOSDriver<>(getUrl(loader), getDesireCapByImpl(loader));
     }
 
 
@@ -37,14 +29,6 @@ public class DriverSourceImpl implements DriverSource {
     }
 
     private URL getUrl(Loader loader) {
-
-        URL url = null;
-        try {
-            url = loader.loadUrl();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return url;
+        return loader.loadUrl();
     }
-
 }

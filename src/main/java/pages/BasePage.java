@@ -68,6 +68,7 @@ public class BasePage extends PageObject {
     }
 
     protected List<WebElement> findElementsByXpath(String xpath) {
+
         return getDriver().findElements(By.xpath(xpath));
     }
 

@@ -69,7 +69,7 @@ public class SignaturePage extends BasePage {
 
     public void waitPageToLoad() throws Exception {
         System.out.println("Waiting for Signature page to load...");
-        waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_2_ID);
+        waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_ID);
         waitForLoadingToFinish();
         System.out.println("- Signature page loaded.");
 

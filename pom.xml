@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <junit.version>4.13.1</junit.version>
         <serenity.version>2.3.8</serenity.version>
         <sl4j.version>1.7.30</sl4j.version>
@@ -20,7 +22,7 @@
         <mavenfailsafeplugin.version>2.22.2</mavenfailsafeplugin.version>
         <mavencompilerplugin.version>3.8.1</mavencompilerplugin.version>
         <unirest.version>1.4.9</unirest.version>
-        <PARALLEL_TEST>1</PARALLEL_TEST>
+        <PARALLEL_TEST>9</PARALLEL_TEST>
     </properties>
 
     <dependencies>

@@ -10,9 +10,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import util.TestHandler;
 import util.TypeLoader;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 
 public class LaunchPage extends BasePage {
 
@@ -25,32 +22,10 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage, String username) {
 
-        DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("os_version", TypeLoader.getBsOSVersion());
-        caps.setCapability("device", TypeLoader.getBsDevice());
-        caps.setCapability("name", TypeLoader.getLocalName());
-        caps.setCapability("real_mobile", TypeLoader.getRealMobile());
-        caps.setCapability("browserstack.local", TypeLoader.getBsLocal());
-        caps.setCapability("browserstack.appium_version", TypeLoader.getBsAppiumVersion());
-        caps.setCapability("browserstack.video", TypeLoader.getBsVideoEnabled());
-        caps.setCapability("waitForQuiescence", TypeLoader.getWaitForQuiescence());
-        caps.setCapability("browserstack.timezone", TypeLoader.getBsTimeZone());
-        caps.setCapability("browserstack.idleTimeout", TypeLoader.getBsIdleTimeout());
-        caps.setCapability("browserstack.networkLogs", TypeLoader.getBsNetworkLogsEnabled());
-        caps.setCapability("app", TypeLoader.getBsAppId());
-        caps.setCapability("automationName", TypeLoader.getAutomationName());
-
-
         // Extra debug info to assist with tracking down issues.
         // This seems to be the area of highest incidental failure at present.
         WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
-        RemoteWebDriver driver = null;
-        try {
-            driver = new RemoteWebDriver(new URL("https://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + "hub-cloud.browserstack.com" + "/wd/hub"), caps);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
+        RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
         String sessionId = driver.getSessionId().toString();
         System.out.println("Session ID: " + sessionId);
 

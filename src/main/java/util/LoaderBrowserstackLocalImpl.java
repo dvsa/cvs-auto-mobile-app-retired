@@ -31,7 +31,13 @@ public class LoaderBrowserstackLocalImpl implements Loader {
     }
 
     @Override
-    public URL loadUrl() throws MalformedURLException {
-        return new URL("https://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + TypeLoader.getBsHostname() + "/wd/hub");
+    public URL loadUrl(){
+        URL url = null;
+        try {
+            url=new URL("https://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + TypeLoader.getBsHostname() + "/wd/hub");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
     }
 }
