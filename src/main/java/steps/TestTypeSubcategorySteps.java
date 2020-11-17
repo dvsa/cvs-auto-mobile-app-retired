@@ -65,7 +65,6 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     @Step
     public void selectFromTestTypeList(String testType) {
         testTypeSubcategoryPage.selectTestTypeFromListByXpath(testType);
-
     }
 
     @Step
