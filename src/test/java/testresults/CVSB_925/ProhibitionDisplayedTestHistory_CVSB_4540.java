@@ -70,14 +70,14 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
     @Title("CVSB-925 - TCD - AC1 - Prohibition displayed instead of result field on test history")
     @Test
     public void prohibitionDisplayedInsteadOfResultFieldOnTestHistory() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Annual test", super.username);
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), "", super.username);
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM2Option();
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("1");
         odometerReadingSteps.checkReadingValue("1");
         odometerReadingSteps.pressSave();
-        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
