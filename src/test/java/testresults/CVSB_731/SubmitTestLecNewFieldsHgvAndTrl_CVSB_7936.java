@@ -57,9 +57,13 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("35000");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("LEC");
         testTypeSubcategorySteps.selectFromTestTypeList("With linked test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");
@@ -71,6 +75,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testTypeDetailsSteps.setModeType(ModType.P);
         testTypeDetailsSteps.scrollTestTypeDetailsPage();
         testTypeDetailsSteps.setParticulateTrapFitted("some text");
+        testTypeDetailsSteps.scrollTestTypeDetailsPage();
         testTypeDetailsSteps.setParticulateTrapSerialNumber("23456");
         testTypeDetailsSteps.pressSave();
         testSteps.clickReviewAndSubmit();
@@ -136,8 +141,11 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
-        // testTypeSubcategorySteps.selectFromTestTypeList("With linked test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("LEC");
+        testTypeSubcategorySteps.selectFromTestTypeList("With linked test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Low Emissions Certificate (LEC) with annual test");

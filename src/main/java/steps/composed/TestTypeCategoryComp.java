@@ -43,7 +43,6 @@ public class TestTypeCategoryComp extends ScenarioSteps {
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
-        // identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         identifyVehicleSteps.searchForVehicle("678410");
         identifyVehicleSteps.checkVehicleNotFoundPopUpNotShown();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
