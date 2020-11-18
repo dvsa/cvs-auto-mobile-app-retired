@@ -1,8 +1,10 @@
 package pages;
 
 import exceptions.AutomationException;
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Iterator;
 import java.util.List;
@@ -156,6 +158,10 @@ public class DefectDetailsPage extends BasePage {
         findElementById(REMOVE_BUTTON_ID).click();
     }
 
+    public void waitElementToDisappear(String locator){
+        waitElementToDisappear(MobileBy.AccessibilityId(locator), 90, 200);
+    }
+
     public boolean isDefectRemovalPopUpVisible() {
         boolean status = false;
         WebElement cancelButton = findElementByXpath(POP_UP_CANCEL_XPATH);
@@ -204,7 +210,10 @@ public class DefectDetailsPage extends BasePage {
 
     public void selectOption(String option) {
         try {
-            findElementsByXpath("//*[@label='" + option + "']").get(1).click();
+            String locator = "//*[@label='" + option + "']";
+            findElementsByXpath(locator).get(1).click();
+            waitElementToDisappear(locator);
+
         } catch (NoSuchElementException e) {
             throw new AutomationException("The option chosen is not available!");
         }
@@ -212,11 +221,15 @@ public class DefectDetailsPage extends BasePage {
 
     public void selectValue(String value) {
         try {
-            findElementByXpath("//XCUIElementTypeButton[@name='" + value + "']").click();
+            String locator = "//XCUIElementTypeButton[@name='" + value + "']";
+            findElementByXpath(locator).click();
+
         } catch (NoSuchElementException e) {
             throw new AutomationException("The option chosen is not available!");
         }
     }
+
+
 
     public void selectOptionAndItsValue(Map<String, String> map) {
         Iterator it = map.entrySet().iterator();

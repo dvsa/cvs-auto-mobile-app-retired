@@ -103,7 +103,7 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        System.out.println("Waiting for page to load by ID, waiting for item: " + id);
+        System.out.println("Waiting for page to load by ID, waiting for item: " + id + getDriver().getPageSource());
         WebElement element = null;
         if (id.equals("Test review")) {
             element = waitUntilPageIsLoadedByEitherId(id, "Test");

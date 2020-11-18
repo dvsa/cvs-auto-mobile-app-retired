@@ -15,6 +15,11 @@ public class DefectDetailsSteps extends ScenarioSteps {
     DefectDetailsPage defectDetailsPage;
 
     @Step
+    public void waitUntilPageIsLoaded() {
+        defectDetailsPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
     public void checkAllElementsArePresent(String referenceNumber, String defectType, String defectName, String defectDescription) {
         defectDetailsPage.waitUntilPageIsLoaded();
         assertThat(defectDetailsPage.getDefectLabel().isDisplayed()).isTrue();
@@ -34,6 +39,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectOptionsAndTapAddDefect(Map<String, String> map) {
+        defectDetailsPage.waitUntilPageIsLoaded();
         defectDetailsPage.selectOptionAndItsValue(map);
         defectDetailsPage.clickDone();
     }
@@ -47,6 +53,27 @@ public class DefectDetailsSteps extends ScenarioSteps {
     public void checkReferenceNumberIs(String referenceNumber) {
         assertThat(defectDetailsPage.getReferenceNumber().equalsIgnoreCase(referenceNumber));
     }
+
+    @Step
+    public void selectVerticalValue(String vertical) {
+        defectDetailsPage.selectVerticalValue(vertical);
+    }
+
+    @Step
+    public void selectLateralValue(String lateral) {
+        defectDetailsPage.selectLateralValue(lateral);
+    }
+
+    @Step
+    public void selectSeatNumberValue(String seatNumber) {
+        defectDetailsPage.selectSeatNumberValue(seatNumber);
+    }
+
+    @Step
+    public void selectRowNumberValue(String id) {
+        defectDetailsPage.selectRowNumberValue(id);
+    }
+
 
     @Step
     public void setDefectName(String defectName) {
