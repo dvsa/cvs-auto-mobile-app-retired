@@ -24,7 +24,6 @@ public class FileLocking
                 List<String> items= Stream.of(TypeLoader.getAppUsername().split(","))
                         .map(String::trim)
                         .collect(toList());
-
                 bw.write(String.join(",", items.subList(0, min(items.size(),TypeLoader.getNumberConcurrentJob()))));
                 bw.close();
             } catch (Exception e) {

@@ -25,6 +25,8 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         caps.setCapability("browserstack.networkLogs", TypeLoader.getBsNetworkLogsEnabled());
         caps.setCapability("app", TypeLoader.getBsAppId());
         caps.setCapability("automationName", TypeLoader.getAutomationName());
+        caps.setCapability("project", TypeLoader.getBsProjectName());
+        caps.setCapability("build", TypeLoader.getBsBuildName());
 
         return caps;
 
