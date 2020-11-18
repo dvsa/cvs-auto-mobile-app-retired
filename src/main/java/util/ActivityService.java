@@ -2,7 +2,6 @@ package util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import exceptions.AutomationException;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -44,10 +43,8 @@ public class ActivityService {
                 .log().method().log().uri()
                 .get("/activities/details");
 
-        if (!response.getBody().asString().contains("No resources match the search criteria") && response.getStatusCode()!= 403) {
+        if (!response.getBody().asString().contains("No resources match the search criteria")) {
             activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
-        } else {
-            throw new AutomationException("Activity service not working as expected");
         }
 
         return activityIds;
