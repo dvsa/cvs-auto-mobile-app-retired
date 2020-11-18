@@ -96,6 +96,16 @@ public class TypeLoader {
         return properties.getProperty("browserstack.video.enabled");
     }
 
+    public static String getBsProjectName() {
+
+        return properties.getProperty("browserstack.project.name");
+    }
+
+    public static String getBsBuildName() {
+
+        return properties.getProperty("browserstack.build.name");
+    }
+
     public static String getWaitForQuiescence() {
 
         return properties.getProperty("waitForQuiescence");
@@ -135,4 +145,6 @@ public class TypeLoader {
 
         return Integer.parseInt(properties.getProperty("parallel.consumers"));
     }
+
+
 }
