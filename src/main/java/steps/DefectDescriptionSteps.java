@@ -25,7 +25,6 @@ public class DefectDescriptionSteps extends ScenarioSteps {
         defectDescriptionPage.selectById(defectId);
     }
 
-
     @Step
     public void checkPageIsLoaded() {
         defectDescriptionPage.waitUntilPageIsLoaded();
