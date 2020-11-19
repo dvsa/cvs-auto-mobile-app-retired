@@ -212,7 +212,7 @@ public class EUVehicleCategoryPage extends BasePage{
         for (WebElement button : buttonList) {
             // shortWaitUntilPageIsLoadedByIdAndClickable(button.getAttribute("name"));
             if (button.getAttribute("name").contains(option)) {
-                System.out.println("Clicking on Option: " + button.getAttribute("name"));
+                logger.info("Clicking on Option: " + button.getAttribute("name"));
                 button.click();
                 break;
             }

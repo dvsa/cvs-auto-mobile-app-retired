@@ -78,7 +78,7 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String EMISSION_DETAILS = "EMISSION DETAILS";
 
     public boolean checkIfNotesFieldsArePresent() {
-        System.out.println("Checking if Notes fields are present...");
+        logger.info("Checking if Notes fields are present...");
         return (findElementByAccessibilityId(NOTES_LABEL) != null) &&
                 (findElementByAccessibilityId(NOTES_FIELD_PROMPT) != null) &&
                 (findElementByAccessibilityId(NOTES_INFO) != null);
@@ -211,9 +211,9 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void clickSaveButton() {
-        System.out.println("Saving...");
+        logger.info("Saving...");
         findElementById(SAVE_BUTTON_ID).click();
-        System.out.println("- Clicked on Save");
+        logger.info("- Clicked on Save");
     }
 
     public void clickTechnicalTestEdited() {
@@ -500,22 +500,22 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void sendCertificateNumber(String certificateNumber) {
-        System.out.println("Setting Certificate Number to " + certificateNumber);
+        logger.info("Setting Certificate Number to " + certificateNumber);
         WebElement inputField = findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH);
         inputField.clear();
         inputField.sendKeys(certificateNumber);
-        System.out.println("- Set");
+        logger.info("- Set");
     }
 
     public void setExpiryDateToToday() {
-        System.out.println("Setting Expiry Date to today");
+        logger.info("Setting Expiry Date to today");
         findElementByAccessibilityId("Enter").click();
         findElementByAccessibilityId(EXPIRY_DATE_DONE_BUTTON_ID).click();
-        System.out.println("- Set.");
+        logger.info("- Set.");
     }
 
     public String getCertificateNumber() {
-        System.out.println("Retrieving Certificate Number...");
+        logger.info("Retrieving Certificate Number...");
         clickTechnicalTestEdited();
         return findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH).getText();
     }
@@ -733,12 +733,12 @@ public class TestTypeDetailsPage extends BasePage {
         String emissionType;
         for (EmissionStandard emissionStandard : EmissionStandard.values()) {
             emissionType = emissionStandard.getDescription();
-            System.out.println("Looking for Emission Standard: " + emissionType);
+            logger.info("Looking for Emission Standard: " + emissionType);
             try {
                 findElementById(emissionType).isDisplayed();
-                System.out.println("Found: " + emissionType);
+                logger.info("Found: " + emissionType);
             } catch (Exception e) {
-                System.out.println("- NOT Found: " + emissionType);
+                logger.info("- NOT Found: " + emissionType);
                 return false;
             }
         }
@@ -750,12 +750,12 @@ public class TestTypeDetailsPage extends BasePage {
         String fuelTypeName;
         for (FuelType fuelType : FuelType.values()) {
             fuelTypeName = fuelType.getName();
-            System.out.println("Looking for Fuel Type: " + fuelTypeName);
+            logger.info("Looking for Fuel Type: " + fuelTypeName);
             try {
                 findElementById(fuelTypeName).isDisplayed();
-                System.out.println("Found: " + fuelTypeName);
+                logger.info("Found: " + fuelTypeName);
             } catch (Exception e) {
-                System.out.println("- NOT Found: " + fuelTypeName);
+                logger.info("- NOT Found: " + fuelTypeName);
                 return false;
             }
         }

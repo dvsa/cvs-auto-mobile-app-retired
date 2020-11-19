@@ -115,12 +115,12 @@ public class TestPage extends BasePage {
             if (button.getAttribute("name").contains(vehicle)) {
                 int index = buttonList.indexOf(button) + 1;
                 do {
-                    System.out.println("button: " + buttonList.get(index).getAttribute("name"));
+                    logger.info("button: " + buttonList.get(index).getAttribute("name"));
                     index++;
                 }
                 while (!(buttonList.get(index).getAttribute("name").contains("Add a test type")) && (index < buttonList.size()));
                 for (WebElement we : buttonList.subList(buttonList.indexOf(button) + 1, index + 1)) {
-                    System.out.println("element of list is: " + we.getAttribute("name"));
+                    logger.info("element of list is: " + we.getAttribute("name"));
                 }
                 return buttonList.subList(buttonList.indexOf(button) + 1, index + 1);
             }
@@ -189,9 +189,9 @@ public class TestPage extends BasePage {
                 id = testType + " " + testTypeStatus.getValue() + " arrow forward";
                 break;
         }
-        System.out.println("Clicking on: " + id);
+        logger.info("Clicking on: " + id);
         findElementById(id).click();
-        System.out.println("- Done");
+        logger.info("- Done");
     }
 
     public boolean isPageTitleDisplayed() {
@@ -211,22 +211,22 @@ public class TestPage extends BasePage {
     }
 
     public boolean isHgvRegistrationPlateDisplayed(String regPlate, String vin) {
-        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']");
+        logger.info("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']");
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (HGV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isCarRegistrationPlateDisplayed(String regPlate, String vin) {
-        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (Car) " + vin + " Details arrow forward']");
+        logger.info("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (Car) " + vin + " Details arrow forward']");
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (Car) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isLGVRegistrationPlateDisplayed(String regPlate, String vin) {
-        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (LGV) " + vin + " Details arrow forward']");
+        logger.info("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (LGV) " + vin + " Details arrow forward']");
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (LGV) " + vin + " Details arrow forward']").isDisplayed();
     }
 
     public boolean isMotorcycleRegistrationPlateDisplayed(String regPlate, String vin) {
-        System.out.println("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (Motorcycle) " + vin + " Details arrow forward']");
+        logger.info("looking for: " + "//XCUIElementTypeButton[@name='" + regPlate + " (Motorcycle) " + vin + " Details arrow forward']");
         return findElementByXpath("//XCUIElementTypeButton[@name='" + regPlate + " (Motorcycle) " + vin + " Details arrow forward']").isDisplayed();
     }
 
@@ -271,9 +271,9 @@ public class TestPage extends BasePage {
                 break;
         }
 
-        System.out.println("Checking for presence of: " + id);
+        logger.info("Checking for presence of: " + id);
         isDisplayed = findElementById(id).isDisplayed();
-        System.out.println("- " + (isDisplayed ? "True" : "False"));
+        logger.info("- " + (isDisplayed ? "True" : "False"));
         return isDisplayed;
     }
 

@@ -3,6 +3,8 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.assertj.core.api.AssertionsForClassTypes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.TestHistoryDetailsPage;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -11,6 +13,8 @@ import static java.time.LocalDate.now;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestHistoryDetailsSteps extends ScenarioSteps {
+
+    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     TestHistoryDetailsPage testHistoryDetailsPage;
 
@@ -28,9 +32,9 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
         LocalDate expiryDateCalculated = LocalDate.parse(expiryDate, formatter);
         LocalDate expiryDateExpected = now().plusYears(1).minusDays(1);
 
-        System.out.println("Comparing found expiry date to expected...");
+        logger.info("Comparing found expiry date to expected...");
         assertThat(expiryDateExpected.compareTo(expiryDateCalculated)).isEqualTo(0);
-        System.out.println("- OK");
+        logger.info("- OK");
     }
 
     @Step

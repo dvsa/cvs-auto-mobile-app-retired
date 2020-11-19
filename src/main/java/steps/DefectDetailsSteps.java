@@ -3,6 +3,8 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.DefectDetailsPage;
 
 import java.util.HashMap;
@@ -11,6 +13,8 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DefectDetailsSteps extends ScenarioSteps {
+
+    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     DefectDetailsPage defectDetailsPage;
 
@@ -187,7 +191,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void checkSectionHeadingIsShown(String section) {
         boolean isDisplayed = true;
-        System.out.println("Checking for heading: " + section);
+        logger.info("Checking for heading: " + section);
         if (!defectDetailsPage.isStaticTextDisplayed(section)) {
             isDisplayed = false;
         }

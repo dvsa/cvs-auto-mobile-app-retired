@@ -120,9 +120,9 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void clickDone() {
-        System.out.println("Clicking on button: " + DONE_BUTTON_ID);
+        logger.info("Clicking on button: " + DONE_BUTTON_ID);
         findElementById(DONE_BUTTON_ID).click();
-        System.out.println("Found");
+        logger.info("Found");
     }
 
     public void enablePRS() {

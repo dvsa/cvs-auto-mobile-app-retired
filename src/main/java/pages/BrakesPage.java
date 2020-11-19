@@ -77,16 +77,16 @@ public class BrakesPage extends BasePage {
         for(WebElement element : webElementList){
             if(element.getAttribute("name").equals(axle)){
                 WebElement springBrakeParking = webElementList.get(webElementList.indexOf(element)+fieldOffset);
-                System.out.println("Searching for attribute '" + expectedName + "' for axle: " + axle);
+                logger.info("Searching for attribute '" + expectedName + "' for axle: " + axle);
 
                 String foundName = springBrakeParking.getAttribute("name");
-                System.out.println("Found: " + foundName);
+                logger.info("Found: " + foundName);
                 assert (foundName.equals(expectedName));
 
                 return springBrakeParking;
             }
         }
-        System.out.println("- NOT found");
+        logger.info("- NOT found");
         return null;
     }
 
@@ -100,15 +100,15 @@ public class BrakesPage extends BasePage {
 
     private WebElement getBrakeAttribute(String requiredAttribute) {
 
-        System.out.println("Searching for attribute: " + requiredAttribute);
+        logger.info("Searching for attribute: " + requiredAttribute);
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
         for(WebElement element : webElementList){
             if(element.getAttribute("name").equals(requiredAttribute)) {
-                System.out.println("Found");
+                logger.info("Found");
                 return element;
             }
         }
-        System.out.println("- NOT found");
+        logger.info("- NOT found");
         return null;
     }
 }

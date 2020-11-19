@@ -27,7 +27,7 @@ public class TestHistoryDetailsPage extends BasePage {
     }
 
     public void clickBackButton() {
-        System.out.println("Clicking the Back button...");
+        logger.info("Clicking the Back button...");
         findElementByXpath(BACK_BUTTON_XPATH).click();
     }
 
@@ -41,7 +41,7 @@ public class TestHistoryDetailsPage extends BasePage {
 
         for (int i = 0; i < webElementList.size(); i++) {
             attribute = webElementList.get(i).getAttribute("name");
-            System.out.println("Attribute: " + attribute);
+            logger.info("Attribute: " + attribute);
             if (attribute.equalsIgnoreCase(dataSetStartText)) {
                 startIndex = i;
                 addingData = true;

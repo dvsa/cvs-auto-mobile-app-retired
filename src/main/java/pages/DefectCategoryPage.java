@@ -67,13 +67,13 @@ public class DefectCategoryPage extends BasePage {
 
     public boolean areAllDefectsDisplayed(String[] defectList) {
         for(String defect: defectList) {
-            System.out.println("Checking defect: " + defect + "...");
+            logger.info("Checking defect: " + defect + "...");
             List<WebElement> webElements = findElementsByXpath("//*[contains(@name, '" + defect + "')]");
             if(webElements.size()<1){
-                System.out.println("Defect " + defect + " was not found !!\n");
+                logger.info("Defect " + defect + " was not found !!\n");
                 return false;
             }
-            System.out.println("found\n");
+            logger.info("found\n");
         }
         return true;
     }

@@ -2,6 +2,8 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.TestTypeDetailsPage;
 import data.util.EmissionStandard;
 import data.util.FuelType;
@@ -9,6 +11,8 @@ import data.util.ModType;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TestTypeDetailsSteps extends ScenarioSteps {
+
+    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     TestTypeDetailsPage testTypeDetailsPage;
 
@@ -506,7 +510,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
         String[] stringArray = notes.split(" ");
         boolean isDisplayed = true;
         for (String string : stringArray) {
-            System.out.println("string: " + string);
+            logger.info("string: " + string);
             if (!testTypeDetailsPage.isStaticTextDisplayed(string)) {
                 isDisplayed = false;
             }
@@ -517,7 +521,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void checkSectionHeadingIsShown(String section) {
         boolean isDisplayed = true;
-        System.out.println("Checking for heading: " + section);
+        logger.info("Checking for heading: " + section);
         if (!testTypeDetailsPage.isStaticTextDisplayed(section)) {
             isDisplayed = false;
         }

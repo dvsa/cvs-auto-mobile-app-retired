@@ -43,8 +43,8 @@ public class TyresPage extends BasePage {
         for(WebElement element : webElements){
             if(element.getAttribute("name").equals(axle)){
                 indexOfAxle = webElements.indexOf(element);
-                System.out.println("axle: " + axle);
-        System.out.println("Data of " + axle + ": " + webElements.subList(indexOfAxle,indexOfAxle + 10));
+                logger.info("axle: " + axle);
+        logger.info("Data of " + axle + ": " + webElements.subList(indexOfAxle,indexOfAxle + 10));
         return webElements.subList(indexOfAxle+2,indexOfAxle + 11);
             }
         }

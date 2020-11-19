@@ -46,7 +46,7 @@ public class SelectVehiclePage extends BasePage {
     }
 
     public boolean isIncompleteRecordPopupShown() {
-        System.out.println("Checking if the 'Incomplete Record' popup is shown...");
+        logger.info("Checking if the 'Incomplete Record' popup is shown...");
         boolean status = false;
         boolean isException = false;
         WebElement okButton = null;
@@ -67,7 +67,7 @@ public class SelectVehiclePage extends BasePage {
 
         if (!isException) {
             if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
-                System.out.println("- Popup found.");
+                logger.info("- Popup found.");
                 status = true;
             }
         }
@@ -102,7 +102,7 @@ public class SelectVehiclePage extends BasePage {
 
     public void clickOnVehicle(String make, String year, String model){
         String searchString = make + " " + year + " , " + model;
-        System.out.println("Selecting vehicle: " + searchString);
+        logger.info("Selecting vehicle: " + searchString);
         findElementByXpath("//XCUIElementTypeButton[@name=\""+searchString+"\"]").click();
     }
 

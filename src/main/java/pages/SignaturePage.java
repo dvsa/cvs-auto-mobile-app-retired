@@ -28,7 +28,7 @@ public class SignaturePage extends BasePage {
        logger.info("Saving signature...");
         WebElement we = findElementByAccessibilityId(SAVE_BUTTON_ID);
         tapByCoordinates(700, 20);
-       logger.info("- Signature saved.");
+       logger.info("Signature saved.");
     }
 
     public boolean checkSignatureTitleIsDisplayed() {
@@ -50,7 +50,7 @@ public class SignaturePage extends BasePage {
 //        longWaitUntilPageIsLoadedByIdAndClickable(SAVE_BUTTON_ID);
        logger.info("Creating signature...");
         tapByCoordinates(50, 100);
-       logger.info("- Signed.");
+       logger.info("Signed.");
     }
 
     public boolean isErrorMessageDisplayed() {

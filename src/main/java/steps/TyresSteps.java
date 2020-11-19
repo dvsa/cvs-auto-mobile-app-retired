@@ -3,6 +3,8 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.TyresPage;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TyresSteps extends ScenarioSteps {
+
+    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     TyresPage tyresPage;
 
@@ -26,11 +30,11 @@ public class TyresSteps extends ScenarioSteps {
         tyresPage.waitUntilPageIsLoaded();
         List<WebElement> axleData = tyresPage.getAxleData(axle);
         List<WebElement> extractedValues = axleData.stream().filter(detail -> axleData.indexOf(detail)%2==0).collect(Collectors.toList());
-        System.out.println("AXLE: " + axle);
-        System.out.println("List of axleData: " + axleData);
-        System.out.println("details: " + Arrays.asList(details));
+        logger.info("AXLE: " + axle);
+        logger.info("List of axleData: " + axleData);
+        logger.info("details: " + Arrays.asList(details));
         List<String> valuesToString = extractedValues.stream().map(value -> value.getAttribute("name")).collect(Collectors.toList());
-        System.out.println("extracted values: " + valuesToString);
+        logger.info("extracted values: " + valuesToString);
             assertThat(Arrays.asList(details).equals(valuesToString)).isTrue();
     }
 

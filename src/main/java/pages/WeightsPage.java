@@ -43,31 +43,31 @@ public class WeightsPage extends BasePage {
         for (WebElement webElement : webElementList) {
             String elementName = webElement.getAttribute("name");
             if(elementName.equals(category)){
-                System.out.println("Category: " + category);
+                logger.info("Category: " + category);
                 String gbValue;
                 String designValue;
                 try {
                     gbValue = webElementList.get(webElementList.indexOf(webElement) + 2).getAttribute("name");
-                    System.out.println("gbValue: " + gbValue);
+                    logger.info("gbValue: " + gbValue);
                 }
                 catch (IndexOutOfBoundsException e){
                     gbValue = null;
-                    System.out.println("I was here");
+                    logger.info("I was here");
                 }
 
                 try {
                     designValue = webElementList.get(webElementList.indexOf(webElement) +4).getAttribute("name");
-                    System.out.println("designValue: " + designValue);
+                    logger.info("designValue: " + designValue);
                 }
                 catch (IndexOutOfBoundsException e){
                     designValue = null;
-                    System.out.println("I was here as well");
+                    logger.info("I was here as well");
                 }
                 mapOfData.put("GB" , isNumeric(gbValue) ? gbValue : "0");
                 mapOfData.put("Design" , isNumeric(designValue) ? designValue : "0");
             }
         }
-        System.out.println("All mapped data: " + mapOfData.values());
+        logger.info("All mapped data: " + mapOfData.values());
         return mapOfData;
     }
 

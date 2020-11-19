@@ -30,7 +30,7 @@ public class BasePage extends PageObject {
     Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
     
     private void showElementError(String element) {
-        logger.info("- Element not found (" + element + ")");
+        logger.info("Element not found(" + element + ")");
     }
 
     protected WebElement findElementByAccessibilityId(String idOrName) {
@@ -122,14 +122,14 @@ public class BasePage extends PageObject {
         else {
             element = waitUntilPageIsLoadedByElement(By.id(id), 200, 200);
         }
-        logger.info("- Loaded.");
+        logger.info("Loaded.");
         return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
         logger.info("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
         WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 200, 200);
-        logger.info("- Loaded.");
+        logger.info("Loaded.");
         return element;
     }
 
@@ -141,28 +141,28 @@ public class BasePage extends PageObject {
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (long) for page to be loaded, based on clickable element: " + id);
         WebElement element = waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
-        logger.info("- Loaded.");
+        logger.info("Loaded.");
         return element;
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (short) for page to be loaded, based on clickable element: " + id);
         WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 200, 400);
-        logger.info("- Loaded.");
+        logger.info("Loaded.");
         return element;
     }
 
     protected WebElement shortestWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (shortest) for page to be loaded, based on clickable element: " + id);
         WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 200, 400);
-        logger.info("- Loaded.");
+        logger.info("Loaded.");
         return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
         logger.info("Waiting for page to be loaded, based on xPath: " + xPath);
         WebElement element = waitUntilPageIsLoadedByElement(By.xpath(xPath), 200, 200);
-        logger.info("- Loaded.");
+        logger.info("Loaded.");
         return element;
     }
 
@@ -266,9 +266,9 @@ public class BasePage extends PageObject {
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
-        logger.info("- Page loaded.");
+        logger.info("Page loaded.");
 
-        logger.info("- Verifying element is present...");
+        logger.info("Verifying element is present...");
         WebElement element = null;
         try {
             element = getDriver().findElement(locator);
@@ -318,7 +318,7 @@ public class BasePage extends PageObject {
     public String getStatusBarTime() {
         logger.info("Getting Time from status bar");
         String time = findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
-        logger.info("- " + time);
+        logger.info(time);
         return time;
     }
 
@@ -348,15 +348,15 @@ public class BasePage extends PageObject {
         for(WebElement e : webElementList){
             if(e.getAttribute("name").equals(element)){
                 if (webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value)) {
-                    logger.info("- Value matches.");
+                    logger.info("Value matches.");
                     return true;
                 } else {
-                    logger.info("- Value mismatch.");
+                    logger.info("Value mismatch.");
                     return false;
                 }
             }
         }
-        logger.info("- Element not found.");
+        logger.info("Element not found.");
         return false;
     }
 
@@ -367,11 +367,11 @@ public class BasePage extends PageObject {
         for(WebElement e : webElementList){
             if(e.getAttribute("name").equals(element)){
                 elementValue = webElementList.get(webElementList.indexOf(e)+1).getAttribute("value");
-                logger.info("- Value found: " + elementValue);
+                logger.info("Value found: " + elementValue);
                 return elementValue;
             }
         }
-        logger.info("- Element not found.");
+        logger.info("Element not found.");
         return elementValue;
     }
 
@@ -395,7 +395,7 @@ public class BasePage extends PageObject {
         logger.info("Clicking on: " + element.getText());
         try {
             element.click();
-            logger.info("- Clicked.");
+            logger.info("Clicked.");
         } catch (ElementNotFoundException exception) {
             showElementError(element.getText());
         }

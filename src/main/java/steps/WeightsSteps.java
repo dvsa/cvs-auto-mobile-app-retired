@@ -2,6 +2,8 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.WeightsPage;
 
 import java.util.HashMap;
@@ -10,6 +12,8 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WeightsSteps extends ScenarioSteps {
+
+    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     WeightsPage weightsPage;
 
@@ -32,8 +36,8 @@ public class WeightsSteps extends ScenarioSteps {
     public void checkContentCategories(String categoryItem, String gbValue, String designValue) {
         weightsPage.waitUntilPageIsLoaded();
         HashMap<String, String> data = weightsPage.getDataSetCategory(categoryItem);
-        System.out.println("GB: " + data.get("GB") + " compared to: " + gbValue);
-        System.out.println("GB: " + data.get("Design" + " compared to: " + designValue));
+        logger.info("GB: " + data.get("GB") + " compared to: " + gbValue);
+        logger.info("GB: " + data.get("Design" + " compared to: " + designValue));
         assertThat(data.get("GB").equals(gbValue) && data.get("Design").equals(designValue)).isTrue();
     }
 

@@ -84,7 +84,6 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     @Step
     public void checkVehicleNotFoundPopUpNotShown() {
-        System.out.println("Verifying that the 'Vehicle not found' popup is NOT displayed...");
         identifyVehiclePage.waitForLoadingToEnd();
         assertThat(identifyVehiclePage.isVehicleNotFoundPopUpDisplayed()).isFalse();
     }
