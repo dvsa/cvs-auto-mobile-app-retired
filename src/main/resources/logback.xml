@@ -4,7 +4,7 @@
         <file>C:/logs/mdc.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
-                %X{id}, [%thread], %-5level %logger{36} - %msg%n
+                %X{id}, %-5level - %msg%n
             </Pattern>
         </encoder>
     </appender>

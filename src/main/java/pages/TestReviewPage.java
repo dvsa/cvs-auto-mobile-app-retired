@@ -55,7 +55,7 @@ public class TestReviewPage extends BasePage {
         if (numberOfElements == 1) {
             try {
                 status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
-                System.out.println("- Found (Displayed: " + status + ")");
+                System.out.println("Found (Displayed: " + status + ")");
             } catch (ElementNotVisibleException e) {
                 status = false;
                 System.out.println("Element was found but is not visible");
@@ -64,7 +64,7 @@ public class TestReviewPage extends BasePage {
         if (numberOfElements > 1) {
             try {
                 status = findElementByXpath("//*[@name=\"" + element + "\"][@visible=\"true\"]").isDisplayed();
-                System.out.println("- Found (Displayed: " + status + ")");
+                System.out.println("Found (Displayed: " + status + ")");
             } catch (ElementNotVisibleException e) {
                 status = false;
                 System.out.println("Element was found but is not visible");
@@ -85,7 +85,7 @@ public class TestReviewPage extends BasePage {
         System.out.println("Checking if element is displayed: " + CHANGE_DETAILS_BUTTON_ID);
         try {
             status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
-            System.out.println("- Found");
+            System.out.println("Found");
         } catch (NoSuchElementException e) {
             status = false;
             System.out.println("- NOT found");

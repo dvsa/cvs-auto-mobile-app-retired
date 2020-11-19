@@ -4,6 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -11,6 +13,8 @@ import java.util.*;
 import static io.restassured.RestAssured.given;
 
 public class ActivityService {
+
+    Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     private static String getTesterStaffId(String token) {
         JWT parsedJWT = new JWT();
@@ -29,7 +33,7 @@ public class ActivityService {
                 closeOpenActivityById(activityIdToClose,token);
             }
         }else{
-            System.out.println("No open activity to close for StaffId: " + getStaffId);
+           logger.info("No open activity to close for StaffId: " + getStaffId);
         }
     }
 

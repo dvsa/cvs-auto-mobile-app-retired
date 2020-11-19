@@ -84,7 +84,5 @@ public class AppState_CVSB_1939  extends BaseTestClass {
         cancelTestSteps.pressSubmitInPopUp();
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.completeEndVisit();
-
     }
-
 }

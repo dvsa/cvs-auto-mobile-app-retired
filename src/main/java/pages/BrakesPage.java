@@ -80,7 +80,7 @@ public class BrakesPage extends BasePage {
                 System.out.println("Searching for attribute '" + expectedName + "' for axle: " + axle);
 
                 String foundName = springBrakeParking.getAttribute("name");
-                System.out.println("- Found: " + foundName);
+                System.out.println("Found: " + foundName);
                 assert (foundName.equals(expectedName));
 
                 return springBrakeParking;
@@ -104,7 +104,7 @@ public class BrakesPage extends BasePage {
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_CLASS_NAME);
         for(WebElement element : webElementList){
             if(element.getAttribute("name").equals(requiredAttribute)) {
-                System.out.println("- Found");
+                System.out.println("Found");
                 return element;
             }
         }
