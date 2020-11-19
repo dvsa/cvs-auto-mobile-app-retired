@@ -9,6 +9,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.After;
 import org.junit.Before;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -20,7 +21,6 @@ import static net.serenitybdd.core.Serenity.getDriver;
 
 public class BaseTestClass {
 
-    public static final String URL = "https://" + TypeLoader.getBsUsername() + ":" + TypeLoader.getBsPass() + "@" + TypeLoader.getBsHostname() + "/wd/hub";
     public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     protected AtfService atfService = new AtfService();
@@ -31,6 +31,7 @@ public class BaseTestClass {
 
     protected String username;
     protected String token;
+
 
     @Managed(uniqueSession = true, clearCookies = ClearCookiesPolicy.BeforeEachTest)
     public WebDriver webDriver;

@@ -106,11 +106,11 @@ public class AdrDetailsPage extends BasePage {
         for (WebElement webElement : webElementList) {
             actualData.add(webElement.getAttribute("name"));
         }
-//        System.out.println("list: " + actualData);
+//        logger.info("list: " + actualData);
         for(String data:actualData){
-//            System.out.println("inside for @: " + data);
+//            logger.info("inside for @: " + data);
             if(data.equals(attribute)){
-//                System.out.println("comparing data: " + data + " with: " + value);
+//                logger.info("comparing data: " + data + " with: " + value);
                 if(actualData.get(actualData.indexOf(data)+1).equals(value)){
                     return true;
                 }
@@ -124,18 +124,18 @@ public class AdrDetailsPage extends BasePage {
     }
 
     public boolean elementIsDisplayedAfter(String adrDetail, String adrSection) {
-//        System.out.println("inside element is displayed after: " + adrDetail + " , " + adrSection);
+//        logger.info("inside element is displayed after: " + adrDetail + " , " + adrSection);
         List<WebElement> webElementList = getAllElements();
         WebElement sectionElement = null;
         WebElement detailElement = null;
         for(WebElement webElement : webElementList){
-//            System.out.println("element is: " + webElement.getAttribute("name"));
+//            logger.info("element is: " + webElement.getAttribute("name"));
             if(webElement.getAttribute("name").equals(adrSection)){
-//                System.out.println("found: " + adrSection + " index is: " + webElementList.indexOf(webElement))
+//                logger.info("found: " + adrSection + " index is: " + webElementList.indexOf(webElement))
                 sectionElement = webElement;
             }
             if(webElement.getAttribute("name").equals(adrDetail)){
-//                System.out.println("found: " + adrDetail + " index is: " + webElementList.indexOf(webElement));
+//                logger.info("found: " + adrDetail + " index is: " + webElementList.indexOf(webElement));
                 if (webElement.isDisplayed()) {
                     // Just in case the element is present on screen but hidden.
                     detailElement = webElement;

@@ -59,7 +59,7 @@ public class CancelTestPage extends BasePage {
         try {
             title = findElementById(NO_REASON_POP_UP_TITLE_ID);
         } catch (Exception e) {
-            System.out.println("The element with the id" + NO_REASON_POP_UP_TITLE_ID + "was not found!");
+            logger.info("The element with the id" + NO_REASON_POP_UP_TITLE_ID + "was not found!");
         }
         if (title != null) {
             return title.isDisplayed();
@@ -72,7 +72,7 @@ public class CancelTestPage extends BasePage {
         try {
             text = findElementById(NO_REASON_POP_UP_TEXT_ID);
         } catch (Exception e) {
-            System.out.println("The element with the id" + NO_REASON_POP_UP_TEXT_ID + "was not found!");
+            logger.info("The element with the id" + NO_REASON_POP_UP_TEXT_ID + "was not found!");
         }
         if (text != null) {
             return text.isDisplayed();
@@ -85,7 +85,7 @@ public class CancelTestPage extends BasePage {
         try {
             button = findElementById(NO_REASON_POP_UP_OK_ID);
         } catch (Exception e) {
-            System.out.println("The element with the id" + NO_REASON_POP_UP_OK_ID + "was not found!");
+            logger.info("The element with the id" + NO_REASON_POP_UP_OK_ID + "was not found!");
         }
         if (button != null) {
             return button.isDisplayed();

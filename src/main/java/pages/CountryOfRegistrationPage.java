@@ -149,7 +149,7 @@ public class CountryOfRegistrationPage extends BasePage {
 
         List<String> cleanAfterList = eliminateUnwantedButtonsDisplayed(countriesDisplayedTextAfterFilter);
         for (String s : cleanAfterList) {
-            System.out.println("Countries are: " + s);
+            logger.info("Countries are: " + s);
             assertThat(s.contains(filterString)).isTrue();
         }
         assertThat(Ordering.natural().isOrdered(cleanAfterList)).isTrue();

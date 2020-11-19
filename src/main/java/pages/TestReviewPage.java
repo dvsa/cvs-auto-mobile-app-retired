@@ -49,25 +49,25 @@ public class TestReviewPage extends BasePage {
 
     public boolean checkDisplayedElement(String element) {
         // waitUntilPageIsLoaded();
-        System.out.println("Checking element is displayed: " + element);
+        logger.info("Checking element is displayed: " + element);
         int numberOfElements = findElementsByXpath("//*[@name=\"" + element + "\"]").size();
         boolean status = false;
         if (numberOfElements == 1) {
             try {
                 status = findElementByXpath("//*[@name=\"" + element + "\"]").isDisplayed();
-                System.out.println("Found (Displayed: " + status + ")");
+                logger.info("Found (Displayed: " + status + ")");
             } catch (ElementNotVisibleException e) {
                 status = false;
-                System.out.println("Element was found but is not visible");
+                logger.info("Element was found but is not visible");
             }
         }
         if (numberOfElements > 1) {
             try {
                 status = findElementByXpath("//*[@name=\"" + element + "\"][@visible=\"true\"]").isDisplayed();
-                System.out.println("Found (Displayed: " + status + ")");
+                logger.info("Found (Displayed: " + status + ")");
             } catch (ElementNotVisibleException e) {
                 status = false;
-                System.out.println("Element was found but is not visible");
+                logger.info("Element was found but is not visible");
             }
         }
         if (numberOfElements == 0) {
@@ -82,13 +82,13 @@ public class TestReviewPage extends BasePage {
 
     public boolean isChangeDetailsButtonDisplayed() {
         boolean status;
-        System.out.println("Checking if element is displayed: " + CHANGE_DETAILS_BUTTON_ID);
+        logger.info("Checking if element is displayed: " + CHANGE_DETAILS_BUTTON_ID);
         try {
             status = findElementById(CHANGE_DETAILS_BUTTON_ID).isDisplayed();
-            System.out.println("Found");
+            logger.info("Found");
         } catch (NoSuchElementException e) {
             status = false;
-            System.out.println("- NOT found");
+            logger.info("- NOT found");
         }
 
         return status;

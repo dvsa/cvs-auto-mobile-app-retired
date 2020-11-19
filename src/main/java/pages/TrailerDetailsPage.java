@@ -138,10 +138,10 @@ public class TrailerDetailsPage extends BasePage {
     public void clickVehicleTestHistory() {
         // This may be "Trailer test history" or "Vehicle test history".
         try {
-            System.out.println("Clicking on the button: " + TRAILER_TEST_HISTORY_BUTTON_ID);
+            logger.info("Clicking on the button: " + TRAILER_TEST_HISTORY_BUTTON_ID);
             findElementById(TRAILER_TEST_HISTORY_BUTTON_ID).click();
         } catch (Exception e) {
-            System.out.println("Clicking on alternative name for button: Vehicle test history");
+            logger.info("Clicking on alternative name for button: Vehicle test history");
             findElementById("Vehicle test history").click();
         }
     }
@@ -165,11 +165,11 @@ public class TrailerDetailsPage extends BasePage {
         for (WebElement webElement : webElementList) {
             actualData.add(webElement.getAttribute("name"));
         }
-//        System.out.println("list: " + actualData);
+//        logger.info("list: " + actualData);
         for (String data : actualData) {
-//            System.out.println("inside for @: " + data);
+//            logger.info("inside for @: " + data);
             if (data.contentEquals(attribute)) {
-//                System.out.println("comparing data: " + data + " with: " + value);
+//                logger.info("comparing data: " + data + " with: " + value);
                 if (actualData.get(actualData.indexOf(data) + 1).contentEquals(value)) {
                     return true;
                 }

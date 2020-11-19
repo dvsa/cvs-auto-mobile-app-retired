@@ -1,9 +1,10 @@
 package util;
 
 public class SessionDetails {
+
     private String session;
     private String name;
-    private String status;
+    private String status="passed";
     private String reason= "No issues";
 
     public SessionDetails() {

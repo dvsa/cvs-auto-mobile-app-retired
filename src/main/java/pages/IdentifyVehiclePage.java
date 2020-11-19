@@ -55,7 +55,6 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public boolean isIncompleteRecordPopupShown() {
-        System.out.println("Checking if the 'Incomplete Record' popup is shown...");
         boolean status = true;
         if ((findElementById(OK_ID) == null) || (findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID) == null ) ||
                 (findElementById(INCOMPLETE_RECORD_TITLE_ID)) == null) {
@@ -69,7 +68,6 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public boolean isVehicleNotFoundPopUpDisplayed() {
-        System.out.println("Checking for the presence of the 'Vehicle not found' popup...");
         boolean status = true;
         if ((findElementById(OK_ID) == null) || (findElementById(DESCRIPTION_ID) == null ) ||
                 (findElementById(TITLE_ID)) == null) {

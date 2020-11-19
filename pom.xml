@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <junit.version>4.13.1</junit.version>
+        <junit.version>5.7.0</junit.version>
         <logback.version>1.2.3</logback.version>
         <serenity.version>2.3.8</serenity.version>
         <javajwt.version>3.11.0</javajwt.version>
@@ -26,11 +26,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -76,6 +71,17 @@
             <artifactId>unirest-java</artifactId>
             <version>${unirest.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -154,5 +160,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
