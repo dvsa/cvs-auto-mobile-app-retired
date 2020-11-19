@@ -1,4 +1,7 @@
 package util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ import static java.util.stream.Collectors.toList;
 public class FileLocking
 {
     private static final File file = new File("user_pool.txt");
+    Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     static {
         FileOutputStream fos = null;
@@ -59,18 +63,18 @@ public class FileLocking
             }
         }
         while(username == null);
-        System.out.println("GET " + username);
+        logger.info("GET " + username);
         return username;
     }
 
     public void putUsernameInQueue(String username)
     {
         synchronized (file) {
-            System.out.println("PUT "+username);
+            logger.info("PUT "+username);
             List<String> queue = new ArrayList(readQueue());
-            System.out.println("ARRAY BEFORE PUT: " + Arrays.toString(queue.toArray()));
+            logger.info("ARRAY BEFORE PUT: " + Arrays.toString(queue.toArray()));
             if(!queue.contains(username)){queue.add(username);}
-            System.out.println("ARRAY AFTER PUT: " + Arrays.toString(queue.toArray()));
+            logger.info("ARRAY AFTER PUT: " + Arrays.toString(queue.toArray()));
             writeQueue(queue);
         }
     }
@@ -89,7 +93,7 @@ public class FileLocking
             queue = Arrays.asList(ar);
             in.close();
         } catch (IOException e) {
-            System.out.println("File Read Error");
+            logger.error("File Read Error");
         }
         return queue;
     }
@@ -115,13 +119,6 @@ public class FileLocking
                     e.printStackTrace();
                 }
             }
-        }
-    }
-
-    public void deleteFileToken(String username){
-        File myObj = new File(username + ".txt");
-        if (myObj.delete()) {
-            System.out.println("Deleted the file: " + myObj.getName());
         }
     }
 }

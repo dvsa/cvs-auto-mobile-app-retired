@@ -12,8 +12,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <junit.version>4.13.1</junit.version>
+        <logback.version>1.2.3</logback.version>
         <serenity.version>2.3.8</serenity.version>
-        <sl4j.version>1.7.30</sl4j.version>
         <javajwt.version>3.11.0</javajwt.version>
         <assertj.version>3.18.0</assertj.version>
         <jsonpath.version>2.4.0</jsonpath.version>
@@ -30,6 +30,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
@@ -50,11 +55,6 @@
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>${javajwt.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${sl4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
