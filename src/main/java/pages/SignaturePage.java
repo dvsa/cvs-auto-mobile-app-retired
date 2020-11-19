@@ -3,8 +3,12 @@ package pages;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SignaturePage extends BasePage {
+
+    Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     private static final String CLEAR_BUTTON_ID = "Clear";
     private static final String SAVE_BUTTON_ID = "Save";
@@ -21,10 +25,10 @@ public class SignaturePage extends BasePage {
     }
 
     public void clickSaveButton() {
-        System.out.println("Saving signature...");
+       logger.info("Saving signature...");
         WebElement we = findElementByAccessibilityId(SAVE_BUTTON_ID);
         tapByCoordinates(700, 20);
-        System.out.println("- Signature saved.");
+       logger.info("- Signature saved.");
     }
 
     public boolean checkSignatureTitleIsDisplayed() {
@@ -32,10 +36,10 @@ public class SignaturePage extends BasePage {
     }
 
     public void confirmSignature() {
-        System.out.println("Confirming signature...");
+       logger.info("Confirming signature...");
         WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 50, 200);
         tapByCoordinates(we.getLocation().getX(), we.getLocation().getY());
-        System.out.println("- Confirmed");
+       logger.info("- Confirmed");
     }
 
     public void cancelSignatureConfirmation() {
@@ -44,14 +48,14 @@ public class SignaturePage extends BasePage {
 
     public void createSignature() {
 //        longWaitUntilPageIsLoadedByIdAndClickable(SAVE_BUTTON_ID);
-        System.out.println("Creating signature...");
+       logger.info("Creating signature...");
         tapByCoordinates(50, 100);
-        System.out.println("- Signed.");
+       logger.info("- Signed.");
     }
 
     public boolean isErrorMessageDisplayed() {
         boolean status;
-        System.out.println("Checking if error message is displayed: " + UNABLE_TO_LOAD_DATA_ID);
+       logger.info("Checking if error message is displayed: " + UNABLE_TO_LOAD_DATA_ID);
         try {
             if (findElementById(UNABLE_TO_LOAD_DATA_ID) != null) {
                 status = findElementById(UNABLE_TO_LOAD_DATA_ID).isDisplayed();
@@ -59,25 +63,25 @@ public class SignaturePage extends BasePage {
             else {
                 status = false;
             }
-            System.out.println("- FOUND");
+           logger.info("Found");
         } catch (NoSuchElementException e) {
             status = false;
-            System.out.println("- Not found");
+           logger.info("- Not found");
         }
         return status;
     }
 
     public void waitPageToLoad() throws Exception {
-        System.out.println("Waiting for Signature page to load...");
+       logger.info("Waiting for Signature page to load...");
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_ID);
         waitForLoadingToFinish();
-        System.out.println("- Signature page loaded.");
+       logger.info("- Signature page loaded.");
 
         // Check to see if there was an error shown (either caused by
         // 1. The Signature service not being available, or
         // 2. Reference data not being present, e.g. defects, test types, etc.
         if (isErrorMessageDisplayed()) {
-            System.out.println("*** Error starting the app - unable to load setup data.");
+           logger.info("*** Error starting the app - unable to load setup data.");
             throw new Exception("Signature service or Reference Data unavailable.  Unable to proceed with app initialisation.");
         }
     }

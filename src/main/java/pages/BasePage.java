@@ -14,6 +14,8 @@ import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -25,16 +27,18 @@ import static java.time.Duration.ofMillis;
 
 public class BasePage extends PageObject {
 
+    Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    
     private void showElementError(String element) {
-        System.out.println("- Element not found (" + element + ")");
+        logger.info("- Element not found (" + element + ")");
     }
 
     protected WebElement findElementByAccessibilityId(String idOrName) {
-        System.out.println("Finding element by Accessibility ID: " + idOrName);
+        logger.info("Finding element by Accessibility ID: " + idOrName);
         WebElement element = null;
         try {
             element = getDriver().findElement(MobileBy.AccessibilityId(idOrName));
-            System.out.println("- Found.");
+            logger.info("Found.");
         } catch (ElementNotFoundException exception) {
             showElementError(idOrName);
         }
@@ -42,11 +46,11 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementById(String id) {
-        System.out.println("Searching for element by ID: " + id);
+        logger.info("Searching for element by ID: " + id);
         WebElement element = null;
         try {
             element = getDriver().findElement(By.id(id));
-            System.out.println("- Found");
+            logger.info("Found");
         } catch (NoSuchElementException exception) {
             showElementError(id);
         }
@@ -54,16 +58,16 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement findElementByClassName(String className) {
-        System.out.println("Finding element by class: " + className);
+        logger.info("Finding element by class: " + className);
         WebElement element = getDriver().findElement(By.className(className));
-        System.out.println("- Found");
+        logger.info("Found");
         return element;
     }
 
     protected WebElement findElementByXpath(String xpath) {
-        System.out.println("Finding element: " + xpath);
+        logger.info("Finding element: " + xpath);
         WebElement element = getDriver().findElement(By.xpath(xpath));
-        System.out.println("- Found");
+        logger.info("Found");
         return element;
     }
 
@@ -77,22 +81,22 @@ public class BasePage extends PageObject {
     }
 
     protected List<WebElement> findElementsByAccessibilityId(String idOrName) {
-        System.out.println("Finding elements by Accessibility ID: " + idOrName);
+        logger.info("Finding elements by Accessibility ID: " + idOrName);
         List<WebElement> elements = getDriver().findElements(MobileBy.AccessibilityId(idOrName));
-        System.out.println("- Found " + elements.size());
+        logger.info("Found " + elements.size());
         return elements;
     }
 
     protected WebElement waitUntilPageIsLoadedByEitherId(String id1, String id2) {
-        System.out.println("Waiting for page to load, using these IDs: #1: " + id1 + ", #2: " + id2);
+        logger.info("Waiting for page to load, using these IDs: #1: " + id1 + ", #2: " + id2);
         WebElement element = null;
         while (element == null) {
             try {
-                System.out.println("Searching for title #1: " + id1);
+                logger.info("Searching for title #1: " + id1);
                 element = waitUntilPageIsLoadedByElement(By.id(id1), 200, 200);
             } catch (Exception e) {
                 try {
-                    System.out.println("Searching for title #2: " + id2);
+                    logger.info("Searching for title #2: " + id2);
                     element = waitUntilPageIsLoadedByElement(By.id(id2), 200, 200);
                 } catch (ElementNotVisibleException e1) {
                     showElementError(id2);
@@ -103,7 +107,8 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
-        System.out.println("Waiting for page to load by ID, waiting for item: " + id + getDriver().getPageSource());
+        logger.info("Waiting for page to load by ID, waiting for item: " + id );
+        logger.debug("Waiting for page to load by ID, waiting for item: " + getDriver().getPageSource());
         WebElement element = null;
         if (id.equals("Test review")) {
             element = waitUntilPageIsLoadedByEitherId(id, "Test");
@@ -117,14 +122,14 @@ public class BasePage extends PageObject {
         else {
             element = waitUntilPageIsLoadedByElement(By.id(id), 200, 200);
         }
-        System.out.println("- Loaded.");
+        logger.info("- Loaded.");
         return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
-        System.out.println("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
+        logger.info("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
         WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 200, 200);
-        System.out.println("- Loaded.");
+        logger.info("- Loaded.");
         return element;
     }
 
@@ -134,38 +139,38 @@ public class BasePage extends PageObject {
     }
 
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        System.out.println("Waiting (long) for page to be loaded, based on clickable element: " + id);
+        logger.info("Waiting (long) for page to be loaded, based on clickable element: " + id);
         WebElement element = waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
-        System.out.println("- Loaded.");
+        logger.info("- Loaded.");
         return element;
     }
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        System.out.println("Waiting (short) for page to be loaded, based on clickable element: " + id);
+        logger.info("Waiting (short) for page to be loaded, based on clickable element: " + id);
         WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 200, 400);
-        System.out.println("- Loaded.");
+        logger.info("- Loaded.");
         return element;
     }
 
     protected WebElement shortestWaitUntilPageIsLoadedByIdAndClickable(String id) {
-        System.out.println("Waiting (shortest) for page to be loaded, based on clickable element: " + id);
+        logger.info("Waiting (shortest) for page to be loaded, based on clickable element: " + id);
         WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 200, 400);
-        System.out.println("- Loaded.");
+        logger.info("- Loaded.");
         return element;
     }
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
-        System.out.println("Waiting for page to be loaded, based on xPath: " + xPath);
+        logger.info("Waiting for page to be loaded, based on xPath: " + xPath);
         WebElement element = waitUntilPageIsLoadedByElement(By.xpath(xPath), 200, 200);
-        System.out.println("- Loaded.");
+        logger.info("- Loaded.");
         return element;
     }
 
     protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
-        System.out.println("Waiting for number of elements to be present: (" + locator + ", expecting " + elementNumber + ")");
+        logger.info("Waiting for number of elements to be present: (" + locator + ", expecting " + elementNumber + ")");
         FluentWait wait = globalFluentWait(30, 200);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
-        System.out.println("- Found.");
+        logger.info("Found.");
     }
 
     protected void scrollDownTo(int xOffset, int yOffset) {
@@ -221,12 +226,12 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElement(By locator, int timeOut, int poolingEvery) {
 
-        System.out.println("Search using locator: " + locator);
+        logger.info("Search using locator: " + locator);
 
         FluentWait wait = globalFluentWait(timeOut, poolingEvery);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 
-        System.out.println("Found: " + locator);
+        logger.info("Found: " + locator);
 
         return getDriver().findElement(locator);
 
@@ -254,16 +259,16 @@ public class BasePage extends PageObject {
 
     private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int pollingEvery) {
 
-        System.out.println("Waiting for page to be loaded, using element: " + locator +
+        logger.info("Waiting for page to be loaded, using element: " + locator +
                 " (Timeout is " + timeOut + ", polling every " + pollingEvery + ")...");
         FluentWait wait = globalFluentWait(timeOut, pollingEvery);
         wait.until(ExpectedConditions.and(
                 ExpectedConditions.visibilityOfAllElementsLocatedBy(locator),
                 ExpectedConditions.presenceOfAllElementsLocatedBy(locator),
                 ExpectedConditions.elementToBeClickable(locator)));
-        System.out.println("- Page loaded.");
+        logger.info("- Page loaded.");
 
-        System.out.println("- Verifying element is present...");
+        logger.info("- Verifying element is present...");
         WebElement element = null;
         try {
             element = getDriver().findElement(locator);
@@ -311,9 +316,9 @@ public class BasePage extends PageObject {
     }
 
     public String getStatusBarTime() {
-        System.out.println("Getting Time from status bar");
+        logger.info("Getting Time from status bar");
         String time = findElementByXpath("//XCUIElementTypeStatusBar/XCUIElementTypeOther[2]/XCUIElementTypeOther[contains(@name,':')]").getText();
-        System.out.println("- " + time);
+        logger.info("- " + time);
         return time;
     }
 
@@ -330,7 +335,7 @@ public class BasePage extends PageObject {
     public boolean isNumeric(String element) {
         try {
             int d = Integer.parseInt(element);
-            System.out.println("d: " + d);
+            logger.info("d: " + d);
         } catch (NumberFormatException | NullPointerException nfe) {
             return false;
         }
@@ -338,40 +343,40 @@ public class BasePage extends PageObject {
     }
 
     public boolean checkElementValue(String element, String value){
-        System.out.println("Verifying that element " + element + " equals " + value);
+        logger.info("Verifying that element " + element + " equals " + value);
         List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
         for(WebElement e : webElementList){
             if(e.getAttribute("name").equals(element)){
                 if (webElementList.get(webElementList.indexOf(e)+1).getAttribute("name").equals(value)) {
-                    System.out.println("- Value matches.");
+                    logger.info("- Value matches.");
                     return true;
                 } else {
-                    System.out.println("- Value mismatch.");
+                    logger.info("- Value mismatch.");
                     return false;
                 }
             }
         }
-        System.out.println("- Element not found.");
+        logger.info("- Element not found.");
         return false;
     }
 
     public String getElementValueByLabel(String element){
         String elementValue = "";
-        System.out.println("Getting value for element following after label: " + element);
+        logger.info("Getting value for element following after label: " + element);
         List<WebElement> webElementList = findElementsByClassName("XCUIElementTypeStaticText");
         for(WebElement e : webElementList){
             if(e.getAttribute("name").equals(element)){
                 elementValue = webElementList.get(webElementList.indexOf(e)+1).getAttribute("value");
-                System.out.println("- Value found: " + elementValue);
+                logger.info("- Value found: " + elementValue);
                 return elementValue;
             }
         }
-        System.out.println("- Element not found.");
+        logger.info("- Element not found.");
         return elementValue;
     }
 
     public void scrollToElement(String name) {
-        System.out.println("Scrolling to element with name '" + name + "' ...");
+        logger.info("Scrolling to element with name '" + name + "' ...");
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         HashMap scrollObject = new HashMap<>();
         scrollObject.put("predicateString", "name CONTAINS '" + name + "'");
@@ -387,10 +392,10 @@ public class BasePage extends PageObject {
     }
 
     public void click(WebElement element) {
-        System.out.println("Clicking on: " + element.getText());
+        logger.info("Clicking on: " + element.getText());
         try {
             element.click();
-            System.out.println("- Clicked.");
+            logger.info("- Clicked.");
         } catch (ElementNotFoundException exception) {
             showElementError(element.getText());
         }

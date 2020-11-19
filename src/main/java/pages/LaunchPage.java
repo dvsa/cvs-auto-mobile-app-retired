@@ -22,13 +22,6 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage, String username) {
 
-        // Extra debug info to assist with tracking down issues.
-        // This seems to be the area of highest incidental failure at present.
-        WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
-        RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
-        String sessionId = driver.getSessionId().toString();
-        System.out.println("Session ID: " + sessionId);
-
         String password = TypeLoader.getAppPassword();
 
         if (!TestHandler.getInitializedStatus().get()) {

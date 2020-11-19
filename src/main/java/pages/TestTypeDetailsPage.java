@@ -736,7 +736,7 @@ public class TestTypeDetailsPage extends BasePage {
             System.out.println("Looking for Emission Standard: " + emissionType);
             try {
                 findElementById(emissionType).isDisplayed();
-                System.out.println("- Found: " + emissionType);
+                System.out.println("Found: " + emissionType);
             } catch (Exception e) {
                 System.out.println("- NOT Found: " + emissionType);
                 return false;
@@ -753,7 +753,7 @@ public class TestTypeDetailsPage extends BasePage {
             System.out.println("Looking for Fuel Type: " + fuelTypeName);
             try {
                 findElementById(fuelTypeName).isDisplayed();
-                System.out.println("- Found: " + fuelTypeName);
+                System.out.println("Found: " + fuelTypeName);
             } catch (Exception e) {
                 System.out.println("- NOT Found: " + fuelTypeName);
                 return false;

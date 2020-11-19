@@ -3,9 +3,7 @@ package util;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import exceptions.AutomationException;
 
-import java.io.*;
 
 public class TokenGenerator {
 

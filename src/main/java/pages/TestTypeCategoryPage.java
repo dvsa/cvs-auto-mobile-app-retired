@@ -15,6 +15,10 @@ public class TestTypeCategoryPage extends BasePage {
         waitUntilPageIsLoadedById(TEST_TYPE_PAGE_TITLE);
     }
 
+    public void waitUntilPageIsLoaded(String testType) {
+        waitUntilPageIsLoadedById(testType);
+    }
+
     public boolean isPageTitleDisplayed() {
         boolean status = false;
         if(findElementById(TEST_TYPE_PAGE_TITLE).isDisplayed())
