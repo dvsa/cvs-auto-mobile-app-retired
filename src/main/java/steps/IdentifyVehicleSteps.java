@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.BeforeStep;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.IdentifyVehiclePage;
@@ -15,9 +16,13 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     SearchCriteriaPage searchCriteriaPage;
 
+    @BeforeStep
+    public void waitUntilPageIsLoaded(){
+        identifyVehiclePage.waitUntilPageIsLoaded();
+    }
+
     @Step
     public void searchForVehicle(String registrationOrVIM) {
-        identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.searchForVehicle(registrationOrVIM);
         identifyVehiclePage.clickSearch();
     }
@@ -29,7 +34,6 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     @Step
     public void checkIncompleteRecordPopupIsNotShown() {
-        identifyVehiclePage.waitUntilPageIsLoaded();
         assertThat(identifyVehiclePage.isIncompleteRecordPopupShown()).isFalse();
     }
 
@@ -42,13 +46,11 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     @Step
     public void typeInSearchField(String registrationOrVIM) {
-        identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.searchForVehicle(registrationOrVIM);
     }
 
     @Step
     public void clickCancel() {
-        identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.tapCancel();
     }
 
@@ -66,7 +68,6 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
 
     @Step
     public void pressSearch() {
-        identifyVehiclePage.waitUntilPageIsLoaded();
         identifyVehiclePage.clickSearch();
     }
 
@@ -91,7 +92,6 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     @Step
     public void pressOkInPopUp() {
         identifyVehiclePage.clickOkInPopUp();
-        identifyVehiclePage.waitUntilPageIsLoaded();
     }
 
     @Step
