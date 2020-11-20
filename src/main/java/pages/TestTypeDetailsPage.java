@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Thread.sleep;
+
 public class TestTypeDetailsPage extends BasePage {
 
     private static final String TEST_TYPE_DETAILS = "Test type details";
@@ -603,7 +605,7 @@ public class TestTypeDetailsPage extends BasePage {
     }
 
     public void enableProhibition() {
-        tap(findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH));
+        findElementByXpath(PROHIBITION_ISSUED_SWITCH_XPATH).click();
     }
 
     public String getProhibitionSwitchValue() {

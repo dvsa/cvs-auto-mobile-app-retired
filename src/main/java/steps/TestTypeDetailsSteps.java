@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.BeforeStep;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.slf4j.Logger;
@@ -15,6 +16,11 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
     TestTypeDetailsPage testTypeDetailsPage;
+
+    @BeforeStep
+    public void waitUntilPageIsLoaded(){
+        testTypeDetailsPage.waitUntilPageIsLoaded();
+    }
 
     @Step
     public void setCarriedOutDuringTest(boolean isCarriedOut) {
@@ -59,7 +65,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkDataPickerIsPresent() {
-        testTypeDetailsPage.waitUntilPageIsLoaded();
         assertThat(testTypeDetailsPage.isDateCalendarPickerDisplayed()).isTrue();
     }
 
@@ -112,7 +117,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void pressSave() {
-        testTypeDetailsPage.waitUntilPageIsLoaded();
         testTypeDetailsPage.clickSave();
     }
 
@@ -123,7 +127,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void setTestToOption(String option) {
-        testTypeDetailsPage.waitUntilPageIsLoaded();
         if (option.equalsIgnoreCase("pass")) {
             testTypeDetailsPage.clickSetTestResult();
             testTypeDetailsPage.passLecTest();
@@ -217,7 +220,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void addNotes(String text) {
-        testTypeDetailsPage.waitUntilPageIsLoaded();
         testTypeDetailsPage.clickNotes();
         testTypeDetailsPage.typeIntoNotesField(text);
         testTypeDetailsPage.tapTitleTwiceToCloseIOSKeyboard();
@@ -469,7 +471,6 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkCertificateNumberIsDisplayed() {
-        testTypeDetailsPage.waitUntilPageIsLoaded();
         assertThat(testTypeDetailsPage.checkCertificateNumberLabelIsPresent()).isTrue();
         assertThat(testTypeDetailsPage.checkCertificateNumberInputFieIdIsPresent()).isTrue();
     }
