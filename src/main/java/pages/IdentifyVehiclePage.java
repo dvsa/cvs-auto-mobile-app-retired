@@ -98,7 +98,6 @@ public class IdentifyVehiclePage extends BasePage {
 
     public void clickOkInPopUp() {
         findElementByXpath(OK).click();
-        waitForTextToDisappear("OK");
     }
 
     public void waitForErrorPopUpToDisplay() {
