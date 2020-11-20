@@ -7,11 +7,14 @@ public class SelectVehiclePage extends BasePage {
     private static final String SELECT_VEHICLE_PAGE_TITLE = "Select Vehicle";
     private static final String MULTIPLE_VEHICLES_FOUND_XPATH = "(//XCUIElementTypeStaticText[@name='Multiple vehicles found matching this search'])";
     private static final String BACK_BUTTON_XPATH = "(//XCUIElementTypeButton[@name='arrow back Identify vehicle'])";
-    private static final String INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION_ID = "Some vehicles matching this search do not have enough data to be tested. Call Technical Support to correct these records and use SAR to test this vehicle.";
-    private static final String INCOMPLETE_RECORD_DESCRIPTION_ID = "This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.";
-    private static final String INCOMPLETE_RECORD_TITLE_ID = "Incomplete vehicle record";
-    private static final String OK_ID = "OK";
+    private static final String INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION = "//XCUIElementTypeStaticText[contains(@name, 'Some vehicles matching this search do not have enough data to be tested. Call Technical Support to correct these records and use SAR to test this vehicle.')]";
+    private static final String INCOMPLETE_RECORD_DESCRIPTION = "//XCUIElementTypeStaticText[contains(@name, 'This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.')]";
+    private static final String INCOMPLETE_RECORD_TITLE = "//XCUIElementTypeStaticText[contains(@name, 'Incomplete vehicle record')]";
     private static final String INCOMPLETE_RECORD_VEHICLE = "Incomplete vehicle record Requires more data to be tested";
+
+    private static final String OK_ID = "OK";
+    private static final String OK = "//XCUIElementTypeButton[contains(@name, 'OK')]";
+
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(SELECT_VEHICLE_PAGE_TITLE);
@@ -31,7 +34,7 @@ public class SelectVehiclePage extends BasePage {
 
     public boolean isSkeletonRecordWarningShown() {
         try {
-            return findElementById(INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION_ID).isDisplayed();
+            return findElementByXpath(INCOMPLETE_RECORD_MULTIPLE_DESCRIPTION).isDisplayed();
         } catch (NullPointerException ex) {
             return false;
         }
@@ -46,7 +49,6 @@ public class SelectVehiclePage extends BasePage {
     }
 
     public boolean isIncompleteRecordPopupShown() {
-        logger.info("Checking if the 'Incomplete Record' popup is shown...");
         boolean status = false;
         boolean isException = false;
         WebElement okButton = null;
@@ -54,9 +56,9 @@ public class SelectVehiclePage extends BasePage {
         WebElement title = null;
 
         try {
-            okButton = findElementById(OK_ID);
-            description = findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID);
-            title = findElementById(INCOMPLETE_RECORD_TITLE_ID);
+            okButton = findElementByXpath(OK);
+            description = findElementByXpath(INCOMPLETE_RECORD_DESCRIPTION);
+            title = findElementByXpath(INCOMPLETE_RECORD_TITLE);
         } catch (Exception e) {
             isException = true;
         }

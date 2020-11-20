@@ -42,6 +42,7 @@ public class BasePage extends PageObject {
         } catch (ElementNotFoundException exception) {
             showElementError(idOrName);
         }
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
         return element;
     }
 
@@ -54,6 +55,8 @@ public class BasePage extends PageObject {
         } catch (NoSuchElementException exception) {
             showElementError(id);
         }
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
+
         return element;
     }
 
@@ -61,6 +64,7 @@ public class BasePage extends PageObject {
         logger.info("Finding element by class: " + className);
         WebElement element = getDriver().findElement(By.className(className));
         logger.info("Found");
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
         return element;
     }
 
@@ -68,11 +72,12 @@ public class BasePage extends PageObject {
         logger.info("Finding element: " + xpath);
         WebElement element = getDriver().findElement(By.xpath(xpath));
         logger.info("Found");
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
+
         return element;
     }
 
     protected List<WebElement> findElementsByXpath(String xpath) {
-
         return getDriver().findElements(By.xpath(xpath));
     }
 
@@ -84,6 +89,7 @@ public class BasePage extends PageObject {
         logger.info("Finding elements by Accessibility ID: " + idOrName);
         List<WebElement> elements = getDriver().findElements(MobileBy.AccessibilityId(idOrName));
         logger.info("Found " + elements.size());
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
         return elements;
     }
 
@@ -103,12 +109,12 @@ public class BasePage extends PageObject {
                 }
             }
         }
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
         return element;
     }
 
     protected WebElement waitUntilPageIsLoadedById(String id) {
         logger.info("Waiting for page to load by ID, waiting for item: " + id );
-        logger.debug("Waiting for page to load by ID, waiting for item: " + getDriver().getPageSource());
         WebElement element = null;
         if (id.equals("Test review")) {
             element = waitUntilPageIsLoadedByEitherId(id, "Test");
@@ -122,6 +128,7 @@ public class BasePage extends PageObject {
         else {
             element = waitUntilPageIsLoadedByElement(By.id(id), 200, 200);
         }
+        logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
     }

@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import data.util.SearchCriteria;
 
@@ -13,18 +14,18 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String SEARCH_BUTTON_CLASS_NAME = "XCUIElementTypeButton";
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String SEARCH_OPTION = "Search";
-    private static final String OK_ID = "OK";
-    private static final String DESCRIPTION_ID = "Check you have entered the correct value or change the search criteria to identify a vehicle";
+    private static final String DESCRIPTION = "//XCUIElementTypeStaticText[contains(@name, 'Check you have entered the correct value or change the search criteria to identify a vehicle')]";
     private static final String TITLE_ID = "Vehicle not found";
     private static final String LOADING_SCREEN_ID = "Loading...";
-    private static final String INCOMPLETE_RECORD_DESCRIPTION_ID = "This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.";
-    private static final String INCOMPLETE_RECORD_TITLE_ID = "Incomplete vehicle record";
+    private static final String INCOMPLETE_RECORD_DESCRIPTION = "//XCUIElementTypeStaticText[contains(@name, 'This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.')]";
+    private static final String INCOMPLETE_RECORD_TITLE = "//XCUIElementTypeStaticText[contains(@name, 'Incomplete vehicle record')]";
     private static final String SEARCH_CRITERIA_BUTTON = "//*[contains(@name, 'Change arrow forward')]";
+    private static final String OK = "//XCUIElementTypeButton[contains(@name, 'OK')]";
+    private static final String SEARCH_CRITERIA_ID = "SEARCH CRITERIA";
 
     public void clickSearchCriteriaButton() {
         findElementByXpath(SEARCH_CRITERIA_BUTTON).click();
     }
-    private static final String SEARCH_CRITERIA_ID = "SEARCH CRITERIA";
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(IDENTIFY_VEHICLE_PAGE_TITLE);
@@ -55,10 +56,29 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public boolean isIncompleteRecordPopupShown() {
-        boolean status = true;
-        if ((findElementById(OK_ID) == null) || (findElementById(INCOMPLETE_RECORD_DESCRIPTION_ID) == null ) ||
-                (findElementById(INCOMPLETE_RECORD_TITLE_ID)) == null) {
-            status = false;
+
+        boolean status = false;
+        boolean isException = false;
+        WebElement okButton = null;
+        WebElement description = null;
+        WebElement title = null;
+
+        try {
+            okButton = findElementByXpath(OK);
+            description = findElementByXpath(INCOMPLETE_RECORD_DESCRIPTION);
+            title = findElementByXpath(INCOMPLETE_RECORD_TITLE);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if ((okButton == null) || (description == null) || (title == null)) {
+            isException = true;
+        }
+
+        if (!isException) {
+            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+                status = true;
+            }
         }
         return status;
     }
@@ -69,7 +89,7 @@ public class IdentifyVehiclePage extends BasePage {
 
     public boolean isVehicleNotFoundPopUpDisplayed() {
         boolean status = true;
-        if ((findElementById(OK_ID) == null) || (findElementById(DESCRIPTION_ID) == null ) ||
+        if ((findElementByXpath(OK) == null) || (findElementByXpath(DESCRIPTION) == null ) ||
                 (findElementById(TITLE_ID)) == null) {
             status = false;
         }
@@ -77,12 +97,12 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public void clickOkInPopUp() {
-        waitUntilPageIsLoadedById(OK_ID);
-        findElementById(OK_ID).click();
+        findElementByXpath(OK).click();
+        waitForTextToDisappear("OK");
     }
 
     public void waitForErrorPopUpToDisplay() {
-        waitUntilPageIsLoadedById(OK_ID);
+        waitUntilPageIsLoadedByXpath(OK);
     }
 
     public boolean isSearchFieldUnique() {
