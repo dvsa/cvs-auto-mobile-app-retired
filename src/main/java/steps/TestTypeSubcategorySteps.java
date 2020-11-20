@@ -1,6 +1,7 @@
 package steps;
 
 import exceptions.AutomationException;
+import io.cucumber.java.BeforeStep;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.junit.Assert;
@@ -65,6 +66,7 @@ public class TestTypeSubcategorySteps extends ScenarioSteps {
     @Step
     public void selectFromTestTypeList(String testType) {
         testTypeSubcategoryPage.selectTestTypeFromListByXpath(testType);
+        testTypeSubcategoryPage.waitUntilPageIsLoaded(testType);
     }
 
     @Step

@@ -91,4 +91,9 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     public void waitUntilPageIsLoaded() {
         testTypeCategoryPage.waitUntilPageIsLoaded();
     }
+
+    @Step
+    public void waitUntilPageIsLoaded(String subCategory) {
+        testTypeCategoryPage.waitUntilPageIsLoaded(subCategory);
+    }
 }
