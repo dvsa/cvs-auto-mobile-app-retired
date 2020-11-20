@@ -50,8 +50,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @Title("CVSB-15775 - AC1 - Clearer test type names for PSV \n" +
-            "AC3 - Removal of Vitesse 100")
+    @Title("CVSB-15775 - AC1 - Clearer test type names for PSV AC3 - Removal of Vitesse 100")
     @Test
     public void testTypeNamesForPsvHgvTrl(){
         // for PSV
@@ -69,8 +68,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.goBackToCategory();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
-        testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Brake test", "Headlamp aim test", "Smoke test",
-                "Multi - check", "Speed limiter check", "Tempo 100");
+        testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Brake test", "Headlamp aim test", "Smoke test", "Multi - check", "Speed limiter check", "Tempo 100");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeCategorySteps.goBackToTestOverview();
         testSteps.pressCancelBottomRight();
@@ -86,8 +84,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Annual test retest", "TIR retest", "ADR retest",
-                "Roadworthiness retest", "First test retest");
+        testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Annual test retest", "TIR retest", "ADR retest", "Roadworthiness retest", "First test retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.goBackToCategory();
