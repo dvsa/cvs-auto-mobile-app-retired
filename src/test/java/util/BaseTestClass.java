@@ -39,6 +39,8 @@ public class BaseTestClass {
     @Before
     public void initialise() throws Exception{
 
+        username = new FileLocking().getUsernameFromQueue();
+
         WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
         RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
         sessionDetails.setSession(driver.getSessionId().toString());
@@ -46,7 +48,6 @@ public class BaseTestClass {
         MDC.put("id", sessionDetails.getSession());
 
         logger.info("closing user's activity");
-        username = new FileLocking().getUsernameFromQueue();
         token = tokenGenerator.getToken(username);
         new ActivityService().closeCurrentUserActivity(token);
     }

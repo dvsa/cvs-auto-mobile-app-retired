@@ -18,10 +18,10 @@ public class DefectDetailsPage extends BasePage {
     private static final String NOTES_LABEL_ID = "NOTES";
     private static final String PASSED_AFTER_RECTIFICATION_AT_STATION_LABEL_ID = "PRS";
     private static final String SELECT_OPTION = "Select";
-    private static final String ADDITIONAL_INFORMATION_VERTICAL = "Vertical";
-    private static final String ADDITIONAL_INFORMATION_LATERAL = "Lateral";
-    private static final String ADDITIONAL_INFORMATION_ROW_NUMBER = "Row Number";
-    private static final String ADDITIONAL_INFORMATION_SEAT_NUMBER = "Seat Number";
+    private static final String ADDITIONAL_INFORMATION_VERTICAL = "//XCUIElementTypeOther[contains(@name, 'Vertical')]";
+    private static final String ADDITIONAL_INFORMATION_LATERAL = "//XCUIElementTypeOther[contains(@name, 'Lateral')]";
+    private static final String ADDITIONAL_INFORMATION_ROW_NUMBER = "//XCUIElementTypeOther[contains(@name, 'Row Number')]";
+    private static final String ADDITIONAL_INFORMATION_SEAT_NUMBER = "//XCUIElementTypeOther[contains(@name, 'Seat Number')]";
     private static final String DONE_BUTTON_ID = "Done";
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
@@ -68,19 +68,19 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public WebElement getVertical() {
-        return findElementsByXpath("//*[@label='" + ADDITIONAL_INFORMATION_VERTICAL + "']").get(1);
+       return findElementByXpath(ADDITIONAL_INFORMATION_VERTICAL);
     }
 
     public WebElement getLateral() {
-        return findElementsByXpath("//*[@label='" + ADDITIONAL_INFORMATION_LATERAL + "']").get(1);
+        return findElementByXpath(ADDITIONAL_INFORMATION_LATERAL);
     }
 
     public WebElement getRowNumber() {
-        return findElementsByXpath("//*[@label='" + ADDITIONAL_INFORMATION_ROW_NUMBER + "']").get(1);
+        return findElementByXpath(ADDITIONAL_INFORMATION_ROW_NUMBER);
     }
 
     public WebElement getSeatNumber() {
-        return findElementsByXpath("//*[@label='" + ADDITIONAL_INFORMATION_SEAT_NUMBER + "']").get(1);
+        return findElementByXpath(ADDITIONAL_INFORMATION_SEAT_NUMBER);
     }
 
     public int getSelectOptionElementNumber() {

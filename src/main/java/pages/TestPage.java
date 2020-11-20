@@ -191,7 +191,7 @@ public class TestPage extends BasePage {
         }
         logger.info("Clicking on: " + id);
         findElementById(id).click();
-        logger.info("- Done");
+        logger.info("Done");
     }
 
     public boolean isPageTitleDisplayed() {
