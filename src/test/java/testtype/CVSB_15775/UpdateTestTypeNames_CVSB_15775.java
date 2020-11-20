@@ -127,7 +127,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part Paid retest");
         testTypeSubcategorySteps.goBackToCategory();
 
-        testTypeCategorySteps.selectFromTestTypeList("First test retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("First test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.goBackToCategory();
