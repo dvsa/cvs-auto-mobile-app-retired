@@ -44,7 +44,7 @@ public class DefectAdd_CVSB_672 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
+        defectDetailsSteps.waitUntilPageIsLoaded();
         defectDetailsSteps.checkAllElementsArePresent("3.1","MAJOR","Obligatory seat belt:","of an incorrect type.");
-
     }
 }

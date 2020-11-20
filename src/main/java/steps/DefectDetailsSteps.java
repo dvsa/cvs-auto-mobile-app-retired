@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.BeforeStep;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -10,6 +11,7 @@ import pages.DefectDetailsPage;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Thread.sleep;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DefectDetailsSteps extends ScenarioSteps {
@@ -18,14 +20,14 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     DefectDetailsPage defectDetailsPage;
 
-    @Step
+    @BeforeStep
     public void waitUntilPageIsLoaded() {
         defectDetailsPage.waitUntilPageIsLoaded();
     }
 
     @Step
     public void checkAllElementsArePresent(String referenceNumber, String defectType, String defectName, String defectDescription) {
-        defectDetailsPage.waitUntilPageIsLoaded();
+
         assertThat(defectDetailsPage.getDefectLabel().isDisplayed()).isTrue();
         assertThat(defectDetailsPage.getLocationLabel().isDisplayed()).isTrue();
         assertThat(defectDetailsPage.getNotesLabel().isDisplayed()).isTrue();
@@ -43,7 +45,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectOptionsAndTapAddDefect(Map<String, String> map) {
-        defectDetailsPage.waitUntilPageIsLoaded();
         defectDetailsPage.selectOptionAndItsValue(map);
         defectDetailsPage.clickDone();
     }
@@ -108,7 +109,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void sendNotesWithContentCheckAndSize() {
-        defectDetailsPage.waitUntilPageIsLoaded();
         String randomData = RandomStringUtils.randomAlphanumeric(250);
         defectDetailsPage.sendNotes(randomData);
         assertThat(defectDetailsPage.checkIfTextIsPresent(randomData)).isEqualTo(0);
@@ -117,7 +117,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void tapDone() {
-        defectDetailsPage.waitUntilPageIsLoaded();
         defectDetailsPage.clickDone();
     }
 
@@ -135,7 +134,7 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void checkPageIsLoaded() {
-        defectDetailsPage.waitUntilPageIsLoaded();
+        waitUntilPageIsLoaded();
     }
 
     @Step

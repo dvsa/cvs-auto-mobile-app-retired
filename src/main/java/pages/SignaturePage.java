@@ -39,7 +39,7 @@ public class SignaturePage extends BasePage {
        logger.info("Confirming signature...");
         WebElement we = waitUntilPageIsLoadedByElementPresent(MobileBy.AccessibilityId(CONFIRM_SIGNATURE_POP_UP_ID), 50, 200);
         tapByCoordinates(we.getLocation().getX(), we.getLocation().getY());
-       logger.info("- Confirmed");
+       logger.info("Confirmed");
     }
 
     public void cancelSignatureConfirmation() {
