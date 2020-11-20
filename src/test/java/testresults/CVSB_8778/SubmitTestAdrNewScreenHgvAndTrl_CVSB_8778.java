@@ -153,11 +153,12 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Substances (class UN number and if necessary packing group and proper shipping name) may be carried");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Statement reference number");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Product list reference number");
-        adrDetailsStep.scrollToElement("INITIAL TANK INSPECTION");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "UN number");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSTANCES PERMITTED", "Additional product list details");
+        adrDetailsStep.scrollToElement("INITIAL TANK INSPECTION");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("INITIAL TANK INSPECTION");
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("SUBSEQUENT TANK INSPECTION");
+        adrDetailsStep.scrollToElement("SUBSEQUENT TANK INSPECTION");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSEQUENT TANK INSPECTION", "Inspection type");
         adrDetailsStep.scrollToElement("MEMO 07/09 (3 MONTH EXTENSION)");
         adrDetailsStep.checkAdrDetailSectionContains("SUBSEQUENT TANK INSPECTION", "Certificate number");
