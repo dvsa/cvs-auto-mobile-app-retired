@@ -15,7 +15,7 @@ public class IdentifyVehiclePage extends BasePage {
     private static final String CANCEL_OPTION_ID = "Cancel";
     private static final String SEARCH_OPTION = "Search";
     private static final String DESCRIPTION = "//XCUIElementTypeStaticText[contains(@name, 'Check you have entered the correct value or change the search criteria to identify a vehicle')]";
-    private static final String TITLE_ID = "Vehicle not found";
+    private static final String TITLE = "//XCUIElementTypeStaticText[contains(@name, 'Vehicle not found')]";
     private static final String LOADING_SCREEN_ID = "Loading...";
     private static final String INCOMPLETE_RECORD_DESCRIPTION = "//XCUIElementTypeStaticText[contains(@name, 'This vehicle does not have enough data to be tested. Call Technical Support to correct this record and use SAR to test this vehicle.')]";
     private static final String INCOMPLETE_RECORD_TITLE = "//XCUIElementTypeStaticText[contains(@name, 'Incomplete vehicle record')]";
@@ -88,10 +88,29 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public boolean isVehicleNotFoundPopUpDisplayed() {
-        boolean status = true;
-        if ((findElementByXpath(OK) == null) || (findElementByXpath(DESCRIPTION) == null ) ||
-                (findElementById(TITLE_ID)) == null) {
-            status = false;
+
+        boolean status = false;
+        boolean isException = false;
+        WebElement okButton = null;
+        WebElement description = null;
+        WebElement title = null;
+
+        try {
+            okButton = findElementByXpath(OK);
+            description = findElementByXpath(DESCRIPTION);
+            title = findElementByXpath(TITLE);
+        } catch (Exception e) {
+            isException = true;
+        }
+
+        if ((okButton == null) || (description == null) || (title == null)) {
+            isException = true;
+        }
+
+        if (!isException) {
+            if (okButton.isDisplayed() && description.isDisplayed() && title.isDisplayed()) {
+                status = true;
+            }
         }
         return status;
     }

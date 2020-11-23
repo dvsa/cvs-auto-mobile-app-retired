@@ -31,7 +31,10 @@ public class SeatbeltInstallationCheck_2003 extends BaseTestClass {
     @Test
     public void editingCarriedOutDuringTest() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeCategorySteps.waitUntilPageIsLoaded("Retest");
+        testTypeCategorySteps.waitUntilPageIsLoadedByXPath("Part Paid retest");
         testTypeCategorySteps.selectFromTestTypeList("Part Paid retest");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
