@@ -78,8 +78,8 @@ public class TestTypeCategorySteps extends ScenarioSteps {
 
     @Step
     public void selectFromTestTypeList(String testType) {
-        testTypeCategoryPage.waitUntilPageIsLoaded(testType);
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
+        testTypeCategoryPage.waitUntilPageIsLoaded(testType);
     }
 
     @Step
@@ -95,5 +95,9 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     @Step
     public void waitUntilPageIsLoaded(String subCategory) {
         testTypeCategoryPage.waitUntilPageIsLoaded(subCategory);
+    }
+    @Step
+    public void waitUntilPageIsLoadedByXPath(String subCategory) {
+        testTypeCategoryPage.waitUntilPageIsLoadedByXPath(subCategory);
     }
 }
