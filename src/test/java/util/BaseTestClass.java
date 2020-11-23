@@ -10,6 +10,12 @@ import net.thucydides.core.webdriver.WebDriverFacade;
 import org.junit.After;
 import org.junit.Before;
 
+import org.junit.Rule;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.rules.TestRule;
+import org.junit.rules.TestWatcher;
+import org.junit.runner.Description;
+import org.junit.runners.model.Statement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -18,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 import static net.serenitybdd.core.Serenity.getDriver;
+
 
 public class BaseTestClass {
 
@@ -28,6 +35,7 @@ public class BaseTestClass {
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
     protected TokenGenerator tokenGenerator = new TokenGenerator();
     protected SessionDetails sessionDetails = new SessionDetails();
+    protected UpdateBsTestStatus updateBsTestStatus = new UpdateBsTestStatus();
 
     protected String username;
     protected String token;
@@ -36,33 +44,54 @@ public class BaseTestClass {
     @Managed(uniqueSession = true, clearCookies = ClearCookiesPolicy.BeforeEachTest)
     public WebDriver webDriver;
 
-    @Before
-    public void initialise() throws Exception{
 
-        username = new FileLocking().getUsernameFromQueue();
+    @Rule
+    public final TestRule watchman = new TestWatcher() {
+        @Override
+        public Statement apply(Statement base, Description description) {
+            return super.apply(base, description);
+        }
 
-        WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
-        RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
-        sessionDetails.setSession(driver.getSessionId().toString());
-        sessionDetails.setName(super.getClass().getName());
-        MDC.put("id", sessionDetails.getSession());
+        @Override
+        protected void failed(Throwable e, Description description) {
+            sessionDetails.setStatus("failed");
+            sessionDetails.setReason(e.getCause() == null ? "Unknown" : e.getCause().getMessage());
+            updateBsTestStatus.updateStatus(sessionDetails);
+        }
 
-        logger.info("closing user's activity");
-        token = tokenGenerator.getToken(username);
-        new ActivityService().closeCurrentUserActivity(token);
-    }
+        @Override
+        protected void succeeded(Description description) {
+            sessionDetails.setStatus("passed");
+            sessionDetails.setReason("no issues found");
+            updateBsTestStatus.updateStatus(sessionDetails);
+        }
 
-    @After
-    public void returnUserToPool(){
-        String status = "failed";
-        sessionDetails.setStatus(status);
+        @Override
+        protected void starting(Description description) {
+            username = new FileLocking().getUsernameFromQueue();
+            logger.info("creating BS session");
 
-        if(status.equals("failed")){ sessionDetails.setReason("error"); }
+            WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
+            RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
+            sessionDetails.setSession(driver.getSessionId().toString());
+            sessionDetails.setName(description.getMethodName());
+            MDC.put("id", sessionDetails.getSession());
 
-        new UpdateBsTestStatus().updateStatus(sessionDetails);
-        webDriver.quit();
-        logger.info("returning user to the user pool");
-        new ActivityService().closeCurrentUserActivity(token);
-        new FileLocking().putUsernameInQueue(username);
-    }
+            logger.info("closing user's activity");
+            token = tokenGenerator.getToken(username);
+            new ActivityService().closeCurrentUserActivity(token);
+
+            super.starting(description);
+        }
+
+        @Override
+        protected void finished(Description description) {
+            logger.info("finished");
+            webDriver.quit();
+            logger.info("returning user to the user pool");
+            new ActivityService().closeCurrentUserActivity(token);
+            new FileLocking().putUsernameInQueue(username);
+            super.finished(description);
+        }
+    };
 }
