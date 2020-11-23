@@ -10,6 +10,9 @@ import java.nio.charset.StandardCharsets;
 
 public class UpdateBsTestStatus {
 
+    public UpdateBsTestStatus() {
+    }
+
     public static void updateStatus(SessionDetails sessionDetails) {
         Unirest.setTimeouts(0, 0);
 
