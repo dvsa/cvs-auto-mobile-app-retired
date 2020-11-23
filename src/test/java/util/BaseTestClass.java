@@ -23,6 +23,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import static net.serenitybdd.core.Serenity.getDriver;
 
 
@@ -54,8 +57,12 @@ public class BaseTestClass {
 
         @Override
         protected void failed(Throwable e, Description description) {
+
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
             sessionDetails.setStatus("failed");
-            sessionDetails.setReason(e.getCause() == null ? "Unknown" : e.getCause().getMessage());
+            sessionDetails.setReason(e.getCause() == null ? "Unknown" : sw.toString() );
             updateBsTestStatus.updateStatus(sessionDetails);
         }
 

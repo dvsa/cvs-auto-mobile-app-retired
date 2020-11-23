@@ -1,6 +1,7 @@
 package testtype.CVSB_15775;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
@@ -49,6 +50,9 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
 
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
+
+    @Steps
+    TrailerDetailsSteps trailerDetailsSteps;
 
     @Title("CVSB-15775 - AC1 - Clearer test type names for PSV AC3 - Removal of Vitesse 100")
     @Test
@@ -139,8 +143,8 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         // for TRL with three axles
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("765432");
-        vehicleDetailsSteps.selectConfirmButtonTopRight();
-        vehicleDetailsSteps.selectConfirmFromPopUp();
+        trailerDetailsSteps.selectConfirmButtonTopRight();
+        trailerDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
