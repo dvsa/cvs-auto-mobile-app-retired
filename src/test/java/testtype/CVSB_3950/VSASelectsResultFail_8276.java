@@ -79,6 +79,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testTypeDetailsSteps.checkTestIsFailed();
         testTypeDetailsSteps.pressSave();
         testSteps.clickReviewAndSubmit();
+        testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.checkSubmitPopUp();
         testReviewSteps.pressSubmitInPopUp();
