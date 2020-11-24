@@ -31,11 +31,16 @@ public class DefectSearch_CVSB_653 extends BaseTestClass {
     @Steps
     DefectDescriptionSteps defectDescriptionSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
     @Title("CVSB-112 - AC6 Test returning from search results")
     @Test
     public void testReturningFromSearchResults() {
-
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
 
