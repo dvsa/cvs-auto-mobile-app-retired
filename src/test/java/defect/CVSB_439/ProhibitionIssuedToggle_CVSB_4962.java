@@ -44,10 +44,14 @@ public class ProhibitionIssuedToggle_CVSB_4962 extends BaseTestClass {
     @Title("CVSB-439 - AC1 - VSA confirms a prohibition have been issued against a dangerous defect (Retest)")
     @Test
     public void testProhibitionIssuedRetest() {
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Paid retest");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
