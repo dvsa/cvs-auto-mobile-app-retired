@@ -43,8 +43,6 @@ public class DefectEditAndUpdate_CVSB_666 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testEditAndUpdateFromTestTypeDetails() {
-        //testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-        // preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
