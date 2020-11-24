@@ -33,8 +33,6 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
     @Title("CVSB-112 - AC4 non-alphanumeric search in Level 1 defect category search bar")
     @Test
     public void searchForNonAlphanumericDefect() {
-        //testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-        // preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
