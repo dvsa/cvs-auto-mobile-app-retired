@@ -22,6 +22,11 @@ public class DefectDetailsPage extends BasePage {
     private static final String ADDITIONAL_INFORMATION_LATERAL = "//XCUIElementTypeOther[contains(@name, 'Lateral')]";
     private static final String ADDITIONAL_INFORMATION_ROW_NUMBER = "//XCUIElementTypeOther[contains(@name, 'Row Number')]";
     private static final String ADDITIONAL_INFORMATION_SEAT_NUMBER = "//XCUIElementTypeOther[contains(@name, 'Seat Number')]";
+    private static final String ADDITIONAL_INFORMATION_LONGITUDINAL = "//XCUIElementTypeOther[@name='Longitudinal']";
+    private static final String ADDITIONAL_INFORMATION_AXLE_NUMBER = "//XCUIElementTypeOther[@name='Axle Number']";
+    private static final String ADDITIONAL_INFORMATION_HORIZONTAL = "//XCUIElementTypeOther[@name='Horizontal']";
+
+
     private static final String DONE_BUTTON_ID = "Done";
     private static final String PRS_ENABLE = "Defect repaired during test";
     private static final String ADD_NOTES = "Add notes";
@@ -42,10 +47,6 @@ public class DefectDetailsPage extends BasePage {
     private static final String PAGE_ALL_LABELS_CLASS_NAME = "XCUIElementTypeStaticText";
     private static final String ISSUED_IN_MOBILE_COMPLIANCE_ID = "Issued in Mobile Compliance";
     private static final String PROHIBITION = "PROHIBITION";
-
-    private static final String REFERENCE_NUMBER_FIELD = "//XCUIElementTypeTextField[1]";
-    private static final String DEFECT_NAME_FIELD = "//XCUIElementTypeTextField[2]";
-    private static final String DEFECT_NOTES_FIELD = "//XCUIElementTypeTextField[2]";
 
     private static final String DEFECT_REFERENCE_NUMBER = "//XCUIElementTypeStaticText[@value='REFERENCE NUMBER']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeOther/XCUIElementTypeTextField";
     private static final String DEFECT_NAME = "//XCUIElementTypeStaticText[@value='DEFECT NAME']/ancestor::XCUIElementTypeOther/following-sibling::XCUIElementTypeOther/XCUIElementTypeTextField";
@@ -79,9 +80,17 @@ public class DefectDetailsPage extends BasePage {
         return findElementByXpath(ADDITIONAL_INFORMATION_ROW_NUMBER);
     }
 
-    public WebElement getSeatNumber() {
-        return findElementByXpath(ADDITIONAL_INFORMATION_SEAT_NUMBER);
+    public WebElement getLogitudinal() { return findElementByXpath(ADDITIONAL_INFORMATION_LONGITUDINAL); }
+
+    public WebElement getHorizontal() {
+        return findElementByXpath(ADDITIONAL_INFORMATION_HORIZONTAL);
     }
+
+    public WebElement getAxleNumber() {
+        return findElementByXpath(ADDITIONAL_INFORMATION_AXLE_NUMBER);
+    }
+
+    public WebElement getSeatNumber() { return findElementByXpath(ADDITIONAL_INFORMATION_SEAT_NUMBER); }
 
     public int getSelectOptionElementNumber() {
         return findElementsByXpath("//*[@label='" + SELECT_OPTION + "']").size();
@@ -113,6 +122,21 @@ public class DefectDetailsPage extends BasePage {
     public void selectSeatNumberValue(String id) {
         getSeatNumber().click();
         findElementByXpath("//XCUIElementTypeButton[@name='" + id + "']").click();
+    }
+
+    public void selectLongitudinal(String longitudinal) {
+        getLogitudinal().click();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + longitudinal + "']").click();
+    }
+
+    public void selectAxleNumber(String axleNumber) {
+        getAxleNumber().click();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + axleNumber + "']").click();
+    }
+
+    public void selectHorizontalValue(String horizontalValue) {
+        getHorizontal().click();
+        findElementByXpath("//XCUIElementTypeButton[@name='" + horizontalValue + "']").click();
     }
 
     public void waitUntilPageIsLoaded() {
@@ -190,7 +214,6 @@ public class DefectDetailsPage extends BasePage {
         findElementByXpath(LONGITUDINAL_POP_UP_FRONT_XPATH).click();
     }
 
-
     public void clickLogitudinalRear() {
         findElementByXpath(LONGITUDINAL_POP_UP_REAR_XPATH).click();
     }
@@ -205,39 +228,6 @@ public class DefectDetailsPage extends BasePage {
             return findElementById(DEFECT_DETAILS_PAGE_ID).isDisplayed();
         } catch (NullPointerException ex) {
             return false;
-        }
-    }
-
-    public void selectOption(String option) {
-        try {
-            String locator = "//*[@label='" + option + "']";
-            findElementsByXpath(locator).get(1).click();
-            waitElementToDisappear(locator);
-
-        } catch (NoSuchElementException e) {
-            throw new AutomationException("The option chosen is not available!");
-        }
-    }
-
-    public void selectValue(String value) {
-        try {
-            String locator = "//XCUIElementTypeButton[@name='" + value + "']";
-            findElementByXpath(locator).click();
-
-        } catch (NoSuchElementException e) {
-            throw new AutomationException("The option chosen is not available!");
-        }
-    }
-
-
-
-    public void selectOptionAndItsValue(Map<String, String> map) {
-        Iterator it = map.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            selectOption(pair.getKey().toString());
-            selectValue(pair.getValue().toString());
-            it.remove();
         }
     }
 
@@ -370,6 +360,5 @@ public class DefectDetailsPage extends BasePage {
         WebElement defectNotesField = findElementByXpath(DEFECT_NOTES);
         return defectNotesField.getText();
     }
-
 
 }

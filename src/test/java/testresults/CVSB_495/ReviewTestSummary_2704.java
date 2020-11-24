@@ -116,7 +116,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1");
         defectDetailsSteps.setPRS();
-        defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputSeatbeltDefect());
+        defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
 
         //Abandon test type from change details screen
         testTypeDetailsSteps.addNotes("Test");

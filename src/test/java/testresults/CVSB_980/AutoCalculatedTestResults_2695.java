@@ -62,6 +62,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         odometerReadingSteps.typeInField("8");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
@@ -84,7 +85,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
         defectItemSteps.selectDefectFromList("4. Reservoir:");
         defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
-        defectDetailsSteps.selectOptionsAndTapAddDefect(defectDetailsSteps.inputBrakeSystemMinorDefect());
+        defectDetailsSteps.selectVerticalLateralLongitudinalAxle("Upper", "Nearside", "Front", "8");
         testTypeDetailsSteps.pressSave();
         testReviewSteps.checkTestStatus("Annual test", "PASS");
     }

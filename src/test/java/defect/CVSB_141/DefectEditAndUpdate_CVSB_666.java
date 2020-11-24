@@ -56,7 +56,7 @@ public class DefectEditAndUpdate_CVSB_666 extends BaseTestClass {
         testTypeDetailsSteps.checkDefectsArePresentForTest("Annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt");
         // TODO find a better method for existing defect selection
         testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
-        defectDetailsSteps.selectOptionsWithPRSCheckAndTapDone("Upper", "Nearside", "2", "2");
+        defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper", "Nearside", "2", "2");
         testTypeDetailsSteps.checkAdditionalDetailsWithPRSPresent("Annual test", "3.1", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b) of an incorrect type.");
     }
 
