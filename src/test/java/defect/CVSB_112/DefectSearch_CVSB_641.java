@@ -27,9 +27,6 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     DefectCategorySteps defectCategorySteps;
 
     @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
 
