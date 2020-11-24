@@ -48,6 +48,7 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
         odometerReadingSteps.typeInField("8");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
