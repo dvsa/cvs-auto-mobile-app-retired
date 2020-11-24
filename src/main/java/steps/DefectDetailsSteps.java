@@ -8,10 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.DefectDetailsPage;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static java.lang.Thread.sleep;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DefectDetailsSteps extends ScenarioSteps {
@@ -66,6 +62,15 @@ public class DefectDetailsSteps extends ScenarioSteps {
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
         defectDetailsPage.selectSeatNumberValue(seatNumberValue);
+        defectDetailsPage.clickDone();
+    }
+
+    @Step
+    public void selectVerticalLateralRowNumberSeatNumberWithPRS(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+        defectDetailsPage.selectVerticalValue(verticalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.selectRowNumberValue(rowNumberValue);
+        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
         assertThat(defectDetailsPage.getPRSSwitchValue()).isEqualTo("0");
         defectDetailsPage.enablePRS();
         assertThat(defectDetailsPage.getPRSSwitchValue()).isEqualTo("1");
@@ -114,7 +119,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
     public void tapDone() {
         defectDetailsPage.clickDone();
     }
-
 
     @Step
     public void checkPageIsLoaded() {
@@ -200,7 +204,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
     public void checkProhibitionIssuedSwitchOff() {
         assertThat(defectDetailsPage.getProhibitionSwitchValue().contentEquals("0")).isTrue();
     }
-
 
     @Step
     public void checkPRSOptionIsNotDisplayed() {

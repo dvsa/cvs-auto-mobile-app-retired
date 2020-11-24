@@ -23,6 +23,14 @@ public class ATFDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void startVisitWithTime() {
+        atfDetailsPage.waitUntilPageIsLoaded();
+        atfDetailsPage.clickStartVisit();
+        siteVisitPage.setStartVisitTime();
+        atfDetailsPage.selectConfirmInPopUp();
+    }
+
+    @Step
     public void waitUntilPageIsLoaded() {
         atfDetailsPage.waitUntilPageIsLoaded();
     }
