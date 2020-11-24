@@ -34,11 +34,17 @@ public class DefectEditAndUpdate_CVSB_667 extends BaseTestClass {
     @Steps
     AdvisoryDetailsSteps advisoryDetailsSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
 
     @Title("CVSB-141 - AC2 - Edit and update advisory from advisory details screen")
     @Test
     public void testEditAndUpdateFromAdvisoryDetails() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
