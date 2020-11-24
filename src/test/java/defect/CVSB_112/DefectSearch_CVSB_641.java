@@ -11,7 +11,6 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
 
-@Ignore
 @RunWith(SerenityRunner.class)
 public class DefectSearch_CVSB_641 extends BaseTestClass {
 
@@ -30,12 +29,19 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     @Steps
     DefectItemSteps defectItemSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
 
     @Title("CVSB-112 AC1 Test cancel adding a level 1 defect category")
     @Test
     public void cancelAddingALevelOneDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");
         defectCategorySteps.clickBack();
