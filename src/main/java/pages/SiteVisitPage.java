@@ -145,7 +145,7 @@ public class SiteVisitPage extends BasePage {
             temporalAccessor = dateTimeFormatterAmPm.parse(timeString);
             time = dateTimeFormatter24.format(temporalAccessor);
         } else {
-            //TODO failing in very rare scenarios
+            //TODO failing quite often
             temporalAccessor = dateTimeFormatter24.parse(timeString);
             time = dateTimeFormatter24.format(temporalAccessor);
         }
