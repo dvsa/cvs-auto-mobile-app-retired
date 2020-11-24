@@ -34,8 +34,8 @@ public class SeatbeltInstallationCheck_2003 extends BaseTestClass {
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeCategorySteps.waitUntilPageIsLoaded("Retest");
-        testTypeCategorySteps.waitUntilPageIsLoadedByXPath("Part Paid retest");
         testTypeCategorySteps.selectFromTestTypeList("Part Paid retest");
+        testTypeCategorySteps.waitUntilPageIsLoaded("Any PSV retest");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
