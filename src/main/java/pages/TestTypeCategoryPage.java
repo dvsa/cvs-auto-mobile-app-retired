@@ -19,11 +19,6 @@ public class TestTypeCategoryPage extends BasePage {
         waitUntilPageIsLoadedById(testType);
     }
 
-    public void waitUntilPageIsLoadedByXPath(String testType) {
-
-        waitUntilPageIsLoadedByXpath("//XCUIElementTypeStaticText[contains(@name,'"+ testType +"')]");
-    }
-
     public boolean isPageTitleDisplayed() {
         boolean status = false;
         if(findElementById(TEST_TYPE_PAGE_TITLE).isDisplayed())

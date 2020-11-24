@@ -7,11 +7,8 @@ import data.util.VehicleTechnicalRecordService;
 import net.thucydides.core.annotations.ClearCookiesPolicy;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.webdriver.WebDriverFacade;
-import org.junit.After;
-import org.junit.Before;
 
 import org.junit.Rule;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
@@ -60,9 +57,9 @@ public class BaseTestClass {
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
+            e.printStackTrace();
             sessionDetails.setStatus("failed");
-            sessionDetails.setReason(e.getCause() == null ? "Unknown" : sw.toString() );
+            sessionDetails.setReason(e.getCause() == null ? "unknown" : sw.toString() );
             updateBsTestStatus.updateStatus(sessionDetails);
         }
 
