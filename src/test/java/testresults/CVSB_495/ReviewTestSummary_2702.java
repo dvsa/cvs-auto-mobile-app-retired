@@ -8,12 +8,16 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 import java.util.HashMap;
 
 @RunWith(SerenityRunner.class)
 public class ReviewTestSummary_2702 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -57,6 +61,7 @@ public class ReviewTestSummary_2702 extends BaseTestClass {
     @Title("CVSB-495 - AC2 - VSA cannot edit review screen")
     @Test
     public void canNotEditReviewScreen() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");

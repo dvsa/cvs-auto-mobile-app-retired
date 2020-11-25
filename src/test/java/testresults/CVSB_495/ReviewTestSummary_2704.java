@@ -10,11 +10,15 @@ import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class ReviewTestSummary_2704 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -64,6 +68,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-495 - AC4 - VSA can change details of individual test types")
     public void editingTestTypeResultAndGoingBackToTestReviewScreen() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         //Adding a test type and making it a non progress one
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();

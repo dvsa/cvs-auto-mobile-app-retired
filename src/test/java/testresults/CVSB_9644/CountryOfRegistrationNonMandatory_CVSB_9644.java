@@ -6,10 +6,14 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CountryOfRegistrationNonMandatory_CVSB_9644 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     LaunchSteps launchSteps;
@@ -41,6 +45,7 @@ public class CountryOfRegistrationNonMandatory_CVSB_9644 extends BaseTestClass {
     @Title("CVSB-9644 - AC1 - Country of registration is null")
     @Test
     public void testCountryOfRegistrationNull() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -59,6 +64,7 @@ public class CountryOfRegistrationNonMandatory_CVSB_9644 extends BaseTestClass {
     @Title("CVSB-9644 - AC2 - Country of registration is not present")
     @Test
     public void testCountryOfRegistrationMissing() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();

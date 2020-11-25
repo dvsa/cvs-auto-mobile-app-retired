@@ -158,6 +158,11 @@ public class TestSteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitUntilAbandonButtonIsLoaded(){
+        testPage.waitAbandonButton();
+    }
+
+    @Step
     public void pressTestTypeAbandonButton() {
         testPage.pressAbandonButton();
     }

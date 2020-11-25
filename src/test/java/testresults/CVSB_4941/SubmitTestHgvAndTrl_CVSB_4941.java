@@ -9,10 +9,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -65,6 +69,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-7313 - AC1 - VSA is presented with a confirmation to submit test results - HGV")
     public void testConfirmationToSubmitResultsHgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -98,6 +103,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Title("CVSB-7424 - AC4 - Submit a test for TRL")
     @Test
     public void testConfirmationToSubmitResultsTrl() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -127,6 +133,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
     @Title("CVSB-7425 - AC4 -Submit a test for a HGV and TRL")
     @Test
     public void testConfirmationToSubmitResultsHgvTrl() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -166,5 +173,4 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         testReviewSteps.pressSubmitInPopUp();
         confirmationPageSteps.pressDone();
     }
-
 }

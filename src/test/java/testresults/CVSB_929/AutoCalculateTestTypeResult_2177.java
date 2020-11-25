@@ -61,6 +61,7 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
     @Title("CVSB-929 - Fail test result - Fail test result - Dangerous + Minor + Advisory defects")
     @Test
     public void testFailTestResultDangerousMinorAdvisoryDefects() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");
@@ -101,6 +102,5 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("8.1 (b) DANGEROUS");
         testReviewSteps.checkElementIsDisplayed("Test 1234");
         testReviewSteps.checkElementIsDisplayed("1.2 ADVISORY");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }
