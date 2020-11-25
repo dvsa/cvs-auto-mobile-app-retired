@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Description;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -65,6 +69,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
     )
     @Test
     public void testSiteVisitTimelineHGVPlus3TRL() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         //add hgv
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123",super.username);
         preparerSteps.startTest();

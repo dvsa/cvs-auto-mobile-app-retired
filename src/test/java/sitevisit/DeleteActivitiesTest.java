@@ -8,6 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
@@ -15,11 +16,15 @@ import util.BaseTestClass;
 public class DeleteActivitiesTest extends BaseTestClass {
 
     @Steps
+    UtilSteps utilSteps;
+
+    @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Ignore("this is just a test to verify the deletion")
     @Title("CVSB-12181 - Delete activities from Dynamo")
     public void testChangesSingularVehicleTests() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         //add hgv
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P012301230123",super.username);
     }

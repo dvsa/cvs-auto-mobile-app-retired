@@ -8,11 +8,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2056 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     SiteVisitComp siteVisitComp;
@@ -23,6 +27,7 @@ public class SiteVisitTimeline_2056 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-169 - AC1 - VSA is presented with the Site Visit timeline after completing an ATF site check")
     public void testSiteVisitTimeline() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.checkCreateTestButton();
