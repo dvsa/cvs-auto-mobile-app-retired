@@ -1,6 +1,7 @@
 package pages;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public void selectConfirmInPopUp() {
+        waitUntilPageIsLoadedByElementAndClickable(By.id(POP_UP_CONFIRM_ID), 20, 200);
         findElementById(POP_UP_CONFIRM_ID).click();
     }
 

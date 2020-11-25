@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ public class TestTypeCategoryPage extends BasePage {
         for (WebElement webElement : webElementList) {
             String text = webElement.getAttribute("name");
             if(text.equalsIgnoreCase(testType)) {
+                waitUntilPageIsLoadedByElementAndClickable(By.id(testType), 30, 200);
                 webElement.click();
                 break;
             }

@@ -161,6 +161,7 @@ public class TestPage extends BasePage {
     }
 
     public void addTestType() {
+        waitUntilPageIsLoadedByElementAndClickable(By.id(ADD_TEST_TYPE_BUTTON_ID), 30, 200);
         findElementById(ADD_TEST_TYPE_BUTTON_ID).click();
     }
 
