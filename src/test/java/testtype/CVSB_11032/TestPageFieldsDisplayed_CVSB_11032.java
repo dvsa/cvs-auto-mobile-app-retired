@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -52,7 +56,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC1 - Fields displayed on test screen - LGV")
     @Test
     public void testFieldsDisplayedForLGV() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -145,7 +149,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC2 - Fields displayed on test screen - CAR")
     @Test
     public void testFieldsDisplayedForCar() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250",super.username); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -211,7 +215,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC3 - Fields displayed on test screen - Motorcycle")
     @Test
     public void testFieldsDisplayedForMotorcycle() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789",super.username); // MOTORCYCLE ZX345CV
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -278,7 +282,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC5 - EU vehicle category options - Motorcycle")
     @Test
     public void testEUVehicleCategoryOptionsForMotorcycle() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789",super.username); // MOTORCYCLE ZX345CV
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -297,7 +301,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC6 - EU vehicle category options - Car")
     @Test
     public void testEUVehicleCategoryOptionsForCar() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250",super.username); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -316,7 +320,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC7 - EU vehicle category options - LGV")
     @Test
     public void testEUVehicleCategoryOptionsForLGV() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -335,7 +339,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Title("CVSB-11032 - AC9 - EU vehicle category options - HGV")
     @Test
     public void testEUVehicleCategoryOptionsForHGV() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username); // HGV CT70 VRL
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

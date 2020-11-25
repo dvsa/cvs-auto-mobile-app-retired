@@ -10,10 +10,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class VSASelectsResultFail_8276 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -48,7 +52,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Title("CVSB-8276 - ADR test Failed, not needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Failed_NotRequiringInfo() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         // Start a test for an HGV.
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
@@ -89,7 +93,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Title("CVSB-8276 - ADR test Failed, not needing specific data on submission (TRL)")
     @Test
     public void submitADRTestTRL_Failed_NotRequiringInfo() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         // Start a test for a TRL.
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
@@ -125,7 +129,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Passed_RequiringInfo() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         // Start a test for an HGV.
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
@@ -201,7 +205,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (TRL)")
     @Test
     public void submitADRTestTRL_Passed_RequiringInfo() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         // Start a test for a TRL.
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();

@@ -8,10 +8,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
+
     @Steps
     LaunchSteps launchSteps;
 
@@ -57,7 +61,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     @Title("CVSB-15775 - AC1 - Clearer test type names for PSV AC3 - Removal of Vitesse 100")
     @Test
     public void testTypeNamesForPsvHgvTrl(){
-        // for PSV
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

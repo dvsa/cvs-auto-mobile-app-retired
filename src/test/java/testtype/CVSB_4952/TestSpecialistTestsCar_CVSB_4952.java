@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -65,6 +69,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Ignore("Untill CVSB-18344 is fixed")
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - car")
     public void testSpecialistTestCar() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificCar("911250",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -102,6 +107,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - motorcycle")
     @Test
     public void testSpecialistTestMotorcycle() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("956789",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -142,6 +148,7 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     @Ignore("Untill CVSB-18344 is fixed")
     @Title("CVSB-4952 - As an SVSA I want to be able to select/ remove/ abandon a test type so that I can conduct a specialist test - lgv")
     public void testSpecialistTestLgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

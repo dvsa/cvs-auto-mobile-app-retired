@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -56,6 +60,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-7607 - AC1 - MANDATORY NOTES FIELD INCOMPLETE (TEST RESULT=FAIL)")
     public void testMandatoryNotesFieldIncompleteTestResultFail() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -86,6 +91,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Title("CVSB-7611 - AC2 - MANDATORY NOTES FIELD COMPLETE (TEST RESULT=FAIL) - direct back to test screen")
     @Test
     public void testMandatoryNotesFieldCompleteTestResultFail() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -119,6 +125,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Title("CVSB-7612 - AC2 - MANDATORY NOTES FIELD COMPLETE (TEST RESULT=FAIL) - entries saved")
     @Test
     public void testMandatoryAllMandatoryTestResultFail() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -150,6 +157,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Title("CVSB-7613 - AC3 - NOTES FIELD TITLE CHANGE - FAIL")
     @Test
     public void testMandatoryNotesTitleChangeTestResultFail() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -180,6 +188,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Title("CVSB-7614 - AC3b - NOTES FIELD TITLE CHANGE - PASS")
     @Test
     public void testMandatoryNotesTitleChangeTestResultPass() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -211,6 +220,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Title("CVSB-7615 - AC4 - NO MANDATORY FIELDS FOR TEST RESULT=PASS - directed back to test screen")
     @Test
     public void testMandatoryTestResultPass() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -241,6 +251,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Title("CVSB-7616 - AC4 - NO MANDATORY FIELDS FOR TEST RESULT=PASS - entries saved")
     @Test
     public void testMandatorySavedTestResultPass() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

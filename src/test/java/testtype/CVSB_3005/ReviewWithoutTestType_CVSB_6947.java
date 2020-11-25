@@ -8,11 +8,15 @@ import org.junit.runner.RunWith;
 import pages.OdometerReadingPage;
 import pages.TestPage;
 import steps.*;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -55,7 +59,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // This is being ignored for the moment, as the test is written for a change which hasn't been merged in yet.
     // TODO
     public void testReviewShowsErrorWithNoTestTypeSpecified() {
-        // Set up the test data.
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -85,7 +89,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // TODO
     // This is temporarily disabled until the correct updated functionality has been merge in to the app.
     public void testReviewShowsErrorForMissingMandatoryFields() {
-        // Set up the test data.
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -115,7 +119,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6951 AC5 - User selects EU vehicle category")
     public void testUserSelectsEUVehicleCategory() {
-        // Set up the test data.
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -152,7 +156,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // TODO
     // Disabled temporarily until the updated functionality is merged into the app.
     public void testUserSelectsOdometerReading() {
-        // Set up the test data.
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -191,7 +195,7 @@ public class ReviewWithoutTestType_CVSB_6947 extends BaseTestClass {
     // This is being disabled, as the test has been merged before the functionality has been.
     // Re-enable once the new error messages are present.
     public void testErrorsOnTheTestScreenCorrected() {
-        // Set up the test data.
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();

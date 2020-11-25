@@ -8,11 +8,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class TrailerTest_CVSB3912 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -42,6 +46,7 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-3912 - Ability to access the test screen to complete a test for trailers")
     public void testConfirmationToSubmitTestResults() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

@@ -69,6 +69,5 @@ public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
         confirmationPageSteps.waitUntilPageIsLoaded();
         confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
-
     }
 }
