@@ -9,11 +9,14 @@ import steps.CancelTestSteps;
 import steps.SiteVisitSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class CancellationTest_CVSB_855 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -30,6 +33,7 @@ public class CancellationTest_CVSB_855 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-855 - AC2 Submit test cancellation when the test does not contain test types")
     public void submitCancellationWitoutTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();

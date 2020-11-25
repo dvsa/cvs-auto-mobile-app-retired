@@ -9,12 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class RecordResult_CVSB_2149 extends BaseTestClass {
 
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -46,6 +49,7 @@ public class RecordResult_CVSB_2149 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-203 - AC 1 - Start a test type (Voluntary brake test)")
     public void testStartATestTypeVoluntaryTest() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");

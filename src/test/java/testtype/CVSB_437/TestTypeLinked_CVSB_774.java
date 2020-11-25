@@ -10,11 +10,14 @@ import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeLinked_CVSB_774 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -31,6 +34,7 @@ public class TestTypeLinked_CVSB_774 extends BaseTestClass {
     @Ignore("Invalid due to CVSB-444")
     @Title("CVSB-437 - Add a linked test")
     public void testAddALinkedTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addLinkedTestType();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",

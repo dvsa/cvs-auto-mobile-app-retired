@@ -8,11 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class RecordResult_CVSB_2710 extends BaseTestClass {
 
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -47,6 +50,7 @@ public class RecordResult_CVSB_2710 extends BaseTestClass {
     @Title("CVSB-203 - AC2 - Fields automatically populated - other test types / current test (no seatbelt installation check)")
     @Test
     public void testFieldsAutomaticallyPopulated() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");

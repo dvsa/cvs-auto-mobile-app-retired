@@ -11,10 +11,14 @@ import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 @Ignore
 @RunWith(SerenityRunner.class)
 public class SeatbeltInstallationCheck_2006 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -31,6 +35,7 @@ public class SeatbeltInstallationCheck_2006 extends BaseTestClass {
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-932 - AC - 2C VSA selects Cancel")
     public void cancelCarriedOutDuringTest() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");

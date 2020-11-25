@@ -9,11 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
@@ -60,6 +64,7 @@ public class CaptureTestInformation_CVSB_1561 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-440 - AC6 - VSA cannot update Vehicle test history")
     public void testCannotUpdateTestHistory() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();

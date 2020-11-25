@@ -10,10 +10,14 @@ import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SeatbeltInstallationCheck_2003 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -30,6 +34,7 @@ public class SeatbeltInstallationCheck_2003 extends BaseTestClass {
     @Title("CVSB-932 - AC - 2 Editing 'Carried out during this test'")
     @Test
     public void editingCarriedOutDuringTest() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");

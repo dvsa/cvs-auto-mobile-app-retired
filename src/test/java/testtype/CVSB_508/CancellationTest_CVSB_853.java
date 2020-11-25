@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import steps.CancelTestSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -21,9 +22,13 @@ public class CancellationTest_CVSB_853 extends BaseTestClass {
     @Steps
     CancelTestSteps cancelTestSteps;
 
+    @Steps
+    UtilSteps utilSteps;
+
     @Title("CVSB-853 - AC1 Submit cancellation without completing the mandatory fields")
     @Test
     public void submitCancellationWithoutMandatoryInfo() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();

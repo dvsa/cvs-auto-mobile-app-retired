@@ -8,11 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class RecordResult_CVSB_1985 extends BaseTestClass {
 
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -33,6 +36,7 @@ public class RecordResult_CVSB_1985 extends BaseTestClass {
     @Title("CVSB-203 - AC3 - Type in additional notes recorded against test type")
     @Test
     public void testAdditionalNotesRecordedAgainstTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");

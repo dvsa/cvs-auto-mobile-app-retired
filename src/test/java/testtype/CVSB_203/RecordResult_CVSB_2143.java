@@ -9,12 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class RecordResult_CVSB_2143 extends BaseTestClass {
 
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -46,6 +49,7 @@ public class RecordResult_CVSB_2143 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-203 - AC1 - Start a test type (Class 6A Seatbelt Installation Check (annual test))")
     public void testStartATestTypeClass6A() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");

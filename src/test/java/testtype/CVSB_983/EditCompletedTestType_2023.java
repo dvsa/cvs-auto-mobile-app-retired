@@ -10,11 +10,15 @@ import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class EditCompletedTestType_2023 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -31,6 +35,7 @@ public class EditCompletedTestType_2023 extends BaseTestClass {
     @Title("CVSB-983 - AC5 - VSA edits the in progress test type")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSEditInProgressTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);

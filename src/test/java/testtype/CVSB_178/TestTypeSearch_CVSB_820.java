@@ -9,11 +9,14 @@ import org.junit.runner.RunWith;
 import steps.TestSteps;
 import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeSubategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_820 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeSubategoryComp testTypeSubategoryComp;
@@ -28,6 +31,7 @@ public class TestTypeSearch_CVSB_820 extends BaseTestClass {
     @Title("CVSB-178 - Add test type from the latest level of test type drilldown")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testAddTestTypeFromLatestLevel() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Retest", preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeSubcategorySteps.seeInTestTypeList("Paid", "Part paid");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");

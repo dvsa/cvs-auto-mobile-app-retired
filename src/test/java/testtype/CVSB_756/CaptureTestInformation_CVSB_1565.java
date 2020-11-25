@@ -9,11 +9,15 @@ import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class CaptureTestInformation_CVSB_1565 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -28,6 +32,7 @@ public class CaptureTestInformation_CVSB_1565 extends BaseTestClass {
     @Title("CVSB-756 - AC2 - Update test type status once added")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testUpdateTestTypeStatusOnceAdded() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.checkTestDetails("BQ91YHQ", vehicleService.getVehicle().getVim());
         testSteps.addTestType();

@@ -10,11 +10,14 @@ import org.junit.runner.RunWith;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_818 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
@@ -29,6 +32,7 @@ public class TestTypeSearch_CVSB_818 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-178 - AC1/AC2 - Select a test type category that contains other test type categories")
     public void testTestTypeCategoryContainingOtherCategories() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.checkTestTypePage();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
                 "Prohibition clearance", "Technical test", "Voluntary test");

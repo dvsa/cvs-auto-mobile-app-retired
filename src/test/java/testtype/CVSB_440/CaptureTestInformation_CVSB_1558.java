@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
@@ -58,6 +62,7 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     @Title("CVSB-440 - AC4B - VSA views a test record")
     @Test
     public void testVsaViewsATestRecordB() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");

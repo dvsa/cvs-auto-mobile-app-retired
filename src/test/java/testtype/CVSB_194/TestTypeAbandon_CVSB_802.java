@@ -12,10 +12,13 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestTypeAbandon_CVSB_802 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -44,6 +47,7 @@ public class TestTypeAbandon_CVSB_802 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testEditAdditionalCommentAfterAbandon() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();

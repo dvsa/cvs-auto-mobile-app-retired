@@ -10,11 +10,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class CaptureTestInformation_CVSB_1550 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleComp vehicleComp;
@@ -26,6 +29,7 @@ public class CaptureTestInformation_CVSB_1550 extends BaseTestClass {
     @Title("CVSB-440 - AC2 - VSA views the test history section from vehicle search")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testVsaViewsTheTestHistorySectionFromVehicleSearch() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.checkVehicleTestHistory();
     }

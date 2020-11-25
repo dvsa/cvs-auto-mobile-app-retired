@@ -9,10 +9,14 @@ import pages.OdometerReadingPage;
 import steps.OdometerReadingSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class OdometerReading_CVSB_1182 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -26,6 +30,7 @@ public class OdometerReading_CVSB_1182 extends BaseTestClass {
     @Title("CVSB-695 - AC9 - Cancel picking up unit")
     @Test
     public void testCancelPickingUpUnit() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectOdometerReading();
         odometerReadingSteps.pressEditUnit();

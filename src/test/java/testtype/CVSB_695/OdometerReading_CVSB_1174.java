@@ -9,11 +9,14 @@ import pages.OdometerReadingPage;
 import steps.OdometerReadingSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class OdometerReading_CVSB_1174 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -27,6 +30,7 @@ public class OdometerReading_CVSB_1174 extends BaseTestClass {
     @Title("CVSB-695 - AC2 - Access odometer reading fields")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testOdometerReadingFields() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
         testSteps.selectOdometerReading();

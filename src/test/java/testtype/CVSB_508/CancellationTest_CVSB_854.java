@@ -10,6 +10,7 @@ import steps.CancelTestSteps;
 import steps.SiteVisitSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -26,10 +27,15 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
     @Steps
     SiteVisitSteps siteVisitSteps;
 
+    @Steps
+    UtilSteps utilSteps;
+
+
     @Title("CVSB-854 - AC3 Submit test cancellation when the test contains at least one test type")
     @WithTag("Smoke_2")
     @Test
     public void submitCancellationWithAtLeastOneTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
