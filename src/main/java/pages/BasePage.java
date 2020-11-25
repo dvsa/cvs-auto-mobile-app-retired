@@ -270,7 +270,7 @@ public class BasePage extends PageObject {
     }
 
 
-    private WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int pollingEvery) {
+    public WebElement waitUntilPageIsLoadedByElementAndClickable(By locator, int timeOut, int pollingEvery) {
 
         logger.info("Waiting for page to be loaded, using element: " + locator +
                 " (Timeout is " + timeOut + ", polling every " + pollingEvery + ")...");

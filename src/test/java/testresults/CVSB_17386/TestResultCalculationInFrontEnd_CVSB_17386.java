@@ -49,6 +49,9 @@ public class TestResultCalculationInFrontEnd_CVSB_17386 extends BaseTestClass {
     @Steps
     TestReviewSteps testReviewSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
     @Title("CVSB-17386 Change test result calculation in the front end - Major Defect")
     @Test
     public void testResultsCalculationInFrontEndMajor() {
@@ -83,12 +86,16 @@ public class TestResultCalculationInFrontEnd_CVSB_17386 extends BaseTestClass {
     @Title("CVSB-17386 Change test result calculation in the front end - Dangerous Defect")
     @Test
     public void testResultsCalculationInFrontEndDangerous() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+//        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("50000");
         odometerReadingSteps.checkReadingValue("50000");
         odometerReadingSteps.pressSave();
         testSteps.waitUntilPageIsLoaded();
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
