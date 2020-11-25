@@ -31,6 +31,9 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     TestHistorySteps testHistorySteps;
 
     @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+    @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
@@ -177,6 +180,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
 
         // Add a test type (Specialist Test -> COIF -> With annual test).
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("COIF");
         testTypeCategorySteps.selectFromTestTypeList("With annual test");
@@ -217,9 +221,13 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         odometerReadingSteps.typeInField("22222");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
         testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeCategorySteps.selectFromTestTypeList("With annual test");
         testTypeCategorySteps.selectFromTestTypeList("With annual test");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();

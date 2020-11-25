@@ -80,6 +80,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         // add variety of defects
