@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SelectReasonPage;
+import pages.TestPage;
 import steps.*;
 
 public class AbandonTestComp extends ScenarioSteps {
@@ -17,7 +18,8 @@ public class AbandonTestComp extends ScenarioSteps {
     @Step
     public void goToAbandonTestScreen(SelectReasonPage.Reasons... reasons) {
         testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
-        testSteps.swipeTestType("Annual test In progress arrow forward");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.scrollDown();
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(reasons);
         selectReasonSteps.pressNextButton();
