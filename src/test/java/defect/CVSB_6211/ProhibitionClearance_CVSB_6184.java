@@ -47,6 +47,7 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
     @Title("CVSB-6184 - Bypass the prohibition raising for Prohibition Clearance tests")
     @Test
     public void testBypassProhibitionClearance() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -68,6 +69,6 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.checkDefectsArePresentForTest("Paid prohibition clearance (retest with certificate)",
                 "59.2 (b) (iii) DANGEROUS", "2. Brake pipes and flexible hoses");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

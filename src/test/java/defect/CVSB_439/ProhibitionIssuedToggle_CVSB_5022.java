@@ -44,6 +44,7 @@ public class ProhibitionIssuedToggle_CVSB_5022 extends BaseTestClass {
     @Title("CVSB-439 - AC2 - VSA switches prohibition issued field off for a dangerous defect")
     @Test
     public void testProhibitionIssuedSwitchOff() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -58,6 +59,6 @@ public class ProhibitionIssuedToggle_CVSB_5022 extends BaseTestClass {
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
         defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.checkProhibitionIssuedSwitchOff();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

@@ -49,6 +49,7 @@ public class AddsMinorDefect_CVSB_4432 extends BaseTestClass {
     @Title("CVSB-972 - AC1 - VSA adds a minor defect (Class 6A)")
     @Test
     public void addsAMinorDefect() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -62,6 +63,6 @@ public class AddsMinorDefect_CVSB_4432 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("4. Reservoir:");
         defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
         defectDetailsSteps.checkPRSOptionIsNotDisplayed();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

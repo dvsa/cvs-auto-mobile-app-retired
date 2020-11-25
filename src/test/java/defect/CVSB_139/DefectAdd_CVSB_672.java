@@ -44,6 +44,7 @@ public class DefectAdd_CVSB_672 extends BaseTestClass {
     @Title("CVSB-139 - AC5 - Defect details screen")
     @Test
     public void defectDetailsScreen() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -55,6 +56,6 @@ public class DefectAdd_CVSB_672 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
         defectDetailsSteps.waitUntilPageIsLoaded();
         defectDetailsSteps.checkAllElementsArePresent("3.1","MAJOR","Obligatory seat belt:","of an incorrect type.");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }
