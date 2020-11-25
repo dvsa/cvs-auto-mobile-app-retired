@@ -35,7 +35,7 @@ public class BaseTestClass {
     protected VehicleTechnicalRecordService vehicleService = new VehicleTechnicalRecordService();
     protected TokenGenerator tokenGenerator = new TokenGenerator();
     protected SessionDetails sessionDetails = new SessionDetails();
-    protected UpdateBsTestStatus updateBsTestStatus = new UpdateBsTestStatus();
+    protected BSUpdateTestStatus BSUpdateTestStatus = new BSUpdateTestStatus();
 
     protected String username;
     protected String token;
@@ -60,14 +60,14 @@ public class BaseTestClass {
             e.printStackTrace();
             sessionDetails.setStatus("failed");
             sessionDetails.setReason(e.getCause() == null ? "unknown" : sw.toString() );
-            updateBsTestStatus.updateStatus(sessionDetails);
+            BSUpdateTestStatus.updateStatus(sessionDetails);
         }
 
         @Override
         protected void succeeded(Description description) {
             sessionDetails.setStatus("passed");
             sessionDetails.setReason("no issues found");
-            updateBsTestStatus.updateStatus(sessionDetails);
+            BSUpdateTestStatus.updateStatus(sessionDetails);
         }
 
         @Override
@@ -80,7 +80,6 @@ public class BaseTestClass {
             sessionDetails.setSession(driver.getSessionId().toString());
             sessionDetails.setName(description.getMethodName());
             MDC.put("id", sessionDetails.getSession());
-
             logger.info("closing user's activity");
             token = tokenGenerator.getToken(username);
             new ActivityService().closeCurrentUserActivity(token);
@@ -95,6 +94,7 @@ public class BaseTestClass {
             logger.info("returning user to the user pool");
             new ActivityService().closeCurrentUserActivity(token);
             new FileLocking().putUsernameInQueue(username);
+            new BSCreateSessionUrl(sessionDetails.getSession()).createSessionUrl();
             super.finished(description);
         }
     };
