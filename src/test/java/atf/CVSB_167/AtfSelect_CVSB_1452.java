@@ -10,11 +10,15 @@ import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import steps.SiteVisitSteps;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_1452 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     LaunchSteps launchSteps;
@@ -31,6 +35,7 @@ public class AtfSelect_CVSB_1452 extends BaseTestClass {
     @Ignore("[CVSB-8561] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-167 - AC5 - VSA is able to confirm that the selected ATF site is suitable for testing")
     public void testConfirmAtfSite() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
