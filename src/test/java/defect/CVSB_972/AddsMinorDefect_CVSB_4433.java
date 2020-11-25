@@ -38,13 +38,20 @@ public class AddsMinorDefect_CVSB_4433 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-972 - AC1 - VSA adds a minor defect (Retest)")
     @Test
     public void addsAMinorDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest", super.username);
-        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
-        testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("59");
