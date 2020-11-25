@@ -64,6 +64,7 @@ public class SubmitTest_CVSB_3087 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);

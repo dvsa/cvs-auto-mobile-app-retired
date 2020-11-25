@@ -55,6 +55,7 @@ public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
         odometerReadingSteps.typeInField("5");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.swipeTestType("Annual test");
         testSteps.pressTestTypeAbandonButton();

@@ -76,6 +76,7 @@ public class ProhibitionTestReviewScreen_CVSB_4574 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");

@@ -88,6 +88,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
 
         // Add a test type.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");

@@ -65,6 +65,7 @@ public class ProhibitionTestReviewScreen_CVSB_4577 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
