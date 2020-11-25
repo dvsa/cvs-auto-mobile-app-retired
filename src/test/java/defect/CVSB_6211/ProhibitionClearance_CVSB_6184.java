@@ -37,15 +37,24 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
 
     @Title("CVSB-6184 - Bypass the prohibition raising for Prohibition Clearance tests")
     @Test
     public void testBypassProhibitionClearance() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition clearance", super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeSubcategorySteps.selectFromTestTypeList("PG9 retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("PG9 retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid");
         testTypeSubcategorySteps.selectFromTestTypeList("With certification");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Paid prohibition clearance (retest with certificate)");
         defectCategorySteps.searchForDefect("59");
