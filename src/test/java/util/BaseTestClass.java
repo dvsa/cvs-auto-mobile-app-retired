@@ -54,12 +54,8 @@ public class BaseTestClass {
 
         @Override
         protected void failed(Throwable e, Description description) {
-
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace();
             sessionDetails.setStatus("failed");
-            sessionDetails.setReason(e.getCause() == null ? "unknown" : sw.toString() );
+            sessionDetails.setReason("check stacktrace in jenkins");
             BSUpdateTestStatus.updateStatus(sessionDetails);
         }
 
@@ -80,6 +76,9 @@ public class BaseTestClass {
             sessionDetails.setSession(driver.getSessionId().toString());
             sessionDetails.setName(description.getMethodName());
             MDC.put("id", sessionDetails.getSession());
+
+            sessionDetails.setBsSessionUrl(new BSCreateSessionUrl(sessionDetails.getSession()).createSessionUrl());
+
             logger.info("closing user's activity");
             token = tokenGenerator.getToken(username);
             new ActivityService().closeCurrentUserActivity(token);
@@ -94,7 +93,6 @@ public class BaseTestClass {
             logger.info("returning user to the user pool");
             new ActivityService().closeCurrentUserActivity(token);
             new FileLocking().putUsernameInQueue(username);
-            new BSCreateSessionUrl(sessionDetails.getSession()).createSessionUrl();
             super.finished(description);
         }
     };

@@ -1,15 +1,14 @@
 package pages.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pages.BasePage;
-import util.TestHandler;
 
 public class UtilPage extends BasePage {
 
-    public void resetAndQuitDriver() {
-        TestHandler.getInitializedStatus().set(false);
-        TestHandler.currentCacheDisabled().set(false);
-        TestHandler.testTypeEnabledCached().set(false);
+    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-        getDriver().quit();
+    public void showBrowserstackUrl(String url){
+        logger.info(url);
     }
 }
