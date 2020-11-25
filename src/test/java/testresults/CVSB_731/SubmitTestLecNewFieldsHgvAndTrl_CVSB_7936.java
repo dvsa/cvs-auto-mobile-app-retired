@@ -145,8 +145,6 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
-        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("LEC");
-        testTypeSubcategorySteps.selectFromTestTypeList("With linked test");
         testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
