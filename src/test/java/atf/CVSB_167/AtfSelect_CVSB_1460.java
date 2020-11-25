@@ -11,11 +11,15 @@ import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import steps.SiteVisitSteps;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class AtfSelect_CVSB_1460 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     LaunchSteps launchSteps;
@@ -33,6 +37,7 @@ public class AtfSelect_CVSB_1460 extends BaseTestClass {
     @Title("CVSB-167 - AC8 - VSA is unable to return to ATF search once they have added a site to the visit")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testInabilityToReturnToPreviousScreen() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf(atfService.getUniqueIdentifier(0));
         atfDetailsSteps.pressStartVisit();
