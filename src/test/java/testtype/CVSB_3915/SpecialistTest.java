@@ -9,10 +9,14 @@ import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.VehicleComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SpecialistTest extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleComp vehicleComp;
@@ -53,7 +57,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC1 - Specialist Test Details")
     @Test
     public void testFieldsDisplayedInApp() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("P0123010911250", super.username); // Car
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -101,7 +105,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC2 - VSA selects result (Non-IVA)")
     @Test
     public void testVSASelectsResult_NonIVA() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -141,7 +145,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC3 - VSA selects result (IVA)")
     @Test
     public void testVSASelectsResultIVA() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -182,7 +186,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC4 - VSA selects result (Pass, Non-COIF), certificate number attributes")
     @Test
     public void testVSASelectsResultPass_NonCOIF_CertificateAttributes() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -250,7 +254,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC5 - VSA selects result (Pass, COIF), certificate number attributes")
     @Test
     public void testVSASelectsResultPass_COIF_CertificateAttributes() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -312,7 +316,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC6 - Certificate number for Notifiable Alteration (PSV)")
     @Test
     public void testCertificateNumberForNotifiableAlteration_PSV() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("XMGDE02FS0H012356", super.username); // PSV X71LTA
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -366,7 +370,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC11 - Defects")
     @Test
     public void testDefects() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -425,7 +429,7 @@ public class SpecialistTest extends BaseTestClass {
     @Title("CVSB-3915 - AC12 - Reference Number, AC13 - Defect Name, AC14 - Defect Notes")
     @Test
     public void testDefectAttributes() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();

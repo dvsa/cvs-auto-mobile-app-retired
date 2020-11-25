@@ -10,10 +10,14 @@ import pages.TestPage;
 import pages.TestTypeDetailsPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -58,6 +62,7 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRestes() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance", super.username);
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Part inspection/ part fee");

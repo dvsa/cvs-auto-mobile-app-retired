@@ -9,10 +9,14 @@ import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -53,6 +57,7 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
     public void testTestTypeTirDetailsHgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -123,6 +128,7 @@ public class TestCertificateTir_CVSB_3942 extends BaseTestClass {
     @Title("CVSB-3942 - As a VSA I can capture test details for a TIR test type so that I can conduct a TIR test")
     @Test
     public void testTestTypeTirDetailsTrl() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777777",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

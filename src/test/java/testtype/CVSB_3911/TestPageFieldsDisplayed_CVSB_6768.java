@@ -10,10 +10,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -46,7 +50,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testFieldsDisplayedForHgv() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -62,7 +66,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6771 - AC1 - Fields displayed on test screen - HGV (test history)")
     public void testFieldsDisplayedTestHistoryForHgv() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -88,7 +92,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     @Title("CVSB-6776 - AC1 - Fields displayed on test screen - HGV (select a test type)")
     @Test
     public void testFieldsDisplayedAddTestsForHgv() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -108,5 +112,4 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
         testTypeDetailsSteps.checkTestTypeAbandonButton();
         testTypeDetailsSteps.checkTestTypeRemoveButton();
     }
-
 }

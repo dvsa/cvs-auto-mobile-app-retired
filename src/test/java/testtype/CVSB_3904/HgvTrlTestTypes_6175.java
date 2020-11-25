@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class HgvTrlTestTypes_6175 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -34,6 +38,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC1 - Test type drilldown (HGV 3 axles)")
     @Test
     public void testTypeDrillDownHgv3Axles() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test", "Specialist test"};
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
@@ -47,6 +52,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC1 - Test type drilldown (TRL 2 axles)")
     @Test
     public void testTypeDrillDownTrl2Axles() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         String[] availableTestTypes = {"Annual test", "First test", "Technical test", "Retest", "Prohibition clearance", "Voluntary test", "Specialist test"};
 
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
@@ -60,6 +66,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC2 - Select a test type category that contains other test type categories")
     @Test
     public void testTypeCategoryThatContainsOtherTestTypeCategories() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -74,7 +81,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories")
     @Test
     public void testTypeCategoryThatDoesNotContainOtherTestTypeCategories() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("111111", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -86,7 +93,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC4 - Add a linked test ")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testTypeDrillDownAddLinkedTest() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -103,7 +110,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - TCD - AC5 - Display test types' short/ long name when appropriate (annual test)")
     @Test
     public void testTypeDrillDownShortLongAnnual() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -117,7 +124,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (first test)")
     @Test
     public void testTypeDrillDownShortLongFirst() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -131,7 +138,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (technical test)")
     @Test
     public void testTypeDrillDownShortLongTechnical() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -147,7 +154,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (retest)")
     @Test
     public void testTypeDrillDownShortLongRetest() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -163,7 +170,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (prohibition clearance)")
     @Test
     public void testTypeDrillDownShortLongProhibition() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -179,7 +186,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
     @Title("CVSB-3904 - AC5 - Display test types' short/ long name when appropriate (voluntary test)")
     @Test
     public void testTypeDrillDownShortLongVoluntary() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("957486", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

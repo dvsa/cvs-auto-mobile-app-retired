@@ -10,10 +10,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -58,6 +62,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsory)")
     @Test
     public void testFullRoadWorthinessRetestRecordCertificateNumberCompulsatory() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -94,6 +99,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testFullRoadWorthinessVoluntaryRecordCertificateNumberCompulsatory() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -128,6 +134,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @Title("CVSB-7437 - AC2 - Adding a Failure item to the Roadworthiness test (Voluntary)")
     @Test
     public void testFullRoadWorthinessVoluntaryAddingAFailure() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -166,6 +173,7 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @Title("CVSB-7457 - AC2 - Adding a Failure item to the Roadworthiness test (Retest)")
     @Test
     public void testFullRoadWorthinessRetestAddingAFailure() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
