@@ -10,11 +10,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 
 @RunWith(SerenityRunner.class)
 public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -82,6 +86,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
@@ -118,5 +123,6 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkTrailerTestDetails("0285678", "T12768594");
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

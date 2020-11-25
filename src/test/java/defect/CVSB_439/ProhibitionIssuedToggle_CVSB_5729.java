@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class ProhibitionIssuedToggle_CVSB_5729 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -51,6 +55,6 @@ public class ProhibitionIssuedToggle_CVSB_5729 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.checkProhibitionIssuedSwitchOff();
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
-
 }

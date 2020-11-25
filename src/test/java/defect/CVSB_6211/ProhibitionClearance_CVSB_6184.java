@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -64,5 +68,6 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.checkDefectsArePresentForTest("Paid prohibition clearance (retest with certificate)",
                 "59.2 (b) (iii) DANGEROUS", "2. Brake pipes and flexible hoses");
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

@@ -8,11 +8,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 
 @RunWith(SerenityRunner.class)
 public class DefectSearch_CVSB_645 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -52,7 +56,6 @@ public class DefectSearch_CVSB_645 extends BaseTestClass {
         defectItemSteps.clickBack();
         defectCategorySteps.clickBack();
         testTypeDetailsSteps.checkDefectWasNotAdded("Annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate","1. Obligatory Seat Belt:", "2. Anchorages:");
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
-
 }

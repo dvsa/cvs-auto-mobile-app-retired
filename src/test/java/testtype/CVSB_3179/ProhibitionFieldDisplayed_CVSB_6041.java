@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -58,5 +62,6 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
         defectDetailsSteps.checkIssuedInMobileComplianceIsPresent();
         defectDetailsSteps.checkProhibitionLabelIsDisplayed();
         defectDetailsSteps.tapDone();
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

@@ -9,12 +9,16 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 import java.util.HashMap;
 
 @RunWith(SerenityRunner.class)
 public class DefectAdd_CVSB_673 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -55,6 +59,6 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
         defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
         testTypeDetailsSteps.checkAdditionalDetails("Annual test", "3.1", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b) of an incorrect type.");
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }
