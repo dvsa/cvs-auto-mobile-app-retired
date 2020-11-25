@@ -36,6 +36,7 @@ public class ProhibitionIssuedToggle_CVSB_5730 extends BaseTestClass {
     @Title("CVSB-439 - AC6 - VSA confirms a prohibition have been issued against a test type (Voluntary)")
     @Test
     public void testProhibitionIssuedVoluntaryTest() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -44,6 +45,6 @@ public class ProhibitionIssuedToggle_CVSB_5730 extends BaseTestClass {
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOn();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

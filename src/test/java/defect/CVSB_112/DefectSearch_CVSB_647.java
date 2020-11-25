@@ -37,6 +37,7 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
     @Title("CVSB-112 - AC4 non-alphanumeric search in Level 1 defect category search bar")
     @Test
     public void searchForNonAlphanumericDefect() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -46,6 +47,6 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
         defectCategorySteps.checkListOfDefects("3. Seat Belts & Supplementary Restraint Systems", "Registration Plate");
         defectCategorySteps.searchForDefect(")*{(][}" + RandomStringUtils.randomPrint(8));
         defectCategorySteps.checkNoResultsFoundAndSuggestion();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

@@ -39,6 +39,7 @@ public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
     @Title("CVSB-439 - AC7 - VSA switches prohibition issued field off for a test type")
     @Test
     public void testProhibitionIssuedTestTypeSwitchOff() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -49,6 +50,6 @@ public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOn();
         testTypeDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOff();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

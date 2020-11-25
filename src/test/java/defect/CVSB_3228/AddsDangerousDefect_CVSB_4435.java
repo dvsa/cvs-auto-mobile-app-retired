@@ -47,6 +47,7 @@ public class AddsDangerousDefect_CVSB_4435 extends BaseTestClass{
     @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (Class 6A)")
     @Test
     public void addsADangerousDefect() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -60,6 +61,6 @@ public class AddsDangerousDefect_CVSB_4435 extends BaseTestClass{
         defectItemSteps.selectDefectFromList("2. Brake pipes and flexible hoses");
         defectDescriptionSteps.selectDefect("59.2 (b) (iii) DANGEROUS");
         defectDetailsSteps.checkPRSOptionIsNotDisplayed();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

@@ -44,6 +44,7 @@ public class ProhibitionIssuedToggle_CVSB_5727 extends BaseTestClass {
     @Title("CVSB-439 - AC3 - VSA proceeds with a dangerous not marked with an asterisk defect w/o issuing a prohibition")
     @Test
     public void testProhibitionNotEnabledPopUpNoAsteriskDefect() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -57,6 +58,6 @@ public class ProhibitionIssuedToggle_CVSB_5727 extends BaseTestClass {
         defectDetailsSteps.checkProhibitionIssuedSwitchOff();
         defectDetailsSteps.tapDone();
         defectDetailsSteps.checkProhibitionPopUpNoAsteriskDefect();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

@@ -47,6 +47,7 @@ public class DefectAdd_CVSB_675 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void defectAddDefectWithAddNotes() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -57,6 +58,6 @@ public class DefectAdd_CVSB_675 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
         defectDetailsSteps.sendNotesWithContentCheckAndSize();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

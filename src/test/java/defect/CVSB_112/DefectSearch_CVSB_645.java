@@ -43,6 +43,7 @@ public class DefectSearch_CVSB_645 extends BaseTestClass {
     @Title("CVSB-112 - AC3 Test cancel adding a level 3 defect description")
     @Test
     public void cancelAddingALevelThreeDefect() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -56,6 +57,5 @@ public class DefectSearch_CVSB_645 extends BaseTestClass {
         defectItemSteps.clickBack();
         defectCategorySteps.clickBack();
         testTypeDetailsSteps.checkDefectWasNotAdded("Annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate","1. Obligatory Seat Belt:", "2. Anchorages:");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

@@ -44,6 +44,7 @@ public class ProhibitionIssuedToggle_CVSB_5729 extends BaseTestClass {
     @Title("CVSB-439 - AC5 - VSA proceeds with a dangerous defect with * w/o recording notes")
     @Test
     public void testProhibitionNotEnabledPopUpAsteriskDefect() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -55,6 +56,6 @@ public class ProhibitionIssuedToggle_CVSB_5729 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.checkProhibitionIssuedSwitchOff();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

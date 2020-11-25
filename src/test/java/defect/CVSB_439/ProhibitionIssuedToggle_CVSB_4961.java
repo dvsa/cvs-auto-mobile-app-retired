@@ -48,6 +48,7 @@ public class ProhibitionIssuedToggle_CVSB_4961 extends BaseTestClass {
     @Title("CVSB-439 - AC1 - VSA confirms a prohibition have been issued against a dangerous defect (Class 6A)")
     @Test
     public void testProhibitionIssuedClass6A() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -62,6 +63,6 @@ public class ProhibitionIssuedToggle_CVSB_4961 extends BaseTestClass {
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

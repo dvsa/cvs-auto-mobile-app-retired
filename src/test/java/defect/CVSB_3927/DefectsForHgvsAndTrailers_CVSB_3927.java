@@ -51,6 +51,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
     @Test
     public void addsDefectsToHgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -86,12 +87,13 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
     @Test
     public void addsDefectsToTrl() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("768594",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -123,6 +125,6 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
         testSteps.checkTrailerTestDetails("0285678", "T12768594");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

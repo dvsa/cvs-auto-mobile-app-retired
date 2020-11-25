@@ -41,6 +41,7 @@ public class DefectSearch_CVSB_653 extends BaseTestClass {
     @Title("CVSB-112 - AC6 Test returning from search results")
     @Test
     public void testReturningFromSearchResults() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -71,6 +72,6 @@ public class DefectSearch_CVSB_653 extends BaseTestClass {
         defectDescriptionSteps.clearSearch();
         defectDescriptionSteps.checkExpectedPresentDefects(1, "missing.");
         defectDescriptionSteps.checkExpectedPresentDefects(1, "of an incorrect type.");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

@@ -48,6 +48,7 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void defectAddDefectFromDefectDetails() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -59,6 +60,6 @@ public class DefectAdd_CVSB_673 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
         defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
         testTypeDetailsSteps.checkAdditionalDetails("Annual test", "3.1", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b) of an incorrect type.");
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

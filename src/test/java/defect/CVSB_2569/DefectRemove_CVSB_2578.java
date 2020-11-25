@@ -39,6 +39,7 @@ public class DefectRemove_CVSB_2578 extends BaseTestClass {
     @Title("CVSB-2569 CLONE - AC7 - Abandon a test type")
     @Test
     public void abandonTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -52,6 +53,6 @@ public class DefectRemove_CVSB_2578 extends BaseTestClass {
         abandonTestSteps.pressAbandon();
         testSteps.checkPageTitleDisplayed();
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.ABANDONED);
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }

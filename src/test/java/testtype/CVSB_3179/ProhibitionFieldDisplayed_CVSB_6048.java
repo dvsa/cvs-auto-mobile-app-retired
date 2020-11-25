@@ -47,6 +47,7 @@ public class ProhibitionFieldDisplayed_CVSB_6048 extends BaseTestClass {
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Class 6A)")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelClass6A() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
@@ -61,6 +62,6 @@ public class ProhibitionFieldDisplayed_CVSB_6048 extends BaseTestClass {
         defectDetailsSteps.checkIssuedInMobileComplianceIsPresent();
         defectDetailsSteps.checkProhibitionLabelIsDisplayed();
         defectDetailsSteps.tapDone();
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+
     }
 }
