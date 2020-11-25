@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -79,6 +80,7 @@ public class PreparerPage extends BasePage {
     }
 
     public void confirmPopUpOption() {
+        waitUntilPageIsLoadedByElementAndClickable(By.id(CONFIRM_BUTTON_ID), 20, 200);
         findElementById(CONFIRM_BUTTON_ID).click();
     }
 
