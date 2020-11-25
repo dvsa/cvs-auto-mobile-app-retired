@@ -10,11 +10,15 @@ import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeSubategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_819 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeSubategoryComp testTypeSubategoryComp;
@@ -32,6 +36,7 @@ public class TestTypeSearch_CVSB_819 extends BaseTestClass {
     @Ignore("[CVSB-8289] Removing test to improve overall efficiency of the mobile app Front-end automation test suite.")
     @Title("CVSB-178 - Return back to the Test overview screen")
     public void testReturnToTestOverviewScreen() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeSubategoryComp.goToTestTypeSubcategoryFromCategory("Class 6A", preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeSubcategorySteps.seeInTestTypeList("Annual test");
         testTypeSubcategorySteps.goBackToCategory();

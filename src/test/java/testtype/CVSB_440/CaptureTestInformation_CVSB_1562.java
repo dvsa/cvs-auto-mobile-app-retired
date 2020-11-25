@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
@@ -60,6 +64,7 @@ public class CaptureTestInformation_CVSB_1562 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testGoBackFromTestTypeDetails() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");

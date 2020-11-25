@@ -11,10 +11,14 @@ import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -34,6 +38,7 @@ public class SeatbeltInstallationCheck_2015 extends BaseTestClass {
     @Title("CVSB-932 - AC5 - The behaviour of the seatbelt installation check fields when conducting Category B test types")
     @Test
     public void seatbeltInstallationCheckBehaviourWhenConductingCategoryBTestTypes() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         // Class 6A (Seatbelt Installation Check)-Annual
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");

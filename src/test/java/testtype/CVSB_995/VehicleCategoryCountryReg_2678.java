@@ -8,11 +8,15 @@ import org.junit.runner.RunWith;
 import steps.EUVehicleCategorySteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class VehicleCategoryCountryReg_2678 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -26,6 +30,7 @@ public class VehicleCategoryCountryReg_2678 extends BaseTestClass {
     @Title("CVSB-995 - AC6 - Saving EU vehicle category")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void savingVehicleCategory() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.checkTitleIsDisplayed();

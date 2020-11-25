@@ -9,11 +9,14 @@ import org.junit.runner.RunWith;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class TestTypeSearch_CVSB_711 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -28,6 +31,7 @@ public class TestTypeSearch_CVSB_711 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-178 - AC1 Test test type drilldown")
     public void testTestTypeDrillDown() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.checkAddATestTypeButtonVisibility();
         testSteps.addTestType();
