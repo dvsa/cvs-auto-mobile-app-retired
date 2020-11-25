@@ -16,13 +16,14 @@ public class BSCreateSessionUrl {
 
     public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-    String session;
+    public String session;
+    public String bsUrl;
 
     public BSCreateSessionUrl(String session) {
         this.session = session;
     }
 
-    public void createSessionUrl(){
+    public String createSessionUrl(){
 
         Unirest.setTimeouts(0, 0);
 
@@ -43,13 +44,12 @@ public class BSCreateSessionUrl {
         for (int j = 0; j < resources.length(); j++) {
             JSONObject resource = resources.getJSONObject(j);
             JSONObject fields = resource.getJSONObject("automation_build");
-            String name=fields.getString("name");
-            String project =TypeLoader.getBsProjectName();
             if(fields.getString("name").equals(TypeLoader.getBsProjectName())){
                 String buildId = fields.getString("hashed_id");
-                logger.info("https://app-automate.browserstack.com/dashboard/v2/builds/"+ buildId +"/sessions/" + session);
+                bsUrl = "https://app-automate.browserstack.com/dashboard/v2/builds/"+ buildId +"/sessions/" + session;
                 break;
             }
         }
+        return bsUrl;
     }
 }

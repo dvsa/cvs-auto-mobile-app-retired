@@ -5,10 +5,11 @@ import net.thucydides.core.steps.ScenarioSteps;
 import pages.util.UtilPage;
 
 public class UtilSteps extends ScenarioSteps {
+
     UtilPage utilPage;
 
     @Step()
-    public void resetAndQuitDriver() {
-        utilPage.resetAndQuitDriver();
+    public void showBrowserstackUrl(String url) {
+        utilPage.showBrowserstackUrl(url);
     }
 }

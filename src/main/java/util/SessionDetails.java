@@ -6,21 +6,14 @@ public class SessionDetails {
     private String name;
     private String status="passed";
     private String reason= "No issues";
+    private String bsSessionUrl;
 
     public SessionDetails() {
 
     }
 
-    public String getSession() {
-        return session;
-    }
-
     public void setSession(String session) {
         this.session = session;
-    }
-
-    public String getReason() {
-        return reason;
     }
 
     public void setReason(String reason) {
@@ -35,11 +28,22 @@ public class SessionDetails {
         this.status = status;
     }
 
+    public void setBsSessionUrl(String bsSessionUrl) { this.bsSessionUrl = bsSessionUrl; }
+
+    public String getSession() {
+        return session;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
     public String getName() {
         return name;
     }
 
-    public String getStatus() {
-        return status;
-    }
+    public String getStatus() { return status; }
+
+    public String getBsSessionUrl() { return bsSessionUrl; }
+
 }

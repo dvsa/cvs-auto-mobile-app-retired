@@ -1,6 +1,7 @@
 package testresults.CVSB_929;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
@@ -8,10 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
+import util.BSCreateSessionUrl;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -95,5 +101,6 @@ public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("8.1 (b) DANGEROUS");
         testReviewSteps.checkElementIsDisplayed("Test 1234");
         testReviewSteps.checkElementIsDisplayed("1.2 ADVISORY");
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }
