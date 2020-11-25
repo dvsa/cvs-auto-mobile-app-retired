@@ -9,11 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class AutoCalculateTestTypeResult_2191 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -57,6 +61,7 @@ public class AutoCalculateTestTypeResult_2191 extends BaseTestClass {
     @Title("CVSB-929 - Fail test result - Dangerous PRS + Major + Minor PRS + Advisory defect")
     @Ignore("Deprecated due to CVSB-972 and CVSB-3228")
     public void testFailTestResultDangerousPRSMajorMinorPRSAdvisoryDefects() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.clickCountryOfRegistrationOption();
         countryOfRegistrationSteps.selectACountry("Norway");

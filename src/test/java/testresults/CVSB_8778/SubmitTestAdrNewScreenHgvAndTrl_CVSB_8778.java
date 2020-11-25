@@ -7,10 +7,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -72,6 +76,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC3 - AC3 - Field 'Applicable' = Yes")
     @Test
     public void testAdrDetailsFieldsSemiTrailerBatteryApplicable() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -97,6 +102,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - TC2 - AC2 - Field 'Applicable' = No")
     @Test
     public void testAdrDetailsFieldsRigidBatteryApplicableNo() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("037985",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -118,6 +124,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-8778 - AC1 - Rule for dynamic 'Battery list' fields - Trl - Non semi trailer battery - not displayed")
     @Test
     public void testAdrDetailsFieldsNonSemiTrailerBattery() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777777",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -135,6 +142,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-9663 - TC - AC1 - View ADR tech record - AC2 - Subsequent tank inspections - AC3 - Substances permitted section")
     @Test
     public void testAdrDetailsFields() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("777778",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -177,6 +185,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
     @Title("CVSB-9663 - TC - AC5 - Field not selected in source - AC6 - Fields with no data which are still displayed")
     @Test
     public void testAdrDetailsFieldsNotDisplayed() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("535848",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -206,5 +215,4 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailHasValue("City", "string");
         adrDetailsStep.checkAdrDetailHasValue("Postcode", "string");
     }
-
 }

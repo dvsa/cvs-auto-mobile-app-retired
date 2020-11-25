@@ -9,11 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class AutoCalculatedTestResults_2694 extends BaseTestClass {
+    @Steps
+    UtilSteps utilSteps;
+
     @Steps
     TestSteps testSteps;
 
@@ -41,6 +45,7 @@ public class AutoCalculatedTestResults_2694 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB_980 - AC1 - Pass criteria (No defects)")
     public void passCriteriaWithNoDefects() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM1Option();

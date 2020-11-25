@@ -356,6 +356,9 @@ public class TestPage extends BasePage {
             return false;
         }
     }
+    public void waitAbandonButton() {
+        waitUntilPageIsLoadedById(ABANDON_BUTTON_ID);
+    }
 
     public void pressAbandonButton() {
         findElementById(ABANDON_BUTTON_ID).click();

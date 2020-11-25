@@ -9,10 +9,14 @@ import pages.ConfirmationPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -71,7 +75,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     @Title("CVSB-10219 - AC1 - Specialist test details, CVSB-10219 - AC2 - Site visit timeline, CVSB-10219 - AC3 - Test history")
     @Test
     public void testSpecialistTestDetails() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("951264",super.username); // LGV AS23 4TY
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -165,7 +169,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     @Title("CVSB-10219 - AC4 - Test history - two certificate numbers (Annual + COIF), CVSB-10219 - AC5 - Annual test expiry date")
     @Test
     public void testSpecialistTest_TwoCertificateNumbers_COIF() {
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username); // PSV BQ91 YHQ
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();

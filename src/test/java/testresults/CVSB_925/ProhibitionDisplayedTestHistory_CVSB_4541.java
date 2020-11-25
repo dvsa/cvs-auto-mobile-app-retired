@@ -9,11 +9,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class ProhibitionDisplayedTestHistory_CVSB_4541 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
@@ -57,6 +61,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4541 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-925 - TCD - AC2 - Prohibition displayed on test history details at a defect level")
     public void prohibitionDisplayedOnTestHistoryDetailsAtDefectLevel() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Voluntary Test");
         testTypeCategorySteps.selectFromTestTypeList("Brake Test");
         testSteps.selectVehicleCategoryOption();
