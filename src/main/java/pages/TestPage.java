@@ -21,7 +21,7 @@ public class TestPage extends BasePage {
     private static final String REMOVE_ID = "Remove";
     private static final String DESCRIPTION_ID = "This action will remove this test from the vehicle.";
     private static final String TITLE_ID = "Remove test";
-    private static final String ABANDON_BUTTON_ID = "Abandon test type";
+    private static final String ABANDON_BUTTON = "//XCUIElementTypeButton[contains(@name, 'Abandon')]";
     private static final String TEST_NOT_COMPLETE_TITLE = "Test not complete";
     private static final String TEST_NOT_COMPLETE_INFO = "You must complete all test types marked \"in progress\" before reviewing.";
     private static final String OK_BUTTON = "OK";
@@ -351,17 +351,17 @@ public class TestPage extends BasePage {
 
     public boolean isAbandonButtonDisplayed() {
         try {
-            return findElementById(ABANDON_BUTTON_ID).isDisplayed();
+            return findElementByXpath(ABANDON_BUTTON).isDisplayed();
         } catch (NullPointerException ex) {
             return false;
         }
     }
     public void waitAbandonButton() {
-        waitUntilPageIsLoadedById(ABANDON_BUTTON_ID);
+        waitUntilPageIsLoadedByXpath(ABANDON_BUTTON);
     }
 
     public void pressAbandonButton() {
-        findElementById(ABANDON_BUTTON_ID).click();
+        findElementByXpath(ABANDON_BUTTON).click();
     }
 
     public boolean isAddALinkedTestVisible() {
