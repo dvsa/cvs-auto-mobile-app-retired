@@ -43,10 +43,14 @@ public class AddsDangerousDefect_CVSB_4436 extends BaseTestClass{
     @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (Retest)")
     @Test
     public void addsADangerousDefect() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"Retest",super.username);
-        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("59");
