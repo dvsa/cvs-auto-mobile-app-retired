@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class DefectSearch_CVSB_647  extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -42,7 +46,6 @@ public class DefectSearch_CVSB_647  extends BaseTestClass {
         defectCategorySteps.checkListOfDefects("3. Seat Belts & Supplementary Restraint Systems", "Registration Plate");
         defectCategorySteps.searchForDefect(")*{(][}" + RandomStringUtils.randomPrint(8));
         defectCategorySteps.checkNoResultsFoundAndSuggestion();
-
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

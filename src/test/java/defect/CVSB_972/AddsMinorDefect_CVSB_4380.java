@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class AddsMinorDefect_CVSB_4380 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -51,5 +55,6 @@ public class AddsMinorDefect_CVSB_4380 extends BaseTestClass {
         defectItemSteps.selectDefectFromList("4. Reservoir:");
         defectDescriptionSteps.selectDefect("59.4 (a) (i) MINOR");
         defectDetailsSteps.checkPRSOptionIsNotDisplayed();
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

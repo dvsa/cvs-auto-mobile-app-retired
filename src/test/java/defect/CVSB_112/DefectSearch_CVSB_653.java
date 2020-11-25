@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class DefectSearch_CVSB_653 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -67,7 +71,6 @@ public class DefectSearch_CVSB_653 extends BaseTestClass {
         defectDescriptionSteps.clearSearch();
         defectDescriptionSteps.checkExpectedPresentDefects(1, "missing.");
         defectDescriptionSteps.checkExpectedPresentDefects(1, "of an incorrect type.");
-
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class DefectSearch_CVSB_641 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -43,6 +47,6 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
         defectCategorySteps.checkListOfDefects("1. Registration Plate", "3. Seat Belts & Supplementary Restraint Systems");
         defectCategorySteps.clickBack();
         testTypeDetailsSteps.checkDefectWasNotAdded("Annual test", "3. Seat Belts & Supplementary Restraint Systems", "1. Registration Plate");
-
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

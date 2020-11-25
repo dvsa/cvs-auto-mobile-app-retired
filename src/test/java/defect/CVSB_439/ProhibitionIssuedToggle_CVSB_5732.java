@@ -11,10 +11,14 @@ import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -45,6 +49,6 @@ public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOn();
         testTypeDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.checkProhibitionIssuedSwitchOff();
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
-
 }

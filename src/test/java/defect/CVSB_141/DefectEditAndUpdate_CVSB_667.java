@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class DefectEditAndUpdate_CVSB_667 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -58,5 +62,6 @@ public class DefectEditAndUpdate_CVSB_667 extends BaseTestClass {
         testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
         advisoryDetailsSteps.checkExistingNote("test note 1234");
         advisoryDetailsSteps.addRandomNoteInputAndTapDone();
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }

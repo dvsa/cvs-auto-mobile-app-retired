@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -64,5 +68,6 @@ public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
         confirmationPageSteps.waitUntilPageIsLoaded();
         confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPageAfterSubmit();
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
     }
 }
