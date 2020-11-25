@@ -6,10 +6,8 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
-import steps.AbandonTestSteps;
-import steps.AbandonedTestSteps;
-import steps.SelectReasonSteps;
-import steps.TestSteps;
+import pages.TestPage;
+import steps.*;
 import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -35,13 +33,22 @@ public class TestTypeAbandon_CVSB_795 extends BaseTestClass {
     @Steps
     AbandonedTestSteps abandonedTestSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
+
+
 
     @Title("CVSB-194 - AC1 Text box for additional comments")
     @Test
     public void testTextBoxForAdditionalComments() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
-        testSteps.swipeTestType("Annual test In progress arrow forward");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.scrollDown();
         testSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
                 SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);

@@ -86,7 +86,6 @@ public class TestResultCalculationInFrontEnd_CVSB_17386 extends BaseTestClass {
     @Title("CVSB-17386 Change test result calculation in the front end - Dangerous Defect")
     @Test
     public void testResultsCalculationInFrontEndDangerous() {
-//        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("50000");
