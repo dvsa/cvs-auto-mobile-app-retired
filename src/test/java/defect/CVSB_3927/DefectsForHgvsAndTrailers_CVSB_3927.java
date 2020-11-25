@@ -51,6 +51,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("First test", TestPage.TestTypeStatuses.EDIT);
@@ -90,6 +91,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("First test", TestPage.TestTypeStatuses.EDIT);
