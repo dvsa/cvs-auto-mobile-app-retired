@@ -71,6 +71,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
     @Test
     public void prohibitionDisplayedInsteadOfResultFieldOnTestHistory() {
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), "", super.username);
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectM2Option();
