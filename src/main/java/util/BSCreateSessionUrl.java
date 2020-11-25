@@ -10,7 +10,6 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.net.Proxy;
 import java.nio.charset.StandardCharsets;
 
 public class BSCreateSessionUrl {
@@ -39,7 +38,7 @@ public class BSCreateSessionUrl {
         } catch (UnirestException e) {
             e.printStackTrace();
         }
-        
+
         JSONArray resources = response.getBody().getArray();
         for (int j = 0; j < resources.length(); j++) {
             JSONObject resource = resources.getJSONObject(j);
