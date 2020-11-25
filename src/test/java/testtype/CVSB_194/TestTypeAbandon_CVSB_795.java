@@ -46,13 +46,8 @@ public class TestTypeAbandon_CVSB_795 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
-        testSteps.checkTestDetails("BQ91YHQ","1B7GG36N12S678410");
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-        testSteps.scrollDown();
-        testSteps.pressTestTypeAbandonButton();
-        selectReasonSteps.selectMultipleReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
+        abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
                 SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);
-        selectReasonSteps.pressNextButton();
         abandonTestSteps.checkAbandonTestPage();
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_8, SelectReasonPage.Reasons.REASON_12,
                 SelectReasonPage.Reasons.REASON_6, SelectReasonPage.Reasons.REASON_2);

@@ -9,10 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
 import pages.TestPage;
-import steps.AbandonTestSteps;
-import steps.AbandonedTestSteps;
-import steps.SelectReasonSteps;
-import steps.TestSteps;
+import steps.*;
 import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 import util.BaseTestClass;
@@ -38,11 +35,19 @@ public class TestTypeAbandon_CVSB_802 extends BaseTestClass {
     @Steps
     AbandonedTestSteps abandonedTestSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
+
+
     @Title("CVSB-194 - AC3 Edit additional comments after abandon")
     @WithTag("Smoke_2")
     @Test
     public void testEditAdditionalCommentAfterAbandon() {
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.checkAbandonTestPage();
         abandonTestSteps.addAdditionalComments("Additional Comment Test 123");
