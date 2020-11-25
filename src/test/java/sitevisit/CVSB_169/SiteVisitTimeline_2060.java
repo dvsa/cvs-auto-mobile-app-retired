@@ -10,11 +10,15 @@ import steps.CancelTestSteps;
 import steps.SiteVisitSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2060 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -31,6 +35,7 @@ public class SiteVisitTimeline_2060 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-169 - AC3 - VSA is presented with the Site Visit timeline after cancelling a test")
     public void testSiteVisitTimelineAfterTestCancel() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();
         cancelTestSteps.addReasonForCancellation("Test Reason");

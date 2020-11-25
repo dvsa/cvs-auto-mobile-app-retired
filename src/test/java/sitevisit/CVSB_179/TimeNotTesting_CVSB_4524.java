@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import steps.SiteVisitSelectReasonSteps;
 import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     SiteVisitComp siteVisitComp;
@@ -25,6 +29,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes")
     @Test
     public void test5minInactivity() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.waitUntilTimeNotTesting();

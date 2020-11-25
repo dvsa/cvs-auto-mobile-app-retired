@@ -9,10 +9,14 @@ import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2061 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     SiteVisitComp siteVisitComp;
@@ -27,6 +31,7 @@ public class SiteVisitTimeline_2061 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void testSiteVisitTimelineForNewVehicle() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.createNewTest();

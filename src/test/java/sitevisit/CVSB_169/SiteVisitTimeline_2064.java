@@ -7,10 +7,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
+import steps.util.UtilSteps;
 import util.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2064 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     SiteVisitComp siteVisitComp;
@@ -21,6 +25,7 @@ public class SiteVisitTimeline_2064 extends BaseTestClass {
     @Title("CVSB-169 - AC5 - VSA ends the visit from the site visit timeline")
     @Test
     public void testEndVisit() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.selectEndVisit();
