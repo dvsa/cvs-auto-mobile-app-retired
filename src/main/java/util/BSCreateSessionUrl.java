@@ -35,14 +35,11 @@ public class BSCreateSessionUrl {
         try {
             response = Unirest.get("https://api-cloud.browserstack.com/app-automate/builds.json")
                     .header("Authorization", authHeaderValue)
-                    .header("Cookie", "tracking_id=e87fb578-f9ef-4415-b3dd-1b895bf41b2b; _session=1cdbde16b9313a265bc351b6e0bd9056")
                     .asJson();
         } catch (UnirestException e) {
             e.printStackTrace();
         }
-
-        String buildId;
-
+        
         JSONArray resources = response.getBody().getArray();
         for (int j = 0; j < resources.length(); j++) {
             JSONObject resource = resources.getJSONObject(j);
@@ -50,7 +47,7 @@ public class BSCreateSessionUrl {
             String name=fields.getString("name");
             String project =TypeLoader.getBsProjectName();
             if(fields.getString("name").equals(TypeLoader.getBsProjectName())){
-                buildId = fields.getString("hashed_id");
+                String buildId = fields.getString("hashed_id");
                 logger.info("https://app-automate.browserstack.com/dashboard/v2/builds/"+ buildId +"/sessions/" + session);
                 break;
             }
