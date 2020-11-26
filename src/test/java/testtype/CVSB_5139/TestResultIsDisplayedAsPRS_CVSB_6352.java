@@ -58,13 +58,21 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-5139 - TCD - AC2 - VSA saves test details")
     @WithTag("Smoke_2")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelRestes() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance", super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("Part inspection/ part fee");
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");
@@ -79,6 +87,7 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
         defectItemSteps.selectDefectFromList("1. A tyre");
         defectDescriptionSteps.selectDefect("8.1 (b) DANGEROUS");
+        defectDetailsSteps.setPRS();
         defectDetailsSteps.selectHorizontalLateralAxle("Inner", "Centre", "8");
         testTypeDetailsSteps.pressSave();
         testSteps.clickReviewAndSubmit();
