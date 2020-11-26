@@ -51,41 +51,41 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Test
     public void submitADRTestHGV_Failed_NotRequiringInfo() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-//        // Start a test for an HGV.
-//        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
-//        preparerSteps.startTest();
-//        preparerSteps.confirmInPopUp();
-//
-//        // Select an HGV and set basic test info.
-//        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
-//        testSteps.clickCountryOfRegistrationOption();
-//        countryOfRegistrationSteps.selectACountry("Norway");
-//        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
-//        testSteps.selectVehicleCategoryOption();
-//        euVehicleCategorySteps.selectOption("N2");
-//        testSteps.selectOdometerReading();
-//        odometerReadingSteps.typeInField("123");
-//        odometerReadingSteps.checkReadingValue("123");
-//        odometerReadingSteps.pressSave();
-//
-//        // Add an ADR test.
-//        testSteps.addTestType();
-//        testTypeCategorySteps.selectFromTestTypeList("Technical test");
-//        testTypeCategorySteps.selectFromTestTypeList("ADR");
-//
-//        // CVSB-8276: TC - AC3 - VSA selects result - FAIL
-//        // Set test to Failed, and submit it.
-//        // This ensures that fields (certificate number, expiry date) are not required in the failure scenario.
-//        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
-//        testTypeDetailsSteps.setTestToOption("Fail");
-//        testTypeDetailsSteps.checkTestIsFailed();
-//        testTypeDetailsSteps.pressSave();
-//        testSteps.clickReviewAndSubmit();
-//        testReviewSteps.scrollDown();
-//        testReviewSteps.pressSubmit();
-//        testReviewSteps.checkSubmitPopUp();
-//        testReviewSteps.pressSubmitInPopUp();
-//        confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
+        // Start a test for an HGV.
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("230123",super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Select an HGV and set basic test info.
+        testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
+        testSteps.clickCountryOfRegistrationOption();
+        countryOfRegistrationSteps.selectACountry("Norway");
+        testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
+        testSteps.selectVehicleCategoryOption();
+        euVehicleCategorySteps.selectOption("N2");
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("123");
+        odometerReadingSteps.checkReadingValue("123");
+        odometerReadingSteps.pressSave();
+
+        // Add an ADR test.
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeCategorySteps.selectFromTestTypeList("ADR");
+
+        // CVSB-8276: TC - AC3 - VSA selects result - FAIL
+        // Set test to Failed, and submit it.
+        // This ensures that fields (certificate number, expiry date) are not required in the failure scenario.
+        testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("Fail");
+        testTypeDetailsSteps.checkTestIsFailed();
+        testTypeDetailsSteps.pressSave();
+        testSteps.clickReviewAndSubmit();
+        testReviewSteps.scrollDown();
+        testReviewSteps.pressSubmit();
+        testReviewSteps.checkSubmitPopUp();
+        testReviewSteps.pressSubmitInPopUp();
+        confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
     }
 
     @Title("CVSB-8276 - ADR test Failed, not needing specific data on submission (TRL)")
