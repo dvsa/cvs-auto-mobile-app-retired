@@ -54,6 +54,9 @@ public class SpecialistTest extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-3915 - AC1 - Specialist Test Details")
     @Test
     public void testFieldsDisplayedInApp() {
@@ -66,11 +69,15 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
-        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeSubcategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
 
         // View the Specialist Test details.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.checkSectionHeadingIsShown("RESULT");
@@ -90,9 +97,13 @@ public class SpecialistTest extends BaseTestClass {
         // Verify that we can abandon the Specialist test type.
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
-        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeSubcategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.selectASpecialistReason(SelectReasonPage.ReasonsSpecialist.REASON_SPECIALIST_1);
@@ -154,9 +165,13 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
+        testSteps.waitUntilPageIsLoaded();
 
         // View the Specialist Test details.
         // In order to verify that the test result is mandatory, fill all other test fields first.
@@ -195,8 +210,11 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
 
         // View the Specialist Test details.
@@ -239,6 +257,7 @@ public class SpecialistTest extends BaseTestClass {
 
         // AC9 - Digit certificate number validation
         // Verify certificate field is 20 alphanumeric characters (by removing character 21).
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ1");
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
@@ -325,6 +344,7 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
 
@@ -379,8 +399,11 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
 
         // View the Specialist Test details.
@@ -393,6 +416,7 @@ public class SpecialistTest extends BaseTestClass {
         odometerReadingSteps.pressSave();
 
         // View the Specialist Test details - and add a defect.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectDetailsSteps.checkPageTitleIsDisplayed();
@@ -438,8 +462,11 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
 
         // View the Specialist Test details.
@@ -452,6 +479,7 @@ public class SpecialistTest extends BaseTestClass {
         odometerReadingSteps.pressSave();
 
         // View the Specialist Test details - and add a defect.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectDetailsSteps.checkPageTitleIsDisplayed();
