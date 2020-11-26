@@ -41,6 +41,7 @@ public class PreparerComp extends ScenarioSteps {
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
     }
@@ -52,6 +53,7 @@ public class PreparerComp extends ScenarioSteps {
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle(vin);
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
     }
@@ -64,6 +66,7 @@ public class PreparerComp extends ScenarioSteps {
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.setSearchCriteria("Partial VIN (last 6 characters)");
         identifyVehicleSteps.searchForVehicle(partialVin);
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
     }
@@ -75,6 +78,7 @@ public class PreparerComp extends ScenarioSteps {
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle(partialVin);
+        trailerDetailsSteps.waitUntilPageIsLoaded();
         trailerDetailsSteps.selectConfirmButtonTopRight();
         trailerDetailsSteps.selectConfirmFromPopUp();
     }
@@ -86,6 +90,7 @@ public class PreparerComp extends ScenarioSteps {
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle(carPartialVin);
+        carDetailsSteps.waitUntilPageIsLoaded();
         carDetailsSteps.selectConfirmButtonTopRight();
         carDetailsSteps.selectConfirmFromPopUp();
     }
