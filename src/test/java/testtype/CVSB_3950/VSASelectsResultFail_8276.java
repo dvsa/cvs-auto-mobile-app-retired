@@ -47,6 +47,9 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-8276 - ADR test Failed, not needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Failed_NotRequiringInfo() {
@@ -107,12 +110,15 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
 
         // Add an ADR test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("ADR");
 
         // CVSB-8276: TC - AC3 - VSA selects result - FAIL
         // Set test to Failed, and submit it.
         // This ensures that fields (certificate number, expiry date) are not required in the failure scenario.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Fail");
         testTypeDetailsSteps.checkTestIsFailed();
@@ -219,13 +225,16 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
 
         // Add an ADR test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("ADR");
 
         // CVSB-8275: TC - AC2 - VSA selects result
         // CVSB-8277: TC - AC4 - VSA selects result - PASS
         // Set test to Passed, and attempt to submit it.
         // This ensures that fields (certificate number, expiry date) are required in the passing scenario.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.checkTestIsPassed();
@@ -240,6 +249,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         // CVSB-8278: TC - AC5 - VSA inputs certificate number
         // CVSB-8280: TC - AC7 - 6 digit certificate number validation
         // Verify (certificate number, no expiry date).
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.sendCertificateNumber("1234567");
         testTypeDetailsSteps.checkCertificateNumberIs("123456");
@@ -249,12 +259,14 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
 
         // CVSB-8279: TC - AC6 - VSA inputs expiry date
         // Verify (certificate number, expiry date).  This should remove the validation error onscreen.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setExpiryDateToToday();
         testTypeDetailsSteps.pressSave();
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
 
         // Provide Disclaimer text for this test (optional).
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.verifyNotesFieldsArePresent();
         testTypeDetailsSteps.addNotes("This is an ADR test.");
