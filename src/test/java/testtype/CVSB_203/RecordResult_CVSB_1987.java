@@ -45,7 +45,9 @@ public class RecordResult_CVSB_1987 extends BaseTestClass {
     @Test
     public void testAutomaticUpdateResultsBasedOnDefects() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("1. Registration Plate");
