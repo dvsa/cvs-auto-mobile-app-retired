@@ -116,6 +116,11 @@ public class TypeLoader {
         return properties.getProperty("browserstack.timezone");
     }
 
+    public static String getBsDeviceTimezone() {
+
+        return properties.getProperty("browserstack.device.timezone");
+    }
+
     public static String getBsIdleTimeout() {
 
         return properties.getProperty("browserstack.idle.timeout");

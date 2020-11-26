@@ -4,6 +4,8 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import pages.SiteVisitPage;
 
+import java.util.Date;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SiteVisitSteps extends ScenarioSteps {
@@ -13,7 +15,6 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void createNewTest() {
         siteVisitPage.waitUntilPageIsLoaded();
-        //siteVisitPage.setCreateTestTime();
         siteVisitPage.clickCreateNewTest();
     }
 
@@ -68,16 +69,6 @@ public class SiteVisitSteps extends ScenarioSteps {
         assertThat(siteVisitPage.isAtfRowDisplayed(atfName, atfNumber)).isTrue();
     }
 
-//    @Step
-//    public void checkDate() {
-//        assertThat(siteVisitPage.isCurrentDateDisplayed()).isTrue();
-//    }
-
-//    @Step
-//    public void checkTime() {
-//        assertThat(siteVisitPage.isCurrentTimeDisplayed()).isTrue();
-//    }
-
     @Step
     public void selectEndVisit() {
         waitUntilPageIsLoaded();
@@ -109,10 +100,6 @@ public class SiteVisitSteps extends ScenarioSteps {
         assertThat(siteVisitPage.isLoadingScreenDisplayed()).isTrue();
     }
 
-//    @Step
-//    public void checkVisitResults(String regPlate, String... testTypesWithResults) {
-//       assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
-//    }
 
     @Step
     public void check4SecondToastMessage() {
@@ -176,5 +163,10 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void checkVehiclePosition(String mrn, int position) {
         assertThat(siteVisitPage.getVehiclePosition(mrn)).isEqualTo(position);
+    }
+
+    @Step
+    public Date retrieveTimeFromTimeline() {
+        return siteVisitPage.retrieveTimeFromTimeline();
     }
 }

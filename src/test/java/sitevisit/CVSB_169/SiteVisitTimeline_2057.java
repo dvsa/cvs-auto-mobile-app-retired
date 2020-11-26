@@ -11,6 +11,8 @@ import steps.composed.SiteVisitComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
+import java.util.Date;
+
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2057 extends BaseTestClass {
 
@@ -26,12 +28,11 @@ public class SiteVisitTimeline_2057 extends BaseTestClass {
     @Title("CVSB-169 - AC1 - Site Visit timeline details")
     @Test
     public void testSiteVisitTimelineDetails() {
+        //TODO complete it
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        siteVisitComp.goToSiteVisit(super.username);
+        Date timeVisitStarted = siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.checkATFRow(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber());
-
-        //siteVisitSteps.checkDate();
-        //siteVisitSteps.checkTime();
+        Date timeVisitRetrieved = siteVisitSteps.retrieveTimeFromTimeline();
     }
 }
