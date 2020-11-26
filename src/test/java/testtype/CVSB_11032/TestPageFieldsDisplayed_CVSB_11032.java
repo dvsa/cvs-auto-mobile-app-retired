@@ -53,6 +53,10 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+
     @Title("CVSB-11032 - AC1 - Fields displayed on test screen - LGV")
     @Test
     public void testFieldsDisplayedForLGV() {
@@ -91,8 +95,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
 
         // Add a test type.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
@@ -111,8 +118,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkTrailerTestDetails("C000001", "T12341234");
         testSteps.scrollDown();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Normal inspection");
 
         testSteps.scrollUp();
@@ -184,8 +194,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
 
         // Add a test type.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
@@ -251,8 +264,11 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
 
         // Add a test type.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
