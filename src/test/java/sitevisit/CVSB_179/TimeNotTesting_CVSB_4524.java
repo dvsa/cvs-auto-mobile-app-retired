@@ -9,7 +9,7 @@ import steps.SiteVisitSelectReasonSteps;
 import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TimeNotTesting_CVSB_4524 extends BaseTestClass {

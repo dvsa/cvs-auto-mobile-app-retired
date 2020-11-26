@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.composed.VehicleComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class VehicleDetails_CVSB_6629 extends BaseTestClass {

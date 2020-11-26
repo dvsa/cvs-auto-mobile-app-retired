@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import steps.SiteVisitSteps;
 import steps.composed.SiteVisitComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2064 extends BaseTestClass {

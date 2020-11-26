@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.SiteVisitSteps;
 import steps.composed.VehicleComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)

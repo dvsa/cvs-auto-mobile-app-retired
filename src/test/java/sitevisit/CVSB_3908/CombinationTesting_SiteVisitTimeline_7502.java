@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Description;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {

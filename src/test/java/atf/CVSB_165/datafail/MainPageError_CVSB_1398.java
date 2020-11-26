@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import steps.ErrorSteps;
 import steps.LaunchSteps;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class MainPageError_CVSB_1398 extends BaseTestClass {

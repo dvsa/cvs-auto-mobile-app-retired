@@ -1,14 +1,11 @@
 package pages.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.serenitybdd.core.Serenity;
 import pages.BasePage;
 
 public class UtilPage extends BasePage {
 
-    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
-
     public void showBrowserstackUrl(String url){
-        logger.info(url);
+        Serenity.recordReportData().withTitle("<a href=\""+url+"\">Click to see browserstack video</a>\n").andContents("Browserstack Url");
     }
 }

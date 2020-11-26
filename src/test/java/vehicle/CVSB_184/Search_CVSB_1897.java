@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class Search_CVSB_1897 extends BaseTestClass {

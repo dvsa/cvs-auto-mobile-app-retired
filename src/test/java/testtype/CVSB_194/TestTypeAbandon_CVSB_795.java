@@ -6,12 +6,11 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
-import pages.TestPage;
 import steps.*;
 import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestTypeAbandon_CVSB_795 extends BaseTestClass {

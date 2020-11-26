@@ -1,5 +1,6 @@
 package util;
 
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -7,23 +8,18 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
 
 public class BSCreateSessionUrl {
 
-    public static final Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+    private static String bsUrl;
 
-    public String session;
-    public String bsUrl;
-
-    public BSCreateSessionUrl(String session) {
-        this.session = session;
+    public String getBsUrl() {
+        return bsUrl;
     }
 
-    public String createSessionUrl(){
+    public static void createUrl(String session){
 
         Unirest.setTimeouts(0, 0);
 
@@ -44,12 +40,11 @@ public class BSCreateSessionUrl {
         for (int j = 0; j < resources.length(); j++) {
             JSONObject resource = resources.getJSONObject(j);
             JSONObject fields = resource.getJSONObject("automation_build");
-            if(fields.getString("name").equals(TypeLoader.getBsProjectName())){
+            if(fields.getString("name").equals(TypeLoader.getBsBuildName())){
                 String buildId = fields.getString("hashed_id");
                 bsUrl = "https://app-automate.browserstack.com/dashboard/v2/builds/"+ buildId +"/sessions/" + session;
                 break;
             }
         }
-        return bsUrl;
     }
 }

@@ -1,4 +1,4 @@
-package util;
+package utils;
 
 import data.util.AtfService;
 import data.util.PreparerService;
@@ -19,9 +19,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import util.*;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
@@ -36,6 +34,7 @@ public class BaseTestClass {
     protected TokenGenerator tokenGenerator = new TokenGenerator();
     protected SessionDetails sessionDetails = new SessionDetails();
     protected BSUpdateTestStatus BSUpdateTestStatus = new BSUpdateTestStatus();
+    protected BSCreateSessionUrl bsCreateSessionUrl = new BSCreateSessionUrl();
 
     protected String username;
     protected String token;
@@ -53,36 +52,24 @@ public class BaseTestClass {
         }
 
         @Override
-        protected void failed(Throwable e, Description description) {
-            sessionDetails.setStatus("failed");
-            sessionDetails.setReason("check stacktrace in jenkins");
-            BSUpdateTestStatus.updateStatus(sessionDetails);
-        }
-
-        @Override
-        protected void succeeded(Description description) {
-            sessionDetails.setStatus("passed");
-            sessionDetails.setReason("no issues found");
-            BSUpdateTestStatus.updateStatus(sessionDetails);
-        }
-
-        @Override
         protected void starting(Description description) {
             username = new FileLocking().getUsernameFromQueue();
             logger.info("creating BS session");
 
             WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
             RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
-            sessionDetails.setSession(driver.getSessionId().toString());
+            String session = driver.getSessionId().toString();
+            MDC.put("id", session);
+
+            bsCreateSessionUrl.createUrl(session);
+            logger.info(bsCreateSessionUrl.getBsUrl());
+
+            sessionDetails.setSession(session);
             sessionDetails.setName(description.getMethodName());
-            MDC.put("id", sessionDetails.getSession());
+            sessionDetails.setBsSessionUrl(bsCreateSessionUrl.getBsUrl());
 
-            sessionDetails.setBsSessionUrl(new BSCreateSessionUrl(sessionDetails.getSession()).createSessionUrl());
-
-            logger.info("closing user's activity");
             token = tokenGenerator.getToken(username);
             new ActivityService().closeCurrentUserActivity(token);
-
             super.starting(description);
         }
 
@@ -94,6 +81,20 @@ public class BaseTestClass {
             new ActivityService().closeCurrentUserActivity(token);
             new FileLocking().putUsernameInQueue(username);
             super.finished(description);
+        }
+
+        @Override
+        protected void failed(Throwable e, Description description) {
+            sessionDetails.setStatus("failed");
+            sessionDetails.setReason("check stacktrace in jenkins");
+            BSUpdateTestStatus.updateStatus(sessionDetails);
+        }
+
+        @Override
+        protected void succeeded(Description description) {
+            sessionDetails.setStatus("passed");
+            sessionDetails.setReason("no issues found");
+            BSUpdateTestStatus.updateStatus(sessionDetails);
         }
     };
 }

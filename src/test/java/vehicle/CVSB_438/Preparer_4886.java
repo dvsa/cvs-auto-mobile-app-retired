@@ -9,7 +9,7 @@ import steps.PreparerSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.PreparerComp;
 import steps.composed.TestTypeCategoryComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
