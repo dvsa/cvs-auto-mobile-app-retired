@@ -35,7 +35,10 @@ public class SeatbeltInstallationCheck_3180 extends BaseTestClass {
     @Test
     public void updateSeatbeltInstallationCheck() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkMostRecentInstallationCheckButtonIsDisplayed();
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
