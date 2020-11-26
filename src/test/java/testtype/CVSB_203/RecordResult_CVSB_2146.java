@@ -48,9 +48,13 @@ public class RecordResult_CVSB_2146 extends BaseTestClass {
     @Test
     public void testStartATestTypeRetest() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
