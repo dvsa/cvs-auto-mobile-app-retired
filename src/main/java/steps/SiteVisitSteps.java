@@ -13,7 +13,7 @@ public class SiteVisitSteps extends ScenarioSteps {
     @Step
     public void createNewTest() {
         siteVisitPage.waitUntilPageIsLoaded();
-        siteVisitPage.setCreateTestTime();
+        //siteVisitPage.setCreateTestTime();
         siteVisitPage.clickCreateNewTest();
     }
 
@@ -68,15 +68,15 @@ public class SiteVisitSteps extends ScenarioSteps {
         assertThat(siteVisitPage.isAtfRowDisplayed(atfName, atfNumber)).isTrue();
     }
 
-    @Step
-    public void checkDate() {
-        assertThat(siteVisitPage.isCurrentDateDisplayed()).isTrue();
-    }
+//    @Step
+//    public void checkDate() {
+//        assertThat(siteVisitPage.isCurrentDateDisplayed()).isTrue();
+//    }
 
-    @Step
-    public void checkTime() {
-        assertThat(siteVisitPage.isCurrentTimeDisplayed()).isTrue();
-    }
+//    @Step
+//    public void checkTime() {
+//        assertThat(siteVisitPage.isCurrentTimeDisplayed()).isTrue();
+//    }
 
     @Step
     public void selectEndVisit() {
@@ -109,10 +109,10 @@ public class SiteVisitSteps extends ScenarioSteps {
         assertThat(siteVisitPage.isLoadingScreenDisplayed()).isTrue();
     }
 
-    @Step
-    public void checkVisitResults(String regPlate, String... testTypesWithResults) {
-       assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
-    }
+//    @Step
+//    public void checkVisitResults(String regPlate, String... testTypesWithResults) {
+//       assertThat(siteVisitPage.isSubmittedSiteVisitDisplayed(regPlate, testTypesWithResults)).isTrue();
+//    }
 
     @Step
     public void check4SecondToastMessage() {

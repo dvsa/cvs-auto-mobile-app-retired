@@ -45,6 +45,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes(availableTestTypes);
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
@@ -59,6 +60,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.checkTestTypeListOnlyContainsTestTypes(availableTestTypes);
         testTypeCategorySteps.checkTestTypesInListAreSelectable(availableTestTypes);
     }
@@ -100,6 +102,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
         testSteps.addLinkedTestType();
@@ -117,6 +120,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
@@ -185,6 +189,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
         testTypeSubcategorySteps.selectFromTestTypeList("With certification");

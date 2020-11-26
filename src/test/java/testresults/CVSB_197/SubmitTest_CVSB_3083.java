@@ -81,7 +81,7 @@ public class SubmitTest_CVSB_3083 extends BaseTestClass {
         confirmationPageSteps.waitUntilPageIsLoaded();
         confirmationPageSteps.pressDone();
         siteVisitSteps.waitUntilPageIsLoaded();
-        siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS");
+        //siteVisitSteps.checkVisitResults("BQ91 YHQ", "Annual test", "PASS");
         siteVisitSteps.checkVisitIsNotEditable("BQ91 YHQ");
 
     }

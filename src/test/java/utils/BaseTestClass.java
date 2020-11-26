@@ -80,6 +80,7 @@ public class BaseTestClass {
             logger.info("returning user to the user pool");
             new ActivityService().closeCurrentUserActivity(token);
             new FileLocking().putUsernameInQueue(username);
+            logger.info(bsCreateSessionUrl.getBsUrl());
             super.finished(description);
         }
 

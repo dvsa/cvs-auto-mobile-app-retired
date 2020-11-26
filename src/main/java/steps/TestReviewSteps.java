@@ -120,7 +120,7 @@ public class TestReviewSteps extends ScenarioSteps {
 
     @Step
     public void pressSubmitInPopUp() {
-        siteVisitPage.setSubmitTestTime();
+        //siteVisitPage.setSubmitTestTime();
         testReviewPage.clickSubmitInPopUp();
     }
 

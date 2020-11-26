@@ -27,9 +27,9 @@ public class SiteVisitPage extends BasePage {
     private static final String ENTER_REASON_POP_UP_TEXT_ID = "Before ending your visit, enter details about your time spent not testing.";
     private static final String ENTER_REASON_POP_UP_OK_ID = "OK";
 
-    private static String startVisitTime;
-    private static String createTestTime;
-    private static String submitTestTime;
+//    private static String startVisitTime;
+//    private static String createTestTime;
+  //  private static String submitTestTime;
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedByAccessibilityId(START_TEST);
@@ -101,72 +101,72 @@ public class SiteVisitPage extends BasePage {
         return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + atfName + " (" + atfNumber + ") Started site visit')]").isDisplayed();
     }
 
-    public boolean isCurrentDateDisplayed() {
-        boolean status;
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
-        TemporalAccessor date = LocalDateTime.now();
-        String clientSystemDate = dateTimeFormatter.format(date);
-        String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(1));
-        String clientSystemDateMinusOneDay = dateTimeFormatter.format(((LocalDateTime) date).minusDays(1));
-        try {
-            status = findElementByAccessibilityId(clientSystemDate.toUpperCase()).isDisplayed();
-        } catch (NoSuchElementException e) {
-            try {
-                status = findElementByAccessibilityId(clientSystemDatePlusOneDay.toUpperCase()).isDisplayed();
-            } catch (NoSuchElementException e1) {
-                try {
-                    status = findElementByAccessibilityId(clientSystemDateMinusOneDay.toUpperCase()).isDisplayed();
-                } catch (NoSuchElementException e2) {
-                    status = false;
-                }
-            }
-        }
-        return status;
-    }
+//    public boolean isCurrentDateDisplayed() {
+//        boolean status;
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("d MMMM yyyy");
+//        TemporalAccessor date = LocalDateTime.now();
+//        String clientSystemDate = dateTimeFormatter.format(date);
+//        String clientSystemDatePlusOneDay = dateTimeFormatter.format(((LocalDateTime) date).plusDays(1));
+//        String clientSystemDateMinusOneDay = dateTimeFormatter.format(((LocalDateTime) date).minusDays(1));
+//        try {
+//            status = findElementByAccessibilityId(clientSystemDate.toUpperCase()).isDisplayed();
+//        } catch (NoSuchElementException e) {
+//            try {
+//                status = findElementByAccessibilityId(clientSystemDatePlusOneDay.toUpperCase()).isDisplayed();
+//            } catch (NoSuchElementException e1) {
+//                try {
+//                    status = findElementByAccessibilityId(clientSystemDateMinusOneDay.toUpperCase()).isDisplayed();
+//                } catch (NoSuchElementException e2) {
+//                    status = false;
+//                }
+//            }
+//        }
+//        return status;
+//    }
 
-    private String getTime() {
-        String timeString = getStatusBarTime();
-        TemporalAccessor temporalAccessor;
-        String time;
+//    private String getTime() {
+//        String timeString = getStatusBarTime();
+//        TemporalAccessor temporalAccessor;
+//        String time;
+//
+//        LocalDateTime localDateTime = LocalDateTime.now();
+//        if (localDateTime.getSecond() >= 55) {
+//            try {
+//                Thread.sleep(7000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a", Locale.ENGLISH);
+//        DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm", Locale.ENGLISH);
+//
+//        if (timeString.contains("AM") || timeString.contains("PM")) {
+//            temporalAccessor = dateTimeFormatterAmPm.parse(timeString);
+//            time = dateTimeFormatter24.format(temporalAccessor);
+//        } else {
+//            //TODO failing quite often
+//            temporalAccessor = dateTimeFormatter24.parse(timeString);
+//            time = dateTimeFormatter24.format(temporalAccessor);
+//        }
+//        return time;
+//    }
 
-        LocalDateTime localDateTime = LocalDateTime.now();
-        if (localDateTime.getSecond() >= 55) {
-            try {
-                Thread.sleep(7000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+//    public void setStartVisitTime() {
+//        startVisitTime = getTime();
+//    }
 
-        DateTimeFormatter dateTimeFormatterAmPm = DateTimeFormatter.ofPattern("h:mm a", Locale.ENGLISH);
-        DateTimeFormatter dateTimeFormatter24 = DateTimeFormatter.ofPattern("HH:mm", Locale.ENGLISH);
+//    public void setCreateTestTime() {
+//        createTestTime = getTime();
+//    }
 
-        if (timeString.contains("AM") || timeString.contains("PM")) {
-            temporalAccessor = dateTimeFormatterAmPm.parse(timeString);
-            time = dateTimeFormatter24.format(temporalAccessor);
-        } else {
-            //TODO failing quite often
-            temporalAccessor = dateTimeFormatter24.parse(timeString);
-            time = dateTimeFormatter24.format(temporalAccessor);
-        }
-        return time;
-    }
+//    public void setSubmitTestTime() {
+//        submitTestTime = getTime();
+//    }
 
-    public void setStartVisitTime() {
-        startVisitTime = getTime();
-    }
-
-    public void setCreateTestTime() {
-        createTestTime = getTime();
-    }
-
-    public void setSubmitTestTime() {
-        submitTestTime = getTime();
-    }
-
-    public boolean isCurrentTimeDisplayed() {
-        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + startVisitTime + "')]").isDisplayed();
-    }
+//    public boolean isCurrentTimeDisplayed() {
+//        return findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + startVisitTime + "')]").isDisplayed();
+//    }
 
     public boolean isEndVisitPopUpDisplayed() {
         boolean status;
@@ -186,19 +186,19 @@ public class SiteVisitPage extends BasePage {
         return findElementByAccessibilityId(LOADING_ID).isDisplayed();
     }
 
-    public boolean isSubmittedSiteVisitDisplayed(String regPlate, String... testTypesWithResults) {
-        boolean status = false;
-        String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + regPlate + "')]").getAttribute("name");
-        if (visitString.contains(createTestTime + " - " + submitTestTime))
-            for (String value : testTypesWithResults) {
-                status = visitString.contains(value);
-                if (!status) {
-                    break;
-                }
-            }
-
-        return status;
-    }
+//    public boolean isSubmittedSiteVisitDisplayed(String regPlate, String... testTypesWithResults) {
+//        boolean status = false;
+//        String visitString = findElementByXpath("//XCUIElementTypeButton[contains(@name,'" + regPlate + "')]").getAttribute("name");
+//        if (visitString.contains(createTestTime + " - " + submitTestTime))
+//            for (String value : testTypesWithResults) {
+//                status = visitString.contains(value);
+//                if (!status) {
+//                    break;
+//                }
+//            }
+//
+//        return status;
+//    }
 
     public boolean isToastMessageDisplayed() {
         boolean status;

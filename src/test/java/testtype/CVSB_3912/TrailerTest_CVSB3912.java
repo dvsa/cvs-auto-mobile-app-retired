@@ -65,6 +65,7 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
         testSteps.checkCountryOfRegistrationFieldIsUpdated("Norway");
 
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkTestTypeStatus("Annual test",TestPage.TestTypeStatuses.EDIT );
         testSteps.selectVehicleDetails();

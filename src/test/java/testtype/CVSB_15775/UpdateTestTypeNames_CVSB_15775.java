@@ -60,17 +60,21 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     @Title("CVSB-15775 - AC1 - Clearer test type names for PSV AC3 - Removal of Vitesse 100")
     @Test
     public void testTypeNamesForPsvHgvTrl(){
+        //TODO please check
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Any PSV retest", "Class 6A retest (seatbelt installation check)");
         testTypeSubcategorySteps.goBackToCategory();
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Part paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Part paid retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Any PSV retest");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.goBackToCategory();
