@@ -6,10 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
-import steps.SeatbeltInstallationCheckSteps;
-import steps.TestSteps;
-import steps.TestTypeCategorySteps;
-import steps.TestTypeDetailsSteps;
+import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
@@ -35,12 +32,20 @@ public class SeatbeltInstallationCheck_2016 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-932 - AC - 6 0 seatbelts entered")
     @Test
     public void zeroSeatbeltEnteredForCategoryBTestType() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt Installation check)");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A (seatbelt installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();

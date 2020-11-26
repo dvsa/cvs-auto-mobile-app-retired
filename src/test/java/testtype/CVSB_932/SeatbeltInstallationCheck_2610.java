@@ -6,10 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
-import steps.SeatbeltInstallationCheckSteps;
-import steps.TestSteps;
-import steps.TestTypeCategorySteps;
-import steps.TestTypeDetailsSteps;
+import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
@@ -35,16 +32,23 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-2610 - Improvement ticket - Change 'carried out a seatbelt check' from yes to no does not update other fields")
     @Test
     public void changeCarriedOutASeatbeltCheckUpdatesOtherFields() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("4");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
