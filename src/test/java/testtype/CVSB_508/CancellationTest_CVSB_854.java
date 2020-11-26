@@ -35,6 +35,7 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
     @WithTag("Smoke_2")
     @Test
     public void submitCancellationWithAtLeastOneTestType() {
+        //TODO please check
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.pressCancelBottomRight();

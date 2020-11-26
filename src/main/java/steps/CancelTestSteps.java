@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CancelTestSteps extends ScenarioSteps {
     CancelTestPage cancelTestPage;
-    SiteVisitPage siteVisitPage;
+   // SiteVisitPage siteVisitPage;
 
     @Step
     public void pressBackButton() {
@@ -58,7 +58,7 @@ public class CancelTestSteps extends ScenarioSteps {
 
     @Step
     public void pressSubmitInPopUp() {
-        siteVisitPage.setSubmitTestTime();
+        //siteVisitPage.setSubmitTestTime();
         cancelTestPage.clickSubmitInPopUp();
     }
 }

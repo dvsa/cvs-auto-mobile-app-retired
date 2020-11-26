@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ATFDetailsSteps extends ScenarioSteps {
     ATFDetailsPage atfDetailsPage;
-    SiteVisitPage siteVisitPage;
+   // SiteVisitPage siteVisitPage;
 
 
 
@@ -18,15 +18,7 @@ public class ATFDetailsSteps extends ScenarioSteps {
     public void startVisit() {
         atfDetailsPage.waitUntilPageIsLoaded();
         atfDetailsPage.clickStartVisit();
-        siteVisitPage.setStartVisitTime();
-        atfDetailsPage.selectConfirmInPopUp();
-    }
-
-    @Step
-    public void startVisitWithTime() {
-        atfDetailsPage.waitUntilPageIsLoaded();
-        atfDetailsPage.clickStartVisit();
-        siteVisitPage.setStartVisitTime();
+        //siteVisitPage.setStartVisitTime();
         atfDetailsPage.selectConfirmInPopUp();
     }
 

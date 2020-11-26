@@ -99,6 +99,7 @@ public class ReviewTestSummary_2704 extends BaseTestClass {
         //add a new test type
         testReviewSteps.goToTestPage();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
