@@ -27,6 +27,8 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         caps.setCapability("automationName", TypeLoader.getAutomationName());
         caps.setCapability("project", TypeLoader.getBsProjectName());
         caps.setCapability("build", TypeLoader.getBsBuildName());
+        caps.setCapability("locale", TypeLoader.getBsDeviceTimezone());
+
 
         return caps;
 

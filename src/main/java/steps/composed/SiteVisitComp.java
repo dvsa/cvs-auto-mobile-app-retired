@@ -5,6 +5,8 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.steps.ScenarioSteps;
 import steps.*;
 
+import java.util.Date;
+
 public class SiteVisitComp extends ScenarioSteps {
 
     @Steps
@@ -17,9 +19,10 @@ public class SiteVisitComp extends ScenarioSteps {
     ATFDetailsSteps atfDetailsSteps;
 
     @Step
-    public void goToSiteVisit(String username) {
+    public Date goToSiteVisit(String username) {
         launchSteps.clickGetStarted(username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
-        atfDetailsSteps.startVisit();
+        Date startVisitDate = atfDetailsSteps.startVisit();
+        return startVisitDate;
     }
 }
