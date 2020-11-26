@@ -58,6 +58,9 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsory)")
     @Test
@@ -78,7 +81,9 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Roadworthiness retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
@@ -114,7 +119,9 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness test");
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
@@ -149,7 +156,9 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness test");
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.EDIT);
@@ -188,8 +197,11 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Roadworthiness retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Roadworthiness retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
