@@ -57,6 +57,9 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-7607 - AC1 - MANDATORY NOTES FIELD INCOMPLETE (TEST RESULT=FAIL)")
     public void testMandatoryNotesFieldIncompleteTestResultFail() {
@@ -106,8 +109,11 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS );
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -140,8 +146,11 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS );
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -172,8 +181,11 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS );
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -203,8 +215,11 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS );
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -235,8 +250,11 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS );
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
@@ -266,8 +284,11 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Technical test",TestPage.TestTypeStatuses.IN_PROGRESS );
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
