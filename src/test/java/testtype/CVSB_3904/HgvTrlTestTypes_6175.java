@@ -71,12 +71,12 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("TIR");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
-
     }
-
 
     @Title("CVSB-3904 - AC3 - Select a test type category that does not contain other test type categories")
     @Test
@@ -86,7 +86,9 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("First test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
     }
 
@@ -129,7 +131,9 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("First test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("First test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkTestTypeName("First test");
@@ -143,9 +147,12 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("Notifiable alteration");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Notifiable alteration");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Paid notifiable alteration");
@@ -159,9 +166,12 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("ADR retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("ADR retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Paid ADR retest");
@@ -191,8 +201,10 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeName("Voluntary brake test");

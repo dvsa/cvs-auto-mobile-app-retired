@@ -98,11 +98,14 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
         preparerSteps.confirmInPopUp();
         testSteps.checkHgvTestDetails("CT70VRL", "P012301230123");
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testSteps.addLinkedTestType();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ Fee");
         testTypeSubcategorySteps.selectFromTestTypeList("With certification");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
         testSteps.checkTestTypeStatus("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
