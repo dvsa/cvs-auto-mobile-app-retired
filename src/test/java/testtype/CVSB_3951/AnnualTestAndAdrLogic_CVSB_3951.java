@@ -56,6 +56,9 @@ public class AnnualTestAndAdrLogic_CVSB_3951 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-3951 - TCD - AC1 - Annual test has failed")
     @Test
     public void testListFromAddLinkedTestTypeAnnualPlusTechnical() {
@@ -74,15 +77,21 @@ public class AnnualTestAndAdrLogic_CVSB_3951 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
         testSteps.addLinkedTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("ADR");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestStatusIsNotSet();
         testTypeDetailsSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.searchForDefect("6");
@@ -92,20 +101,24 @@ public class AnnualTestAndAdrLogic_CVSB_3951 extends BaseTestClass {
         defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.tapDone();
         testTypeDetailsSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkTestIsFailed();
         testTypeDetailsSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.clickOnDefect("6.2 (a) (ii) DANGEROUS");
         defectDetailsSteps.pressRemove();
         defectDetailsSteps.pressRemoveInPopUp();
         testTypeDetailsSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.setTestToOption("pass");
         testTypeDetailsSteps.sendCertificateNumber("123456");
         testTypeDetailsSteps.setExpiryDateDefault();
         testTypeDetailsSteps.setProhibitionIssued();
         testTypeDetailsSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.EDIT);
         testSteps.checkTestTypeStatus("Annual test", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
