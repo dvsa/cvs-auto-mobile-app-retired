@@ -6,10 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
-import steps.SeatbeltInstallationCheckSteps;
-import steps.TestSteps;
-import steps.TestTypeCategorySteps;
-import steps.TestTypeDetailsSteps;
+import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
@@ -35,15 +32,24 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-932 - AC - 3 Editing 'Number of seatbelts' fitted")
     @Test
     public void editingNumberOfSeatbeltsFitted() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
