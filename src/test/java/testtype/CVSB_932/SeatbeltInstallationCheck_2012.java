@@ -9,6 +9,7 @@ import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
+import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
@@ -31,15 +32,24 @@ public class SeatbeltInstallationCheck_2012 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-932 - AC - Editing 'Most recent installation check' field")
     @Test
     public void editingMostRecentInstallationCheckField() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("PG9 retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid");
         testTypeCategorySteps.selectFromTestTypeList("With certification");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
