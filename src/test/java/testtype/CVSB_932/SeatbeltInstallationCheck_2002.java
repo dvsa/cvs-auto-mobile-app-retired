@@ -9,6 +9,7 @@ import pages.TestPage;
 import steps.TestSteps;
 import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
+import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import util.BaseTestClass;
@@ -31,14 +32,21 @@ public class SeatbeltInstallationCheck_2002 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-932 - AC1 - The behaviour of the seatbelt installation check fields when conducting Category A test types")
     @Test
     //TODO Vary data so that the tests cover all the category A test types from the story after all of them are working properly
     public void testSeatBeltInstallationCheckCategoryATestTypes() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeCategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
