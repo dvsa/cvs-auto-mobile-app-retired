@@ -9,7 +9,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class ProhibitionFieldNotDisplayed_CVSB_4829_5 extends BaseTestClass {

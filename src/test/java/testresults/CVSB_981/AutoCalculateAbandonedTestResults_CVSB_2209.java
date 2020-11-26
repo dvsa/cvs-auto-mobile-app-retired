@@ -9,7 +9,7 @@ import pages.SelectReasonPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class AutoCalculateAbandonedTestResults_CVSB_2209 extends BaseTestClass {

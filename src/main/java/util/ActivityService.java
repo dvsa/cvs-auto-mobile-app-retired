@@ -24,6 +24,7 @@ public class ActivityService {
 
     public void closeCurrentUserActivity(String token) {
 
+        logger.info("closing user's activity");
         String getStaffId = getTesterStaffId(token);
 
         List<String> openActivitiesIdforUser = getAllOpenActivitiesForTesterStaffId(getStaffId,token);

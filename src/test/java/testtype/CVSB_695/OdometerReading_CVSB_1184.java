@@ -11,7 +11,7 @@ import steps.OdometerReadingSteps;
 import steps.TestSteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)

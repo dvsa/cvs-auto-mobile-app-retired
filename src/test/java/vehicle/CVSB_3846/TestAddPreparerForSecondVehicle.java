@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestAddPreparerForSecondVehicle extends BaseTestClass {

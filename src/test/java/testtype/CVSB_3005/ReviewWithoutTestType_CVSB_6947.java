@@ -9,7 +9,7 @@ import pages.OdometerReadingPage;
 import pages.TestPage;
 import steps.*;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)

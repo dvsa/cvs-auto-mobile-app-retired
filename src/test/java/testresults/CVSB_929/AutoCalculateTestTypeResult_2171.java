@@ -9,7 +9,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class AutoCalculateTestTypeResult_2171 extends BaseTestClass {

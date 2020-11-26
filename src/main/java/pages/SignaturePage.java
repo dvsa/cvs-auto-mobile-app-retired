@@ -75,7 +75,7 @@ public class SignaturePage extends BasePage {
        logger.info("Waiting for Signature page to load...");
         waitUntilPageIsLoadedByAccessibilityId(SIGNATURE_TEXT_INSTRUCTIONS_ID);
         waitForLoadingToFinish();
-       logger.info("- Signature page loaded.");
+       logger.info("Signature page loaded");
 
         // Check to see if there was an error shown (either caused by
         // 1. The Signature service not being available, or

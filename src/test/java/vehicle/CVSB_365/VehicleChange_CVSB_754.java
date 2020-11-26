@@ -7,10 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.PreparerSteps;
-import steps.SelectPreparerSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.PreparerComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class VehicleChange_CVSB_754 extends BaseTestClass {

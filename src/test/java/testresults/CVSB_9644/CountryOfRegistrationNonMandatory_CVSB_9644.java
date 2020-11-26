@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CountryOfRegistrationNonMandatory_CVSB_9644 extends BaseTestClass {

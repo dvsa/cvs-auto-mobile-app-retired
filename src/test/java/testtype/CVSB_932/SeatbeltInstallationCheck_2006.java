@@ -4,7 +4,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.TestSteps;
@@ -12,7 +11,7 @@ import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 @Ignore
 @RunWith(SerenityRunner.class)
 public class SeatbeltInstallationCheck_2006 extends BaseTestClass {

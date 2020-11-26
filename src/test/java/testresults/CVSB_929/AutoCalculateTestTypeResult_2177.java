@@ -1,7 +1,6 @@
 package testresults.CVSB_929;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
@@ -10,8 +9,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BSCreateSessionUrl;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class AutoCalculateTestTypeResult_2177 extends BaseTestClass {

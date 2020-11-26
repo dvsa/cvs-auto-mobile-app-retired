@@ -10,7 +10,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class DefectAdd_CVSB_675 extends BaseTestClass {

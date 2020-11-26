@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.PreparerComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SearchUsingVin_SpecialCharactersl_CVSB_12013 extends BaseTestClass {

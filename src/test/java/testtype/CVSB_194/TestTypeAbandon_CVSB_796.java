@@ -10,7 +10,7 @@ import steps.*;
 import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestTypeAbandon_CVSB_796 extends BaseTestClass {

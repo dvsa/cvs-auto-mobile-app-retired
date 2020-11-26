@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = "test-data/vin.csv")

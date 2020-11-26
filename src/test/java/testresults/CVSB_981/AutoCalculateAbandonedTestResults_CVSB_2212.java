@@ -3,7 +3,6 @@ package testresults.CVSB_981;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
@@ -11,7 +10,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class AutoCalculateAbandonedTestResults_CVSB_2212 extends BaseTestClass {

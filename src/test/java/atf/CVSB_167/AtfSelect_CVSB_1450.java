@@ -4,13 +4,12 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.ATFDetailsSteps;
 import steps.LaunchSteps;
 import steps.SearchForAnATFSteps;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)

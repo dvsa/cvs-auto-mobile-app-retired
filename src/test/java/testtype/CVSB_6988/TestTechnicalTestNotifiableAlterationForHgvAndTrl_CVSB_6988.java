@@ -10,7 +10,7 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends BaseTestClass {

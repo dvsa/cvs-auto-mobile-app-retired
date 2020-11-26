@@ -11,7 +11,7 @@ import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class LECTestType_2025 extends BaseTestClass {

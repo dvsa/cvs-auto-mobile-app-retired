@@ -6,7 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 
 @RunWith(SerenityRunner.class)

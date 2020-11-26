@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{

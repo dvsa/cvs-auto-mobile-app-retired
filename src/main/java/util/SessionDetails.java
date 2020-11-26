@@ -1,5 +1,7 @@
 package util;
 
+import java.net.URL;
+
 public class SessionDetails {
 
     private String session;
@@ -8,9 +10,7 @@ public class SessionDetails {
     private String reason= "No issues";
     private String bsSessionUrl;
 
-    public SessionDetails() {
-
-    }
+    public SessionDetails() { }
 
     public void setSession(String session) {
         this.session = session;

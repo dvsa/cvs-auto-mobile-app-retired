@@ -12,7 +12,7 @@ import steps.TestTypeDetailsSteps;
 import steps.TestTypeSubcategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SeatbeltInstallationCheck_2002 extends BaseTestClass {

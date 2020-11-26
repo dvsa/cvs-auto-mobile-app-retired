@@ -1,13 +1,12 @@
 package vehicle.CVSB_6549;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 import data.util.SearchCriteria;
 
 @RunWith(SerenityRunner.class)

@@ -6,11 +6,10 @@ import net.thucydides.core.annotations.Title;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 import util.TestHandler;
 
 @Ignore

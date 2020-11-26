@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.BaseTestClass;
+import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
