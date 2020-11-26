@@ -48,11 +48,15 @@ public class RecordResult_CVSB_2148 extends BaseTestClass {
     @Test
     public void testStartATestTypeProhibitionClearance() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ full fee");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ full fee");
         testTypeSubcategorySteps.selectFromTestTypeList(("Without certification"));
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
