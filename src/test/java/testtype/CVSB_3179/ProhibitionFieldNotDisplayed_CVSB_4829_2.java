@@ -41,13 +41,21 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_2 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearencePG9Retest() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(), "Prohibition Clearance",super.username);
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
-        testTypeCategorySteps.selectFromTestTypeList("PG9 Retest");
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A (seatbelt installation check)");
+        testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
