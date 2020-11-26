@@ -113,36 +113,49 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
         preparerSteps.confirmInPopUp();
         testSteps.checkMotorcycleTestDetails("ZX345CV", "P0123010956789");
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.checkTestTypesInListAreSelectable("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("IVA", "MSVA", "Retest");
         testTypeSubCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Mutual recognition/ end of series & inspection");
         testTypeSubCategorySteps.goBackToCategory();
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeSubCategorySteps.selectFromTestTypeList("MSVA");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("MSVA");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Full inspection", "Part inspection", "Appeal");
         testTypeSubCategorySteps.selectFromTestTypeList("Full inspection");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Full inspection");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Moped vehicle");
         testTypeSubCategorySteps.goBackToCategory();
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("MSVA");
         testTypeSubCategorySteps.selectFromTestTypeList("Appeal");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Appeal");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Moped vehicle");
         testTypeSubCategorySteps.goBackToCategory();
         testTypeSubCategorySteps.goBackToCategory();
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeSubCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("MSVA");
         testTypeSubCategorySteps.selectFromTestTypeList("MSVA");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("MSVA");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Unbodied vehicle", "Moped vehicle");
         testTypeSubCategorySteps.selectFromTestTypeList("Unbodied vehicle");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Unbodied vehicle");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Paid", "Free");
         testTypeSubCategorySteps.goBackToCategory();
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("MSVA");
         testTypeSubCategorySteps.selectFromTestTypeList("Moped vehicle");
+        testTypeSubCategorySteps.waitForPageToLoadBySubcategory("Moped vehicle");
         testTypeSubCategorySteps.checkTestTypesInListAreSelectable("Paid", "Free");
         testTypeSubCategorySteps.selectFromTestTypeList("Paid");
         testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeAbandonButton();
         selectReasonSteps.checkSpecialistReasonsList();
-
     }
 
     @Ignore("Untill CVSB-18344 is fixed")
