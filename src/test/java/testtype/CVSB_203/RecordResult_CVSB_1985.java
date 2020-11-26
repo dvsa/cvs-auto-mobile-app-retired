@@ -38,6 +38,7 @@ public class RecordResult_CVSB_1985 extends BaseTestClass {
     public void testAdditionalNotesRecordedAgainstTestType() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
