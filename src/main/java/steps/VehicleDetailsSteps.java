@@ -14,7 +14,6 @@ public class VehicleDetailsSteps extends ScenarioSteps {
 
     @Step
     public void selectConfirmButtonTopRight() {
-        vehicleDetailsPage.waitUntilPageIsLoaded();
         vehicleDetailsPage.clickConfirm();
     }
 

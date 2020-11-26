@@ -70,6 +70,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Any PSV retest", "Class 6A retest (seatbelt installation check)");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
@@ -89,30 +90,38 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         // for HGV
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("230123");
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Annual test retest", "TIR retest", "ADR retest", "Roadworthiness retest", "First test retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.goBackToCategory();
 
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("TIR retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("TIR retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest");
         testTypeSubcategorySteps.goBackToCategory();
 
         testTypeSubcategorySteps.selectFromTestTypeList("ADR retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("ADR retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Free retest");
         testTypeSubcategorySteps.goBackToCategory();
 
         testTypeSubcategorySteps.selectFromTestTypeList("Roadworthiness retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Roadworthiness retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part Paid retest");
         testTypeSubcategorySteps.goBackToCategory();
 
         testTypeSubcategorySteps.selectFromTestTypeList("First test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("First test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.goBackToCategory();
@@ -129,16 +138,20 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.goBackToCategory();
 
         testTypeSubcategorySteps.selectFromTestTypeList("Roadworthiness retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Roadworthiness retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part Paid retest");
         testTypeSubcategorySteps.goBackToCategory();
 
         testTypeSubcategorySteps.selectFromTestTypeList("First test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("First test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.goBackToCategory();
@@ -155,12 +168,15 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest", "Free loaded retest");
         testTypeSubcategorySteps.goBackToCategory();
 
         testTypeCategorySteps.selectFromTestTypeList("First test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("First test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest", "Free retest");
     }
 }

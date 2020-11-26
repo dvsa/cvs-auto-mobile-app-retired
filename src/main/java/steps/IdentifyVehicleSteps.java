@@ -25,6 +25,7 @@ public class IdentifyVehicleSteps extends ScenarioSteps {
     public void searchForVehicle(String registrationOrVIM) {
         identifyVehiclePage.searchForVehicle(registrationOrVIM);
         identifyVehiclePage.clickSearch();
+
     }
 
     @Step
