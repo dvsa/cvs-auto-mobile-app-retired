@@ -60,7 +60,6 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     @Title("CVSB-15775 - AC1 - Clearer test type names for PSV AC3 - Removal of Vitesse 100")
     @Test
     public void testTypeNamesForPsvHgvTrl(){
-        //TODO please check
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username);
         preparerSteps.startTest();
@@ -133,8 +132,9 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         // for TRL with one axle
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("341237");
-        vehicleDetailsSteps.selectConfirmButtonTopRight();
-        vehicleDetailsSteps.selectConfirmFromPopUp();
+        trailerDetailsSteps.waitUntilPageIsLoaded();
+        trailerDetailsSteps.selectConfirmButtonTopRight();
+        trailerDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();

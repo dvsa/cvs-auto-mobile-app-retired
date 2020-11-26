@@ -11,7 +11,6 @@ import steps.composed.SiteVisitComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
-@Ignore
 @RunWith(SerenityRunner.class)
 public class SiteVisitTimeline_2057 extends BaseTestClass {
 
@@ -31,6 +30,7 @@ public class SiteVisitTimeline_2057 extends BaseTestClass {
         siteVisitComp.goToSiteVisit(super.username);
         siteVisitSteps.checkSiteVisitPage();
         siteVisitSteps.checkATFRow(atfService.getAtfByIndex(0).getAtfName(), atfService.getAtfByIndex(0).getAtfNumber());
+
         //siteVisitSteps.checkDate();
         //siteVisitSteps.checkTime();
     }
