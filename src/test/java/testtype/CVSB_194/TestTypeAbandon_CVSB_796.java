@@ -6,10 +6,7 @@ import net.thucydides.core.annotations.Title;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
-import steps.AbandonTestSteps;
-import steps.AbandonedTestSteps;
-import steps.SelectReasonSteps;
-import steps.TestSteps;
+import steps.*;
 import steps.composed.AbandonTestComp;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
@@ -38,12 +35,18 @@ public class TestTypeAbandon_CVSB_796 extends BaseTestClass {
     @Steps
     AbandonedTestSteps abandonedTestSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
 
     @Title("CVSB-194 - AC1 Add additional comments")
     @Test
     public void testAddAdditionalComments() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         abandonTestComp.goToAbandonTestScreen(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
         abandonTestSteps.checkAbandonTestPage();
         abandonTestSteps.checkSelectedReasons(SelectReasonPage.Reasons.REASON_1, SelectReasonPage.Reasons.REASON_10);
