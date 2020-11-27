@@ -124,7 +124,11 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testVSASelectsResult_NonIVA() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
+        vehicleComp.goToIdentifyVehicle(super.username);
+        identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");// PSV
+        identifyVehicleSteps.waitUntilPageIsLoaded();
+        identifyVehicleSteps.clickSearchCriteriaButton();
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -132,9 +136,13 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
-        testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeSubcategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.selectFromTestTypeList("COIF");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
         testTypeCategorySteps.selectFromTestTypeList("Annex 7");
+        testSteps.waitUntilPageIsLoaded();
 
         // In order to verify that the test result is mandatory, fill all other test fields first.
         testSteps.selectEuVehicleCategory();
