@@ -29,9 +29,7 @@ public class LoaderBrowserstackLocalImpl implements Loader {
         caps.setCapability("build", TypeLoader.getBsBuildName());
         caps.setCapability("locale", TypeLoader.getBsDeviceTimezone());
 
-
         return caps;
-
     }
 
     @Override

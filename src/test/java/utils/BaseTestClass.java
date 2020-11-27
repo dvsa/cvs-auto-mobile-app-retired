@@ -13,6 +13,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -76,11 +77,11 @@ public class BaseTestClass {
         @Override
         protected void finished(Description description) {
             logger.info("quitting bs session");
+            logger.info(bsCreateSessionUrl.getBsUrl());
             webDriver.quit();
             logger.info("returning user to the user pool");
             new ActivityService().closeCurrentUserActivity(token);
             new FileLocking().putUsernameInQueue(username);
-            logger.info(bsCreateSessionUrl.getBsUrl());
             super.finished(description);
         }
 

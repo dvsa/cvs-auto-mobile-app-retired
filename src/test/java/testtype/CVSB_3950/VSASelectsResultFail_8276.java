@@ -152,14 +152,18 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         odometerReadingSteps.pressSave();
 
         // Add an ADR test.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("ADR");
 
         // CVSB-8275: TC - AC2 - VSA selects result
         // CVSB-8277: TC - AC4 - VSA selects result - PASS
         // Set test to Passed, and attempt to submit it.
         // This ensures that fields (certificate number, expiry date) are required in the passing scenario.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.checkTestIsPassed();
@@ -168,33 +172,39 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         // CVSB-8281: TC - AC8 - Entering no certificate number
         // CVSB-8283: TC - AC10 - Expiry date field is mandatory
         // Attempt to submit with missing mandatory info.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // CVSB-8278: TC - AC5 - VSA inputs certificate number
         // CVSB-8280: TC - AC7 - 6 digit certificate number validation
         // Verify (certificate number, no expiry date).
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.sendCertificateNumber("1234567");
         testTypeDetailsSteps.checkCertificateNumberIs("123456");
         testTypeDetailsSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.clickReviewAndSubmit();
         testSteps.checkErrorMessageMandatoryFieldsDisplayed();
 
         // CVSB-8279: TC - AC6 - VSA inputs expiry date
         // Verify (certificate number, expiry date).  This should remove the validation error onscreen.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setExpiryDateToToday();
         testTypeDetailsSteps.pressSave();
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
 
         // Provide Disclaimer text for this test (optional).
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.verifyNotesFieldsArePresent();
         testTypeDetailsSteps.addNotes("This is an ADR test.");
         testTypeDetailsSteps.pressSave();
 
         // Now the mandatory fields have been provided, submit the test results.
+        testSteps.waitUntilPageIsLoaded();
         testSteps.clickReviewAndSubmit();
         testReviewSteps.checkTestStatus("ADR test", "PASS");
         testReviewSteps.checkCertificateNumberIs("123456");
