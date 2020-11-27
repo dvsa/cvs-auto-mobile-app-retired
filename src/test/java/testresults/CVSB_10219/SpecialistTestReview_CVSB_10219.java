@@ -90,8 +90,11 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
         testTypeCategorySteps.selectFromTestTypeList("Mutual recognition/ end of series & inspection");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");

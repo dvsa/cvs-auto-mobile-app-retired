@@ -75,7 +75,7 @@ public class BaseTestClass {
 
         @Override
         protected void finished(Description description) {
-            logger.info("finished");
+            logger.info("quitting bs session");
             webDriver.quit();
             logger.info("returning user to the user pool");
             new ActivityService().closeCurrentUserActivity(token);

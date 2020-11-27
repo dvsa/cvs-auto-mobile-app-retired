@@ -1,15 +1,8 @@
 package pages;
 
-
 import exceptions.AutomationException;
-import io.appium.java_client.ios.IOSDriver;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import util.TestHandler;
 import util.TypeLoader;
-
 
 public class LaunchPage extends BasePage {
 
@@ -24,90 +17,25 @@ public class LaunchPage extends BasePage {
 
         String password = TypeLoader.getAppPassword();
 
-        if (!TestHandler.getInitializedStatus().get()) {
-
-                loginPage.waitUsernamePageToLoad();
-                loginPage.insertUserName(username);
-                loginPage.clickNext();
-                loginPage.waitPasswordPageToLoad();
-                loginPage.insertPassword(password);
-                loginPage.clickSignIn();
-            try {
-                signaturePage.waitPageToLoad();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            signaturePage.createSignature();
-                signaturePage.clickSaveButton();
-                signaturePage.confirmSignature();
-                shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-
-            if (!TestHandler.testTypeEnabledCached().get()) {
-                clickToEnableOrDisable();
-                TestHandler.currentCacheDisabled().set(true);
-            }
-
-
-            findElementById(GET_STARTED_ID).click();
-            TestHandler.getInitializedStatus().set(true);
-
-        } else {
-
-            ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).closeApp();
-            ((IOSDriver) ((WebDriverFacade) getDriver()).getProxiedDriver()).launchApp();
-            try {
-                shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-            } catch (TimeoutException e) {
-                try {
-                    loginPage.shortestWaitUsernamePageToLoad();
-                    loginPage.insertUserName(username);
-                    loginPage.clickNext();
-                    loginPage.waitPasswordPageToLoad();
-                    loginPage.insertPassword(TypeLoader.getAppPassword());
-                    loginPage.clickSignIn();
-                    signaturePage.waitPageToLoad();
-                    signaturePage.createSignature();
-                    signaturePage.clickSaveButton();
-                    signaturePage.confirmSignature();
-                    shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
-                } catch (TimeoutException ex) {
-                    throw new AutomationException("Could not get to get started page 2 ");
-                } catch (Exception e2) {
-                    throw new AutomationException("Unable to start Signature service / access reference data. #2");
-                }
-            }
-
-            if (TestHandler.testTypeEnabledCached().get() && TestHandler.currentCacheDisabled().get()) {
-                clickToEnableOrDisable();
-                TestHandler.currentCacheDisabled().set(false);
-            } else if (!TestHandler.testTypeEnabledCached().get() && !TestHandler.currentCacheDisabled().get()) {
-                clickToEnableOrDisable();
-                TestHandler.currentCacheDisabled().set(true);
-            }
-            findElementById(GET_STARTED_ID).click();
-        }
-    }
-
-
-    public void clickToEnableOrDisable() {
+        loginPage.waitUsernamePageToLoad();
+        loginPage.insertUserName(username);
+        loginPage.clickNext();
+        loginPage.waitPasswordPageToLoad();
+        loginPage.insertPassword(password);
+        loginPage.clickSignIn();
         try {
-            Thread.sleep(700);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            signaturePage.waitPageToLoad();
+        } catch (TimeoutException ex) {
+            throw new AutomationException("Could not get to get started page 2 ");
+        } catch (Exception e2) {
+            throw new AutomationException("Unable to start Signature service / access reference data. #2");
         }
-        int initial = 0;
-        while (initial != 5) {
-            try {
-                Thread.sleep(300);
-                initial++;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            tapByCoordinates(70, 140);
-        }
+        signaturePage.createSignature();
+        signaturePage.clickSaveButton();
+        signaturePage.confirmSignature();
+        shortWaitUntilPageIsLoadedByIdAndClickable(GET_STARTED_ID);
+        findElementById(GET_STARTED_ID).click();
     }
-
 
     public void clickStartButton() {
         findElementById(GET_STARTED_ID).click();
@@ -140,5 +68,4 @@ public class LaunchPage extends BasePage {
     public boolean checkIfSubTitle2IsDisplayed() {
         return findElementByAccessibilityId(SUBTITLE_2).isDisplayed();
     }
-
 }
