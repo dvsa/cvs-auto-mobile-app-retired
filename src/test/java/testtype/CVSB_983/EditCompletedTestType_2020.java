@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.SeatbeltInstallationCheckSteps;
 import steps.TestSteps;
+import steps.TestTypeCategorySteps;
 import steps.TestTypeDetailsSteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
@@ -31,11 +32,18 @@ public class EditCompletedTestType_2020 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
+
     @Title("CVSB-983 - AC2 - VSA edits details within the test type after saving")
     @Test
     public void testEditSavedDetails() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -46,6 +54,7 @@ public class EditCompletedTestType_2020 extends BaseTestClass {
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.checkNumberOfSeatbelts("2");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
     }
 }
