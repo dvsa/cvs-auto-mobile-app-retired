@@ -82,6 +82,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         odometerReadingSteps.pressSave();
         testSteps.waitUntilPageIsLoaded();
         testSteps.addTestTypeFor("P012301230123");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         //add first trailer
         testSteps.scrollDown();
@@ -97,6 +98,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O1");
         testSteps.waitUntilPageIsLoaded();
         testSteps.addTestTypeFor("T72741234");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         //add second trailer
         testSteps.scrollDown();
@@ -112,6 +114,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O2");
         testSteps.waitUntilPageIsLoaded();
         testSteps.addTestTypeFor("T12876765");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         //add third trailer
         testSteps.scrollDown();
@@ -127,6 +130,7 @@ public class CombinationTesting_SiteVisitTimeline_7502 extends BaseTestClass {
         euVehicleCategorySteps.selectOption("O3");
         testSteps.waitUntilPageIsLoaded();
         testSteps.addTestTypeFor("T12341237");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.checkAddATrailerButtonIsNotPresent();
         //submit and review tests

@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -55,6 +59,7 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
     @Test
     public void testChangesSingularVehicleTests() {
         //add psv
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("YV31MEC18GA011900",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -66,7 +71,9 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
         odometerReadingSteps.pressSave();
         testSteps.waitUntilPageIsLoaded();
         testSteps.addTestTypeFor("YV31MEC18GA011900");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressSave();
         //submit and review tests
