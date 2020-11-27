@@ -186,8 +186,11 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
         testTypeCategorySteps.selectFromTestTypeList("With annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
@@ -213,6 +216,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         // Add another test (Specialist Test -> COIF -> With annual test retest).
         siteVisit.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -224,16 +228,17 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("22222");
         odometerReadingSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
-        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeCategorySteps.selectFromTestTypeList("COIF");
-        testTypeCategorySteps.selectFromTestTypeList("With annual test");
-        testTypeCategorySteps.selectFromTestTypeList("With annual test");
-        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
+        testTypeCategorySteps.selectFromTestTypeList("with annual test");
+§§        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.sendCertificateNumber("234567");
