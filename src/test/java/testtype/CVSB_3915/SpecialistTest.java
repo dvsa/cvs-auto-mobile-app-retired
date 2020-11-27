@@ -298,6 +298,7 @@ public class SpecialistTest extends BaseTestClass {
     public void testVSASelectsResultPass_COIF_CertificateAttributes() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails("1B7GG36N12S678410", super.username); // PSV
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -305,10 +306,13 @@ public class SpecialistTest extends BaseTestClass {
 
         // Add a Specialist Test to the test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
         testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
         testTypeCategorySteps.selectFromTestTypeList("With annual test");
-
+        testSteps.waitUntilPageIsLoaded();
         // View the Specialist Test details.
         // In order to verify that the test result is mandatory, fill all other test fields first.
         testSteps.selectEuVehicleCategory();
