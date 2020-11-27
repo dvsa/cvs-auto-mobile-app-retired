@@ -44,13 +44,14 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
-        testTypeCategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
-        testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
         testTypeSubcategorySteps.selectFromTestTypeList("PG9 retest");
-        testTypeCategorySteps.selectFromTestTypeList("Paid");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("PG9 retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid");
-        testTypeCategorySteps.selectFromTestTypeList("With certification");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid");
+        testTypeSubcategorySteps.selectFromTestTypeList("With certification");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.checkDoneAndCancelOptionsForSeatbeltNumber();
