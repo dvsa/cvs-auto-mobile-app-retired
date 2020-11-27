@@ -104,9 +104,11 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
+        testHistorySteps.waitUntilPageIsLoaded();
         testHistorySteps.clickLastTestByTestResult("PROHIBITION");
         testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.scrollToElement("Prohibition issued - Yes");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Prohibition issued - Yes");
     }
 }
