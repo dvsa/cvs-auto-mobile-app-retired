@@ -57,6 +57,9 @@ public class SpecialistTest extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @Steps
+    IdentifyVehicleSteps identifyVehicleSteps;
+
     @Title("CVSB-3915 - AC1 - Specialist Test Details")
     @Test
     public void testFieldsDisplayedInApp() {
@@ -336,7 +339,10 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testCertificateNumberForNotifiableAlteration_PSV() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        vehicleComp.goToVehicleDetails("XMGDE02FS0H012356", super.username); // PSV X71LTA
+        vehicleComp.goToIdentifyVehicle(super.username);
+        identifyVehicleSteps.searchForVehicle("XMGDE02FS0H012356");// PSV X71LTA
+        identifyVehicleSteps.waitUntilPageIsLoaded();
+        identifyVehicleSteps.clickSearchCriteriaButton();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
