@@ -8,10 +8,14 @@ import org.junit.runner.RunWith;
 import steps.IdentifyVehicleSteps;
 import steps.VehicleDetailsSteps;
 import steps.composed.VehicleComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class VehicleChange_CVSB_753 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     VehicleComp vehicleComp;
@@ -24,8 +28,9 @@ public class VehicleChange_CVSB_753 extends BaseTestClass {
 
 
     @Title("CVSB-365 - AC1 - Change a vehicle before confirming vehicle details")
-    @Test()
+    @Test
     public void testChangeBeforeConfirmVehicleDetails() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.pressBackButton();
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");

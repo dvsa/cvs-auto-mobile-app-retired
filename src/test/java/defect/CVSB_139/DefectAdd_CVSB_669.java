@@ -8,11 +8,15 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @Ignore
 @RunWith(SerenityRunner.class)
 public class DefectAdd_CVSB_669 extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -30,6 +34,7 @@ public class DefectAdd_CVSB_669 extends BaseTestClass {
     @Title("CVSB-139 - AC2 - Add a defect from test type details screen")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void addADefectFromTestType() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
