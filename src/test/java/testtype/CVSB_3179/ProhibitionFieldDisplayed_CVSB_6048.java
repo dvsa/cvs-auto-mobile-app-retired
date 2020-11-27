@@ -52,6 +52,7 @@ public class ProhibitionFieldDisplayed_CVSB_6048 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
         testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);

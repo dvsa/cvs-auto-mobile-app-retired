@@ -12,6 +12,11 @@ public class TestHistorySteps extends ScenarioSteps {
     TestHistoryPage testHistoryPage;
 
     @Step
+    public void waitUntilPageIsLoaded() {
+        testHistoryPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
     public void checkPage() {
         testHistoryPage.waitUntilPageIsLoaded();
         assertThat(testHistoryPage.isPageTitleDisplayed()).isTrue();
