@@ -119,20 +119,16 @@ public class SiteVisitSteps extends ScenarioSteps {
 
     @Step
     public void waitUntilTimeNotTesting() {
-        try {
-            Thread.sleep(150000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+        //It loops 8 times 43 seconds making it a total of more than 5 minutes. The check at the bottom is required to not kill the bs connection.
+        for(int i=0; i<7; i++){
+            try {
+                Thread.sleep(43000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            checkEndVisitButton();
         }
-
-        checkEndVisitButton();
-
-        try {
-            Thread.sleep(150000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
     }
 
     @Step
