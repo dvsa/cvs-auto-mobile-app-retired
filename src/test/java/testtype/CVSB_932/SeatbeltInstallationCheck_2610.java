@@ -32,9 +32,6 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @Steps
-    TestTypeSubcategorySteps testTypeSubcategorySteps;
-
     @Title("CVSB-2610 - Improvement ticket - Change 'carried out a seatbelt check' from yes to no does not update other fields")
     @Test
     public void changeCarriedOutASeatbeltCheckUpdatesOtherFields() {
@@ -43,6 +40,7 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
@@ -52,13 +50,21 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbeltsIsNotDisplayed();
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyThatNoRecentInstallationDateIsDisplayed();
     }
 }
