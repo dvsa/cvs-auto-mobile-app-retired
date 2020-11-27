@@ -49,8 +49,11 @@ public class RecordResult_CVSB_1988 extends BaseTestClass {
     public void testEnterResultsForTestTypes() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestResultField();
         testTypeDetailsSteps.pressTestResultsOption();
