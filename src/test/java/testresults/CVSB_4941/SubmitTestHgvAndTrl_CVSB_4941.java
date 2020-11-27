@@ -114,6 +114,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         testSteps.selectEuVehicleCategory();
         euVehicleCategorySteps.selectOption("O2");
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.clickReviewAndSubmit();
         testReviewSteps.checkPageTitleIsDisplayed();
