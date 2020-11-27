@@ -22,7 +22,7 @@
         <mavenfailsafeplugin.version>2.22.2</mavenfailsafeplugin.version>
         <mavencompilerplugin.version>3.8.1</mavencompilerplugin.version>
         <unirest.version>1.4.9</unirest.version>
-        <PARALLEL_TEST>9</PARALLEL_TEST>
+        <PARALLEL_TEST>1</PARALLEL_TEST>
     </properties>
 
     <dependencies>
