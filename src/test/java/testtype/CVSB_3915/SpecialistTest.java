@@ -64,7 +64,11 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testFieldsDisplayedInApp() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        vehicleComp.goToVehicleDetails("P0123010911250", super.username); // Car
+        vehicleComp.goToIdentifyVehicle(super.username);
+        identifyVehicleSteps.searchForVehicle("XMGDE02FS0H012356");// // Car
+        identifyVehicleSteps.waitUntilPageIsLoaded();
+        identifyVehicleSteps.clickSearchCriteriaButton();
+        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
