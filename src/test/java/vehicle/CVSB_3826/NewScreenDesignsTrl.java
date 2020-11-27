@@ -10,10 +10,14 @@ import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.composed.VehicleComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class NewScreenDesignsTrl extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -67,6 +71,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     @Title("CVSB-6170 - CVSB-6407 - CVSB-6520 - AC2 New screen design for adding a vehicle after confirming a HGV")
     @Test
     public void testNewDesignIdentifyTrailerForHgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012938",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -81,6 +86,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6176 - AC3 Negative test - screen should remain the same following the confirmation of a Trailer")
     public void testNewDesignIdentifyTrailerForTrl() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
@@ -96,6 +102,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     @Title("CVSB-6185 - CVSB-6186 - AC 5 Search for vehicle (Trailer ID)")
     @Test
     public void testNewDesignSearchForATrailer() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -110,6 +117,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     @Title("CVSB-6189 - CVSB-6186 - AC 6.1 Vehicle found in system (tech-record details screen)")
     @Test
     public void testNewDesignVehicleDetails() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -138,6 +146,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     @Title("CVSB-6190 - CVSB-6191 - AC 6.2 Vehicle not found in system (pop-up shown) (press OK)")
     @Test
     public void testNewDesignVehicleNotFound() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -154,6 +163,7 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6192 - AC 6.3 Multiple vehicles found (pop-up shown)")
     public void testNewDesignMultipleVehicleFound() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();

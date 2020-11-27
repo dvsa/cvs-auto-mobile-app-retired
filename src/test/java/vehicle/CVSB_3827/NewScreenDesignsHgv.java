@@ -10,10 +10,14 @@ import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.composed.VehicleComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
 public class NewScreenDesignsHgv extends BaseTestClass {
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestSteps testSteps;
@@ -68,6 +72,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Title("CVSB-6409 - AC 4 Search for vehicle (last six digits of the VIN)")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -83,6 +88,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Title("CVSB-6410 - AC 4 Search for vehicle (full VIN)")
     @Test
     public void testNewDesignSearchForHgvFullVin() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -97,6 +103,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Title("CVSB-6411 - AC 4 Search for vehicle (registration number)")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgvRegistration() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
@@ -112,6 +119,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-6406 - AC1 New screen design for first vehicle")
     public void testNewDesignVehicleDetailsHgv() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();

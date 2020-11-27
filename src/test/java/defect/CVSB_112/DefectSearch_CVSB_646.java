@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @Ignore
@@ -16,6 +17,9 @@ public class DefectSearch_CVSB_646 extends BaseTestClass {
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
+
+    @Steps
+    UtilSteps utilSteps;
 
     @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
@@ -39,6 +43,7 @@ public class DefectSearch_CVSB_646 extends BaseTestClass {
     @Ignore("CVSB-8749 - maintenance for improving test suite speed")
     @Title("CVSB-112 - AC4 Search with the search bar")
     public void searchDefectUsingSearchBar() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectAddDefect("Annual test");
