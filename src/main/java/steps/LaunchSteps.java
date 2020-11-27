@@ -43,10 +43,5 @@ public class LaunchSteps extends ScenarioSteps {
         assertThat(launchPage.checkIfSubTitle2IsDisplayed()).isTrue();
         assertThat(launchPage.checkIfTitleIsDisplayed()).isTrue();
     }
-
-    @Step
-    public void clickToEnableOrDisable() {
-        launchPage.clickToEnableOrDisable();
-    }
 }
 
