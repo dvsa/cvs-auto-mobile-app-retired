@@ -238,7 +238,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("COIF");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
         testTypeCategorySteps.selectFromTestTypeList("with annual test");
-§§        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
         testTypeDetailsSteps.sendCertificateNumber("234567");
