@@ -86,11 +86,17 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("BQ91YHQ");
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestType("Annual test");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Test date");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Test time");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Test expiry");
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkDate();
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkTime();
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
     }
 }
 
