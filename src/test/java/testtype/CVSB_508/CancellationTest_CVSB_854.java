@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import steps.CancelTestSteps;
 import steps.SiteVisitSteps;
 import steps.TestSteps;
+import steps.TestTypeCategorySteps;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
@@ -30,14 +31,18 @@ public class CancellationTest_CVSB_854 extends BaseTestClass {
     @Steps
     UtilSteps utilSteps;
 
+    @Steps
+    TestTypeCategorySteps testTypeCategorySteps;
 
     @Title("CVSB-854 - AC3 Submit test cancellation when the test contains at least one test type")
     @WithTag("Smoke_2")
     @Test
     public void submitCancellationWithAtLeastOneTestType() {
-        //TODO please check
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.addReasonForCancellation("Automation Test");
