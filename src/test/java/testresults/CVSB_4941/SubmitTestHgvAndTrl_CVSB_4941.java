@@ -155,6 +155,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         odometerReadingSteps.checkReadingValue("123");
         odometerReadingSteps.pressSave();
         testSteps.addTestTypeFor("230123");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.scrollDown();
         testSteps.clickCountryOfRegistrationFor("768594");
@@ -163,6 +164,7 @@ public class SubmitTestHgvAndTrl_CVSB_4941 extends BaseTestClass {
         testSteps.clickEuVehicleCategoryFor("768594");
         euVehicleCategorySteps.selectOption("O2");
         testSteps.addTestTypeFor("768594");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.clickReviewAndSubmit();
         testReviewSteps.scrollDown();
