@@ -191,8 +191,11 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ Fee");
         testTypeSubcategorySteps.selectFromTestTypeList("With certification");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkTestTypeName("Paid prohibition clearance (full inspection with certification)");
