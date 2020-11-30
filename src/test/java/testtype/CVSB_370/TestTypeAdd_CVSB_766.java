@@ -34,6 +34,7 @@ public class TestTypeAdd_CVSB_766 extends BaseTestClass {
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.checkAddATestTypeButtonVisibility();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.checkInTestTypeList("Annual test", "Class 6A", "Retest",
                 "Prohibition clearance", "Technical test", "Voluntary test");
         testTypeCategorySteps.checkTestTypePage();
