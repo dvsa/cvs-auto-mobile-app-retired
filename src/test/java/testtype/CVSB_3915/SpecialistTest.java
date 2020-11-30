@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import pages.SelectReasonPage;
 import pages.TestPage;
 import steps.*;
+import steps.composed.TestTypeCategoryComp;
 import steps.composed.VehicleComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
@@ -30,6 +31,9 @@ public class SpecialistTest extends BaseTestClass {
 
     @Steps
     TestSteps testSteps;
+
+    @Steps
+    TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
@@ -367,12 +371,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testCertificateNumberForNotifiableAlteration_PSV() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        vehicleComp.goToIdentifyVehicle(super.username);
-        identifyVehicleSteps.searchForVehicle("XMGDE02FS0H012356");// PSV X71LTA
-        identifyVehicleSteps.waitUntilPageIsLoaded();
-        identifyVehicleSteps.clickSearchCriteriaButton();
-        vehicleDetailsSteps.selectConfirmButtonTopRight();
-        vehicleDetailsSteps.selectConfirmFromPopUp();
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("XMGDE02FS0H012356", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
@@ -380,6 +379,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("Notifiable alteration");
 
         testSteps.selectEuVehicleCategory();
@@ -388,6 +388,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345");
         odometerReadingSteps.pressSave();
+        testSteps.waitUntilPageIsLoaded();
 
         // View the test details - and verify certificate field status.
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
