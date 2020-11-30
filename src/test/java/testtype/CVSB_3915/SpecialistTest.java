@@ -71,8 +71,6 @@ public class SpecialistTest extends BaseTestClass {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToIdentifyVehicle(super.username);
         identifyVehicleSteps.searchForVehicle("P0123010911250");// // Car
-        identifyVehicleSteps.waitUntilPageIsLoaded();
-        identifyVehicleSteps.clickSearchCriteriaButton();
         vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();

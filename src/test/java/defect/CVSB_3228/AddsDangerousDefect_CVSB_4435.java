@@ -46,12 +46,13 @@ public class AddsDangerousDefect_CVSB_4435 extends BaseTestClass{
 
     @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (Class 6A)")
     @Test
-    public void addsADangerousDefect() {
+    public void addsADangerousDefect_4435() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
         testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
