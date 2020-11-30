@@ -3,6 +3,7 @@ package defect.CVSB_439;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -44,7 +45,7 @@ public class ProhibitionIssuedToggle_CVSB_4961 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-
+    @WithTag("In_Test")
     @Title("CVSB-439 - AC1 - VSA confirms a prohibition have been issued against a dangerous defect (Class 6A)")
     @Test
     public void testProhibitionIssuedClass6A() {

@@ -3,6 +3,7 @@ package testresults.CVSB_8778;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -182,6 +183,7 @@ public class SubmitTestAdrNewScreenHgvAndTrl_CVSB_8778 extends BaseTestClass {
         adrDetailsStep.checkAdrDetailSectionIsDisplayed("APPLICANT DETAILS");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-9663 - TC - AC5 - Field not selected in source - AC6 - Fields with no data which are still displayed")
     @Test
     public void testAdrDetailsFieldsNotDisplayed() {
