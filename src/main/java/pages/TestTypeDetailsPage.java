@@ -385,9 +385,7 @@ public class TestTypeDetailsPage extends BasePage {
         }
     }
 
-    public void scrollOneDay() {
-        scroll(95, 594, 95, 603);
-    }
+    public void scrollOneDay() { scroll(95, 594, 95, 603); }
 
     public void scrollOneMonth() {
         scroll(178, 594, 178, 608);
