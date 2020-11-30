@@ -29,11 +29,6 @@ public class LaunchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void resetAppAndWaitUntilPageIsLoaded() {
-//        TODO: this will need to be continued once services are down and automation can be written
-    }
-
-    @Step
     public void checkLaunchPageDisplay() {
         launchPage.waitUntilPageIsLoaded();
         assertThat(launchPage.checkIfLaunchImageIsDisplayed()).isTrue();
