@@ -180,6 +180,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Odometer reading Enter arrow forward".equals(line))
                 .filter(line -> !"English (UK)".equals(line))
                 .filter(line -> !"Français (Canada)".equals(line))
+                .filter(line -> !"Français (France)".equals(line))
                 .filter(line -> !"Español (España)".equals(line))
                 .filter(line -> !"Return".equals(line))
                 .filter(line -> !"clear".equals(line))

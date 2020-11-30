@@ -43,7 +43,7 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public void selectConfirmInPopUp() {
-        waitUntilPageIsLoadedByElementAndClickable(By.id(POP_UP_CONFIRM_ID), 20, 200);
+        waitUntilPageIsLoadedByElementAndClickable(By.id(POP_UP_CONFIRM_ID), 40, 200);
         findElementById(POP_UP_CONFIRM_ID).click();
     }
 

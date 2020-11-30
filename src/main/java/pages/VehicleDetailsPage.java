@@ -25,15 +25,6 @@ public class VehicleDetailsPage extends BasePage {
         waitUntilPageIsLoadedById(VEHICLE_DETAILS_PAGE_TITLE);
     }
 
-    public boolean isDetailPageScrollable() {
-        this.scrollDetailPage();
-        try {
-            return findElementById(ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID).isDisplayed();
-        } catch (NullPointerException ex) {
-            return false;
-        }
-    }
-
     public void scrollDetailPage() {
         scrollDownTo(500, -100);
     }
@@ -140,11 +131,8 @@ public class VehicleDetailsPage extends BasePage {
         for (WebElement webElement : webElementList) {
             actualData.add(webElement.getAttribute("name"));
         }
-//        logger.info("list: " + actualData);
         for (String data : actualData) {
-//            logger.info("inside for @: " + data);
             if (data.equals(attribute)) {
-//                logger.info("comparing data: " + data + " with: " + value);
                 if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
                     return true;
                 }
