@@ -45,7 +45,6 @@ public class ActivityService {
                 .queryParam("activityType", "visit")
                 .queryParam("fromStartTime", LocalDateTime.now().minusDays(90).toString())
                 .queryParam("testerStaffId", testerStaffId)
-                .log().method().log().uri()
                 .get("/activities/details");
 
         if (!response.getBody().asString().contains("No resources match the search criteria")) {
@@ -60,7 +59,6 @@ public class ActivityService {
         given().filters(new BasePathFilter(token))
                 .contentType(ContentType.JSON)
                 .pathParam("id", id)
-                .log().method().log().uri()
                 .put("/activities/{id}/end");
     }
 }
