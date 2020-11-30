@@ -75,6 +75,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
 
         // Add an ADR test.
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("ADR");
 
@@ -132,6 +133,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Passed_RequiringInfo() {

@@ -3,6 +3,7 @@ package testtype.CVSB_6988;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -91,6 +92,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         testTypeDetailsSteps.checkErrorNotesDetailsIsDisplayed();
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-7611 - AC2 - MANDATORY NOTES FIELD COMPLETE (TEST RESULT=FAIL) - direct back to test screen")
     @Test
     public void testMandatoryNotesFieldCompleteTestResultFail() {

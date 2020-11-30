@@ -3,6 +3,7 @@ package testresults.CVSB_925;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -71,6 +72,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-925 - TCD - AC1 - Prohibition displayed instead of result field on test history")
     @Test
     public void prohibitionDisplayedInsteadOfResultFieldOnTestHistory() {

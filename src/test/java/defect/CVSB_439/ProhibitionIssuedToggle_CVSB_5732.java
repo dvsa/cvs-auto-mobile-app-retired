@@ -3,6 +3,7 @@ package defect.CVSB_439;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -35,7 +36,7 @@ public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-
+    @WithTag("In_Test")
     @Title("CVSB-439 - AC7 - VSA switches prohibition issued field off for a test type")
     @Test
     public void testProhibitionIssuedTestTypeSwitchOff() {
