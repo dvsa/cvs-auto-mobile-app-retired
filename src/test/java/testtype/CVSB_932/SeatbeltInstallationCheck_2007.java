@@ -56,12 +56,15 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.checkDoneAndCancelOptionsForSeatbeltNumber();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("12345");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("qewqeqw");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("@#$32432");
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("123");
     }
 }
