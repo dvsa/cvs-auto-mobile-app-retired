@@ -227,13 +227,7 @@ public class SpecialistTest extends BaseTestClass {
     @Test
     public void testVSASelectsResultPass_NonCOIF_CertificateAttributes() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        vehicleComp.goToIdentifyVehicle(super.username);
-        identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");// PSV
-        identifyVehicleSteps.waitUntilPageIsLoaded();
-        identifyVehicleSteps.clickSearchCriteriaButton();
-        vehicleDetailsSteps.waitUntilPageIsLoaded();
-        vehicleDetailsSteps.selectConfirmButtonTopRight();
-        vehicleDetailsSteps.selectConfirmFromPopUp();
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("1B7GG36N12S678410", super.username);
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
 
