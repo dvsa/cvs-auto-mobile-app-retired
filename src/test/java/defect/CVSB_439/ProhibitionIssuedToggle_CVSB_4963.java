@@ -54,6 +54,7 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeSubcategorySteps.selectFromTestTypeList("PG9 retest");
@@ -62,6 +63,7 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid");
         testTypeSubcategorySteps.selectFromTestTypeList("With certification");
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.selectAddDefect("Paid prohibition clearance (retest with certificate)");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("2. Anchorages");
