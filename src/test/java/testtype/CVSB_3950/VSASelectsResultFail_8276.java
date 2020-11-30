@@ -3,6 +3,7 @@ package testtype.CVSB_3950;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -50,6 +51,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-8276 - ADR test Failed, not needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Failed_NotRequiringInfo() {

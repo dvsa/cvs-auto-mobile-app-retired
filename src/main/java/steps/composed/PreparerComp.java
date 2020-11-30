@@ -20,9 +20,6 @@ public class PreparerComp extends ScenarioSteps {
     SiteVisitSteps siteVisitSteps;
 
     @Steps
-    IdentifyTrailerSteps identifyTrailerSteps;
-
-    @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Steps

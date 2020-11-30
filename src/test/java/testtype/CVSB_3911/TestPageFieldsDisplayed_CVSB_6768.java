@@ -89,6 +89,8 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
         weightsSteps.pressBackButton();
     }
 
+
+    @WithTag("In_Test")
     @Title("CVSB-6776 - AC1 - Fields displayed on test screen - HGV (select a test type)")
     @Test
     public void testFieldsDisplayedAddTestsForHgv() {
@@ -101,6 +103,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testSteps.addLinkedTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ Fee");

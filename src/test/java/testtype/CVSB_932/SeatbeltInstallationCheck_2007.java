@@ -3,6 +3,7 @@ package testtype.CVSB_932;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -35,6 +36,7 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-932 - AC - 3 Editing 'Number of seatbelts' fitted")
     @Test
     public void editingNumberOfSeatbeltsFitted() {
