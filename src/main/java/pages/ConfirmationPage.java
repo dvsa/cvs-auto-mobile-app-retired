@@ -8,7 +8,7 @@ public class ConfirmationPage extends BasePage {
 
 
     public void clickDoneButton() {
-        logger.info(" DONE:  " + getDriver().getPageSource());
+        logger.debug(" DONE:  " + getDriver().getPageSource());
         findElementById(DONE_BUTTON_ID).click();
     }
 

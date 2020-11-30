@@ -71,16 +71,8 @@ public class PreparerPage extends BasePage {
         } else return false;
     }
 
-    public boolean isLableDisplayed() {
-        try {
-            return findElementById(PAGE_TITLE_ID).isDisplayed();
-        } catch (NullPointerException ex) {
-            return false;
-        }
-    }
-
     public void confirmPopUpOption() {
-        waitUntilPageIsLoadedByElementAndClickable(By.id(CONFIRM_BUTTON_ID), 20, 200);
+        waitUntilPageIsLoadedByElementAndClickable(By.id(CONFIRM_BUTTON_ID), 40, 200);
         findElementById(CONFIRM_BUTTON_ID).click();
     }
 
