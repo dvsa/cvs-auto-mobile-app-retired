@@ -58,7 +58,7 @@ public class TestSteps extends ScenarioSteps {
     public void checkTrailerTestDetails(String trailer, String vin) {
         testPage.waitUntilPageIsLoaded();
         assertThat(testPage.isPageTitleDisplayed() && testPage.isTrailerRegistrationPlateDisplayed(trailer, vin)).isTrue();
-        logger.info(getDriver().getPageSource());
+        logger.debug(getDriver().getPageSource());
     }
 
     @Step

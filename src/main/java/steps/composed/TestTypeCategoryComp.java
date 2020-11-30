@@ -68,7 +68,7 @@ public class TestTypeCategoryComp extends ScenarioSteps {
     @Step
     public void goToTestPage(String preparerId, String preparerName, String username) {
         preparerComp.goToSelectPreparer(username);
-        preparerSteps.selectAndConfirmPreparerId(preparerId);
+         preparerSteps.selectAndConfirmPreparerId(preparerId);
     }
 
     @Step
