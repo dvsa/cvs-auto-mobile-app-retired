@@ -29,7 +29,6 @@ public class MainPageError_CVSB_681_CVSB_684 extends BaseTestClass {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.waitUntilPageIsLoaded();
         errorSteps.checkAllGenericErrorMessageElementsAreDisplayed();
-        launchSteps.resetAppAndWaitUntilPageIsLoaded();
         errorSteps.checkAllGenericErrorMessageElementsAreDisplayed();
     }
 }

@@ -99,11 +99,11 @@ public class BasePage extends PageObject {
         while (element == null) {
             try {
                 logger.info("Searching for title #1: " + id1);
-                element = waitUntilPageIsLoadedByElement(By.id(id1), 200, 200);
+                element = waitUntilPageIsLoadedByElement(By.id(id1), 40, 100);
             } catch (Exception e) {
                 try {
                     logger.info("Searching for title #2: " + id2);
-                    element = waitUntilPageIsLoadedByElement(By.id(id2), 200, 200);
+                    element = waitUntilPageIsLoadedByElement(By.id(id2), 40, 100);
                 } catch (ElementNotVisibleException e1) {
                     showElementError(id2);
                 }
@@ -126,7 +126,7 @@ public class BasePage extends PageObject {
             element = waitUntilPageIsLoadedByEitherId(id, "Trailer details");
         }
         else {
-            element = waitUntilPageIsLoadedByElement(By.id(id), 200, 200);
+            element = waitUntilPageIsLoadedByElement(By.id(id), 40, 100);
         }
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
@@ -135,20 +135,16 @@ public class BasePage extends PageObject {
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
         logger.info("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
-        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 200, 200);
+        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 40, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
     }
 
 
-    protected WebElement shortestUntilPageIsLoadedByAccessibilityId(String idOrName) {
-        return waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 200, 200);
-    }
-
     protected WebElement longWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (long) for page to be loaded, based on clickable element: " + id);
-        WebElement element = waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 300, 400);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(MobileBy.AccessibilityId(id), 60, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
@@ -156,7 +152,7 @@ public class BasePage extends PageObject {
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (short) for page to be loaded, based on clickable element: " + id);
-        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 200, 400);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 40, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
@@ -164,7 +160,7 @@ public class BasePage extends PageObject {
 
     protected WebElement shortestWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (shortest) for page to be loaded, based on clickable element: " + id);
-        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 200, 400);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 40, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
@@ -172,7 +168,7 @@ public class BasePage extends PageObject {
 
     protected WebElement waitUntilPageIsLoadedByXpath(String xPath) {
         logger.info("Waiting for page to be loaded, based on xPath: " + xPath);
-        WebElement element = waitUntilPageIsLoadedByElement(By.xpath(xPath), 200, 200);
+        WebElement element = waitUntilPageIsLoadedByElement(By.xpath(xPath), 40, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
@@ -180,7 +176,7 @@ public class BasePage extends PageObject {
 
     protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
         logger.info("Waiting for number of elements to be present: (" + locator + ", expecting " + elementNumber + ")");
-        FluentWait wait = globalFluentWait(30, 200);
+        FluentWait wait = globalFluentWait(40, 100);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Found.");
