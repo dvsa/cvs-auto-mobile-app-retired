@@ -105,6 +105,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
         testSteps.addLinkedTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ Fee");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ Fee");
         testTypeSubcategorySteps.selectFromTestTypeList("With certification");

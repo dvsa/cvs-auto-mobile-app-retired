@@ -16,6 +16,9 @@ import utils.BaseTestClass;
 public class ProhibitionFieldNotDisplayed_CVSB_4829_5 extends BaseTestClass {
 
     @Steps
+    PreparerSteps preparerSteps;
+
+    @Steps
     UtilSteps utilSteps;
 
     @Steps
@@ -50,7 +53,7 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_5 extends BaseTestClass {
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearencePartPaidWithoutCert() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
