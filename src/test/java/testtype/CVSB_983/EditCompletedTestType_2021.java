@@ -3,6 +3,7 @@ package testtype.CVSB_983;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -35,6 +36,7 @@ public class EditCompletedTestType_2021 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-983 - AC3 - VSA saves their edited details within the test type (all mandatory fields are populated)")
     @Test
     public void testSaveEditedDetailsPopulatedFields() {

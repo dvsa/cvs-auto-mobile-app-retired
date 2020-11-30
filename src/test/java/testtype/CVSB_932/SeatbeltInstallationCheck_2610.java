@@ -3,6 +3,7 @@ package testtype.CVSB_932;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -32,6 +33,7 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-2610 - Improvement ticket - Change 'carried out a seatbelt check' from yes to no does not update other fields")
     @Test
     public void changeCarriedOutASeatbeltCheckUpdatesOtherFields() {

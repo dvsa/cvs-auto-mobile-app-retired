@@ -3,6 +3,7 @@ package testtype.CVSB_901;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -31,6 +32,7 @@ public class SeatbeltInstallationCheck_1952 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-901 - AC10 - Record most recent installation check")
     @Test
     public void testRecordMostInstallationCheck() {
