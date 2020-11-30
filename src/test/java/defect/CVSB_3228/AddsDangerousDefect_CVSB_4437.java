@@ -46,7 +46,7 @@ public class AddsDangerousDefect_CVSB_4437 extends BaseTestClass{
 
     @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (Prohibition clearance)")
     @Test
-    public void addsADangerousDefect() {
+    public void addsADangerousDefect_4437() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
