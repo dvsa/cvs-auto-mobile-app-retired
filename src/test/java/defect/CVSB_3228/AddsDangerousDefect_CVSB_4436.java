@@ -52,6 +52,7 @@ public class AddsDangerousDefect_CVSB_4436 extends BaseTestClass{
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
