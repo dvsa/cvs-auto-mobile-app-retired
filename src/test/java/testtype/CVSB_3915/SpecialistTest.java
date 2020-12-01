@@ -220,7 +220,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 
-    @WithTag("In_Test")
+
     @Title("CVSB-3915 - AC4 - VSA selects result (Pass, Non-COIF), certificate number attributes")
     @Test
     public void testVSASelectsResultPass_NonCOIF_CertificateAttributes() {
@@ -291,7 +291,7 @@ public class SpecialistTest extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
-    @WithTag("In_Test")
+
     @Title("CVSB-3915 - AC5 - VSA selects result (Pass, COIF), certificate number attributes")
     @Test
     public void testVSASelectsResultPass_COIF_CertificateAttributes() {
@@ -358,7 +358,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 
-    @WithTag("In_Test")
+
     @Title("CVSB-3915 - AC6 - Certificate number for Notifiable Alteration (PSV)")
     @Test
     public void testCertificateNumberForNotifiableAlteration_PSV() {

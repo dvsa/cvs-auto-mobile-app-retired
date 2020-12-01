@@ -32,7 +32,6 @@ public class SeatbeltInstallationCheck_1952 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-901 - AC10 - Record most recent installation check")
     @Test
     public void testRecordMostInstallationCheck() {
@@ -41,9 +40,12 @@ public class SeatbeltInstallationCheck_1952 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.selectMostRecentInstallationCheck();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
     }
 }

@@ -33,7 +33,6 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
     @Steps
     SeatbeltInstallationCheckSteps seatbeltInstallationCheckSteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-2610 - Improvement ticket - Change 'carried out a seatbelt check' from yes to no does not update other fields")
     @Test
     public void changeCarriedOutASeatbeltCheckUpdatesOtherFields() {

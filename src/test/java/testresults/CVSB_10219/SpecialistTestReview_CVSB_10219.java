@@ -174,7 +174,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testHistoryDetailsSteps.checkElementValue("NOTES", "Overall Notes");
     }
 
-    @WithTag("In_Test")
+
     @Title("CVSB-10219 - AC4 - Test history - two certificate numbers (Annual + COIF), CVSB-10219 - AC5 - Annual test expiry date")
     @Test
     public void testSpecialistTest_TwoCertificateNumbers_COIF() {

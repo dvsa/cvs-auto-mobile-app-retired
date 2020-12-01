@@ -72,7 +72,7 @@ public class ProhibitionDisplayedTestHistory_CVSB_4540 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @WithTag("In_Test")
+
     @Title("CVSB-925 - TCD - AC1 - Prohibition displayed instead of result field on test history")
     @Test
     public void prohibitionDisplayedInsteadOfResultFieldOnTestHistory() {

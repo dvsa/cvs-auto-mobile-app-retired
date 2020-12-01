@@ -36,7 +36,6 @@ public class ProhibitionIssuedToggle_CVSB_5732 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-439 - AC7 - VSA switches prohibition issued field off for a test type")
     @Test
     public void testProhibitionIssuedTestTypeSwitchOff() {

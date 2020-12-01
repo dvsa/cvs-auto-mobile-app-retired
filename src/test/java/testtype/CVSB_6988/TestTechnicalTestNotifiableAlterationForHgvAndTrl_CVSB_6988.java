@@ -92,7 +92,7 @@ public class TestTechnicalTestNotifiableAlterationForHgvAndTrl_CVSB_6988 extends
         testTypeDetailsSteps.checkErrorNotesDetailsIsDisplayed();
     }
 
-    @WithTag("In_Test")
+
     @Title("CVSB-7611 - AC2 - MANDATORY NOTES FIELD COMPLETE (TEST RESULT=FAIL) - direct back to test screen")
     @Test
     public void testMandatoryNotesFieldCompleteTestResultFail() {

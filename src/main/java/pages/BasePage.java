@@ -126,7 +126,7 @@ public class BasePage extends PageObject {
             element = waitUntilPageIsLoadedByEitherId(id, "Trailer details");
         }
         else {
-            element = waitUntilPageIsLoadedByElement(By.id(id), 40, 100);
+            element = waitUntilPageIsLoadedByElement(By.id(id), 60, 100);
         }
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
@@ -176,7 +176,7 @@ public class BasePage extends PageObject {
 
     protected void waitUntilNumberOfElementsToBe(By locator, int elementNumber) {
         logger.info("Waiting for number of elements to be present: (" + locator + ", expecting " + elementNumber + ")");
-        FluentWait wait = globalFluentWait(40, 100);
+        FluentWait wait = globalFluentWait(60, 100);
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, elementNumber));
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Found.");

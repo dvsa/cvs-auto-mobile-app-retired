@@ -36,7 +36,6 @@ public class SeatbeltInstallationCheck_2007 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-932 - AC - 3 Editing 'Number of seatbelts' fitted")
     @Test
     public void editingNumberOfSeatbeltsFitted() {
