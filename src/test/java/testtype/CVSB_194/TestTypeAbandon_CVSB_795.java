@@ -34,13 +34,7 @@ public class TestTypeAbandon_CVSB_795 extends BaseTestClass {
     AbandonTestComp abandonTestComp;
 
     @Steps
-    AbandonedTestSteps abandonedTestSteps;
-
-    @Steps
     TestTypeCategorySteps testTypeCategorySteps;
-
-
-
 
     @Title("CVSB-194 - AC1 Text box for additional comments")
     @Test

@@ -90,7 +90,7 @@ public class TestPageFieldsDisplayed_CVSB_6768 extends BaseTestClass {
     }
 
 
-    @WithTag("In_Test")
+
     @Title("CVSB-6776 - AC1 - Fields displayed on test screen - HGV (select a test type)")
     @Test
     public void testFieldsDisplayedAddTestsForHgv() {

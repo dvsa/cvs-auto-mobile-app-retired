@@ -42,7 +42,6 @@ public class ProhibitionIssuedToggle_CVSB_5022 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-439 - AC2 - VSA switches prohibition issued field off for a dangerous defect")
     @Test
     public void testProhibitionIssuedSwitchOff() {

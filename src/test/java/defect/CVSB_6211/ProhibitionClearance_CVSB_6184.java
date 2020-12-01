@@ -45,7 +45,6 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-6184 - Bypass the prohibition raising for Prohibition Clearance tests")
     @Test
     public void testBypassProhibitionClearance() {

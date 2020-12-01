@@ -57,7 +57,7 @@ public class AutoCalculateTestTypeResult_2165 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @WithTag("In_Test")
+
     @Title("CVSB-929 - Pass test result - Minor defect")
     @Test
     public void testPassResultMinorDefect() {

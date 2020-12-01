@@ -36,7 +36,6 @@ public class EditCompletedTestType_2020 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-983 - AC2 - VSA edits details within the test type after saving")
     @Test
     public void testEditSavedDetails() {

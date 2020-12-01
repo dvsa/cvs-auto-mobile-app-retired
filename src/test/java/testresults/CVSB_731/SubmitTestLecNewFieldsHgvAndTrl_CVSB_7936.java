@@ -48,7 +48,7 @@ public class SubmitTestLecNewFieldsHgvAndTrl_CVSB_7936 extends BaseTestClass {
     @Steps
     PreparerSteps preparerSteps;
 
-    @WithTag("In_Test")
+
     @Title("CVSB-9897 - CVSB-7936 - As a VSA I want to be able to capture all LEC fields so that the certificate generated digitally is complete - HGV - Mod Type = P")
     @Test
     public void testLecFieldsHgvModTypeP() {

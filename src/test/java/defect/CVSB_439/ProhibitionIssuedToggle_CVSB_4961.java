@@ -45,7 +45,6 @@ public class ProhibitionIssuedToggle_CVSB_4961 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-439 - AC1 - VSA confirms a prohibition have been issued against a dangerous defect (Class 6A)")
     @Test
     public void testProhibitionIssuedClass6A() {

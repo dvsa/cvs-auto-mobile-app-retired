@@ -51,7 +51,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
+
     @Title("CVSB-8276 - ADR test Failed, not needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Failed_NotRequiringInfo() {
@@ -133,7 +133,7 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted");
     }
 
-    @WithTag("In_Test")
+
     @Title("CVSB-3950 - ADR test Passed, needing specific data on submission (HGV)")
     @Test
     public void submitADRTestHGV_Passed_RequiringInfo() {
