@@ -75,6 +75,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("TIR");
         testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
