@@ -235,11 +235,12 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Specialist test");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
-        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
-        testTypeCategorySteps.selectFromTestTypeList("COIF");
+        testTypeSubcategorySteps.selectFromTestTypeList("COIF");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("COIF");
         testTypeCategorySteps.selectFromTestTypeList("with annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkTestTypeDetailsTitleIsDisplayed();
         testTypeDetailsSteps.setTestToOption("Pass");
