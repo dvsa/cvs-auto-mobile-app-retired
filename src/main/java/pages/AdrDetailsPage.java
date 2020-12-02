@@ -33,28 +33,6 @@ public class AdrDetailsPage extends BasePage {
         return listOfData;
     }
 
-//
-//    public void clickConfirmPopUp() {
-//        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID),2);
-//        findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
-//    }
-//
-//    public void clickCancel() {
-//        findElementById(CANCEL_ID).click();
-//    }
-//
-//    public boolean isConfirmationPopUpVisible() {
-//        boolean status = false;
-//        WebElement cancelButton = findElementById(CANCEL_ID);
-//        WebElement confirmButton = findElementById(CONFIRM_ID);
-//        WebElement text = findElementById(CONFIRMATION_TEXT_ID);
-//        WebElement title = findElementById(CONFIRM_VEHICLE_ID);
-//        if (cancelButton.isDisplayed() && confirmButton.isDisplayed() && text.isDisplayed() && title.isDisplayed()) {
-//            status = true;
-//        }
-//        return status;
-//    }
-
     public boolean isPageTitleDisplayed() {
         boolean status = false;
         if (findElementById(ADR_DETAILS_PAGE_TITLE).isDisplayed()) {
@@ -88,18 +66,6 @@ public class AdrDetailsPage extends BasePage {
         return status;
     }
 
-//    public void clickVehicleTestHistory() {
-//        findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).click();
-//    }
-//
-//    public void clickBackButton() {
-//        findElementByXpath(BACK_BUTTON_XPATH).click();
-//    }
-//
-//    public boolean isTestHistoryButtonDisplayed() {
-//        return findElementById(VEHICLE_TEST_HISTORY_BUTTON_ID).isDisplayed();
-//    }
-
     public boolean isAttribute(String attribute, String value) {
         List<WebElement> webElementList = findElementsByClassName(PAGE_ALL_TEXT_XPATH);
         List<String> actualData = new ArrayList<>();
@@ -124,18 +90,17 @@ public class AdrDetailsPage extends BasePage {
     }
 
     public boolean elementIsDisplayedAfter(String adrDetail, String adrSection) {
-//        logger.info("inside element is displayed after: " + adrDetail + " , " + adrSection);
         List<WebElement> webElementList = getAllElements();
         WebElement sectionElement = null;
         WebElement detailElement = null;
         for(WebElement webElement : webElementList){
-//            logger.info("element is: " + webElement.getAttribute("name"));
+
             if(webElement.getAttribute("name").equals(adrSection)){
-//                logger.info("found: " + adrSection + " index is: " + webElementList.indexOf(webElement))
+
                 sectionElement = webElement;
             }
             if(webElement.getAttribute("name").equals(adrDetail)){
-//                logger.info("found: " + adrDetail + " index is: " + webElementList.indexOf(webElement));
+
                 if (webElement.isDisplayed()) {
                     // Just in case the element is present on screen but hidden.
                     detailElement = webElement;

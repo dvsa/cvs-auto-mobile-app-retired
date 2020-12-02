@@ -131,11 +131,8 @@ public class HgvDetailsPage extends BasePage {
         for (WebElement webElement : webElementList) {
             actualData.add(webElement.getAttribute("name"));
         }
-//        logger.info("list: " + actualData);
         for (String data : actualData) {
-//            logger.info("inside for @: " + data);
             if (data.equals(attribute)) {
-//                logger.info("comparing data: " + data + " with: " + value);
                 if (actualData.get(actualData.indexOf(data) + 1).equals(value)) {
                     return true;
                 }
