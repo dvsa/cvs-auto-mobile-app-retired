@@ -53,6 +53,7 @@ public class ProhibitionIssuedToggle_CVSB_4962 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV retest");
@@ -65,6 +66,5 @@ public class ProhibitionIssuedToggle_CVSB_4962 extends BaseTestClass {
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.setProhibitionIssued();
         defectDetailsSteps.checkProhibitionIssuedSwitchOn();
-
     }
 }
