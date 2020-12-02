@@ -40,25 +40,39 @@ public class ActivityService {
 
     private List<String> getAllOpenActivitiesForTesterStaffId(String testerStaffId, String token) {
         List<String> activityIds = null;
-        Response response = given().filters(new BasePathFilter(token))
-                .contentType(ContentType.JSON)
-                .queryParam("activityType", "visit")
-                .queryParam("fromStartTime", LocalDateTime.now().minusDays(90).toString())
-                .queryParam("testerStaffId", testerStaffId)
-                .get("/activities/details");
 
-        if (!response.getBody().asString().contains("No resources match the search criteria")) {
-            activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
+        for (int i =0; i<3; i++) {
+            Response response = given().filters(new BasePathFilter(token))
+                    .contentType(ContentType.JSON)
+                    .queryParam("activityType", "visit")
+                    .queryParam("fromStartTime", LocalDateTime.now().minusDays(90).toString())
+                    .queryParam("testerStaffId", testerStaffId)
+                    .get("/activities/details");
+
+            if (response.getStatusCode() != 200) {
+                logger.info("This should not have happened: " + response.toString());
+            } else {
+                if (!response.getBody().asString().contains("No resources match the search criteria")) {
+                    activityIds = response.jsonPath().getList("findAll { it.endTime == null}.id");
+                }
+                break;
+            }
         }
-
         return activityIds;
     }
 
     private void closeOpenActivityById(String id, String token) {
 
-        given().filters(new BasePathFilter(token))
-                .contentType(ContentType.JSON)
-                .pathParam("id", id)
-                .put("/activities/{id}/end");
+        for (int i =0; i<3; i++) {
+            Response response = given().filters(new BasePathFilter(token))
+                    .contentType(ContentType.JSON)
+                    .pathParam("id", id)
+                    .put("/activities/{id}/end");
+            if (response.getStatusCode() != 200) {
+                logger.info("This should not have happened: " + response.toString());
+            } else {
+                break;
+            }
+        }
     }
 }

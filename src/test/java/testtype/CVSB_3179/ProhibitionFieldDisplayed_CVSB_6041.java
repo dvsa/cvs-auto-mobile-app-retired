@@ -46,7 +46,7 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
 
     @Title("CVSB-3179 - TCD - Prohibition field is displayed for dangerous defect (Retest)")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelRetest() {
+    public void prohibitionFieldNotDisplayedAtADefectLevelDangerousDefectRetest() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
