@@ -112,7 +112,6 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyVehicleSteps.typeInSearchField("341234");
         identifyVehicleSteps.waitUntilPageIsLoaded();
         identifyVehicleSteps.pressSearch();
-        identifyVehicleSteps.waitUntilPageIsLoaded();
         identifyVehicleSteps.checkLoadingScreen();
     }
 
