@@ -50,22 +50,17 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
         testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
+        testTypeDetailsSteps.waitForDatePopupToAppear();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
+        testTypeDetailsSteps.waitForDatePopupToDisappear();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
         testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("Yes");
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.setCarriedOutDuringTest(false);
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbeltsIsNotDisplayed();
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyThatNoRecentInstallationDateIsDisplayed();
     }
 }
