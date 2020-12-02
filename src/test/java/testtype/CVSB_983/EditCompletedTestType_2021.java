@@ -59,8 +59,9 @@ public class EditCompletedTestType_2021 extends BaseTestClass {
         testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkNumberOfSeatbelts("4");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
+        testTypeDetailsSteps.waitForDatePopupToAppear();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
+        testTypeDetailsSteps.waitForDatePopupToDisappear();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDateIsEdited();
     }
 }
