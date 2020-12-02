@@ -47,6 +47,8 @@ public class TestTypeDetailsPage extends BasePage {
     private static final String NOTES_INFO = "Notes will be printed on the certificate.";
     private static final String ADD_DEFECT_ID = "Add defect";
     private static final String REMOVE_BUTTON_ID = "Remove";
+    private static final String POP_UP_CANCEL = "//XCUIElementTypeButton[@name='Cancel']";
+    private static final String POP_UP_DONE = "//XCUIElementTypeButton[@name='Done']";
     private static final String POP_UP_CANCEL_ID = "Cancel";
     private static final String POP_UP_REMOVE_XPATH = "(//XCUIElementTypeButton[@name='Remove'])[2]";
     private static final String POP_UP_TEXT_ID = "This action will remove this defect.";
@@ -91,6 +93,15 @@ public class TestTypeDetailsPage extends BasePage {
         return findElementById(ADD_DEFECT_ID);
     }
 
+    public void waitForDatePopupToAppear() {
+        waitUntilPageIsLoadedByXpath(POP_UP_CANCEL);
+        waitUntilPageIsLoadedByXpath(POP_UP_DONE);
+    }
+
+    public void waitForDatePopupToDisappear() {
+        waitElementToDisappear(By.xpath(POP_UP_CANCEL),20,100);
+        waitElementToDisappear(By.xpath(POP_UP_DONE),20,100);
+    }
 
     public void waitUntilPageIsLoadedByTestType(String testName) {
         waitUntilPageIsLoadedByXpath("//*[@name='" + testName + "']");
@@ -816,6 +827,5 @@ public class TestTypeDetailsPage extends BasePage {
         findElementByXpath(MODIFICATION_TYPE_USED_INPUT_FIELD_XPATH).sendKeys(modificationType);
         findElementById(DONE_ID).click();
     }
-
 }
 

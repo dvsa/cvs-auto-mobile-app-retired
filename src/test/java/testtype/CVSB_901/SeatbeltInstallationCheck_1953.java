@@ -41,9 +41,12 @@ public class SeatbeltInstallationCheck_1953 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
+        testTypeDetailsSteps.waitForDatePopupToAppear();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.waitForDatePopupToDisappear();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
         testTypeDetailsSteps.cancelMostRecentInstallationCheckOption();
+        testTypeDetailsSteps.waitForDatePopupToDisappear();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
     }
 }
