@@ -52,9 +52,11 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeCategorySteps.selectFromTestTypeList("Paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Class 6A retest (seatbelt installation check)");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
@@ -63,6 +65,5 @@ public class ProhibitionFieldDisplayed_CVSB_6041 extends BaseTestClass {
         defectDetailsSteps.checkIssuedInMobileComplianceIsPresent();
         defectDetailsSteps.checkProhibitionLabelIsDisplayed();
         defectDetailsSteps.tapDone();
-
     }
 }
