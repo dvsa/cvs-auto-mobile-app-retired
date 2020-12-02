@@ -44,9 +44,9 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_2 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
+    @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance) - 2")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearencePG9Retest() {
+    public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearencePG9Retest_2() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();

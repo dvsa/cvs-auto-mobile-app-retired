@@ -64,7 +64,7 @@ public class TestResultIsDisplayedAsPRS_CVSB_6352 extends BaseTestClass {
     @Title("CVSB-5139 - TCD - AC2 - VSA saves test details")
     @WithTag("Smoke_2")
     @Test
-    public void prohibitionFieldNotDisplayedAtADefectLevelRetest() {
+    public void prohibitionFieldNotDisplayedAtADefectLevelTestDetails() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
