@@ -23,6 +23,15 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitForDatePopupToAppear(){
+       testTypeDetailsPage.waitForDatePopupToAppear();
+    }
+    @Step
+    public void waitForDatePopupToDisappear(){
+        testTypeDetailsPage.waitForDatePopupToDisappear();
+    }
+
+    @Step
     public void setCarriedOutDuringTest(boolean isCarriedOut) {
         testTypeDetailsPage.selectCarriedOutOption();
         if (isCarriedOut) {
@@ -102,6 +111,7 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     @Step
     public void cancelMostRecentInstallationCheckOption() {
         testTypeDetailsPage.selectRecentInstallationCheckOption();
+        testTypeDetailsPage.waitForDatePopupToAppear();
         testTypeDetailsPage.cancelMostRecentInstallationCheck();
     }
 

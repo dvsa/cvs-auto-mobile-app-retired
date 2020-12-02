@@ -67,7 +67,6 @@ public class BasePage extends PageObject {
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         return element;
     }
-
     protected WebElement findElementByXpath(String xpath) {
         logger.info("Finding element: " + xpath);
         WebElement element = getDriver().findElement(By.xpath(xpath));
@@ -109,6 +108,7 @@ public class BasePage extends PageObject {
                 }
             }
         }
+
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         return element;
     }
