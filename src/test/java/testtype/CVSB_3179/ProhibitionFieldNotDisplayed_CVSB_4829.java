@@ -52,11 +52,13 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ full fee");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ full fee");
         testTypeSubcategorySteps.selectFromTestTypeList("Without certification");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
