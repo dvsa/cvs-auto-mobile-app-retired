@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class VehicleDetailsPage extends BasePage {
 
     private static final String VEHICLE_DETAILS_PAGE_TITLE = "Vehicle details";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
+    private static final String CONFIRM_BUTTON_POP_UP = "(//XCUIElementTypeButton[@name='Confirm'])[2]";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String PAGE_ALL_BUTTON_XPATH = "//XCUIElementTypeButton";
@@ -51,8 +53,8 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public void clickConfirmPopUp() {
-        waitUntilNumberOfElementsToBe(MobileBy.AccessibilityId(CONFIRM_BUTTON_ID), 2);
-        findElementsByAccessibilityId(CONFIRM_BUTTON_ID).get(1).click();
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(CONFIRM_BUTTON_POP_UP), 20, 200);
+        findElementByXpath(CONFIRM_BUTTON_POP_UP).click();
     }
 
     public void clickCancel() {
