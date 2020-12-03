@@ -3,6 +3,7 @@ package defect.CVSB_139;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -41,6 +42,7 @@ public class DefectAdd_CVSB_671 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-139 - AC4 - Add advisory defect")
     @Test
     public void addAdvisoryDefect() {

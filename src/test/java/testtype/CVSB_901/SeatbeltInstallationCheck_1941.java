@@ -3,6 +3,7 @@ package testtype.CVSB_901;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -31,6 +32,7 @@ public class SeatbeltInstallationCheck_1941 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-901 - AC1 - Select whether a seat belt installation check was carried out during this inspection - Y/N")
     @Test
     public void testSeatBeltInstallationCheck() {
