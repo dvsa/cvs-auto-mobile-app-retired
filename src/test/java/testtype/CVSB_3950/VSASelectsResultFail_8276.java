@@ -77,7 +77,9 @@ public class VSASelectsResultFail_8276 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeCategorySteps.selectFromTestTypeList("ADR");
+        testSteps.waitUntilPageIsLoaded();
 
         // CVSB-8276: TC - AC3 - VSA selects result - FAIL
         // Set test to Failed, and submit it.
