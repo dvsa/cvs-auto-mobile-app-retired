@@ -45,7 +45,6 @@ public class AddsDangerousDefect_CVSB_4437 extends BaseTestClass{
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
     @Title("[Iteration] CVSB-3228 - AC1 - VSA adds a dangerous defect (Prohibition clearance)")
     @Test
     public void addsADangerousDefect_4437() {

@@ -45,7 +45,6 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-3179 - TCD - AC1 - Prohibition field not displayed at a defect level (Prohibition Clearance)")
     @Test
     public void prohibitionFieldNotDisplayedAtADefectLevelProhibitionClearenceAnyPSV() {

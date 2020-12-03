@@ -42,7 +42,6 @@ public class DefectAdd_CVSB_671 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-139 - AC4 - Add advisory defect")
     @Test
     public void addAdvisoryDefect() {
