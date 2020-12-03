@@ -32,7 +32,6 @@ public class SeatbeltInstallationCheck_1941 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In_Test")
     @Title("CVSB-901 - AC1 - Select whether a seat belt installation check was carried out during this inspection - Y/N")
     @Test
     public void testSeatBeltInstallationCheck() {
