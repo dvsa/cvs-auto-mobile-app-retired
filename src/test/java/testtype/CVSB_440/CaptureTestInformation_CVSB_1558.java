@@ -87,16 +87,11 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
         vehicleDetailsSteps.selectVehicleTestHistory();
         testHistorySteps.clickLastTestByTestType("Annual test");
         testHistoryDetailsSteps.waitUntilPageIsLoaded();
-        testHistoryDetailsSteps.checkElementIsPresent("Test date");
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
-        testHistoryDetailsSteps.checkElementIsPresent("Test time");
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
-        testHistoryDetailsSteps.checkElementIsPresent("Test expiry");
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
+        testHistoryDetailsSteps.checkTestDateElementIsPresent();
+        testHistoryDetailsSteps.checkTestTimeElementIsPresent();
+        testHistoryDetailsSteps.checkTestTimeExpiryIsPresent();
         testHistoryDetailsSteps.checkDate();
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkTime();
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
     }
 }
 

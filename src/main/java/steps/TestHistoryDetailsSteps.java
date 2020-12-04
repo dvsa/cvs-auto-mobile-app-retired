@@ -63,6 +63,21 @@ public class TestHistoryDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkTestDateElementIsPresent() {
+        assertThat(testHistoryDetailsPage.checkTestDateElementIsPresent()).isTrue();
+    }
+
+    @Step
+    public void checkTestTimeElementIsPresent() {
+        assertThat(testHistoryDetailsPage.checkTestTimeElementIsPresent()).isTrue();
+    }
+
+    @Step
+    public void checkTestTimeExpiryIsPresent() {
+        assertThat(testHistoryDetailsPage.checkTestExpiryElementIsPresent()).isTrue();
+    }
+
+    @Step
     public void checkElementIsPresent(String element) {
         assertThat(testHistoryDetailsPage.checkElementIsPresent(element)).isTrue();
     }

@@ -51,6 +51,9 @@ public class VoluntaryAbandonedBreakTest_3019 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
     @Title("CVSB-3019 - Defect - Abandoned Voluntary break test submission")
     @Test
     public void submitAbandonedVoluntaryBreakTestTest() {
@@ -59,7 +62,9 @@ public class VoluntaryAbandonedBreakTest_3019 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Brake test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Fail");
         testTypeDetailsSteps.pressTestTypeAbandonButton();

@@ -13,6 +13,10 @@ public class TestHistoryDetailsPage extends BasePage {
     private static final String TEST_HISTORY_DETAILS_PAGE_TITLE = "Test history details";
     private static final String BACK_BUTTON_XPATH = "//XCUIElementTypeButton[contains(@name, 'arrow back')]";
     private static final String PAGE_ALL_TEXT_CLASS_NAME = "XCUIElementTypeStaticText";
+    private static final String TEST_DATE_XPATH = "//XCUIElementTypeStaticText[contains(@name, 'Test date')]";
+    private static final String TEST_TIME_XPATH = "//XCUIElementTypeStaticText[contains(@name, 'Test time')]";
+    private static final String TEST_EXPIRY_XPATH = "//XCUIElementTypeStaticText[contains(@name, 'Test expiry')]";
+
 
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(TEST_HISTORY_DETAILS_PAGE_TITLE);
@@ -70,6 +74,30 @@ public class TestHistoryDetailsPage extends BasePage {
     public boolean checkElementIsPresent(String element) {
         try {
             return findElementById(element).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
+    }
+
+    public boolean checkTestDateElementIsPresent() {
+        try {
+            return findElementByXpath(TEST_DATE_XPATH).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
+    }
+
+    public boolean checkTestExpiryElementIsPresent() {
+        try {
+            return findElementByXpath(TEST_EXPIRY_XPATH).isDisplayed();
+        } catch (NullPointerException ex) {
+            return false;
+        }
+    }
+
+    public boolean checkTestTimeElementIsPresent() {
+        try {
+            return findElementByXpath(TEST_TIME_XPATH).isDisplayed();
         } catch (NullPointerException ex) {
             return false;
         }
