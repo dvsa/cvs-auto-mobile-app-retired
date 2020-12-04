@@ -283,6 +283,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         // AC5 - Annual test expiry date
         testHistorySteps.selectTestAtPosition("Specialist test", 0); // Pos 0 = current / most recent test.
         testHistoryDetailsSteps.checkPageTitle();
+        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkExpiryDateIsCorrect();
     }
 }
