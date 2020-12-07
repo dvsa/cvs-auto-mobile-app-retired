@@ -41,15 +41,16 @@ public class RecordResult_CVSB_1984 extends BaseTestClass {
     @Test
     public void testFieldsAutomaticPopulation() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-//        testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);        testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
@@ -58,9 +59,10 @@ public class RecordResult_CVSB_1984 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
         testTypeSubcategorySteps.selectFromTestTypeList("LEC");
-//        testSteps.waitUntilPageIsLoaded();
+        testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkResultIsNotSet();
         testTypeDetailsSteps.pressSave();
     }
