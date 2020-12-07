@@ -67,8 +67,8 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Paid retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Any PSV retest", "Class 6A retest (seatbelt installation check)");
