@@ -98,6 +98,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Annual test retest", "TIR retest", "ADR retest", "Roadworthiness retest", "First test retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
@@ -141,6 +142,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");
@@ -171,6 +173,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest", "Free loaded retest");

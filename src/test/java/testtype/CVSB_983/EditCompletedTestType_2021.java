@@ -62,6 +62,7 @@ public class EditCompletedTestType_2021 extends BaseTestClass {
         testTypeDetailsSteps.waitForDatePopupToAppear();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
         testTypeDetailsSteps.waitForDatePopupToDisappear();
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDateIsEdited();
     }
 }

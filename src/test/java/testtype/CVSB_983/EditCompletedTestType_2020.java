@@ -50,12 +50,14 @@ public class EditCompletedTestType_2020 extends BaseTestClass {
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("2");
         testTypeDetailsSteps.selectMostRecentInstallationCheck();
+        testTypeDetailsSteps.waitForDatePopupToAppear();
         testTypeDetailsSteps.setMostRecentInstallationCheckDateOneUnit();
+        testTypeDetailsSteps.waitForDatePopupToDisappear();
         testTypeDetailsSteps.pressSave();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.checkNumberOfSeatbelts("2");
-        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyMostRecentInstallationCheckDate();
     }
 }
