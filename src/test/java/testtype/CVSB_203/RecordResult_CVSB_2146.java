@@ -3,7 +3,6 @@ package testtype.CVSB_203;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -29,18 +28,6 @@ public class RecordResult_CVSB_2146 extends BaseTestClass {
 
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
-
-    @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
 
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
