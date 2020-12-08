@@ -14,6 +14,11 @@ public class DefectDescriptionSteps extends ScenarioSteps {
     DefectDescriptionPage defectDescriptionPage;
 
     @Step
+    public void waitUntilPageIsLoaded(){
+        defectDescriptionPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
     public void tapAddAnAdvisoryNote() {
         defectDescriptionPage.waitUntilPageIsLoaded();
         defectDescriptionPage.clickAddAdvisoryNote();

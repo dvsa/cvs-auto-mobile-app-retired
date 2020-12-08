@@ -62,6 +62,7 @@ public class ProhibitionIssuedToggle_CVSB_4962 extends BaseTestClass {
         testTypeDetailsSteps.selectAddDefect("Paid retest");
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("2. Anchorages");
+        defectDescriptionSteps.waitUntilPageIsLoaded();
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");
         defectDetailsSteps.scrollDefectDetailsPage();
         defectDetailsSteps.setProhibitionIssued();

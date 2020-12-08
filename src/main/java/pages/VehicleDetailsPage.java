@@ -53,7 +53,7 @@ public class VehicleDetailsPage extends BasePage {
     }
 
     public void clickConfirmPopUp() {
-        waitUntilPageIsLoadedByElementAndClickable(By.xpath(CONFIRM_BUTTON_POP_UP), 20, 200);
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(CONFIRM_BUTTON_POP_UP), 30, 200);
         findElementByXpath(CONFIRM_BUTTON_POP_UP).click();
     }
 
