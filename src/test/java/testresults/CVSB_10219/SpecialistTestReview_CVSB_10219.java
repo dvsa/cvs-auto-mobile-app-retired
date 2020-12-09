@@ -179,10 +179,10 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     @Test
     public void testSpecialistTest_TwoCertificateNumbers_COIF() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username); // PSV BQ91 YHQ
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012432",super.username); // PSV BQ91 YHQ
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-        testSteps.checkTestDetails("BQ91YHQ", "1B7GG36N12S678410");
+        testSteps.checkTestDetails("P111YAC", "XMGDE02FS0H012432");
 
         // Add a test type (Specialist Test -> COIF -> With annual test).
         testSteps.addTestType();
@@ -217,7 +217,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
 
         // Add another test (Specialist Test -> COIF -> With annual test retest).
         siteVisit.createNewTest();
-        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        identifyVehicleSteps.searchForVehicle("P111YAC");
         vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
@@ -263,7 +263,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
 
         // Now go and verify the certificate numbers.  Manually-set and auto-generated values should be shown for each test.
         siteVisit.createNewTest();
-        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        identifyVehicleSteps.searchForVehicle("P111YAC");
         vehicleDetailsSteps.selectVehicleTestHistory();
 
         testHistorySteps.selectTestAtPosition("Specialist test", 1); // Pos 1 = previous test.

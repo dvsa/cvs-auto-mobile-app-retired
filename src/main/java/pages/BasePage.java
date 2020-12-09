@@ -135,7 +135,7 @@ public class BasePage extends PageObject {
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
         logger.info("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
-        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 40, 100);
+        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 60, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;
