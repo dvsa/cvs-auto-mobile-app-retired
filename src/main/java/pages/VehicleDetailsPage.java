@@ -10,7 +10,7 @@ import java.util.List;
 public class VehicleDetailsPage extends BasePage {
 
     private static final String VEHICLE_DETAILS_PAGE_TITLE = "Vehicle details";
-    private static final String CONFIRM_BUTTON_ID = "Confirm";
+    private static final String CONFIRM_BUTTON_XPATH = "//XCUIElementTypeButton[@name='Confirm']";
     private static final String CONFIRM_BUTTON_POP_UP = "(//XCUIElementTypeButton[@name='Confirm'])[2]";
     private static final String ADDITIONAL_VEHICLE_DETAILS_BUTTON_ID = "Additional vehicle details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
@@ -49,7 +49,8 @@ public class VehicleDetailsPage extends BasePage {
 
 
     public void clickConfirm() {
-        findElementById(CONFIRM_BUTTON_ID).click();
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(CONFIRM_BUTTON_XPATH), 30, 200);
+        findElementByXpath(CONFIRM_BUTTON_XPATH).click();
     }
 
     public void clickConfirmPopUp() {

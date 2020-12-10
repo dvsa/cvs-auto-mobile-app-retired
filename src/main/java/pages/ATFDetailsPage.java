@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class ATFDetailsPage extends BasePage {
 
     private static final String START_VISIT_ID = "Start visit";
+    private static final String START_VISIT_XPATH = "//XCUIElementTypeButton[@name='Start visit']";
     private static final String TEST_FACILITY_DETAILS_ID = "Test facility details";
     private static final String PAGE_ALL_TEXT_XPATH = "//XCUIElementTypeStaticText";
     private static final String POP_UP_CANCEL_BUTTON_ID = "Cancel";
@@ -31,7 +32,8 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public void clickStartVisit() {
-        findElementById(START_VISIT_ID).click();
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(START_VISIT_XPATH), 40, 200);
+        findElementByXpath(START_VISIT_XPATH).click();
     }
 
     public void waitUntilPageIsLoadedById(){
