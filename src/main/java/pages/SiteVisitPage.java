@@ -1,6 +1,7 @@
 package pages;
 
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -36,6 +37,7 @@ public class SiteVisitPage extends BasePage {
     }
 
     public void clickCreateNewTest() {
+        waitUntilPageIsLoadedByElementAndClickable(By.id(START_TEST), 20, 200);
         findElementById(START_TEST).click();
     }
 

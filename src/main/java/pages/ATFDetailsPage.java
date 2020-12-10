@@ -32,8 +32,8 @@ public class ATFDetailsPage extends BasePage {
     }
 
     public void clickStartVisit() {
-        waitUntilPageIsLoadedByElementAndClickable(By.xpath(START_VISIT_XPATH), 40, 200);
-        findElementByXpath(START_VISIT_XPATH).click();
+        waitUntilPageIsLoadedByElementAndClickable(By.id(START_VISIT_ID), 30, 200);
+        findElementById(START_VISIT_ID).click();
     }
 
     public void waitUntilPageIsLoadedById(){
