@@ -15,6 +15,7 @@ public class PreparerPage extends BasePage {
     private static final String START_TEST_BUTTON_ID = "Start Test";
     private static final String CANCEL_BUTTON_ID = "Cancel";
     private static final String CONFIRM_BUTTON_ID = "Confirm";
+    private static final String CONFIRM_BUTTON_XPATH = "//XCUIElementTypeButton[@name='Confirm']";
     private static final String CONTINUE_BUTTON_ID = "Continue";
     private static final String SEARCH_AGAIN_BUTTON_ID = "Search again";
 
@@ -41,7 +42,7 @@ public class PreparerPage extends BasePage {
     public boolean isPreparerFoundPopUpDisplayed(String preparerId) {
         boolean isLabelDisplayed = findElementById(PREPARER_FOUND_LABEL_ID).isDisplayed();
         boolean isCancelOptionDisplayed = findElementById(CANCEL_BUTTON_ID).isDisplayed();
-        boolean isConfirmOptionDisplayed = findElementById(CONFIRM_BUTTON_ID).isDisplayed();
+        boolean isConfirmOptionDisplayed = findElementByXpath(CONFIRM_BUTTON_XPATH).isDisplayed();
         boolean isPreparerFoundMessageDisplayed = findElementByXpath("//XCUIElementTypeStaticText[@name=\"Durrell Vehicles Limited (" + preparerId + ")\"]").isDisplayed();
 
         if (isPreparerFoundMessageDisplayed && isCancelOptionDisplayed && isConfirmOptionDisplayed && isLabelDisplayed) {
@@ -63,7 +64,7 @@ public class PreparerPage extends BasePage {
     public boolean isWithoutPreparerPopUpDisplayed() {
         boolean isMessageDisplayed = findElementByXpath(WITHOUT_PREPARER_MESSAGE_XPATH).isDisplayed();
         boolean isCancelOptionDisplayed = findElementById(CANCEL_BUTTON_ID).isDisplayed();
-        boolean isConfirmOptionDisplayed = findElementById(CONFIRM_BUTTON_ID).isDisplayed();
+        boolean isConfirmOptionDisplayed = findElementByXpath(CONFIRM_BUTTON_XPATH).isDisplayed();
         boolean isLabelDisplayed = findElementById(WITHOUT_PREPARER_LABEL_ID).isDisplayed();
 
         if (isMessageDisplayed && isCancelOptionDisplayed && isConfirmOptionDisplayed && isLabelDisplayed) {
@@ -72,8 +73,8 @@ public class PreparerPage extends BasePage {
     }
 
     public void confirmPopUpOption() {
-        waitUntilPageIsLoadedByElementAndClickable(By.id(CONFIRM_BUTTON_ID), 40, 200);
-        findElementById(CONFIRM_BUTTON_ID).click();
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(CONFIRM_BUTTON_XPATH), 40, 200);
+        findElementByXpath(CONFIRM_BUTTON_XPATH).click();
     }
 
     public void cancelPopUpOption() {
@@ -93,6 +94,7 @@ public class PreparerPage extends BasePage {
     }
 
     public void clickStartTest() {
+        waitUntilPageIsLoadedByElementAndClickable(By.id(START_TEST_BUTTON_ID), 30, 200);
         findElementById(START_TEST_BUTTON_ID).click();
     }
 
