@@ -152,7 +152,7 @@ public class BasePage extends PageObject {
 
     protected WebElement shortWaitUntilPageIsLoadedByIdAndClickable(String id) {
         logger.info("Waiting (short) for page to be loaded, based on clickable element: " + id);
-        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 60, 100);
+        WebElement element = waitUntilPageIsLoadedByElementAndClickable(By.id(id), 90, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;

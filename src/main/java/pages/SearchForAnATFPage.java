@@ -56,6 +56,7 @@ public class SearchForAnATFPage extends BasePage {
     }
 
     public void clickOnAtf(String atfName) {
+        waitUntilPageIsLoadedByElementAndClickable(By.id(atfName), 30, 200);
         findElementByAccessibilityId(atfName).click();
         //TODO replace with a wait for the loading screen to disappear (the element for the next action will appear BEFORE the loading screen is removed and next action will fail if loading is still displayed)
         try {
