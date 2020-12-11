@@ -47,6 +47,9 @@ public class BaseTestClass {
 
     @Rule
     public final TestRule watchman = new TestWatcher() {
+        RemoteWebDriver driver;
+        WebDriverFacade driverFacade;
+
         @Override
         public Statement apply(Statement base, Description description) {
             return super.apply(base, description);
@@ -57,8 +60,8 @@ public class BaseTestClass {
             username = new FileLocking().getUsernameFromQueue();
             logger.info("creating BS session");
 
-            WebDriverFacade driverFacade = (WebDriverFacade)getDriver();
-            RemoteWebDriver driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
+            driverFacade = (WebDriverFacade)getDriver();
+            driver = (RemoteWebDriver)driverFacade.getProxiedDriver();
             String session = driver.getSessionId().toString();
             MDC.put("id", session);
 
@@ -79,6 +82,8 @@ public class BaseTestClass {
             logger.info("quitting bs session");
             logger.info(bsCreateSessionUrl.getBsUrl());
             webDriver.quit();
+            driver.quit();
+            driverFacade.reset();
             logger.info("returning user to the user pool");
             new ActivityService().closeCurrentUserActivity(token);
             new FileLocking().putUsernameInQueue(username);
