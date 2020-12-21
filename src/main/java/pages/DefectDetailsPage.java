@@ -186,6 +186,10 @@ public class DefectDetailsPage extends BasePage {
         waitElementToDisappear(MobileBy.AccessibilityId(locator), 90, 200);
     }
 
+    public WebElement findItemInList(String itemName) {
+        return findElementByAccessibilityId(itemName);
+    }
+
     public boolean isDefectRemovalPopUpVisible() {
         boolean status = false;
         WebElement cancelButton = findElementByXpath(POP_UP_CANCEL_XPATH);

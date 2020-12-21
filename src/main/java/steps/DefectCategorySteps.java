@@ -32,6 +32,11 @@ public class DefectCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitUntilPageIsLoaded() {
+        defectCategoryPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
     public void searchForDefect(String defectName) {
         defectCategoryPage.searchForDefect(defectName);
     }

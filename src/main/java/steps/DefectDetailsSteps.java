@@ -4,6 +4,7 @@ import io.cucumber.java.BeforeStep;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages.DefectDetailsPage;
@@ -105,6 +106,14 @@ public class DefectDetailsSteps extends ScenarioSteps {
     @Step
     public void checkDefectNotesIs(String notes) {
         assertThat(defectDetailsPage.getDefectNotes().equalsIgnoreCase(notes));
+    }
+
+    @Step
+    public void checkItemsArePresent(String... items) {
+        defectDetailsPage.waitUntilPageIsLoaded();
+        for (String item: items) {
+            Assert.assertTrue(defectDetailsPage.findItemInList(item).isDisplayed());
+        }
     }
 
     @Step
