@@ -20,6 +20,11 @@ public class DefectCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitUntilPageIsLoaded() {
+        defectCategoryPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
     public void checkListOfDefects(String... defectList) {
         defectCategoryPage.waitUntilPageIsLoaded();
         assertThat(defectCategoryPage.areAllDefectsDisplayed(defectList)).isTrue();

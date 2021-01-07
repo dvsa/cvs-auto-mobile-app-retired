@@ -197,8 +197,10 @@ public class SpecialistTest extends BaseTestClass {
 
         // View the Specialist Test details.
         // In order to verify that the test result is mandatory, fill all other test fields first.
-        testSteps.selectEuVehicleCategory();
-        euVehicleCategorySteps.selectM2Option();
+
+        testSteps.selectVehicleCategoryOption();
+        euVehicleCategorySteps.selectVehicleCategory("M2");
+        euVehicleCategorySteps.clickSaveOptionButton();
 
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345");

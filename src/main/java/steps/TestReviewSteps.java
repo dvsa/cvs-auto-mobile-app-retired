@@ -13,7 +13,6 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class TestReviewSteps extends ScenarioSteps {
 
     TestReviewPage testReviewPage;
-    SiteVisitPage siteVisitPage;
 
     @Step
     public void checkPageTitleIsDisplayed(){

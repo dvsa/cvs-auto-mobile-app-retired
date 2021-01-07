@@ -59,11 +59,17 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
+    @Steps
+    PreparerSteps preparerSteps;
+
+
     @Title("CVSB-440 - AC4B - VSA views a test record")
     @Test
     public void testVsaViewsATestRecordB() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("021430",super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.selectOption("M2");
         testSteps.selectOdometerReading();
@@ -83,20 +89,16 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
         testReviewSteps.pressSubmitInPopUp();
         confirmationPageSteps.pressDone();
         siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("BQ91YHQ");
+        identifyVehicleSteps.searchForVehicle("AA34BCD");
         vehicleDetailsSteps.selectVehicleTestHistory();
-        testHistorySteps.clickLastTestByTestType("Annual test");
+        testHistorySteps.selectTestAtPosition("Annual test",0);
         testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Test date");
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Test time");
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkElementIsPresent("Test expiry");
         testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkDate();
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
         testHistoryDetailsSteps.checkTime();
-        testHistoryDetailsSteps.waitUntilPageIsLoaded();
     }
 }
 
