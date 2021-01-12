@@ -28,6 +28,10 @@ public class DefectDescriptionPage extends BasePage {
         findElementById(ADVISORY_NOTE_ID).click();
     }
 
+    public void clickDefect(String defect) {
+        findElementByAccessibilityId(defect).click();
+    }
+
     public void waitUntilPageIsLoaded() {
         waitUntilPageIsLoadedById(PAGE_TITLE);
     }

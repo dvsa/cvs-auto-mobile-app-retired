@@ -333,14 +333,14 @@ public class TestTypeDetailsPage extends BasePage {
         if(ldt.getDayOfMonth() > 1) {
             dayOfSystem = ldt.getDayOfMonth() - 1;
         }
-        int monthOfSystem = ldt.getMonthValue() - 2;
-        Integer yearOfSystem = ldt.getYear() - 1;
+        //int monthOfSystem = ldt.getMonthValue() - 2;
+        //Integer yearOfSystem = ldt.getYear() - 1;
 
         String day = dayOfSystem.toString();
-        String month = new DateFormatSymbols().getMonths()[monthOfSystem].substring(0, 3);
-        String year = yearOfSystem.toString();
+        //String month = new DateFormatSymbols().getMonths()[monthOfSystem].substring(0, 3);
+        //String year = yearOfSystem.toString();
         try {
-            findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check " + day + " " + month + " " + year + "')]");
+            findElementByXpath("//XCUIElementTypeButton[starts-with(@name,'Most recent installation check " + day + "')]");
             return true;
         } catch (NoSuchElementException e) {
             return false;

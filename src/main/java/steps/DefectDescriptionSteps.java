@@ -20,6 +20,16 @@ public class DefectDescriptionSteps extends ScenarioSteps {
     }
 
     @Step
+    public void waitUntilPageIsLoaded(){
+        defectDescriptionPage.waitUntilPageIsLoaded();
+    }
+
+    @Step
+    public void pressDefect(String defect) {
+        defectDescriptionPage.clickDefect(defect);
+    }
+
+    @Step
     public void selectDefect(String defectId) {
         defectDescriptionPage.waitUntilPageIsLoaded();
         defectDescriptionPage.selectById(defectId);

@@ -14,6 +14,21 @@ public class DefectDetailsPage extends BasePage {
 
     private static final String DEFECT_DETAILS_PAGE_ID = "Defect details";
     private static final String DEFECT_ITEM_LABEL_ID = "DEFECT ITEM";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM5_1 = "//XCUIElementTypeStaticText[contains(@name, 'After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used before 1 July 2008: The level specified on the manufacturer’s plate or 2.5m-1 for non-turbocharged engines, where the plate value is not available.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM5_2 = "//XCUIElementTypeStaticText[contains(@name, 'After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used before 1 July 2008: The level specified on the manufacturer’s plate or 3.0m-1 for turbocharged engines, where the plate value is not available.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM5_3 = "//XCUIElementTypeStaticText[contains(@name, 'After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used from 1 July 2008: The level specified on the manufacturer’s plate or 1.5m-1 for all CI engines, where the plate value is not available.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM5_4 = "//XCUIElementTypeStaticText[contains(@name, 'After a total of six accelerations have been completed, the average smoke opacity recorded for accelerations 4, 5 and 6 is more than: For vehicles first used from 1 January 2014: The level specified on the manufacturer’s plate or 0.7m-1 for all CI engines, where the plate value is not available.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM59_1 = "//XCUIElementTypeStaticText[contains(@name, 'a brake disc or drum excessively worn, or a brake disc cracked.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM59_2 = "//XCUIElementTypeStaticText[contains(@name, 'a brake back plate, disc or drum in such a condition that it is seriously weakened, fractured or insecure.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM59_3 = "//XCUIElementTypeStaticText[contains(@name, 'a brake back plate or calliper securing bolt loose or missing.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM59_4 = "//XCUIElementTypeStaticText[contains(@name, 'a brake back plate or calliper securing bolt loose or missing to such an extent the back plate or calliper is insecure.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM8_1 = "//XCUIElementTypeStaticText[contains(@name, 'in excess of ten years of age fitted to any front steered axle of a vehicle.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM8_2 = "//XCUIElementTypeStaticText[contains(@name, 'with a date of manufacture code illegible or not displayed on any axle (excluding a front steered axle).')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM8_3 = "//XCUIElementTypeStaticText[contains(@name, 'with a date of manufacture code illegible or not displayed to any front steered axle of a vehicle.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM8_4 = "//XCUIElementTypeStaticText[contains(@name, 'in excess of ten years of age fitted to the front steered axle or any axle on a minibus with a single wheel fitment.')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM8_5 = "//XCUIElementTypeStaticText[contains(@name, 'with a date of manufacture code illegible or not displayed (excluding a front steered axle or any axle on a minibus with single wheel fitment).')]";
+    private static final String DEFECT_ITEM_DESCRIPTION_IM8_6 = "//XCUIElementTypeStaticText[contains(@name, 'with a date of manufacture code illegible or not displayed to any front steered axle or any axle on a minibus with single wheel fitment.')]";
+
     private static final String LOCATION_LABEL_ID = "LOCATION";
     private static final String NOTES_LABEL_ID = "NOTES";
     private static final String PASSED_AFTER_RECTIFICATION_AT_STATION_LABEL_ID = "PRS";
@@ -80,7 +95,8 @@ public class DefectDetailsPage extends BasePage {
         return findElementByXpath(ADDITIONAL_INFORMATION_ROW_NUMBER);
     }
 
-    public WebElement getLogitudinal() { return findElementByXpath(ADDITIONAL_INFORMATION_LONGITUDINAL); }
+    public WebElement getLongitudinal() {
+        return findElementByXpath(ADDITIONAL_INFORMATION_LONGITUDINAL); }
 
     public WebElement getHorizontal() {
         return findElementByXpath(ADDITIONAL_INFORMATION_HORIZONTAL);
@@ -90,7 +106,8 @@ public class DefectDetailsPage extends BasePage {
         return findElementByXpath(ADDITIONAL_INFORMATION_AXLE_NUMBER);
     }
 
-    public WebElement getSeatNumber() { return findElementByXpath(ADDITIONAL_INFORMATION_SEAT_NUMBER); }
+    public WebElement getSeatNumber() {
+        return findElementByXpath(ADDITIONAL_INFORMATION_SEAT_NUMBER); }
 
     public int getSelectOptionElementNumber() {
         return findElementsByXpath("//*[@label='" + SELECT_OPTION + "']").size();
@@ -125,7 +142,7 @@ public class DefectDetailsPage extends BasePage {
     }
 
     public void selectLongitudinal(String longitudinal) {
-        getLogitudinal().click();
+        getLongitudinal().click();
         findElementByXpath("//XCUIElementTypeButton[@name='" + longitudinal + "']").click();
     }
 
@@ -173,6 +190,66 @@ public class DefectDetailsPage extends BasePage {
         return findElementsByXpath("//*[@value='" + data + "']").size();
     }
 
+    public boolean checkIfDefectDescriptionForFirstIm5IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM5_1).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForSecIm5IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM5_2).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForThirdIm5IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM5_3).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForFourthIm5IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM5_4).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForFirstIm59IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM59_1).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForSecIm59IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM59_2).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForThirdIm59IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM59_3).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForFourthIm59IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM59_4).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForFirstIm8IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM8_1).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForSecIm8IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM8_2).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForThirdIm8IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM8_3).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForFourthIm8IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM8_4).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForFifthIm8IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM8_5).isDisplayed();
+    }
+
+    public boolean checkIfDefectDescriptionForSixthIm8IsDisplayed(){
+        return findElementByXpath(DEFECT_ITEM_DESCRIPTION_IM8_6).isDisplayed();
+    }
+
+    public WebElement findItemInList(String itemName) {
+        return findElementByAccessibilityId(itemName);
+    }
+
     public void clickBack() {
         findElementByXpath(BACK_BUTTON_XPATH).click();
     }
@@ -210,11 +287,11 @@ public class DefectDetailsPage extends BasePage {
         findElementByXpath(LONGITUDINAL).click();
     }
 
-    public void clickLogitudinalFront() {
+    public void clickLongitudinalFront() {
         findElementByXpath(LONGITUDINAL_POP_UP_FRONT_XPATH).click();
     }
 
-    public void clickLogitudinalRear() {
+    public void clickLongitudinalRear() {
         findElementByXpath(LONGITUDINAL_POP_UP_REAR_XPATH).click();
     }
 
@@ -359,6 +436,84 @@ public class DefectDetailsPage extends BasePage {
     public String getDefectNotes() {
         WebElement defectNotesField = findElementByXpath(DEFECT_NOTES);
         return defectNotesField.getText();
+    }
+
+    public boolean isLongitudinalDisplayed() {
+        boolean status;
+        logger.info("Checking if element is displayed: " + ADDITIONAL_INFORMATION_LONGITUDINAL);
+        try {
+            status = findElementByXpath(ADDITIONAL_INFORMATION_LONGITUDINAL).isDisplayed();
+            logger.info("Found");
+        } catch (NoSuchElementException e) {
+            status = false;
+            logger.info("- NOT found");
+        }
+        return status;
+    }
+
+    public boolean isVerticalDisplayed() {
+        boolean status;
+        logger.info("Checking if element is displayed: " + ADDITIONAL_INFORMATION_VERTICAL);
+        try {
+            status = findElementByXpath(ADDITIONAL_INFORMATION_VERTICAL).isDisplayed();
+            logger.info("Found");
+        } catch (NoSuchElementException e) {
+            status = false;
+            logger.info("- NOT found");
+        }
+        return status;
+    }
+
+    public boolean isHorizontalDisplayed() {
+        boolean status;
+        logger.info("Checking if element is displayed: " + ADDITIONAL_INFORMATION_HORIZONTAL);
+        try {
+            status = findElementByXpath(ADDITIONAL_INFORMATION_HORIZONTAL).isDisplayed();
+            logger.info("Found");
+        } catch (NoSuchElementException e) {
+            status = false;
+            logger.info("- NOT found");
+        }
+        return status;
+    }
+
+    public boolean isLateralDisplayed() {
+        boolean status;
+        logger.info("Checking if element is displayed: " + ADDITIONAL_INFORMATION_LATERAL);
+        try {
+            status = findElementByXpath(ADDITIONAL_INFORMATION_LATERAL).isDisplayed();
+            logger.info("Found");
+        } catch (NoSuchElementException e) {
+            status = false;
+            logger.info("- NOT found");
+        }
+        return status;
+    }
+
+    public boolean isAxleNumberDisplayed() {
+        boolean status;
+        logger.info("Checking if element is displayed: " + ADDITIONAL_INFORMATION_AXLE_NUMBER);
+        try {
+            status = findElementByXpath(ADDITIONAL_INFORMATION_AXLE_NUMBER).isDisplayed();
+            logger.info("Found");
+        } catch (NoSuchElementException e) {
+            status = false;
+            logger.info("- NOT found");
+        }
+        return status;
+    }
+
+    public boolean isNotesDisplayed() {
+        boolean status;
+        logger.info("Checking if element is displayed: " + NOTES_LABEL_ID);
+        try {
+            status = findElementById(NOTES_LABEL_ID).isDisplayed();
+            logger.info("Found");
+        } catch (NullPointerException e) {
+            status = false;
+            logger.info("- NOT found");
+        }
+        return status;
     }
 
 }

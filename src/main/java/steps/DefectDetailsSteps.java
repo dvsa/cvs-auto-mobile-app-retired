@@ -2,6 +2,7 @@ package steps;
 
 import io.cucumber.java.BeforeStep;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
@@ -37,6 +38,144 @@ public class DefectDetailsSteps extends ScenarioSteps {
         assertThat(defectDetailsPage.getElementById(defectType).isDisplayed()).isTrue();
         assertThat(defectDetailsPage.getElementByLabel(defectName).isDisplayed()).isTrue();
         assertThat(defectDetailsPage.getElementByLabel(defectDescription).isDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkLongitudinalIsNotDisplayed() {
+        assertThat(defectDetailsPage.isLongitudinalDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkVerticalIsNotDisplayed(){
+        assertThat(defectDetailsPage.isVerticalDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkHorizontalIsNotDisplayed(){
+        assertThat(defectDetailsPage.isHorizontalDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkLateralIsNotDisplayed(){
+        assertThat(defectDetailsPage.isLateralDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkAxleNumberIsNotDisplayed(){
+        assertThat(defectDetailsPage.isAxleNumberDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkNotesIsNotDisplayed(){
+        assertThat(defectDetailsPage.isNotesDisplayed()).isFalse();
+    }
+
+    @Step
+    public void checkLongitudinalIsDisplayed() {
+        assertThat(defectDetailsPage.isLongitudinalDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkVerticalIsDisplayed(){
+        assertThat(defectDetailsPage.isVerticalDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkHorizontalIsDisplayed(){
+        assertThat(defectDetailsPage.isHorizontalDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkLateralIsDisplayed(){
+        assertThat(defectDetailsPage.isLateralDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkAxleNumberIsDisplayed(){
+        assertThat(defectDetailsPage.isAxleNumberDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkNotesIsDisplayed(){
+        assertThat(defectDetailsPage.isNotesDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkItemsArePresent(String... items) {
+        defectDetailsPage.waitUntilPageIsLoaded();
+        for (String item: items) {
+            Assert.assertTrue(defectDetailsPage.findItemInList(item).isDisplayed());
+        }
+    }
+
+    @Step
+    public void checkDefectDisplayForFirstIm5(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFirstIm5IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForSecIm5(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForSecIm5IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForThirdIm5(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForThirdIm5IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForFourthIm5(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFourthIm5IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForFirstIm59(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFirstIm59IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForSecIm59(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForSecIm59IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForThirdIm59(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForThirdIm59IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForFourthIm59(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFourthIm59IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForFirstIm8(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFirstIm8IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForSecIm8(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForSecIm8IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForThirdIm8(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForThirdIm8IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForFourthIm8(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFourthIm8IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForFifthIm8(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForFifthIm8IsDisplayed()).isTrue();
+    }
+
+    @Step
+    public void checkDefectDisplayForSixthIm8(){
+        assertThat(defectDetailsPage.checkIfDefectDescriptionForSixthIm8IsDisplayed()).isTrue();
     }
 
     @Step
@@ -157,12 +296,12 @@ public class DefectDetailsSteps extends ScenarioSteps {
 
     @Step
     public void clickLongitudinalFront() {
-        defectDetailsPage.clickLogitudinalFront();
+        defectDetailsPage.clickLongitudinalFront();
     }
 
     @Step
     public void clickLongitudinalRear() {
-        defectDetailsPage.clickLogitudinalRear();
+        defectDetailsPage.clickLongitudinalRear();
     }
 
     @Step
