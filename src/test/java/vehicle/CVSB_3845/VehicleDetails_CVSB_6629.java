@@ -146,6 +146,7 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         additionalVehicleDetailsSteps.checkEuroStandardIs("7");
         additionalVehicleDetailsSteps.checkDimensionLengthIs("7500");
         additionalVehicleDetailsSteps.checkDimensionWidthIs("2200");
+        additionalVehicleDetailsSteps.waitUntilPageIsLoaded();
         additionalVehicleDetailsSteps.scrollTheDetailPage("NTA number");
         additionalVehicleDetailsSteps.checkAxleMinIs("FRONT AXLE TO 5TH WHEEL", "1200");
         additionalVehicleDetailsSteps.checkAxleMaxIs("FRONT AXLE TO 5TH WHEEL", "1500");
