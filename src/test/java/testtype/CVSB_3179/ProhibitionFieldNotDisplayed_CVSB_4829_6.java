@@ -54,6 +54,7 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_6 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
