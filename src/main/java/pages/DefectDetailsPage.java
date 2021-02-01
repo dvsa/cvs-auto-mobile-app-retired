@@ -1,14 +1,10 @@
 package pages;
 
-import exceptions.AutomationException;
 import io.appium.java_client.MobileBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 public class DefectDetailsPage extends BasePage {
 
@@ -138,6 +134,7 @@ public class DefectDetailsPage extends BasePage {
 
     public void selectSeatNumberValue(String id) {
         getSeatNumber().click();
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(POP_UP_CANCEL_XPATH), 40, 200);
         findElementByXpath("//XCUIElementTypeButton[@name='" + id + "']").click();
     }
 

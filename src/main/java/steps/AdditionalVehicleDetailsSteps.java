@@ -18,9 +18,14 @@ public class AdditionalVehicleDetailsSteps extends ScenarioSteps {
                              String speedLimiter, String tachoExempt, String dispensations, String remarks) {
         additionalVehicleDetailsPage.waitUntilPageIsLoaded();
         List<String> axleData = additionalVehicleDetailsPage.getDataSetBetweenTitles("COIF date", "");
-        assertThat(axleData).contains(coifDate, ntaNumber, conversionNumber, seatsOnUpperDeck,seatsOnLowerDeck, standingCapacity,
+        assertThat(axleData).contains(coifDate, ntaNumber, conversionNumber, seatsOnUpperDeck, seatsOnLowerDeck, standingCapacity,
                 speedRestriction, speedLimiter, tachoExempt, dispensations, remarks);
 
+    }
+
+    @Step
+    public void waitUntilPageIsLoaded() {
+         additionalVehicleDetailsPage.waitUntilPageIsLoaded();
     }
 
     @Step

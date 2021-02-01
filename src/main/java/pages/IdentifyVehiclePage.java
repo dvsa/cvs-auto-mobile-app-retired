@@ -116,6 +116,7 @@ public class IdentifyVehiclePage extends BasePage {
     }
 
     public void clickOkInPopUp() {
+        waitUntilPageIsLoadedByElementAndClickable(By.xpath(OK), 40, 200);
         findElementByXpath(OK).click();
     }
 
