@@ -52,6 +52,7 @@ public class ProhibitionFieldNotDisplayed_CVSB_4829_2 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
         testTypeSubcategorySteps.selectFromTestTypeList("Class 6A (seatbelt installation check)");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A (seatbelt installation check)");
         testTypeCategorySteps.selectFromTestTypeList("PG9 retest");
