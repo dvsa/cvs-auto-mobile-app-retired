@@ -3,6 +3,7 @@ package testtype.CVSB_15775;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -57,6 +58,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     @Steps
     TrailerDetailsSteps trailerDetailsSteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-15775 - AC1 - Clearer test type names for PSV AC3 - Removal of Vitesse 100")
     @Test
     public void testTypeNamesForPsvHgvTrl(){

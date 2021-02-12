@@ -3,6 +3,7 @@ package testtype.CVSB_17409;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -567,6 +568,7 @@ public class DefectTaxonomy_CVSB_17409 extends BaseTestClass {
         defectDetailsSteps.clickBack();
     }
 
+    @WithTag("In_Test")
     @Title("CVSB -17409 - AC4 - Additional details for IM59 - TRL")
     @Test
     public void AdditionalDetailsForIm59Trl() {

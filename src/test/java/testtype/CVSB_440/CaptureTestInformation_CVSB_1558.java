@@ -3,6 +3,7 @@ package testtype.CVSB_440;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -62,7 +63,7 @@ public class CaptureTestInformation_CVSB_1558 extends BaseTestClass {
     @Steps
     PreparerSteps preparerSteps;
 
-
+    @WithTag("In_Test")
     @Title("CVSB-440 - AC4B - VSA views a test record")
     @Test
     public void testVsaViewsATestRecordB() {

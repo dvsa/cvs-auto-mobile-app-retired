@@ -3,6 +3,7 @@ package testtype.CVSB_11032;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -225,6 +226,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-11032 - AC3 - Fields displayed on test screen - Motorcycle")
     @Test
     public void testFieldsDisplayedForMotorcycle() {
@@ -314,6 +316,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
         euVehicleCategorySteps.checkOptionsForMotorcycleAreDisplayed();
     }
 
+    @WithTag("In_test")
     @Title("CVSB-11032 - AC6 - EU vehicle category options - Car")
     @Test
     public void testEUVehicleCategoryOptionsForCar() {

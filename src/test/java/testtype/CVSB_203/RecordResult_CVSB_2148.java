@@ -3,6 +3,7 @@ package testtype.CVSB_203;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -44,6 +45,7 @@ public class RecordResult_CVSB_2148 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @WithTag("In_Test")
     @Title("CVSB-203 - AC 1 - Start a test type (Prohibition Clearence Any PSV Full Inspection & Fee No Certificate)")
     @Test
     public void testStartATestTypeProhibitionClearance() {
