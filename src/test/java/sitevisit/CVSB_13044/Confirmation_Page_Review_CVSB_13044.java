@@ -1,4 +1,4 @@
-package sitevisit.CVSB_3910;
+package sitevisit.CVSB_13044;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
@@ -12,7 +12,7 @@ import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
+public class Confirmation_Page_Review_CVSB_13044 extends BaseTestClass{
 
     @Steps
     UtilSteps utilSteps;
@@ -33,9 +33,6 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
     TestReviewSteps testReviewSteps;
 
     @Steps
-    SiteVisitSteps siteVisitSteps;
-
-    @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps
@@ -45,14 +42,15 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
     PreparerSteps preparerSteps;
 
     @Steps
+    SiteVisitSteps siteVisitSteps;
+
+
+    @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
-    @Title("CVSB-3910 - AC7 Changes to the submit button for PSV's/singular vehicle tests" +
-            "AC8 Change to confirmation message on PSV/singular vehicle tests" +
-            "AC9 Review screen title for singular tests")
+    @Title("As a VSA I want the end test screen to be updated with copy changes so that the correct team name is used")
     @Test
-    public void testChangesSingularVehicleTests() {
-        //add psv
+    public void testCorrectTeamNameIsDisplayed() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("YV31MEC18GA011900",super.username);
         preparerSteps.startTest();
@@ -70,23 +68,19 @@ public class CombinationTesting_ReviewScreens_7765 extends BaseTestClass{
         testSteps.waitUntilPageIsLoaded();
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressSave();
-        //submit and review tests
         testSteps.checkReviewAndSubmitButton();
         testSteps.clickReviewAndSubmit();
-        //check psv test
         testReviewSteps.checkElementIsDisplayed("Test review");
         testReviewSteps.checkElementIsDisplayed("YV31MEC18GA011900");
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Submit test");
-        //submit test
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
         confirmationPageSteps.waitUntilPageIsLoaded();
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted and will be emailed to");
+        confirmationPageSteps.checkElementContainingStringIsDisplayed("contact the Help Desk");
+        confirmationPageSteps.checkElementContainingStringIsDisplayed(super.username);
         confirmationPageSteps.pressDone();
-        siteVisitSteps.waitUntilPageIsLoaded();
-        //validate site visit timeline
-        siteVisitSteps.checkVehiclePosition("C47WLL",0);
+        siteVisitSteps.checkSiteVisitPage();
     }
-
 }

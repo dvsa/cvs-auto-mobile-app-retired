@@ -3,10 +3,8 @@ package testresults.CVSB_10219;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import pages.ConfirmationPage;
 import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
@@ -44,19 +42,10 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     VehicleDetailsSteps vehicleDetailsSteps;
 
     @Steps
-    IdentifyTrailerSteps identifyTrailerSteps;
-
-    @Steps
-    TrailerDetailsSteps trailerDetailsSteps;
-
-    @Steps
     EUVehicleCategorySteps euVehicleCategorySteps;
 
     @Steps
     OdometerReadingSteps odometerReadingSteps;
-
-    @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
 
     @Steps
     DefectDetailsSteps defectDetailsSteps;
@@ -65,7 +54,7 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
     TestReviewSteps testReviewSteps;
 
     @Steps
-    ConfirmationPage confirmationPage;
+    ConfirmationPageSteps confirmationPageSteps;
 
     @Steps
     SiteVisitSteps siteVisit;
@@ -144,8 +133,8 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        confirmationPage.waitUntilPageIsLoaded();
-        confirmationPage.clickDoneButton();
+        confirmationPageSteps.waitUntilPageIsLoaded();
+        confirmationPageSteps.pressDone();
         siteVisit.waitUntilPageIsLoaded();
         siteVisit.checkVehiclePosition("AS234TY", 0);
         //siteVisit.checkVisitResults("AS23 4TY", "Specialist test", "PASS");
@@ -211,8 +200,8 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        confirmationPage.waitUntilPageIsLoaded();
-        confirmationPage.clickDoneButton();
+        confirmationPageSteps.waitUntilPageIsLoaded();
+        confirmationPageSteps.pressDone();
         siteVisit.waitUntilPageIsLoaded();
 
         // Add another test (Specialist Test -> COIF -> With annual test retest).
@@ -252,13 +241,13 @@ public class SpecialistTestReview_CVSB_10219 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.pressSubmit();
         testReviewSteps.pressSubmitInPopUp();
-        confirmationPage.waitUntilPageIsLoaded();
+        confirmationPageSteps.waitUntilPageIsLoaded();
 
         // CVSB-11100 - AC1 - COIF with annual test is submitted  (PASS)
         // This verifies that the email address is shown correctly.
-        confirmationPage.checkElementContainingStringIsDisplayed(super.username);
+        confirmationPageSteps.checkElementContainingStringIsDisplayed(super.username);
 
-        confirmationPage.clickDoneButton();
+        confirmationPageSteps.pressDone();
         siteVisit.waitUntilPageIsLoaded();
 
         // Now go and verify the certificate numbers.  Manually-set and auto-generated values should be shown for each test.

@@ -179,7 +179,6 @@ public class SpecialistTest extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");// PSV
         identifyVehicleSteps.waitUntilPageIsLoaded();
         identifyVehicleSteps.clickSearchCriteriaButton();
-        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
@@ -424,7 +423,6 @@ public class SpecialistTest extends BaseTestClass {
         identifyVehicleSteps.searchForVehicle("1B7GG36N12S678410");// PSV
         identifyVehicleSteps.waitUntilPageIsLoaded();
         identifyVehicleSteps.clickSearchCriteriaButton();
-        vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
