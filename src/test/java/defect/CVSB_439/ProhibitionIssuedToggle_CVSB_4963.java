@@ -64,6 +64,7 @@ public class ProhibitionIssuedToggle_CVSB_4963 extends BaseTestClass {
         testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.selectAddDefect("Paid prohibition clearance (retest with certificate)");
+        defectCategorySteps.waitUntilPageIsLoaded();
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("2. Anchorages");
         defectDescriptionSteps.selectDefect("3.2 (a) (ii) * DANGEROUS");

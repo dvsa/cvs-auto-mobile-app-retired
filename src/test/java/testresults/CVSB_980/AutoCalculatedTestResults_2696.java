@@ -76,6 +76,7 @@ public class AutoCalculatedTestResults_2696 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.changeTestDetails();
         testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.waitUntilPageIsLoaded();
         defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
         defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");

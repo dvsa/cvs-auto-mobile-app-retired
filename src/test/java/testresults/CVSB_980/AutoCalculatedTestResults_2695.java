@@ -79,6 +79,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         testReviewSteps.scrollDown();
         testReviewSteps.changeTestDetails();
         testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.waitUntilPageIsLoaded();
         defectCategorySteps.searchForDefect("59");
         defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
         defectItemSteps.selectDefectFromList("4. Reservoir:");
@@ -86,6 +87,7 @@ public class AutoCalculatedTestResults_2695 extends BaseTestClass {
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("Test");
 
         testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.waitUntilPageIsLoaded();
         defectCategorySteps.searchForDefect("59");
         defectCategorySteps.selectDefectFromList("59. Brake Systems and Components");
         defectItemSteps.selectDefectFromList("4. Reservoir:");

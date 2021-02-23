@@ -168,34 +168,30 @@ The file should contain:
 
 ```properties
 type=localBrowserstack
-hub.url=http://107.0.0.1:4723/wd/hub
-platform.version=11.4
-device.name=Adrian - Mihai 's iPhone
-platform.name-iOS
-bundle.id=uk.gov.dvsa.cvsmobile
-udid=d09a2532e20a526bbc51d29ac70e62e2e0dde4c5
-
 browserstack.username=<browserstack_username>
 browserstack.password=<browserstack_password>
-
 browserstack.hostname=hub-cloud.browserstack.com
-browserstack.os.version=11
+browserstack.os.version=12
 browserstack.device=iPhone 8 Plus
 browserstack.local=false
-browserstack.realMobile = true
+browserstack.real.mobile=true
 browserstack.app=bs://<browserstack_app_id>
-
-app.username=<automation_username>
-app.password=<automation_userpass>
-
-microsoftonline.url=https://login.microsoftonline.com/<azure_app_id>/oauth2/authorize?client_id=<azure_client_id>&response_type=id_token&redirect_uri=http://localhost:3000&scope=openid&response_mode=fragment&nonce=678910
-base.path.url=https://api.nonprod.cvs.dvsacloud.uk/<branch_name>
-
-simulator.platform.name=iOS
-simulator.platform.version=11
-simulator.device.name=iPhone 8 Plus
-simulator.bundle.id=uk.gov.dvsa.cvsmobile
+browserstack.appium.version=1.18.0
+browserstack.video.enabled=true
+browserstack.timezone=UTC
+browserstack.idle.timeout=150
+browserstack.network.logs=true
+browserstack.project.name=local
+browserstack.build.name=local
+app.username=<app_username>
+app.password=<app_userpass>
+app.token.url=https://login.microsoftonline.com/<azure_app_id>/oauth2/token
+app.client.id=<azure_client_id>
+base.path.url=https://api.develop.cvs.dvsacloud.uk/<branch_name>
+waitForQuiescence=true
 local.name=<your_name>
+automationName=XCUITest
+parallel.consumers=1
 ```
 #### where:
    - **browserstack_app_id** can be obtain via: [DEVELOP_DISPLAY_BROWSERSTACK_ID](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__DEVELOP/job/job_develop_display_browserstack_id/) or [FEATURE_DISPLAY_BROWSERSTACK_ID](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__BRANCH/job/job_feature_display_browserstack_id/) Jenkins jobs

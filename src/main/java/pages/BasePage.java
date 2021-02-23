@@ -98,11 +98,11 @@ public class BasePage extends PageObject {
         while (element == null) {
             try {
                 logger.info("Searching for title #1: " + id1);
-                element = waitUntilPageIsLoadedByElement(By.id(id1), 40, 100);
+                element = waitUntilPageIsLoadedByElement(By.id(id1), 60, 100);
             } catch (Exception e) {
                 try {
                     logger.info("Searching for title #2: " + id2);
-                    element = waitUntilPageIsLoadedByElement(By.id(id2), 40, 100);
+                    element = waitUntilPageIsLoadedByElement(By.id(id2), 60, 100);
                 } catch (ElementNotVisibleException e1) {
                     showElementError(id2);
                 }
@@ -135,7 +135,7 @@ public class BasePage extends PageObject {
 
     protected WebElement waitUntilPageIsLoadedByAccessibilityId(String idOrName) {
         logger.info("Waiting for page to load by Accessibility ID, waiting for item: " + idOrName);
-        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 40, 100);
+        WebElement element = waitUntilPageIsLoadedByElement(MobileBy.AccessibilityId(idOrName), 60, 100);
         logger.debug("Page source after wait: " + getDriver().getPageSource());
         logger.info("Loaded.");
         return element;

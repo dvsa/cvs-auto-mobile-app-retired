@@ -49,6 +49,7 @@ public class PreparerComp extends ScenarioSteps {
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
         atfDetailsSteps.startVisit();
         siteVisitSteps.createNewTest();
+        identifyVehicleSteps.waitUntilPageIsLoaded();
         identifyVehicleSteps.searchForVehicle(vin);
         vehicleDetailsSteps.waitUntilPageIsLoaded();
         vehicleDetailsSteps.selectConfirmButtonTopRight();
