@@ -164,6 +164,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"EU vehicle category Select arrow forward".equals(line))
                 .filter(line -> !"QWERTY".equals(line))
                 .filter(line -> !"Русская".equals(line))
+                .filter(line -> !"Türkçe".equals(line))
                 .filter(line -> !"Add a test type".equals(line))
                 .filter(line -> !"Add a trailer".equals(line))
                 .filter(line -> !"Cancel test".equals(line))
