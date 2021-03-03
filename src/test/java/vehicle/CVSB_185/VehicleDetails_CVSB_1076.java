@@ -19,8 +19,8 @@ public class VehicleDetails_CVSB_1076 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-185 - AC4 - Fields displayed in the app (e.g Axle details)")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testFieldsDisplayedInAppNoNullData() {
         vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.checkDetailPageNoNullData();

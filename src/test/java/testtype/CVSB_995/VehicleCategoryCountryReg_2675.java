@@ -27,8 +27,8 @@ public class VehicleCategoryCountryReg_2675 extends BaseTestClass {
     @Steps
     CountryOfRegistrationSteps countryOfRegistrationSteps;
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-995 - AC4 - Saving selected country")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void savingSelectedCoutnry() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

@@ -27,8 +27,8 @@ public class OdometerReading_CVSB_1174 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-695 - AC2 - Access odometer reading fields")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testOdometerReadingFields() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

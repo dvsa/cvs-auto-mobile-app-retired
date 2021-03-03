@@ -29,18 +29,8 @@ public class TestTypeAbandon_CVSB_793 extends BaseTestClass {
     @Steps
     SelectReasonSteps selectReasonSteps;
 
-    @Steps
-    AbandonTestSteps abandonTestSteps;
-
-    @Steps
-    AbandonTestComp abandonTestComp;
-
-    @Steps
-    AbandonedTestSteps abandonedTestSteps;
-
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-194 - AC1 Reasons to abandon list")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testReasonsToAbandonList() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

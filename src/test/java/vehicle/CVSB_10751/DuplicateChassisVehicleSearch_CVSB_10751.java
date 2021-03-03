@@ -40,9 +40,8 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-    @Ignore
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB - 10751 - AC1 Single vehicle retrieved, access vehicle details")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSingleVehicleDetails(){
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");
@@ -56,9 +55,8 @@ public class DuplicateChassisVehicleSearch_CVSB_10751 extends BaseTestClass {
         identifyVehicleSteps.checkSearchBoxIsDisplayed();
     }
 
-    @Ignore
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB - 10752 - AC2 Single vehicle retrieved - go back from vehicle details")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testGoBackToSingleVehicleList(){
         launchSteps.clickGetStarted(super.username);
         searchForAnATFSteps.waitForPageToLoadAndSelectAnAtf("Abshire-Kub 09-4129632");

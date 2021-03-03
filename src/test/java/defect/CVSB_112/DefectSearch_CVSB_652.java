@@ -38,9 +38,8 @@ public class DefectSearch_CVSB_652 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-112 - AC5 Test returning to search results")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testReturningToSearchResults() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

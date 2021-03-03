@@ -3,7 +3,6 @@ package vehicle.CVSB_3827;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,37 +19,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     UtilSteps utilSteps;
 
     @Steps
-    TestSteps testSteps;
-
-    @Steps
-    TestTypeCategoryComp testTypeCategoryComp;
-
-    @Steps
-    WeightsSteps weightsSteps;
-
-    @Steps
-    PreparerSteps preparerSteps;
-
-    @Steps
     HgvDetailsSteps hgvDetailsSteps;
-
-    @Steps
-    TrailerDetailsSteps trailerDetailsSteps;
-
-    @Steps
-    VehicleComp vehicleComp;
-
-    @Steps
-    TyresSteps tyresSteps;
-
-    @Steps
-    AdditionalVehicleDetailsSteps additionalVehicleDetailsSteps;
-
-    @Steps
-    BrakesSteps brakesSteps;
-
-    @Steps
-    IdentifyTrailerSteps identifyTrailerSteps;
 
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
@@ -68,9 +37,8 @@ public class NewScreenDesignsHgv extends BaseTestClass {
     SiteVisitSteps siteVisitSteps;
 
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-6409 - AC 4 Search for vehicle (last six digits of the VIN)")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgv() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);
@@ -84,7 +52,6 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6410 - AC 4 Search for vehicle (full VIN)")
     @Test
     public void testNewDesignSearchForHgvFullVin() {
@@ -100,8 +67,8 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-6411 - AC 4 Search for vehicle (registration number)")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testNewDesignSearchForHgvRegistration() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         launchSteps.clickGetStarted(super.username);

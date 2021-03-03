@@ -27,9 +27,8 @@ public class VehicleSearch_CVSB_1154 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-183 - AC2 Search for vehicle using last six-digits of the VIN number")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSearchUsingSixDigitVIN() {
         vehicleComp.goToSiteVisit(super.username);
         siteVisitSteps.createNewTest();

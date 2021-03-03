@@ -14,6 +14,7 @@ public class DefectItemSteps extends ScenarioSteps {
 
     @Step
     public void selectDefectFromList(String itemName) {
+        defectItemPage.waitUntilPageIsLoaded();
         defectItemPage.selectItemFromList(itemName);
     }
 

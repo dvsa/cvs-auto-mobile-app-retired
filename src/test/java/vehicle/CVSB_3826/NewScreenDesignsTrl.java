@@ -3,7 +3,6 @@ package vehicle.CVSB_3826;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,28 +25,10 @@ public class NewScreenDesignsTrl extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    WeightsSteps weightsSteps;
-
-    @Steps
     PreparerSteps preparerSteps;
 
     @Steps
-    HgvDetailsSteps hgvDetailsSteps;
-
-    @Steps
     TrailerDetailsSteps trailerDetailsSteps;
-
-    @Steps
-    VehicleComp vehicleComp;
-
-    @Steps
-    TyresSteps tyresSteps;
-
-    @Steps
-    AdditionalVehicleDetailsSteps additionalVehicleDetailsSteps;
-
-    @Steps
-    BrakesSteps brakesSteps;
 
     @Steps
     IdentifyTrailerSteps identifyTrailerSteps;
@@ -98,7 +79,6 @@ public class NewScreenDesignsTrl extends BaseTestClass {
         identifyVehicleSteps.clickCancel();
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6185 - CVSB-6186 - AC 5 Search for vehicle (Trailer ID)")
     @Test
     public void testNewDesignSearchForATrailer() {

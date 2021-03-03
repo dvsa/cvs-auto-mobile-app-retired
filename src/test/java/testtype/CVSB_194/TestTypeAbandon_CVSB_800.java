@@ -28,20 +28,14 @@ public class TestTypeAbandon_CVSB_800 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    SelectReasonSteps selectReasonSteps;
-
-    @Steps
     AbandonTestSteps abandonTestSteps;
 
     @Steps
     AbandonTestComp abandonTestComp;
 
-    @Steps
-    AbandonedTestSteps abandonedTestSteps;
 
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-194 - AC2 Abandoned test type shown in Test overview screen")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testAbandonedTestTypeInOverview() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

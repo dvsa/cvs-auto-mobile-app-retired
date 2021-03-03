@@ -30,9 +30,8 @@ public class DefectAdd_CVSB_669 extends BaseTestClass {
     @Steps
     DefectCategorySteps defectCategorySteps;
 
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-139 - AC2 - Add a defect from test type details screen")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void addADefectFromTestType() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

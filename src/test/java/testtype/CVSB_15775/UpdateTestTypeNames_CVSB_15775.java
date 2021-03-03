@@ -16,22 +16,10 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
     UtilSteps utilSteps;
 
     @Steps
-    LaunchSteps launchSteps;
-
-    @Steps
-    SearchForAnATFSteps searchForAnATFSteps;
-
-    @Steps
-    ATFDetailsSteps atfDetailsSteps;
-
-    @Steps
     SiteVisitSteps siteVisitSteps;
 
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
-
-    @Steps
-    SelectVehicleSteps selectVehicleSteps;
 
     @Steps
     TestTypeCategoryComp testTypeCategoryComp;
@@ -99,6 +87,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Annual test retest", "TIR retest", "ADR retest", "Roadworthiness retest", "First test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
         testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Annual test retest");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Paid retest", "Part paid retest");

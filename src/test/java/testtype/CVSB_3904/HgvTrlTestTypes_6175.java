@@ -3,6 +3,7 @@ package testtype.CVSB_3904;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -95,8 +96,8 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.checkTestTypeStatus("First test", TestPage.TestTypeStatuses.EDIT);
     }
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-3904 - AC4 - Add a linked test ")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testTypeDrillDownAddLinkedTest() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificTrailer("341234",super.username);

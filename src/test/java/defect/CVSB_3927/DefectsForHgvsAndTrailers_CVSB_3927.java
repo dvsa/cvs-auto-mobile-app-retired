@@ -3,7 +3,6 @@ package defect.CVSB_3927;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -46,7 +45,7 @@ public class DefectsForHgvsAndTrailers_CVSB_3927 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+
     @Title("CVSB-3927 - AC2 - Viewing the correct additional detail fields for HGV & Trailer")
     @Test
     public void addsDefectsToHgv() {

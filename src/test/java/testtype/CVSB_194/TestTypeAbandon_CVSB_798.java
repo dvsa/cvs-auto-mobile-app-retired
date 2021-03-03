@@ -22,9 +22,6 @@ public class TestTypeAbandon_CVSB_798 extends BaseTestClass {
     UtilSteps utilSteps;
 
     @Steps
-    TestSteps testSteps;
-
-    @Steps
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
@@ -36,12 +33,8 @@ public class TestTypeAbandon_CVSB_798 extends BaseTestClass {
     @Steps
     AbandonTestComp abandonTestComp;
 
-    @Steps
-    AbandonedTestSteps abandonedTestSteps;
-
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-194 - AC2 Select Cancel option for the warning message")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testWarningMessageCancel() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.completeAddTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

@@ -3,8 +3,6 @@ package testtype.CVSB_6301;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -61,7 +59,6 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In_Test"})
     @Title("CVSB-7442 - CVSB-7443 - CVSB-7446 - AC1 - Perform a full roadworthiness test to completion (Retest) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsory)")
     @Test
     public void testFullRoadWorthinessRetestRecordCertificateNumberCompulsatory() {
@@ -102,7 +99,6 @@ public class TestRoadWorthinessForHgvAndTrl_CVSB_6301 extends BaseTestClass {
     }
 
     @Title("CVSB-7436 - CVSB-7444 - CVSB-7445 - AC1 - Perform a full roadworthiness test to completion (Voluntary) (Record Certificate Number) (Reminder Note) (Certificate Number Compulsary)")
-    @WithTag("Smoke_2")
     @Test
     public void testFullRoadWorthinessVoluntaryRecordCertificateNumberCompulsatory() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());

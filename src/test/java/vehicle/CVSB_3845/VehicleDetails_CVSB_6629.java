@@ -3,8 +3,6 @@ package vehicle.CVSB_3845;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
-import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,7 +53,6 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
         testSteps.checkTrailerTestDetails("C000002", "T12341237");
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6638 - AC2 VSA can see all fields listed (HGV)")
     @Test
     public void testAllDetailsHgv() {
@@ -75,7 +72,6 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
 
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
     @Title("CVSB-6630 - AC2 VSA can see all fields listed (TRL)")
     @Test
     public void testAllDetailsTrl() {
@@ -95,7 +91,6 @@ public class VehicleDetails_CVSB_6629 extends BaseTestClass {
     }
 
     @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Weights Screen)")
-    @WithTag("Smoke_2")
     @Test
     public void testHgvWeightsScreen() {
         vehicleComp.goToVehicleDetails("012938", super.username);

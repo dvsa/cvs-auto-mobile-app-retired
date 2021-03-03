@@ -43,9 +43,8 @@ public class AutoCalculateAbandonedTestResults_CVSB_2210 extends BaseTestClass {
     @Steps
     OdometerReadingSteps odometerReadingSteps;
 
-
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB_981 - AC1 Auto-calculate test results upon abandoning a test type (unable to edit test types)")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testAbandonTestTypeInabilityToEdit() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

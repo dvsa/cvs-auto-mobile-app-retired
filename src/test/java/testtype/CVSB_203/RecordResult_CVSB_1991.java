@@ -31,22 +31,10 @@ public class RecordResult_CVSB_1991 extends BaseTestClass {
     TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-    @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB-203 - AC6 – Select results for test types (Fail)")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void testSelectResultForTestTypeFail() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestType(preparerService.getPreparerByIndex(0).getPreparerId(), preparerService.getPreparerByIndex(0).getPreparerName(),super.username);

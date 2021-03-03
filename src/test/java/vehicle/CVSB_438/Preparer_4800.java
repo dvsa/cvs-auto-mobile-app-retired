@@ -18,8 +18,8 @@ public class Preparer_4800 extends BaseTestClass {
     @Steps
     PreparerSteps preparerSteps;
 
+    @Ignore("CVSB-12952: VTA FE Maintenance - increasing suite efficiency")
     @Title("CVSB_438 - AC 5+6 VSA starts test without adding Preparer ID")
-    // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void checkWithoutPreparerPopUp() {
         preparerComp.goToSelectPreparer(super.username);
         preparerSteps.checkPageTitleIsDisplayed();
