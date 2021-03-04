@@ -68,6 +68,7 @@ public class UpdateTestTypeNames_CVSB_15775 extends BaseTestClass {
         testTypeSubcategorySteps.goBackToCategory();
         testTypeSubcategorySteps.goBackToCategory();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Voluntary test");
         testTypeSubcategorySteps.checkTestTypeListOnlyContainsTestTypes("Brake test", "Headlamp aim test", "Smoke test", "Multi - check", "Speed limiter check", "Tempo 100");
         testTypeSubcategorySteps.goBackToCategory();
         testTypeCategorySteps.goBackToTestOverview();

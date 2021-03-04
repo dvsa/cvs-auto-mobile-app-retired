@@ -51,8 +51,6 @@ public class TrailerTest_CVSB3912 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkTrailerTestDetails("0285678", "T12768594");
-        //TODO: Check that trailer icon is automatically updated.
-        //testSteps.checkIfTrailerImageIsDisplayed();
         testSteps.checkEUVehicleCategoryOptionIsDisplayed();
         testSteps.selectVehicleCategoryOption();
         euVehicleCategorySteps.checkTitleIsDisplayed();

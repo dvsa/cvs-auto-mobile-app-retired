@@ -42,6 +42,7 @@ public class SeatbeltInstallationCheck_2002 extends BaseTestClass {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPage(preparerService.getPreparerByIndex(0).getPreparerId(),preparerService.getPreparerByIndex(0).getPreparerName(),super.username);
         testSteps.addTestType();
+
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Retest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
@@ -50,5 +51,36 @@ public class SeatbeltInstallationCheck_2002 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
+        testTypeDetailsSteps.scrollTestTypeDetailsPage();
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("Part paid retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Part paid retest");
+        testTypeCategorySteps.selectFromTestTypeList("Any PSV retest");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
+        testTypeDetailsSteps.scrollTestTypeDetailsPage();
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromTestTypeList("Prohibition clearance");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Prohibition clearance");
+        testTypeSubcategorySteps.selectFromTestTypeList("Any PSV");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Any PSV");
+        testTypeSubcategorySteps.selectFromTestTypeList("Full inspection/ full fee");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Full inspection/ full fee");
+        testTypeSubcategorySteps.selectFromTestTypeList(("With certification"));
+        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
+        testTypeDetailsSteps.scrollTestTypeDetailsPage();
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
     }
 }
