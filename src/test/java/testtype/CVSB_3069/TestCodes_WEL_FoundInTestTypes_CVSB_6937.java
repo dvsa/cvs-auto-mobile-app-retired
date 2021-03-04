@@ -103,46 +103,5 @@ public class TestCodes_WEL_FoundInTestTypes_CVSB_6937 extends BaseTestClass {
         testReviewSteps.checkElementIsDisplayed("(a) missing.");
         testReviewSteps.scrollDown();
         testReviewSteps.checkElementIsDisplayed("Rear");
-
-
-        /*utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestTypeUsingSpecificVin(preparerService.getPreparerByIndex(0).getPreparerId(),
-                preparerService.getPreparerByIndex(0).getPreparerName(),"012356",super.username);
-        testTypeCategorySteps.selectFromTestTypeList("Prohibition Clearance");
-        testTypeCategorySteps.selectFromTestTypeList("Class 6A (No seatbelt installation check)");
-        testTypeCategorySteps.selectFromTestTypeList("PG9 Retest");
-        testSteps.checkSelectedTestTypes("Prohibition clearance Edit checkmark");
-        testSteps.checkTestTypeStatus("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
-        testSteps.selectVehicleCategoryOption();
-        euVehicleCategorySteps.selectM1Option();
-        testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("44");
-        odometerReadingSteps.checkReadingValue("44");
-        odometerReadingSteps.pressSave();
-        testSteps.selectTestType("Prohibition clearance", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.selectAddDefect("Prohibition clearance (retest without Class 6A seatbelt installation check)");
-        defectCategorySteps.selectDefectFromList("1. Registration Plate");
-        defectItemSteps.checkItemsArePresent("1. A registration plate:", "2. A registration mark:");
-        defectItemSteps.selectDefectFromList("1. A registration plate:");
-        defectDescriptionSteps.checkItemsArePresent("missing.", "insecure.");
-        defectDescriptionSteps.selectDefect("1.1 (a) MAJOR");
-        defectDetailsSteps.checkPageIsLoaded();
-        defectDetailsSteps.clickLongitudinal();
-        defectDetailsSteps.clickLongitudinalRear();
-        defectDetailsSteps.tapDone();
-        testTypeDetailsSteps.pressSave();
-
-        testSteps.clickReviewAndSubmit();
-        testReviewSteps.checkPageTitleIsDisplayed();
-        testReviewSteps.checkElementIsDisplayed("X71LTA (PSV)");
-        testReviewSteps.checkElementIsDisplayed("XMGDE02FS0H012356");
-        testReviewSteps.checkElementValue("Odometer reading","44");
-        testReviewSteps.checkElementValue("Prohibition clearance (retest without Class 6A seatbelt installation check)","FAIL");
-        testReviewSteps.checkElementIsDisplayed("Defects");
-        testReviewSteps.checkElementIsDisplayed("1.1 (a) MAJOR");
-        testReviewSteps.checkElementIsDisplayed("1. Registration Plate");
-        testReviewSteps.checkElementIsDisplayed("1. A registration plate:");
-        testReviewSteps.checkElementIsDisplayed("(a) missing.");
-        testReviewSteps.checkElementIsDisplayed("Rear");*/
     }
 }
