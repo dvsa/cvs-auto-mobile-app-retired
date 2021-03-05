@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.VehicleComp;
+import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
@@ -28,14 +29,29 @@ public class VehicleDetails_CVSB_1074 extends BaseTestClass {
     TyresSteps tyresSteps;
 
     @Steps
+    UtilSteps utilSteps;
+
+    @Steps
+    TestHistorySteps testHistorySteps;
+
+    @Steps
     AdditionalVehicleDetailsSteps additionalVehicleDetailsSteps;
+
+    @Steps
+    TestHistoryDetailsSteps testHistoryDetailsSteps;
 
     @Title("CVSB-185 - AC2 - VSA views expandable technical record fields")
     @Test
     public void testExpandableTechRecordFields() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         vehicleComp.goToVehicleDetails(super.username);
         vehicleDetailsSteps.scrollTheDetailPage("Chassis make");
-        // TODO add Vehicle Test History part after bug fix
+        vehicleDetailsSteps.selectVehicleTestHistory();
+        testHistorySteps.selectTestAtPosition("Annual test",0);
+        testHistoryDetailsSteps.checkElementValueIsDisplayed("TEST TYPE", "Annual Test");
+        testHistoryDetailsSteps.checkElementValueIsDisplayed("Test result", "FAIL");
+        testHistoryDetailsSteps.pressBackButton();
+        testHistorySteps.pressBackButton();
         vehicleDetailsSteps.selectBrakes();
         // TODO check rest of Brakes data after bug fix
         brakesSteps.checkDetails("171202", "None", "None",

@@ -13,7 +13,7 @@ import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
-public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
+public class SeatBeltInstallationCheck_2610 extends BaseTestClass {
 
     @Steps
     UtilSteps utilSteps;
@@ -64,7 +64,7 @@ public class SeatbeltInstallationCheck_2610 extends BaseTestClass {
         testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.checkSetCarriedOutDuringTestOption("No");
         testTypeDetailsSteps.waitUntilPageIsLoaded();
-        testTypeDetailsSteps.checkNumberOfSeatbeltsIsNotDisplayed();
+        testTypeDetailsSteps.checkNumberOfSeatbeltsIsDisplayed();
         testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.verifyThatNoRecentInstallationDateIsDisplayed();
     }

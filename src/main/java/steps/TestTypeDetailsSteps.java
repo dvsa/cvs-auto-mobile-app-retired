@@ -63,8 +63,8 @@ public class TestTypeDetailsSteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkNumberOfSeatbeltsIsNotDisplayed() {
-        assertThat(testTypeDetailsPage.checkNumberOfSeatbeltsIsNotDisplayed()).isTrue();
+    public void checkNumberOfSeatbeltsIsDisplayed() {
+        assertThat(testTypeDetailsPage.checkNumberOfSeatbeltsIsDisplayed()).isTrue();
     }
 
     @Step

@@ -31,37 +31,10 @@ public class TestSpecialistTestsCar_CVSB_4952 extends BaseTestClass {
     TestTypeCategoryComp testTypeCategoryComp;
 
     @Steps
-    EUVehicleCategorySteps euVehicleCategorySteps;
-
-    @Steps
-    CountryOfRegistrationSteps countryOfRegistrationSteps;
-
-    @Steps
     PreparerSteps preparerSteps;
 
     @Steps
-    TestReviewSteps testReviewSteps;
-
-    @Steps
     TestTypeDetailsSteps testTypeDetailsSteps;
-
-    @Steps
-    DefectCategorySteps defectCategorySteps;
-
-    @Steps
-    DefectItemSteps defectItemSteps;
-
-    @Steps
-    DefectDescriptionSteps defectDescriptionSteps;
-
-    @Steps
-    DefectDetailsSteps defectDetailsSteps;
-
-    @Steps
-    OdometerReadingSteps odometerReadingSteps;
-
-    @Steps
-    AbandonTestSteps abandonTestSteps;
 
     @Steps
     SelectReasonSteps selectReasonSteps;

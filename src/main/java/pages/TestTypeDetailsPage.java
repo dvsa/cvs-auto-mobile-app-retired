@@ -597,7 +597,7 @@ public class TestTypeDetailsPage extends BasePage {
         list.get(list.size() - 1).click();
     }
 
-    public boolean checkNumberOfSeatbeltsIsNotDisplayed() {
+    public boolean checkNumberOfSeatbeltsIsDisplayed() {
         try {
             return findElementById("Number of seatbelts fitted Enter").isDisplayed();
         } catch (NullPointerException ex) {
