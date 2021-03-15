@@ -53,9 +53,9 @@ public class VehicleDetails_CVSB_1074 extends BaseTestClass {
         testHistoryDetailsSteps.pressBackButton();
         testHistorySteps.pressBackButton();
         vehicleDetailsSteps.selectBrakes();
-        // TODO check rest of Brakes data after bug fix
         brakesSteps.checkDetails("171202", "None", "None",
-                "None", "exhaust", "exhaust");
+                "None", "exhaust", "exhaust","7713",
+                "3857","2742");
         brakesSteps.pressBackButton();
         vehicleDetailsSteps.selectWeights();
         weightsSteps.checkDetails("5018", "7100", "7100", "7100",

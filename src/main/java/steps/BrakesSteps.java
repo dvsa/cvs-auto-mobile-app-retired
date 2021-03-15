@@ -15,11 +15,10 @@ public class BrakesSteps extends ScenarioSteps {
 
     @Step
     public void checkDetails(String brakeCode, String service, String secondary, String parking, String retarder_1,
-                             String retarder_2) {
+                             String retarder_2,String service_2, String secondary_2,String parking_2) {
         brakesPage.waitUntilPageIsLoaded();
-        List<String> actualData = brakesPage.getDataSetBetweenTitles("Brake code", "BRAKE FORCE");
-        assertThat(actualData).contains(brakeCode, service, secondary, parking, retarder_1, retarder_2);
-        // TODO check rest of data after bug fix
+        List<String> actualData = brakesPage.getDataSetBetweenTitles("Brake code", "UP TO AND INCLUDING HALF WHEELS LOCKED");
+        assertThat(actualData).contains(brakeCode, service, secondary, parking, retarder_1, retarder_2,service_2,secondary_2,parking_2);
     }
 
     @Step

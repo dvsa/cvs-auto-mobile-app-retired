@@ -57,10 +57,8 @@ public class DefectEditAndUpdate_CVSB_667 extends BaseTestClass {
         defectDescriptionSteps.tapAddAnAdvisoryNote();
         advisoryDetailsSteps.waitUntilPageIsLoaded();
         advisoryDetailsSteps.addCustomNoteAndTapAddNote("test note 1234");
-        // TODO find a better way for advisory/defect verification
         testTypeDetailsSteps.checkDefectsArePresentForTest("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
-        // TODO find a better way for existing advisory selection
-        testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
+        testTypeDetailsSteps.clickOnDefect("3.1");
         advisoryDetailsSteps.checkExistingNote("test note 1234");
         advisoryDetailsSteps.addRandomNoteInputAndTapDone();
 
