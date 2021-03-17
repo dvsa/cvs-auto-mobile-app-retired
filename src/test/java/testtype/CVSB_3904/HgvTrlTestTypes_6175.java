@@ -212,6 +212,7 @@ public class HgvTrlTestTypes_6175 extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Voluntary test");
         testTypeSubcategorySteps.selectFromTestTypeList("Brake test");
         testSteps.waitUntilPageIsLoaded();
         testSteps.checkTestTypeStatus("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
