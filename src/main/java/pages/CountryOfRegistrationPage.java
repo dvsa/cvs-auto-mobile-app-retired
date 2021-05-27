@@ -186,6 +186,7 @@ public class CountryOfRegistrationPage extends BasePage {
                 .filter(line -> !"Français (Canada)".equals(line))
                 .filter(line -> !"Français (France)".equals(line))
                 .filter(line -> !"Español (España)".equals(line))
+                .filter(line -> !"Español".equals(line))
                 .filter(line -> !"Return".equals(line))
                 .filter(line -> !"clear".equals(line))
                 .filter(line -> !line.isEmpty())
