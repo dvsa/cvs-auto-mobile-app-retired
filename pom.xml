@@ -16,7 +16,7 @@
         <serenity.version>2.3.8</serenity.version>
         <javajwt.version>3.11.0</javajwt.version>
         <assertj.version>3.18.0</assertj.version>
-        <jsonpath.version>2.4.0</jsonpath.version>
+        <jsonpath.version>2.6.0</jsonpath.version>
         <mavenjarplugin.version>3.2.0</mavenjarplugin.version>
         <mavensurefireplugin.version>2.22.2</mavensurefireplugin.version>
         <mavenfailsafeplugin.version>2.22.2</mavenfailsafeplugin.version>
