@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import org.junit.Test;
+import util.TypeLoader;
 import org.junit.runner.RunWith;
 import pages.TestPage;
 import steps.*;
@@ -79,7 +80,9 @@ public class Confirmation_Page_Review_CVSB_13044 extends BaseTestClass{
         confirmationPageSteps.waitUntilPageIsLoaded();
         confirmationPageSteps.checkElementContainingStringIsDisplayed("The tests have been submitted and will be emailed to");
         confirmationPageSteps.checkElementContainingStringIsDisplayed("contact the Help Desk");
-        confirmationPageSteps.checkElementContainingStringIsDisplayed(super.username);
+        String userEmailId = TypeLoader.getUsers().get(username).getEmail();
+        String emailId = userEmailId.substring(0,4)+userEmailId.substring(4,5).toUpperCase()+userEmailId.substring(5,33);
+        confirmationPageSteps.checkElementContainingStringIsDisplayed(emailId);
         confirmationPageSteps.pressDone();
         siteVisitSteps.checkSiteVisitPage();
     }

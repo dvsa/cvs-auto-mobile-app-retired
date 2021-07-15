@@ -15,7 +15,7 @@ public class LaunchPage extends BasePage {
 
     public void clickGetStarted(LoginPage loginPage, SignaturePage signaturePage, String username) {
 
-        String password = TypeLoader.getAppPassword();
+        String password = TypeLoader.getUsers().get(username).getPassword();
 
         loginPage.waitUsernamePageToLoad();
         loginPage.insertUserName(username);
@@ -23,6 +23,8 @@ public class LaunchPage extends BasePage {
         loginPage.waitPasswordPageToLoad();
         loginPage.insertPassword(password);
         loginPage.clickSignIn();
+        loginPage.waitContinueButtonToLoad();
+        loginPage.clickContinueButton();
         try {
             signaturePage.waitPageToLoad();
         } catch (TimeoutException ex) {

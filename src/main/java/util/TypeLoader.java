@@ -1,11 +1,11 @@
 package util;
 
 import org.apache.commons.exec.environment.EnvironmentUtils;
-
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
+import java.lang.reflect.Type;
+import java.util.*;
 
 public class TypeLoader {
 
@@ -26,24 +26,31 @@ public class TypeLoader {
         }
     }
 
-    public static String getAppUsername() {
-
-        return properties.getProperty("app.username");
+    public static HashMap<String,AutomationUser> getUsers() {
+        Gson gson = new Gson();
+        String json = properties.getProperty("app.users");
+        AutomationUser[] automationUsers = gson.fromJson(json, AutomationUser[].class);
+        HashMap<String, AutomationUser> automationUsersMap = new HashMap<>();
+        for (AutomationUser au: automationUsers){
+            automationUsersMap.put(au.getEmail(),au);
+        }
+        return automationUsersMap;
     }
 
-    public static String getAppPassword() {
-
-        return properties.getProperty("app.password");
-    }
 
     public static String getAppTokenUrl() {
 
-        return properties.getProperty("app.token.url");
+        return properties.getProperty("app.token.url.v2");
     }
 
     public static String getAppClientId() {
 
-        return properties.getProperty("app.client.id");
+        return properties.getProperty("app.client.id.v2");
+    }
+
+    public static String getAppClientSecret() {
+
+        return properties.getProperty("app.client.secret.v2");
     }
 
     public static String getBasePathUrl() {
@@ -129,6 +136,11 @@ public class TypeLoader {
     public static String getBsNetworkLogsEnabled() {
 
         return properties.getProperty("browserstack.network.logs");
+    }
+
+    public static String getBsGpsLocation() {
+
+        return properties.getProperty("browserstack.gpsLocation");
     }
 
     public static String getBsAppId() {

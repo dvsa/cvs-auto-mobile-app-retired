@@ -7,11 +7,8 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
-
 import static java.lang.Math.min;
 import static java.lang.Thread.sleep;
-import static java.util.stream.Collectors.toList;
 
 public class FileLocking
 {
@@ -25,9 +22,7 @@ public class FileLocking
                 file.createNewFile();
                 fos = new FileOutputStream(file);
                 BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-                List<String> items= Stream.of(TypeLoader.getAppUsername().split(","))
-                        .map(String::trim)
-                        .collect(toList());
+                List<String> items = new ArrayList<>(TypeLoader.getUsers().keySet());
                 bw.write(String.join(",", items.subList(0, min(items.size(),TypeLoader.getNumberConcurrentJob()))));
                 bw.close();
             } catch (Exception e) {
