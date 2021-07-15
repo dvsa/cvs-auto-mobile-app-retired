@@ -1,7 +1,5 @@
 package util;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.slf4j.Logger;
@@ -16,25 +14,19 @@ public class ActivityService {
 
     Logger logger = LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 
-    private static String getTesterStaffId(String token) {
-        JWT parsedJWT = new JWT();
-        DecodedJWT decodedJWT = parsedJWT.decodeJwt(token);
-        return decodedJWT.getClaims().get("oid").asString();
-    }
-
-    public void closeCurrentUserActivity(String token) {
+    public void closeCurrentUserActivity(String token, String username) {
 
         logger.info("closing user's activity");
-        String getStaffId = getTesterStaffId(token);
+        String getStaffId = TypeLoader.getUsers().get(username).getStaffId();
 
-        List<String> openActivitiesIdforUser = getAllOpenActivitiesForTesterStaffId(getStaffId,token);
+        List<String> openActivitiesIdForUser = getAllOpenActivitiesForTesterStaffId(getStaffId,token);
 
-        if(openActivitiesIdforUser != null){
-            for(String activityIdToClose: openActivitiesIdforUser){
+        if(openActivitiesIdForUser != null){
+            for(String activityIdToClose: openActivitiesIdForUser){
                 closeOpenActivityById(activityIdToClose,token);
             }
         }else{
-           logger.info("No open activity to close for StaffId: " + getStaffId);
+            logger.info("No open activity to close for StaffId: " + getStaffId);
         }
     }
 

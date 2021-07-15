@@ -27,15 +27,6 @@ public class TestResultCalculationInFrontEnd_CVSB_17386 extends BaseTestClass {
     TestSteps testSteps;
 
     @Steps
-    CommonSteps commonSteps;
-
-    @Steps
-    AbandonTestSteps abandonTestSteps;
-
-    @Steps
-    SelectReasonSteps selectReasonSteps;
-
-    @Steps
     OdometerReadingSteps odometerReadingSteps;
 
     @Steps

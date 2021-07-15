@@ -44,6 +44,10 @@ public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
     @Steps
     ConfirmationPageSteps confirmationPageSteps;
 
+    @Steps
+    TestTypeSubcategorySteps testTypeSubcategorySteps;
+
+
     @Title("CVSB-3019 - Defect -Failed Voluntary speed limiter check submission")
     @Test
     public void submitFailedVoluntarySpeedLimiterCheckTest() {
@@ -52,6 +56,7 @@ public class VoluntarySpeedLimiterFailedSubmission_3019  extends BaseTestClass {
         testSteps.addTestType();
         testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Voluntary test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Voluntary test");
         testTypeCategorySteps.selectFromTestTypeList("Speed limiter check");
         testSteps.selectTestType("Voluntary test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("Fail");

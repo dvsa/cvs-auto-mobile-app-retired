@@ -22,12 +22,11 @@ public class TokenGenerator {
         HttpResponse<JsonNode> jsonResponse  = null;
         try {
             jsonResponse = Unirest.post(TypeLoader.getAppTokenUrl())
-                        .field("grant_type", "password")
-                        .field("client_id", TypeLoader.getAppClientId())
-                        .field("userName", username)
-                        .field("password", TypeLoader.getAppPassword())
-                        .field("resource", TypeLoader.getAppClientId())
-                        .asJson();
+                    .field("grant_type", "client_credentials")
+                    .field("client_id", TypeLoader.getAppClientId())
+                    .field("scope", "https://dev.vta.dvsatest-cloud.uk/.default")
+                    .field("client_secret", TypeLoader.getAppClientSecret())
+                    .asJson();
         } catch (UnirestException e) {
             e.printStackTrace();
         }

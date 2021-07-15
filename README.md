@@ -183,19 +183,25 @@ browserstack.idle.timeout=150
 browserstack.network.logs=true
 browserstack.project.name=local
 browserstack.build.name=local
+browserstack.gpsLocation=51.5074,0.1278
+app.token.url.v2=https://login.microsoftonline.com/<azure_app_id>/oauth2/v2.0/token
+app.client.id.v2=<azure_client_id>
+app.client.secret.v2=<azure_client_secret>
 app.username=<app_username>
 app.password=<app_userpass>
 app.token.url=https://login.microsoftonline.com/<azure_app_id>/oauth2/token
 app.client.id=<azure_client_id>
-base.path.url=https://api.develop.cvs.dvsacloud.uk/<branch_name>
+base.path.url=<test_environment_url>
 waitForQuiescence=true
 local.name=<your_name>
 automationName=XCUITest
 parallel.consumers=1
+app.users=<app_username><staff_id><password>
 ```
 #### where:
    - **browserstack_app_id** can be obtain via: [DEVELOP_DISPLAY_BROWSERSTACK_ID](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__DEVELOP/job/job_develop_display_browserstack_id/) or [FEATURE_DISPLAY_BROWSERSTACK_ID](https://jenkins.cvs.dvsacloud.uk/job/UPDATE__BRANCH/job/job_feature_display_browserstack_id/) Jenkins jobs
    - **azure_app_id** and **azure_client_id** are provided by the devOps team
+   - **app.users** contains the value for the testerStaffId. This is based on the spike which concluded that it will require 3 API calls to get the testerStaffId while generating the Bearer Token and authenticating the API calls. It is not possible to run the tests without this value and have an impact on the regression suite
 
 ## Running locally
 

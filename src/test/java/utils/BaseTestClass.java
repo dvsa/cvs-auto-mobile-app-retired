@@ -13,7 +13,6 @@ import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -21,6 +20,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import util.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
@@ -70,7 +73,7 @@ public class BaseTestClass {
             sessionDetails.setBsSessionUrl(bsCreateSessionUrl.getBsUrl());
 
             token = tokenGenerator.getToken(username);
-            new ActivityService().closeCurrentUserActivity(token);
+            new ActivityService().closeCurrentUserActivity(token,username);
             super.starting(description);
         }
 
@@ -80,7 +83,7 @@ public class BaseTestClass {
             logger.info(bsCreateSessionUrl.getBsUrl());
             webDriver.quit();
             logger.info("returning user to the user pool");
-            new ActivityService().closeCurrentUserActivity(token);
+            new ActivityService().closeCurrentUserActivity(token,username);
             new FileLocking().putUsernameInQueue(username);
             super.finished(description);
         }
