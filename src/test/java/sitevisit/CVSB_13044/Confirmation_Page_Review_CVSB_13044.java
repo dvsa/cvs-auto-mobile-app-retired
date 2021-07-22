@@ -10,7 +10,6 @@ import pages.TestPage;
 import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
-import util.TypeLoader;
 import utils.BaseTestClass;
 
 @RunWith(SerenityRunner.class)
