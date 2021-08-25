@@ -1122,4 +1122,475 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YG7")
+    @Test
+    public void testIVACertificateNumber_Failures_LGV_YG7() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("BBBBBBB555666", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YM7")
+    @Test
+    public void testIVACertificateNumber_Failures_LGV_YM7() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("L0853010911254", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YH4")
+    @Test
+    public void testIVACertificateNumber_Failures_CAR_YH4() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("BBBBBBB333444", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Free");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YN4")
+    @Test
+    public void testIVACertificateNumber_Failures_CAR_YN4() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("C0853010911253", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Free");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YN7")
+    @Test
+    public void testIVACertificateNumber_Failures_LGV_YN7() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("C0853010911253", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Free");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YH7")
+    @Test
+    public void testIVACertificateNumber_Failures_LGV_YH7() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("BBBBBBB555666", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Basic inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Basic inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Free");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YB4")
+    @Test
+    public void testIVACertificateNumber_Failures_CAR_YB4() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("D0853010911255", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YBS")
+    @Test
+    public void testIVACertificateNumber_Failures_PSV_YBS() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("1B7GG36N12S678410", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YFL")
+    @Test
+    public void testIVACertificateNumber_Failures_PSV_YFL() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("YV31MEC18GA678413", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("Retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Retest");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeSubcategorySteps.selectFromTestTypeList("Normal inspection");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Normal inspection");
+        testTypeCategorySteps.selectFromTestTypeList("Paid");
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // AC2 - checking the certificate field is editable
+        testSteps.waitUntilPageIsLoaded();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.sendCertificateNumber("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YF4")
+    @Test
+    public void testIVACertificateNumber_Failures_CAR_YF4() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("DP76UMK4DQLTOT400005", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Basic inspection");
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("12345");
+        odometerReadingSteps.pressSave();
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+    }
+
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YL4")
+    @Test
+    public void testIVACertificateNumber_Failures_CAR_YL4() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("C0853010911253", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Basic inspection");
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("12345");
+        odometerReadingSteps.pressSave();
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+    }
+
 }
