@@ -3,10 +3,7 @@ package pages;
 import data.util.EmissionStandard;
 import data.util.FuelType;
 import data.util.ModType;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.text.DateFormatSymbols;
@@ -510,6 +507,8 @@ public class TestTypeDetailsPage extends BasePage {
     public void sendCertificateNumber(String certificateNumber) {
         logger.info("Setting Certificate Number to " + certificateNumber);
         WebElement inputField = findElementByXpath(CERTIFICATE_NUMBER_INPUT_FIELD_XPATH);
+        // inputField.clear() not clearing full field if there is a maximum length value already in the field
+        inputField.sendKeys(Keys.chord(Keys.CONTROL,"a"));
         inputField.clear();
         inputField.sendKeys(certificateNumber);
         logger.info("- Set");
