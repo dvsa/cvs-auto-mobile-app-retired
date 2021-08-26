@@ -1630,4 +1630,42 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YL7")
+    @Test
+    public void testIVACertificateNumber_Failures_LGV_YL7() {
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("L0853010911254", super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+
+        // Add a Specialist Test to the test.
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Specialist test");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Specialist test");
+        testTypeCategorySteps.selectFromTestTypeList("IVA");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("IVA");
+        testTypeCategorySteps.selectFromTestTypeList("Basic inspection");
+
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("12345");
+        odometerReadingSteps.pressSave();
+
+        //setting test result to fail
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.setTestToOption("fail");
+        testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
+
+        //Checking AC1 and AC3 - field is only 20 alphanumeric character (by removing characters)
+        testTypeDetailsSteps.sendCertificateNumber("1234567890ABCDEFGHIJ123");
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+        testTypeDetailsSteps.pressSave();
+
+        // Also, as the last field (certificate number) has been populated, validation error should be removed.
+        testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
+        testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
+    }
+    //test
+
 }
