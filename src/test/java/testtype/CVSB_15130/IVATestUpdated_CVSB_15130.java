@@ -1666,6 +1666,6 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
-    //test 1
+    //test 2
 
 }
