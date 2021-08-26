@@ -267,6 +267,7 @@ public class SpecialistTest extends BaseTestClass {
 
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setTestToOption("fail");
+        //updated not displayed to Displayed
         testTypeDetailsSteps.checkCertificateNumberIsDisplayed();
 
         testTypeDetailsSteps.setTestToOption("pass");

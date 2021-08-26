@@ -1830,11 +1830,6 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Normal inspection");
         testTypeCategorySteps.selectFromTestTypeList("Paid");
 
-        // View the Specialist Test details.
-        // In order to verify that the test result is mandatory, fill all other test fields first.
-        //testSteps.selectEuVehicleCategory();
-        //euVehicleCategorySteps.selectM2Option();
-
         testSteps.selectOdometerReading();
         odometerReadingSteps.typeInField("12345");
         odometerReadingSteps.pressSave();
