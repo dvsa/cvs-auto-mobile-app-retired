@@ -3,6 +3,7 @@ package testtype.CVSB_15130;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -98,6 +99,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
 
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YA4")
     @Test
+    @WithTag("In_Test")
     public void testIVACertificateNumber_Failures_CAR_YA4() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("D0853010911255", super.username);
