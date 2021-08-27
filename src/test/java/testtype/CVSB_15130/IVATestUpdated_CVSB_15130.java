@@ -45,6 +45,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
 
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YAS")
     @Test
+    @WithTag("In_Test")
     public void testIVACertificateNumber_Failures_PSV_YAS() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("1B7GG36N12S678410", super.username);
@@ -99,7 +100,6 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
 
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YA4")
     @Test
-    @WithTag("In_Test")
     public void testIVACertificateNumber_Failures_CAR_YA4() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("D0853010911255", super.username);
