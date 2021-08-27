@@ -1,2 +1,0 @@
-git secrets --scan && git log -p | scanrepo
-
