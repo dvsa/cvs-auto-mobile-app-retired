@@ -98,7 +98,6 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
-    @WithTag("In_Test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YA4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YA4() {
