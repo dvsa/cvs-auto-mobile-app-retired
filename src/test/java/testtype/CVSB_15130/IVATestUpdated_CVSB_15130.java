@@ -4,6 +4,7 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.core.annotations.WithTag;
+import net.thucydides.core.annotations.WithTagValuesOf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -97,7 +98,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
-    @WithTag("In_Test")
+    @WithTagValuesOf({"In_Test"})
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YA4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YA4() {
