@@ -192,6 +192,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YJL")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YJL() {
@@ -233,6 +234,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YA7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YA7() {
@@ -272,6 +274,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - HGV - YAV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YAV() {
@@ -311,6 +314,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - HGV - YEV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YEV() {
@@ -349,7 +353,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
-
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YET")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YET() {
@@ -383,6 +387,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YJT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YJT() {
@@ -416,6 +421,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YNT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YNT() {
@@ -449,9 +455,9 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YE4")
     @Test
-
     public void testIVACertificateNumber_Failures_CAR_YE4() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("M0853010998888", super.username);
@@ -484,6 +490,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YDS")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YDS() {
@@ -518,6 +525,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YHL")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YHL() {
@@ -552,6 +560,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YML")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YML() {
@@ -592,7 +601,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
-
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YE7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YE7() {
@@ -633,7 +642,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testSteps.selectTestType("Specialist test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
-
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - HGV - YDV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YDV() {
@@ -675,6 +684,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - HGV - YHV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YHV() {
@@ -716,6 +726,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YDT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YDT() {
@@ -757,6 +768,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YHT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YHT() {
@@ -798,6 +810,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YMT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YMT() {
@@ -839,6 +852,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - TRL - YRT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YRT() {
@@ -880,6 +894,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YK7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YK7() {
@@ -921,6 +936,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YQ7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YQ7() {
@@ -962,6 +978,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YK4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YK4() {
@@ -1003,6 +1020,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YQ4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YQ4() {
@@ -1044,6 +1062,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - MOTORCYCLE - YXZ")
     @Test
     public void testIVACertificateNumber_Failures_MOTORCYCLE_YXZ() {
@@ -1084,6 +1103,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YM4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YM4() {
@@ -1128,6 +1148,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YG7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YG7() {
@@ -1172,6 +1193,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YM7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YM7() {
@@ -1216,6 +1238,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YH4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YH4() {
@@ -1260,6 +1283,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YN4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YN4() {
@@ -1304,6 +1328,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YN7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YN7() {
@@ -1348,6 +1373,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YH7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YH7() {
@@ -1392,6 +1418,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YB4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YB4() {
@@ -1436,6 +1463,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YBS")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YBS() {
@@ -1480,6 +1508,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YFL")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YFL() {
@@ -1524,6 +1553,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1111111111ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YF4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YF4() {
@@ -1561,6 +1591,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YL4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YL4() {
@@ -1598,6 +1629,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YF7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YF7() {
@@ -1635,6 +1667,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YL7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YL7() {
@@ -1672,6 +1705,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - PSV - YKL")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YKL() {
@@ -1720,6 +1754,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - LGV - YB7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YB7() {
@@ -1768,6 +1803,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - HGV - YBV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YBV() {
@@ -1814,6 +1850,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - HGV - YFV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YFV() {
@@ -1862,6 +1899,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YBT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YBT() {
@@ -1906,6 +1944,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YFT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YFT() {
@@ -1950,6 +1989,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YKT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YKT() {
@@ -1994,6 +2034,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YPT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YPT() {
@@ -2038,6 +2079,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - PSV - YCS")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YCS() {
@@ -2086,6 +2128,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - PSV - YGL")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YGL() {
@@ -2134,6 +2177,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - PSV - YLL")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YLL() {
@@ -2182,6 +2226,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - CAR - YC4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YC4() {
@@ -2230,6 +2275,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - LGV - YC7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YC7() {
@@ -2278,6 +2324,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - HGV - YCV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YCV() {
@@ -2326,6 +2373,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - HGV - YGV")
     @Test
     public void testIVACertificateNumber_Failures_HGV_YGV() {
@@ -2374,6 +2422,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YCT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YCT() {
@@ -2418,6 +2467,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YGT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YGT() {
@@ -2462,6 +2512,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YLT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YLT() {
@@ -2506,6 +2557,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - TRL - YQT")
     @Test
     public void testIVACertificateNumber_Failures_TRL_YQT() {
@@ -2550,6 +2602,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 AC1-AC4 - certificate number failures for IVA retest - PSV - YUZ")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YUZ() {
@@ -2596,6 +2649,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
         testTypeDetailsSteps.checkCertificateNumberIs("1234567890ABCDEFGHIJ");
     }
 
+    @WithTag("In_test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - CAR - YG4")
     @Test
     public void testIVACertificateNumber_Failures_CAR_YG4() {
