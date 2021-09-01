@@ -42,7 +42,7 @@ public class IVATestUpdated_CVSB_15130 extends BaseTestClass {
     @Steps
     TestTypeSubcategorySteps testTypeSubcategorySteps;
 
-    @WithTag("Smoke_3")
+    @WithTag("In_Test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - PSV - YAS")
     @Test
     public void testIVACertificateNumber_Failures_PSV_YAS() {
