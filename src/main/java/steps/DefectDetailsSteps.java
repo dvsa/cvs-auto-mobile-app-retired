@@ -196,12 +196,34 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectHorizontalLateralAxleNotDone(String horizontalValue, String lateralValue, String axleNumberValue) {
+        defectDetailsPage.selectHorizontalValue(horizontalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.selectAxleNumber(axleNumberValue);
+    }
+
+    @Step
+    public void saveDefectDetails() {
+        defectDetailsPage.clickDone();
+    }
+
+    @Step
     public void selectVerticalLateralRowNumberSeatNumber(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
         defectDetailsPage.selectVerticalValue(verticalValue);
         defectDetailsPage.selectLateralValue(lateralValue);
         defectDetailsPage.selectRowNumberValue(rowNumberValue);
         defectDetailsPage.selectSeatNumberValue(seatNumberValue);
         defectDetailsPage.clickDone();
+    }
+
+    @Step
+    public void selectInputValuesWithPRSAndClickBack(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+        defectDetailsPage.selectVerticalValue(verticalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.selectRowNumberValue(rowNumberValue);
+        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
+        defectDetailsPage.enablePRS();
+        defectDetailsPage.clickBack();
     }
 
     @Step

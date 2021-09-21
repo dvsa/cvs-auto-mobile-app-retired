@@ -160,7 +160,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testFieldsDisplayedForCar() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250",super.username); // CAR QW123RT
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P0123010911250",super.username); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
@@ -318,7 +318,7 @@ public class TestPageFieldsDisplayed_CVSB_11032 extends BaseTestClass {
     @Test
     public void testEUVehicleCategoryOptionsForCar() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("911250",super.username); // CAR QW123RT
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("P0123010911250",super.username); // CAR QW123RT
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.checkCarTestDetails("QW123RT", "P0123010911250");
