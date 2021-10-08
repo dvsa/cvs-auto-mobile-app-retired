@@ -38,6 +38,7 @@ public class ActivityService {
                     .contentType(ContentType.JSON)
                     .queryParam("activityType", "visit")
                     .queryParam("fromStartTime", LocalDateTime.now().minusDays(90).toString())
+                    .queryParam("toStartTime", LocalDateTime.now().toString())
                     .queryParam("testerStaffId", testerStaffId)
                     .get("/activities/details");
 
