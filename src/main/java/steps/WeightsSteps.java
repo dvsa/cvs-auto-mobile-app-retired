@@ -63,6 +63,11 @@ public class WeightsSteps extends ScenarioSteps {
         weightsPage.waitUntilPageIsLoaded();
         assertThat(weightsPage.getFieldValue(fieldName)).isEqualTo(value);
     }
+    @Step
+    public void checkAxleOrderStep(String fieldName1, String fieldName2) {
+        weightsPage.waitUntilPageIsLoaded();
+        assertThat(weightsPage.checkAxleOrder(fieldName2)).isGreaterThan(weightsPage.checkAxleOrder(fieldName1));
+    }
 
     @Step
     public void checkGrossIsDisplayed() {
