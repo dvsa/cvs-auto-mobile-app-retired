@@ -118,4 +118,9 @@ public class WeightsPage extends BasePage {
         }
         return null;
     }
+
+    public int checkAxleOrder(String value) {
+        int axlePosition = findElementByXpath("//*[@value='" + value + "']").getLocation().getY();
+        return axlePosition;
+    }
 }
