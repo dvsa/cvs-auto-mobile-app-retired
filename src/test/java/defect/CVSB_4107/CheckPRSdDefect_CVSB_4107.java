@@ -102,11 +102,13 @@ public class CheckPRSdDefect_CVSB_4107 extends BaseTestClass {
         testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
         defectDetailsSteps.setPRS();
         defectDetailsSteps.tapDone();
+        defectDetailsSteps.checkPRSOptionIsNotDisplayed();
 
         //AC 7
         testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
         defectDetailsSteps.setPRS();
         defectDetailsSteps.clickBack();
+        defectDetailsSteps.checkPRSOptionIsNotDisplayed();
 
         //AC 8
         testTypeDetailsSteps.tapOnPresentDefect("Annual test", "Seat Belts & Supplementary Restraint Systems", "Obligatory Seat Belt");
