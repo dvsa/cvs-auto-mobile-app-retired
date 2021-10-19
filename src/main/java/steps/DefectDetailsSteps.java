@@ -359,10 +359,6 @@ public class DefectDetailsSteps extends ScenarioSteps {
         assertThat(defectDetailsPage.checkPRSOptionIsDisplayed()).isFalse();
     }
 
-    public void checkPRSOptionIsDisplayed() {
-        assertThat(defectDetailsPage.checkPRSOptionIsDisplayed()).isTrue();
-    }
-
     @Step
     public void checkIssuedInMobileComplianceIsNotPresent() {
         assertThat(defectDetailsPage.isIssuedInMobileCompliancePresent()).isFalse();
