@@ -30,6 +30,7 @@ public class VehicleDetails_Weights_CVSB_19854 extends BaseTestClass {
         weightsSteps.checkFieldIsListed("AXLE 1");
         weightsSteps.checkFieldIsListed("AXLE 2");
         weightsSteps.checkFieldIsListed("AXLE 3");
+        // checking the axle order
         weightsSteps.checkAxleOrderStep("AXLE 1", "AXLE 2");
         weightsSteps.checkAxleOrderStep("AXLE 2", "AXLE 3");
     }
