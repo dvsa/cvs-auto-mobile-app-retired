@@ -21,7 +21,7 @@ public class VehicleDetails_Weights_CVSB_19854 extends BaseTestClass {
     @Steps
     VehicleComp vehicleComp;
 
-    @Title("CVSB-6632 - AC 3 Action fields navigate to the correct pages (HGV Weights Screen)")
+    @Title("CVSB-19854 - AC 1 axles should be in ascending order")
     @Test
     public void WeightsAxleOrder() {
         vehicleComp.goToVehicleDetails("012938", super.username);
