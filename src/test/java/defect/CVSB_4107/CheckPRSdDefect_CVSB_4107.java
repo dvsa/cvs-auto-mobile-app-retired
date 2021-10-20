@@ -120,4 +120,3 @@ public class CheckPRSdDefect_CVSB_4107 extends BaseTestClass {
         testTypeDetailsSteps.checkAdditionalDetailsWithPRSPresent("Annual test", "3.1", "MAJOR", "3. Seat Belts & Supplementary Restraint Systems", "1. Obligatory Seat Belt:", "(b) of an incorrect type.");
     }
 }
-
