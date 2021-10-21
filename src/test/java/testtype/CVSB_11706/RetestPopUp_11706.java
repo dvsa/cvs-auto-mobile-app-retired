@@ -112,8 +112,8 @@ public class RetestPopUp_11706 extends BaseTestClass {
 
         //AC-2 checking on clicking suggested testtype its taking to inner page
         // this last step change according to the vehicle type please
-        testTypeCategorySteps.selectFromTestTypeList("Paid annual test restest");
-        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
+        testTypeCategorySteps.selectFromTestTypeList("Paid annual test retest");
+        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Paid annual test retest");
     }
 
     @Title("CVSB_11706 - AC-1 (for PSV) submitting a failed test and pop up test-type - hgv)")
