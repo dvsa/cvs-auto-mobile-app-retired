@@ -205,6 +205,16 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectInputValuesWithPRSAndClickBack(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
+        defectDetailsPage.selectVerticalValue(verticalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.selectRowNumberValue(rowNumberValue);
+        defectDetailsPage.selectSeatNumberValue(seatNumberValue);
+        defectDetailsPage.enablePRS();
+        defectDetailsPage.clickBack();
+    }
+
+    @Step
     public void selectVerticalLateralRowNumberSeatNumberWithPRS(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
         defectDetailsPage.selectVerticalValue(verticalValue);
         defectDetailsPage.selectLateralValue(lateralValue);
