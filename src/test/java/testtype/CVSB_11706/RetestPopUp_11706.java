@@ -111,7 +111,7 @@ public class RetestPopUp_11706 extends BaseTestClass {
         testTypeCategorySteps.checkSuggestedTestTypeList("Paid annual test retest", "Part paid annual test retest", "Annual test");
 
         //AC-2 checking on clicking suggested testtype its taking to inner page
-        // (this last step change according to the vehicle type please)
+        // this last step change according to the vehicle type please
         testTypeCategorySteps.selectFromTestTypeList("Paid annual test restest");
         testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Class 6A");
     }
