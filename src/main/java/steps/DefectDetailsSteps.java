@@ -196,6 +196,13 @@ public class DefectDetailsSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectVerticalLateral(String verticalValue, String lateralValue) {
+        defectDetailsPage.selectVerticalValue(verticalValue);
+        defectDetailsPage.selectLateralValue(lateralValue);
+        defectDetailsPage.clickDone();
+    }
+
+    @Step
     public void selectVerticalLateralRowNumberSeatNumber(String verticalValue, String lateralValue, String rowNumberValue, String seatNumberValue) {
         defectDetailsPage.selectVerticalValue(verticalValue);
         defectDetailsPage.selectLateralValue(lateralValue);
