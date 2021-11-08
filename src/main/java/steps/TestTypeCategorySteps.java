@@ -28,6 +28,14 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSuggestedTestTypeList(String... testTypes) {
+        List<String> actualData = testTypeCategoryPage.findAllSuggestedTestTypesFromListByXpath();
+        for (String test_type : testTypes) {
+            assertThat(actualData).contains(test_type);
+        }
+    }
+
+    @Step
     public void checkNotInTestTypeList(String... testTypes) {
         testTypeCategoryPage.waitUntilPageIsLoaded();
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
@@ -79,6 +87,11 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     @Step
     public void selectFromTestTypeList(String testType) {
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
+    }
+
+    @Step
+    public void selectFromSelectedTestTypeList(String testType) {
+        testTypeCategoryPage.selectSuggestedTestTypeFromListByXpath(testType);
     }
 
     @Step
