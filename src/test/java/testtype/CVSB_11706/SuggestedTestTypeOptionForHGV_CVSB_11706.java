@@ -171,7 +171,6 @@ public class SuggestedTestTypeOptionForHGV_CVSB_11706 extends BaseTestClass {
         testReviewPage.clickSubmitInPopUp();
         confirmationPageSteps.pressDone();
 
-
         //AC6 First Test Retest
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("230123");
