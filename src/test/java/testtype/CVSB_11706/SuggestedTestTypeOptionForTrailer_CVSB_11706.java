@@ -71,7 +71,30 @@ public class SuggestedTestTypeOptionForTrailer_CVSB_11706 extends BaseTestClass 
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.selectAddDefect("Annual test");
+        defectCategorySteps.selectDefectFromList("8. Condition of Tyres");
+        defectItemSteps.selectDefectFromList("1. A tyre");
+        defectDescriptionSteps.selectDefect("8.1 (c) * DANGEROUS");
+        defectDetailsSteps.selectHorizontalLateralAxle("Inner", "Offside", "3");
+        testTypeDetailsSteps.pressSave();
+        testSteps.clickReviewAndSubmit();
+        testReviewPage.scrollPageDown();
+        testReviewPage.clickSubmitButton();
+        testReviewPage.clickSubmitInPopUp();
+        confirmationPageSteps.pressDone();
+
+        //2nd test
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("765432");
+        trailerDetailsSteps.selectConfirmButtonTopRight();
+        trailerDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.addTestType();
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.selectAddDefect("Annual test");
         defectCategorySteps.selectDefectFromList("8. Condition of Tyres");

@@ -146,7 +146,6 @@ public class SuggestedTestTypeOptionForPSV_CVSB_11706 extends BaseTestClass {
         testTypeCategorySteps.selectFromTestTypeList("Class 6A");
         testTypeCategorySteps.selectFromTestTypeList("First test");
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
-        //testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
         testTypeDetailsSteps.pressSave();
@@ -168,6 +167,7 @@ public class SuggestedTestTypeOptionForPSV_CVSB_11706 extends BaseTestClass {
         testReviewPage.clickSubmitInPopUp();
         confirmationPageSteps.pressDone();
 
+        //6A 2nd test
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("678410");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
