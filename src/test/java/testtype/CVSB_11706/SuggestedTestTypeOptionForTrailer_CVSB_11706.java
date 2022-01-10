@@ -134,6 +134,18 @@ public class SuggestedTestTypeOptionForTrailer_CVSB_11706 extends BaseTestClass 
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();
 
+        //AC8 Free Loaded Retest
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Free loaded retest");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        //testTypeCategorySteps.waitUntilPageIsLoaded();
+        //testTypeCategorySteps.selectFromTestTypeList("Retest");
+        //testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
+        //testTypeSubcategorySteps.selectFromTestTypeList("Free loaded retest");
+        //testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
+
         //AC4 Checking that picking the relevant option on suggested test type pop up takes you to inner page
         testTypeCategorySteps.selectFromSelectedTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
@@ -166,7 +178,7 @@ public class SuggestedTestTypeOptionForTrailer_CVSB_11706 extends BaseTestClass 
         testReviewPage.clickSubmitInPopUp();
         confirmationPageSteps.pressDone();
 
-        //AC6 First Test Retest
+        //AC5 First Test suggested popup
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("765432");
         trailerDetailsSteps.selectConfirmButtonTopRight();
@@ -174,6 +186,13 @@ public class SuggestedTestTypeOptionForTrailer_CVSB_11706 extends BaseTestClass 
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.selectFromSelectedTestTypeList("First test");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
+
+        //AC6 First Test Retest
         testTypeCategorySteps.selectFromSelectedTestTypeList("Paid first test retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
@@ -187,24 +206,15 @@ public class SuggestedTestTypeOptionForTrailer_CVSB_11706 extends BaseTestClass 
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();
 
-        //AC8 Free Loaded Retest
-        testTypeCategorySteps.waitUntilPageIsLoaded();
-        testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("Annual test retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("Free loaded retest");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.pressTestTypeRemoveButton();
-        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-        testSteps.addTestType();
-
         //AC9 Free First Test Retest
-        testTypeCategorySteps.waitUntilPageIsLoaded();
-        testTypeCategorySteps.selectFromTestTypeList("Retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("First test retest");
-        testTypeSubcategorySteps.selectFromTestTypeList("Free retest");
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Free first test retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        //testTypeCategorySteps.waitUntilPageIsLoaded();
+        //testTypeCategorySteps.selectFromTestTypeList("Retest");
+        //testTypeSubcategorySteps.selectFromTestTypeList("First test retest");
+        //testTypeSubcategorySteps.selectFromTestTypeList("Free retest");
+        //testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-        testSteps.addTestType();
     }
 }

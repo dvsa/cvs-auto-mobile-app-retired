@@ -77,7 +77,7 @@ public class SuggestedTestTypeOptionForPSV_CVSB_11706 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Annual test");
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
@@ -110,17 +110,17 @@ public class SuggestedTestTypeOptionForPSV_CVSB_11706 extends BaseTestClass {
         testSteps.addTestType();
 
         //New method created to check the popup is having the suggested test types in it
-        testTypeCategorySteps.checkSuggestedTestTypeList("Paid retest", "Part-paid retest", "Annual test");
+        testTypeCategorySteps.checkSuggestedTestTypeList("Paid annual retest", "Part paid annual retest", "Annual test");
 
         //AC2 Checking that picking the relevant option on suggested test type pop up takes you to inner page
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Paid retest");
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Paid annual retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();
 
         //AC3 Checking that picking the relevant option on suggested test type pop up takes you to inner page
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Part-paid retest");
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Part paid annual retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
@@ -137,6 +137,7 @@ public class SuggestedTestTypeOptionForPSV_CVSB_11706 extends BaseTestClass {
     @Test
     public void SuggestedTestTypePopUpPSVClass6ATest() {
         //AC11 Class 6A First Test
+        //Add in a test to bring up pop up
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
         testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("678410",super.username);
         preparerSteps.startTest();
@@ -167,40 +168,28 @@ public class SuggestedTestTypeOptionForPSV_CVSB_11706 extends BaseTestClass {
         testReviewPage.clickSubmitInPopUp();
         confirmationPageSteps.pressDone();
 
-        //6A 2nd test
+        //To get suggested popup
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("678410");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
         vehicleDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
         testSteps.addTestType();
-        testTypeCategorySteps.selectFromSelectedTestTypeList("First test");
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A first test");
         testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();
-
-        testTypeDetailsSteps.pressTestTypeRemoveButton();
-        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-        testSteps.addTestType();
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A seatbelt installation check (first test)");
-        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
 
         //AC10 Class 6A retest
-        siteVisitSteps.createNewTest();
-        identifyVehicleSteps.searchForVehicle("678410");
-        vehicleDetailsSteps.selectConfirmButtonTopRight();
-        vehicleDetailsSteps.selectConfirmFromPopUp();
-        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
-        testSteps.addTestType();
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Paid retest with Class 6A seatbelt installation check");
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Paid class 6A retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();
 
         //AC12 6A Annual Test
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A seatbelt installation check (annual test)");
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();

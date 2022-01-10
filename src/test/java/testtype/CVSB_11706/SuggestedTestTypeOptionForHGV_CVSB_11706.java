@@ -154,7 +154,7 @@ public class SuggestedTestTypeOptionForHGV_CVSB_11706 extends BaseTestClass {
         testReviewPage.clickSubmitInPopUp();
         confirmationPageSteps.pressDone();
 
-        //Creating 2nd test to check annual test
+        //Creating 2nd test to check suggested popup
         siteVisitSteps.createNewTest();
         identifyVehicleSteps.searchForVehicle("230123");
         vehicleDetailsSteps.selectConfirmButtonTopRight();
