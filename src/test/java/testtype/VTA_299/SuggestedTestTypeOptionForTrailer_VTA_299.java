@@ -165,14 +165,14 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
         testSteps.addTestType();
 
         //New method created to check the popup is having the suggested test types in it
-        testTypeCategorySteps.checkSuggestedTestTypeList("Paid first test retest", "Paid first test retest", "First test");
+        testTypeCategorySteps.checkSuggestedTestTypeList("Paid first test retest", "Part paid first test retest", "First test");
 
         //New method created to check the order of the suggested test types on the popup
-        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid first test retest", "Paid first test retest", "First test");
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid first test retest", "Part paid first test retest", "First test");
 
         //AC5 - Check TRL First test on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("First test");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
+        testSteps.selectTestType("First test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();

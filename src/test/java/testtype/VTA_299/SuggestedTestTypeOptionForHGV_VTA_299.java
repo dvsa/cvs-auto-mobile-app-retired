@@ -221,8 +221,7 @@ public class SuggestedTestTypeOptionForHGV_VTA_299 extends BaseTestClass {
         //AC13 Check Adding a different test type on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("Select a different test type");
         testTypeCategorySteps.selectFromTestTypeList("Technical test");
-        testTypeSubcategorySteps.waitForPageToLoadBySubcategory("Technical test");
-        testTypeCategorySteps.selectFromTestTypeList("ADR");
+        testTypeSubcategorySteps.selectFromTestTypeList("ADR");
         testSteps.selectTestType("Technical test", TestPage.TestTypeStatuses.IN_PROGRESS);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
