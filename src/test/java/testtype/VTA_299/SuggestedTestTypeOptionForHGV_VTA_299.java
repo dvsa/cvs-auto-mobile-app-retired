@@ -114,7 +114,7 @@ public class SuggestedTestTypeOptionForHGV_VTA_299 extends BaseTestClass {
         testTypeCategorySteps.checkSuggestedTestTypeList("Paid annual retest", "Part paid annual retest", "Annual test");
 
         //New method created to check the order of the suggested test types on the popup
-        testTypeCategorySteps.checkSuggestedTestTypeOrderStepHGVAndPSV("Paid annual retest", "Part paid annual retest", "Annual test");
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid annual retest", "Part paid annual retest", "Annual test");
 
         //AC2 - Check HGV Paid annual retest on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("Paid annual retest");
@@ -183,7 +183,7 @@ public class SuggestedTestTypeOptionForHGV_VTA_299 extends BaseTestClass {
         testTypeCategorySteps.checkSuggestedTestTypeList("Paid first test retest", "Part paid first test retest", "First test");
 
         //New method created to check the order of the suggested test types on the popup
-        testTypeCategorySteps.checkSuggestedTestTypeOrderStepHGVAndPSV("Paid first test retest", "Part paid first test retest", "First test");
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid first test retest", "Part paid first test retest", "First test");
 
         //AC5 - Check HGV First test on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("First test");

@@ -57,9 +57,6 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
     TestReviewPage testReviewPage;
 
     @Steps
-    TestTypeSubcategorySteps testTypeSubcategorySteps;
-
-    @Steps
     TrailerDetailsSteps trailerDetailsSteps;
 
     @Steps
@@ -103,10 +100,10 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
         testSteps.addTestType();
 
         //New method created to check the popup is having the suggested test types in it
-        testTypeCategorySteps.checkSuggestedTestTypeList("Paid annual retest", "Part paid annual retest", "Free loaded retest", "Annual test");
+        testTypeCategorySteps.checkSuggestedTestTypeList("Paid annual retest", "Part paid annual retest", "Annual test");
 
         //New method created to check the order of the suggested test types on the popup
-        testTypeCategorySteps.checkSuggestedTestTypeOrderStepTRL("Paid annual retest", "Part paid annual retest", "Free loaded retest", "Annual test");
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid annual retest", "Part paid annual retest", "Annual test");
 
         //AC2 - Check TRL Paid annual retest on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("Paid annual retest");
@@ -117,13 +114,6 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
 
         //AC3 Check TRL Part paid annual retest on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("Part paid annual retest");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.pressTestTypeRemoveButton();
-        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-        testSteps.addTestType();
-
-        //AC8 Check TRL Free loaded retest on suggested test type popup
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Free loaded retest");
         testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
@@ -175,10 +165,10 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
         testSteps.addTestType();
 
         //New method created to check the popup is having the suggested test types in it
-        testTypeCategorySteps.checkSuggestedTestTypeList("Paid first test retest", "Paid first test retest", "Free first test retest", "First test");
+        testTypeCategorySteps.checkSuggestedTestTypeList("Paid first test retest", "Paid first test retest", "First test");
 
         //New method created to check the order of the suggested test types on the popup
-        testTypeCategorySteps.checkSuggestedTestTypeOrderStepTRL("Paid first test retest", "Paid first test retest", "Free first test retest", "First test");
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid first test retest", "Paid first test retest", "First test");
 
         //AC5 - Check TRL First test on suggested test type popup
         testTypeCategorySteps.selectFromSelectedTestTypeList("First test");
@@ -200,11 +190,5 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
         testSteps.addTestType();
-
-        //AC9 Check TRL Free first test retest on suggested test type popup
-        testTypeCategorySteps.selectFromSelectedTestTypeList("Free first test retest");
-        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.EDIT);
-        testTypeDetailsSteps.pressTestTypeRemoveButton();
-        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
     }
 }

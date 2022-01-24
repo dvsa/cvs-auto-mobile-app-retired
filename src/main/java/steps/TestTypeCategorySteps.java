@@ -36,22 +36,11 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
-    public void checkSuggestedTestTypeOrderStepHGVAndPSV(String fieldName1, String fieldName2, String fieldName3) {
+    public void checkSuggestedTestTypeOrder(String fieldName1, String fieldName2, String fieldName3) {
         assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName2)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
         assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName3)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
         assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName3)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName2));
     }
-
-    @Step
-    public void checkSuggestedTestTypeOrderStepTRL(String fieldName1, String fieldName2, String fieldName3, String fieldName4) {
-        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName2)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
-        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName3)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
-        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName3)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName2));
-        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName4)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
-        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName4)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName2));
-        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName4)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName3));
-    }
-
 
     @Step
     public void checkNotInTestTypeList(String... testTypes) {
