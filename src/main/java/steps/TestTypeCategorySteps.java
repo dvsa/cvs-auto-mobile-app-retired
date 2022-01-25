@@ -28,6 +28,21 @@ public class TestTypeCategorySteps extends ScenarioSteps {
     }
 
     @Step
+    public void checkSuggestedTestTypeList(String... testTypes) {
+        List<String> actualData = testTypeCategoryPage.findAllSuggestedTestTypesFromListByXpath();
+        for (String test_type : testTypes) {
+            assertThat(actualData).contains(test_type);
+        }
+    }
+
+    @Step
+    public void checkSuggestedTestTypeOrder(String fieldName1, String fieldName2, String fieldName3) {
+        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName2)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
+        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName3)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName1));
+        assertThat(testTypeCategoryPage.checkSuggestedTestType(fieldName3)).isGreaterThan(testTypeCategoryPage.checkSuggestedTestType(fieldName2));
+    }
+
+    @Step
     public void checkNotInTestTypeList(String... testTypes) {
         testTypeCategoryPage.waitUntilPageIsLoaded();
         List<String> actualData = testTypeCategoryPage.findAllTestTypesFromListByXpath();
@@ -78,7 +93,14 @@ public class TestTypeCategorySteps extends ScenarioSteps {
 
     @Step
     public void selectFromTestTypeList(String testType) {
+        if(testTypeCategoryPage.isPopUpDisplayed())
+            testTypeCategoryPage.selectSuggestedTestTypeFromListByXpath(testType);
         testTypeCategoryPage.selectTestTypeFromListByXpath(testType);
+    }
+
+    @Step
+    public void selectFromSelectedTestTypeList(String testType) {
+        testTypeCategoryPage.selectSuggestedTestTypeFromListByXpath(testType);
     }
 
     @Step
