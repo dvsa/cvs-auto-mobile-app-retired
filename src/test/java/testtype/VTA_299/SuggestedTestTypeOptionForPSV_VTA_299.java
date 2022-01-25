@@ -77,16 +77,13 @@ public class SuggestedTestTypeOptionForPSV_VTA_299 extends BaseTestClass {
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
         testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
         testTypeCategorySteps.selectFromTestTypeList("Annual test");
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.waitUntilPageIsLoaded();
         testTypeDetailsSteps.setCarriedOutDuringTest(true);
         testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
         seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
-        testTypeDetailsSteps.pressSave();
-        testSteps.selectOdometerReading();
-        odometerReadingSteps.typeInField("5");
-        odometerReadingSteps.pressSave();
-        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.scrollTestTypeDetailsPage();
         testTypeDetailsSteps.clickAddDefect();
         defectCategorySteps.waitUntilPageIsLoaded();
@@ -95,6 +92,9 @@ public class SuggestedTestTypeOptionForPSV_VTA_299 extends BaseTestClass {
         defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
         defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
         testTypeDetailsSteps.pressSave();
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("5");
+        odometerReadingSteps.pressSave();
         testSteps.clickReviewAndSubmit();
         testReviewSteps.scrollDown();
         testReviewPage.clickSubmitButton();
