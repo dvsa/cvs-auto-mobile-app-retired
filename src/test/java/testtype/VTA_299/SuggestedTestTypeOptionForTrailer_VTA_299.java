@@ -124,7 +124,6 @@ public class SuggestedTestTypeOptionForTrailer_VTA_299 extends BaseTestClass {
         testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.EDIT);
         testTypeDetailsSteps.pressTestTypeRemoveButton();
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-
     }
 
     @Title("VTA-299 - AC5 - Trailer - First Test Failed in the last 20 calendar days")
