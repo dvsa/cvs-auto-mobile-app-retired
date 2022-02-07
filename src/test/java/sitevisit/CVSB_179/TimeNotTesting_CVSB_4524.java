@@ -35,10 +35,19 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     CancelTestSteps cancelTestSteps;
 
     @Steps
-    TestTypeCategoryComp testTypeCategoryComp;
+    TestTypeCategorySteps testTypeCategorySteps;
 
     @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
+
+    @Steps
+    SelectVehicleSteps selectVehicleSteps;
+
+    @Steps
+    CarDetailsSteps carDetailsSteps;
+
+    @Steps
+    PreparerSteps preparerSteps;
 
 
     @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes")
@@ -66,19 +75,22 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         siteVisitSteps.checkAddedReasons("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis");
         siteVisitSteps.clickStartTest();
         identifyVehicleSteps.searchForVehicle("CT70VRL");
-        testSteps.selectOdometerReading();
-        testSteps.addTestType();
+        selectVehicleSteps.selectVehicle();
+        carDetailsSteps.selectConfirmButtonTopRight();
+        preparerSteps.confirmInPopUp();
+        preparerSteps.startTest();
+
+//        testSteps.selectOdometerReading();
+//        testSteps.addTestType();
 //        testTypeCategorySteps.selectFromTestTypeList("Annual test");
 //        testSteps.waitUntilPageIsLoaded();
-//        //cancel test
-//        testSteps.pressCancelBottomRight();
-//        cancelTestSteps.checkPageDetails();
-//        cancelTestSteps.addReasonForCancellation("Reason");
-//        cancelTestSteps.pressSubmit();
-//        cancelTestSteps.pressSubmitInPopUp();
-//        siteVisitSteps.checkSiteVisitPage();
-
-
+        //cancel test
+        testSteps.pressCancelBottomRight();
+        cancelTestSteps.checkPageDetails();
+        cancelTestSteps.addReasonForCancellation("Reason");
+        cancelTestSteps.pressSubmit();
+        cancelTestSteps.pressSubmitInPopUp();
+        siteVisitSteps.checkSiteVisitPage();
 
     }
 }

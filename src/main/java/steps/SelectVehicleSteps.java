@@ -96,5 +96,10 @@ public class SelectVehicleSteps extends ScenarioSteps {
         selectVehiclePage.waitUntilPageIsLoaded();
         assertThat(selectVehiclePage.isIncompleteRecordPopupShown()).isFalse();
     }
+
+    @Step
+    public void selectVehicle(){
+        selectVehiclePage.clickOnVehicle("Isuzu" , "2018" , "FM");
+    }
 }
 
