@@ -165,4 +165,9 @@ public class SiteVisitSteps extends ScenarioSteps {
     public Date retrieveTimeFromTimeline() {
         return siteVisitPage.retrieveTimeFromTimeline();
     }
+
+    @Step
+    public void clickStartTest() {
+        siteVisitPage.clickCreateNewTest();
+    }
 }
