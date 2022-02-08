@@ -70,12 +70,13 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         selectReasonSteps.pressSave();
         siteVisitSteps.checkAddedReasons("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis");
         siteVisitSteps.clickStartTest();
-        identifyVehicleSteps.searchForVehicle("CT70VRL");
-        selectVehicleSteps.multipleVehicleDisplayed();
-        selectVehicleSteps.selectVehicle();
-//        carDetailsSteps.selectConfirmButtonTopRight();
-//        preparerSteps.confirmInPopUp();
-//        preparerSteps.startTest();
+        identifyVehicleSteps.searchForVehicle("CO79ERT");
+        identifyVehicleSteps.pressSearch();
+        carDetailsSteps.waitUntilPageIsLoaded();
+        carDetailsSteps.selectConfirmButtonTopRight();
+        carDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
 
 //        testSteps.selectOdometerReading();
 //        testSteps.addTestType();
