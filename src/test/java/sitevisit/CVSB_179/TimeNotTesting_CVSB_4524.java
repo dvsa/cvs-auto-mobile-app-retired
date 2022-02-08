@@ -3,7 +3,6 @@ package sitevisit.CVSB_179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
-import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -11,7 +10,6 @@ import steps.composed.SiteVisitComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
-@WithTag("In_test")
 @RunWith(SerenityRunner.class)
 public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
 
@@ -66,6 +64,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         selectReasonSteps.pressSave();
         selectReasonSteps.checkPopUp();
         selectReasonSteps.pressOkInPopUp();
+        // input up to 200 characters
         selectReasonSteps.typeNote("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis");
         selectReasonSteps.pressSave();
         siteVisitSteps.checkAddedReasons("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis");
@@ -77,12 +76,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         carDetailsSteps.selectConfirmFromPopUp();
         preparerSteps.startTest();
         preparerSteps.confirmInPopUp();
-
-//        testSteps.selectOdometerReading();
-//        testSteps.addTestType();
-//        testTypeCategorySteps.selectFromTestTypeList("Annual test");
-//        testSteps.waitUntilPageIsLoaded();
-        //cancel test
+        //cancel test activity after time not testing
         testSteps.pressCancelBottomRight();
         cancelTestSteps.checkPageDetails();
         cancelTestSteps.addReasonForCancellation("Reason");
