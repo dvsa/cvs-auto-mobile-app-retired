@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
 import steps.composed.SiteVisitComp;
-import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
@@ -35,9 +34,6 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     CancelTestSteps cancelTestSteps;
 
     @Steps
-    TestTypeCategorySteps testTypeCategorySteps;
-
-    @Steps
     IdentifyVehicleSteps identifyVehicleSteps;
 
     @Steps
@@ -50,7 +46,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     PreparerSteps preparerSteps;
 
 
-    @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes")
+    @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes, VTA-302 - check time not testing reasons, check type note allows 200 characters, activity after time not testing")
     @Test
     public void test5minInactivity() {
         utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
@@ -75,10 +71,11 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
         siteVisitSteps.checkAddedReasons("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nis");
         siteVisitSteps.clickStartTest();
         identifyVehicleSteps.searchForVehicle("CT70VRL");
+        selectVehicleSteps.multipleVehicleDisplayed();
         selectVehicleSteps.selectVehicle();
-        carDetailsSteps.selectConfirmButtonTopRight();
-        preparerSteps.confirmInPopUp();
-        preparerSteps.startTest();
+//        carDetailsSteps.selectConfirmButtonTopRight();
+//        preparerSteps.confirmInPopUp();
+//        preparerSteps.startTest();
 
 //        testSteps.selectOdometerReading();
 //        testSteps.addTestType();
