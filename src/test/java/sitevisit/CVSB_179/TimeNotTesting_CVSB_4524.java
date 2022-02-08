@@ -83,12 +83,12 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
 //        testTypeCategorySteps.selectFromTestTypeList("Annual test");
 //        testSteps.waitUntilPageIsLoaded();
         //cancel test
-        testSteps.pressCancelBottomRight();
-        cancelTestSteps.checkPageDetails();
-        cancelTestSteps.addReasonForCancellation("Reason");
-        cancelTestSteps.pressSubmit();
-        cancelTestSteps.pressSubmitInPopUp();
-        siteVisitSteps.checkSiteVisitPage();
+//        testSteps.pressCancelBottomRight();
+//        cancelTestSteps.checkPageDetails();
+//        cancelTestSteps.addReasonForCancellation("Reason");
+//        cancelTestSteps.pressSubmit();
+//        cancelTestSteps.pressSubmitInPopUp();
+//        siteVisitSteps.checkSiteVisitPage();
 
     }
 }
