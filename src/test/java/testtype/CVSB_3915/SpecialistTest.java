@@ -14,7 +14,6 @@ import steps.composed.VehicleComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
-@WithTag("In_Test")
 @RunWith(SerenityRunner.class)
 public class SpecialistTest extends BaseTestClass {
 
@@ -124,6 +123,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.checkTestTypeStatus("Specialist test", TestPage.TestTypeStatuses.ABANDONED);
     }
 
+    @WithTag("In_Test")
     @Title("CVSB-3915 - AC2 - VSA selects result (Non-IVA)")
     @Test
     public void testVSASelectsResult_NonIVA() {

@@ -10,7 +10,6 @@ import steps.*;
 import utils.BaseTestClass;
 
 
-@WithTag("In_Test")
 @RunWith(SerenityRunner.class)
 public class SkeletonRecords_CVSB_11547 extends BaseTestClass {
     @Steps
