@@ -12,7 +12,7 @@ import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
-@WithTag("In-test")
+@WithTag("In_Test")
 @RunWith(SerenityRunner.class)
 public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
 

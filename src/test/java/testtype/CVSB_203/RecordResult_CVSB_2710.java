@@ -12,7 +12,7 @@ import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
-@WithTag("In-test")
+@WithTag("In_Test")
 @RunWith(SerenityRunner.class)
 public class RecordResult_CVSB_2710 extends BaseTestClass {
 

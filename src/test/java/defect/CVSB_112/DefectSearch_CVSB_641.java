@@ -33,7 +33,7 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In-test")
+    @WithTag("In_Test")
     @Title("CVSB-112 AC1 Test cancel adding a level 1 defect category")
     @Test
     public void cancelAddingALevelOneDefect() {
