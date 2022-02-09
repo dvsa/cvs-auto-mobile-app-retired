@@ -84,7 +84,7 @@ public class NewScreenDesignsHgv extends BaseTestClass {
         identifyVehicleSteps.checkLoadingScreen();
     }
 
-    @WithTagValuesOf({"Smoke_1", "Smoke_2"})
+    @WithTagValuesOf({"Smoke_1", "Smoke_2", "In-test"})
     @Title("CVSB-6410 - AC 4 Search for vehicle (full VIN)")
     @Test
     public void testNewDesignSearchForHgvFullVin() {

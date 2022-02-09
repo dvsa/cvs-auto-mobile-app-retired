@@ -106,6 +106,7 @@ public class IVATestUpdated_CVSB_15130_LGV extends BaseTestClass {
         testTypeDetailsSteps.pressSave();
     }
 
+    @WithTag("In-test")
     @Title("CVSB-15130 - AC1 - Certificate number for Failures - LGV - YK7, YH7, YG7")
     @Test
     public void testIVACertificateNumber_Failures_LGV_YK7_YH7_YG7() {

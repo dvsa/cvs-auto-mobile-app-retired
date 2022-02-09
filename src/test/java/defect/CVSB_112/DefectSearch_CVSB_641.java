@@ -3,6 +3,7 @@ package defect.CVSB_112;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -32,7 +33,7 @@ public class DefectSearch_CVSB_641 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-
+    @WithTag("In-test")
     @Title("CVSB-112 AC1 Test cancel adding a level 1 defect category")
     @Test
     public void cancelAddingALevelOneDefect() {

@@ -3,6 +3,7 @@ package vehicle.CVSB_11547;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -29,6 +30,7 @@ public class SkeletonRecords_CVSB_11547 extends BaseTestClass {
     @Steps
     SelectVehicleSteps selectVehicleSteps;
 
+    @WithTag("In-test")
     @Title("CVSB-11547 - AC1 Single vehicle retrieved, skeleton record")
     @Test
     public void testSingleVehicleDetails_SkeletonRecord(){

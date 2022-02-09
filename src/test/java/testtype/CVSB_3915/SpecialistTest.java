@@ -171,6 +171,7 @@ public class SpecialistTest extends BaseTestClass {
         testSteps.checkErrorMessageMandatoryFieldsNotDisplayed();
     }
 
+    @WithTag("In-test")
     @Title("CVSB-3915 - AC3 - VSA selects result (IVA)")
     @Test
     public void testVSASelectsResultIVA() {

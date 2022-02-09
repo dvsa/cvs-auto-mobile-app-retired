@@ -3,6 +3,7 @@ package testtype.CVSB_5139;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import net.thucydides.core.annotations.WithTag;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import pages.TestPage;
@@ -39,6 +40,7 @@ public class PRSDisplayedForDangerousDefects_CVSB_6351 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
+    @WithTag("In-test")
     @Title("CVSB-5139 - TCD - AC1 - VSA adds a dangerous defect")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {
