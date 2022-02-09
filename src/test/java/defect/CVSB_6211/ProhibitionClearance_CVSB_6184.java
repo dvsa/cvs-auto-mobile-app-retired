@@ -12,6 +12,7 @@ import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
 
+@WithTag("In-test")
 @RunWith(SerenityRunner.class)
 public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
 
@@ -45,7 +46,6 @@ public class ProhibitionClearance_CVSB_6184 extends BaseTestClass {
     @Steps
     TestTypeCategorySteps testTypeCategorySteps;
 
-    @WithTag("In-test")
     @Title("CVSB-6184 - Bypass the prohibition raising for Prohibition Clearance tests")
     @Test
     public void testBypassProhibitionClearance() {

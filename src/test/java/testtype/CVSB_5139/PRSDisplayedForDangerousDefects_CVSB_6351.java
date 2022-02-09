@@ -40,7 +40,6 @@ public class PRSDisplayedForDangerousDefects_CVSB_6351 extends BaseTestClass {
     @Steps
     DefectDetailsSteps defectDetailsSteps;
 
-    @WithTag("In-test")
     @Title("CVSB-5139 - TCD - AC1 - VSA adds a dangerous defect")
     // De-scoped due to: CVSB-12952: VTA FE Maintenance - increasing suite efficiency
     public void prohibitionFieldNotDisplayedAtADefectLevelAnnualTest() {
