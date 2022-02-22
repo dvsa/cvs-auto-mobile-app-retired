@@ -68,6 +68,9 @@ public class SuggestedTestTypeOptionForPSV_VTA_299 extends BaseTestClass {
     @Steps
     VehicleDetailsSteps vehicleDetailsSteps;
 
+    @Steps
+    EUVehicleCategorySteps euVehicleCategorySteps;
+
     @Title("VTA-299 - AC1 - PSV - Suggested test type pop up after PSV Annual Test Fail within 20 days")
     @Test
     public void SuggestedTestTypePopUpPSVAnnualTest() {
@@ -136,74 +139,133 @@ public class SuggestedTestTypeOptionForPSV_VTA_299 extends BaseTestClass {
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
     }
 
-    // ** As agreed with Sarah H we are leaving the below code in but commented out as we will be making the Class 6A change shortly after the 2.38 release **
-    //@Title("VTA-299 - AC5 - PSV - Suggested test type pop up after PSV Class 6A Fail within 20 days")
-    //@Test
-    //public void SuggestedTestTypePopUpPSVClass6ATest() {
-    //    //Put in 1st PSV Failed Class 6A first test
-    //    utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
-    //    testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012356",super.username);
-    //    preparerSteps.startTest();
-    //    preparerSteps.confirmInPopUp();
-    //    testSteps.addTestType();
-    //    testTypeCategorySteps.waitUntilPageIsLoaded();
-    //    testTypeCategorySteps.selectFromTestTypeList("Class 6A");
-    //    testTypeCategorySteps.selectFromTestTypeList("First test");
-    //    testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
-    //    testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
-    //    seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
-    //    testTypeDetailsSteps.pressSave();
-    //    testSteps.selectOdometerReading();
-    //    odometerReadingSteps.typeInField("5");
-    //    odometerReadingSteps.pressSave();
-    //    testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.EDIT);
-    //    testTypeDetailsSteps.scrollTestTypeDetailsPage();
-    //    testTypeDetailsSteps.clickAddDefect();
-    //    defectCategorySteps.waitUntilPageIsLoaded();
-    //    defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
-    //    defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
-    //    defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
-    //    defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
-    //    testTypeDetailsSteps.pressSave();
-    //    testSteps.clickReviewAndSubmit();
-    //    testReviewSteps.scrollDown();
-    //    testReviewPage.clickSubmitButton();
-    //    testReviewPage.clickSubmitInPopUp();
-    //    confirmationPageSteps.pressDone();
+    @Title("VTA-488 - AC1 and AC2 - PSV - Suggested test type pop up after PSV Class 6A annual and first test Fail within 20 days")
+    @Test
+    public void SuggestedTestTypePopUpPSVClass6ATest() {
+        //AC1 - Put in 1st PSV Failed Class 6A first test
+        utilSteps.showBrowserstackUrl(super.sessionDetails.getBsSessionUrl());
+        testTypeCategoryComp.goToTestPageBySelectingASpecificVehicle("012356",super.username);
+        preparerSteps.startTest();
+        preparerSteps.confirmInPopUp();
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("123");
+        odometerReadingSteps.pressSave();
+        testSteps.selectVehicleCategoryOption();
+        euVehicleCategorySteps.selectOption("M2");
+        testSteps.addTestType();
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A");
+        testTypeCategorySteps.selectFromTestTypeList("Annual test");
+        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
+        testTypeDetailsSteps.scrollTestTypeDetailsPage();
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.waitUntilPageIsLoaded();
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
+        defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
+        testTypeDetailsSteps.pressSave();
+        testSteps.clickReviewAndSubmit();
+        testReviewSteps.scrollDown();
+        testReviewPage.clickSubmitButton();
+        testReviewPage.clickSubmitInPopUp();
+        confirmationPageSteps.pressDone();
 
-    //    //Start 2nd PSV Class 6A first test
-    //    siteVisitSteps.createNewTest();
-    //    identifyVehicleSteps.searchForVehicle("012356");
-    //    vehicleDetailsSteps.selectConfirmButtonTopRight();
-    //    vehicleDetailsSteps.selectConfirmFromPopUp();
-    //    preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
-    //    testSteps.addTestType();
+        //Start 2nd PSV Class 6A annual test
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("012356");
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
+        testSteps.selectOdometerReading();
+        odometerReadingSteps.typeInField("123");
+        odometerReadingSteps.pressSave();
+        testSteps.addTestType();
 
-    //    //New method created to check the popup is having the suggested test types in it
-    //    testTypeCategorySteps.checkSuggestedTestTypeList("Paid class 6A retest", "Class 6A first test", "Class 6A annual test");
+        //New method created to check the popup is having the suggested test types in it
+        testTypeCategorySteps.checkSuggestedTestTypeList("Paid class 6A retest", "Class 6A first test", "Class 6A annual test");
 
-    //    //New method created to check the order of the suggested test types on the popup
-    //    testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid class 6A retest", "Class 6A first test", "Class 6A annual test");
+        //New method created to check the order of the suggested test types on the popup
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid class 6A retest", "Class 6A first test", "Class 6A annual test");
 
-    //    //AC11 - Check PSV Class 6A first test on suggested test type popup
-    //    testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A first test");
-    //    testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
-    //    testTypeDetailsSteps.pressTestTypeRemoveButton();
-    //    testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-    //    testSteps.addTestType();
+        //Check PSV Paid class 6A retest on suggested test type popup
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Paid class 6A retest");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
 
-    //    //AC10 Check PSV Paid class 6A retest on suggested test type popup
-    //    testTypeCategorySteps.selectFromSelectedTestTypeList("Paid class 6A retest");
-    //    testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
-    //    testTypeDetailsSteps.pressTestTypeRemoveButton();
-    //    testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-    //    testSteps.addTestType();
+        //Check PSV Class 6A first test on suggested test type popup
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A first test");
+        testSteps.selectTestType("First test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
 
-    //    //AC12 Check PSV Class 6A annual test on suggested test type popup
-    //    testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A annual test");
-    //    testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
-    //    testTypeDetailsSteps.pressTestTypeRemoveButton();
-    //    testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
-    //    testSteps.addTestType();
-    //}
+        //Check PSV Class 6A annual test on suggested test type popup
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A annual test");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
+
+        //AC2 - Put in 1st PSV Failed Class 6A first test
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Select a different test type");
+        testTypeCategorySteps.waitUntilPageIsLoaded();
+        testTypeCategorySteps.selectFromTestTypeList("Class 6A");
+        testTypeCategorySteps.selectFromTestTypeList("First test");
+        testSteps.selectTestType("Class 6A", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.selectNumberOfSeatbeltsFitted();
+        seatbeltInstallationCheckSteps.inputNumberOfSeatbelts("3");
+        testTypeDetailsSteps.scrollTestTypeDetailsPage();
+        testTypeDetailsSteps.clickAddDefect();
+        defectCategorySteps.waitUntilPageIsLoaded();
+        defectCategorySteps.selectDefectFromList("3. Seat Belts & Supplementary Restraint Systems");
+        defectItemSteps.selectDefectFromList("1. Obligatory Seat Belt");
+        defectDescriptionSteps.selectDefect("3.1 (b) MAJOR");
+        defectDetailsSteps.selectVerticalLateralRowNumberSeatNumber("Upper","Nearside","4", "4");
+        testTypeDetailsSteps.pressSave();
+        testSteps.clickReviewAndSubmit();
+        testReviewSteps.scrollDown();
+        testReviewPage.clickSubmitButton();
+        testReviewPage.clickSubmitInPopUp();
+        confirmationPageSteps.pressDone();
+
+        //Start 2nd PSV Class 6A first test
+        siteVisitSteps.createNewTest();
+        identifyVehicleSteps.searchForVehicle("012356");
+        vehicleDetailsSteps.selectConfirmButtonTopRight();
+        vehicleDetailsSteps.selectConfirmFromPopUp();
+        preparerSteps.selectAndConfirmPreparerId(preparerService.getPreparerByIndex(0).getPreparerId());
+        testSteps.addTestType();
+
+        //New method created to check the popup is having the suggested test types in it
+        testTypeCategorySteps.checkSuggestedTestTypeList("Paid class 6A retest", "Class 6A first test", "Class 6A annual test");
+
+        //New method created to check the order of the suggested test types on the popup
+        testTypeCategorySteps.checkSuggestedTestTypeOrder("Paid class 6A retest", "Class 6A first test", "Class 6A annual test");
+
+        //Check PSV Paid class 6A retest on suggested test type popup
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Paid class 6A retest");
+        testSteps.selectTestType("Retest", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
+
+        //Check PSV Class 6A first test on suggested test type popup
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A first test");
+        testSteps.selectTestType("First test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
+
+        //Check PSV Class 6A annual test on suggested test type popup
+        testTypeCategorySteps.selectFromSelectedTestTypeList("Class 6A annual test");
+        testSteps.selectTestType("Annual test", TestPage.TestTypeStatuses.IN_PROGRESS);
+        testTypeDetailsSteps.pressTestTypeRemoveButton();
+        testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
+        testSteps.addTestType();
+    }
 }
