@@ -3,6 +3,7 @@ package sitevisit.CVSB_179;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Title;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.*;
@@ -44,6 +45,7 @@ public class TimeNotTesting_CVSB_4524 extends BaseTestClass {
     PreparerSteps preparerSteps;
 
 
+    @Ignore("Wait times functionality switched off")
     @Title("CVSB-179 - AC1 - Remains inactive for more than 5 minutes, VTA-302 - check time not testing reasons, check type note allows 200 characters, activity after time not testing")
     @Test
     public void test5minInactivity() {
