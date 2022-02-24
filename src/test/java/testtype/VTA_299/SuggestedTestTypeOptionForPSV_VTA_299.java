@@ -139,7 +139,7 @@ public class SuggestedTestTypeOptionForPSV_VTA_299 extends BaseTestClass {
         testTypeDetailsSteps.pressRemoveTestTypeInPopUp();
     }
 
-    @Title("VTA-488 - AC1 and AC2 - PSV - Suggested test type pop up after PSV Class 6A annual and first test Fail within 20 days")
+    @Title("VTA-448 - AC1 and AC2 - PSV - Suggested test type pop up after PSV Class 6A annual and first test Fail within 20 days")
     @Test
     public void SuggestedTestTypePopUpPSVClass6ATest() {
         //AC1 - Put in 1st PSV Failed Class 6A first test
