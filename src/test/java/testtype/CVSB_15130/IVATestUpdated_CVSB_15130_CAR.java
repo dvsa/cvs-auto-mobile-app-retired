@@ -11,7 +11,7 @@ import steps.*;
 import steps.composed.TestTypeCategoryComp;
 import steps.util.UtilSteps;
 import utils.BaseTestClass;
-
+@WithTag("In_test")
 @RunWith(SerenityRunner.class)
 public class IVATestUpdated_CVSB_15130_CAR extends BaseTestClass {
 
