@@ -1,4 +1,4 @@
-# cvs-auto-mobile-app
+# ARCHIVED cvs-auto-mobile-app
 This is the the project for creating and managing the IOS application automated tests
 
 
